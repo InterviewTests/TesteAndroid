@@ -20,7 +20,7 @@ Você será avaliado pela usabilidade, por respeitar o design e pela arquitetura
 * Constraintlayout
 * O app deve funcionar no Android 4.4
 * Testes unitários (De preferência JNunit + Mockito). Mas pode usar o que você tem mais experiência, só nos explique o que ele tem de bom.
-* Arquitetura a ser utilizada: MVP Clean ([https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean/](https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean/) && ([https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html]https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)).
+* Arquitetura a ser utilizada: MVP Clean ([https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean/](https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean/) && ([https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)).
 * Uso do git.
 
 ### # Dicas para o layout
