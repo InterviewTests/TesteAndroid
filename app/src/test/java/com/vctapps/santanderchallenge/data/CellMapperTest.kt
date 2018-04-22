@@ -2,10 +2,17 @@ package com.vctapps.santanderchallenge.data
 
 import com.vctapps.santanderchallenge.form.data.CellMapper
 import com.vctapps.santanderchallenge.form.data.entity.CellJsonResponse
+import com.vctapps.santanderchallenge.form.domain.cell.Cell
+import com.vctapps.santanderchallenge.form.domain.cell.EmailFieldCell
+import com.vctapps.santanderchallenge.form.domain.cell.TelNumberFieldCell
+import com.vctapps.santanderchallenge.form.domain.cell.TextFieldCell
 import com.vctapps.santanderchallenge.util.JsonLoader
+import org.hamcrest.CoreMatchers.instanceOf
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Test
+import org.w3c.dom.Text
 
 class CellMapperTest {
 
@@ -50,6 +57,18 @@ class CellMapperTest {
         assertEquals(FIRST_TOP_SPACING, firstCell.topSpacing, 0.0)
         assertEquals(FIRST_SHOW, firstCell.show)
         assertEquals(FIRST_REQUIRED, firstCell.required)
+    }
+
+    @Test
+    fun `test type cell convert to correct type`(){
+        val cells = CellMapper.map(cellJsonResponse)
+
+        assertThat(cells[0], instanceOf(Cell::class.java))
+        assertThat(cells[1], instanceOf(TextFieldCell::class.java))
+        assertThat(cells[2], instanceOf(EmailFieldCell::class.java))
+        assertThat(cells[3], instanceOf(TelNumberFieldCell::class.java))
+        assertThat(cells[4], instanceOf(Cell::class.java))
+        assertThat(cells[5], instanceOf(Cell::class.java))
     }
 
 }
