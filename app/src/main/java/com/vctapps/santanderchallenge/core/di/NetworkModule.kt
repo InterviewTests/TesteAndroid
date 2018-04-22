@@ -1,6 +1,7 @@
 package com.vctapps.santanderchallenge.core.di
 
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.vctapps.santanderchallenge.core.data.FloatingMountainApi
 import dagger.Module
@@ -22,13 +23,19 @@ class NetworkModule {
 
 
     @Provides
-    fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    fun providesRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(Gson()))
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(okHttpClient)
                 .build()
+    }
+
+    @Provides
+    fun providesGson(): Gson {
+        return GsonBuilder()
+                .create()
     }
 
     @Provides
