@@ -9,6 +9,7 @@
         android:id="@+id/editTextTextCell"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/gray_600"
         tools:hint="Email"
         tools:text="test@mail.com"/>
 
