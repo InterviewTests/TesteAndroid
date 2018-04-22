@@ -7,6 +7,8 @@ import kotlinx.android.synthetic.main.activity_dashboard.*
 
 class DashboardActivity : AppCompatActivity() {
 
+    private val FIRST_FRAGMENT_TO_OPEN = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -21,6 +23,8 @@ class DashboardActivity : AppCompatActivity() {
         val adapterViewPager = DashboardPageAdapter(supportFragmentManager)
 
         viewPagerDashboard.adapter = adapterViewPager
+
+        viewPagerDashboard.currentItem = FIRST_FRAGMENT_TO_OPEN
     }
 
     private fun setUpTabLayout() {
