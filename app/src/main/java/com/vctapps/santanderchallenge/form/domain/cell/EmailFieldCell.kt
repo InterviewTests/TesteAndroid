@@ -11,12 +11,11 @@ class EmailFieldCell(id: Int = -1,
                      topSpacing: Double = 8.0,
                      show: Int = -1,
                      required: Boolean = false) :
-        Cell(id, type, message, typeField, hidden, topSpacing, show, required){
+        FieldCell(id, type, message, typeField, hidden, topSpacing, show, required){
 
     private val EMAIL_PATTERN = Pattern.compile(StringPatterns.EMAIL_REGEX,
             Pattern.CASE_INSENSITIVE)
 
-    fun validateResponse(response: String) =
-            EMAIL_PATTERN.matcher(response).find()
+    override fun validateResponse(response: String) = EMAIL_PATTERN.matcher(response).find()
 
 }

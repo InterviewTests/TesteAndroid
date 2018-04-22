@@ -11,13 +11,11 @@ class TelNumberFieldCell(id: Int = -1,
                          topSpacing: Double = 8.0,
                          show: Int = -1,
                          required: Boolean = false) :
-        Cell(id, type, message, typeField, hidden, topSpacing, show, required){
+        FieldCell(id, type, message, typeField, hidden, topSpacing, show, required){
 
     private val PHONE_NUMBER_PATTERN = Pattern
             .compile(StringPatterns.PHONE_NUMBER_REGEX,
             Pattern.CASE_INSENSITIVE)
 
-    fun validateResponse(response: String) =
-            PHONE_NUMBER_PATTERN.matcher(response).find()
-
+    override fun validateResponse(response: String) = PHONE_NUMBER_PATTERN.matcher(response).find()
 }

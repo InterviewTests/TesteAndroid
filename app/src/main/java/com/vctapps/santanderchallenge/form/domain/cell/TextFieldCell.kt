@@ -8,8 +8,8 @@ class TextFieldCell(id: Int = -1,
                     topSpacing: Double = 8.0,
                     show: Int = -1,
                     required: Boolean = false) :
-        Cell(id, type, message, typeField, hidden, topSpacing, show, required){
+        FieldCell(id, type, message, typeField, hidden, topSpacing, show, required){
 
-    fun validateResponse(response: String) = response.isNotBlank()
+    override fun validateResponse(response: String) = response.isNotBlank()
 
 }
