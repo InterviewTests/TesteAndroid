@@ -1,8 +1,7 @@
-package com.vctapps.santanderchallenge.data
+package com.vctapps.santanderchallenge.form.data
 
 import com.squareup.okhttp.mockwebserver.MockResponse
 import com.vctapps.santanderchallenge.BaseNetworkTest
-import com.vctapps.santanderchallenge.form.data.CellRepositoryImpl
 import com.vctapps.santanderchallenge.form.domain.CellRepository
 import com.vctapps.santanderchallenge.util.JsonLoader
 import org.junit.Assert.assertEquals

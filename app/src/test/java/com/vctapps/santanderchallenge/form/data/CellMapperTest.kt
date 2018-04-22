@@ -1,6 +1,5 @@
-package com.vctapps.santanderchallenge.data
+package com.vctapps.santanderchallenge.form.data
 
-import com.vctapps.santanderchallenge.form.data.CellMapper
 import com.vctapps.santanderchallenge.form.data.entity.CellJsonResponse
 import com.vctapps.santanderchallenge.form.domain.cell.Cell
 import com.vctapps.santanderchallenge.form.domain.cell.EmailFieldCell
@@ -12,7 +11,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Test
-import org.w3c.dom.Text
 
 class CellMapperTest {
 

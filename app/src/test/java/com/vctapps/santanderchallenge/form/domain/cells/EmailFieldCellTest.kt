@@ -1,4 +1,4 @@
-package com.vctapps.santanderchallenge.domain.cells
+package com.vctapps.santanderchallenge.form.domain.cells
 
 import com.vctapps.santanderchallenge.form.domain.cell.EmailFieldCell
 import org.junit.Assert.assertFalse
