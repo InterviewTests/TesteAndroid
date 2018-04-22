@@ -1,8 +1,11 @@
 package br.com.cesarsicas.stdandroidteste.mvp.form
 
+import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.text.InputType
 import android.view.View
@@ -12,6 +15,7 @@ import br.com.cesarsicas.stdandroidteste.R
 import br.com.cesarsicas.stdandroidteste.constants.CellType
 import br.com.cesarsicas.stdandroidteste.constants.CellTypeField
 import br.com.cesarsicas.stdandroidteste.domains.Cell
+import br.com.cesarsicas.stdandroidteste.mvp.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class FormActivity : AppCompatActivity(), FormView {
@@ -33,43 +37,6 @@ class FormActivity : AppCompatActivity(), FormView {
         presenter = FormPresenter()
         presenter?.attachView(this)
         presenter?.getCells()
-
-
-//        val cell1 = Cell(1, CellType.text,
-//                "Message test",
-//                10.0,
-//                CellTypeField.email,
-//                false,
-//                false)
-//
-//        val cell2 = Cell(1, CellType.field,
-//                "Message test",
-//                10.0,
-//                CellTypeField.email,
-//                false,
-//                false)
-//
-//        val cell3 = Cell(1, CellType.send,
-//                "Message test",
-//                10.0,
-//                CellTypeField.email,
-//                false,
-//                false)
-//
-//        val cell4 = Cell(1, CellType.checkbox,
-//                "Message test",
-//                10.0,
-//                CellTypeField.email,
-//                false,
-//                false)
-
-
-//        generateDynamicElements(cell2)
-//        generateDynamicElements(cell1)
-//        generateDynamicElements(cell3)
-//        generateDynamicElements(cell4)
-
-
     }
 
     private fun generateDynamicElements(cell: Cell?) {
@@ -103,8 +70,6 @@ class FormActivity : AppCompatActivity(), FormView {
             configureMargin(dynamicView, cell)
             containerLayout.addView(dynamicView)
         }
-
-
     }
 
 
@@ -124,11 +89,19 @@ class FormActivity : AppCompatActivity(), FormView {
 
 
         val lLayout = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
 
         button.layoutParams = lLayout
 
         button.text = cell?.message
+
+        button.setTextColor(Color.WHITE)
+
+        button.background = (ContextCompat.getDrawable(this, R.drawable.button_background));
+
+        button.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
 
         return button
     }
