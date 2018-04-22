@@ -12,4 +12,6 @@ abstract class FieldCellView(val fieldCell: FieldCell,
 
     abstract fun hideError()
 
+    abstract fun clearField()
+
 }

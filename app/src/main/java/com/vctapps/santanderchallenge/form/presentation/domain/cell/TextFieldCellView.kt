@@ -7,8 +7,10 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v4.view.ViewCompat
 import android.text.InputType
+import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.TextView
 import com.vctapps.santanderchallenge.R
 import com.vctapps.santanderchallenge.core.domain.StringPatterns
 import com.vctapps.santanderchallenge.core.presentation.Mask
@@ -29,6 +31,8 @@ class TextFieldCellView(private val textFieldCell: FieldCell,
     private lateinit var editText: TextInputEditText
 
     override fun isValidAnswer(): Boolean {
+        if(this.view.visibility == View.GONE) return true
+
         val answer = editText.text.toString()
 
         return textFieldCell.validateResponse(answer)
@@ -40,7 +44,7 @@ class TextFieldCellView(private val textFieldCell: FieldCell,
     }
 
     override fun hideError() {
-        val colorState = ColorStateList.valueOf(Color.BLUE)
+        val colorState = ColorStateList.valueOf(Color.GREEN)
         ViewCompat.setBackgroundTintList(editText, colorState)
     }
 
@@ -59,8 +63,15 @@ class TextFieldCellView(private val textFieldCell: FieldCell,
             is TextFieldCell -> setUpSimpleTextField()
         }
 
-        val colorStateList = ColorStateList.valueOf(ContextCompat.getColor(rootView.context, R.color.gray_600))
+        val colorStateList = ColorStateList.valueOf(Color.GRAY)
         ViewCompat.setBackgroundTintList(editText, colorStateList)
+    }
+
+    override fun clearField() {
+        editText.setText("", TextView.BufferType.EDITABLE)
+
+        val colorState = ColorStateList.valueOf(Color.GRAY)
+        ViewCompat.setBackgroundTintList(editText, colorState)
     }
 
     private fun setUpSimpleTextField() {

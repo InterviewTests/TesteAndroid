@@ -6,4 +6,6 @@ interface FormPresenter: BasePresenter {
 
     fun onSendEventClicked()
 
+    fun onSendNewMessageClicked()
+
 }

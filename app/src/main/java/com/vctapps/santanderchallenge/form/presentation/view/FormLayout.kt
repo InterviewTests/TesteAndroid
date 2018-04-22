@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.LinearLayout
 import com.vctapps.santanderchallenge.form.presentation.domain.cell.SendCellView
 import com.vctapps.santanderchallenge.form.presentation.domain.cell.base.CellView
+import com.vctapps.santanderchallenge.form.presentation.domain.cell.base.FieldCellView
 
 class FormLayout(context: Context, attrs: AttributeSet): LinearLayout(context, attrs), OnShowViewRequest {
 
@@ -27,11 +28,48 @@ class FormLayout(context: Context, attrs: AttributeSet): LinearLayout(context, a
 
     }
 
+    fun clearFields(){
+        listCellView.forEach { cell ->
+            if (cell is FieldCellView) {
+                cell.hideError()
+                cell.clearField()
+            }
+        }
+    }
+
+    fun checkErrors(): Boolean {
+        var hasError = false
+
+        listCellView.forEach { cell ->
+            if(cell is FieldCellView && !cell.isValidAnswer()) {
+                hasError = true
+            }
+        }
+
+        return hasError
+    }
+
+    fun hideErrors(){
+        listCellView.forEach { cell ->
+            if (cell is FieldCellView) {
+                cell.hideError()
+            }
+        }
+    }
+
+    fun showErrors(){
+        listCellView.forEach { cell ->
+            if (cell is FieldCellView && !cell.isValidAnswer()) {
+                cell.showError()
+            }
+        }
+    }
+
     fun setSendButtonListener(listener: View.OnClickListener){
 
         listCellView.forEach { cell ->
 
-            if(cell is SendCellView) cell.setSendListener(listener)
+            (cell as? SendCellView)?.setSendListener(listener)
 
         }
 

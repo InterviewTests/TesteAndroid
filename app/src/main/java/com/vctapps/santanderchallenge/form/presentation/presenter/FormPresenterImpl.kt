@@ -22,7 +22,13 @@ class FormPresenterImpl(private val view: FormView,
         }
     }
 
+    override fun onSendNewMessageClicked() {
+        view.clearForm()
+        view.hideSuccessView()
+    }
+
     override fun onStart() {
+        view.hideSuccessView()
         view.showLoading()
 
         compositeDisposable.add(
@@ -31,8 +37,12 @@ class FormPresenterImpl(private val view: FormView,
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({listCell ->
                         proccessResponse(listCell)
+                        view.hideSuccessView()
+                        view.hideError()
+                        view.hideLoading()
                     }, { error ->
                         Timber.e(error)
+                        view.hideLoading()
                         view.showError()
                     })
         )
@@ -42,6 +52,8 @@ class FormPresenterImpl(private val view: FormView,
         val formViewBuilder = FormViewBuilder(view.getFormLayout())
 
         formViewBuilder.proccessCellsFormView(listCell)
+
+        view.setFormLayoutListeners()
     }
 
     override fun onPause() {
