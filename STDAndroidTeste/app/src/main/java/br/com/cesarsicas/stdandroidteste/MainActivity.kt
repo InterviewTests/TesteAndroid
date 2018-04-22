@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
 
         if(dynamicView != null){
             configureVisibility(dynamicView, cell)
+            configureMargin(dynamicView, cell)
             containerLayout.addView(dynamicView)
         }
 
