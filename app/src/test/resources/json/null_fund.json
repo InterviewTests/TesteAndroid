@@ -1,0 +1,78 @@
+{
+  "screen": {
+    "title": null,
+    "fundName": null,
+    "whatIs": null,
+    "definition": null,
+    "riskTitle": null,
+    "risk": null,
+    "infoTitle": null,
+    "moreInfo": {
+      "month": {
+        "fund": null,
+        "CDI": null
+      },
+      "year": {
+        "fund": null,
+        "CDI": null
+      },
+      "12months": {
+        "fund": null,
+        "CDI": null
+      }
+    },
+    "info": [
+      {
+        "name": null,
+        "data": null
+      },
+      {
+        "name": null,
+        "data": null
+      },
+      {
+        "name": null,
+        "data": null
+      },
+      {
+        "name": null,
+        "data": null
+      },
+      {
+        "name": null,
+        "data": null
+      },
+      {
+        "name": null,
+        "data": null
+      },
+      {
+        "name": null,
+        "data": null
+      }
+    ],
+    "downInfo": [
+      {
+        "name": null,
+        "data": null
+      },
+      {
+        "name": null,
+        "data": null
+      },
+      {
+        "name": null,
+        "data": null
+      },
+      {
+        "name": null,
+        "data": null
+      },
+      {
+        "name": null,
+        "data": null
+      }
+    ]
+
+  }
+}
