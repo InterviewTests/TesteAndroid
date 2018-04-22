@@ -30,7 +30,7 @@ class FormPresenter() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ cells ->
-                    view?.addCells(cells)
+                    view?.addCells(cells.cells ?: listOf())
 
                 }) { throwable ->
 
