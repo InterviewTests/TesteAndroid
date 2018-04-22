@@ -8,7 +8,10 @@ import android.support.v4.content.res.ResourcesCompat
 import android.support.v4.view.ViewCompat
 import android.text.InputType
 import android.view.ViewGroup
+import android.widget.EditText
 import com.vctapps.santanderchallenge.R
+import com.vctapps.santanderchallenge.core.domain.StringPatterns
+import com.vctapps.santanderchallenge.core.presentation.Mask
 import com.vctapps.santanderchallenge.form.domain.cell.EmailFieldCell
 import com.vctapps.santanderchallenge.form.domain.cell.FieldCell
 import com.vctapps.santanderchallenge.form.domain.cell.TelNumberFieldCell
@@ -51,12 +54,26 @@ class TextFieldCellView(private val textFieldCell: FieldCell,
         textInputLayout.hint = textFieldCell.message
 
         when(textFieldCell){
-            is EmailFieldCell -> editText.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
-            is TelNumberFieldCell -> editText.inputType = InputType.TYPE_CLASS_PHONE
-            is TextFieldCell -> editText.inputType = InputType.TYPE_CLASS_TEXT
+            is EmailFieldCell -> setUpEmailField()
+            is TelNumberFieldCell -> setUpTelNumberField()
+            is TextFieldCell -> setUpSimpleTextField()
         }
 
         val colorStateList = ColorStateList.valueOf(ContextCompat.getColor(rootView.context, R.color.gray_600))
         ViewCompat.setBackgroundTintList(editText, colorStateList)
+    }
+
+    private fun setUpSimpleTextField() {
+        editText.inputType = InputType.TYPE_CLASS_TEXT
+    }
+
+    private fun setUpEmailField() {
+        editText.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+    }
+
+    private fun setUpTelNumberField() {
+        editText.inputType = InputType.TYPE_CLASS_PHONE
+        editText.addTextChangedListener(
+                Mask.getTelNumberMask(editText))
     }
 }
