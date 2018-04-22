@@ -1,6 +1,5 @@
 package com.vctapps.santanderchallenge.form.presentation.domain.cell
 
-import android.widget.LinearLayout
 import com.vctapps.santanderchallenge.form.domain.Type
 import com.vctapps.santanderchallenge.form.domain.cell.Cell
 import com.vctapps.santanderchallenge.form.domain.cell.FieldCell
@@ -13,12 +12,10 @@ class FormViewBuilder(private val rootView: FormLayout) {
         val listCellView = mutableListOf<CellView>()
 
         cells.forEach { cell ->
-            val cellView = getCellView(cell)
-
-            rootView.addView(cellView.getCellView())
-
-            listCellView.add(cellView)
+            listCellView.add(getCellView(cell))
         }
+
+        rootView.setCellsView(listCellView)
 
         return listCellView
     }

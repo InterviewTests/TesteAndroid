@@ -17,6 +17,14 @@ class CheckboxCellView(private val checkboxCell: Cell,
         inflateLayout(R.layout.checkbox_cell_view)
 
         (this.view as CheckBox).text = checkboxCell.message
+
+        (this.view as CheckBox).setOnCheckedChangeListener { _, checked ->
+            if(checked){
+                onShowViewRequest?.showView(checkboxCell.show)
+            } else {
+                onShowViewRequest?.hideView(checkboxCell.show)
+            }
+        }
     }
 
 }
