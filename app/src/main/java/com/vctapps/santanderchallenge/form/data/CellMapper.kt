@@ -20,9 +20,10 @@ object CellMapper {
 
     fun map(cellResponse: CellResponse): Cell {
         return when(cellResponse.typeField){
-            1 -> getTextFieldCell(cellResponse)
-            2 -> getTelNumberFieldCell(cellResponse)
-            3 -> getEmailFieldCell(cellResponse)
+            1.0 -> getTextFieldCell(cellResponse)
+            2.0 -> getTelNumberFieldCell(cellResponse)
+            3.0 -> getEmailFieldCell(cellResponse)
+            "telnumber" -> getTelNumberFieldCell(cellResponse)
             else -> getSimpleCell(cellResponse)
         }
     }
