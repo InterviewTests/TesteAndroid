@@ -17,8 +17,9 @@
         android:id="@+id/tabLayoutDashboard"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        app:tabBackground="@color/colorPrimary"
+        app:tabBackground="@drawable/tab_selector"
         app:tabTextColor="@color/gray_50"
+        app:tabSelectedTextColor="@color/gray_50"
         app:tabIndicatorColor="@color/colorPrimaryDark"
         android:layout_weight="1"/>
 
