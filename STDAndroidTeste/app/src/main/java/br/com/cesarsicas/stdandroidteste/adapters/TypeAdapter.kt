@@ -1,23 +1,30 @@
 package br.com.cesarsicas.stdandroidteste.adapters
+import br.com.cesarsicas.stdandroidteste.constants.CellType
+import com.google.gson.JsonDeserializationContext
+import com.google.gson.JsonDeserializer
+import com.google.gson.JsonElement
 
 /**
  * Created by julio on 4/21/18.
  */
 
-//class TypeAdapter : JsonSerializer<DestinationType>, JsonDeserializer<DestinationType> {
+class TypeAdapter : JsonDeserializer<CellType?> {
+    override fun deserialize(json: JsonElement?, typeOfT: java.lang.reflect.Type?, context: JsonDeserializationContext?): CellType? {
+        val value = json?.asInt
+        try {
+            return CellType.from(value ?:0)
 
-//    @Throws(JsonParseException::class)
-//    override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): DestinationType? {
-//        try {
-//            return DestinationType.valueOf(json.asString.replace("-".toRegex(), "_").toUpperCase())
-//        } catch (ex: Exception) {
-//            return null
-//        }
-//
-//    }
-//
-//    override fun serialize(src: DestinationType?, typeOfSrc: Type, context: JsonSerializationContext): JsonElement? {
-//        return if (src != null) JsonPrimitive(src.toString().toLowerCase()) else null
-//    }
+        } catch (ex: Exception) {
+            when (value) {
+                1 -> return CellType.field
+                2 -> return CellType.text
+                3 -> return CellType.image
+                4 -> return CellType.checkbox
 
-//}
+            }
+
+            return null
+        }
+
+    }
+}

@@ -5,13 +5,12 @@ import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
 import android.support.v7.app.AppCompatActivity
 import android.text.InputType
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import br.com.cesarsicas.stdandroidteste.R
-import br.com.cesarsicas.stdandroidteste.constants.Type
-import br.com.cesarsicas.stdandroidteste.constants.TypeField
+import br.com.cesarsicas.stdandroidteste.constants.CellType
+import br.com.cesarsicas.stdandroidteste.constants.CellTypeField
 import br.com.cesarsicas.stdandroidteste.domains.Cell
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,7 +22,7 @@ class FormActivity : AppCompatActivity(), FormView {
     }
 
     override fun addCells(cells: List<Cell>) {
-        Log.wtf("SIZE", cells.size.toString())
+        cells.map { generateDynamicElements(it) }
 
     }
 
@@ -36,31 +35,31 @@ class FormActivity : AppCompatActivity(), FormView {
         presenter?.getCells()
 
 
-//        val cell1 = Cell(1, Type.text,
+//        val cell1 = Cell(1, CellType.text,
 //                "Message test",
 //                10.0,
-//                TypeField.email,
+//                CellTypeField.email,
 //                false,
 //                false)
 //
-//        val cell2 = Cell(1, Type.field,
+//        val cell2 = Cell(1, CellType.field,
 //                "Message test",
 //                10.0,
-//                TypeField.email,
+//                CellTypeField.email,
 //                false,
 //                false)
 //
-//        val cell3 = Cell(1, Type.send,
+//        val cell3 = Cell(1, CellType.send,
 //                "Message test",
 //                10.0,
-//                TypeField.email,
+//                CellTypeField.email,
 //                false,
 //                false)
 //
-//        val cell4 = Cell(1, Type.checkbox,
+//        val cell4 = Cell(1, CellType.checkbox,
 //                "Message test",
 //                10.0,
-//                TypeField.email,
+//                CellTypeField.email,
 //                false,
 //                false)
 
@@ -75,21 +74,21 @@ class FormActivity : AppCompatActivity(), FormView {
 
     private fun generateDynamicElements(cell: Cell?) {
         val dynamicView: View? = when (cell?.type) {
-            Type.field -> {
+            CellType.field -> {
                 generateEditText(cell)
             }
-            Type.text -> {
+            CellType.text -> {
                 generateTextView(cell)
 
             }
-            Type.image -> {
+            CellType.image -> {
                 //todo not used yet
                 null
             }
-            Type.checkbox -> {
+            CellType.checkbox -> {
                 generateCheckBox(cell)
             }
-            Type.send -> {
+            CellType.send -> {
                 generateButton(cell)
             }
             else -> {
@@ -175,19 +174,19 @@ class FormActivity : AppCompatActivity(), FormView {
 
     }
 
-    private fun makeMask(editText: EditText, typeField: TypeField?) {
+    private fun makeMask(editText: EditText, typeField: CellTypeField?) {
         //todo validate this types
 
         when (typeField) {
-            TypeField.text -> {
+            CellTypeField.text -> {
                 editText.inputType =
                         InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
             }
-            TypeField.email -> {
+            CellTypeField.email -> {
                 editText.inputType =
                         InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
             }
-            TypeField.telNumber -> {
+            CellTypeField.telNumber -> {
                 editText.inputType = InputType.TYPE_CLASS_NUMBER
             }
         }
