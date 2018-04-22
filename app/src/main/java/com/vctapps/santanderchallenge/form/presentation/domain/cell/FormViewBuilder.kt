@@ -5,8 +5,9 @@ import com.vctapps.santanderchallenge.form.domain.Type
 import com.vctapps.santanderchallenge.form.domain.cell.Cell
 import com.vctapps.santanderchallenge.form.domain.cell.FieldCell
 import com.vctapps.santanderchallenge.form.presentation.domain.cell.base.CellView
+import com.vctapps.santanderchallenge.form.presentation.view.FormLayout
 
-class FormViewBuilder(private val rootView: LinearLayout) {
+class FormViewBuilder(private val rootView: FormLayout) {
 
     fun proccessCellsFormView(cells: MutableList<Cell>): MutableList<CellView>{
         val listCellView = mutableListOf<CellView>()

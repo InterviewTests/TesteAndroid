@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:name=".core.SantanderChallengeApplication"
         android:theme="@style/AppTheme">
-        <activity android:name=".FormActivity">
+        <activity android:name=".form.presentation.view.FormActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
