@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/formRootView"
-    tools:context=".form.presentation.view.FormActivity">
+    android:padding="32dp"
+    tools:context=".form.presentation.view.FormFragment">
 
 
 </com.vctapps.santanderchallenge.form.presentation.view.FormLayout>

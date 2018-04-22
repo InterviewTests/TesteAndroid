@@ -1,6 +1,6 @@
 package com.vctapps.santanderchallenge.form.di
 
-import com.vctapps.santanderchallenge.form.presentation.view.FormActivity
+import com.vctapps.santanderchallenge.form.presentation.view.FormFragment
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
@@ -9,9 +9,9 @@ import dagger.android.AndroidInjector
     FormModule::class,
     FormModuleView::class
 ])
-interface FormComponent: AndroidInjector<FormActivity> {
+interface FormComponent: AndroidInjector<FormFragment> {
 
     @Subcomponent.Builder
-    abstract class Builder: AndroidInjector.Builder<FormActivity>()
+    abstract class Builder: AndroidInjector.Builder<FormFragment>()
 
 }
