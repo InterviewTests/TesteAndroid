@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.vctapps.santanderchallenge.form.presentation.view.FormLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/formRootView"
-    android:padding="32dp"
+    android:paddingRight="32dp"
+    android:paddingEnd="32dp"
+    android:paddingLeft="32dp"
+    android:paddingStart="32dp"
     tools:context=".form.presentation.view.FormFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/gray_900"
+        android:text="@string/contact_title"/>
 
 
 </com.vctapps.santanderchallenge.form.presentation.view.FormLayout>
