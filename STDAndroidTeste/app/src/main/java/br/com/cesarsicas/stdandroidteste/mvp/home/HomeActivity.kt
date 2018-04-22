@@ -62,7 +62,6 @@ class HomeActivity : AppCompatActivity() {
                 0 -> InvestmentFragment()
                 1 -> ContactFragment()
                 else -> InvestmentFragment()
-
             }
         }
 

@@ -4,10 +4,9 @@ package br.com.cesarsicas.stdandroidteste.domains
  * Created by julio on 4/22/18.
  */
 
-class DownInfo {
-    var name: String? = null
+class Month {
+    var CDI: String? = null
 
-    var data: String? = null
-
-
+    var fund: String? = null
 }
+

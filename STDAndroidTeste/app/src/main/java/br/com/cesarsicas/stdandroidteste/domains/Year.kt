@@ -5,7 +5,7 @@ package br.com.cesarsicas.stdandroidteste.domains
  */
 
 class Year {
-    var cdi: String? = null
+    var CDI: String? = null
 
     var fund: String? = null
 }

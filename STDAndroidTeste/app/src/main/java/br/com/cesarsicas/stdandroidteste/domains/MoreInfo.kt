@@ -8,9 +8,9 @@ import com.google.gson.annotations.SerializedName
 
 class MoreInfo {
     @SerializedName("12months")
-    private val twelveMonths: TwelveMonths? = null
+    var twelveMonths: TwelveMonths? = null
 
-    private val month: Month? = null
+    var month: Month? = null
 
-    private val year: Year? = null
+    var year: Year? = null
 }

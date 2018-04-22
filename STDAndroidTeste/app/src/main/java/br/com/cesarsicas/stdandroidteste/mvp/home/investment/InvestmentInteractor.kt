@@ -1,7 +1,7 @@
 package br.com.cesarsicas.stdandroidteste.mvp.home.investment
 
 import br.com.cesarsicas.stdandroidteste.api.SantanderApi
-import br.com.cesarsicas.stdandroidteste.domains.CellReceiver
+import br.com.cesarsicas.stdandroidteste.domains.InvestmentData
 import br.com.cesarsicas.stdandroidteste.okhttp.LoggerInterceptor
 import io.reactivex.Single
 import okhttp3.OkHttpClient
@@ -15,7 +15,8 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 class InvestmentInteractor {
 
-    fun getInvestmentData(): Single<CellReceiver> {
+    //api json returned is crashing (malformed structure)
+    fun getInvestmentData(): Single<InvestmentData> {
 
         val logging = HttpLoggingInterceptor()
         // set your desired log level
@@ -32,7 +33,6 @@ class InvestmentInteractor {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(httpClient.build())
                 .build()
-
 
 
         val service = retrofit.create(SantanderApi::class.java)

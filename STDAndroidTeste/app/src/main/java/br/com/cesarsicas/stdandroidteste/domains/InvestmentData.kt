@@ -5,6 +5,6 @@ package br.com.cesarsicas.stdandroidteste.domains
  */
 
 class InvestmentData {
-    private val screen: Screen? = null
+     var screen: Screen? = null
 
 }
