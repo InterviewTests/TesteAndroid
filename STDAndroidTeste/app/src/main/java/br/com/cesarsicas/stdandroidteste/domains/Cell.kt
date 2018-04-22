@@ -1,10 +1,13 @@
 package br.com.cesarsicas.stdandroidteste.domains
 
+import br.com.cesarsicas.stdandroidteste.constants.Type
+import br.com.cesarsicas.stdandroidteste.constants.TypeField
+
 /**
  * Created by julio on 4/19/18.
  */
 class Cell {
-    constructor(id: Long?, type: Int?, message: String?, topSpacing: Double?, typefield: Int?, hidden: Boolean?, required: Boolean?) {
+    constructor(id: Long?, type: Type?, message: String?, topSpacing: Double?, typefield: TypeField?, hidden: Boolean?, required: Boolean?) {
         this.id = id
         this.type = type
         this.message = message
@@ -17,10 +20,10 @@ class Cell {
     //todo generate adapters to type and typefield
 
     var id: Long? = null
-    var type: Int? = null
+    var type: Type? = null
     var message: String? = null
     var topSpacing: Double? = null
-    var typefield: Int? = null
+    var typefield: TypeField? = null
     var hidden: Boolean? = null
     var required: Boolean? = null
 
