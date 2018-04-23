@@ -2,20 +2,22 @@ package br.com.cesarsicas.stdandroidteste.mvp.home.investment
 
 import br.com.cesarsicas.stdandroidteste.domains.InvestmentData
 import com.google.gson.Gson
-import com.google.gson.JsonParser
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import org.json.JSONArray
 import java.io.IOException
 import java.io.InputStream
 import java.nio.charset.Charset
+import javax.inject.Inject
 
 /**
  * Created by julio on 4/22/18.
  */
-class InvestmentPresenter {
-    val interactor = InvestmentInteractor()
+class InvestmentPresenter @Inject constructor() {
+
+    @Inject
+    lateinit var interactor: InvestmentInteractor
+
     var view: InvestmentView? = null
 
     private var disposable: Disposable? = null

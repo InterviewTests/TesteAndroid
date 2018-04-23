@@ -9,6 +9,8 @@ import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v4.view.PagerAdapter
 import android.view.View
+import br.com.cesarsicas.stdandroidteste.AppComponent
+import br.com.cesarsicas.stdandroidteste.MainApplication
 import br.com.cesarsicas.stdandroidteste.mvp.home.contact.ContactFragment
 import br.com.cesarsicas.stdandroidteste.mvp.home.investment.InvestmentFragment
 import kotlinx.android.synthetic.main.activity_home.*

@@ -11,21 +11,26 @@ import android.text.InputType
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import br.com.cesarsicas.stdandroidteste.MainApplication
 import br.com.cesarsicas.stdandroidteste.R
+import br.com.cesarsicas.stdandroidteste.base.BaseActivity
 import br.com.cesarsicas.stdandroidteste.constants.CellType
 import br.com.cesarsicas.stdandroidteste.constants.CellTypeField
 import br.com.cesarsicas.stdandroidteste.domains.Cell
 import br.com.cesarsicas.stdandroidteste.mvp.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
-class FormActivity : AppCompatActivity(), FormView {
-    var presenter: FormPresenter? = null
+class FormActivity : BaseActivity(), FormView {
+    @Inject
+    lateinit var presenter: FormPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form)
 
-        presenter = FormPresenter()
+        appComponent.inject(this)
+
         presenter?.attachView(this)
         presenter?.getCells()
     }
@@ -34,8 +39,6 @@ class FormActivity : AppCompatActivity(), FormView {
     override fun onDestroy() {
         super.onDestroy()
         presenter?.detachView()
-        presenter = null
-
     }
 
 

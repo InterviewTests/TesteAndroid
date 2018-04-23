@@ -10,13 +10,15 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
 
 /**
  * Created by julio on 4/21/18.
  */
 
-class FormInteractor {
+class FormInteractor @Inject constructor() {
+
     fun getCells(): Single<CellReceiver> {
 
         val logging = HttpLoggingInterceptor()

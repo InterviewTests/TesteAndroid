@@ -6,14 +6,16 @@ import br.com.cesarsicas.stdandroidteste.domains.Cell
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 /**
  * Created by julio on 4/21/18.
  */
 
-class FormPresenter() {
-    val interactor = FormInteractor()
+class FormPresenter @Inject constructor() {
+    @Inject
+    lateinit var interactor: FormInteractor
+
     var view: FormView? = null
     private var disposable: Disposable? = null
 
@@ -62,7 +64,7 @@ class FormPresenter() {
             else -> {
                 null
             }
-      }
+        }
 
         if (dynamicView != null) {
             view?.configureVisibility(dynamicView, cell)

@@ -8,22 +8,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.cesarsicas.stdandroidteste.R
+import br.com.cesarsicas.stdandroidteste.base.BaseFragment
 import br.com.cesarsicas.stdandroidteste.domains.InvestmentData
 import kotlinx.android.synthetic.main.fragment_investment.*
+import javax.inject.Inject
 
 
 /**
  * A simple [Fragment] subclass.
  */
-class InvestmentFragment : Fragment(), InvestmentView {
-    val presenter = InvestmentPresenter()
+class InvestmentFragment : BaseFragment(), InvestmentView {
+
+    @Inject
+    lateinit var presenter: InvestmentPresenter
 
     override fun showError(message: String?) {
 
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                                     savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View? {
+
 
         // Inflate the layout for this fragment
         return inflater!!.inflate(R.layout.fragment_investment, container, false)
@@ -31,6 +36,7 @@ class InvestmentFragment : Fragment(), InvestmentView {
 
     override fun onStart() {
         super.onStart()
+        appComponent.inject(this)
         presenter.attachView(this)
         //presenter.getInvestmenentData()
         loadLocalData()
@@ -53,7 +59,7 @@ class InvestmentFragment : Fragment(), InvestmentView {
 
     }
 
-    private fun loadLocalData(){
+    private fun loadLocalData() {
         var inputStream = getActivity().getAssets().open("investmentData.json")
         presenter.parseJsonData(inputStream)
 
