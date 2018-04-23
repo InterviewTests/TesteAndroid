@@ -44,7 +44,7 @@ Para suportar a criação de formulário dinâmicos foi criado na camada de dom�
 **FieldCell**: São representações de campos onde é necessário algum tipo de validação. 
 
 <p align="center">
-  <img src="images/cell_domain_layer.jpeg" align="center" width=150>
+  <img src="images/domain_layer.jpeg" align="center" width=350>
 </p>
 
 Para criar layouts dinâmicos, cada célula do formulário tem uma classe que representa seu layout. Para realizar a transformação das informações de domínio para apresentação, foi criado o ```FormViewBuilder```.
@@ -52,7 +52,7 @@ Para criar layouts dinâmicos, cada célula do formulário tem uma classe que re
 Para orquestrar todas as células de um formulário, como eventos para exibir outra view, verificar erros, limpar todos campos do formulatório etc, foi criado um ```custom layout```, o ```FormLayout```.
 
 <p align="center">
-  <img src="images/cell_presentation_layer.jpeg" align="center" width=150>
+  <img src="images/cell_presentation_layer.jpeg" align="center" width=750>
 </p>
 <a name="asset" />
 
