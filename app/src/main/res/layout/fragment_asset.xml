@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/loading_view"/>
+
+        <include layout="@layout/error_view"/>
+
+        <LinearLayout
+            android:id="@+id/assetDetailView"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:paddingRight="32dp"
+            android:paddingEnd="32dp"
+            android:paddingLeft="32dp"
+            android:paddingStart="32dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/gray_900"
+                android:text="@string/investment"/>
+
+            <com.vctapps.santanderchallenge.asset.presentation.view.custom.HeaderAssetLayout
+                android:id="@+id/headerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"/>
+
+            <com.vctapps.santanderchallenge.asset.presentation.view.custom.RiskScaleLayout
+                android:id="@+id/riskScale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"/>
+
+            <com.vctapps.santanderchallenge.asset.presentation.view.custom.MoreInfoLayout
+                android:id="@+id/moreInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_500"
+                android:layout_marginTop="16dp"/>
+
+            <com.vctapps.santanderchallenge.asset.presentation.view.custom.InfoListView
+                android:id="@+id/simpleInfoList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"/>
+
+            <com.vctapps.santanderchallenge.asset.presentation.view.custom.InfoListView
+                android:id="@+id/infoWithLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/investment_action"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                style="@style/PrimaryButton"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</ScrollView>
