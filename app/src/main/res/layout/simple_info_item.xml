@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/textViewMessage1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Taxa de administraçao"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/gray_500"/>
+
+    <TextView
+        android:id="@+id/textViewMessage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="0,50%"
+        android:layout_gravity="right"
+        style="@style/TextAppearance.AppCompat.Body2"/>
+
+</FrameLayout>
