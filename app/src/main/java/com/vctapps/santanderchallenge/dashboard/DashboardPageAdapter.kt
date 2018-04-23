@@ -3,6 +3,7 @@ package com.vctapps.santanderchallenge.dashboard
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import com.vctapps.santanderchallenge.asset.presentation.view.AssetFragment
 import com.vctapps.santanderchallenge.form.presentation.view.FormFragment
 
 class DashboardPageAdapter(fragmentManager: FragmentManager):
@@ -10,7 +11,8 @@ class DashboardPageAdapter(fragmentManager: FragmentManager):
 
     override fun getItem(position: Int): Fragment {
         return when(position) {
-            0 -> FormFragment()
+            0 -> AssetFragment()
+            1 -> FormFragment()
             else -> FormFragment()
         }
     }
