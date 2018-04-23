@@ -1,79 +1,119 @@
-# Show me the code
+# Desafio Santander Tecnologia - Android:
 
-### # DESAFIO:
+<p align="center">
+  <img src="images/app.gif" align="center" width=150>
+</p>
 
-Em uma tela terá um formulário dinâmico com alguns campos predefinidos, conforme o arquivo JSON disponível no link ([https://floating-mountain-50292.herokuapp.com/cells.json](https://floating-mountain-50292.herokuapp.com/cells.json)) que deverá
-  ser consumido. Este formulário terá de ser desenhado e exibir uma tela de sucesso quando as informações preenchidas estiverem corretas.
+1. [Introdução](#introduction) 
+2. [Requisitos](#requirements) 
+3. [Arquitetura](#architecture) 
+   * [Formulários dinâmicos](#form) 
+   * [Ativo financeiro](#asset) 
+4. [Recursos](#resources)
+5. [Considerações](#considerations)
+5. [Instalação](#setup)  
+6. [Licença](#license)
+<a name="introduction" />
 
-Na segunda tela terá o detalhe de um ativo financeiro. As informações devem ser consumidas através do link ([https://floating-mountain-50292.herokuapp.com/fund.json](https://floating-mountain-50292.herokuapp.com/fund.json)).
+## Introdução
 
-O visual do aplicativo está em anexo no arquivo telas.png e em um arquivo do [Sketch](https://www.sketchapp.com) (30 dias grátis, caso não tenha a licença).
+Desafio proposto pelo Santander Tecnologia para vaga de desenvolvedor Android. O desafio consiste em construir uma aplicação conforme layout proposto, onde o usuário visualiza um formulário construido de forma dinâmica de acordo com API e também pode visualizar informações de um ativo financeiro.
+<a name="requirements" />
 
-![Image](https://floating-mountain-50292.herokuapp.com/telas.png)
+## Requisitos:
 
+1. Criar uma tela com formulário dinâmico, com campos definidos pelo JSON retornado da API.
+2. Ao preencher de forma incorreta, deve apresentar os erros.
+3. Ao preencher de forma correta, deve exibir mensagem de sucesso e possibilidade de enviar uma nova.
+4. Criar uma tela para exibir informações de um ativo financeiro, onde as informações são fornecidas por uma arquivo JSON da API.
+5. Deve seguir o layout conforme arquivo telas.png
+6. Utilizar MVP Clean
+<a name="architecture" />
 
-### # Avaliação
+## Arquitetura
 
-Você será avaliado pela usabilidade, por respeitar o design e pela arquitetura do app. É esperado que você consiga explicar as decisões que tomou durante o desenvolvimento através de commits.
+Para ter uma arquitetura mais limpa, foi utilizado package by feature. 
+<a name="form" />
 
-* Java ou Kotlin
-* Constraintlayout
-* O app deve funcionar no Android 4.4
-* Testes unitários (De preferência JNunit + Mockito). Mas pode usar o que você tem mais experiência, só nos explique o que ele tem de bom.
-* Arquitetura a ser utilizada: MVP Clean ([https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean/](https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean/)) && ([https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)).
-* Uso do git.
+### Formulários dinâmicos
 
-### # Dicas para o layout
+Para suportar a criação de formulário dinâmicos foi criado na camada de domínio a seguinte representação:
 
-* O formulário deve respeitar o conteúdo do cells.json ([https://floating-mountain-50292.herokuapp.com/cells.json](https://floating-mountain-50292.herokuapp.com/cells.json)) .
-* Se o texto estiver muito grande, quebre em linhas e exiba por completo.
-* A fonte a ser utilizada está em anexo no repositório.
+**Cell**: Representação de uma célula do formulário. 
 
-### # Como interpretar o cells.json:
+**FieldCell**: São representações de campos onde é necessário algum tipo de validação. 
 
-```Java
-enum Type {
-    field(1)
-    text(2),
-    image(3),
-    checkbox(4),
-    send(5)
-}
-```
+<p align="center">
+  <img src="images/cell_domain_layer.jpeg" align="center" width=150>
+</p>
 
-```Java
-enum TypeField {
-    text(1),
-    telNumber(2),
-    email(3)
-}
-```
+Para criar layouts dinâmicos, cada célula do formulário tem uma classe que representa seu layout. Para realizar a transformação das informações de domínio para apresentação, foi criado o ```FormViewBuilder```.
 
-`"type":` tipo da célula;
+Para orquestrar todas as células de um formulário, como eventos para exibir outra view, verificar erros, limpar todos campos do formulatório etc, foi criado um ```custom layout```, o ```FormLayout```.
 
-`"message":` mensagem que vai aparecer na label para type = text ou placeholder para field;
+<p align="center">
+  <img src="images/cell_presentation_layer.jpeg" align="center" width=150>
+</p>
+<a name="asset" />
 
-`typeField":` tipo do field a ser exibido, para exibir corretamente a validação daquele campo.
+### Ativo financeiro
 
-`hidden":` indica se o campo está visível;
+Um ativo possui muitas informações dentro de uma única tela. Para facilitar implementação e futuras manutenções, foi criado os seguinte ```custom layouts```:
 
-`topSpacing":` espaçamento entre o topo da célula e o topo da label/field/checkbox;
+* **HeaderAssetLayout**
+* **InfoListView**
+* **RiskScaleLayout**
+* **MoreInfoLayout** (preciso encontrar um nome melhor)
 
-`show":` indica o campo que será exibido quando este campo for selecionado. No caso é o id do campo a ser exibido.
+No fim, AssetFragment é composto pela combinação deles, apenas repassando as informações para cada componente para que cada um cuide de como e onde deve apresentar seu respectivo dado do ativo financeiro.
+<a name="resources" />
 
-`type":` "send" esse botão irá validar todas informações que foram preenchidas e ir para a tela de sucesso quando tudo tiver ok;
+## Recursos
 
-`risk":` pode ser um int de 1 a 5
+ 1. **Clean Architecture**, como base na criação de uma feature, tentando minimizar overengineering;
+ 2. **Kotlin**, como linguagem de programação;
+ 3. **Dagger2**, para injeção de dependências;
+ 4. **RxJava2**, para ajudar a ter uma arquitetura mais reativa;
+ 5. **Retrofit**, para requisições HTTP, com rxAdapter;
+ 6. **Junit e Mockito**, para testes unitários;
+ 7. **MockWebServer**, para testes unitários que fazem requisições de rede.
+<a name="considerations" />
+ 
+## Considerações
 
-O tipo `text` a validação é digitou alguma coisa, já ficou válido.<br>
-Para "telNumber" o campo deve ser formatado `(##) ####-#### || (##) #####-####` e validado de acordo.<br>
-Para "email" o email deve ser válido.
+Os dois endpoints apresentam erros de estrutura de dados e estrutura do JSON. Alguns impedem a formação de POJOs e alguns impedem de fazer o parse. 
 
-### # Observações gerais
+A camada de dados, tanto da form quanto da asset, foram preparadas para tratar esses erros. Não é o ideal, porém foi um "workaround" para aplicação não parar e conseguir lidar com os erros.
+<a name="setup" />
 
-Adicione um arquivo [README.md](http://README.md) com os procedimentos para executar o projeto.
-Pedimos que trabalhe sozinho e não divulgue o resultado na internet.
+## Instalação
 
-Faça um fork desse desse repositório em seu Github e nos envie um Pull Request com o resultado.
+Para rodar esse projeto utilize uma das seguintes formas:
 
-# BOA SORTE!
+Instale o APK disponível na seção de release
+
+ou
+
+Clone o repositório na sua máquina.
+Faça o build da aplicação utilizando Android Studio ou via terminal com ```./gradlew assembleDebug```
+
+<a name="license" />
+
+## Licença
+<aside class="notice">
+  
+Copyright 2018 Victor Vieira Paulino
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+</aside>
