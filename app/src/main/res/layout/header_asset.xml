@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/textViewHeaderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Fundos de investimento"/>
+
+    <TextView
+        android:id="@+id/textViewAssetName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Vinci Valorem FI Multimercado"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/gray_500"/>
+
+    <TextView
+        android:id="@+id/textViewHeaderWhatIs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        tools:text="O que e?"/>
+
+    <TextView
+        android:id="@+id/textViewHeaderDefinition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        tools:text="Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido "/>
+
+</LinearLayout>
