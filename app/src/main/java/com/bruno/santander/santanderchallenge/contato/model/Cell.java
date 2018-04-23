@@ -21,6 +21,34 @@ public class Cell {
     @JsonProperty("required")
     private boolean required;
 
+    public enum Type{
+        field(1), text(2), image(3), checkbox(4), send(5);
+
+        private int value;
+
+        Type(int value){
+            this.value = value;
+        }
+
+        public int val(){
+            return value;
+        }
+    }
+
+    public enum TypeField{
+        text(1), telNumber(2), email(3);
+
+        private int value;
+
+        TypeField(int value){
+            this.value = value;
+        }
+
+        public int val(){
+            return value;
+        }
+    }
+
     public int getId() {
         return id;
     }

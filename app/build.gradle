@@ -43,6 +43,10 @@ dependencies {
     implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
     implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
 
+    //RxJava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation "io.reactivex.rxjava2:rxjava:2.1.12"
+
     //Calligraphy
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
 

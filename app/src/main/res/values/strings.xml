@@ -1,6 +1,25 @@
 <resources>
     <string name="app_name">SantanderChallenge</string>
 
+    <string name="investimento">Investimento</string>
+    <string name="contato">Contato</string>
+
+    <!-- Validation -->
+    <string name="email_invalido">Digite um email válido</string>
+    <string name="telefone_invalido">Digite um telefone válido</string>
+
+    <!-- Informações sobre investimento -->
+    <string name="fundo">Fundo</string>
+    <string name="cdi">CDI</string>
+    <string name="no_mes">No mês</string>
+    <string name="no_ano">No ano</string>
+    <string name="doze_meses">12 meses</string>
+    <string name="percentage_placeholder">%s%%</string>
+    <string name="investir">Investir</string>
+
+    <!-- Contato -->
+    <string name="success_save_contato">Contato salvo com sucesso!</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

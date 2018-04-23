@@ -24,31 +24,31 @@
     "info": [
       {
         "name": "Taxa de administração",
-        "data": "0,50%",
+        "data": "0,50%"
       },
       {
         "name": "Aplicação inicial",
-        "data": "R$ 10.000,00",
+        "data": "R$ 10.000,00"
       },
       {
         "name": "Movimentação mínima",
-        "data": "R$ 1.000,00",
+        "data": "R$ 1.000,00"
       },
       {
         "name": "Saldo mínimo",
-        "data": "R$ 5.000,00",
+        "data": "R$ 5.000,00"
       },
       {
         "name": "Resgate (valor bruto)",
-        "data": "D+0",
+        "data": "D+0"
       },
       {
         "name": "Cota (valor bruto)",
-        "data": "D+1",
+        "data": "D+1"
       },
       {
         "name": "Pagamento (valor bruto)",
-        "data": "D+2",
+        "data": "D+2"
       }
     ],
     "downInfo": [

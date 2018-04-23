@@ -11,7 +11,7 @@ public class MainApplication extends Application {
         super.onCreate();
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/DINEngschriftStd.otf")
+                .setDefaultFontPath("fonts/DINNeuzeitGroteskStd-Light.otf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
