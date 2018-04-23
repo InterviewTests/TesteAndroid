@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.squareup.okhttp.mockwebserver.MockResponse
 import com.vctapps.santanderchallenge.BaseNetworkTest
 import com.vctapps.santanderchallenge.asset.domain.AssetRepository
+import com.vctapps.santanderchallenge.core.domain.InvalidData
 import com.vctapps.santanderchallenge.util.JsonLoader
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -28,7 +29,7 @@ class AssetRepositoryTest: BaseNetworkTest() {
     val INFO_FIRST_NAME = "Taxa de administração"
     val INFO_FIRST_DATA = "0,50%"
     val DOWN_INFO_FIRST_NAME = "Essenciais"
-    val DOWN_INFO_FIRST_DATA = null
+    val DOWN_INFO_FIRST_DATA = InvalidData.INVALID_STRING
 
     @Before
     override fun setUp() {
@@ -52,19 +53,19 @@ class AssetRepositoryTest: BaseNetworkTest() {
         assertNotNull(response)
         assertEquals(1, response.valueCount())
 
-        assertEquals(TITLE, response.values()[0].screen?.title)
-        assertEquals(FUND_NAME, response.values()[0].screen?.assetName)
-        assertEquals(WHAT_IS, response.values()[0].screen?.whatIs)
-        assertEquals(DEFINITION, response.values()[0].screen?.definition)
-        assertEquals(RISK_TITLE, response.values()[0].screen?.riskTitle)
-        assertEquals(RISK, response.values()[0].screen?.risk)
-        assertEquals(INFO_TITLE, response.values()[0].screen?.infoTitle)
-        assertEquals(MORE_INFO_FIRST_MONTH_FUND, response.values()[0].screen?.moreInfo?.month?.fund)
-        assertEquals(MORE_INFO_FIRST_MONTH_CDI, response.values()[0].screen?.moreInfo?.month?.CDI)
-        assertEquals(INFO_FIRST_NAME, response.values()[0].screen?.info!![0].name)
-        assertEquals(INFO_FIRST_DATA, response.values()[0].screen?.info!![0].data)
-        assertEquals(DOWN_INFO_FIRST_NAME, response.values()[0].screen?.downInfo!![0].name)
-        assertEquals(DOWN_INFO_FIRST_DATA, response.values()[0].screen?.downInfo!![0].data)
+        assertEquals(TITLE, response.values()[0].title)
+        assertEquals(FUND_NAME, response.values()[0].assetName)
+        assertEquals(WHAT_IS, response.values()[0].whatIs)
+        assertEquals(DEFINITION, response.values()[0].definition)
+        assertEquals(RISK_TITLE, response.values()[0].riskTitle)
+        assertEquals(RISK, response.values()[0].risk)
+        assertEquals(INFO_TITLE, response.values()[0].infoTitle)
+        assertEquals(MORE_INFO_FIRST_MONTH_FUND, response.values()[0].monthInfo.fund, 0.0)
+        assertEquals(MORE_INFO_FIRST_MONTH_CDI, response.values()[0].monthInfo.cdi, 0.0)
+        assertEquals(INFO_FIRST_NAME, response.values()[0].info[0].name)
+        assertEquals(INFO_FIRST_DATA, response.values()[0].info[0].data)
+        assertEquals(DOWN_INFO_FIRST_NAME, response.values()[0].downInfo[0].name)
+        assertEquals(DOWN_INFO_FIRST_DATA, response.values()[0].downInfo[0].data)
 
     }
 

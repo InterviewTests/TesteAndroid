@@ -8,4 +8,7 @@
 
     <string name="error_message">Infelizmente ocorreu um erro :(\n\nTente novamente mais tarde</string>
 
+    <string name="investment">Investimento</string>
+    <string name="investment_action">Investir</string>
+
 </resources>
