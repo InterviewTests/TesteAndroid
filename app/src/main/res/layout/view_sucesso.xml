@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative_sucesso"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@+id/obrigado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/obrigado"
+        android:text="Obrigado!"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="150dp"/>
+
+    <TextView
+        android:id="@+id/mensagem_enviada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="32sp"
+        android:text="Mensagem enviada com sucesso :)"
+        android:layout_below="@+id/obrigado"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/enviar_nova"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:text="Enviar nova mensagem"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="100dp"
+        android:paddingBottom="80dp"
+        android:layout_below="@+id/mensagem_enviada"
+        />
+
+</RelativeLayout>
