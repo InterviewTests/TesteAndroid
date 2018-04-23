@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingRight="32dp"
+    android:paddingEnd="32dp"
+    android:paddingLeft="32dp"
+    android:paddingStart="32dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/gray_900"
+        android:text="@string/contact_title"/>
+
+    <include layout="@layout/success_form"/>
+
+    <include layout="@layout/loading_view"/>
+
+    <include layout="@layout/error_view"/>
+
+    <com.vctapps.santanderchallenge.form.presentation.view.FormLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/formRootView"/>
+
+</LinearLayout>

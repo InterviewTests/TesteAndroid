@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Santander Challenge</string>
+
+    <string name="contact_title">Contato</string>
+    <string name="thanks">Obrigado!</string>
+    <string name="success_send">Mensagem enviada\ncom sucesso :)</string>
+    <string name="send_new_message">Enviar nova mensagem</string>
+
+    <string name="error_message">Infelizmente ocorreu um erro :(\n\nTente novamente mais tarde</string>
+
+    <string name="investment">Investimento</string>
+    <string name="investment_action">Investir</string>
+
+</resources>
