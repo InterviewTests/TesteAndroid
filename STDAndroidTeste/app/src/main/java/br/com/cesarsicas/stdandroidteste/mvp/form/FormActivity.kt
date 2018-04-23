@@ -21,15 +21,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 class FormActivity : AppCompatActivity(), FormView {
     var presenter: FormPresenter? = null
 
-    override fun showError(message: String?) {
-        Toast.makeText(this, message ?: "", Toast.LENGTH_LONG ).show()
-    }
-
-    override fun addCells(cells: List<Cell>) {
-        cells.map { generateDynamicElements(it) }
-
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form)
@@ -39,41 +30,16 @@ class FormActivity : AppCompatActivity(), FormView {
         presenter?.getCells()
     }
 
-    private fun generateDynamicElements(cell: Cell?) {
-        val dynamicView: View? = when (cell?.type) {
-            CellType.field -> {
-                generateEditText(cell)
-            }
-            CellType.text -> {
-                generateTextView(cell)
 
-            }
-            CellType.image -> {
-                //todo not used yet
-                null
-            }
-            CellType.checkbox -> {
-                generateCheckBox(cell)
-            }
-            CellType.send -> {
-                generateButton(cell)
-            }
-            else -> {
-                null
-            }
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter?.detachView()
+        presenter = null
 
-
-        }
-
-        if (dynamicView != null) {
-            configureVisibility(dynamicView, cell)
-            configureMargin(dynamicView, cell)
-            containerLayout.addView(dynamicView)
-        }
     }
 
 
-    private fun generateCheckBox(cell: Cell?): View? {
+    override fun generateCheckBox(cell: Cell?): View? {
         val cb = CheckBox(this)
         val lLayout = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -84,9 +50,8 @@ class FormActivity : AppCompatActivity(), FormView {
         return cb
     }
 
-    private fun generateButton(cell: Cell?): Button {
+    override fun generateButton(cell: Cell?): Button {
         val button = Button(this)
-
 
         val lLayout = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -106,8 +71,7 @@ class FormActivity : AppCompatActivity(), FormView {
         return button
     }
 
-
-    private fun generateTextView(cell: Cell?): TextView {
+    override fun generateTextView(cell: Cell?): TextView {
         val textView = TextView(this)
 
 
@@ -121,7 +85,7 @@ class FormActivity : AppCompatActivity(), FormView {
         return textView
     }
 
-    private fun generateEditText(cell: Cell?): TextInputLayout {
+    override fun generateEditText(cell: Cell?): TextInputLayout {
 
         val fLayout = containerLayout.layoutParams as FrameLayout.LayoutParams
 
@@ -130,7 +94,8 @@ class FormActivity : AppCompatActivity(), FormView {
         textInputLayout.hint = cell?.message
 
         val lLayout = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT)
 
         val editText = TextInputEditText(this)
         editText.layoutParams = lLayout
@@ -143,13 +108,10 @@ class FormActivity : AppCompatActivity(), FormView {
         return textInputLayout
 
         //todo Required ???
-
-
     }
 
-    private fun makeMask(editText: EditText, typeField: CellTypeField?) {
+    override fun makeMask(editText: EditText, typeField: CellTypeField?) {
         //todo validate this types
-
         when (typeField) {
             CellTypeField.text -> {
                 editText.inputType =
@@ -165,15 +127,29 @@ class FormActivity : AppCompatActivity(), FormView {
         }
     }
 
-    private fun configureVisibility(view: View, cell: Cell?) {
+    override fun configureVisibility(view: View, cell: Cell?) {
         if (cell?.hidden == true) {
             view.visibility = View.GONE
         }
     }
 
-    private fun configureMargin(view: View, cell: Cell?) {
+    override fun configureMargin(view: View, cell: Cell?) {
         val params = view.layoutParams as ViewGroup.MarginLayoutParams
         params.topMargin = cell?.topSpacing?.toInt() ?: 10
+    }
 
+    override fun addView(view: View) {
+        containerLayout.addView(view)
+    }
+
+    override fun addCells(cells: List<Cell>) {
+        cells.map {
+            presenter?.generateDynamicElements(it)
+        }
+    }
+
+    override fun showError(message: String?) {
+        Toast.makeText(this, message ?: "",
+                Toast.LENGTH_LONG).show()
     }
 }

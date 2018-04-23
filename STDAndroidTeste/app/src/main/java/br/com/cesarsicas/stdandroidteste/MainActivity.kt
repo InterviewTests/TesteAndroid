@@ -11,9 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         //todo splashscreen
         startActivity(Intent(this, FormActivity::class.java))
-
     }
 }
