@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewMoreInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Mais informaçoes"
+        style="@style/TextAppearance.AppCompat.Body2"/>
+
+    <TextView
+        android:id="@+id/textViewMoreInfoFundTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Fundo"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/gray_500"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMoreInfoTitle" />
+
+    <TextView
+        android:id="@+id/textViewMoreInfoCdiTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CDI"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/gray_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewMoreInfoFundTitle" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <TextView
+        android:id="@+id/textViewMoreInfoMonthTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="No mês"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/gray_500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMoreInfoFundTitle" />
+
+    <TextView
+        android:id="@+id/textViewMoreInfoYearTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="No ano"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/gray_500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMoreInfoMonthTitle" />
+
+    <TextView
+        android:id="@+id/textViewMoreInfoTwelveMonthsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="12 meses"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/gray_500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMoreInfoYearTitle" />
+
+    <TextView
+        android:id="@+id/textViewMoreInfoFundMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/textViewMoreInfoMonthTitle"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/textViewMoreInfoCdiMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewMoreInfoMonthTitle"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/textViewMoreInfoFundYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/textViewMoreInfoYearTitle"
+        tools:text="13,01%" />
+
+    <TextView
+        android:id="@+id/textViewMoreInfoCdiYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewMoreInfoYearTitle"
+        tools:text="12,08%" />
+
+    <TextView
+        android:id="@+id/textViewMoreInfoFundTwelve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/textViewMoreInfoTwelveMonthsTitle"
+        tools:text="17,9%" />
+
+    <TextView
+        android:id="@+id/textViewMoreInfoCdiTwelve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewMoreInfoTwelveMonthsTitle"
+        tools:text="17,6%" />
+
+</android.support.constraint.ConstraintLayout>
