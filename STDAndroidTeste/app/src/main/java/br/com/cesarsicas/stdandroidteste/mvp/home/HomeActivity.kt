@@ -11,6 +11,7 @@ import android.support.v4.view.PagerAdapter
 import android.view.View
 import br.com.cesarsicas.stdandroidteste.mvp.home.contact.ContactFragment
 import br.com.cesarsicas.stdandroidteste.mvp.home.investment.InvestmentFragment
+import kotlinx.android.synthetic.main.activity_home.*
 
 
 class HomeActivity : AppCompatActivity() {
@@ -38,6 +39,15 @@ class HomeActivity : AppCompatActivity() {
         mPager = findViewById<View>(R.id.pager) as ViewPager?
         mPagerAdapter = ScreenSlidePagerAdapter(supportFragmentManager)
         mPager!!.adapter = mPagerAdapter
+
+
+        contactButton.setOnClickListener {
+            mPager?.currentItem = 1
+        }
+
+        investmentButton.setOnClickListener {
+            mPager?.currentItem = 0
+        }
     }
 
     override fun onBackPressed() {
