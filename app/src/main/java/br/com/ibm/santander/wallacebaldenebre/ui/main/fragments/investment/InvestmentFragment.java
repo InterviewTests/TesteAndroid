@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,8 +19,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import br.com.ibm.santander.wallacebaldenebre.R;
+import br.com.ibm.santander.wallacebaldenebre.model.Info;
+import br.com.ibm.santander.wallacebaldenebre.model.MoreInfo;
+import br.com.ibm.santander.wallacebaldenebre.model.Screen;
 
-public class InvestmentFragment extends Fragment implements InvestmentContract.View, View.OnTouchListener, View.OnClickListener {
+public class InvestmentFragment extends Fragment implements InvestmentContract.View, View.OnTouchListener {
     protected TextView tvInvestFund;
     protected TextView tvTitle;
     protected TextView tvWhatIs;
@@ -32,13 +36,27 @@ public class InvestmentFragment extends Fragment implements InvestmentContract.V
     protected TextView tvCDIYear;
     protected TextView tvFundTwelveMonth;
     protected TextView tvCDITwelveMonth;
+
     protected TextView tvAdmTax;
+    protected TextView tvLabelAdmTax;
     protected TextView tvAppInitial;
+    protected TextView tvLabelAppInitial;
     protected TextView tvMinMovement;
+    protected TextView tvLabelMinMovement;
     protected TextView tvMinBalance;
+    protected TextView tvLabelMinBalance;
     protected TextView tvSaving;
+    protected TextView tvLabelSaving;
     protected TextView tvQuota;
+    protected TextView tvLabelQuota;
     protected TextView tvPayment;
+    protected TextView tvLabelPayment;
+
+    protected TextView tvEssentials;
+    protected TextView tvPerformance;
+    protected TextView tvComplementary;
+    protected TextView tvRegulamentary;
+    protected TextView tvAccession;
     protected ImageView ivPointer1;
     protected ImageView ivPointer2;
     protected ImageView ivPointer3;
@@ -75,7 +93,7 @@ public class InvestmentFragment extends Fragment implements InvestmentContract.V
             public void run() {
                 pd = new ProgressDialog(getActivity());
                 pd.setTitle("Aguarde...");
-                pd.setMessage("Enquanto colhemos as informações deste fundo de investimento...");
+                pd.setMessage("Carregando os dados...");
                 pd.setCancelable(true);
                 pd.show();
 
@@ -102,26 +120,24 @@ public class InvestmentFragment extends Fragment implements InvestmentContract.V
 
     @Override
     public void showData() {
-        presenter.showDataFromServer(this, new InvestmentCallback<HashMap<String, String>>() {
+        presenter.showDataFromServer(this, new InvestmentCallback<HashMap<String, Screen>>() {
             @Override
-            public void onSuccess(HashMap<String, String> data) {
+            public void onSuccess(final HashMap<String, Screen> data) {
+                Log.i("LOG", "onSuccess()");
                 hideProgress();
-                for (Map.Entry<String, String> entry : data.entrySet()) {
-                    String key = entry.getKey();
-                    String value = entry.getValue();
+                for (Map.Entry<String, Screen> entry : data.entrySet()) {
+                    final Screen value = entry.getValue();
 
-                    tvInvestFund.setText(value == null ? "Fundo de Investimento" : value);
-                    tvTitle.setText(value == null ? "Vinci Valorem FI\nMultimercado" : value);
-                    tvWhatIs.setText(value == null ? "O que é?" : value);
-                    tvBodyWhatIs.setText(value == null ? "O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos" : value);
-                    tvInvestRisk.setText(value == null ? "Fundo de Investimento" : value);
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            tvInvestFund.setText(value.getTitle());
+                            tvTitle.setText(value.getFundName());
+                            tvWhatIs.setText(value.getWhatIs());
+                            tvBodyWhatIs.setText(value.getDefinition());
+                            tvInvestRisk.setText(value.getRiskTitle());
 
-                    //  dados do risco
-                    setPointerVisible(4);
-                    switch (key) {
-                        case "risk":
-                            //  pega os valores
-                            switch (Integer.parseInt(value)) {
+                            switch (value.getRisk()) {
                                 case 1:
                                     setPointerVisible(1);
                                     break;
@@ -137,25 +153,47 @@ public class InvestmentFragment extends Fragment implements InvestmentContract.V
                                 case 5:
                                     setPointerVisible(5);
                                     break;
+                                default:
+                                    setPointerVisible(4);
+                                    break;
                             }
-                            break;
-                        default:
-                            setPointerVisible(4);
-                            break;
-                    }
 
-                    tvTitleMoreInfo.setText(value == null ? "Mais informações sobre o investimento" : value);
-                    tvFundMonth.setText(String.valueOf(value) == null ? getString(R.string.str_unavailable) : String.valueOf(value));
-                    tvCDIMonth.setText(String.valueOf(value) == null ? getString(R.string.str_unavailable) : String.valueOf(value));
-                    tvFundYear.setText(String.valueOf(value) == null ? getString(R.string.str_unavailable) : String.valueOf(value));
-                    tvCDIYear.setText(String.valueOf(value) == null ? getString(R.string.str_unavailable) : String.valueOf(value));
-                    tvFundTwelveMonth.setText(String.valueOf(value) == null ? getString(R.string.str_unavailable) : String.valueOf(value));
-                    tvCDITwelveMonth.setText(String.valueOf(value) == null ? getString(R.string.str_unavailable) : String.valueOf(value));
+                            tvTitleMoreInfo.setText(value.getInfoTitle());
+                            tvFundMonth.setText(String.valueOf(value.getMoreInfo().get(0).getMonth().getFund()).concat("%"));
+                            tvCDIMonth.setText(String.valueOf(value.getMoreInfo().get(0).getMonth().getCDI()).concat("%"));
+                            tvFundYear.setText(String.valueOf(value.getMoreInfo().get(0).getYear().getFund()).concat("%"));
+                            tvCDIYear.setText(String.valueOf(value.getMoreInfo().get(0).getYear().getCDI()).concat("%"));
+                            tvFundTwelveMonth.setText(String.valueOf(value.getMoreInfo().get(0).getTwelveMonths().getFund()).concat("%"));
+                            tvCDITwelveMonth.setText(String.valueOf(value.getMoreInfo().get(0).getTwelveMonths().getCDI()).concat("%"));
+
+                            tvLabelAdmTax.setText(value.getInfos()[0].getName());
+                            tvAdmTax.setText(value.getInfos()[0].getData());
+                            tvLabelAppInitial.setText(value.getInfos()[1].getName());
+                            tvAppInitial.setText(value.getInfos()[1].getData());
+                            tvLabelMinMovement.setText(value.getInfos()[2].getName());
+                            tvMinMovement.setText(value.getInfos()[2].getData());
+                            tvLabelMinBalance.setText(value.getInfos()[3].getName());
+                            tvMinBalance.setText(value.getInfos()[3].getData());
+                            tvLabelSaving.setText(value.getInfos()[4].getName());
+                            tvSaving.setText(value.getInfos()[4].getData());
+                            tvLabelQuota.setText(value.getInfos()[5].getName());
+                            tvQuota.setText(value.getInfos()[5].getData());
+                            tvLabelPayment.setText(value.getInfos()[6].getName());
+                            tvPayment.setText(value.getInfos()[6].getData());
+
+                            tvEssentials.setText(value.getDownInfos()[0].getName());
+                            tvPerformance.setText(value.getDownInfos()[1].getName());
+                            tvComplementary.setText(value.getDownInfos()[2].getName());
+                            tvRegulamentary.setText(value.getDownInfos()[3].getName());
+                            tvAccession.setText(value.getDownInfos()[4].getName());
+                        }
+                    });
                 }
             }
 
             @Override
             public void onFailure(int errorCode, String reason) {
+                Log.i("LOG", "onFailure()");
                 hideProgress();
             }
         });
@@ -186,21 +224,32 @@ public class InvestmentFragment extends Fragment implements InvestmentContract.V
         tvCDIYear = view.findViewById(R.id.tvw_investment_cdi_year);
         tvFundTwelveMonth = view.findViewById(R.id.tvw_investment_fund_twelvemonth);
         tvCDITwelveMonth = view.findViewById(R.id.tvw_investment_cdi_twelvemonth);
+
         tvAdmTax = view.findViewById(R.id.tvw_investment_admtax);
+        tvLabelAdmTax = view.findViewById(R.id.tvw_investment_label_admtax);
         tvAppInitial = view.findViewById(R.id.tvw_investment_initialapplication);
+        tvLabelAppInitial = view.findViewById(R.id.tvw_investment_label_initialapplication);
         tvMinMovement = view.findViewById(R.id.tvw_investment_minimal_movement);
+        tvLabelMinMovement = view.findViewById(R.id.tvw_investment_label_minimal_movement);
         tvMinBalance = view.findViewById(R.id.tvw_investment_minimal_balance);
+        tvLabelMinBalance = view.findViewById(R.id.tvw_investment_label_minimal_balance);
         tvSaving = view.findViewById(R.id.tvw_investment_saving);
+        tvLabelSaving = view.findViewById(R.id.tvw_label_investment_label_saving);
         tvQuota = view.findViewById(R.id.tvw_investment_quota);
+        tvLabelQuota = view.findViewById(R.id.tvw_investment_label_quota);
         tvPayment = view.findViewById(R.id.tvw_investment_payment);
+        tvLabelPayment = view.findViewById(R.id.tvw_investment_label_payment);
+
+        tvEssentials = view.findViewById(R.id.tvw_investment_essentials);
+        tvPerformance = view.findViewById(R.id.tvw_investment_performance);
+        tvComplementary = view.findViewById(R.id.tvw_investment_complementary);
+        tvRegulamentary = view.findViewById(R.id.tvw_investment_regulation);
+        tvAccession = view.findViewById(R.id.tvw_investment_accession);
         ivPointer1 = view.findViewById(R.id.imv_pointer_lvl1);
         ivPointer2 = view.findViewById(R.id.imv_pointer_lvl2);
         ivPointer3 = view.findViewById(R.id.imv_pointer_lvl3);
         ivPointer4 = view.findViewById(R.id.imv_pointer_lvl4);
         ivPointer5 = view.findViewById(R.id.imv_pointer_lvl5);
-        llAlert = view.findViewById(R.id.llt_investment_alert);
-        ivCloseAlert = view.findViewById(R.id.imv_investment_close_alert);
-        ivCloseAlert.setOnClickListener(this);
         btInvest = view.findViewById(R.id.btn_investment_invest);
         btInvest.setOnTouchListener(this);
     }
@@ -226,8 +275,4 @@ public class InvestmentFragment extends Fragment implements InvestmentContract.V
         return false;
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.imv_investment_close_alert) llAlert.setVisibility(View.GONE);
-    }
 }

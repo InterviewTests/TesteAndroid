@@ -2,6 +2,7 @@ package br.com.ibm.santander.wallacebaldenebre.ui.main.fragments.investment;
 
 import java.util.HashMap;
 
+import br.com.ibm.santander.wallacebaldenebre.model.Screen;
 import br.com.ibm.santander.wallacebaldenebre.ui.base.MvpPresenter;
 import br.com.ibm.santander.wallacebaldenebre.ui.base.MvpView;
 
@@ -13,6 +14,6 @@ public interface InvestmentContract {
     }
 
     interface Presenter<V extends MvpView> extends MvpPresenter<V> {
-        void showDataFromServer(InvestmentFragment infra, final InvestmentCallback<HashMap<String, String>> callback);
+        void showDataFromServer(InvestmentFragment infra, final InvestmentCallback<HashMap<String, Screen>> callback);
     }
 }

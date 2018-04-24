@@ -20,82 +20,21 @@
         android:paddingBottom="50dp"
         tools:context=".ui.main.fragments.investment.InvestmentFragment">
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/llt_investment_alert"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:orientation="vertical"
-            android:padding="12dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/ic_alert"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="8dp"
-                android:fontFamily="@font/dinprobold"
-                android:gravity="center_vertical"
-                android:text="AVISO"
-                android:textColor="@color/colorIce"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/dinproregular"
-                android:text="Esta Activity está exibindo dados locais,\npor haver problemas no JSON\ndisponibilizado."
-                android:textColor="@color/colorIce"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-            <ImageView
-                android:id="@+id/imv_investment_close_alert"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/ic_close"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </android.support.constraint.ConstraintLayout>
 
         <TextView
             android:id="@+id/tvw_investment_title"
             style="@style/stl_subtitle"
             android:layout_marginTop="16dp"
-            android:text="Fundos de Investimento"
+            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/llt_investment_alert"
             tools:text="Fundos de Investimento" />
 
         <TextView
             android:id="@+id/tvw_investment_titlemaster"
             style="@style/stl_title"
             android:layout_marginTop="8dp"
-            android:text="Vinci Valorem FI \n Multimercado"
+            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvw_investment_title"
@@ -117,7 +56,7 @@
             android:id="@+id/tvw_investment_whatis"
             style="@style/stl_subtitle"
             android:layout_marginTop="20dp"
-            android:text="O que é?"
+            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view2"
@@ -127,7 +66,7 @@
             android:id="@+id/tvw_investment_whatisbody"
             style="@style/stl_txt_content"
             android:layout_marginTop="8dp"
-            android:text="O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos"
+            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvw_investment_whatis"
@@ -137,7 +76,7 @@
             android:id="@+id/tvw_investment_titlerisk"
             style="@style/stl_subtitle"
             android:layout_marginTop="30dp"
-            android:text="Grau de risco do investmento"
+            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvw_investment_whatisbody"
@@ -245,7 +184,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="5dp"
+                android:layout_height="8dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -272,7 +211,7 @@
 
                 <View
                     android:layout_width="0dp"
-                    android:layout_height="5dp"
+                    android:layout_height="8dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:background="@color/colorOrange" />
@@ -291,7 +230,7 @@
             android:id="@+id/tvw_investment_moreinfo"
             style="@style/stl_subtitle"
             android:layout_marginTop="30dp"
-            android:text="Mais informações sobre o investimento"
+            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
@@ -333,14 +272,12 @@
                 <TextView
                     android:id="@+id/tvw_investment_fund_month"
                     style="@style/stl_content_label_table"
-                    android:text="0,3%"
-                    tools:text="0,3%" />
+                    android:text="0,3%" />
 
                 <TextView
                     android:id="@+id/tvw_investment_cdi_month"
                     style="@style/stl_content_label_table"
-                    android:text="0,3%"
-                    tools:text="0,3%" />
+                    android:text="0,3%" />
             </TableRow>
 
             <TableRow>
@@ -352,13 +289,13 @@
                 <TextView
                     android:id="@+id/tvw_investment_fund_year"
                     style="@style/stl_content_label_table"
-                    android:text="13,01%"
+                    android:text=""
                     tools:text="13,01%" />
 
                 <TextView
                     android:id="@+id/tvw_investment_cdi_year"
                     style="@style/stl_content_label_table"
-                    android:text="12,08%"
+                    android:text=""
                     tools:text="12,08%" />
             </TableRow>
 
@@ -371,13 +308,13 @@
                 <TextView
                     android:id="@+id/tvw_investment_fund_twelvemonth"
                     style="@style/stl_content_label_table"
-                    android:text="17,9%"
+                    android:text=""
                     tools:text="17,9%" />
 
                 <TextView
                     android:id="@+id/tvw_investment_cdi_twelvemonth"
                     style="@style/stl_content_label_table"
-                    android:text="17,6%"
+                    android:text=""
                     tools:text="17,6%" />
             </TableRow>
         </TableLayout>
@@ -407,107 +344,115 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tvw_investment_label_admtax"
                     style="@style/stl_title_label_table"
-                    android:text="Taxa de administração"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="Taxa de administração" />
 
                 <TextView
                     android:id="@+id/tvw_investment_admtax"
                     style="@style/stl_content_label_table"
-                    android:text="0,50%"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="0,50%" />
             </TableRow>
 
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tvw_investment_label_initialapplication"
                     style="@style/stl_title_label_table"
-                    android:text="Aplicação inicial"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="Aplicação inicial" />
 
                 <TextView
                     android:id="@+id/tvw_investment_initialapplication"
                     style="@style/stl_content_label_table"
-                    android:text="R$ 10.000,00"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="R$ 10.000,00" />
             </TableRow>
 
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tvw_investment_label_minimal_movement"
                     style="@style/stl_title_label_table"
-                    android:text="Movimentação mínima"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="Movimentação mínima" />
 
                 <TextView
                     android:id="@+id/tvw_investment_minimal_movement"
                     style="@style/stl_content_label_table"
-                    android:text="R$ 1.000,00"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="R$ 1.000,00" />
             </TableRow>
 
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tvw_investment_label_minimal_balance"
                     style="@style/stl_title_label_table"
-                    android:text="Salário mínimo"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="Salário mínimo" />
 
                 <TextView
                     android:id="@+id/tvw_investment_minimal_balance"
                     style="@style/stl_content_label_table"
-                    android:text="R$ 5.000,00"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="R$ 5.000,00" />
             </TableRow>
 
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tvw_label_investment_label_saving"
                     style="@style/stl_title_label_table"
-                    android:text="Resgate [valor bruto]"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="Resgate [valor bruto]" />
 
                 <TextView
                     android:id="@+id/tvw_investment_saving"
                     style="@style/stl_content_label_table"
-                    android:text="D+0"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="D+0" />
             </TableRow>
 
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tvw_investment_label_quota"
                     style="@style/stl_title_label_table"
-                    android:text="Cota [valor bruto]"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="Cota [valor bruto]" />
 
                 <TextView
                     android:id="@+id/tvw_investment_quota"
                     style="@style/stl_content_label_table"
-                    android:text="D+1"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="D+1" />
             </TableRow>
 
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tvw_investment_label_payment"
                     style="@style/stl_title_label_table"
-                    android:text="Pagamento [valor bruto]"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="Pagamento [valor bruto]" />
 
                 <TextView
                     android:id="@+id/tvw_investment_payment"
                     style="@style/stl_content_label_table"
-                    android:text="D+2"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="D+2" />
             </TableRow>
 
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tvw_investment_essentials"
                     style="@style/stl_title_label_table"
-                    android:text="Essenciais"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="Essenciais" />
 
                 <Button style="@style/stl_btn_table" />
             </TableRow>
@@ -515,9 +460,10 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tvw_investment_performance"
                     style="@style/stl_title_label_table"
-                    android:text="Desempenho"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="Desempenho" />
 
                 <Button style="@style/stl_btn_table" />
             </TableRow>
@@ -525,9 +471,10 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tvw_investment_complementary"
                     style="@style/stl_title_label_table"
-                    android:text="Complementares"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="Complementares" />
 
                 <Button style="@style/stl_btn_table" />
             </TableRow>
@@ -535,9 +482,10 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tvw_investment_regulation"
                     style="@style/stl_title_label_table"
-                    android:text="Regulamento"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="Regulamento" />
 
                 <Button style="@style/stl_btn_table" />
             </TableRow>
@@ -545,9 +493,10 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tvw_investment_accession"
                     style="@style/stl_title_label_table"
-                    android:text="Adesão"
-                    tools:text="" />
+                    android:text=""
+                    tools:text="Adesão" />
 
                 <Button style="@style/stl_btn_table" />
             </TableRow>

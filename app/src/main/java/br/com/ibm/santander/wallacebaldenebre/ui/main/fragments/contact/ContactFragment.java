@@ -23,8 +23,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import br.com.ibm.santander.wallacebaldenebre.R;
+import br.com.ibm.santander.wallacebaldenebre.model.Cell;
 import br.com.ibm.santander.wallacebaldenebre.model.TypeField;
 import br.com.ibm.santander.wallacebaldenebre.ui.main.fragments.contact.success.SuccessFragment;
 import br.com.ibm.santander.wallacebaldenebre.utils.Helper;
@@ -111,12 +113,16 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
 
     @Override
     public void showProgress() {
-        pbr.setVisibility(View.VISIBLE);
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setTitle("Aguarde...");
+        pDialog.setMessage("Carregando os dados...");
+        pDialog.setCancelable(false);
+        pDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        pbr.setVisibility(View.GONE);
+        if (pDialog.isShowing()) pDialog.dismiss();
     }
 
     @Override
@@ -126,7 +132,61 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
 
     @Override
     public void showData() {
-        new GetFormFields().execute();
+        presenter.showDataFormFields(this, new ContactCallback<HashMap<String, Cell[]>>() {
+            @Override
+            public void onSuccess(HashMap<String, Cell[]> data) {
+                for (Map.Entry<String, Cell[]> entry : data.entrySet()) {
+                    final Cell[] value = entry.getValue();
+
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //  setta os dados na view
+                            tvwIntroduce.setId(value[0].getId());
+                            tvwIntroduce.setText(value[0].getMessage());
+                            tvwIntroduce.setLayoutParams(Helper.margins(0, value[0].getTopSpacing(), 0, 0));
+
+                            tilName.setId(value[1].getId());
+                            tilName.setHint(value[1].getMessage());
+                            tietName.setInputType(Helper.doubleToInt(Double.parseDouble((String) value[1].getTypeField())));
+                            tilName.setLayoutParams(Helper.margins(0, value[1].getTopSpacing(), 0, 0));
+
+                            cbxRegister.setId(value[4].getId());
+                            cbxRegister.setText(value[4].getMessage());
+                            cbxRegister.setLayoutParams(Helper.margins(0, value[4].getTopSpacing(), 0, 0));
+
+                            tilEmail.setId(value[2].getId());
+                            tilEmail.setHint(value[2].getMessage());
+                            tietEmail.setInputType(value[2].getTypeField() != null ? InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS : TypeField.EMAIL.getValue());
+                            tilEmail.setLayoutParams(Helper.margins(0, value[2].getTopSpacing(), 0, 0));
+
+                            tilPhone.setId(value[3].getId());
+                            tilPhone.setHint(value[3].getMessage());
+                            tietPhone.setInputType(InputType.TYPE_CLASS_PHONE);
+                            tilPhone.setLayoutParams(Helper.margins(0, value[3].getTopSpacing(), 0, 0));
+
+                            btnSend.setId(value[5].getId());
+                            btnSend.setText(value[5].getMessage());
+                            btnSend.setLayoutParams(Helper.margins(0, value[5].getTopSpacing(), 0, 0));
+                            btnSend.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    hideKeyboard();
+                                    if (verifyFields())
+                                        Helper.loadFragment(new SuccessFragment(), true, new Bundle(), getActivity());
+                                }
+                            });
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onFailure(int errorCode, String reason) {
+
+            }
+        });
     }
 
     @Override
@@ -177,145 +237,4 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
         return false;
     }
 
-    public class GetFormFields extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pDialog = new ProgressDialog(getActivity());
-            pDialog.setTitle("Aguarde...");
-            pDialog.setMessage("Estamos carregando o formulário de contato.");
-            pDialog.setCancelable(false);
-            pDialog.show();
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            String jsonString = Helper.callAPI(URL_API);
-
-            if (jsonString != null) {
-                try {
-                    JSONObject jo = new JSONObject(jsonString);
-
-                    //  JSON Array do Cells
-                    JSONArray cells = jo.getJSONArray("cells");
-
-                    //  pegar todos os contatos
-                    for (int i = 0; i < cells.length(); i++) {
-                        JSONObject cell = cells.getJSONObject(i);
-
-                        final int id = cell.getInt("id");
-                        int type = cell.getInt("type");
-                        final String message = cell.getString("message");
-                        final Object typeField = cell.getString("typefield");
-                        boolean hidden = cell.getBoolean("hidden");
-                        final int topSpacing = cell.getInt("topSpacing");
-                        Object show = cell.getString("show");
-                        boolean required = cell.getBoolean("required");
-
-                        HashMap<String, String> tempCell = new HashMap<>();
-                        tempCell.put("id", String.valueOf(id));
-                        tempCell.put("type", String.valueOf(type));
-                        tempCell.put("message", message);
-                        tempCell.put("typeField", String.valueOf(typeField));
-                        tempCell.put("hidden", String.valueOf(hidden));
-                        tempCell.put("topSpacing", String.valueOf(topSpacing));
-                        tempCell.put("show", (String) show);
-                        tempCell.put("required", String.valueOf(required));
-
-                        fieldsList.add(tempCell);
-
-                        //  setta os dados na view
-                        switch (id) {
-                            case 1:
-                                getActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        tvwIntroduce.setId(id);
-                                        tvwIntroduce.setText(message);
-                                        tvwIntroduce.setLayoutParams(Helper.margins(0, topSpacing, 0, 0));
-                                    }
-                                });
-                                break;
-                            case 2:
-                                getActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        tilName.setId(id);
-                                        tilName.setHint(message);
-                                        tietName.setInputType(Helper.doubleToInt(Double.parseDouble((String) typeField)));
-                                        tilName.setLayoutParams(Helper.margins(0, topSpacing, 0, 0));
-                                    }
-                                });
-                                break;
-                            case 3:
-                                getActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        cbxRegister.setId(id);
-                                        cbxRegister.setText(message);
-                                        cbxRegister.setLayoutParams(Helper.margins(0, topSpacing, 0, 0));
-                                    }
-                                });
-                                break;
-                            case 4:
-                                getActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        tilEmail.setId(id);
-                                        tilEmail.setHint(message);
-                                        tietEmail.setInputType(typeField != null ? InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS : TypeField.EMAIL.getValue());
-                                        tilEmail.setLayoutParams(Helper.margins(0, topSpacing, 0, 0));
-                                    }
-                                });
-                                break;
-                            case 6:
-                                getActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        tilPhone.setId(id);
-                                        tilPhone.setHint(message);
-                                        tietPhone.setInputType(InputType.TYPE_CLASS_PHONE);
-                                        tilPhone.setLayoutParams(Helper.margins(0, topSpacing, 0, 0));
-                                    }
-                                });
-                                break;
-                            case 7:
-                                getActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        btnSend.setId(id);
-                                        btnSend.setText(message);
-                                        btnSend.setLayoutParams(Helper.margins(0, topSpacing, 0, 0));
-                                        btnSend.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                hideKeyboard();
-                                                if (verifyFields())
-                                                    Helper.loadFragment(new SuccessFragment(), true, new Bundle(), getActivity());
-                                            }
-                                        });
-                                    }
-                                });
-                                break;
-                        }
-                    }
-
-                } catch (final JSONException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                Helper.snackbar(getView(), getString(R.string.str_msgerror_contactsupport));
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            if (pDialog.isShowing()) {
-                pDialog.dismiss();
-            }
-        }
-    }
 }
