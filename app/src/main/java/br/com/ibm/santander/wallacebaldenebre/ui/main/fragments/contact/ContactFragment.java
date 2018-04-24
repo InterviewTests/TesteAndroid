@@ -52,7 +52,6 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
     private ProgressDialog pDialog;
 
     // URL_API to get contacts JSON
-    private static String URL_API = "https://floating-mountain-50292.herokuapp.com/cells.json";
     ArrayList<HashMap<String, String>> fieldsList;
 
     public ContactFragment() {
@@ -83,7 +82,7 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
 
         if (tietName.getText().toString().isEmpty()) {
             isName = false;
-            tilName.setError("Esta campo está vázio");
+            tilName.setError(getString(R.string.str_emptyfield));
             tilName.setErrorEnabled(true);
         } else {
             isName = true;
@@ -92,7 +91,7 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
 
         if (!Patterns.EMAIL_ADDRESS.matcher(tietEmail.getText().toString()).matches()) {
             isEmail = false;
-            tilEmail.setError("Email inválido");
+            tilEmail.setError(getString(R.string.str_invalidemail));
             tilEmail.setErrorEnabled(true);
         } else {
             isEmail = true;
@@ -101,7 +100,7 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
 
         if (!Helper.isPhone(tietPhone.getText().toString())) {
             isPhone = false;
-            tilPhone.setError("Número de telefone/celular inválido");
+            tilPhone.setError(getString(R.string.str_invalidphone));
             tilPhone.setErrorEnabled(true);
         } else {
             isPhone = true;

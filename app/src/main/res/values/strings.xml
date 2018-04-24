@@ -17,4 +17,7 @@
     <string name="str_download">Baixar</string>
     <string name="str_unavailable">indisponível</string>
     <string name="str_msgerror_contactsupport">Ocorreu um erro. Contate o suporte.</string>
+    <string name="str_invalidphone">Número de telefone/celular inválido</string>
+    <string name="str_invalidemail">Email inválido</string>
+    <string name="str_emptyfield">Esta campo está vazio</string>
 </resources>

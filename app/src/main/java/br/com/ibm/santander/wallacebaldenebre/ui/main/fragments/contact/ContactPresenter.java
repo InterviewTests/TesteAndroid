@@ -1,10 +1,6 @@
 package br.com.ibm.santander.wallacebaldenebre.ui.main.fragments.contact;
 
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.text.InputType;
-import android.util.Log;
-import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,13 +8,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-import br.com.ibm.santander.wallacebaldenebre.R;
 import br.com.ibm.santander.wallacebaldenebre.model.Cell;
-import br.com.ibm.santander.wallacebaldenebre.model.Cells;
-import br.com.ibm.santander.wallacebaldenebre.model.TypeField;
 import br.com.ibm.santander.wallacebaldenebre.ui.base.BasePresenter;
-import br.com.ibm.santander.wallacebaldenebre.ui.main.fragments.contact.success.SuccessFragment;
-import br.com.ibm.santander.wallacebaldenebre.ui.main.fragments.investment.InvestmentPresenter;
 import br.com.ibm.santander.wallacebaldenebre.utils.Helper;
 
 public class ContactPresenter<V extends ContactContract.View> extends BasePresenter<V> implements ContactContract.Presenter<V> {
