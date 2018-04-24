@@ -1,0 +1,107 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:fontFamily">@font/dinproregular</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="stl_fields" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:fontFamily">@font/dinprobold</item>
+    </style>
+
+    <style name="stl_button" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/bg_rounded_button</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:stateListAnimator" tools:targetApi="lollipop">@null</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorIce</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/dinproregular</item>
+    </style>
+
+    <style name="stl_checkbox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:buttonTint" tools:targetApi="lollipop">@color/colorPrimary</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/colorPrimary</item>
+    </style>
+
+    <style name="stl_subtitle" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:fontFamily">@font/dinpromedium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+    </style>
+
+    <style name="stl_title" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:fontFamily">@font/dinpromedium</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/colorDarkGrey</item>
+    </style>
+
+    <style name="stl_txt_content" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:fontFamily">@font/dinpromedium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorLightGrey</item>
+    </style>
+
+    <style name="stl_title_label_table" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start</item>
+        <item name="android:fontFamily">@font/dinpromedium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorLightGrey</item>
+    </style>
+
+    <style name="stl_content_label_table" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">end</item>
+        <item name="android:fontFamily">@font/dinpromedium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+    </style>
+
+    <style name="stl_btn_table" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:drawableLeft">@drawable/ic_download</item>
+        <item name="android:fontFamily">@font/dinpromedium</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:text">@string/str_download</item>
+    </style>
+
+    <color name="colorIce">#F5F5F5</color>
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:padding="40dp"
+    tools:context=".ui.main.fragments.investment.InvestmentFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvw_thanks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dinprolight"
+            android:gravity="center_horizontal"
+            android:text="Obrigado!"
+            android:textColor="@color/colorGrey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvw_thanks"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/dinpromedium"
+            android:gravity="center_horizontal"
+            android:text="Mensagem enviada\ncom sucesso :)"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvw_thanks" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btn_success_newmessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="26dp"
+        android:textAllCaps="false"
+        android:background="@android:color/transparent"
+        android:padding="0dp"
+        android:textSize="16sp"
+        android:text="Enviar nova mensagem"
+        android:textColor="@color/colorPrimary" />
+</RelativeLayout>

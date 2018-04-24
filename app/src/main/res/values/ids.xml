@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="edt_contact_name" type="id" />
+    <item name="edt_contact_email" type="id" />
+    <item name="edt_contact_phone" type="id" />
+    <item name="cbx_contact_register" type="id" />
+    <item name="btn_contact_send" type="id" />
+</resources>
