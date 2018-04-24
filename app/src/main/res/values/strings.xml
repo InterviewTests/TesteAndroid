@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Teste</string>
+    <string name="txt_enviar">Enviar</string>
+    <string name="btn_investimento">Investimento</string>
+    <string name="btn_contato">Contato</string>
+    <string name="snack_sem_conexao">Nenhuma rede disponível. Verificar conexão.</string>
+    <string name="label_obrigado">Obrigado!</string>
+    <string name="label_msg_enviada">Mensagem enviada  com sucesso :)</string>
+    <string name="label_nova_mensagem">Enviar nova mensagem</string>
+    <string name="title_toolbar">Contato</string>
+</resources>
