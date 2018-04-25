@@ -14,7 +14,6 @@
         <include
             android:id="@+id/include"
             layout="@layout/include_toolbar"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -108,15 +107,18 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/background_btn"
+            android:textAlignment="center"
             android:gravity="center"
-            android:padding="16dp"
+            android:padding="18dp"
             android:text="@string/txt_enviar"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/check_cadastrar_email" />
 
-        <include layout="@layout/menu_bottom"/>
+        <include
+            layout="@layout/menu_bottom"
+          />
 
     </android.support.constraint.ConstraintLayout>
 

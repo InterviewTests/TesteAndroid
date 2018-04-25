@@ -20,7 +20,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.Investimento"></activity>
-        <activity android:name=".Utils"/>
     </application>
 
 </manifest>

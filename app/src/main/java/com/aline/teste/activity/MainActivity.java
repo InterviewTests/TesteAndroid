@@ -11,11 +11,9 @@ import android.widget.TextView;
 
 import com.aline.teste.MVP.presenter.PresenterContato;
 import com.aline.teste.R;
-import com.aline.teste.Utils;
 
 public class MainActivity extends AppCompatActivity {
 
-    Utils utils;
     ScrollView scrollView;
     PresenterContato presenterContato = new PresenterContato();
 
@@ -30,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getString(R.string.btn_contato));*/
 
-        utils = new Utils();
+
         scrollView = findViewById(R.id.scroll);
 
-        try{
-            boolean stateNetwork = utils.getStateNetworkInfo(this);
+       /* try{
+            boolean stateNetwork = getStateNetworkInfo(this);
             if(stateNetwork){
                 presenterContato.callNetworkContato();
             } else{
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, Investimento.class));
             }
-        });
+        });*/
 
 
 

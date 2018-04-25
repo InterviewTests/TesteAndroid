@@ -10,7 +10,8 @@ public class EventFund {
         this.screen = screen;
     }
 
-   Screen getScreenFun(){
+
+    public Screen getScreenFund() {
         return screen;
-   }
+    }
 }

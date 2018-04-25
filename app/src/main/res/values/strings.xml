@@ -5,7 +5,16 @@
     <string name="btn_contato">Contato</string>
     <string name="snack_sem_conexao">Nenhuma rede disponível. Verificar conexão.</string>
     <string name="label_obrigado">Obrigado!</string>
-    <string name="label_msg_enviada">Mensagem enviada  com sucesso :)</string>
+    <string name="label_msg_enviada">Mensagem enviada\ncom sucesso :)</string>
     <string name="label_nova_mensagem">Enviar nova mensagem</string>
     <string name="title_toolbar">Contato</string>
+    <string name="valor_de_risco">Valor de risco</string>
+    <string name="label_info_fundo">Fundo</string>
+    <string name="label_info_cdi">CDI</string>
+    <string name="more_info_month">No mês</string>
+    <string name="more_info_year">No ano</string>
+    <string name="more_info_twelve_month">12 meses</string>
+    <string name="btn_investir">Investir</string>
+    <string name="data_info_baixar">Baixar</string>
+    <string name="holder_baixar_data">Baixar</string>
 </resources>
