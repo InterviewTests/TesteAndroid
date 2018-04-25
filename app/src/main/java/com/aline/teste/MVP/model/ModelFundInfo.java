@@ -1,5 +1,7 @@
 package com.aline.teste.MVP.model;
 
+import android.util.Log;
+
 import com.aline.teste.MVP.MVP;
 import com.aline.teste.Models.Result;
 import com.aline.teste.Models.Screen;
@@ -22,21 +24,25 @@ public class ModelFundInfo implements MVP.ModelFund {
     @Override
     public void callRetrofitFund() {
 
-        Call<Result> call = new RetrofitConfig().getService().getFund();
-        call.enqueue(new Callback<Result>() {
-            @Override
-            public void onResponse(Call<Result> call, Response<Result> response) {
-                if(response.isSuccessful()){
-                    Result result = response.body();
-                    Screen screen = result.getScreen();
-                    presenterFund.updateFund(screen);
+        try{
+            Call<Result> call = new RetrofitConfig().getService().getFund();
+            call.enqueue(new Callback<Result>() {
+                @Override
+                public void onResponse(Call<Result> call, Response<Result> response) {
+                    if(response.isSuccessful()){
+                        Result result = response.body();
+                        Screen screen = result.getScreen();
+                        presenterFund.updateFund(screen);
+                    }
                 }
-            }
+                @Override
+                public void onFailure(Call<Result> call, Throwable t) {
+                    Log.e(LOG, "Error: " + t.getMessage());
+                }
+            });
 
-            @Override
-            public void onFailure(Call<Result> call, Throwable t) {
-
-            }
-        });
+        }   catch (Exception e ){
+            Log.e(LOG, "Error: " + e.getMessage());
+        }
     }
 }
