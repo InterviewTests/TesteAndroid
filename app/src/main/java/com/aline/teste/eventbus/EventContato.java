@@ -13,7 +13,7 @@ public class EventContato {
         this.cellsList = cellsList;
     }
 
-   List<Cells> getCellsList(){
+   public List<Cells> getCellsList(){
         return cellsList;
    }
 }

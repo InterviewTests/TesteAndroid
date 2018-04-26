@@ -7,6 +7,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
@@ -46,7 +49,12 @@ public class Investimento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_investimento);
 
-        btnInvestimento = findViewById(R.id.btn_investimento);
+        Toolbar toolbar = findViewById(R.id.include_toolbar);
+        setSupportActionBar(toolbar);
+        TextView tituloToolbar = findViewById(R.id.titulo_toolbar);
+        tituloToolbar.setText(R.string.btn_investimento);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         presenterFund.callNetworkFund();
 
         TextView btnContato = findViewById(R.id.btn_contato);
@@ -157,9 +165,19 @@ public class Investimento extends AppCompatActivity {
         EventBus.getDefault().unregister(this);
     }
 
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_open, menu);
+        return true;
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-        btnInvestimento.setBackground(getResources().getDrawable(R.drawable.background_txtview_check));
+        TextView btnInvestimento = findViewById(R.id.btn_investimento);
+        btnInvestimento.setBackgroundColor(getResources().getColor(R.color.colorBtnCheck));
+
     }
 }
