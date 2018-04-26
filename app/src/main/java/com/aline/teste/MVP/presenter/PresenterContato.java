@@ -20,6 +20,7 @@ public class PresenterContato implements MVP.PresenterCont {
     public PresenterContato(){
         model = new ModelContato(this);
     }
+
     @Override
     public void callNetworkContato() {
         model.callRetrofitContato();

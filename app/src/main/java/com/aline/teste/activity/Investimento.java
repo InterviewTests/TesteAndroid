@@ -1,17 +1,21 @@
 package com.aline.teste.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 
-import com.aline.teste.adapter.DownInfoAdapter;
-import com.aline.teste.adapter.InfoItemAdapter;
 import com.aline.teste.MVP.presenter.PresenterFund;
 import com.aline.teste.Models.MoreInfo;
 import com.aline.teste.Models.Screen;
 import com.aline.teste.R;
+import com.aline.teste.adapter.DownInfoAdapter;
+import com.aline.teste.adapter.InfoItemAdapter;
 import com.aline.teste.eventbus.EventFund;
 
 import org.greenrobot.eventbus.EventBus;
@@ -25,6 +29,7 @@ public class Investimento extends AppCompatActivity {
     RecyclerView recyclerViewDown;
     InfoItemAdapter adapterInfo;
     DownInfoAdapter adapterDown;
+    TextView btnInvestimento;
 
 
     @Subscribe
@@ -41,7 +46,28 @@ public class Investimento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_investimento);
 
+        btnInvestimento = findViewById(R.id.btn_investimento);
         presenterFund.callNetworkFund();
+
+        TextView btnContato = findViewById(R.id.btn_contato);
+        btnContato.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Investimento.this, MainActivity.class));
+                finish();
+            }
+        });
+
+        final ConstraintLayout constraintLayout = findViewById(R.id.constraint_invest);
+
+        TextView btnInvestir = findViewById(R.id.btn_investir);
+        btnInvestir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(constraintLayout, R.string.sanck_sem_evento_btn,
+                        Snackbar.LENGTH_LONG).show();
+            }
+        });
 
     }
 
@@ -131,5 +157,9 @@ public class Investimento extends AppCompatActivity {
         EventBus.getDefault().unregister(this);
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        btnInvestimento.setBackground(getResources().getDrawable(R.drawable.background_txtview_check));
+    }
 }

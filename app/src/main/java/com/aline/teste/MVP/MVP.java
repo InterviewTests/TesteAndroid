@@ -8,26 +8,25 @@ import java.util.List;
 
 public interface MVP {
 
-    public interface ModelCont{
+     interface ModelCont{
         void callRetrofitContato();
     }
 
-    public interface PresenterCont{
+     interface PresenterCont{
         void callNetworkContato();
+
         void updateCells(List<Cells> list);
     }
 
-    public interface ViewContato{
-
-    }
-
-    public  interface ModelFund{
+     interface ModelFund{
         void callRetrofitFund();
+
     }
 
-    public interface PresenterFund{
+     interface PresenterFund{
         void callNetworkFund();
         void updateFund(Screen screenList);
+
 
     }
 }

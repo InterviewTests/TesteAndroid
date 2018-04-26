@@ -9,7 +9,7 @@
     >
 
     <TextView
-        android:id="@+id/brn_investimento"
+        android:id="@+id/btn_investimento"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/background_txtview"
