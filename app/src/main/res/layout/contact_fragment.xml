@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+  <android.support.v7.widget.Toolbar
+      android:id="@+id/toolBar"
+      android:layout_width="match_parent"
+      android:layout_height="?actionBarSize"
+      android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <TextView
+        android:id="@+id/toolbarTitle"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/contact"
+        android:layout_marginEnd="@dimen/margin_20_sp"
+        android:textSize="@dimen/font_15_sp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"/>
+  </android.support.v7.widget.Toolbar>
+
+</android.support.constraint.ConstraintLayout>

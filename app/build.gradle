@@ -1,0 +1,94 @@
+apply plugin: 'com.android.application'
+apply plugin: 'jacoco'
+
+jacoco {
+  toolVersion = "0.8.1"
+}
+
+tasks.withType(Test) {
+  jacoco.includeNoLocationClasses = true
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
+
+  reports {
+    xml.enabled = true
+    html.enabled = true
+  }
+
+  def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
+  def debugTree = fileTree(dir: "$project.buildDir/intermediates/classes/debug", excludes: fileFilter)
+  def mainSrc = "$project.projectDir/src/main/java"
+
+  sourceDirectories = files([mainSrc])
+  classDirectories = files([debugTree])
+  executionData = fileTree(dir: project.buildDir, includes: [
+      'jacoco/testDebugUnitTest.exec', 'outputs/code-coverage/connected/*coverage.ec'
+  ])
+}
+
+
+android {
+  compileSdkVersion 27
+  defaultConfig {
+    applicationId "io.github.pierry.better_call_me"
+    minSdkVersion 19
+    targetSdkVersion 27
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  lintOptions {
+    disable 'InvalidPackage'
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  // edittext
+  implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+  // support
+  implementation 'com.android.support:design:27.1.1'
+  implementation 'com.android.support:appcompat-v7:27.1.1'
+  implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+  // butterknife
+  implementation 'com.jakewharton:butterknife:8.8.1'
+  annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+  // dagger
+  annotationProcessor "com.google.dagger:dagger-compiler:2.15"
+  compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+  implementation "com.google.dagger:dagger:2.15"
+  implementation "com.google.dagger:dagger-android:2.15"
+  implementation "com.google.dagger:dagger-android-support:2.15"
+  annotationProcessor "com.google.dagger:dagger-android-processor:2.15"
+  // caligraphy
+  implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+  // stheto
+  implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+  implementation 'com.facebook.stetho:stetho-js-rhino:1.5.0'
+  // timber
+  implementation 'com.jakewharton.timber:timber:4.7.0'
+  // rx
+  implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
+  implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+  implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+  implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+  implementation "io.reactivex.rxjava2:rxjava:2.1.5"
+  implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+  implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
+  // mockito
+  testImplementation "org.mockito:mockito-core:2.18.3"
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'com.android.support.test:runner:1.0.2'
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
