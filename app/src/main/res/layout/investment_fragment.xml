@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+  <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+      <TextView
+          android:id="@+id/toolbarTitle"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:text="@string/investment"
+          android:layout_marginEnd="@dimen/margin_20_sp"
+          android:textSize="@dimen/font_15_sp"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:textColor="@color/black"
+          android:layout_width="match_parent"/>
+    </android.support.v7.widget.Toolbar>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:textSize="@dimen/font_13_sp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+        app:layout_constraintHorizontal_bias="0.502" android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/fundName"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/supertitle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:textSize="@dimen/font_13_sp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/fundName"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_26_sp"
+        android:maxLines="2"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp" android:layout_marginTop="12dp" app:layout_constraintTop_toBottomOf="@+id/supertitle"
+        android:textStyle="bold"/>
+    <ProgressBar
+        android:id="@+id/progress"
+        android:visibility="gone"
+        android:layout_width="@dimen/size_30_dp"
+        android:layout_height="@dimen/size_30_dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp" app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
+    <TextView
+        android:layout_width="276dp"
+        android:layout_height="0dp"
+        android:id="@+id/definition" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp" android:gravity="center"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/risktTitle" android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/definition"
+        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp" android:textStyle="bold"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/risktTitle" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp" android:id="@+id/linearLayout">
+      <ImageView
+          android:layout_width="69dp"
+          android:layout_height="5dp" android:background="#e01a17" tools:layout_editor_absoluteY="416dp"
+          android:id="@+id/imageView" tools:layout_editor_absoluteX="307dp" android:contentDescription="@string/item"/>
+      <ImageView
+          android:layout_width="69dp"
+          android:layout_height="5dp" android:background="#e08c17" tools:layout_editor_absoluteY="399dp"
+          android:id="@+id/imageView5"
+          android:contentDescription="@string/item"
+          tools:layout_editor_absoluteX="235dp"/>
+      <ImageView
+          android:layout_width="69dp"
+          android:layout_height="5dp" android:background="#cbc446" tools:layout_editor_absoluteY="399dp"
+          android:id="@+id/imageView4"
+          android:contentDescription="@string/item"
+          tools:layout_editor_absoluteX="173dp"/>
+      <ImageView
+          android:layout_width="69dp"
+          android:contentDescription="@string/item"
+          android:layout_height="5dp" android:background="#5bc143" tools:layout_editor_absoluteY="394dp"
+          android:id="@+id/imageView3" tools:layout_editor_absoluteX="89dp"/>
+      <ImageView
+          android:layout_width="69dp"
+          android:contentDescription="@string/item"
+          android:layout_height="5dp" android:background="#6ae04f" tools:layout_editor_absoluteY="399dp"
+          android:id="@+id/imageView2" tools:layout_editor_absoluteX="20dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/infoTitle" android:layout_marginTop="45dp" app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp" android:textStyle="bold"/>
+    <TextView
+        android:text="@string/cdi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cdi" android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/infoTitle"
+        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="30dp"/>
+    <TextView
+        android:text="@string/fund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fund" android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/infoTitle"
+        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="110dp"/>
+    <TextView
+        android:text="@string/month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/month" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/fund"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/monthFund" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="110dp" android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/fund"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/monthCdi" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="30dp" android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/cdi"/>
+    <TextView
+        android:text="@string/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/year" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/month"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/yearFund" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="110dp"
+        android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/monthFund"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/yearCdi" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="30dp"
+        android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/monthCdi"/>
+    <TextView
+        android:text="@string/twelve_months"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/twelveMonths" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/year"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/twelveMonthsFund" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="110dp"
+        android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/yearFund"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/twelveMonthsCdi" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="30dp"
+        android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/yearCdi"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_height="330dp" android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/twelveMonths" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="30dp"
+        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="30dp" android:layout_width="0dp"
+        android:id="@+id/recyclerView" app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="32dp"/>
+  </android.support.constraint.ConstraintLayout>
+</ScrollView>

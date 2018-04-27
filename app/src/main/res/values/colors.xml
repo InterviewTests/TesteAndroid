@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#c91a1d</color>
+  <color name="colorPrimaryDark">#931416</color>
+  <color name="colorAccent">#fa2529</color>
+  <color name="ia_white">#FFFFFF</color>
+  <color name="black">#000000</color>
+  <color name="gray">#9b9b9b</color>
+  <color name="error">#d10808</color>
+  <color name="success">#019f24</color>
+</resources>
