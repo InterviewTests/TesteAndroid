@@ -11,7 +11,8 @@
         android:id="@+id/linear_parent"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <include
             android:id="@+id/include"
@@ -23,23 +24,21 @@
         <LinearLayout
             android:id="@+id/linear_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginEnd="24dp"
            android:layout_marginStart="24dp" >
 
         </LinearLayout>
 
-
-
-
         <include
             layout="@layout/menu_bottom"
 
-             />
-
+            />
 
     </LinearLayout>
+
+
 
 
 </ScrollView>

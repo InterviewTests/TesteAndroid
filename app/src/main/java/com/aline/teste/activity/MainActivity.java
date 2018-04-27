@@ -5,13 +5,10 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.text.InputType;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -23,22 +20,16 @@ import android.widget.TextView;
 
 import com.aline.teste.MVP.presenter.PresenterContato;
 import com.aline.teste.Models.Cells;
-import com.aline.teste.Models.Screen;
 import com.aline.teste.R;
 import com.aline.teste.eventbus.EventContato;
-import com.aline.teste.eventbus.EventFund;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.text.InputType.TYPE_CLASS_PHONE;
-import static android.text.InputType.TYPE_CLASS_TEXT;
 import static android.text.InputType.TYPE_NULL;
-import static android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -124,15 +115,14 @@ public class MainActivity extends AppCompatActivity {
                 case 1:
                     EditText editType = new EditText(MainActivity.this);
                     if (cells.getTypefield().equals(1)) {
-                        editType.setInputType(TYPE_CLASS_TEXT);
-                    } else if (cells.getTypefield().equals(2)) {
-                        editType.setInputType(TYPE_CLASS_PHONE);
+                        editType.setInputType(InputType.TYPE_CLASS_TEXT);
+                    } else if (cells.getTypefield().equals("telNumber")) {
+                        editType.setInputType(InputType.TYPE_CLASS_PHONE);
                     } else if (cells.getTypefield().equals(3)) {
-                        editType.setInputType(TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+                        editType.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
                     }else{
                         editType.setInputType(TYPE_NULL);
                     }
-
                     if (cells.getMessage() != null && !cells.getMessage().trim().isEmpty()) {
                         editType.setHint(cells.getMessage());
                     }

@@ -8,9 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aline.teste.MVP.presenter.PresenterFund;
@@ -27,7 +27,7 @@ import org.greenrobot.eventbus.Subscribe;
 public class Investimento extends AppCompatActivity {
 
     private Screen screen = null;
-    PresenterFund  presenterFund = new PresenterFund();
+    PresenterFund presenterFund = new PresenterFund();
     RecyclerView recyclerViewInfo;
     RecyclerView recyclerViewDown;
     InfoItemAdapter adapterInfo;
@@ -36,7 +36,7 @@ public class Investimento extends AppCompatActivity {
 
 
     @Subscribe
-    public void onEvent(EventFund event){
+    public void onEvent(EventFund event) {
         screen = event.getScreenFund();
         updateUi(screen);
         getListInfo();
@@ -95,7 +95,37 @@ public class Investimento extends AppCompatActivity {
         TextView riskTitle = findViewById(R.id.risk_title);
         riskTitle.setText(screen.getRiskTitle());
 
+
+
         int risk = screen.getRisk();
+        switch (risk){
+            case 1:
+                ImageView riskUm = findViewById(R.id.risk_um);
+                riskUm.setPadding(0,16,0,0);
+                break;
+            case 2 :
+                ImageView riskDois = findViewById(R.id.risk_dois);
+                riskDois.setPadding(0,16,0,0);
+                break;
+
+            case 3:
+                ImageView riskTres = findViewById(R.id.risk_tres);
+                riskTres.setPadding(0,16,0,0);
+                break;
+
+            case 4:
+                ImageView riskQuatro = findViewById(R.id.risk_quatro);
+                riskQuatro.setPadding(0,0,0,0);
+
+                break;
+
+            case 5:
+                ImageView riskCinco = findViewById(R.id.risk_cinco);
+                riskCinco.setPadding(0,16,0,0);
+                break;
+                default:break;
+        }
+
 
         TextView infoTitle = findViewById(R.id.info_title);
         infoTitle.setText(screen.getInfoTitle());
@@ -164,7 +194,6 @@ public class Investimento extends AppCompatActivity {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
-
 
 
     @Override
