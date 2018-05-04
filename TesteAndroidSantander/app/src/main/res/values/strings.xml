@@ -8,5 +8,7 @@
     <string name="months12">12 meses</string>
     <string name="year">Ano</string>
     <string name="month">Mês</string>
+    <string name="tituloInvestimento">Investimento</string>
+    <string name="tituloContato">Contato</string>
 
 </resources>

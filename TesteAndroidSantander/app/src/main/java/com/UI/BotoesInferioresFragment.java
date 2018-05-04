@@ -16,7 +16,8 @@ public class BotoesInferioresFragment extends Fragment {
     private Button btnInvestimento;
     private Button btnContato;
 
-    private OnSetTitleListener listener;
+    private OnSetTitleListener listenerTitle;
+    private OnOpenFragmentListener listenerOpenFragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,8 +37,11 @@ public class BotoesInferioresFragment extends Fragment {
     private View.OnClickListener onClickListenerInvestimento = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (listener != null) {
-                listener.onSetTitle("INVESTIMENTO");
+            if (listenerTitle != null) {
+                listenerTitle.onSetTitle(getString(R.string.tituloInvestimento));
+            }
+            if(listenerOpenFragment != null){
+                listenerOpenFragment.onOpenFragment(getString(R.string.tituloInvestimento));
             }
         }
     };
@@ -45,12 +49,15 @@ public class BotoesInferioresFragment extends Fragment {
     private View.OnClickListener onClickListenerContato = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (listener != null) {
-                listener.onSetTitle("CONTATO");
+            if (listenerTitle != null) {
+                listenerTitle.onSetTitle(getString(R.string.tituloContato));
+            }
+            if(listenerOpenFragment != null){
+                listenerOpenFragment.onOpenFragment(getString(R.string.tituloContato));
             }
         }
     };
-    
+
     //O contexto como parametro só é permitido a partir do android 23
     @Override
     public void onAttach(Activity activity) {
@@ -58,12 +65,23 @@ public class BotoesInferioresFragment extends Fragment {
 
         if (!(activity instanceof OnSetTitleListener)) {
             throw new RuntimeException("A activity deve implementar a interface OnSetTitleListener");
+        }else {
+            listenerTitle = (OnSetTitleListener) activity;
         }
-        listener = (OnSetTitleListener) activity;
+        if (!(activity instanceof OnOpenFragmentListener)) {
+            throw new RuntimeException("A activity deve implementar a interface OnSetTitleListener");
+        }else{
+            listenerOpenFragment = (OnOpenFragmentListener) activity;
+        }
 
     }
 
     public interface OnSetTitleListener {
         void onSetTitle(String text);
     }
+
+    public interface OnOpenFragmentListener {
+        void onOpenFragment(String text);
+    }
+
 }

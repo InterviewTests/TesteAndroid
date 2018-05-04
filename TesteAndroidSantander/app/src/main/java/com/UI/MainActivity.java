@@ -9,34 +9,32 @@ import android.view.View;
 
 import com.cerqueira.mellina.testeandroidsantander.R;
 
-public class MainActivity extends Activity implements BotoesInferioresFragment.OnSetTitleListener{
+public class MainActivity extends Activity implements BotoesInferioresFragment.OnSetTitleListener, BotoesInferioresFragment.OnOpenFragmentListener {
 
     private TituloFragment tituloFragment;
+
+    InvestimentoFragment inf;
+    FormularioFragment lp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      //  requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //  requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         tituloFragment = (TituloFragment) getFragmentManager().findFragmentById(R.id.layout_titulo);
 
-        FormularioFragment lp = new FormularioFragment();
-        MensagemEnviadaFragment mef = new MensagemEnviadaFragment();
-        InvestimentoFragment inf = new InvestimentoFragment();
+        inf = new InvestimentoFragment();
+        lp = new FormularioFragment();
 
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
 
-       //Só para teste
         //ft.add(R.id.layout_principal, lp, "layout_contato");
-        //ft.add(R.id.layout_barra_inferior, bif, "layout_botoes_inferiores");
-      //  ft.add(R.id.layout_principal, mef, "layout_mensagem_enviada");
+
         ft.add(R.id.layout_principal, inf, "layout_investimento");
 
         ft.commit();
-
-
     }
 
     @Override
@@ -44,5 +42,20 @@ public class MainActivity extends Activity implements BotoesInferioresFragment.O
         tituloFragment.setTitleFragment(text);
     }
 
+    @Override
+    public void onOpenFragment(String text) {
 
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+
+        if (text.equals("Investimento")) {
+            ft.replace(R.id.layout_principal, inf, "layout_investimento");
+            ft.commit();
+        }
+        if (text.equals("Contato")) {
+            ft.replace(R.id.layout_principal, lp, "layout_investimento");
+            ft.commit();
+        }
+
+    }
 }
