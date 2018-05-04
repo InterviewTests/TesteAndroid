@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TesteAndroidSantander</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnInvestimento">Investimento</string>
+    <string name="btnContato">Contato</string>
+    <string name="months12">12 meses</string>
+    <string name="year">Ano</string>
+    <string name="month">Mês</string>
+
+</resources>

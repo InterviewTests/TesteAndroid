@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <!-- pressionado -->
+    <item android:drawable="@drawable/botao_pressionado" android:state_pressed="true"/>
+
+        <!-- focalisado-->
+        <!--//<moreInfo android:drawable="@color/sua_cor_do_foco" android:state_focused="true"/>-->
+
+        <!-- normal-->
+        <item android:drawable="@drawable/botao_normal"/>
+
+
+</selector>
+
+
+
