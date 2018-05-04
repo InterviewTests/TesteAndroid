@@ -12,6 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.adapters.Info;
+import com.adapters.InfoAdapter;
+import com.adapters.MoreInfo;
+import com.adapters.MoreInfoAdapter;
 import com.cerqueira.mellina.testeandroidsantander.R;
 import com.http.HttpCall;
 import com.http.HttpResponse;

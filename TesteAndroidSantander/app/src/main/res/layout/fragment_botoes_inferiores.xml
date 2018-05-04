@@ -9,17 +9,19 @@
 
     <Button
         style="@style/MainButton"
-        android:id="@+id/button2"
+        android:id="@+id/btnInvestimento"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
+
         android:text="@string/btnInvestimento" />
 
     <Button
         style="@style/MainButton"
-        android:id="@+id/button"
+        android:id="@+id/btnContato"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+
         android:layout_weight="1"
         android:text="@string/btnContato" />
 </LinearLayout>
