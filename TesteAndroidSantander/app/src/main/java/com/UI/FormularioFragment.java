@@ -3,8 +3,6 @@ package com.UI;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -12,8 +10,12 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.support.v4.view.ViewCompat;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.InputType;
 
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,7 +90,7 @@ public class FormularioFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if(task != null){
+        if (task != null) {
             task.cancel(true);
         }
 
@@ -186,7 +188,9 @@ public class FormularioFragment extends Fragment {
                 }
             }
 
-            if(criaComponente){  criaComponentesDeAcordoComOTipo(c); }
+            if (criaComponente) {
+                criaComponentesDeAcordoComOTipo(c);
+            }
 
 
             adicionaComponentesNoLayout(c, idComponenteAtual, idComponenteAnterior);
@@ -213,7 +217,6 @@ public class FormularioFragment extends Fragment {
         button.setOnClickListener(onClickListenerButton);
         button.setId(Integer.parseInt(String.valueOf(c.getId())));
         clpcontactUs = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
-
         button.setLayoutParams(clpcontactUs);
         constraintLayout.addView(button);
         componentesUI.add(button);
@@ -255,6 +258,13 @@ public class FormularioFragment extends Fragment {
         if (c.getTypefield() != null) {
             editText.setInputType(retornaInputType(c));
         }
+        Log.i("CHAN", "Tipo number " + c.getTypefield());
+        if (c.getTypefield().equals(INPUT_TYPE_TEL_NUMBER)) {
+
+            editText.addTextChangedListener(onChangedListenerText);
+            //adiciona restricao para ter no maximo 14 digitos no texto
+            editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(14)});
+        }
         clpcontactUs = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
         editText.setLayoutParams(clpcontactUs);
         constraintLayout.addView(editText);
@@ -288,6 +298,51 @@ public class FormularioFragment extends Fragment {
     }
 
 
+    private TextWatcher onChangedListenerText = new TextWatcher() {
+
+        int tamanho_anterior = 0;
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            tamanho_anterior = s.length();
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+            mascaraTelefoneEdittext(s);
+        }
+
+        private void mascaraTelefoneEdittext(Editable s) {
+            if (tamanho_anterior < s.length()) {
+                if (s.length() == 1) {
+                    if (Character.isDigit(s.charAt(0))) {
+                        s.insert(0, "(");
+                    }
+                } else if (s.length() == 3) {
+                    s.append(")");
+                } else if (s.length() == 8) {
+                    s.append("-");
+                } else if (s.length() > 13) {
+
+                    if (Character.isDigit(s.charAt(9))) {
+                        s.replace(8, 9, s.charAt(9) + "");
+                    }
+                    s.replace(9, 10, "-");
+
+                }
+            }
+        }
+
+    };
+
 
     private View.OnClickListener onClickListenerButton = new View.OnClickListener() {
         @Override
@@ -311,7 +366,7 @@ public class FormularioFragment extends Fragment {
                     if (ed.getText() == null) {
                         ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.red));
                         return false;
-                    }else{
+                    } else {
                         ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.green));
                     }
                     break;
@@ -322,7 +377,7 @@ public class FormularioFragment extends Fragment {
                     if (!ENumeroDeTelefone(textoDigitado)) {
                         ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.red));
                         return false;
-                    }else{
+                    } else {
                         ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.green));
                     }
                     break;
@@ -335,7 +390,7 @@ public class FormularioFragment extends Fragment {
                         if (!EEmail(textoDigitado)) {
                             ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.red));
                             return false;
-                        }else{
+                        } else {
                             ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.green));
                         }
                     }
