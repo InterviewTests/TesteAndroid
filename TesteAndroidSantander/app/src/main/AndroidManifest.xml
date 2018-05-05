@@ -11,9 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/StyleCustomizado">
-        <activity android:name="com.UI.FormularioFragment">
 
-        </activity>
         <activity android:name="com.UI.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

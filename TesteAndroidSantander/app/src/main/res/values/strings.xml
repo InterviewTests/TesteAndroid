@@ -10,5 +10,6 @@
     <string name="month">Mês</string>
     <string name="tituloInvestimento">Investimento</string>
     <string name="tituloContato">Contato</string>
+    <string name="btnInvestir">Investir</string>
 
 </resources>

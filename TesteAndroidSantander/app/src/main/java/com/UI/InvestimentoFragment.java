@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,6 +92,7 @@ public class InvestimentoFragment extends Fragment {
             try {
                 String url = strings[0];
                 HttpCall http = new HttpCall(url);
+                Log.i("HTTP", "HTTP     "+http);
                 HttpResponse response = http.execute(HttpCall.Method.GET);
                 Map<String, String> textosIniciais = new HashMap<String, String>();
 
@@ -109,7 +111,9 @@ public class InvestimentoFragment extends Fragment {
 
 
                 } catch (JSONException e) {
+                    Log.e("ERRO", "Erro no segundo try catch InvestimentoFragment");
                     e.printStackTrace();
+
                 }
 
 
@@ -117,6 +121,7 @@ public class InvestimentoFragment extends Fragment {
 
             } catch (IOException e) {
                 e.printStackTrace();
+                Log.e("ERRO", "Erro no primeiro try catch InvestimentoFragment");
                 return null;
             }
         }

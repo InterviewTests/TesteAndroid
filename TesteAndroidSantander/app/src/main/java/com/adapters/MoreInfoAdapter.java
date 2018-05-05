@@ -33,8 +33,8 @@ public class MoreInfoAdapter extends RecyclerView.Adapter<MoreInfoAdapter.ItemHo
     public void onBindViewHolder(ItemHolder holder, int position) {
         MoreInfo moreInfo = moreInfos.get(position);
         holder.txtPeriod.setText(moreInfo.getPeriod());
-        holder.txtFund.setText(String.valueOf(moreInfo.getFund()));
-        holder.txtCDI.setText(String.valueOf(moreInfo.getCDI()));
+        holder.txtFund.setText(String.valueOf(moreInfo.getFund()+"%"));
+        holder.txtCDI.setText(String.valueOf(moreInfo.getCDI()+"%"));
 
     }
 

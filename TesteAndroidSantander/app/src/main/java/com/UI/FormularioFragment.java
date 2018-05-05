@@ -1,5 +1,6 @@
 package com.UI;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -52,6 +53,7 @@ public class FormularioFragment extends Fragment {
 
     List<View> componentesUI = new ArrayList<View>();
 
+    private OnButtonSendListener listener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -66,6 +68,17 @@ public class FormularioFragment extends Fragment {
         task.execute(URL);
 
         return view;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if (!(activity instanceof OnButtonSendListener)) {
+            throw new RuntimeException("A activity deve implementar a interface FormularioFragment.OnButtonSendListener");
+        }
+
+        listener = (OnButtonSendListener) activity;
     }
 
     private class ReadContatoJSONTask extends AsyncTask<String, Void, List<Componente>> {
@@ -286,7 +299,9 @@ public class FormularioFragment extends Fragment {
             Log.i("TAG", "on click button ");
 
             if (entradaDeDadosEValidaEnviar()) {
-                //abrir a mensagem de sucesso
+                if (listener != null) {
+                    listener.onSend();
+                }
 
                 Log.i("TAG", "VALIDO");
             } else {
@@ -390,8 +405,7 @@ public class FormularioFragment extends Fragment {
         return InputType.TYPE_CLASS_TEXT;
     }
 
-    /*private int converteDpParaPx(int dp){
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
-    }*/
+    public interface OnButtonSendListener {
+        void onSend();
+    }
 }

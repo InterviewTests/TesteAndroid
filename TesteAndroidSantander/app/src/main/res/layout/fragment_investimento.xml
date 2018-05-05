@@ -12,23 +12,27 @@
 
         <TextView
             android:id="@+id/txtTitle"
+            style="@style/TextViewDarkGrayBold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="20dp"
             android:text="txtTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:textSize="35dp"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
             android:id="@+id/txtfundName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="0dp"
             android:text="fundName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +45,7 @@
             android:layout_height="1dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,11 +54,12 @@
 
         <TextView
             android:id="@+id/txtWhatIs"
+            style="@style/TextViewDarkGrayBold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:text="whatIs"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,11 +67,12 @@
 
         <TextView
             android:id="@+id/txtDefinition"
+            style="@style/TextViewGray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:text="definition"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,6 +80,7 @@
 
         <TextView
             android:id="@+id/txtRiskTitle"
+            style="@style/TextViewDarkGrayBold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -98,6 +106,7 @@
 
         <TextView
             android:id="@+id/txtInfoTitle"
+            style="@style/TextViewDarkGrayBold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -117,30 +126,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintTop_toBottomOf="@+id/textTitleFund" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/textTitleFund"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toStartOf="@+id/textView12"
+            android:text="Fundo"
+            style="@style/TextViewGray"
+            android:gravity="right"
+            app:layout_constraintEnd_toStartOf="@+id/textTitleCDI"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView13"
             app:layout_constraintTop_toBottomOf="@+id/txtInfoTitle" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/textTitleCDI"
+            style="@style/TextViewGray"
+            android:gravity="right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="80dp"
-            android:text="TextView"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView11"
+            android:text="CDI"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textTitleFund"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView11" />
+            app:layout_constraintStart_toEndOf="@+id/textTitleFund" />
 
         <TextView
             android:id="@+id/textView13"
@@ -148,9 +161,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:text="TextView"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView11"
-            app:layout_constraintEnd_toStartOf="@+id/textView11"
+            android:text=""
+            app:layout_constraintBaseline_toBaselineOf="@+id/textTitleFund"
+            app:layout_constraintEnd_toStartOf="@+id/textTitleFund"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -175,5 +188,20 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider3" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/btnInvestir"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_info" />
+
+
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

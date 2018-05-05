@@ -5,22 +5,26 @@
 
     <TextView
         android:id="@+id/txtPeriod"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:gravity="left"
+        style="@style/TextViewGray"
         android:text="Period" />
 
     <TextView
         android:id="@+id/txtFund"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:gravity="right"
         android:text="Fund" />
 
     <TextView
         android:id="@+id/txtCDI"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:gravity="right"
         android:text="CDI" />
 </LinearLayout>

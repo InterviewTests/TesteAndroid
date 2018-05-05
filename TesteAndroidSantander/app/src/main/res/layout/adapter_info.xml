@@ -5,14 +5,17 @@
 
     <TextView
         android:id="@+id/txtName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        style="@style/TextViewGray"
+        android:gravity="left"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Name" />
 
     <TextView
         android:id="@+id/txtData"
-        android:layout_width="wrap_content"
+        android:gravity="right"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Data" />
