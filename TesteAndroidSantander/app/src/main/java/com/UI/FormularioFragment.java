@@ -3,6 +3,8 @@ package com.UI;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -65,8 +67,16 @@ public class FormularioFragment extends Fragment {
         constraintLayout.setPadding(80, 0, 80, 0);
 
         View view = constraintLayout;
-        task = new ReadContatoJSONTask();
-        task.execute(URL);
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnected();
+        if (isConnected) {
+            task = new ReadContatoJSONTask();
+            task.execute(URL);
+        }
+
 
         return view;
     }
@@ -74,7 +84,10 @@ public class FormularioFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        task.cancel(true);
+        if(task != null){
+            task.cancel(true);
+        }
+
     }
 
     @Override

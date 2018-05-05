@@ -2,17 +2,18 @@ package com.UI;
 
 
 import android.content.Context;
-import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.adapters.Info;
@@ -51,6 +52,10 @@ public class InvestimentoFragment extends Fragment {
     List<MoreInfo> moreInfo;
     List<Info> info;
     ReadInvestimentoJSONTask task;
+    Button btnInvestir;
+    View barraDivider;
+    View barraDivider2;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -65,16 +70,30 @@ public class InvestimentoFragment extends Fragment {
         moreInfo = new ArrayList<>();
         info = new ArrayList<>();
 
-        task = new ReadInvestimentoJSONTask();
-        task.execute(URL);
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnected();
+        if (isConnected) {
+            task = new ReadInvestimentoJSONTask();
+            task.execute(URL);
+            btnInvestir.setVisibility(View.VISIBLE);
+            barraDivider.setVisibility(View.VISIBLE);
+            barraDivider2.setVisibility(View.VISIBLE);
+        }else{
+            btnInvestir.setVisibility(View.INVISIBLE);
+            barraDivider.setVisibility(View.INVISIBLE);
+            barraDivider2.setVisibility(View.INVISIBLE);
+        }
         return view;
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        task.cancel(true);
+        if(task != null){
+            task.cancel(true);
+        }
 
     }
 
@@ -88,6 +107,10 @@ public class InvestimentoFragment extends Fragment {
         infoTitle = view.findViewById(R.id.txtInfoTitle);
         recyclerViewMoreInfo = view.findViewById(R.id.recycler_view);
         recyclerViewInfo = view.findViewById(R.id.recycler_view_info);
+        btnInvestir = view.findViewById(R.id.btnInvestir);
+        barraDivider = view.findViewById(R.id.divider);
+        barraDivider2 = view.findViewById(R.id.divider2);
+
     }
 
     private class ReadInvestimentoJSONTask extends AsyncTask<String, Void, ArrayList<Object>> {
