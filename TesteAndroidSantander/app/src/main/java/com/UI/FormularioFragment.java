@@ -3,15 +3,17 @@ package com.UI;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
+import android.support.v4.view.ViewCompat;
 import android.text.InputType;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +60,9 @@ public class FormularioFragment extends Fragment {
 
     private OnButtonSendListener listener;
 
+    private static boolean CRIA_COMPONENTE = true;
+    private static boolean ATUALIZA_COMPONENTE = false;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -76,7 +81,6 @@ public class FormularioFragment extends Fragment {
             task = new ReadContatoJSONTask();
             task.execute(URL);
         }
-
 
         return view;
     }
@@ -142,7 +146,7 @@ public class FormularioFragment extends Fragment {
         @Override
         protected void onPostExecute(List<Componente> s) {
 
-            criaDinamicamenteComponentesNaTela(s);
+            criaEAtualizaDinamicamenteComponentesNaTela(s, CRIA_COMPONENTE);
 
             super.onPostExecute(s);
         }
@@ -165,7 +169,7 @@ public class FormularioFragment extends Fragment {
 
     EditText editText;
 
-    private void criaDinamicamenteComponentesNaTela(List<Componente> s) {
+    private void criaEAtualizaDinamicamenteComponentesNaTela(List<Componente> s, boolean criaComponente) {
 
         for (int i = 0; i < s.size(); i++) {
 
@@ -174,8 +178,7 @@ public class FormularioFragment extends Fragment {
             int idComponenteAnterior = constraintLayout.getId();
             if (idComponenteAtual != 1) {
 
-                //TODO: Melhorar essa logica aqui
-                //se o componente anterior estiver esconido
+                //pega o id do ultimo componente que não está escondido
                 if (s.get(i - 1).isHidden()) {
                     idComponenteAnterior = s.get(i - 2).getId();
                 } else {
@@ -183,19 +186,24 @@ public class FormularioFragment extends Fragment {
                 }
             }
 
-            if (c.getType() == FIELD) {
-                criaComponenteField(c);
-            } else if (c.getType() == TEXT) {
-                criaComponenteText(c);
-            } else if (c.getType() == CHECKBOX) {
-                criaComponenteCheckBox(c);
-            } else if (c.getType() == BUTTON) {
-                criaComponenteButton(c);
-            }
+            if(criaComponente){  criaComponentesDeAcordoComOTipo(c); }
+
 
             adicionaComponentesNoLayout(c, idComponenteAtual, idComponenteAnterior);
         }
 
+    }
+
+    private void criaComponentesDeAcordoComOTipo(Componente c) {
+        if (c.getType() == FIELD) {
+            criaComponenteField(c);
+        } else if (c.getType() == TEXT) {
+            criaComponenteText(c);
+        } else if (c.getType() == CHECKBOX) {
+            criaComponenteCheckBox(c);
+        } else if (c.getType() == BUTTON) {
+            criaComponenteButton(c);
+        }
     }
 
     private void criaComponenteButton(Componente c) {
@@ -268,6 +276,7 @@ public class FormularioFragment extends Fragment {
         constraintSet.connect(idComponenteAtual, ConstraintSet.LEFT, constraintLayout.getId(), ConstraintSet.LEFT, 0);
         constraintSet.connect(idComponenteAtual, ConstraintSet.RIGHT, constraintLayout.getId(), ConstraintSet.RIGHT, 0);
 
+        //Adicionar corrente ?
             /*int[] rowChainIds = new int[5];
             rowChainIds[0] = 1;
             rowChainIds[1] = 2;
@@ -279,53 +288,15 @@ public class FormularioFragment extends Fragment {
     }
 
 
-    private void atualizaDinamicamenteComponentesNaTela(List<Componente> s) {
-
-        for (int i = 0; i < s.size(); i++) {
-
-            Componente c = s.get(i);
-            int idComponenteAtual = c.getId();
-            int idComponenteAnterior = constraintLayout.getId();
-            if (idComponenteAtual != 1) {
-
-                //TODO: Melhorar essa logica aqui
-                //se o componente anterior estiver esconido
-                if (s.get(i - 1).isHidden()) {
-                    idComponenteAnterior = s.get(i - 2).getId();
-                } else {
-                    idComponenteAnterior = s.get(i - 1).getId();
-                }
-            }
-
-         /*   if (c.getType() == FIELD) {
-                criaComponenteField(c);
-            } else if (c.getType() == TEXT) {
-                criaComponenteText(c);
-            } else if (c.getType() == CHECKBOX) {
-                criaComponenteCheckBox(c);
-            } else if (c.getType() == BUTTON) {
-                criaComponenteButton(c);
-            }*/
-
-            adicionaComponentesNoLayout(c, idComponenteAtual, idComponenteAnterior);
-        }
-
-    }
 
     private View.OnClickListener onClickListenerButton = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
-            Log.i("TAG", "on click button ");
-
             if (entradaDeDadosEValidaEnviar()) {
                 if (listener != null) {
                     listener.onSend();
                 }
-
-                Log.i("TAG", "VALIDO");
-            } else {
-                Log.i("TAG", "INVALIDO");
             }
         }
     };
@@ -337,9 +308,11 @@ public class FormularioFragment extends Fragment {
             switch (componentes.get(i).getTypefield()) {
                 case INPUT_TYPE_TEXT: {
                     EditText ed = (EditText) componentesUI.get(i);
-
                     if (ed.getText() == null) {
+                        ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.red));
                         return false;
+                    }else{
+                        ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.green));
                     }
                     break;
                 }
@@ -347,7 +320,10 @@ public class FormularioFragment extends Fragment {
                     EditText ed = (EditText) componentesUI.get(i);
                     String textoDigitado = String.valueOf(ed.getText());
                     if (!ENumeroDeTelefone(textoDigitado)) {
+                        ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.red));
                         return false;
+                    }else{
+                        ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.green));
                     }
                     break;
                 }
@@ -355,11 +331,12 @@ public class FormularioFragment extends Fragment {
                     EditText ed = (EditText) componentesUI.get(i);
 
                     if (ed.getVisibility() == View.VISIBLE) {
-
                         String textoDigitado = String.valueOf(ed.getText());
                         if (!EEmail(textoDigitado)) {
-
+                            ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.red));
                             return false;
+                        }else{
+                            ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.green));
                         }
                     }
                     break;
@@ -393,7 +370,7 @@ public class FormularioFragment extends Fragment {
                         EditText ed = (EditText) componentesUI.get(i);
                         componentes.get(i).setHidden(false);
                         ed.setVisibility(View.VISIBLE);
-                        atualizaDinamicamenteComponentesNaTela(componentes);
+                        criaEAtualizaDinamicamenteComponentesNaTela(componentes, ATUALIZA_COMPONENTE);
                     }
                 }
             } else {
@@ -403,7 +380,7 @@ public class FormularioFragment extends Fragment {
                         componentes.get(i).setHidden(true);
                         EditText ed = (EditText) componentesUI.get(i);
                         ed.setVisibility(View.INVISIBLE);
-                        atualizaDinamicamenteComponentesNaTela(componentes);
+                        criaEAtualizaDinamicamenteComponentesNaTela(componentes, ATUALIZA_COMPONENTE);
                     }
                 }
             }

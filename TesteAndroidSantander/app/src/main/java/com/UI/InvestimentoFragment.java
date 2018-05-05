@@ -74,6 +74,7 @@ public class InvestimentoFragment extends Fragment {
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 
         boolean isConnected = activeNetwork != null && activeNetwork.isConnected();
+
         if (isConnected) {
             task = new ReadInvestimentoJSONTask();
             task.execute(URL);
@@ -143,7 +144,6 @@ public class InvestimentoFragment extends Fragment {
 
 
                 } catch (JSONException e) {
-                    Log.e("ERRO", "Erro no primeiro try catch");
                     e.printStackTrace();
 
                 }

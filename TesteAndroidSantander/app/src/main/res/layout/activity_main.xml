@@ -18,15 +18,14 @@
         android:id="@+id/layout_principal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6"
+        android:layout_weight="8"
         />
 
     <fragment
         android:id="@+id/layout_barra_inferior"
+        android:name="com.UI.BotoesInferioresFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:name="com.UI.BotoesInferioresFragment"
-        />
+        android:layout_weight="1" />
 
 </LinearLayout>
