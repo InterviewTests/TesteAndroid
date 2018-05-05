@@ -50,6 +50,7 @@ public class FormularioFragment extends Fragment {
 
     List<Componente> componentes;
     Context context;
+    ReadContatoJSONTask task;
 
     List<View> componentesUI = new ArrayList<View>();
 
@@ -64,10 +65,16 @@ public class FormularioFragment extends Fragment {
         constraintLayout.setPadding(80, 0, 80, 0);
 
         View view = constraintLayout;
-        ReadContatoJSONTask task = new ReadContatoJSONTask();
+        task = new ReadContatoJSONTask();
         task.execute(URL);
 
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        task.cancel(true);
     }
 
     @Override

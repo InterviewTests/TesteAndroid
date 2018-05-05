@@ -2,14 +2,12 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-
     </style>
 
-
     <style name="StyleCustomizado" parent="android:Theme.Holo.Light.DarkActionBar">
-
         <item name="android:textSize">15dp</item>
         <item name="android:buttonStyle">@style/Button</item>
+        <item name="android:fontFamily">@font/font_din_pro</item>
 
     </style>
 
@@ -53,6 +51,5 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/botao_navegacao_customizado</item>
     </style>
-
 
 </resources>

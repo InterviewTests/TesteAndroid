@@ -2,9 +2,11 @@ package com.UI;
 
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -48,7 +50,7 @@ public class InvestimentoFragment extends Fragment {
     RecyclerView recyclerViewInfo;
     List<MoreInfo> moreInfo;
     List<Info> info;
-
+    ReadInvestimentoJSONTask task;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,10 +65,17 @@ public class InvestimentoFragment extends Fragment {
         moreInfo = new ArrayList<>();
         info = new ArrayList<>();
 
-        ReadInvestimentoJSONTask task = new ReadInvestimentoJSONTask();
+        task = new ReadInvestimentoJSONTask();
         task.execute(URL);
 
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        task.cancel(true);
+
     }
 
     private void adicionaComponentesdoLayoutXML(View view) {
@@ -111,7 +120,7 @@ public class InvestimentoFragment extends Fragment {
 
 
                 } catch (JSONException e) {
-                    Log.e("ERRO", "Erro no segundo try catch InvestimentoFragment");
+                    Log.e("ERRO", "Erro no primeiro try catch");
                     e.printStackTrace();
 
                 }
@@ -121,7 +130,6 @@ public class InvestimentoFragment extends Fragment {
 
             } catch (IOException e) {
                 e.printStackTrace();
-                Log.e("ERRO", "Erro no primeiro try catch InvestimentoFragment");
                 return null;
             }
         }
