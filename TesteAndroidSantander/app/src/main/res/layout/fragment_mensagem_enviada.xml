@@ -49,7 +49,7 @@
             android:layout_marginTop="72dp"
             android:textStyle="bold"
             android:textColor="@android:color/holo_red_dark"
-            android:text="Enviar nova mensagem"
+            android:text="@string/texto_enviar_nova_mensagem"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

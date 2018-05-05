@@ -11,5 +11,6 @@
     <string name="tituloInvestimento">Investimento</string>
     <string name="tituloContato">Contato</string>
     <string name="btnInvestir">Investir</string>
+    <string name="texto_enviar_nova_mensagem">Enviar nova mensagem</string>
 
 </resources>
