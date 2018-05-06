@@ -131,44 +131,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtInfoTitle" />
 
-        <!--<TextView
-            android:id="@+id/textTitleFund"
-            style="@style/TextViewGray"
-            android:layout_width="194dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:gravity="right"
-            android:text="@string/txtFund"
-            app:layout_constraintEnd_toStartOf="@+id/textTitleCDI"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView13"
-            app:layout_constraintTop_toBottomOf="@+id/txtInfoTitle" />
-
-        <TextView
-            android:id="@+id/textTitleCDI"
-            style="@style/TextViewGray"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="80dp"
-            android:gravity="right"
-            android:text="@string/txtCdi"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textTitleFund"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textTitleFund" />
--->
- <!--       <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:text=""
-            app:layout_constraintBaseline_toBaselineOf="@+id/textTitleFund"
-            app:layout_constraintEnd_toStartOf="@+id/textTitleFund"
-            app:layout_constraintStart_toStartOf="parent" />
--->
         <View
             android:id="@+id/divider2"
 
@@ -200,6 +162,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="15dp"
             android:text="@string/btnInvestir"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

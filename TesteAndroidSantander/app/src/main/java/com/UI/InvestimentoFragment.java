@@ -101,6 +101,7 @@ public class InvestimentoFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         if (task != null) {
+            // Cancela a AsyncTask responsavel pela leitura do JSON quando a tela é destruida
             task.cancel(true);
         }
 
