@@ -15,6 +15,8 @@ public class MoreInfoAdapter extends RecyclerView.Adapter<MoreInfoAdapter.ItemHo
 
     private List<MoreInfo> moreInfos;
     private Context context;
+    private static final int TITULO = 0;
+
 
     public MoreInfoAdapter(Context context, List<MoreInfo> moreInfos) {
         this.context = context;
@@ -33,8 +35,16 @@ public class MoreInfoAdapter extends RecyclerView.Adapter<MoreInfoAdapter.ItemHo
     public void onBindViewHolder(ItemHolder holder, int position) {
         MoreInfo moreInfo = moreInfos.get(position);
         holder.txtPeriod.setText(moreInfo.getPeriod());
-        holder.txtFund.setText(String.valueOf(moreInfo.getFund()+"%"));
-        holder.txtCDI.setText(String.valueOf(moreInfo.getCDI()+"%"));
+        if(position == TITULO){
+            holder.txtFund.setText(String.valueOf(moreInfo.getFund()+""));
+            holder.txtFund.setTextColor(context.getResources().getColor(R.color.gray));
+            holder.txtCDI.setText(String.valueOf(moreInfo.getCDI()+""));
+            holder.txtCDI.setTextColor(context.getResources().getColor(R.color.gray));
+        }else{
+            holder.txtFund.setText(String.valueOf(moreInfo.getFund()+"%"));
+            holder.txtCDI.setText(String.valueOf(moreInfo.getCDI()+"%"));
+
+        }
 
     }
 

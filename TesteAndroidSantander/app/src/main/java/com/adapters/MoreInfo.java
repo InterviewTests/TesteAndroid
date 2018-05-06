@@ -3,14 +3,14 @@ package com.adapters;
 public class MoreInfo {
 
     private String period;
-    private double fund;
-    private double CDI;
+    private String fund;
+    private String CDI;
 
-    public double getCDI() {
+    public String getCDI() {
         return CDI;
     }
 
-    public double getFund() {
+    public String getFund() {
         return fund;
     }
 
@@ -18,7 +18,7 @@ public class MoreInfo {
         return period;
     }
 
-    public MoreInfo(String period, double fund, double CDI) {
+    public MoreInfo(String period, String fund, String CDI) {
         this.period = period;
         this.fund = fund;
         this.CDI = CDI;

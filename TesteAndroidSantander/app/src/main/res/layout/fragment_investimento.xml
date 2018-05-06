@@ -129,16 +129,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTitleFund" />
+            app:layout_constraintTop_toBottomOf="@+id/txtInfoTitle" />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/textTitleFund"
-            android:layout_width="wrap_content"
+            style="@style/TextViewGray"
+            android:layout_width="194dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text=""
-            style="@style/TextViewGray"
             android:gravity="right"
+            android:text="@string/txtFund"
             app:layout_constraintEnd_toStartOf="@+id/textTitleCDI"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView13"
@@ -147,18 +147,18 @@
         <TextView
             android:id="@+id/textTitleCDI"
             style="@style/TextViewGray"
-            android:gravity="right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="80dp"
-            android:text=""
+            android:gravity="right"
+            android:text="@string/txtCdi"
             app:layout_constraintBaseline_toBaselineOf="@+id/textTitleFund"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textTitleFund" />
-
-        <TextView
+-->
+ <!--       <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -167,9 +167,8 @@
             android:text=""
             app:layout_constraintBaseline_toBaselineOf="@+id/textTitleFund"
             app:layout_constraintEnd_toStartOf="@+id/textTitleFund"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
-
+-->
         <View
             android:id="@+id/divider2"
 

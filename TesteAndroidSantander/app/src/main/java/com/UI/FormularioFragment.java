@@ -368,9 +368,7 @@ public class FormularioFragment extends Fragment {
                 case INPUT_TYPE_TEXT: {
                     EditText ed = (EditText) componentesUI.get(i);
 
-                    //
                     String textoDigitado = String.valueOf(ed.getText());
-
 
                     if (textoDigitado.trim().isEmpty()) {
                         ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.red));
@@ -408,10 +406,9 @@ public class FormularioFragment extends Fragment {
             }
         }
 
-        if(dadosInvalidos){
+        if (dadosInvalidos) {
             return false;
         }
-
         return true;
     }
 

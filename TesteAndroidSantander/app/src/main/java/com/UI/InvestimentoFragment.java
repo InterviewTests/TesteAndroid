@@ -46,7 +46,6 @@ public class InvestimentoFragment extends Fragment {
     private TextView whatIs;
     private TextView definition;
     private TextView riskTitle;
-    //private TextView risk;
     private ImageView ImageRisk;
     private TextView infoTitle;
     RecyclerView recyclerViewMoreInfo;
@@ -57,6 +56,7 @@ public class InvestimentoFragment extends Fragment {
     Button btnInvestir;
     View barraDivider;
     View barraDivider2;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,15 +80,19 @@ public class InvestimentoFragment extends Fragment {
         if (isConnected) {
             task = new ReadInvestimentoJSONTask();
             task.execute(URL);
-            btnInvestir.setVisibility(View.VISIBLE);
-            barraDivider.setVisibility(View.VISIBLE);
-            barraDivider2.setVisibility(View.VISIBLE);
+
+            alteraVisibilidadeComponentes(View.VISIBLE);
         }else{
-            btnInvestir.setVisibility(View.INVISIBLE);
-            barraDivider.setVisibility(View.INVISIBLE);
-            barraDivider2.setVisibility(View.INVISIBLE);
+            alteraVisibilidadeComponentes(View.INVISIBLE);
         }
         return view;
+    }
+
+    private void alteraVisibilidadeComponentes(int visible) {
+        btnInvestir.setVisibility(visible);
+        barraDivider.setVisibility(visible);
+        barraDivider2.setVisibility(visible);
+
     }
 
     @Override
@@ -106,7 +110,6 @@ public class InvestimentoFragment extends Fragment {
         whatIs =  view.findViewById(R.id.txtWhatIs);
         definition =  view.findViewById(R.id.txtDefinition);
         riskTitle = view.findViewById(R.id.txtRiskTitle);
-        //risk =  view.findViewById(R.id.txtRisk);
         ImageRisk = view.findViewById(R.id.imageRisk);
         infoTitle = view.findViewById(R.id.txtInfoTitle);
         recyclerViewMoreInfo = view.findViewById(R.id.recycler_view);
@@ -150,8 +153,7 @@ public class InvestimentoFragment extends Fragment {
                     e.printStackTrace();
 
                 }
-
-
+                
                 return objetos;
 
             } catch (IOException e) {
@@ -187,9 +189,10 @@ public class InvestimentoFragment extends Fragment {
         JSONObject yearJSON = moreInfoJSON.getJSONObject("year");
         JSONObject months12JSON = moreInfoJSON.getJSONObject("12months");
 
-        moreInfo.add(new MoreInfo(getString(R.string.month), (Double) monthJSON.get("fund"), (Double) monthJSON.get("CDI")));
-        moreInfo.add(new MoreInfo(getString(R.string.year), (Double) yearJSON.get("fund"), (Double) yearJSON.get("CDI")));
-        moreInfo.add(new MoreInfo(getString(R.string.months12), (Double) months12JSON.get("fund"), (Double) months12JSON.get("CDI")));
+        moreInfo.add(new MoreInfo("","Fund" , "CDI"));
+        moreInfo.add(new MoreInfo(getString(R.string.month),  String.valueOf(monthJSON.get("fund")), String.valueOf(monthJSON.get("CDI"))));
+        moreInfo.add(new MoreInfo(getString(R.string.year), String.valueOf(yearJSON.get("fund")), String.valueOf(yearJSON.get("CDI"))));
+        moreInfo.add(new MoreInfo(getString(R.string.months12), String.valueOf(months12JSON.get("fund")), String.valueOf(months12JSON.get("CDI"))));
     }
 
     private void preencheArrayInfoJSON(JSONObject screenJSON) throws JSONException {
