@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adapters.Info;
@@ -45,7 +46,8 @@ public class InvestimentoFragment extends Fragment {
     private TextView whatIs;
     private TextView definition;
     private TextView riskTitle;
-    private TextView risk;
+    //private TextView risk;
+    private ImageView ImageRisk;
     private TextView infoTitle;
     RecyclerView recyclerViewMoreInfo;
     RecyclerView recyclerViewInfo;
@@ -104,7 +106,8 @@ public class InvestimentoFragment extends Fragment {
         whatIs =  view.findViewById(R.id.txtWhatIs);
         definition =  view.findViewById(R.id.txtDefinition);
         riskTitle = view.findViewById(R.id.txtRiskTitle);
-        risk =  view.findViewById(R.id.txtRisk);
+        //risk =  view.findViewById(R.id.txtRisk);
+        ImageRisk = view.findViewById(R.id.imageRisk);
         infoTitle = view.findViewById(R.id.txtInfoTitle);
         recyclerViewMoreInfo = view.findViewById(R.id.recycler_view);
         recyclerViewInfo = view.findViewById(R.id.recycler_view_info);
@@ -222,7 +225,29 @@ public class InvestimentoFragment extends Fragment {
         definition.setText(textosIniciais.get("definition"));
         definition.setText(textosIniciais.get("definition"));
         riskTitle.setText(textosIniciais.get("riskTitle"));
-        risk.setText(textosIniciais.get("risk"));
+        adicionaImagemRiskNaTela(Integer.parseInt(textosIniciais.get("risk")));
         infoTitle.setText(textosIniciais.get("infoTitle"));
+    }
+
+    private void adicionaImagemRiskNaTela(int risk){
+
+        switch (risk){
+            case 1:
+                ImageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.horizontal_line_filled_50));
+                break;
+            case 2:
+                ImageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.horizontal_line_filled_50));
+                break;
+            case 3:
+                ImageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.horizontal_line_filled_50));
+                break;
+            case 4:
+                ImageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.horizontal_line_filled_50));
+                break;
+            case 5:
+                ImageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.horizontal_line_filled_50));
+                break;
+        }
+
     }
 }
