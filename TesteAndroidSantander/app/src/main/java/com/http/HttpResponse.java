@@ -6,24 +6,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-/**
- * Resposta do servidor a uma requisição HTTP
- */
+
+ //Resposta do servidor a uma requisição HTTP
 public class HttpResponse implements Closeable {
 
-    /**
-     * Código HTTP da resposta
-     */
+     //Código HTTP da resposta
     private int responseCode;
 
-    /**
-     * Mensagem da resposta
-     */
+    //Mensagem da resposta
     private String responseMessage;
 
-    /**
-     * InputStream com os dados a serem lidos
-     */
+     //InputStream com os dados a serem lidos
     private InputStream inputStream;
 
     public HttpResponse(int responseCode, String responseMessage, InputStream inputStream) {
@@ -44,11 +37,7 @@ public class HttpResponse implements Closeable {
         return inputStream;
     }
 
-    /**
-     * Lê os dados da InputStream como texto para dentro de uma String
-     * @return
-     * @throws IOException
-     */
+    //Lê os dados da InputStream como texto para dentro de uma String
     public String extractDataAsString() throws IOException {
         StringBuilder content = new StringBuilder();
         String line;
@@ -61,10 +50,7 @@ public class HttpResponse implements Closeable {
         return content.toString();
     }
 
-    /**
-     * Fecha a InputStream
-     * @throws IOException
-     */
+    //Fecha a InputStream
     @Override
     public void close() throws IOException {
         if (inputStream != null) {

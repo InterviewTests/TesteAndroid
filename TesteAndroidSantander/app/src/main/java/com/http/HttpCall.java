@@ -9,54 +9,34 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Encapsula uma chamada HTTP
- */
+//Encapsula uma chamada HTTP
 public class HttpCall {
 
-    /**
-     * Método HTTP
-     */
+    //Método HTTP
     public enum Method {
         GET, POST;
     }
 
-    /**
-     * User-agent da requisição
-     */
+    //User-agent da requisição
     private String userAgent;
 
-    /**
-     * URL de destino
-     */
+    //URL de destino
     private String url;
 
-    /**
-     * Parâmetros da requisição
-     */
+    //Parâmetros da requisição
     private Map<String, String> params = new HashMap<>();
 
     public HttpCall(String url) {
         this.url = url;
     }
 
-    /**
-     * Adiciona uma parâmetro na URL
-     * @param name Nome do parâmetro
-     * @param value Valor do parâmetro
-     * @return O próprio objeto para encadeamento de chamadas
-     */
+    //Adiciona uma parâmetro na URL
     public HttpCall addParam(String name, String value) {
         params.put(name, value);
         return this;
     }
 
-    /**
-     * Executa a requisição
-     * @param method Método HTTP
-     * @return Resposta da requisição
-     * @throws IOException
-     */
+    //Executa a requisição
     public HttpResponse execute(Method method) throws IOException {
         StringBuilder paramsStr = null;
         if (params.size() > 0) {
@@ -112,10 +92,7 @@ public class HttpCall {
         return new HttpResponse(responseCode, responseMessage, in);
     }
 
-    /**
-     * Retorna a URL de destino
-     * @return
-     */
+    //Retorna a URL de destino
     public String getUrl() {
         return url;
     }
