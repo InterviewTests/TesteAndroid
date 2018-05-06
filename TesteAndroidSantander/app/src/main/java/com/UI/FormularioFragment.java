@@ -358,14 +358,23 @@ public class FormularioFragment extends Fragment {
 
     private boolean entradaDeDadosEValidaEnviar() {
 
+        boolean dadosInvalidos = false;
+
         for (int i = 0; i < componentesUI.size(); i++) {
 
             switch (componentes.get(i).getTypefield()) {
+
+
                 case INPUT_TYPE_TEXT: {
                     EditText ed = (EditText) componentesUI.get(i);
-                    if (ed.getText() == null) {
+
+                    //
+                    String textoDigitado = String.valueOf(ed.getText());
+
+
+                    if (textoDigitado.trim().isEmpty()) {
                         ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.red));
-                        return false;
+                        dadosInvalidos = true;
                     } else {
                         ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.green));
                     }
@@ -376,7 +385,7 @@ public class FormularioFragment extends Fragment {
                     String textoDigitado = String.valueOf(ed.getText());
                     if (!ENumeroDeTelefone(textoDigitado)) {
                         ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.red));
-                        return false;
+                        dadosInvalidos = true;
                     } else {
                         ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.green));
                     }
@@ -389,7 +398,7 @@ public class FormularioFragment extends Fragment {
                         String textoDigitado = String.valueOf(ed.getText());
                         if (!EEmail(textoDigitado)) {
                             ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.red));
-                            return false;
+                            dadosInvalidos = true;
                         } else {
                             ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.green));
                         }
@@ -397,6 +406,10 @@ public class FormularioFragment extends Fragment {
                     break;
                 }
             }
+        }
+
+        if(dadosInvalidos){
+            return false;
         }
 
         return true;
