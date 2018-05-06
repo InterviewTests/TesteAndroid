@@ -29,8 +29,8 @@
         android:layout_weight="1"
         android:background="@null"
         android:scaleType="fitEnd"
-        android:src="@android:drawable/presence_busy"
-        app:srcCompat="@android:drawable/presence_busy" />
+        android:src="@drawable/download_32"
+        app:srcCompat="@drawable/download_32" />
 
 
 </LinearLayout>

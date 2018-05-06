@@ -69,23 +69,22 @@ public class FormularioFragment extends Fragment {
 
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             tamanho_anterior = s.length();
-
         }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-
         }
 
         @Override
         public void afterTextChanged(Editable s) {
 
-            mascaraTelefoneEdittext(s);
+            adicionaMascaraTelefoneEdittext(s);
         }
 
-        private void mascaraTelefoneEdittext(Editable s) {
+        //Adiciona a mascara (xx)xxxx-xxxx e (xx)xxxxx-xxxx enquanto o usuario digita
+        private void adicionaMascaraTelefoneEdittext(Editable s) {
+            //
             if (tamanho_anterior < s.length()) {
                 if (s.length() == 1) {
                     if (Character.isDigit(s.charAt(0))) {
@@ -118,6 +117,7 @@ public class FormularioFragment extends Fragment {
             }
         }
     };
+
     private CompoundButton.OnCheckedChangeListener onCheckedChangeListener = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -172,6 +172,7 @@ public class FormularioFragment extends Fragment {
     private View criaERetornaConstraintLayout() {
         constraintLayout = new ConstraintLayout(context);
         constraintLayout.setId(R.id.constraintLayout);
+        constraintLayout.setBackgroundColor(context.getResources().getColor(android.R.color.white));
 
         constraintLayout.setPadding(context.getResources().getInteger(R.integer.padding_lateral), 0, context.getResources().getInteger(R.integer.padding_lateral), 0);
         return constraintLayout;

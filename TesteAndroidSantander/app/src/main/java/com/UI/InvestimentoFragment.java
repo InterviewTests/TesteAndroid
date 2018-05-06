@@ -247,19 +247,19 @@ public class InvestimentoFragment extends Fragment {
 
         switch (risk) {
             case 1:
-                imageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.horizontal_line_filled_50));
+                imageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.risk_1));
                 break;
             case 2:
-                imageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.horizontal_line_filled_50));
+                imageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.risk_2));
                 break;
             case 3:
-                imageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.horizontal_line_filled_50));
+                imageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.risk_3));
                 break;
             case 4:
-                imageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.horizontal_line_filled_50));
+                imageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.risk_4));
                 break;
             case 5:
-                imageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.horizontal_line_filled_50));
+                imageRisk.setImageDrawable(context.getResources().getDrawable(R.drawable.risk_5));
                 break;
         }
 
