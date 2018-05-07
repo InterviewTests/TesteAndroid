@@ -1,0 +1,55 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    </style>
+
+    <style name="StyleCustomizado" parent="android:Theme.Holo.Light.NoActionBar">
+        <item name="android:textSize">15sp</item>
+        <item name="android:buttonStyle">@style/Button</item>
+        <item name="android:fontFamily">@font/font_din_pro</item>
+
+    </style>
+
+    <style name="EditText">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center_horizontal</item>
+
+    </style>
+
+    <style name="CheckBox">
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/botao_customizado</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/botao_customizado</item>
+    </style>
+
+    <style name="TextViewGray">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="TextViewDarkGrayBold">
+        <item name="android:textColor">@color/darkGray</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MainButton">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/botao_navegacao_customizado</item>
+    </style>
+
+</resources>
