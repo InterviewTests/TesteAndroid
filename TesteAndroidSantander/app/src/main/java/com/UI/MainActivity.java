@@ -23,8 +23,8 @@ public class MainActivity extends Activity implements BotoesInferioresFragment.O
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
 
-        InvestimentoFragment inf = new InvestimentoFragment();
-        ft.add(R.id.layout_principal, inf, "layout_investimento");
+        FormularioFragment lp = new FormularioFragment();
+        ft.replace(R.id.layout_principal, lp, "layout_contato");
 
         ft.commit();
     }

@@ -5,7 +5,6 @@ import android.app.Fragment;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
@@ -23,16 +22,13 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.AsyncTask.ReadContatoJSONTask;
 import com.cerqueira.mellina.testeandroidsantander.R;
 import com.entities.Componente;
-import com.http.HttpCall;
-import com.http.HttpResponse;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +47,7 @@ public class FormularioFragment extends Fragment {
     private final static String INPUT_TYPE_TEL_NUMBER = "telnumber";
     private final static String INPUT_TYPE_EMAIL = "3";
 
-    private static boolean CRIA_COMPONENTE = true;
+    public static boolean CRIA_COMPONENTE = true;
     private static boolean ATUALIZA_COMPONENTE = false;
 
     private ConstraintLayout constraintLayout;
@@ -156,7 +152,7 @@ public class FormularioFragment extends Fragment {
 
         if (estaConectadoNaInternet()) {
             //Inicia a leitura do JSON
-            task = new ReadContatoJSONTask();
+            task = new ReadContatoJSONTask(this);
             task.execute(URLCellsJSON);
         }
 
@@ -191,15 +187,15 @@ public class FormularioFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-///Verifica se a Activity implementou a interface do ButtonSend
+        //Verifica se a Activity implementou a interface do ButtonSend
         if (!(activity instanceof OnButtonSendListener)) {
             throw new RuntimeException("A activity deve implementar a interface FormularioFragment.OnButtonSendListener");
         }
-//Atribui a activity ao listener do ButtonSend
+        //Atribui a activity ao listener do ButtonSend
         listener = (OnButtonSendListener) activity;
     }
 
-    private void criaObjetosComponente(List<Componente> componentes, Componente p, JSONObject cell) throws JSONException {
+    public void criaObjetosComponente(List<Componente> componentes, Componente p, JSONObject cell) throws JSONException {
         p.setId(cell.getInt("id"));
         p.setType(cell.getInt("type"));
         if (cell.getString("message") != null)
@@ -214,7 +210,7 @@ public class FormularioFragment extends Fragment {
         componentes.add(p);
     }
 
-    private void criaEAtualizaDinamicamenteComponentesNaTela(List<Componente> s, boolean criaComponente) {
+    public void criaEAtualizaDinamicamenteComponentesNaTela(List<Componente> s, boolean criaComponente) {
 
         for (int i = 0; i < s.size(); i++) {
 
@@ -351,8 +347,8 @@ public class FormularioFragment extends Fragment {
             switch (componentes.get(i).getTypefield()) {
 
                 case INPUT_TYPE_TEXT: {
-                     ed = (EditText) componentesUI.get(i);
-                     textoDigitado = String.valueOf(ed.getText());
+                    ed = (EditText) componentesUI.get(i);
+                    textoDigitado = String.valueOf(ed.getText());
 
                     //verifica se o campo de texto esta vazio
                     if (textoDigitado.trim().isEmpty()) {
@@ -366,7 +362,7 @@ public class FormularioFragment extends Fragment {
                     break;
                 }
                 case INPUT_TYPE_TEL_NUMBER: {
-                     ed = (EditText) componentesUI.get(i);
+                    ed = (EditText) componentesUI.get(i);
                     textoDigitado = String.valueOf(ed.getText());
                     //verifica se o texto esta no formato de telefone
                     if (!ENumeroDeTelefone(textoDigitado)) {
@@ -383,8 +379,8 @@ public class FormularioFragment extends Fragment {
                     ed = (EditText) componentesUI.get(i);
                     //verifica se o campo email esta visivel
                     if (ed.getVisibility() == View.VISIBLE) {
-                         textoDigitado = String.valueOf(ed.getText());
-                         //verifica se o texto digitado esta no formato de email
+                        textoDigitado = String.valueOf(ed.getText());
+                        //verifica se o texto digitado esta no formato de email
                         if (!EEmail(textoDigitado)) {
                             //altera a cor do edittext para vermelho
                             ViewCompat.setBackgroundTintList(ed, getResources().getColorStateList(R.color.red));
@@ -431,57 +427,16 @@ public class FormularioFragment extends Fragment {
         return InputType.TYPE_CLASS_TEXT;
     }
 
+    public List<Componente> getComponentes() {
+        return componentes;
+    }
+
+    public void setComponentes(ArrayList<Componente> componentes) {
+        this.componentes = componentes;
+    }
+
     //Interface criada para a activity implementar o botao enviar
     public interface OnButtonSendListener {
         void onSend();
-    }
-
-    private class ReadContatoJSONTask extends AsyncTask<String, Void, List<Componente>> {
-        @Override
-        protected void onPreExecute() {
-        }
-
-        @Override
-        protected List<Componente> doInBackground(String... strings) {
-
-            try {
-                //Le a URL passada como argumento no médoto task.execute
-                String url = strings[0];
-                HttpCall http = new HttpCall(url);
-                HttpResponse response = http.execute(HttpCall.Method.GET);
-
-                //Objetos criados para auxiliar no busca das informacoes consumidas do JSON
-                componentes = new ArrayList<Componente>();
-
-                try {
-                    //Le as informações vindas do JSON
-                    JSONObject cells = new JSONObject(response.extractDataAsString());
-                    JSONArray arraysCells = cells.getJSONArray("cells");
-
-                    //preenche e cria os objetos de acordo com informacoes da JSON
-                    for (int i = 0; i < arraysCells.length(); i++) {
-                        Componente p = new Componente();
-                        JSONObject cell = arraysCells.getJSONObject(i);
-
-                        criaObjetosComponente(componentes, p, cell);
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                return componentes;
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(List<Componente> s) {
-            criaEAtualizaDinamicamenteComponentesNaTela(s, CRIA_COMPONENTE);
-            super.onPostExecute(s);
-        }
     }
 }

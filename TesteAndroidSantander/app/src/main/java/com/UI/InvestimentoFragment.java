@@ -1,15 +1,13 @@
 package com.UI;
 
 
+import android.app.Fragment;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,21 +15,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import com.AsyncTask.ReadInvestimentoJSONTask;
 import com.adapters.Info;
 import com.adapters.InfoAdapter;
 import com.adapters.MoreInfo;
 import com.adapters.MoreInfoAdapter;
 import com.cerqueira.mellina.testeandroidsantander.R;
-import com.http.HttpCall;
-import com.http.HttpResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -71,7 +67,7 @@ public class InvestimentoFragment extends Fragment {
 
         if (estaConectadoNaInternet()) {
             //Inicia a leitura do JSON
-            task = new ReadInvestimentoJSONTask();
+            task = new ReadInvestimentoJSONTask(this);
             task.execute(URLFundJson);
 
             alteraVisibilidadeComponentes(View.VISIBLE);
@@ -125,65 +121,7 @@ public class InvestimentoFragment extends Fragment {
 
     }
 
-    private class ReadInvestimentoJSONTask extends AsyncTask<String, Void, ArrayList<Object>> {
-        @Override
-        protected void onPreExecute() {
-        }
-
-        @Override
-        protected ArrayList<Object> doInBackground(String... strings) {
-
-            try {
-                //Le a URL passada como argumento no médoto task.execute
-                String url = strings[0];
-
-                HttpCall http = new HttpCall(url);
-                HttpResponse response = http.execute(HttpCall.Method.GET);
-
-                //Objetos criados para auxiliar no busca das informacoes consumidas do JSON
-                Map<String, String> textosIniciais = new HashMap<String, String>();
-                ArrayList<Object> objetos = new ArrayList<>();
-                try {
-                    //Le as informações vindas do JSON
-                    JSONObject screen = new JSONObject(response.extractDataAsString());
-                    JSONObject screenJSON = screen.getJSONObject("screen");
-
-                    preencheArrayMoreInfoJSON(textosIniciais, screenJSON);
-                    preencheArrayInfoDownInfoJSON(screenJSON);
-
-                    objetos.add(textosIniciais);
-                    objetos.add(moreInfo);
-                    objetos.add(info);
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-
-                }
-
-                return objetos;
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(ArrayList<Object> objetos) {
-
-            Map<String, String> textosIniciais = (Map<String, String>) objetos.get(0);
-            List<MoreInfo> moreInfos = (List<MoreInfo>) objetos.get(1);
-            List<Info> infos = (List<Info>) objetos.get(2);
-
-            adicionaInformacoesIniciaisNaTela(textosIniciais);
-            preencheRecyclerListViewComInfoMoreInfo(moreInfos, infos);
-
-            super.onPostExecute(objetos);
-        }
-    }
-
-    private void preencheRecyclerListViewComInfoMoreInfo(List<MoreInfo> moreInfos, List<Info> infos) {
+    public void preencheRecyclerListViewComInfoMoreInfo(List<MoreInfo> moreInfos, List<Info> infos) {
         MoreInfoAdapter adapter = new MoreInfoAdapter(context, moreInfos);
         recyclerViewMoreInfo.setAdapter(adapter);
 
@@ -191,7 +129,7 @@ public class InvestimentoFragment extends Fragment {
         recyclerViewInfo.setAdapter(adapterInfo);
     }
 
-    private void preencheArrayMoreInfoJSON(Map<String, String> textosIniciais, JSONObject screenJSON) throws JSONException {
+    public void preencheArrayMoreInfoJSON(Map<String, String> textosIniciais, JSONObject screenJSON) throws JSONException {
         preencheMapaTextosJSON(textosIniciais, screenJSON);
 
         JSONObject moreInfoJSON = screenJSON.getJSONObject("moreInfo");
@@ -205,7 +143,7 @@ public class InvestimentoFragment extends Fragment {
         moreInfo.add(new MoreInfo(getString(R.string.months12), String.valueOf(months12JSON.get("fund")), String.valueOf(months12JSON.get("CDI"))));
     }
 
-    private void preencheArrayInfoDownInfoJSON(JSONObject screenJSON) throws JSONException {
+    public void preencheArrayInfoDownInfoJSON(JSONObject screenJSON) throws JSONException {
         JSONArray infoJSON = screenJSON.getJSONArray("info");
 
         for (int i = 0; i < infoJSON.length(); i++) {
@@ -231,7 +169,7 @@ public class InvestimentoFragment extends Fragment {
         textosIniciais.put("infoTitle", String.valueOf(screenJSON.get("infoTitle")));
     }
 
-    private void adicionaInformacoesIniciaisNaTela(Map<String, String> textosIniciais) {
+    public void adicionaInformacoesIniciaisNaTela(Map<String, String> textosIniciais) {
         title.setText(textosIniciais.get("title"));
         fundName.setText(textosIniciais.get("fundName"));
         whatIs.setText(textosIniciais.get("whatIs"));
@@ -242,7 +180,6 @@ public class InvestimentoFragment extends Fragment {
         infoTitle.setText(textosIniciais.get("infoTitle"));
     }
 
-    //TODO: Adicionar as imagens corretas aqui
     private void adicionaImagemRiskNaTela(int risk) {
 
         switch (risk) {
@@ -263,5 +200,13 @@ public class InvestimentoFragment extends Fragment {
                 break;
         }
 
+    }
+
+    public List<MoreInfo> getMoreInfo() {
+        return moreInfo;
+    }
+
+    public List<Info> getInfo() {
+        return info;
     }
 }
