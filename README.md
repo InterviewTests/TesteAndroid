@@ -1,3 +1,9 @@
+﻿# (Teste Android IBM)
+
+O app pode ser rodado diretamente a partir do apk app-teste-android-ibm.apk localizado dentro da pasta TesteAndroidSantander
+
+                                -----------------------------------
+
 # Show me the code
 
 ### # DESAFIO:
