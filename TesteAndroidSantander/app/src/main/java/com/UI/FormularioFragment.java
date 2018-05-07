@@ -271,6 +271,10 @@ public class FormularioFragment extends Fragment {
         CheckBox checkBox = new CheckBox(context);
         checkBox.setText(c.getMessage());
         checkBox.setId(Integer.parseInt(String.valueOf(c.getId())));
+        checkBox.setTextAppearance(context, R.style.TextViewDarkGrayBold);
+
+
+
         checkBox.setOnCheckedChangeListener(onCheckedChangeListener);
         clpcontactUs = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
         checkBox.setLayoutParams(clpcontactUs);
@@ -283,6 +287,7 @@ public class FormularioFragment extends Fragment {
         TextView textView = new TextView(context);
         textView.setText(c.getMessage());
         textView.setId(Integer.parseInt(String.valueOf(c.getId())));
+        textView.setTextAppearance(context, R.style.TextViewDarkGrayBold);
         clpcontactUs = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
         textView.setLayoutParams(clpcontactUs);
         constraintLayout.addView(textView);
@@ -325,21 +330,13 @@ public class FormularioFragment extends Fragment {
         constraintSet.connect(idComponenteAtual, ConstraintSet.LEFT, constraintLayout.getId(), ConstraintSet.LEFT, 0);
         constraintSet.connect(idComponenteAtual, ConstraintSet.RIGHT, constraintLayout.getId(), ConstraintSet.RIGHT, 0);
 
-        //Adicionar corrente ?
-            /*int[] rowChainIds = new int[5];
-            rowChainIds[0] = 1;
-            rowChainIds[1] = 2;
-            rowChainIds[2] = 6;
-            rowChainIds[3] = 3;
-            rowChainIds[4] = 7;
-            constraintSet.createVerticalChain(ConstraintSet.PARENT_ID, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM, rowChainIds, null, ConstraintSet.CHAIN_SPREAD);*/
         constraintSet.applyTo(constraintLayout);
     }
 
     private boolean entradaDeDadosEValidaEnviar() {
 
         boolean dadosInvalidos = false;
-        String textoDigitado = "";
+        String textoDigitado;
         EditText ed;
 
         for (int i = 0; i < componentesUI.size(); i++) {
@@ -395,10 +392,7 @@ public class FormularioFragment extends Fragment {
             }
         }
 
-        if (dadosInvalidos) {
-            return false;
-        }
-        return true;
+        return !dadosInvalidos;
     }
 
     //Expressão regular para (##) ####-#### || (##) #####-####

@@ -42,6 +42,8 @@ public class BotoesInferioresFragment extends Fragment {
             }
             if(listenerOpenFragment != null){
                 listenerOpenFragment.onOpenFragment(getString(R.string.tituloInvestimento));
+                btnContato.setBackgroundColor(getResources().getColor(android.R.color.holo_red_dark));
+                btnInvestimento.setBackgroundColor(getResources().getColor(R.color.vermelhoEscuro));
             }
         }
     };
@@ -54,6 +56,9 @@ public class BotoesInferioresFragment extends Fragment {
             }
             if(listenerOpenFragment != null){
                 listenerOpenFragment.onOpenFragment(getString(R.string.tituloContato));
+                btnInvestimento.setBackgroundColor(getResources().getColor(android.R.color.holo_red_dark));
+                btnContato.setBackgroundColor(getResources().getColor(R.color.vermelhoEscuro));
+
             }
         }
     };

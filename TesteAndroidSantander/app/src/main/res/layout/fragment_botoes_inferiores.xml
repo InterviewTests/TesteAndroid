@@ -10,7 +10,7 @@
     <Button
         style="@style/MainButton"
         android:id="@+id/btnInvestimento"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
 
@@ -19,9 +19,9 @@
     <Button
         style="@style/MainButton"
         android:id="@+id/btnContato"
-        android:layout_width="wrap_content"
+        android:background="@color/vermelhoEscuro"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-
         android:layout_weight="1"
         android:text="@string/btnContato" />
 </LinearLayout>

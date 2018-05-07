@@ -4,7 +4,6 @@
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
     </style>
 
-    <!--<style name="StyleCustomizado" parent="android:Theme.Holo.Light.DarkActionBar">-->
     <style name="StyleCustomizado" parent="android:Theme.Holo.Light.NoActionBar">
         <item name="android:textSize">15dp</item>
         <item name="android:buttonStyle">@style/Button</item>

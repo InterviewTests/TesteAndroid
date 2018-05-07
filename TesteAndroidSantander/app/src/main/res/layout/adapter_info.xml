@@ -30,7 +30,8 @@
         android:background="@null"
         android:scaleType="fitEnd"
         android:src="@drawable/download_32"
-        app:srcCompat="@drawable/download_32" />
+        app:srcCompat="@drawable/download_32"
+         />
 
 
 </LinearLayout>

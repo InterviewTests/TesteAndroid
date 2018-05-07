@@ -7,4 +7,7 @@
     <color name="gray">#CACACA</color>
     <color name="red">#ff817e</color>
     <color name="green">#a7dc85</color>
+    <color name="vermelhoEscuro">#A70000</color>
+
+
 </resources>
