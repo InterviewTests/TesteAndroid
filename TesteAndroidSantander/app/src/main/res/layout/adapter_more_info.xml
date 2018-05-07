@@ -8,23 +8,23 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="left"
+        android:gravity="start"
         style="@style/TextViewGray"
-        android:text="Period" />
+        android:text="@string/txtPeriod" />
 
     <TextView
         android:id="@+id/txtFund"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="right"
-        android:text="Fund" />
+        android:gravity="end"
+        android:text="@string/txtFund" />
 
     <TextView
         android:id="@+id/txtCDI"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="right"
-        android:text="CDI" />
+        android:gravity="end"
+        android:text="@string/txtCdi" />
 </LinearLayout>

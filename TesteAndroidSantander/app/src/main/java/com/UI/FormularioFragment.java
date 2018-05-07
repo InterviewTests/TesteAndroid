@@ -47,19 +47,17 @@ public class FormularioFragment extends Fragment {
     private final static String INPUT_TYPE_TEL_NUMBER = "telnumber";
     private final static String INPUT_TYPE_EMAIL = "3";
 
-    public static boolean CRIA_COMPONENTE = true;
-    private static boolean ATUALIZA_COMPONENTE = false;
+    public static final boolean CRIA_COMPONENTE = true;
 
     private ConstraintLayout constraintLayout;
     private List<Componente> componentes;
     private Context context;
     private ReadContatoJSONTask task;
-    private EditText editText;
 
-    private List<View> componentesUI = new ArrayList<View>();
+    private final List<View> componentesUI = new ArrayList<>();
 
     private OnButtonSendListener listener;
-    private TextWatcher onChangedListenerText = new TextWatcher() {
+    private final TextWatcher onChangedListenerText = new TextWatcher() {
 
         int tamanho_anterior = 0;
 
@@ -102,7 +100,7 @@ public class FormularioFragment extends Fragment {
         }
 
     };
-    private View.OnClickListener onClickListenerButton = new View.OnClickListener() {
+    private final View.OnClickListener onClickListenerButton = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
@@ -114,10 +112,11 @@ public class FormularioFragment extends Fragment {
         }
     };
 
-    private CompoundButton.OnCheckedChangeListener onCheckedChangeListener = new CompoundButton.OnCheckedChangeListener() {
+    private final CompoundButton.OnCheckedChangeListener onCheckedChangeListener = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+            boolean ATUALIZA_COMPONENTE = false;
             if (isChecked) {
 
                 for (int i = 0; i < componentesUI.size(); i++) {
@@ -296,7 +295,7 @@ public class FormularioFragment extends Fragment {
 
     private void criaComponenteField(Componente c) {
         ConstraintLayout.LayoutParams clpcontactUs;
-        editText = new EditText(context);
+        EditText editText = new EditText(context);
         editText.setHint(c.getMessage());
         editText.setId(Integer.parseInt(String.valueOf(c.getId())));
         if (c.isHidden()) {
@@ -396,13 +395,13 @@ public class FormularioFragment extends Fragment {
     }
 
     //Expressão regular para (##) ####-#### || (##) #####-####
-    public boolean ENumeroDeTelefone(String numeroTelefone) {
+    private boolean ENumeroDeTelefone(String numeroTelefone) {
         return numeroTelefone.matches("\\(\\d\\d\\)\\d\\d\\d\\d\\-\\d\\d\\d\\d") ||
                 numeroTelefone.matches("\\(\\d\\d\\)\\d\\d\\d\\d\\d\\-\\d\\d\\d\\d");
     }
 
     //Expressão regular para xxx@xxx.xxx
-    public boolean EEmail(String email) {
+    private boolean EEmail(String email) {
         return email.matches("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$");
     }
 

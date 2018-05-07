@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.cerqueira.mellina.testeandroidsantander.R;
 
-import org.w3c.dom.Text;
+
 
 /**
  * A simple {@link Fragment} subclass.

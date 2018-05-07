@@ -40,8 +40,8 @@ import java.util.Map;
                 HttpResponse response = http.execute(HttpCall.Method.GET);
 
                 //Objetos criados para auxiliar no busca das informacoes consumidas do JSON
-                Map<String, String> textosIniciais = new HashMap<String, String>();
-                ArrayList<Object> objetos = new ArrayList<Object>();
+                Map<String, String> textosIniciais = new HashMap<>();
+                ArrayList<Object> objetos = new ArrayList<>();
                 try {
                     //Le as informações vindas do JSON
                     JSONObject screen = new JSONObject(response.extractDataAsString());

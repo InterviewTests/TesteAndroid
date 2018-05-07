@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,8 +30,7 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ItemHolder>  {
     @Override
     public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.adapter_info, parent, false);
-        ItemHolder holder = new ItemHolder(view);
-        return holder;
+        return new ItemHolder(view);
     }
 
     @Override
@@ -90,13 +88,13 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ItemHolder>  {
     }
 
     public class ItemHolder extends RecyclerView.ViewHolder {
-        public TextView txtName;
-        public TextView txtData;
-        public ImageButton imageData;
+        TextView txtName;
+        TextView txtData;
+        ImageButton imageData;
 
 
 
-        public ItemHolder(View view) {
+        ItemHolder(View view) {
             super(view);
             txtName = view.findViewById(R.id.txtName);
             txtData = view.findViewById(R.id.txtData);

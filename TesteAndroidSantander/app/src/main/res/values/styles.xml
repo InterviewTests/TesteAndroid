@@ -5,7 +5,7 @@
     </style>
 
     <style name="StyleCustomizado" parent="android:Theme.Holo.Light.NoActionBar">
-        <item name="android:textSize">15dp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:buttonStyle">@style/Button</item>
         <item name="android:fontFamily">@font/font_din_pro</item>
 

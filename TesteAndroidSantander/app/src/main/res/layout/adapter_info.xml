@@ -9,18 +9,18 @@
         android:id="@+id/txtName"
         android:layout_width="0dp"
         style="@style/TextViewGray"
-        android:gravity="left"
+        android:gravity="start"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="Name" />
+        android:text="@string/txtName" />
 
     <TextView
         android:id="@+id/txtData"
-        android:gravity="right"
+        android:gravity="end"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Data" />
+        android:text="@string/txtData" />
 
     <ImageButton
         android:id="@+id/imageData"
@@ -31,7 +31,7 @@
         android:scaleType="fitEnd"
         android:src="@drawable/download_32"
         app:srcCompat="@drawable/download_32"
-         />
+        android:contentDescription="TODO" />
 
 
 </LinearLayout>

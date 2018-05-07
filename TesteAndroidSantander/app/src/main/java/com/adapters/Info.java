@@ -2,8 +2,8 @@ package com.adapters;
 
 public class Info {
 
-    private String name;
-    private String data;
+    private final String name;
+    private final String data;
 
     public String getName() {
         return name;

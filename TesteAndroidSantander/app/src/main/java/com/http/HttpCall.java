@@ -14,7 +14,7 @@ public class HttpCall {
 
     //Método HTTP
     public enum Method {
-        GET, POST;
+        GET, POST
     }
 
     //User-agent da requisição

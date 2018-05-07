@@ -27,8 +27,7 @@ public class MoreInfoAdapter extends RecyclerView.Adapter<MoreInfoAdapter.ItemHo
     @Override
     public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.adapter_more_info, parent, false);
-        ItemHolder holder = new ItemHolder(view);
-        return holder;
+        return new ItemHolder(view);
     }
 
     @Override
@@ -54,12 +53,12 @@ public class MoreInfoAdapter extends RecyclerView.Adapter<MoreInfoAdapter.ItemHo
     }
 
     public class ItemHolder extends RecyclerView.ViewHolder {
-        public TextView txtPeriod;
-        public TextView txtFund;
-        public TextView txtCDI;
+        TextView txtPeriod;
+        TextView txtFund;
+        TextView txtCDI;
 
 
-        public ItemHolder(View view) {
+        ItemHolder(View view) {
             super(view);
             txtPeriod = view.findViewById(R.id.txtPeriod);
             txtFund = view.findViewById(R.id.txtFund);

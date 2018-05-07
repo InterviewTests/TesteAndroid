@@ -13,5 +13,10 @@
     <string name="texto_enviar_nova_mensagem">Enviar nova mensagem</string>
     <string name="txtFund">Fund</string>
     <string name="txtCdi">CDI</string>
+    <string name="txtName">Name</string>
+    <string name="txtData">Data</string>
+    <string name="txtPeriod">Period</string>
+    <string name="txtObrigado">Obrigado!</string>
+    <string name="txtMensagemEnviada">Mensagem enviada com sucesso :)</string>
 
 </resources>
