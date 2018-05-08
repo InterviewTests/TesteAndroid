@@ -27,6 +27,10 @@ dependencies {
     implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayout"
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
 
     //JUnit
     testImplementation "junit:junit:$rootProject.ext.junitVersion"

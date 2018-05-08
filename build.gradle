@@ -43,4 +43,10 @@ ext {
     // Architecture Components dependencies
     roomVersion = "1.0.0"
     archLifecycleVersion = "1.1.1"
+
+    /* Request */
+    retrofitVersion = '2.4.0'
+    retrofitGsonVersion = '2.4.0'
+    okhttpVersion = '3.10.0'
+    okhttpLoggingVersion = '3.10.0'
 }
