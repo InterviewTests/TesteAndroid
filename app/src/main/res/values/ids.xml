@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Main View Ids. -->
+    <item type="id" name="aMain_clRoot"/>
+    <item type="id" name="aMain_atb"/>
+    <item type="id" name="aMain_atbTitle"/>
+    <item type="id" name="aMain_atbShare"/>
+    <item type="id" name="aMain_vp"/>
+    <item type="id" name="aMain_abl"/>
+    <item type="id" name="aMain_tl"/>
+    <item type="id" name="aMain_tiInvestments"/>
+    <item type="id" name="aMain_tiContact"/>
+
+
+</resources>

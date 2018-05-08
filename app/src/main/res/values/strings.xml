@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Android Santander</string>
+
+    <!-- Main View -->
+    <string name="main_tab_investment">Investimento</string>
+    <string name="main_tab_contact">Contato</string>
+
+    <!-- Main Menu -->
+    <string name="main_menu_share">Compartilhar</string>
+
+    <string name="str_investment_invest">Investir</string>
+    <string name="str_contact_send">Enviar</string>
+    <string name="str_contact_cb_registeremail">Gostaria de cadastrar meu e-mail</string>
+    <string name="str_txt_name">Nome</string>
+    <string name="str_txt_phone">Telefone</string>
+    <string name="str_txt_email">Email</string>
+    <string name="str_download">Baixar</string>
+    <string name="str_unavailable">indisponível</string>
+    <string name="str_msgerror_contactsupport">Ocorreu um erro. Contate o suporte.</string>
+    <string name="str_invalidphone">Número de telefone/celular inválido</string>
+    <string name="str_invalidemail">Email inválido</string>
+    <string name="str_emptyfield">Esta campo está vazio</string>
+    <string name="str_invalidname">Este nome não é valido</string>
+</resources>
