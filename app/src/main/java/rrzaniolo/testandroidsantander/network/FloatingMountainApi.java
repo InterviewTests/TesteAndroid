@@ -15,9 +15,20 @@ import rrzaniolo.testandroidsantander.network.models.response.GetCellsResponse;
  * */
 public interface FloatingMountainApi {
 
-    @GET("/cells.json")
-    public Response<GetCellsResponse> getCells();
+    /**
+     * Api base Url.
+     * */
+    String BASE_URL = "https://floating-mountain-50292.herokuapp.com/";
 
+    /**
+     * Method to get form cells.
+     * */
+    @GET("/cells.json")
+    Response<GetCellsResponse> getCells();
+
+    /**
+     * Method to get investment info.
+     * */
     @GET("/found.json")
-    public Response<ResponseBody> getFound();
+    Response<ResponseBody> getFound();
 }

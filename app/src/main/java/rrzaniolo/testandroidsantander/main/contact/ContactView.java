@@ -1,4 +1,4 @@
-package rrzaniolo.testandroidsantander.main.investment;
+package rrzaniolo.testandroidsantander.main.contact;
 
 /*
  * Created by rrzaniolo on 08/05/18.
@@ -8,7 +8,7 @@ package rrzaniolo.testandroidsantander.main.investment;
 import rrzaniolo.testandroidsantander.base.BaseInnerView;
 
 /**
- * Implementation for the Investment View.
+ * Implementation for the Contact View.
  * */
-public class InvestmentView extends BaseInnerView{
+public class ContactView extends BaseInnerView{
 }

@@ -12,7 +12,15 @@ import rrzaniolo.testandroidsantander.network.models.response.CellResponse;
  * */
 public class Cell {
     //region --- Constant
-    public Integer TYPE_EMAIL = 3;
+    public static Integer TYPE_FIELD_TEXT   = 1;
+    public static Integer TYPE_FIELD_PHONE  = 2;
+    public static Integer TYPE_FIELD_EMAIL  = 3;
+
+    public static final int CELL_TYPE_FIELD     = 1;
+    public static final int CELL_TYPE_TEXT      = 2;
+    public static final int CELL_TYPE_IMAGE     = 3;
+    public static final int CELL_TYPE_CHECKBOX  = 4;
+    public static final int CELL_TYPE_BUTTON    = 5;
     //endregion
 
     //region --- Variables

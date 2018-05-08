@@ -17,6 +17,14 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
+
+    <style name="AppTheme.Cell.Email" parent="Widget.AppCompat.EditText">
+        <item name="android:textColorHint">@color/colorLightGrey</item>
+        <item name="android:textColor" >@color/colorDarkGrey</item>
+        <item name="android:textColorHintInverse">@color/colorDarkGrey</item>
+        <item name="android:colorBackgroundCacheHint">@color/colorDarkGrey</item>
+        <item name="android:textSize">18dp</item>
+    </style>
     <!--<style name="AppTheme.MainView.TabLayout" parent="android:Widget" >-->
         <!--<item name="tabIndicatorColor">@color/colorIce</item>-->
         <!--<item name="tabIndicatorHeight">2dp</item>-->

@@ -7,11 +7,10 @@ package rrzaniolo.testandroidsantander.network.models.ui;
 
 import rrzaniolo.testandroidsantander.network.models.response.CellResponse;
 
-/**
- * This class is a implementation of the email cell.
+/***
+ * This class is an implementation of the text cell.
  * */
-public class EmailCell extends Cell{
-
+public class TextCell extends Cell{
     //region --- Variable
     private int typeField;
     public int getTypeField() {
@@ -23,9 +22,9 @@ public class EmailCell extends Cell{
     //endregion
 
     //region --- Constructor
-    public EmailCell(CellResponse cellResponse) {
+    public TextCell(CellResponse cellResponse) {
         super(cellResponse);
-        this.typeField = TYPE_FIELD_EMAIL;
+        this.typeField = TYPE_FIELD_TEXT;
     }
     //endregion
 }

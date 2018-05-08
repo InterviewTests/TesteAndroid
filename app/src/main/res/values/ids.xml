@@ -11,5 +11,25 @@
     <item type="id" name="aMain_tiInvestments"/>
     <item type="id" name="aMain_tiContact"/>
 
+    <!-- Email Cell Ids. -->
+    <item type="id" name="cEmail_clRoot"/>
+    <item type="id" name="cEmail_ctil"/>
+    <item type="id" name="cEmail_tiet"/>
+
+    <!-- Text Cell Ids. -->
+    <item type="id" name="cText_clRoot"/>
+    <item type="id" name="cText_ctil"/>
+    <item type="id" name="cText_tiet"/>
+
+    <!-- Phone Cell Ids. -->
+    <item type="id" name="cPhone_clRoot"/>
+    <item type="id" name="cPhone_ctil"/>
+    <item type="id" name="cPhone_tiet"/>
+
+    <!-- Checkbox Cell Ids. -->
+    <item type="id" name="cCehckbox_clRoot"/>
+    <item type="id" name="cCehckbox_clRoot"/>
+
+
 
 </resources>
