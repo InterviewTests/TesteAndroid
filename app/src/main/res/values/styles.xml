@@ -1,0 +1,37 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.MainView" parent="AppTheme.NoActionBar">
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/colorIce</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+
+    <style name="AppTheme.Cell.Email" parent="Widget.AppCompat.EditText">
+        <item name="android:textColorHint">@color/colorLightGrey</item>
+        <item name="android:textColor" >@color/colorDarkGrey</item>
+        <item name="android:textColorHintInverse">@color/colorDarkGrey</item>
+        <item name="android:colorBackgroundCacheHint">@color/colorDarkGrey</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+    <!--<style name="AppTheme.MainView.TabLayout" parent="android:Widget" >-->
+        <!--<item name="tabIndicatorColor">@color/colorIce</item>-->
+        <!--<item name="tabIndicatorHeight">2dp</item>-->
+        <!--<item name="tabPaddingStart">12dp</item>-->
+        <!--<item name="tabPaddingEnd">12dp</item>-->
+        <!--<item name="tabBackground">@drawable/selector_main_tab</item>-->
+        <!--<item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>-->
+        <!--<item name="tabSelectedTextColor">?android:textColorPrimary</item>-->
+    <!--</style>-->
+</resources>

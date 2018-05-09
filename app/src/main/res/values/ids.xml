@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Main View Ids. -->
+    <item type="id" name="aMain_clRoot"/>
+    <item type="id" name="aMain_atb"/>
+    <item type="id" name="aMain_atbTitle"/>
+    <item type="id" name="aMain_atbShare"/>
+    <item type="id" name="aMain_vp"/>
+    <item type="id" name="aMain_abl"/>
+    <item type="id" name="aMain_tl"/>
+    <item type="id" name="aMain_tiInvestments"/>
+    <item type="id" name="aMain_tiContact"/>
+
+    <!-- Contact Inner View Ids. -->
+    <item type="id" name="fContact_llRoot"/>
+    <item type="id" name="fContact_sv"/>
+    <item type="id" name="fContact_ev"/>
+    <item type="id" name="fContact_lv"/>
+    <item type="id" name="fContact_clForm"/>
+
+    <!-- Success View Ids. -->
+    <item type="id" name="lSuccess_clRoot"/>
+    <item type="id" name="lSuccess_tvThanks"/>
+    <item type="id" name="lSuccess_tvMessage"/>
+    <item type="id" name="lSuccess_tvSend"/>
+
+    <!-- Loading View ids. -->
+    <item type="id" name="lLoading_clRoot"/>
+    <item type="id" name="lLoading_pb"/>
+
+    <!-- Error View ids. -->
+    <item type="id" name="lError_clRoot"/>
+    <item type="id" name="lError_tv"/>
+
+    <!-- Text Cell Ids. -->
+    <item type="id" name="cText_clRoot"/>
+    <item type="id" name="cText_ctil"/>
+    <item type="id" name="cText_tiet"/>
+
+
+    <!-- Checkbox Cell Ids. -->
+    <item type="id" name="cCehckbox_clRoot"/>
+    <item type="id" name="cCehckbox_cb"/>
+
+    <!-- Button Cell Ids. -->
+    <item type="id" name="cButton_clRoot"/>
+    <item type="id" name="cButton_btn"/>
+
+    <!-- BaseInfo Cell Ids. -->
+    <item type="id" name="cInof_clRoot"/>
+    <item type="id" name="cInof_tv"/>
+
+    <!-- Risk Indicator View. -->
+    <item type="id" name="vRiskIndicator_clRoot"/>
+    <item type="id" name="vRiskIndicator_tvTitle"/>
+    <item type="id" name="vRiskIndicator_llArrows"/>
+    <item type="id" name="vRiskIndicator_llColors"/>
+
+    <item type="id" name="vRiskIndicator_ivLower"/>
+    <item type="id" name="vRiskIndicator_ivLow"/>
+    <item type="id" name="vRiskIndicator_ivMedium"/>
+    <item type="id" name="vRiskIndicator_ivHigh"/>
+    <item type="id" name="vRiskIndicator_ivHigher"/>
+
+    <item type="id" name="vRiskIndicator_vLower"/>
+    <item type="id" name="vRiskIndicator_vLow"/>
+    <item type="id" name="vRiskIndicator_vMedium"/>
+    <item type="id" name="vRiskIndicator_vHigh"/>
+    <item type="id" name="vRiskIndicator_vHigher"/>
+
+    <!-- More Info View. -->
+    <item type="id" name="vMoreInfo_clRoot"/>
+    <item type="id" name="vMoreInfo_tvTitle"/>
+    <item type="id" name="vMoreInfo_tvFundSubtitle"/>
+    <item type="id" name="vMoreInfo_tvCdiSubtitle"/>
+    <item type="id" name="vMoreInfo_gl"/>
+    <item type="id" name="vMoreInfo_tvMonthTitle"/>
+    <item type="id" name="vMoreInfo_tvMonthFound"/>
+    <item type="id" name="vMoreInfo_tvMonthCdi"/>
+    <item type="id" name="vMoreInfo_tvYearTitle"/>
+    <item type="id" name="vMoreInfo_tvYearFund"/>
+    <item type="id" name="vMoreInfo_tvYearCdi"/>
+    <item type="id" name="vMoreInfo_tv12MonthTitle"/>
+    <item type="id" name="vMoreInfo_tv12MonthFund"/>
+    <item type="id" name="vMoreInfo_tv12MonthCdi"/>
+
+    <!-- Simple Info View. -->
+    <item type="id" name="vSimpleInfo_clRoot"/>
+    <item type="id" name="vSimpleInfo_tvTitle"/>
+    <item type="id" name="vSimpleInfo_tvInfo"/>
+    <item type="id" name="vSimpleInfo_tvDownload"/>
+
+    <!-- Investment View. -->
+    <item type="id" name="fInvestment_svRoot"/>
+    <item type="id" name="fInvestment_clRoot"/>
+
+    <item type="id" name="fInvestment_lv"/>
+    <item type="id" name="fInvestment_ev"/>
+
+    <item type="id" name="fInvestment_llRoot"/>
+
+    <item type="id" name="fInvestment_llHeaders"/>
+    <item type="id" name="fInvestment_tvHeader"/>
+    <item type="id" name="fInvestment_tvName"/>
+    <item type="id" name="fInvestment_tvSubtitle"/>
+    <item type="id" name="fInvestment_tvDefinition"/>
+
+    <item type="id" name="fInvestment_riv"/>
+    <item type="id" name="vInvestment_miv"/>
+
+    <item type="id" name="fInvestment_rvInfo"/>
+    <item type="id" name="fInvestment_rvDownInfo"/>
+
+    <item type="id" name="fInvestment_btn"/>
+</resources>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    android:id="@id/vMoreInfo_clRoot"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="14dp">
+
+    <TextView
+        android:id="@id/vMoreInfo_tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Mais informaçoes"
+        style="@style/TextAppearance.AppCompat.Body2"/>
+
+    <TextView
+        android:id="@id/vMoreInfo_tvFundSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/more_info_view_fund"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/colorLightGrey"
+        app:layout_constraintEnd_toStartOf="@id/vMoreInfo_gl"
+        app:layout_constraintTop_toBottomOf="@id/vMoreInfo_tvTitle"/>
+
+    <TextView
+        android:id="@id/vMoreInfo_tvCdiSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/more_info_view_cdi"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/colorLightGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/vMoreInfo_tvFundSubtitle" />
+
+    <android.support.constraint.Guideline
+        android:id="@id/vMoreInfo_gl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <TextView
+        android:id="@id/vMoreInfo_tvMonthTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/more_info_view_month"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/colorLightGrey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vMoreInfo_tvFundSubtitle" />
+
+    <TextView
+        android:id="@id/vMoreInfo_tvYearTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/more_info_view_year"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/colorLightGrey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vMoreInfo_tvMonthTitle" />
+
+    <TextView
+        android:id="@id/vMoreInfo_tv12MonthTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/more_info_view_twelve_month"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/colorLightGrey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vMoreInfo_tvYearTitle" />
+
+    <TextView
+        android:id="@id/vMoreInfo_tvMonthFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toStartOf="@id/vMoreInfo_gl"
+        app:layout_constraintTop_toTopOf="@id/vMoreInfo_tvMonthTitle"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@id/vMoreInfo_tvMonthCdi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/vMoreInfo_tvMonthTitle"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@id/vMoreInfo_tvYearFund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toStartOf="@id/vMoreInfo_gl"
+        app:layout_constraintTop_toTopOf="@id/vMoreInfo_tvYearTitle"
+        tools:text="13,01%" />
+
+    <TextView
+        android:id="@id/vMoreInfo_tvYearCdi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/vMoreInfo_tvYearTitle"
+        tools:text="12,08%" />
+
+    <TextView
+        android:id="@id/vMoreInfo_tv12MonthFund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toStartOf="@id/vMoreInfo_gl"
+        app:layout_constraintTop_toTopOf="@id/vMoreInfo_tv12MonthTitle"
+        tools:text="17,9%" />
+
+    <TextView
+        android:id="@id/vMoreInfo_tv12MonthCdi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/vMoreInfo_tv12MonthTitle"
+        tools:text="17,6%" />
+
+</android.support.constraint.ConstraintLayout>

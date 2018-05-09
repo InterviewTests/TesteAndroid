@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/aMain_clRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@id/aMain_atb"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorIce"
+        android:elevation="@dimen/aMain_atbElevation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:targetApi="lollipop">
+
+        <TextView
+            android:id="@id/aMain_atbTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/dinproblack"
+            android:textSize="@dimen/aMain_atbTextSize"
+            android:textColor="@color/colorDarkGrey"
+            tools:ignore="RelativeOverlap"
+            tools:text="@string/main_tab_investment"/>
+
+        <ImageView
+            android:id="@id/aMain_atbShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/aMain_atbMarginEnd"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_menu_share"
+            android:tint="@color/colorPrimary"
+            android:title="@string/main_menu_share"
+            tools:targetApi="o"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@id/aMain_vp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toTopOf="@id/aMain_tl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/aMain_atb" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@id/aMain_tl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_main_tab"
+        app:tabTextColor="@color/colorDarkGrey"
+        app:tabSelectedTextColor="@color/colorIce"
+        app:tabIndicatorColor="@color/colorIce"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+</android.support.constraint.ConstraintLayout>

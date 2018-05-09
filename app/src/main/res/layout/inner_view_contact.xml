@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@id/fContact_llRoot"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="32dp"
+    android:paddingEnd="32dp"
+    android:layout_gravity="center">
+
+
+    <include layout="@layout/view_success" android:id="@id/fContact_sv"/>
+
+    <include layout="@layout/view_loading" android:id="@id/fContact_lv"/>
+
+    <include layout="@layout/view_error" android:id="@id/fContact_ev"/>
+
+    <rrzaniolo.testandroidsantander.main.contact.Custom.ContactLayout
+        android:id="@id/fContact_clForm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"/>
+
+</LinearLayout>

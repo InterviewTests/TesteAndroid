@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Android Santander</string>
+
+    <!-- Main View -->
+    <string name="main_tab_investment">Investimento</string>
+    <string name="main_tab_contact">Contato</string>
+
+    <!-- Main Menu -->
+    <string name="main_menu_share">Compartilhar</string>
+
+    <!-- Success View -->
+    <string name="success_view_thanks">Obrigado!</string>
+    <string name="success_view_message">Mensagem enviada\ncom sucesso :]</string>
+    <string name="success_view_send">Enviar nova mensagem</string>
+
+    <!-- Error View -->
+    <string name="error_view_send">Algo inesperado ocorreu.\nTente novamente mais tartde</string>
+
+    <!-- More Info View -->
+    <string name="more_info_view_month">No mês</string>
+    <string name="more_info_view_year">No ano</string>
+    <string name="more_info_view_twelve_month">12 meses</string>
+    <string name="more_info_view_fund">Fundo</string>
+    <string name="more_info_view_cdi">CDI</string>
+
+    <!-- Simple Info View -->
+    <string name="simple_info_view_download">Baixar</string>
+
+    <!-- Investment View -->
+    <string name="investment_view_btn">Investeir</string>
+
+</resources>
