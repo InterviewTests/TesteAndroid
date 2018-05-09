@@ -126,23 +126,23 @@ public class InvestmentView extends BaseInnerView implements InvestmentContract.
         View colorIndicator = null;
         ImageView arrowIndicator = null;
         switch (risk){
-            case 0:
+            case 1:
                 colorIndicator = getView(R.id.vRiskIndicator_vLower);
                 arrowIndicator = getImageView(R.id.vRiskIndicator_ivLower);
                 break;
-            case 1:
+            case 2:
                 colorIndicator = getView(R.id.vRiskIndicator_vLow);
                 arrowIndicator = getImageView(R.id.vRiskIndicator_ivLow);
                 break;
-            case 2:
+            case 3:
                 colorIndicator = getView(R.id.vRiskIndicator_vMedium);
                 arrowIndicator = getImageView(R.id.vRiskIndicator_ivMedium);
                 break;
-            case 3:
+            case 4:
                 colorIndicator = getView(R.id.vRiskIndicator_vHigh);
                 arrowIndicator = getImageView(R.id.vRiskIndicator_ivHigh);
                 break;
-            case 4:
+            case 5:
                 colorIndicator = getView(R.id.vRiskIndicator_vHigher);
                 arrowIndicator = getImageView(R.id.vRiskIndicator_ivHigher);
                 break;

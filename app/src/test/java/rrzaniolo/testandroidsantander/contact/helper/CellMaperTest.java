@@ -9,6 +9,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import rrzaniolo.testandroidsantander.main.contact.helper.CellMaper;
 import rrzaniolo.testandroidsantander.network.contact.models.data.Cell;
 import rrzaniolo.testandroidsantander.network.contact.models.response.CellResponse;
 import rrzaniolo.testandroidsantander.network.contact.models.response.GetCellsResponse;

@@ -1,4 +1,4 @@
-package rrzaniolo.testandroidsantander.contact.helper;
+package rrzaniolo.testandroidsantander.main.contact.helper;
 
 /*
  * Created by rrzaniolo on 08/05/18.
