@@ -14,10 +14,10 @@ import android.widget.LinearLayout;
 
 import java.util.List;
 
-import rrzaniolo.testandroidsantander.network.models.ui.ButtonView;
-import rrzaniolo.testandroidsantander.network.models.ui.base.CellView;
-import rrzaniolo.testandroidsantander.network.models.ui.base.FieldCellView;
-import rrzaniolo.testandroidsantander.network.models.ui.base.OnShowView;
+import rrzaniolo.testandroidsantander.network.contact.models.ui.ButtonView;
+import rrzaniolo.testandroidsantander.network.contact.models.ui.base.CellView;
+import rrzaniolo.testandroidsantander.network.contact.models.ui.base.FieldCellView;
+import rrzaniolo.testandroidsantander.network.contact.models.ui.base.OnShowView;
 
 /**
  * Layout that will represent the Form.

@@ -46,8 +46,70 @@
     <item type="id" name="cButton_clRoot"/>
     <item type="id" name="cButton_btn"/>
 
-    <!-- Info Cell Ids. -->
+    <!-- BaseInfo Cell Ids. -->
     <item type="id" name="cInof_clRoot"/>
     <item type="id" name="cInof_tv"/>
 
+    <!-- Risk Indicator View. -->
+    <item type="id" name="vRiskIndicator_clRoot"/>
+    <item type="id" name="vRiskIndicator_tvTitle"/>
+    <item type="id" name="vRiskIndicator_llArrows"/>
+    <item type="id" name="vRiskIndicator_llColors"/>
+
+    <item type="id" name="vRiskIndicator_ivLower"/>
+    <item type="id" name="vRiskIndicator_ivLow"/>
+    <item type="id" name="vRiskIndicator_ivMedium"/>
+    <item type="id" name="vRiskIndicator_ivHigh"/>
+    <item type="id" name="vRiskIndicator_ivHigher"/>
+
+    <item type="id" name="vRiskIndicator_vLower"/>
+    <item type="id" name="vRiskIndicator_vLow"/>
+    <item type="id" name="vRiskIndicator_vMedium"/>
+    <item type="id" name="vRiskIndicator_vHigh"/>
+    <item type="id" name="vRiskIndicator_vHigher"/>
+
+    <!-- More Info View. -->
+    <item type="id" name="vMoreInfo_clRoot"/>
+    <item type="id" name="vMoreInfo_tvTitle"/>
+    <item type="id" name="vMoreInfo_tvFundSubtitle"/>
+    <item type="id" name="vMoreInfo_tvCdiSubtitle"/>
+    <item type="id" name="vMoreInfo_gl"/>
+    <item type="id" name="vMoreInfo_tvMonthTitle"/>
+    <item type="id" name="vMoreInfo_tvMonthFound"/>
+    <item type="id" name="vMoreInfo_tvMonthCdi"/>
+    <item type="id" name="vMoreInfo_tvYearTitle"/>
+    <item type="id" name="vMoreInfo_tvYearFund"/>
+    <item type="id" name="vMoreInfo_tvYearCdi"/>
+    <item type="id" name="vMoreInfo_tv12MonthTitle"/>
+    <item type="id" name="vMoreInfo_tv12MonthFund"/>
+    <item type="id" name="vMoreInfo_tv12MonthCdi"/>
+
+    <!-- Simple Info View. -->
+    <item type="id" name="vSimpleInfo_clRoot"/>
+    <item type="id" name="vSimpleInfo_tvTitle"/>
+    <item type="id" name="vSimpleInfo_tvInfo"/>
+    <item type="id" name="vSimpleInfo_tvDownload"/>
+
+    <!-- Investment View. -->
+    <item type="id" name="fInvestment_svRoot"/>
+    <item type="id" name="fInvestment_clRoot"/>
+
+    <item type="id" name="fInvestment_lv"/>
+    <item type="id" name="fInvestment_ev"/>
+
+    <item type="id" name="fInvestment_llRoot"/>
+
+    <item type="id" name="fInvestment_llHeaders"/>
+    <item type="id" name="fInvestment_tvHeader"/>
+    <item type="id" name="fInvestment_tvName"/>
+    <item type="id" name="fInvestment_tvSubtitle"/>
+    <item type="id" name="fInvestment_tvDefinition"/>
+
+    <item type="id" name="fInvestment_riv"/>
+    <item type="id" name="vInvestment_miv"/>
+
+    <item type="id" name="fInvestment_rvInfo"/>
+    <item type="id" name="fInvestment_rvDownInfo"/>
+
+    <item type="id" name="fInvestment_btn"/>
 </resources>

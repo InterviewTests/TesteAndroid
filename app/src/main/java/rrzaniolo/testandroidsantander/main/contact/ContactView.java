@@ -5,6 +5,7 @@ package rrzaniolo.testandroidsantander.main.contact;
  * Copyright © 2018 rrzaniolo. All rights reserved.
  */
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,8 +25,9 @@ import rrzaniolo.testandroidsantander.main.contact.Custom.ContactLayout;
 public class ContactView extends BaseInnerView implements ContactContract.View{
 
     //region --- Variables
+    @SuppressLint("StaticFieldLeak")
     private static ContactView instance;
-    public static ContactView getInstace(){
+    public static ContactView getInstance(){
         if(instance == null)
             instance = new ContactView();
 

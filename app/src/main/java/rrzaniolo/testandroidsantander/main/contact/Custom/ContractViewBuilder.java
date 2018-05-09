@@ -8,13 +8,13 @@ package rrzaniolo.testandroidsantander.main.contact.Custom;
 import java.util.ArrayList;
 import java.util.List;
 
-import rrzaniolo.testandroidsantander.network.models.data.Cell;
-import rrzaniolo.testandroidsantander.network.models.data.FieldCell;
-import rrzaniolo.testandroidsantander.network.models.ui.ButtonView;
-import rrzaniolo.testandroidsantander.network.models.ui.CheckBoxView;
-import rrzaniolo.testandroidsantander.network.models.ui.InfoView;
-import rrzaniolo.testandroidsantander.network.models.ui.TextFieldView;
-import rrzaniolo.testandroidsantander.network.models.ui.base.CellView;
+import rrzaniolo.testandroidsantander.network.contact.models.data.Cell;
+import rrzaniolo.testandroidsantander.network.contact.models.data.FieldCell;
+import rrzaniolo.testandroidsantander.network.contact.models.ui.ButtonView;
+import rrzaniolo.testandroidsantander.network.contact.models.ui.CheckBoxView;
+import rrzaniolo.testandroidsantander.network.contact.models.ui.InfoView;
+import rrzaniolo.testandroidsantander.network.contact.models.ui.TextFieldView;
+import rrzaniolo.testandroidsantander.network.contact.models.ui.base.CellView;
 
 /**
  * Class responsible for population a ContractLayout with a list of Cells.

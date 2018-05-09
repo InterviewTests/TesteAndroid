@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 
 import rrzaniolo.testandroidsantander.main.contact.ContactView;
+import rrzaniolo.testandroidsantander.main.investment.InvestmentView;
 
 /**
  * A FragmentPagerAdapter implementation to handle the Tabs on the MainView.
@@ -47,9 +48,9 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter{
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new Fragment();
+                return InvestmentView.getInstance();
             case 1:
-                return ContactView.getInstace();
+                return ContactView.getInstance();
             default:
                 return new Fragment();
         }
