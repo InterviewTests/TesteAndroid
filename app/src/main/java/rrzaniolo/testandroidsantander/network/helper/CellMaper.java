@@ -10,10 +10,10 @@ import java.util.List;
 
 import rrzaniolo.testandroidsantander.network.models.response.CellResponse;
 import rrzaniolo.testandroidsantander.network.models.response.GetCellsResponse;
-import rrzaniolo.testandroidsantander.network.models.ui.Cell;
-import rrzaniolo.testandroidsantander.network.models.ui.EmailCell;
-import rrzaniolo.testandroidsantander.network.models.ui.PhoneCell;
-import rrzaniolo.testandroidsantander.network.models.ui.TextCell;
+import rrzaniolo.testandroidsantander.network.models.data.Cell;
+import rrzaniolo.testandroidsantander.network.models.data.EmailCell;
+import rrzaniolo.testandroidsantander.network.models.data.PhoneCell;
+import rrzaniolo.testandroidsantander.network.models.data.TextCell;
 import rrzaniolo.testandroidsantander.utils.Constants;
 
 public class CellMaper {
@@ -29,7 +29,7 @@ public class CellMaper {
     }
 
     private static Cell cellMap(CellResponse cellResponse){
-        if(cellResponse.getTypeField() instanceof  Integer){
+        if(cellResponse.getTypeField() instanceof  Double){
             if(cellResponse.getTypeField().equals(Cell.TYPE_FIELD_TEXT))
                 return new TextCell(cellResponse);
 

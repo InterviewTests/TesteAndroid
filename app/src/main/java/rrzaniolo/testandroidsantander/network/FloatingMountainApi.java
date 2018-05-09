@@ -6,7 +6,7 @@ package rrzaniolo.testandroidsantander.network;
  */
 
 import okhttp3.ResponseBody;
-import retrofit2.Response;
+import retrofit2.Call;
 import retrofit2.http.GET;
 import rrzaniolo.testandroidsantander.network.models.response.GetCellsResponse;
 
@@ -24,11 +24,11 @@ public interface FloatingMountainApi {
      * Method to get form cells.
      * */
     @GET("/cells.json")
-    Response<GetCellsResponse> getCells();
+    Call<GetCellsResponse> getCells();
 
     /**
      * Method to get investment info.
      * */
     @GET("/found.json")
-    Response<ResponseBody> getFound();
+    Call<ResponseBody> getFound();
 }

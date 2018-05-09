@@ -1,4 +1,4 @@
-package rrzaniolo.testandroidsantander.network.models.ui;
+package rrzaniolo.testandroidsantander.network.models.data;
 
 /*
  * Created by rrzaniolo on 08/05/18.
@@ -12,9 +12,9 @@ import rrzaniolo.testandroidsantander.network.models.response.CellResponse;
  * */
 public class Cell {
     //region --- Constant
-    public static Integer TYPE_FIELD_TEXT   = 1;
-    public static Integer TYPE_FIELD_PHONE  = 2;
-    public static Integer TYPE_FIELD_EMAIL  = 3;
+    public static Double TYPE_FIELD_TEXT   = 1.0;
+    public static Double TYPE_FIELD_PHONE  = 2.0;
+    public static Double TYPE_FIELD_EMAIL  = 3.0;
 
     public static final int CELL_TYPE_FIELD     = 1;
     public static final int CELL_TYPE_TEXT      = 2;

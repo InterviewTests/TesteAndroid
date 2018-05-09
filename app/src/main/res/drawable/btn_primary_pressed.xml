@@ -8,6 +8,6 @@
         android:bottomLeftRadius="200dp"
         android:bottomRightRadius="200dp"/>
 
-    <solid android:color="@color/unpressedPrimaryButton"/>
+    <solid android:color="@color/colorPrimaryLight"/>
 
 </shape>

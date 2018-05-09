@@ -1,4 +1,4 @@
-package rrzaniolo.testandroidsantander.network.models.ui;
+package rrzaniolo.testandroidsantander.network.models.data;
 
 /*
  * Created by rrzaniolo on 08/05/18.
@@ -10,22 +10,25 @@ import rrzaniolo.testandroidsantander.network.models.response.CellResponse;
 /**
  * This class is a implementation of the email cell.
  * */
-public class EmailCell extends Cell{
+public abstract class FieldCell extends Cell{
 
     //region --- Variable
-    private int typeField;
-    public int getTypeField() {
+    private Double typeField;
+    public Double getTypeField() {
         return typeField;
     }
-    public void setTypeField(int typeField) {
+    public void setTypeField(Double typeField) {
         this.typeField = typeField;
     }
     //endregion
 
     //region --- Constructor
-    public EmailCell(CellResponse cellResponse) {
+    public FieldCell(CellResponse cellResponse) {
         super(cellResponse);
-        this.typeField = TYPE_FIELD_EMAIL;
     }
+    //endregion
+
+    //region --- Abstract Method
+    public abstract Boolean validateAnswer(String answer);
     //endregion
 }

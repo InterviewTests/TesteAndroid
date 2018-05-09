@@ -12,12 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * An Abstract class to be implemented by the Activities in the project.
  * */
-public abstract class BaseView extends AppCompatActivity implements Contract.ViewContract{
+public abstract class BaseView extends AppCompatActivity{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
-
 }

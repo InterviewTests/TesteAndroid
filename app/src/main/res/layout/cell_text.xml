@@ -2,8 +2,8 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@id/cText_clRoot"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <rrzaniolo.testandroidsantander.base.custom.CustomTextInputLayout
         android:id="@id/cText_ctil"
@@ -20,6 +20,7 @@
             android:id="@id/cText_tiet"
             style="@style/AppTheme.Cell.Email"
             android:layout_width="match_parent"
+            android:minWidth="200dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/dinprolight"
             android:inputType="textPersonName|textNoSuggestions" />

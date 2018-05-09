@@ -47,12 +47,12 @@
     <android.support.v4.view.ViewPager
         android:id="@id/aMain_vp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintTop_toBottomOf="@id/aMain_atb"
         app:layout_constraintBottom_toTopOf="@id/aMain_tl"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/aMain_atb" />
 
     <android.support.design.widget.TabLayout
         android:id="@id/aMain_tl"

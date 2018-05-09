@@ -11,25 +11,43 @@
     <item type="id" name="aMain_tiInvestments"/>
     <item type="id" name="aMain_tiContact"/>
 
-    <!-- Email Cell Ids. -->
-    <item type="id" name="cEmail_clRoot"/>
-    <item type="id" name="cEmail_ctil"/>
-    <item type="id" name="cEmail_tiet"/>
+    <!-- Contact Inner View Ids. -->
+    <item type="id" name="fContact_llRoot"/>
+    <item type="id" name="fContact_sv"/>
+    <item type="id" name="fContact_ev"/>
+    <item type="id" name="fContact_lv"/>
+    <item type="id" name="fContact_clForm"/>
+
+    <!-- Success View Ids. -->
+    <item type="id" name="lSuccess_clRoot"/>
+    <item type="id" name="lSuccess_tvThanks"/>
+    <item type="id" name="lSuccess_tvMessage"/>
+    <item type="id" name="lSuccess_tvSend"/>
+
+    <!-- Loading View ids. -->
+    <item type="id" name="lLoading_clRoot"/>
+    <item type="id" name="lLoading_pb"/>
+
+    <!-- Error View ids. -->
+    <item type="id" name="lError_clRoot"/>
+    <item type="id" name="lError_tv"/>
 
     <!-- Text Cell Ids. -->
     <item type="id" name="cText_clRoot"/>
     <item type="id" name="cText_ctil"/>
     <item type="id" name="cText_tiet"/>
 
-    <!-- Phone Cell Ids. -->
-    <item type="id" name="cPhone_clRoot"/>
-    <item type="id" name="cPhone_ctil"/>
-    <item type="id" name="cPhone_tiet"/>
 
     <!-- Checkbox Cell Ids. -->
     <item type="id" name="cCehckbox_clRoot"/>
-    <item type="id" name="cCehckbox_clRoot"/>
+    <item type="id" name="cCehckbox_cb"/>
 
+    <!-- Button Cell Ids. -->
+    <item type="id" name="cButton_clRoot"/>
+    <item type="id" name="cButton_btn"/>
 
+    <!-- Info Cell Ids. -->
+    <item type="id" name="cInof_clRoot"/>
+    <item type="id" name="cInof_tv"/>
 
 </resources>

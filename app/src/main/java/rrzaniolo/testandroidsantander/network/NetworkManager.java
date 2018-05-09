@@ -129,15 +129,15 @@ public class NetworkManager {
             String readNew = request.header(Constants.READ_TIMEOUT_LABEL);
             String writeNew = request.header(Constants.WRITE_TIMEOUT_LABEL);
 
-            if (Utils.isNotNullNorEmprty(connectNew)) {
+            if (Utils.isNotNullNorEmpty(connectNew)) {
                 connectTimeout = Integer.valueOf(connectNew);
             }
 
-            if (Utils.isNotNullNorEmprty(readNew)) {
+            if (Utils.isNotNullNorEmpty(readNew)) {
                 readTimeout = Integer.valueOf(readNew);
             }
 
-            if (Utils.isNotNullNorEmprty(writeNew)) {
+            if (Utils.isNotNullNorEmpty(writeNew)) {
                 writeTimeout = Integer.valueOf(writeNew);
             }
 
