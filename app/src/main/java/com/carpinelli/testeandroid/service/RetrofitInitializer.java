@@ -1,4 +1,4 @@
-package com.carpinelli.testeandroid.network;
+package com.carpinelli.testeandroid.service;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;

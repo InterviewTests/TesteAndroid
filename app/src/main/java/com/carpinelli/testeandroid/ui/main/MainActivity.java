@@ -10,8 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.carpinelli.testeandroid.R;
+import com.carpinelli.testeandroid.ui.form.FormFragment;
+import com.carpinelli.testeandroid.ui.invest.InvestFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -25,9 +27,11 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(new PageViewAdapter(getSupportFragmentManager()));
 
         tabLayout = findViewById(R.id.tabLayout);
-        tabLayout.setTabTextColors(ContextCompat.getColor(this,R.color.colorPrimaryDark), ContextCompat.getColor(this,R.color.colorPrimary));
         tabLayout.addTab(tabLayout.newTab().setText(getResources().getText(R.string.invest)));
         tabLayout.addTab(tabLayout.newTab().setText(getResources().getText(R.string.form)));
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
 
     }
 
@@ -40,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            switch (position){
+            switch (position) {
                 case 0:
                     return new InvestFragment();
                 case 1:
