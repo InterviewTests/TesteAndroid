@@ -5,6 +5,8 @@ package rrzaniolo.testandroidsantander.network.contact.models.data;
  * Copyright © 2018 rrzaniolo. All rights reserved.
  */
 
+import java.util.regex.Pattern;
+
 import rrzaniolo.testandroidsantander.network.contact.models.response.CellResponse;
 
 /**
@@ -32,7 +34,17 @@ public class EmailCell extends FieldCell{
     //region --- Field Cell Methods
     @Override
     public Boolean validateAnswer(String answer) {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(answer).matches();
+        Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
+                "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                        "\\@" +
+                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                        "(" +
+                        "\\." +
+                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                        ")+"
+        );
+
+        return EMAIL_ADDRESS_PATTERN.matcher(answer).matches();
     }
     //endregion
 }

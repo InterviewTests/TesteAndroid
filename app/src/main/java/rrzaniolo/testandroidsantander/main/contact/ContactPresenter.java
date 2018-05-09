@@ -10,7 +10,7 @@ import retrofit2.Response;
 import rrzaniolo.testandroidsantander.base.BasePresenter;
 import rrzaniolo.testandroidsantander.main.contact.Custom.ContractViewBuilder;
 import rrzaniolo.testandroidsantander.network.NetworkManager;
-import rrzaniolo.testandroidsantander.network.contact.helper.CellMaper;
+import rrzaniolo.testandroidsantander.contact.helper.CellMaper;
 import rrzaniolo.testandroidsantander.network.contact.models.response.GetCellsResponse;
 
 /*

@@ -5,7 +5,7 @@ package rrzaniolo.testandroidsantander.network.contact.models.data;
  * Copyright © 2018 rrzaniolo. All rights reserved.
  */
 
-import android.util.Patterns;
+import java.util.regex.Pattern;
 
 import rrzaniolo.testandroidsantander.network.contact.models.response.CellResponse;
 
@@ -34,7 +34,14 @@ public class PhoneCell extends FieldCell {
     //region --- Field Cell Methods
     @Override
     public Boolean validateAnswer(String answer) {
-        return Patterns.PHONE.matcher(answer).matches();
+        Pattern PHONE
+                = Pattern.compile(                      // sdd = space, dot, or dash
+                "(\\+[0-9]+[\\- \\.]*)?"                // +<digits><sdd>*
+                        + "(\\([0-9]+\\)[\\- \\.]*)?"   // (<digits>)<sdd>*
+                        + "([0-9][0-9\\- \\.]+[0-9])"); // <digit><digit|sdd>+<digit>
+
+
+        return PHONE.matcher(answer).matches();
     }
     //endregion
 }
