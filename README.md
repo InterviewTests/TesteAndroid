@@ -78,4 +78,9 @@ Faça um fork desse desse repositório em seu Github e nos envie um Pull Request
 
 ### # Importante: não há prazo de entrega, faça com qualidade!
 
-# BOA SORTE!
+### # Sobre a solução
+A solução foi feit em Java utilizando a arquitetura MVP Clean conforme solicitado. 
+O ConstraintLayout foi amplamente utilizado. A locais onde outros layouts eram possíveis, mas tentei sempre encapsular meus 
+layouts usando o Constraint para melhor adaptação a diferente telas.
+O aplicativo funciona em adnroid 4.4/
+Fora mfeitos testes unitários em algumas Classes chaves para a solução. Não cheguei a utilizar o Mockito.
