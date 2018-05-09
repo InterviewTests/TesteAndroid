@@ -57,6 +57,7 @@ public class InvestmentPresenter implements InvestmentContract.Presenter{
     @Override
     public void onStart() {
         if(getContractView() != null){
+            getContractView().hideInvestment();
             getContractView().hideError();
             getContractView().showLoading();
 
@@ -65,6 +66,7 @@ public class InvestmentPresenter implements InvestmentContract.Presenter{
                 public void onResponse(@NonNull Call<InvestmentResponse> call, @NonNull Response<InvestmentResponse> response) {
                     getContractView().hideLoading();
                     //noinspection ConstantConditions
+                    getContractView().showInvestment();
                     onSuccess(response.body());
                 }
 

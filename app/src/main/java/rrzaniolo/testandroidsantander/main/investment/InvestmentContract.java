@@ -25,6 +25,9 @@ public interface InvestmentContract {
         void setDownInfo(List<BaseInfo> downInfoList);
         void setInvestmentAction();
 
+        void showInvestment();
+        void hideInvestment();
+
         void showLoading();
         void hideLoading();
 

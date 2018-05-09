@@ -48,7 +48,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:id="@id/fInvestment_llHeaders"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
@@ -97,12 +97,14 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@id/fInvestment_rvInfo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@id/fInvestment_rvDownInfo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"/>
 
             <Button
                 android:id="@id/fInvestment_btn"

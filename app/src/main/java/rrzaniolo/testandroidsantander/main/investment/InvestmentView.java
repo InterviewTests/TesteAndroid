@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -177,17 +178,31 @@ public class InvestmentView extends BaseInnerView implements InvestmentContract.
     @Override
     public void setListInfo(List<BaseInfo> infoList) {
         getRecyclerView(R.id.fInvestment_rvInfo).setAdapter(getContractPresenter().getInfoAdapter(infoList));
+        getRecyclerView(R.id.fInvestment_rvInfo).setLayoutManager(new LinearLayoutManager(getBaseView()));
     }
 
     @Override
     public void setDownInfo(List<BaseInfo> downInfoList) {
-        getRecyclerView(R.id.fInvestment_rvInfo).setAdapter(getContractPresenter().getDownInfoAdapter(downInfoList));
+        getRecyclerView(R.id.fInvestment_rvDownInfo).setAdapter(getContractPresenter().getDownInfoAdapter(downInfoList));
+        getRecyclerView(R.id.fInvestment_rvDownInfo).setLayoutManager(new LinearLayoutManager(getBaseView()));
     }
 
     @Override
     public void setInvestmentAction() {
         ((Button)getRootView().findViewById(R.id.fInvestment_btn))
                 .setOnClickListener(getContractPresenter().onInvestment());
+    }
+
+    @Override
+    public void showInvestment() {
+        getRootView().findViewById(R.id.fInvestment_llRoot).setVisibility(View.VISIBLE);
+
+    }
+
+    @Override
+    public void hideInvestment() {
+        getRootView().findViewById(R.id.fInvestment_llRoot).setVisibility(View.GONE);
+
     }
 
     @Override
