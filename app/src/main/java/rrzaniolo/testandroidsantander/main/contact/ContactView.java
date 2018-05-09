@@ -5,12 +5,14 @@ package rrzaniolo.testandroidsantander.main.contact;
  * Copyright © 2018 rrzaniolo. All rights reserved.
  */
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 
 import rrzaniolo.testandroidsantander.R;
 import rrzaniolo.testandroidsantander.base.BaseInnerView;
@@ -138,5 +140,16 @@ public class ContactView extends BaseInnerView implements ContactContract.View{
     public void hideError() {
         getRootView().findViewById(R.id.fContact_ev).setVisibility(View.GONE);
     }
+
+    @Override
+    public void hideSoftKeyboard() {
+        View view = getRootView().findFocus();
+        if (view != null && getBaseView() != null) {
+            InputMethodManager imm = (InputMethodManager)getBaseView().getSystemService(Context.INPUT_METHOD_SERVICE);
+            if(imm != null)
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
     //endregion
 }

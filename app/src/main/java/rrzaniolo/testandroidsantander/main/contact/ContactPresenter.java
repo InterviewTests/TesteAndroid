@@ -85,6 +85,7 @@ public class ContactPresenter extends BasePresenter implements ContactContract.P
             @Override
             public void onClick(View v) {
                 if(getContractView() != null){
+                    getContractView().hideSoftKeyboard();
                     if(getContractView().isFromWithError())
                         getContractView().showFormErrors();
                     else

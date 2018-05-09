@@ -29,6 +29,8 @@ public interface ContactContract {
 
         void showError();
         void hideError();
+
+        void hideSoftKeyboard();
     }
 
     interface Presenter{
