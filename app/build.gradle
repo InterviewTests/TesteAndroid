@@ -5,28 +5,49 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+
     compileSdkVersion 27
+
     defaultConfig {
         applicationId "com.santander.android"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:27.1.1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // GreenBus to post and subscribe to events.
+    implementation 'org.greenrobot:eventbus:3.0.0'
+
+    // GSON to interpret JSON responses.
+    implementation 'com.google.code.gson:gson:2.8.2'
+
+    // Retrofit for REST calls.
+    implementation 'com.squareup.retrofit2:retrofit:2.2.0'
+
+    // Moshi Converter to convert Retrofit responses to Kotlin objects.
+    implementation 'com.squareup.retrofit2:converter-moshi:2.0.0'
+
+    // RxJava Converter to emit Observable responses.
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
+
+    // RxAndroid/Java to receive asynchronous responses.
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.8'
+
 }
