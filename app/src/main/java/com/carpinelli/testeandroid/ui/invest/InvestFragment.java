@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.carpinelli.testeandroid.R;
+import com.carpinelli.testeandroid.model.DownInfo;
+import com.carpinelli.testeandroid.model.Info;
 import com.carpinelli.testeandroid.model.Screen;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,7 +63,14 @@ public class InvestFragment extends Fragment implements MvpInvest.View {
     @BindView(R.id.tvCDI12Meses)
     TextView tvCDI12Meses;
 
+    @BindView(R.id.recyclerViewInfos)
+    RecyclerView recyclerViewInfos;
+
+    @BindView(R.id.recyclerViewDownInfos)
+    RecyclerView recyclerViewDownInfos;
+
     private InvestPresenter investPresenter;
+
 
     public InvestFragment() {
         investPresenter = new InvestPresenter(this);
@@ -90,6 +103,10 @@ public class InvestFragment extends Fragment implements MvpInvest.View {
 
         setRisk(screen.getRisk());
 
+        setRecyclerInfos(screen.getInfos());
+
+        setRecyclerDownInfos(screen.getDownInfos());
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -103,12 +120,12 @@ public class InvestFragment extends Fragment implements MvpInvest.View {
 
         // more infos
 
-        tvFundoMes.setText(screen.getMoreInfo().getMonth().getFund()+"%");
-        tvCDIMes.setText(screen.getMoreInfo().getMonth().getCDI()+"%");
-        tvFundoAno.setText(screen.getMoreInfo().getYear().getFund()+"%");
-        tvCDIAno.setText(screen.getMoreInfo().getYear().getFund()+"%");
-        tvFundo12Meses.setText(screen.getMoreInfo().getTwelveMonths().getFund()+"%");
-        tvCDI12Meses.setText(screen.getMoreInfo().getTwelveMonths().getFund()+"%");
+        tvFundoMes.setText(screen.getMoreInfo().getMonth().getFund() + "%");
+        tvCDIMes.setText(screen.getMoreInfo().getMonth().getCDI() + "%");
+        tvFundoAno.setText(screen.getMoreInfo().getYear().getFund() + "%");
+        tvCDIAno.setText(screen.getMoreInfo().getYear().getFund() + "%");
+        tvFundo12Meses.setText(screen.getMoreInfo().getTwelveMonths().getFund() + "%");
+        tvCDI12Meses.setText(screen.getMoreInfo().getTwelveMonths().getFund() + "%");
 
     }
 
@@ -131,6 +148,21 @@ public class InvestFragment extends Fragment implements MvpInvest.View {
                 imgRisk5.setVisibility(View.VISIBLE);
                 break;
         }
+
+    }
+
+
+    public void setRecyclerInfos(List<Info> recyclerInfos) {
+
+        recyclerViewInfos.setLayoutManager(new GridLayoutManager(getContext(), 1));
+        recyclerViewInfos.setAdapter(new InfoAdapter(getContext(), recyclerInfos));
+
+    }
+
+    public void setRecyclerDownInfos(List<DownInfo> recyclerInfos) {
+
+        recyclerViewDownInfos.setLayoutManager(new GridLayoutManager(getContext(), 1));
+        recyclerViewDownInfos.setAdapter(new DownInfoAdapter(getContext(), recyclerInfos));
 
     }
 
