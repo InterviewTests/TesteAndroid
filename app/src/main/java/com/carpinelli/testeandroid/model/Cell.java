@@ -1,5 +1,7 @@
 package com.carpinelli.testeandroid.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 
 public class Cell implements Serializable {
@@ -7,6 +9,7 @@ public class Cell implements Serializable {
     private int id;
     private int type;
     private String message;
+    @JsonProperty("typefield")
     private String typeField;
     private boolean hidden;
     private int topSpacing;
@@ -14,7 +17,6 @@ public class Cell implements Serializable {
     private boolean required;
 
     public Cell(){
-
     }
 
     public Cell(int id, int type, String message, String typeField, boolean hidden, int topSpacing, String show, boolean required) {

@@ -23,4 +23,9 @@ public class RetrofitInitializer {
         return retrofit.create(InvestService.class);
     }
 
+    public FormService getFormService() {
+        return retrofit.create(FormService.class);
+    }
+
+
 }

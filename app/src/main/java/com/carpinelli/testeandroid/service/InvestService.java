@@ -1,7 +1,6 @@
 package com.carpinelli.testeandroid.service;
 
 
-import com.carpinelli.testeandroid.model.Screen;
 import com.carpinelli.testeandroid.service.dto.ScreenSync;
 
 import retrofit2.Call;
