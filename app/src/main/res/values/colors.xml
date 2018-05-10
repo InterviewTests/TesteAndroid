@@ -8,6 +8,10 @@
     <color name="santander_gray">#c2c2c2</color>
     <color name="santander_light_gray">#f0f0f0</color>
 
+    <!-- Selected -->
+    <color name="santander_red_selected_dark">#c90301</color>
+    <color name="santander_red_selected_light">#da7d7d</color>
+
     <color name="colorPrimary">@color/santander_gray</color>
     <color name="colorPrimaryDark">@color/santander_dark_gray</color>
     <color name="colorAccent">@color/santander_red</color>

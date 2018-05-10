@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@color/santander_red_selected_dark"
+        android:state_selected="true"/>
+
+    <item>
+        <layer-list>
+            <item android:top="-2dp" android:left="-2dp" android:right="-2dp">
+                <shape>
+                    <solid android:color="@color/santander_red"/>
+                    <stroke android:color="@android:color/white" android:width="2dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+</selector>
