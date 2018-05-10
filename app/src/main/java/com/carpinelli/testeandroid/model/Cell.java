@@ -1,6 +1,8 @@
 package com.carpinelli.testeandroid.model;
 
-public class Cell {
+import java.io.Serializable;
+
+public class Cell implements Serializable {
 
     private int id;
     private int type;

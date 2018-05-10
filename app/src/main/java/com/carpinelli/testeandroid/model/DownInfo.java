@@ -1,6 +1,8 @@
 package com.carpinelli.testeandroid.model;
 
-public class DownInfo {
+import java.io.Serializable;
+
+public class DownInfo implements Serializable {
 
     private String name;
     private String data;

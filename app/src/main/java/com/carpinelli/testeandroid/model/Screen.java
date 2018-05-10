@@ -1,8 +1,11 @@
 package com.carpinelli.testeandroid.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class Screen {
+public class Screen implements Serializable {
 
     private String title;
     private String fundName;
@@ -11,25 +14,15 @@ public class Screen {
     private String riskTitle;
     private int risk;
     private String infoTitle;
-    private List<MoreInfo> moreInfo;
-    private Info[] infos;
-    private DownInfo[] downInfos;
+    private MoreInfo moreInfo;
+    @JsonProperty("info")
+    private List<Info> infos;
+    @JsonProperty("downInfo")
+    private List<DownInfo> downInfos;
 
     public Screen() {
     }
 
-    public Screen(String title, String fundName, String whatIs, String definition, String riskTitle, int risk, String infoTitle, List<MoreInfo> moreInfo, Info[] infos, DownInfo[] downInfos) {
-        this.title = title;
-        this.fundName = fundName;
-        this.whatIs = whatIs;
-        this.definition = definition;
-        this.riskTitle = riskTitle;
-        this.risk = risk;
-        this.infoTitle = infoTitle;
-        this.moreInfo = moreInfo;
-        this.infos = infos;
-        this.downInfos = downInfos;
-    }
 
     public String getTitle() {
         return title;
@@ -87,27 +80,27 @@ public class Screen {
         this.infoTitle = infoTitle;
     }
 
-    public List<MoreInfo> getMoreInfo() {
+    public MoreInfo getMoreInfo() {
         return moreInfo;
     }
 
-    public void setMoreInfo(List<MoreInfo> moreInfo) {
+    public void setMoreInfo(MoreInfo moreInfo) {
         this.moreInfo = moreInfo;
     }
 
-    public Info[] getInfos() {
-        return infos;
-    }
-
-    public void setInfos(Info[] infos) {
+    public void setInfos(List<Info> infos) {
         this.infos = infos;
     }
 
-    public DownInfo[] getDownInfos() {
+    public List<Info> getInfos() {
+        return infos;
+    }
+
+    public List<DownInfo> getDownInfos() {
         return downInfos;
     }
 
-    public void setDownInfos(DownInfo[] downInfos) {
+    public void setDownInfos(List<DownInfo> downInfos) {
         this.downInfos = downInfos;
     }
 }

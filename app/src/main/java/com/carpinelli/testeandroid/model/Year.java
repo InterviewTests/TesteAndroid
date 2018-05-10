@@ -1,7 +1,12 @@
 package com.carpinelli.testeandroid.model;
 
-public class Year {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.io.Serializable;
+
+public class Year implements Serializable {
     private double fund;
+    @JsonProperty("CDI")
     private double CDI;
 
     public Year() {

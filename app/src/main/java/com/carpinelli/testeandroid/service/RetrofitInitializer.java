@@ -18,4 +18,9 @@ public class RetrofitInitializer {
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
     }
+
+    public InvestService getInvestService() {
+        return retrofit.create(InvestService.class);
+    }
+
 }

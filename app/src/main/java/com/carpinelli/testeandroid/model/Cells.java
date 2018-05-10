@@ -1,6 +1,8 @@
 package com.carpinelli.testeandroid.model;
 
-public class Cells {
+import java.io.Serializable;
+
+public class Cells implements Serializable {
     private Cell[] cells;
 
     public Cells() {

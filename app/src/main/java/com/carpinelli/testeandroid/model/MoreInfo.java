@@ -1,9 +1,14 @@
 package com.carpinelli.testeandroid.model;
 
-public class MoreInfo {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.io.Serializable;
+
+public class MoreInfo implements Serializable {
 
     private Month month;
     private Year year;
+    @JsonProperty("12months")
     private TwelveMonths twelveMonths;
 
     public MoreInfo() {
