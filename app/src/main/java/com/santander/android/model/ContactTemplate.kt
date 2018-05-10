@@ -2,7 +2,7 @@ package com.santander.android.model
 
 import java.io.Serializable
 
-data class Cell(
+data class ContactTemplate(
         var id: Int? = null,
         var type: Int? = null,
         var Message: String? = null,

@@ -3,8 +3,8 @@ package com.santander.android.model
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class Fund(
-        var screen: Fund.Screen? = null
+data class FundTemplate(
+        var screen: FundTemplate.Screen? = null
 ): Serializable {
 
     data class Screen(
