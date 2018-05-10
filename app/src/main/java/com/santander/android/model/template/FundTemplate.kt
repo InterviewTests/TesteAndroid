@@ -1,10 +1,10 @@
-package com.santander.android.model
+package com.santander.android.model.template
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class FundTemplate(
-        var screen: FundTemplate.Screen? = null
+        var screen: Screen? = null
 ): Serializable {
 
     data class Screen(
@@ -23,8 +23,7 @@ data class FundTemplate(
     data class Investment(
             var month: Rate? = null,
             var year: Rate? = null,
-            @SerializedName(value = "12months")
-            var twelveMonths: Rate? = null
+            @SerializedName("12months") var twelveMonths: Rate? = null
     ) : Serializable
 
     data class Rate(

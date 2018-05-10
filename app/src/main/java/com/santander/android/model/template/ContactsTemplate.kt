@@ -1,17 +1,21 @@
-package com.santander.android.model
+package com.santander.android.model.template
 
 import java.io.Serializable
 
-data class ContactTemplate(
-        var id: Int? = null,
-        var type: Int? = null,
-        var Message: String? = null,
-        var typefield: String? = null,
-        var hidden: Boolean = false,
-        var topSpacing: Int? = null,
-        var show: Int? = null,
-        var required: Boolean = false
+data class ContactsTemplate(
+        var cells: List<ContactTemplate> = ArrayList()
 ): Serializable {
+
+    data class ContactTemplate(
+            var id: Int? = null,
+            var type: Int? = null,
+            var message: String? = null,
+            var typefield: String? = null,
+            var hidden: Boolean = false,
+            var topSpacing: Int? = null,
+            var show: Int? = null,
+            var required: Boolean = false
+    ): Serializable
 
     enum class Type(val value: Int) {
 
