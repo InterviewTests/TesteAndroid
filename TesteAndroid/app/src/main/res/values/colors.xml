@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f50206</color>
+    <color name="colorPrimaryDark">#a10306</color>
+    <color name="colorAccent">#797777</color>
+
+    <color name="buttonNormal">#f50206</color>
+    <color name="buttonPressed">#fc5f62</color>
+
+    <color name="fieldError">#f50206</color>
+    <color name="fieldOk">#10bf04</color>
+
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="transparent">#00000000</color>
+
+
+    <color name="risk_bar_one">#70dc5a</color>
+    <color name="risk_bar_two">#44c268</color>
+    <color name="risk_bar_three">#ffc100</color>
+    <color name="risk_bar_four">#ff7418</color>
+    <color name="risk_bar_five">#ff332a</color>
+
+</resources>

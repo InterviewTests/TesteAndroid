@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">TesteAndroidApp</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="success_title">Obrigado</string>
+    <string name="success_message">Mensagem enviada com sucesso :)</string>
+    <string name="what_is">O que é?</string>
+    <string name="grau_risco">Grau de risco do investimento</string>
+    <string name="fundos_investimento">Fundos de investimento</string>
+    <string name="mais_informacoes">Mais informações sobre o investimento</string>
+    <string name="no_mes">No mês</string>
+    <string name="doze_meses">12 meses</string>
+    <string name="no_ano">No ano</string>
+    <string name="fundo">Fundo</string>
+    <string name="cdi">CDI</string>
+    <string name="investimento">Investimento</string>
+    <string name="separator">separator</string>
+    <string name="contato">Contato</string>
+</resources>
