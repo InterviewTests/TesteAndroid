@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:descendantFocusability="beforeDescendants"
     android:focusable="true"
     android:focusableInTouchMode="true"
@@ -12,81 +13,158 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/form_padding">
 
-        <TextView
-            android:id="@+id/fragment_contact_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/material_design_space_content_types"
-            android:fontFamily="@font/bold"
-            android:gravity="center"
-            android:text="@string/contact"
-            android:textSize="@dimen/material_design_title" />
-
-        <LinearLayout
-            android:id="@+id/fragment_contact_dynamic_form"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_contact_bar"
-            android:descendantFocusability="beforeDescendants"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:orientation="vertical" />
-
         <RelativeLayout
-            android:id="@+id/fragment_contact_finished_container"
+            android:id="@+id/fragment_contact_body_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_contact_bar"
-            android:visibility="gone">
-
-            <Space
-                android:id="@+id/contact_finished_header"
-                android:layout_width="match_parent"
-                android:layout_height="100dp" />
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/fragment_contact_finished_title"
-                android:layout_width="match_parent"
+                android:id="@+id/fragment_contact_bar"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/contact_finished_header"
-                android:fontFamily="@font/medium"
-                android:gravity="center"
-                android:text="@string/thank_you"
-                android:textSize="@dimen/material_design_body" />
-
-            <TextView
-                android:id="@+id/fragment_contact_finished_message"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/fragment_contact_finished_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/material_design_space_content_types"
                 android:fontFamily="@font/bold"
                 android:gravity="center"
-                android:layout_marginBottom="@dimen/material_design_space_content_types"
-                android:text="@string/contact_success"
-                android:textSize="@dimen/material_design_app_bar" />
+                android:text="@string/contact"
+                android:textSize="@dimen/material_design_title" />
 
-            <Space
-                android:id="@+id/contact_finished_spacing"
+            <LinearLayout
+                android:id="@+id/fragment_contact_dynamic_form"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_below="@id/fragment_contact_finished_message" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_contact_bar"
+                android:descendantFocusability="beforeDescendants"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical" />
+
+            <RelativeLayout
+                android:id="@+id/fragment_contact_finished_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_contact_bar"
+                android:visibility="gone">
+
+                <Space
+                    android:id="@+id/contact_finished_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp" />
+
+                <TextView
+                    android:id="@+id/fragment_contact_finished_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/contact_finished_header"
+                    android:fontFamily="@font/medium"
+                    android:gravity="center"
+                    android:text="@string/thank_you"
+                    android:textSize="@dimen/material_design_body" />
+
+                <TextView
+                    android:id="@+id/fragment_contact_finished_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/fragment_contact_finished_title"
+                    android:fontFamily="@font/bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="@dimen/material_design_space_content_types"
+                    android:text="@string/contact_success"
+                    android:textSize="@dimen/material_design_app_bar" />
+
+                <Space
+                    android:id="@+id/contact_finished_spacing"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/fragment_contact_finished_message" />
+
+                <TextView
+                    android:id="@+id/fragment_contact_finished_new_contact_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/material_design_button_height"
+                    android:layout_below="@id/contact_finished_spacing"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="@font/medium"
+                    android:foreground="?selectableItemBackground"
+                    android:gravity="center"
+                    android:text="@string/contact_new"
+                    android:textColor="@color/santander_red"
+                    android:textSize="@dimen/material_design_subheading" />
+
+            </RelativeLayout>
+            
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/fragment_contact_progress_container"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="150dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/transparent"
+            tools:visibility="gone">
 
             <TextView
-                android:id="@+id/fragment_contact_finished_new_contact_button"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/material_design_button_height"
-                android:layout_below="@id/contact_finished_spacing"
-                android:clickable="true"
-                android:focusable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/wait"
                 android:fontFamily="@font/medium"
-                android:foreground="?selectableItemBackground"
-                android:gravity="center"
-                android:text="@string/contact_new"
-                android:textColor="@color/santander_red"
+                android:textSize="@dimen/material_design_title" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/material_design_space_content_types"
+                android:gravity="center_horizontal"
+                android:text="@string/contact_wait_dialog_message"
+                android:fontFamily="@font/medium"
                 android:textSize="@dimen/material_design_subheading" />
 
         </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/fragment_contact_empty_message_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@color/transparent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/material_design_space_content_types"
+                android:gravity="center_horizontal"
+                android:text="@string/contact_empty_dialog_message_1"
+                android:fontFamily="@font/medium"
+                android:textSize="@dimen/material_design_title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="@string/contact_empty_dialog_message_2"
+                android:fontFamily="@font/medium"
+                android:textSize="@dimen/material_design_subheading" />
+
+        </LinearLayout>
+
 
     </RelativeLayout>
 

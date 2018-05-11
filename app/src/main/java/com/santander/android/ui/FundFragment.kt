@@ -21,6 +21,9 @@ class FundFragment : Fragment() {
     private var mFundTemplate = FundTemplate()
 
     // Views
+    private lateinit var mBodyContainer: View
+    private lateinit var mProgressContainer: View
+    private lateinit var mEmptyMessageContainer: View
     private lateinit var mTitle: TextView
     private lateinit var mFundName: TextView
     private lateinit var mWhatIs: TextView
@@ -50,6 +53,9 @@ class FundFragment : Fragment() {
     }
 
     private fun loadViews(rootView: View) {
+        mBodyContainer = rootView.findViewById(R.id.fragment_fund_body_container)
+        mProgressContainer = rootView.findViewById(R.id.fragment_fund_progress_container)
+        mEmptyMessageContainer = rootView.findViewById(R.id.fragment_fund_empty_message_container)
         mTitle = rootView.findViewById(R.id.fragment_fund_title)
         mFundName = rootView.findViewById(R.id.fragment_fund_fund_name)
         mWhatIs = rootView.findViewById(R.id.fragment_fund_what_is)
@@ -133,9 +139,22 @@ class FundFragment : Fragment() {
     private fun loadObservers() {
         mViewModel.observe().observe(this, Observer {
 
-            if (it?.hasSucceeded() == true && it.data != null) {
-                it.data?.let { mFundTemplate = it }
+            mBodyContainer.visibility = View.GONE
+            mProgressContainer.visibility = View.GONE
+            mEmptyMessageContainer.visibility = View.GONE
+
+            if (it != null && it.isLoading())
+                mProgressContainer.visibility = View.VISIBLE
+            else {
+
+                if (it?.data == null || it.data!!.screen.title == null) {
+                    mEmptyMessageContainer.visibility = View.VISIBLE
+                }
+
+                it?.data?.let { mFundTemplate = it }
                 loadValues()
+                mBodyContainer.visibility = View.VISIBLE
+
             }
 
         })

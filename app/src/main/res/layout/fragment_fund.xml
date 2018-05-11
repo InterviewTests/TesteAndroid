@@ -10,433 +10,509 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/form_padding">
 
-        <ImageView
-            android:layout_width="@dimen/logout_icon"
-            android:layout_height="@dimen/logout_icon"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?selectableItemBackground"
-            android:layout_alignParentEnd="true"
-            android:rotation="-90"
-            android:src="@drawable/ic_logout_santander_red" />
+        <RelativeLayout
+            android:id="@+id/fragment_fund_body_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible">
 
-        <TextView
-            android:id="@+id/fragment_fund_bar"
+            <ImageView
+                android:layout_width="@dimen/logout_icon"
+                android:layout_height="@dimen/logout_icon"
+                android:layout_alignParentEnd="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
+                android:rotation="-90"
+                android:src="@drawable/ic_logout_santander_red" />
+
+            <TextView
+                android:id="@+id/fragment_fund_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/material_design_space_content_types"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="@string/investment"
+                android:textSize="@dimen/material_design_title" />
+
+            <TextView
+                android:id="@+id/fragment_fund_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_fund_bar"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:textSize="@dimen/material_design_subheading"
+                tools:text="Fundos de investimento" />
+
+            <TextView
+                android:id="@+id/fragment_fund_fund_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_fund_title"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:textSize="@dimen/material_design_app_bar"
+                tools:text="Vinci Valorem FI Multimercado" />
+
+            <View
+                android:id="@+id/fragment_fund_name_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/fragment_fund_fund_name"
+                android:layout_marginBottom="@dimen/material_design_space_content_types"
+                android:layout_marginTop="@dimen/material_design_space_content_types"
+                android:background="@color/santander_light_gray" />
+
+            <TextView
+                android:id="@+id/fragment_fund_what_is"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_fund_name_divider"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:textSize="@dimen/material_design_subheading"
+                tools:text="O que é?" />
+
+            <TextView
+                android:id="@+id/fragment_fund_definition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_fund_what_is"
+                android:layout_marginBottom="@dimen/material_design_space_content_types"
+                android:fontFamily="@font/light"
+                android:gravity="center"
+                android:textSize="@dimen/material_design_subheading"
+                tools:text="O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos." />
+
+            <TextView
+                android:id="@+id/fragment_fund_risk_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_fund_definition"
+                android:layout_marginBottom="@dimen/material_design_space_content_areas"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:textSize="@dimen/material_design_subheading"
+                tools:text="Grau de risco do investimento" />
+
+            <LinearLayout
+                android:id="@+id/fragment_fund_risk_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_fund_risk_title"
+                android:layout_marginBottom="@dimen/material_design_space_content_types"
+                android:baselineAligned="false">
+
+                <RelativeLayout
+                    android:id="@+id/fragment_fund_risk_level_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/fragment_fund_risk_level_1_selector"
+                        android:layout_width="@dimen/risk_bar_selector"
+                        android:layout_height="@dimen/risk_bar_selector"
+                        android:layout_centerHorizontal="true"
+                        android:contentDescription="@string/content_description_selector"
+                        android:src="@drawable/ic_risk_selector"
+                        android:visibility="invisible" />
+
+                    <View
+                        android:id="@+id/fragment_fund_risk_level_1_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/risk_bar_unselected"
+                        android:layout_below="@id/fragment_fund_risk_level_1_selector"
+                        android:background="@drawable/ic_risk_level_left_corner" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/fragment_fund_risk_level_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/fragment_fund_risk_level_2_selector"
+                        android:layout_width="@dimen/risk_bar_selector"
+                        android:layout_height="@dimen/risk_bar_selector"
+                        android:layout_centerHorizontal="true"
+                        android:contentDescription="@string/content_description_selector"
+                        android:src="@drawable/ic_risk_selector"
+                        android:visibility="invisible" />
+
+                    <View
+                        android:id="@+id/fragment_fund_risk_level_2_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/risk_bar_unselected"
+                        android:layout_below="@id/fragment_fund_risk_level_2_selector"
+                        android:background="@color/risk_two" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/fragment_fund_risk_level_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/fragment_fund_risk_level_3_selector"
+                        android:layout_width="@dimen/risk_bar_selector"
+                        android:layout_height="@dimen/risk_bar_selector"
+                        android:layout_centerHorizontal="true"
+                        android:contentDescription="@string/content_description_selector"
+                        android:src="@drawable/ic_risk_selector"
+                        android:visibility="invisible" />
+
+                    <View
+                        android:id="@+id/fragment_fund_risk_level_3_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/risk_bar_unselected"
+                        android:layout_below="@id/fragment_fund_risk_level_3_selector"
+                        android:background="@color/risk_three" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/fragment_fund_risk_level_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/fragment_fund_risk_level_4_selector"
+                        android:layout_width="@dimen/risk_bar_selector"
+                        android:layout_height="@dimen/risk_bar_selector"
+                        android:layout_centerHorizontal="true"
+                        android:contentDescription="@string/content_description_selector"
+                        android:src="@drawable/ic_risk_selector"
+                        android:visibility="invisible" />
+
+                    <View
+                        android:id="@+id/fragment_fund_risk_level_4_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/risk_bar_unselected"
+                        android:layout_below="@id/fragment_fund_risk_level_4_selector"
+                        android:background="@color/risk_four" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/fragment_fund_risk_level_5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/fragment_fund_risk_level_5_selector"
+                        android:layout_width="@dimen/risk_bar_selector"
+                        android:layout_height="@dimen/risk_bar_selector"
+                        android:layout_centerHorizontal="true"
+                        android:contentDescription="@string/content_description_selector"
+                        android:src="@drawable/ic_risk_selector"
+                        android:visibility="invisible" />
+
+                    <View
+                        android:id="@+id/fragment_fund_risk_level_5_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/risk_bar_unselected"
+                        android:layout_below="@id/fragment_fund_risk_level_5_selector"
+                        android:background="@drawable/ic_risk_level_right_corner" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/fragment_fund_info_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_fund_risk_bar"
+                android:layout_marginBottom="@dimen/material_design_space_content_types"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:textSize="@dimen/material_design_subheading"
+                tools:text="Mais informações sobre o investimento" />
+
+            <LinearLayout
+                android:id="@+id/fragment_fund_more_info_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_fund_info_title"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/fragment_fund_more_info_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+
+                    <Space
+                        android:id="@+id/fragment_fund_more_info_header_space"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2" />
+
+                    <TextView
+                        android:id="@+id/fragment_fund_more_info_header_fund"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/light"
+                        android:gravity="center"
+                        android:text="@string/fund"
+                        android:textSize="@dimen/material_design_body" />
+
+                    <TextView
+                        android:id="@+id/fragment_fund_more_info_header_cdi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/light"
+                        android:gravity="end"
+                        android:text="@string/cdi"
+                        android:textSize="@dimen/material_design_body" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fragment_fund_more_info_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+
+                    <TextView
+                        android:id="@+id/fragment_fund_more_info_month_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/light"
+                        android:gravity="start"
+                        android:text="@string/on_month"
+                        android:textSize="@dimen/material_design_body" />
+
+                    <Space
+                        android:id="@+id/fragment_fund_more_info_month_space"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/fragment_fund_more_info_month_fund"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/medium"
+                        android:gravity="center"
+                        android:textSize="@dimen/material_design_body"
+                        tools:text="0,5%" />
+
+                    <TextView
+                        android:id="@+id/fragment_fund_more_info_month_cdi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/medium"
+                        android:gravity="end"
+                        android:textSize="@dimen/material_design_body"
+                        tools:text="11%" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fragment_fund_more_info_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+
+                    <TextView
+                        android:id="@+id/fragment_fund_more_info_year_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/light"
+                        android:gravity="start"
+                        android:text="@string/on_year"
+                        android:textSize="@dimen/material_design_body" />
+
+                    <Space
+                        android:id="@+id/fragment_fund_more_info_year_space"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/fragment_fund_more_info_year_fund"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/medium"
+                        android:gravity="center"
+                        android:textSize="@dimen/material_design_body"
+                        tools:text="0,5%" />
+
+                    <TextView
+                        android:id="@+id/fragment_fund_more_info_year_cdi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/medium"
+                        android:gravity="end"
+                        android:textSize="@dimen/material_design_body"
+                        tools:text="11%" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fragment_fund_more_info_twelve_twelve_monthss"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+
+                    <TextView
+                        android:id="@+id/fragment_fund_more_info_twelve_months_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/light"
+                        android:gravity="start"
+                        android:text="@string/on_twelve_months"
+                        android:textSize="@dimen/material_design_body" />
+
+                    <Space
+                        android:id="@+id/fragment_fund_more_info_twelve_months_space"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/fragment_fund_more_info_twelve_months_fund"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/medium"
+                        android:gravity="center"
+                        android:textSize="@dimen/material_design_body"
+                        tools:text="0,5%" />
+
+                    <TextView
+                        android:id="@+id/fragment_fund_more_info_twelve_months_cdi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/medium"
+                        android:gravity="end"
+                        android:textSize="@dimen/material_design_body"
+                        tools:text="11%" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/fragment_fund_info_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/fragment_fund_more_info_table"
+                android:layout_marginBottom="@dimen/material_design_space_content_types"
+                android:layout_marginTop="@dimen/material_design_space_content_types"
+                android:background="@color/santander_light_gray" />
+
+            <LinearLayout
+                android:id="@+id/fragment_fund_info_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_fund_info_divider"
+                android:layout_marginBottom="@dimen/material_design_space_content_types"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/fragment_fund_invest_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/material_design_button_height"
+                android:layout_below="@id/fragment_fund_info_container"
+                android:background="@drawable/btn_santander_red"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:text="@string/invest"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/fragment_fund_progress_container"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:background="@color/transparent"
+            tools:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/medium"
+                android:text="@string/wait"
+                android:textSize="@dimen/material_design_title" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/material_design_space_content_types"
+                android:fontFamily="@font/medium"
+                android:gravity="center_horizontal"
+                android:text="@string/fund_wait_dialog_message"
+                android:textSize="@dimen/material_design_subheading" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/fragment_fund_empty_message_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/material_design_space_content_types"
-            android:fontFamily="@font/bold"
-            android:gravity="center"
-            android:text="@string/investment"
-            android:textSize="@dimen/material_design_title" />
+            android:layout_centerInParent="true"
+            android:background="@color/transparent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
 
-        <TextView
-            android:id="@+id/fragment_fund_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_fund_bar"
-            android:fontFamily="@font/medium"
-            android:gravity="center"
-            android:textSize="@dimen/material_design_subheading"
-            tools:text="Fundos de investimento" />
-
-        <TextView
-            android:id="@+id/fragment_fund_fund_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_fund_title"
-            android:fontFamily="@font/bold"
-            android:gravity="center"
-            android:textSize="@dimen/material_design_app_bar"
-            tools:text="Vinci Valorem FI Multimercado" />
-
-        <View
-            android:id="@+id/fragment_fund_name_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/fragment_fund_fund_name"
-            android:layout_marginBottom="@dimen/material_design_space_content_types"
-            android:layout_marginTop="@dimen/material_design_space_content_types"
-            android:background="@color/santander_light_gray" />
-
-        <TextView
-            android:id="@+id/fragment_fund_what_is"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_fund_name_divider"
-            android:fontFamily="@font/medium"
-            android:gravity="center"
-            android:textSize="@dimen/material_design_subheading"
-            tools:text="O que é?" />
-
-        <TextView
-            android:id="@+id/fragment_fund_definition"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_fund_what_is"
-            android:layout_marginBottom="@dimen/material_design_space_content_types"
-            android:fontFamily="@font/light"
-            android:gravity="center"
-            android:textSize="@dimen/material_design_subheading"
-            tools:text="O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos." />
-
-        <TextView
-            android:id="@+id/fragment_fund_risk_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_fund_definition"
-            android:layout_marginBottom="@dimen/material_design_space_content_areas"
-            android:fontFamily="@font/medium"
-            android:gravity="center"
-            android:textSize="@dimen/material_design_subheading"
-            tools:text="Grau de risco do investimento" />
-
-        <LinearLayout
-            android:id="@+id/fragment_fund_risk_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/material_design_space_content_types"
-            android:layout_below="@id/fragment_fund_risk_title"
-            android:baselineAligned="false">
-
-            <RelativeLayout
-                android:id="@+id/fragment_fund_risk_level_1"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/material_design_space_content_types"
+                android:fontFamily="@font/medium"
+                android:gravity="center_horizontal"
+                android:text="@string/fund_empty_dialog_message_1"
+                android:textSize="@dimen/material_design_title" />
 
-                <ImageView
-                    android:id="@+id/fragment_fund_risk_level_1_selector"
-                    android:layout_width="@dimen/risk_bar_selector"
-                    android:layout_height="@dimen/risk_bar_selector"
-                    android:layout_centerHorizontal="true"
-                    android:contentDescription="@string/content_description_selector"
-                    android:src="@drawable/ic_risk_selector"
-                    android:visibility="invisible" />
-
-                <View
-                    android:id="@+id/fragment_fund_risk_level_1_bar"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/risk_bar_unselected"
-                    android:layout_below="@id/fragment_fund_risk_level_1_selector"
-                    android:background="@drawable/ic_risk_level_left_corner" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/fragment_fund_risk_level_2"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/fragment_fund_risk_level_2_selector"
-                    android:layout_width="@dimen/risk_bar_selector"
-                    android:layout_height="@dimen/risk_bar_selector"
-                    android:layout_centerHorizontal="true"
-                    android:contentDescription="@string/content_description_selector"
-                    android:src="@drawable/ic_risk_selector"
-                    android:visibility="invisible" />
-
-                <View
-                    android:id="@+id/fragment_fund_risk_level_2_bar"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/risk_bar_unselected"
-                    android:layout_below="@id/fragment_fund_risk_level_2_selector"
-                    android:background="@color/risk_two" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/fragment_fund_risk_level_3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/fragment_fund_risk_level_3_selector"
-                    android:layout_width="@dimen/risk_bar_selector"
-                    android:layout_height="@dimen/risk_bar_selector"
-                    android:layout_centerHorizontal="true"
-                    android:contentDescription="@string/content_description_selector"
-                    android:src="@drawable/ic_risk_selector"
-                    android:visibility="invisible" />
-
-                <View
-                    android:id="@+id/fragment_fund_risk_level_3_bar"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/risk_bar_unselected"
-                    android:layout_below="@id/fragment_fund_risk_level_3_selector"
-                    android:background="@color/risk_three" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/fragment_fund_risk_level_4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/fragment_fund_risk_level_4_selector"
-                    android:layout_width="@dimen/risk_bar_selector"
-                    android:layout_height="@dimen/risk_bar_selector"
-                    android:layout_centerHorizontal="true"
-                    android:contentDescription="@string/content_description_selector"
-                    android:src="@drawable/ic_risk_selector"
-                    android:visibility="invisible" />
-
-                <View
-                    android:id="@+id/fragment_fund_risk_level_4_bar"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/risk_bar_unselected"
-                    android:layout_below="@id/fragment_fund_risk_level_4_selector"
-                    android:background="@color/risk_four" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/fragment_fund_risk_level_5"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/fragment_fund_risk_level_5_selector"
-                    android:layout_width="@dimen/risk_bar_selector"
-                    android:layout_height="@dimen/risk_bar_selector"
-                    android:layout_centerHorizontal="true"
-                    android:contentDescription="@string/content_description_selector"
-                    android:src="@drawable/ic_risk_selector"
-                    android:visibility="invisible" />
-
-                <View
-                    android:id="@+id/fragment_fund_risk_level_5_bar"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/risk_bar_unselected"
-                    android:layout_below="@id/fragment_fund_risk_level_5_selector"
-                    android:background="@drawable/ic_risk_level_right_corner" />
-
-            </RelativeLayout>
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/medium"
+                android:gravity="center_horizontal"
+                android:text="@string/fund_empty_dialog_message_2"
+                android:textSize="@dimen/material_design_subheading" />
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/fragment_fund_info_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_fund_risk_bar"
-            android:layout_marginBottom="@dimen/material_design_space_content_types"
-            android:fontFamily="@font/medium"
-            android:gravity="center"
-            android:textSize="@dimen/material_design_subheading"
-            tools:text="Mais informações sobre o investimento" />
-
-        <LinearLayout
-            android:id="@+id/fragment_fund_more_info_table"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_fund_info_title"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/fragment_fund_more_info_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp">
-
-                <Space
-                    android:id="@+id/fragment_fund_more_info_header_space"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2" />
-
-                <TextView
-                    android:id="@+id/fragment_fund_more_info_header_fund"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/light"
-                    android:gravity="center"
-                    android:text="@string/fund"
-                    android:textSize="@dimen/material_design_body" />
-
-                <TextView
-                    android:id="@+id/fragment_fund_more_info_header_cdi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/light"
-                    android:gravity="end"
-                    android:text="@string/cdi"
-                    android:textSize="@dimen/material_design_body" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/fragment_fund_more_info_month"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp">
-
-                <TextView
-                    android:id="@+id/fragment_fund_more_info_month_label"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/light"
-                    android:gravity="start"
-                    android:text="@string/on_month"
-                    android:textSize="@dimen/material_design_body" />
-
-                <Space
-                    android:id="@+id/fragment_fund_more_info_month_space"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/fragment_fund_more_info_month_fund"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/medium"
-                    android:gravity="center"
-                    android:textSize="@dimen/material_design_body"
-                    tools:text="0,5%" />
-
-                <TextView
-                    android:id="@+id/fragment_fund_more_info_month_cdi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/medium"
-                    android:gravity="end"
-                    android:textSize="@dimen/material_design_body"
-                    tools:text="11%" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/fragment_fund_more_info_year"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp">
-
-                <TextView
-                    android:id="@+id/fragment_fund_more_info_year_label"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/light"
-                    android:gravity="start"
-                    android:text="@string/on_year"
-                    android:textSize="@dimen/material_design_body" />
-
-                <Space
-                    android:id="@+id/fragment_fund_more_info_year_space"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/fragment_fund_more_info_year_fund"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/medium"
-                    android:gravity="center"
-                    android:textSize="@dimen/material_design_body"
-                    tools:text="0,5%" />
-
-                <TextView
-                    android:id="@+id/fragment_fund_more_info_year_cdi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/medium"
-                    android:gravity="end"
-                    android:textSize="@dimen/material_design_body"
-                    tools:text="11%" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/fragment_fund_more_info_twelve_twelve_monthss"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp">
-
-                <TextView
-                    android:id="@+id/fragment_fund_more_info_twelve_months_label"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/light"
-                    android:gravity="start"
-                    android:text="@string/on_twelve_months"
-                    android:textSize="@dimen/material_design_body" />
-
-                <Space
-                    android:id="@+id/fragment_fund_more_info_twelve_months_space"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/fragment_fund_more_info_twelve_months_fund"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/medium"
-                    android:gravity="center"
-                    android:textSize="@dimen/material_design_body"
-                    tools:text="0,5%" />
-
-                <TextView
-                    android:id="@+id/fragment_fund_more_info_twelve_months_cdi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/medium"
-                    android:gravity="end"
-                    android:textSize="@dimen/material_design_body"
-                    tools:text="11%" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <View
-            android:id="@+id/fragment_fund_info_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/fragment_fund_more_info_table"
-            android:layout_marginBottom="@dimen/material_design_space_content_types"
-            android:layout_marginTop="@dimen/material_design_space_content_types"
-            android:background="@color/santander_light_gray" />
-
-        <LinearLayout
-            android:id="@+id/fragment_fund_info_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_fund_info_divider"
-            android:layout_marginBottom="@dimen/material_design_space_content_types"
-            android:orientation="vertical" />
-
-        <TextView
-            android:id="@+id/fragment_fund_invest_button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/material_design_button_height"
-            android:layout_below="@id/fragment_fund_info_container"
-            android:background="@drawable/btn_santander_red"
-            android:clickable="true"
-            android:focusable="true"
-            android:fontFamily="@font/medium"
-            android:gravity="center"
-            android:text="@string/invest"
-            android:textColor="@color/white" />
 
     </RelativeLayout>
 

@@ -19,7 +19,6 @@ import android.widget.*
 import com.santander.android.R
 import com.santander.android.model.template.ContactsTemplate
 import com.santander.android.viewmodel.ContactViewModel
-import org.greenrobot.eventbus.EventBus
 
 class ContactFragment : Fragment() {
 
@@ -28,6 +27,9 @@ class ContactFragment : Fragment() {
     private val mForm = HashMap<Int, String>()
 
     // Views
+    private lateinit var mBodyContainer: View
+    private lateinit var mProgressContainer: View
+    private lateinit var mEmptyMessageContainer: View
     private lateinit var mDynamicForm: LinearLayout
     private lateinit var mFinishedContainer: View
     private lateinit var mNewContactButton: View
@@ -49,9 +51,13 @@ class ContactFragment : Fragment() {
         mDynamicForm = rootView.findViewById(R.id.fragment_contact_dynamic_form)
         mFinishedContainer = rootView.findViewById(R.id.fragment_contact_finished_container)
         mNewContactButton = rootView.findViewById(R.id.fragment_contact_finished_new_contact_button)
+        mBodyContainer = rootView.findViewById(R.id.fragment_contact_body_container)
+        mProgressContainer = rootView.findViewById(R.id.fragment_contact_progress_container)
+        mEmptyMessageContainer = rootView.findViewById(R.id.fragment_contact_empty_message_container)
     }
 
     private fun loadValues() {
+        mDynamicForm.removeAllViews()
         for (cell in mContactsTemplate.cells) {
             when (ContactsTemplate.Type.from(cell.type)) {
                 ContactsTemplate.Type.Text -> loadText(cell)
@@ -99,6 +105,11 @@ class ContactFragment : Fragment() {
             field.visibility = if (hidden) View.GONE else View.VISIBLE
             mDynamicForm.addView(field)
             setTopSpacing(field, topSpacing)
+            field.setOnFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) return@setOnFocusChangeListener
+                val inputManager: InputMethodManager? = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+                inputManager?.showSoftInput(field, InputMethodManager.SHOW_IMPLICIT)
+            }
         }
     }
 
@@ -241,7 +252,7 @@ class ContactFragment : Fragment() {
         escapedPhone = escapedPhone.replace(")", "")
         escapedPhone = escapedPhone.replace(" ", "")
 
-        if (escapedPhone.length != 11) {
+        if (escapedPhone.length < 10) {
             field.error = getString(R.string.invalid_field)
             field.requestFocus()
             return false
@@ -286,9 +297,22 @@ class ContactFragment : Fragment() {
     private fun loadObservers() {
         mViewModel.observe().observe(this, Observer {
 
-            if (it?.hasSucceeded() == true && it.data != null) {
-                it.data?.let { mContactsTemplate = it }
+            mBodyContainer.visibility = View.GONE
+            mProgressContainer.visibility = View.GONE
+            mEmptyMessageContainer.visibility = View.GONE
+
+            if (it != null && it.isLoading())
+                mProgressContainer.visibility = View.VISIBLE
+            else {
+
+                if (it?.data == null || it.data!!.cells.isEmpty()) {
+                    mEmptyMessageContainer.visibility = View.VISIBLE
+                }
+
+                it?.data?.let { mContactsTemplate = it }
                 loadValues()
+                mBodyContainer.visibility = View.VISIBLE
+
             }
 
         })
