@@ -26,7 +26,7 @@ data class ContactsTemplate(
         Send(5);
 
         companion object {
-            fun from(findValue: Int): Type = Type.values().first { it.value == findValue }
+            fun from(findValue: Int?): Type = Type.values().first { it.value == findValue }
         }
 
     }
@@ -38,9 +38,11 @@ data class ContactsTemplate(
         Email(3);
 
         companion object {
-            // Fixes Broken "telNumber" type field.
-            fun from(findValue: String): TypeField = TypeField.values().first { it.value == fixBrokenJson(findValue) }
-            private fun fixBrokenJson(brokenValue: String): Int = brokenValue.toIntOrNull()?: 2
+            // Fixes Broken "telnumber" type field.
+            fun from(findValue: String?): TypeField = TypeField.values().first { it.value == fixBrokenJson(findValue) }
+            private fun fixBrokenJson(brokenValue: String?): Int? {
+                return if (brokenValue == "telnumber") 2 else brokenValue?.toFloat()?.toInt()
+            }
         }
 
     }
