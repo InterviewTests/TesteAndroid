@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class FundTemplate(
-        var screen: Screen? = null
+        var screen: Screen = Screen()
 ): Serializable {
 
     data class Screen(

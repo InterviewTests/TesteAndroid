@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp">
+
+    <RelativeLayout
+        android:id="@+id/fragment_fund_download_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/fragment_fund_down_info_item_icon"
+            android:layout_width="@dimen/download_icon"
+            android:layout_height="@dimen/download_icon"
+            android:layout_marginTop="3.5dp"
+            android:layout_marginEnd="3dp"
+            android:contentDescription="@string/download"
+            android:src="@drawable/ic_download_santander_red" />
+
+        <TextView
+            android:id="@+id/fragment_fund_down_info_item_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/fragment_fund_down_info_item_icon"
+            android:fontFamily="@font/medium"
+            android:gravity="end"
+            android:text="@string/download"
+            android:textColor="@color/santander_red"
+            android:textSize="@dimen/material_design_body" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/fragment_fund_down_info_item_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/fragment_fund_download_button"
+        android:fontFamily="@font/light"
+        android:gravity="start"
+        android:textSize="@dimen/material_design_body"
+        tools:text="Essenciais" />
+
+</RelativeLayout>

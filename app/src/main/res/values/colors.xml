@@ -10,7 +10,18 @@
 
     <!-- Selected -->
     <color name="santander_red_selected_dark">#c90301</color>
-    <color name="santander_red_selected_light">#da7d7d</color>
+    <color name="santander_red_selected_light">#ec7473</color>
+
+    <!-- Risk -->
+    <color name="risk_one">#6fda5a</color>
+    <color name="risk_two">#42c168</color>
+    <color name="risk_three">#fdbf04</color>
+    <color name="risk_four">#fd731e</color>
+    <color name="risk_five">#fd322a</color>
+
+    <!-- Basic Colors -->
+    <color name="white">#FFF</color>
+    <color name="transparent">#00FFFFFF</color>
 
     <color name="colorPrimary">@color/santander_gray</color>
     <color name="colorPrimaryDark">@color/santander_dark_gray</color>

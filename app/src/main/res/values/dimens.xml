@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Material Design Keylines: https://material.io/guidelines/layout/metrics-keylines.html -->
+    <dimen name="material_design_space_content_areas">8dp</dimen>
+    <dimen name="material_design_space_content_types">16dp</dimen>
+    <dimen name="material_design_button_height">40dp</dimen>
+
+    <!-- Material Design Typography: https://material.io/guidelines/style/typography.html -->
+    <dimen name="material_design_app_bar">20sp</dimen>
+    <dimen name="material_design_title">18sp</dimen>
+    <dimen name="material_design_subheading">16sp</dimen>
+    <dimen name="material_design_buttons">14sp</dimen>
+    <dimen name="material_design_body">14sp</dimen>
+    <dimen name="material_design_caption">12sp</dimen>
+    
+    <dimen name="form_padding">22dp</dimen>
+    <dimen name="download_icon">16dp</dimen>
+    <dimen name="risk_bar_selector">16dp</dimen>
+    <dimen name="risk_bar_unselected">10dp</dimen>
+    <dimen name="risk_bar_selected">13dp</dimen>
+    <dimen name="logout_icon">26dp</dimen>
+
+</resources>
