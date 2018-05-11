@@ -1,0 +1,32 @@
+<resources>
+
+    <string name="app_name">Santander</string>
+
+    <!-- Investment -->
+    <string name="investment">Investimento</string>
+    <string name="invest">Investir</string>
+    <string name="fund">Fundo</string>
+    <string name="cdi">CDI</string>
+    <string name="on_month">No mês</string>
+    <string name="on_year">No Ano</string>
+    <string name="on_twelve_months">12 meses</string>
+    <string name="percentage_value">%s%%</string>
+    <string name="download">Baixar</string>
+    <string name="content_description_selector">Indicador de Risco</string>
+    <string name="fund_wait_dialog_message">Carregando Fundo de Investimento</string>
+    <string name="fund_empty_dialog_message_1">Não foi possível carregar o Fundo de Investimento.</string>
+    <string name="fund_empty_dialog_message_2">Por favorm verifique sua conexão com a internet</string>
+
+    <string name="contact">Contato</string>
+    <string name="invalid_field">Campo Inválido</string>
+    <string name="thank_you">Obrigado!</string>
+    <string name="contact_success">Mensagem enviada com sucesso :)</string>
+    <string name="contact_new">Enviar nova mensagem</string>
+    <string name="contact_wait_dialog_message">Carregando Formulário</string>
+    <string name="contact_empty_dialog_message_1">Não foi possível carregar o Formulário.</string>
+    <string name="contact_empty_dialog_message_2">Por favorm verifique sua conexão com a internet</string>
+
+    <string name="error">Erro</string>
+    <string name="wait">Aguarde</string>
+
+</resources>

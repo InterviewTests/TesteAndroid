@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Santander Pallete http://www.color-hex.com/color-palette/11189 -->
+    <color name="santander_red">#ec0000</color>
+    <color name="santander_black">#333333</color>
+    <color name="santander_dark_gray">#6d6d6d</color>
+    <color name="santander_gray">#c2c2c2</color>
+    <color name="santander_light_gray">#f0f0f0</color>
+
+    <!-- Selected -->
+    <color name="santander_red_selected_dark">#c90301</color>
+    <color name="santander_red_selected_light">#ec7473</color>
+
+    <!-- Risk -->
+    <color name="risk_one">#6fda5a</color>
+    <color name="risk_two">#42c168</color>
+    <color name="risk_three">#fdbf04</color>
+    <color name="risk_four">#fd731e</color>
+    <color name="risk_five">#fd322a</color>
+
+    <!-- Basic Colors -->
+    <color name="white">#FFF</color>
+    <color name="transparent">#00FFFFFF</color>
+
+    <color name="colorPrimary">@color/santander_gray</color>
+    <color name="colorPrimaryDark">@color/santander_dark_gray</color>
+    <color name="colorAccent">@color/santander_red</color>
+
+</resources>
