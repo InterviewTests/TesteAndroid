@@ -16,6 +16,9 @@
 
     <string name="contact">Contato</string>
     <string name="invalid_field">Campo Inválido</string>
+    <string name="thank_you">Obrigado!</string>
+    <string name="contact_success">Mensagem enviada com sucesso :)</string>
+    <string name="contact_new">Enviar nova mensagem</string>
 
     <string name="error">Erro</string>
 

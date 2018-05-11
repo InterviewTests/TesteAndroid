@@ -5,7 +5,6 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.InputType
 import android.text.TextUtils
@@ -18,7 +17,6 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import com.santander.android.R
-import com.santander.android.event.SendContactEvent
 import com.santander.android.model.template.ContactsTemplate
 import com.santander.android.viewmodel.ContactViewModel
 import org.greenrobot.eventbus.EventBus
@@ -31,6 +29,8 @@ class ContactFragment : Fragment() {
 
     // Views
     private lateinit var mDynamicForm: LinearLayout
+    private lateinit var mFinishedContainer: View
+    private lateinit var mNewContactButton: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,11 +41,14 @@ class ContactFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_contact, container, false)
         loadViews(rootView)
         loadObservers()
+        loadActions()
         return rootView
     }
 
     private fun loadViews(rootView: View) {
         mDynamicForm = rootView.findViewById(R.id.fragment_contact_dynamic_form)
+        mFinishedContainer = rootView.findViewById(R.id.fragment_contact_finished_container)
+        mNewContactButton = rootView.findViewById(R.id.fragment_contact_finished_new_contact_button)
     }
 
     private fun loadValues() {
@@ -57,6 +60,18 @@ class ContactFragment : Fragment() {
                 ContactsTemplate.Type.Checkbox -> loadCheckbox(cell)
                 ContactsTemplate.Type.Send -> loadSend(cell)
             }
+        }
+    }
+
+    private fun loadActions() {
+        mNewContactButton.setOnClickListener {
+            mForm.clear()
+            for (i in 0..mDynamicForm.childCount) {
+                val view = mDynamicForm.getChildAt(i)
+                (view as? EditText)?.text?.clear()
+            }
+            mFinishedContainer.visibility = View.GONE
+            mDynamicForm.visibility = View.VISIBLE
         }
     }
 
@@ -161,7 +176,6 @@ class ContactFragment : Fragment() {
                 if (text.length == 15) {
                     val inputManager: InputMethodManager? = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
                     inputManager?.hideSoftInputFromWindow(activity?.currentFocus?.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
-
                 }
 
             }
@@ -169,6 +183,7 @@ class ContactFragment : Fragment() {
     }
 
     private fun validate() {
+
         var allValid = true
 
         var index = 0
@@ -196,7 +211,13 @@ class ContactFragment : Fragment() {
 
         }
 
-        if (allValid) EventBus.getDefault().post(SendContactEvent(mForm))
+        if (allValid) {
+            val inputManager: InputMethodManager? = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            inputManager?.hideSoftInputFromWindow(activity?.currentFocus?.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+            mFinishedContainer.visibility = View.VISIBLE
+            mDynamicForm.visibility = View.GONE
+        }
+
     }
 
     private fun validateText(field: EditText): Boolean {
