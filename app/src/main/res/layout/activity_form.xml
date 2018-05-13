@@ -103,7 +103,7 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/sendButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
@@ -111,16 +111,17 @@
         />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/sendButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="150dp"
         android:layout_marginEnd="23dp"
         android:layout_marginStart="23dp"
-        android:background="@drawable/mybutton"
+        android:background="@drawable/button_normal"
         android:padding="10dp"
         android:text="@string/enviar"
         android:textColor="@android:color/white"
+        android:textAllCaps="false"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
