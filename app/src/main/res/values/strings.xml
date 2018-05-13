@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AndroidApp</string>
+    <string name="investimento">Investimento</string>
+    <string name="contato">Contato</string>
+    <string name="nome_completo">Nome completo</string>
+    <string name="email">Email</string>
+    <string name="telefone">Telefone</string>
+    <string name="gostaria_de_cadastrar_meu_email">Gostaria de cadastrar meu email</string>
+    <string name="enviar">Enviar</string>
 </resources>
