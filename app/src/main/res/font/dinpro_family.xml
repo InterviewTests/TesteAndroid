@@ -2,17 +2,17 @@
 <font-family xmlns:android="http://schemas.android.com/apk/res/android">
     <font android:fontStyle="normal"
         android:fontWeight="200"
-        android:font="@font/DINPro_Light"/>
+        android:font="@font/dinpro_light"/>
     <font android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/DINPro_Regular"/>
+        android:font="@font/dinpro_regular"/>
     <font android:fontStyle="normal"
         android:fontWeight="500"
-        android:font="@font/DINPro_Medium"/>
+        android:font="@font/dinpro_medium"/>
     <font android:fontStyle="normal"
         android:fontWeight="700"
-        android:font="@font/DINPro_Bold"/>
+        android:font="@font/dinpro_bold"/>
     <font android:fontStyle="normal"
         android:fontWeight="800"
-        android:font="@font/DINPro_Black"/>
+        android:font="@font/dinpro_black"/>
 </font-family>
