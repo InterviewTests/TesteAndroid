@@ -4,11 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".views.activities.MainActivity">
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+        android:id="@+id/myViewPager"
         android:layout_height="match_parent"
         android:layout_width="match_parent" />
+    <Button
+        android:id="@+id/btnInvestimento"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="@string/investimento"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnContato"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnContato"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="@string/contato"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/btnInvestimento" />
 
 </android.support.constraint.ConstraintLayout>
