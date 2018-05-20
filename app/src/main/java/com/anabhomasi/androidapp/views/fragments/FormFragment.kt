@@ -12,6 +12,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import com.anabhomasi.androidapp.R
 import com.anabhomasi.androidapp.views.adapters.PageAdapter
 
@@ -48,6 +49,7 @@ class FormFragment : Fragment() {
 // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_form, container, false)
+
         val btn = view.findViewById<Button>(R.id.sendButton)
 
         btn.setOnTouchListener { button, event ->

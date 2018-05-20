@@ -12,44 +12,19 @@
         android:layout_height="match_parent"
         tools:context=".FormActivity">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_top"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@android:color/transparent"
-            android:minHeight="?attr/actionBarSize"
-            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/contato"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                tools:layout_editor_absoluteX="153dp"
-                tools:layout_editor_absoluteY="19dp" />
-
-
-        </android.support.v7.widget.Toolbar>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/textInputLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="33dp"
             android:layout_marginStart="33dp"
+            android:layout_marginTop="60dp"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_top">
+            app:layout_constraintTop_toTopOf="parent">
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="295dp"
@@ -119,22 +94,21 @@
 
         <Button
             android:id="@+id/sendButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="150dp"
-            android:layout_marginEnd="23dp"
-            android:layout_marginStart="23dp"
-            android:background="@drawable/button_normal"
-            android:padding="10dp"
+            android:layout_width="315dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="132dp"
+            android:layout_marginEnd="34dp"
+            android:layout_marginStart="35dp"
+            android:background="@drawable/mybutton"
             android:text="@string/enviar"
-            android:textColor="@android:color/white"
             android:textAllCaps="false"
-            android:visibility="visible"
+            android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox"/>
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
 
+        </Button>
 
     </android.support.constraint.ConstraintLayout>
 

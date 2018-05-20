@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager.OnPageChangeListener
 import android.support.v7.app.AppCompatActivity
+import android.widget.TextView
 import com.anabhomasi.androidapp.R
 import com.anabhomasi.androidapp.views.adapters.PageAdapter
 import com.anabhomasi.androidapp.views.fragments.FormFragment
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity(),
             myViewPager.currentItem = 0
         }
 
+        toolbar_title.text = myViewPager.adapter?.getPageTitle(myViewPager.currentItem)
         adjustButtonColorStates(myViewPager.currentItem)
 
         // Attach the page change listener inside the activity
@@ -48,6 +50,7 @@ class MainActivity : AppCompatActivity(),
 
             // This method will be invoked when a new page becomes selected.
             override fun onPageSelected(position: Int) {
+                toolbar_title.text = myViewPager.adapter?.getPageTitle(position)
                 adjustButtonColorStates(position)
             }
 
