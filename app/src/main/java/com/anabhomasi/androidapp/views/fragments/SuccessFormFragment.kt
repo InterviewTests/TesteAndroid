@@ -1,11 +1,14 @@
 package com.anabhomasi.androidapp.views.fragments
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 
 import com.anabhomasi.androidapp.R
 import com.anabhomasi.androidapp.views.adapters.PageAdapter
@@ -37,62 +40,74 @@ class SuccessFormFragment : Fragment() {
             page = it.getInt(ARG_PAGE)
         }
     }
-override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                          savedInstanceState: Bundle?): View? {
-// Inflate the layout for this fragment
-    return inflater.inflate(R.layout.fragment_success_form, container, false)
-}
+    @SuppressLint("ClickableViewAccessibility")
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+    // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_success_form, container, false)
 
-fun onNewMessageButtonPressed() {
-    listener?.onFragmentInteraction(PageAdapter.FORM_PAGE)
-}
+        val btn = view.findViewById<Button>(R.id.newMessageBtn)
 
-override fun onAttach(context: Context) {
-    super.onAttach(context)
-    if (context is OnFragmentInteractionListener) {
-        listener = context
-    } else {
-        throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+        btn.setOnTouchListener { _, _ ->
+
+            onNewMessageButtonPressed()
+
+            true
+        }
+
+        return view
     }
-}
 
-override fun onDetach() {
-    super.onDetach()
-    listener = null
-}
+    fun onNewMessageButtonPressed() {
+        listener?.onFragmentInteraction(PageAdapter.FORM_PAGE)
+    }
 
-/**
- * This interface must be implemented by activities that contain this
- * fragment to allow an interaction in this fragment to be communicated
- * to the activity and potentially other fragments contained in that
- * activity.
- *
- *
- * See the Android Training lesson [Communicating with Other Fragments]
- * (http://developer.android.com/training/basics/fragments/communicating.html)
- * for more information.
- */
-interface OnFragmentInteractionListener {
-    // TODO: Update argument type and name
-    fun onFragmentInteraction(page: Int)
-}
-companion object {
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnFragmentInteractionListener) {
+            listener = context
+        } else {
+            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
+    }
+
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
      *
-     * @param title Parameter 1.
-     * @param page Parameter 2.
-     * @return A new instance of fragment SuccessFormFragment.
+     *
+     * See the Android Training lesson [Communicating with Other Fragments]
+     * (http://developer.android.com/training/basics/fragments/communicating.html)
+     * for more information.
      */
-// TODO: Rename and change types and number of parameters
-    @JvmStatic
-    fun newInstance(title: String, page: Int) =
-            SuccessFormFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_TITLE, title)
-                    putInt(ARG_PAGE, page)
+    interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        fun onFragmentInteraction(page: Int)
+    }
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param title Parameter 1.
+         * @param page Parameter 2.
+         * @return A new instance of fragment SuccessFormFragment.
+         */
+    // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(title: String, page: Int) =
+                SuccessFormFragment().apply {
+                    arguments = Bundle().apply {
+                        putString(ARG_TITLE, title)
+                        putInt(ARG_PAGE, page)
+                    }
                 }
-            }
-}
+    }
 }
