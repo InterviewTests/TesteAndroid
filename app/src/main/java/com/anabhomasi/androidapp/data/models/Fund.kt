@@ -1,5 +1,7 @@
 package com.anabhomasi.androidapp.data.models
 
+import com.google.gson.annotations.SerializedName
+
 object Fund {
 
     data class Response(
@@ -27,6 +29,7 @@ object Fund {
     data class MoreInfo(
             val month: Month,
             val year: Year,
+            @SerializedName("12months")
             val twelveMonths: Months
     )
 
