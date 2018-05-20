@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidApp</string>
+    <string name="app_name">Teste Android</string>
     <string name="investimento">Investimento</string>
     <string name="contato">Contato</string>
     <string name="nome_completo">Nome completo</string>
@@ -10,4 +10,5 @@
     <string name="enviar_nova_mensagem">Enviar nova mensagem</string>
     <string name="mensagem_enviada_com_sucesso">Mensagem enviada com sucesso :)</string>
     <string name="obrigado">Obrigado!</string>
+
 </resources>
