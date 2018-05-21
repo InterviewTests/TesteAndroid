@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#CA0000</color>
     <color name="colorAccent">#000000</color>
     <color name="colorPrimaryLight">#ED7574</color>
+    <color name="validEditText">#40dc42</color>
+
 
 </resources>
