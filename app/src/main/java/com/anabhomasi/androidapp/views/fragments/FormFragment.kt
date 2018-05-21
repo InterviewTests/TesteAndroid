@@ -4,21 +4,33 @@ import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.drawable.TransitionDrawable
 import android.os.Bundle
+import android.support.design.widget.TextInputEditText
+import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
+import android.support.v4.view.ViewCompat
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
 import com.anabhomasi.androidapp.R
 import com.anabhomasi.androidapp.views.adapters.PageAdapter
+import android.text.Editable
+import android.text.InputFilter
+import android.text.TextWatcher
+import android.util.Patterns
+import kotlinx.android.synthetic.main.fragment_form.*
+import java.util.regex.Pattern
 
 
 private const val ARG_TITLE = "title"
 private const val ARG_PAGE = "page"
+private const val PHONE_REGEX = "^\\((\\d{2})\\)\\s(\\d{4,5}\\-\\d{4})\$"
+
 
 /**
  * A simple [Fragment] subclass.
@@ -33,6 +45,7 @@ class FormFragment : Fragment() {
 
     private var title: String? = null
     private var page: Int? = null
+    private var shouldContinue = true
     private var listener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,16 +56,25 @@ class FormFragment : Fragment() {
         }
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_form, container, false)
 
-        val btn = view.findViewById<Button>(R.id.sendButton)
+        configureSendButton(view)
+        configureFieldValidation(view, R.id.nameEdTx)
+        configureFieldValidation(view, R.id.emailEdTx)
+        configureFieldValidation(view, R.id.phoneEdTx)
 
-        btn.setOnTouchListener { button, event ->
+        return view
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun configureSendButton(view: View?) {
+        val btn = view?.findViewById<Button>(R.id.sendButton)
+
+        btn?.setOnTouchListener { button, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     val reducer = AnimatorInflater.loadAnimator(context, R.animator.reduce_size) as AnimatorSet
@@ -75,14 +97,114 @@ class FormFragment : Fragment() {
             }
             true
         }
-
-        return view
     }
 
-    private fun onSendButtonTouched() {
-        //TODO validate form
+    private fun configureFieldValidation(view: View?, field: Int) {
+        val editText = view?.findViewById<TextInputEditText>(field)
 
-        listener?.onFragmentInteraction(PageAdapter.SUCCESS_FORM_PAGE)
+        editText?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable) {
+                validateEditText(field)
+            }
+        })
+
+        editText?.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus) {
+                if (field == R.id.phoneEdTx) {
+                    //New max length
+                    (v as TextInputEditText).filters = arrayOf(InputFilter.LengthFilter(15))
+                    //Format number
+                    v.setText(formatPhone(v.text.toString()))
+                }
+
+                validateEditText(field)
+            } else {
+                (v as TextInputEditText).text.clear()
+                (v.parent.parent as TextInputLayout).error = null
+                if (field == R.id.phoneEdTx){
+                    v.filters = arrayOf(InputFilter.LengthFilter(11))
+                }
+            }
+        }
+    }
+
+    private fun formatPhone (wholePhone: String):String{
+        val cleanPhone = wholePhone
+                .replace("(", "")
+                .replace(")", "")
+                .replace(" ", "")
+                .replace("-", "")
+
+        if (cleanPhone.length >= 10){
+            val ddd = cleanPhone.substring(0..1)
+            val phoneLeft = cleanPhone.substring(2..cleanPhone.length-5)
+            val phoneRight = cleanPhone.substring(cleanPhone.length-4 until cleanPhone.length)
+            return "($ddd) $phoneLeft-$phoneRight"
+        }
+
+        return wholePhone
+    }
+
+
+    private fun validateEditText(field: Int) {
+        val editTx = view?.findViewById<TextInputEditText>(field)
+        val txLayout = editTx?.parent?.parent as TextInputLayout
+
+        val emailValidation =
+                if (field == R.id.emailEdTx)
+                    Patterns.EMAIL_ADDRESS.matcher(editTx.text).matches()
+                else
+                    true
+
+        val phoneValidation =
+                if (field == R.id.phoneEdTx)
+                    Pattern.compile(PHONE_REGEX).matcher(editTx.text).matches()
+                else
+                    true
+
+        if (editTx.text.isNotBlank() && emailValidation && phoneValidation) {
+            txLayout.error = null
+            val colorStateList = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.validEditText))
+            ViewCompat.setBackgroundTintList(editTx, colorStateList)
+        } else {
+            shouldContinue = false
+            val hint = txLayout.hint
+            txLayout.error = "$hint Inválido"
+        }
+    }
+
+    private fun validateAllFields() {
+        shouldContinue = true
+
+        validateEditText(R.id.phoneEdTx)
+        validateEditText(R.id.emailEdTx)
+        validateEditText(R.id.nameEdTx)
+    }
+
+
+    private fun onSendButtonTouched() {
+        validateAllFields()
+
+        if (shouldContinue) {
+            clearAllFields()
+            listener?.onFragmentInteraction(PageAdapter.SUCCESS_FORM_PAGE)
+        }
+    }
+
+    private fun clearAllFields() {
+        emailEdTx.text.clear()
+        emailTxInLayout.error = null
+
+        phoneEdTx.text.clear()
+        phoneTxInLayout.error = null
+
+        nameEdTx.text.clear()
+        nameEdTx.requestFocus()
+        nameTxInLayout.error = null
     }
 
     override fun onAttach(context: Context) {

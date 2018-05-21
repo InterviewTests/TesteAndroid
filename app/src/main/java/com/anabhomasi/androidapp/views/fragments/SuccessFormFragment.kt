@@ -28,7 +28,7 @@ private const val ARG_PAGE = "page"
  *
  */
 class SuccessFormFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var title: String? = null
     private var page: Int? = null
     private var listener: OnFragmentInteractionListener? = null
@@ -58,7 +58,7 @@ class SuccessFormFragment : Fragment() {
         return view
     }
 
-    fun onNewMessageButtonPressed() {
+    private fun onNewMessageButtonPressed() {
         listener?.onFragmentInteraction(PageAdapter.FORM_PAGE)
     }
 
