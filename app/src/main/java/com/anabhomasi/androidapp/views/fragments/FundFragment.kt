@@ -1,14 +1,19 @@
 package com.anabhomasi.androidapp.views.fragments
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
+import android.widget.TextView
+import com.anabhomasi.androidapp.App
 
 import com.anabhomasi.androidapp.R
+import com.anabhomasi.androidapp.views.adapters.MoreInfoAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,7 +46,66 @@ class FundFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fund, container, false)
+        val view = inflater.inflate(R.layout.fragment_fund, container, false)
+
+        setAllTexts(view)
+
+        when (App.getInstance().funds.screen.risk) {
+            1 -> {
+                val radio = view.findViewById<RadioButton>(R.id.riskOneView)
+                radio.isChecked = true
+            }
+            2 -> {
+                val radio = view.findViewById<RadioButton>(R.id.riskTwoView)
+                radio.isChecked = true
+            }
+            3 -> {
+                val radio = view.findViewById<RadioButton>(R.id.riskThreeView)
+                radio.isChecked = true
+            }
+            4 -> {
+                val radio = view.findViewById<RadioButton>(R.id.riskFourView)
+                radio.isChecked = true
+            }
+            5 -> {
+                val radio = view.findViewById<RadioButton>(R.id.riskFiveView)
+                radio.isChecked = true
+            }
+        }
+
+        setMoreInfoRecyleView(view)
+
+        return view
+    }
+
+    private fun setMoreInfoRecyleView(view: View?) {
+        val recyclerView = view?.findViewById<RecyclerView>(R.id.moreInfoRecyclerView)
+        recyclerView?.layoutManager = LinearLayoutManager(context)
+        recyclerView?.adapter = MoreInfoAdapter()
+        recyclerView?.setHasFixedSize(true)
+    }
+
+    private fun setAllTexts(view: View?) {
+
+        with(App.getInstance().funds.screen){
+            val titleTxv = view?.findViewById<TextView>(R.id.titleTxv)
+            titleTxv?.text = this.title
+
+            val fundNameTxv = view?.findViewById<TextView>(R.id.fundNameTxv)
+            fundNameTxv?.text = this.fundName
+
+            val whatIsTxv = view?.findViewById<TextView>(R.id.whatIsTxv)
+            whatIsTxv?.text = this.whatIs
+
+            val definitionTxv = view?.findViewById<TextView>(R.id.definitionTxv)
+            definitionTxv?.text = this.definition
+
+            val riskTitleTxv = view?.findViewById<TextView>(R.id.riskTitleTxv)
+            riskTitleTxv?.text = this.riskTitle
+
+            val infoTitleTxv = view?.findViewById<TextView>(R.id.infoTitleTxv)
+            infoTitleTxv?.text = this.infoTitle
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event

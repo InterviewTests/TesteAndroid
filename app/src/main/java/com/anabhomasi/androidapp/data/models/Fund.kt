@@ -27,23 +27,13 @@ object Fund {
     )
 
     data class MoreInfo(
-            val month: Month,
-            val year: Year,
+            val month: Revenue,
+            val year: Revenue,
             @SerializedName("12months")
-            val twelveMonths: Months
+            val twelveMonths: Revenue
     )
 
-    data class Year(
-            val fund: Double,
-            val CDI: Double
-    )
-
-    data class Month(
-            val fund: Double,
-            val CDI: Double
-    )
-
-    data class Months(
+    data class Revenue(
             val fund: Double,
             val CDI: Double
     )
