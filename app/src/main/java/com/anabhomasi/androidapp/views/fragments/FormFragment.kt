@@ -123,10 +123,10 @@ class FormFragment : Fragment() {
 
                 validateEditText(field)
             } else {
-                (v as TextInputEditText).text.clear()
+
                 (v.parent.parent as TextInputLayout).error = null
                 if (field == R.id.phoneEdTx){
-                    v.filters = arrayOf(InputFilter.LengthFilter(11))
+                    (v as TextInputEditText).filters = arrayOf(InputFilter.LengthFilter(11))
                 }
             }
         }
