@@ -40,7 +40,7 @@ class InfoAdapter: RecyclerView.Adapter<InfoViewHolder>() {
                 dataInfoBtn.setTextColor(Color.RED)
                 dataInfoBtn.text = "Baixar"
                 dataInfoBtn.isClickable = true
-                dataInfoBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_launcher_foreground, 0, 0, 0);
+                dataInfoBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_download, 0, 0, 0);
             }
             else{
                 dataInfoBtn.text = infoList[position].data
