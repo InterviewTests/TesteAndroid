@@ -18,12 +18,12 @@ object Fund {
             val infoTitle: String,
             val moreInfo: MoreInfo,
             val info: List<Info>,
-            val downInfo: List<DownInfo>
+            val downInfo: List<Info>
     )
 
     data class Info(
             val name: String,
-            val data: String
+            val data: String?
     )
 
     data class MoreInfo(
@@ -36,10 +36,5 @@ object Fund {
     data class Revenue(
             val fund: Double,
             val CDI: Double
-    )
-
-    data class DownInfo(
-            val name: String,
-            val data: Any
     )
 }

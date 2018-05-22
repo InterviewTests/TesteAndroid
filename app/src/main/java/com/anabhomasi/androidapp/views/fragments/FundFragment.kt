@@ -13,6 +13,7 @@ import android.widget.TextView
 import com.anabhomasi.androidapp.App
 
 import com.anabhomasi.androidapp.R
+import com.anabhomasi.androidapp.views.adapters.InfoAdapter
 import com.anabhomasi.androidapp.views.adapters.MoreInfoAdapter
 
 // TODO: Rename parameter arguments, choose names that match
@@ -74,6 +75,7 @@ class FundFragment : Fragment() {
         }
 
         setMoreInfoRecyleView(view)
+        setInfoRecyleView(view)
 
         return view
     }
@@ -82,6 +84,13 @@ class FundFragment : Fragment() {
         val recyclerView = view?.findViewById<RecyclerView>(R.id.moreInfoRecyclerView)
         recyclerView?.layoutManager = LinearLayoutManager(context)
         recyclerView?.adapter = MoreInfoAdapter()
+        recyclerView?.setHasFixedSize(true)
+    }
+
+    private fun setInfoRecyleView(view: View?) {
+        val recyclerView = view?.findViewById<RecyclerView>(R.id.infoRecyclerView)
+        recyclerView?.layoutManager = LinearLayoutManager(context)
+        recyclerView?.adapter = InfoAdapter()
         recyclerView?.setHasFixedSize(true)
     }
 
