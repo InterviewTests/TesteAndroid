@@ -44,19 +44,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/titleTxv"
                 tools:text="Vinci Valorem FI Multimercado" />
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="13dp"
-                android:layout_marginTop="18dp"
-                android:background="@android:color/darker_gray"
-                app:layout_constraintBottom_toTopOf="@+id/whatIsTxv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fundNameTxv" />
-
             <TextView
                 android:id="@+id/whatIsTxv"
                 android:layout_width="wrap_content"
@@ -105,78 +92,78 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv"
-                >
+                app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv">
+
                 <RadioButton
                     android:id="@+id/riskOneView"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="20dp"
                     android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/risk_one_radiobutton_selector"
                     android:button="@null"
                     android:clickable="false"
-                    android:background="@drawable/risk_one_radiobutton_selector"
                     app:layout_constraintEnd_toEndOf="@+id/risTwoView"
                     app:layout_constraintEnd_toStartOf="@+id/risTwoView"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv"
-                    app:layout_constraintHorizontal_chainStyle="packed"/>
+                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv" />
 
                 <RadioButton
                     android:id="@+id/riskTwoView"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="20dp"
                     android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/risk_two_radiobutton_selector"
                     android:button="@null"
                     android:clickable="false"
-                    android:background="@drawable/risk_two_radiobutton_selector"
                     app:layout_constraintEnd_toStartOf="@+id/riskThreeView"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toEndOf="@+id/riskOneView"
-                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv"
-                    app:layout_constraintHorizontal_chainStyle="packed" />
+                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv" />
 
                 <RadioButton
                     android:id="@+id/riskThreeView"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="20dp"
                     android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/risk_three_radiobutton_selector"
                     android:button="@null"
                     android:clickable="false"
-                    android:background="@drawable/risk_three_radiobutton_selector"
                     app:layout_constraintEnd_toStartOf="@+id/riskFourView"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toEndOf="@+id/risTwoView"
-                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv"
-                    app:layout_constraintHorizontal_chainStyle="packed"/>
+                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv" />
 
                 <RadioButton
                     android:id="@+id/riskFourView"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="20dp"
                     android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/risk_four_radiobutton_selector"
                     android:button="@null"
                     android:clickable="false"
-                    android:background="@drawable/risk_four_radiobutton_selector"
                     app:layout_constraintEnd_toStartOf="@+id/riskFiveView"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toEndOf="@+id/riskThreeView"
-                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv"
-                    app:layout_constraintHorizontal_chainStyle="packed"/>
+                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv" />
 
                 <RadioButton
                     android:id="@+id/riskFiveView"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="20dp"
                     android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/risk_five_radiobutton_selector"
                     android:button="@null"
                     android:clickable="false"
-                    android:background="@drawable/risk_five_radiobutton_selector"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toEndOf="@+id/riskFourView"
-                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv"
-                    app:layout_constraintHorizontal_chainStyle="packed"/>
+                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv" />
 
             </RadioGroup>
 
@@ -203,6 +190,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/infoTitleTxv" />
 
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintBottom_toTopOf="@+id/infoRecyclerView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/moreInfoRecyclerView" />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/infoRecyclerView"
                 android:layout_width="match_parent"
@@ -212,6 +212,36 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/moreInfoRecyclerView" />
 
+            <Button
+                android:id="@+id/investButton"
+                android:layout_width="315dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="132dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/mybutton"
+                android:text="@string/Investir"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/infoRecyclerView"
+                app:layout_constraintVertical_bias="0.0">
+
+            </Button>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="328dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintBottom_toTopOf="@+id/whatIsTxv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fundNameTxv" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

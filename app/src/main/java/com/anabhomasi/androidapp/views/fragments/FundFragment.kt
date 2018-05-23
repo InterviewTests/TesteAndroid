@@ -1,18 +1,25 @@
 package com.anabhomasi.androidapp.views.fragments
 
+import android.animation.AnimatorInflater
+import android.animation.AnimatorSet
+import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.drawable.TransitionDrawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.RadioButton
 import android.widget.TextView
 import com.anabhomasi.androidapp.App
 
 import com.anabhomasi.androidapp.R
+import com.anabhomasi.androidapp.R.id.infoRecyclerView
 import com.anabhomasi.androidapp.views.adapters.InfoAdapter
 import com.anabhomasi.androidapp.views.adapters.MoreInfoAdapter
 
@@ -73,7 +80,7 @@ class FundFragment : Fragment() {
                 radio.isChecked = true
             }
         }
-
+        configureInvestButton(view)
         setMoreInfoRecyleView(view)
         setInfoRecyleView(view)
 
@@ -170,5 +177,32 @@ class FundFragment : Fragment() {
                         putInt(ARG_PAGE, page)
                     }
                 }
+    }
+    @SuppressLint("ClickableViewAccessibility")
+    private fun configureInvestButton(view: View?) {
+        val btn = view?.findViewById<Button>(R.id.investButton)
+
+        btn?.setOnTouchListener { button, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    val reducer = AnimatorInflater.loadAnimator(context, R.animator.reduce_size) as AnimatorSet
+                    reducer.setTarget(button)
+                    val drawable = btn.background as TransitionDrawable
+
+                    reducer.start()
+                    drawable.startTransition(300)
+                }
+                MotionEvent.ACTION_UP -> {
+                    val regainer = AnimatorInflater.loadAnimator(context, R.animator.regain_size) as AnimatorSet
+                    regainer.setTarget(button)
+                    val drawable = btn.background as TransitionDrawable
+
+                    regainer.start()
+                    drawable.reverseTransition(300)
+
+                }
+            }
+            true
+        }
     }
 }

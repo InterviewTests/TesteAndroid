@@ -31,7 +31,6 @@
         app:layout_constraintEnd_toStartOf="@+id/cdiValueRowTxv"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@+id/titleRowTxv"
-
         tools:text="FUND%" />
 
     <TextView
