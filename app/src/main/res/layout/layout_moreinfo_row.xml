@@ -7,6 +7,42 @@
     android:layout_marginTop="10dp">
 
     <TextView
+        android:id="@+id/headerFundTxv"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="4"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/dinpro_regular"
+        android:textAlignment="viewEnd"
+        android:text="@string/fundo"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/headerCDITxv"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fundValueRowTxv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Fundo" />
+
+    <TextView
+        android:id="@+id/headerCDITxv"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/dinpro_regular"
+        android:textAlignment="viewEnd"
+        android:text="@string/cdi"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@id/headerFundTxv"
+        app:layout_constraintBottom_toTopOf="@id/cdiValueRowTxv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="CDI" />
+
+    <TextView
         android:id="@+id/titleRowTxv"
         android:layout_width="0dp"
         app:layout_constraintHorizontal_weight="3"
@@ -17,6 +53,7 @@
         app:layout_constraintEnd_toStartOf="@+id/fundValueRowTxv"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:text="TITULO" />
 
     <TextView
@@ -28,9 +65,11 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/dinpro_medium"
         android:textAlignment="viewEnd"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/cdiValueRowTxv"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@+id/titleRowTxv"
+        app:layout_constraintTop_toBottomOf="@id/headerFundTxv"
         tools:text="FUND%" />
 
     <TextView
@@ -42,9 +81,11 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/dinpro_medium"
         android:textAlignment="viewEnd"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@+id/fundValueRowTxv"
+        app:layout_constraintTop_toBottomOf="@id/headerCDITxv"
         tools:text="CDI%" />
 
 </android.support.constraint.ConstraintLayout>

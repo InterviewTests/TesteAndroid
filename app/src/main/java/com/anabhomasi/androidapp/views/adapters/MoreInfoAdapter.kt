@@ -36,6 +36,11 @@ class MoreInfoAdapter: RecyclerView.Adapter<MoreInfoViewHolder>() {
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MoreInfoViewHolder, position: Int) {
         holder.view.apply {
+            if (position == 0){
+                headerFundTxv.visibility = View.VISIBLE
+                headerCDITxv.visibility = View.VISIBLE
+            }
+
             titleRowTxv.text = moreInfoTitleList[position]
             fundValueRowTxv.text = moreInfoList[position].fund.toString() + "%"
             cdiValueRowTxv.text = moreInfoList[position].CDI.toString() + "%"
