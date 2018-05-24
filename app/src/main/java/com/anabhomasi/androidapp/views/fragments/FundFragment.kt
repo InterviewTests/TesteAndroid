@@ -96,9 +96,11 @@ class FundFragment : Fragment() {
 
     private fun setInfoRecyleView(view: View?) {
         val recyclerView = view?.findViewById<RecyclerView>(R.id.infoRecyclerView)
+        recyclerView?.isNestedScrollingEnabled = false
         recyclerView?.layoutManager = LinearLayoutManager(context)
         recyclerView?.adapter = InfoAdapter()
         recyclerView?.setHasFixedSize(true)
+
     }
 
     private fun setAllTexts(view: View?) {

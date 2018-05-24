@@ -23,10 +23,9 @@
     <Button
         android:id="@+id/dataInfoBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_marginEnd="8dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
+        android:paddingStart="28dp"
         android:textAllCaps="false"
         android:fontFamily="@font/dinpro_medium"
         android:background="@android:color/transparent"
