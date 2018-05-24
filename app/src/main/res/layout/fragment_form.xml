@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,6 +34,7 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:selectAllOnFocus="true"
+                android:fontFamily="@font/dinpro_regular"
                 android:hint="@string/nome_completo" />
         </android.support.design.widget.TextInputLayout>
 
@@ -54,6 +56,7 @@
                 android:layout_width="295dp"
                 android:layout_height="47dp"
                 android:hint="@string/email"
+                android:fontFamily="@font/dinpro_regular"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:selectAllOnFocus="true"
@@ -79,6 +82,7 @@
                 android:layout_width="295dp"
                 android:layout_height="47dp"
                 android:hint="@string/telefone"
+                android:fontFamily="@font/dinpro_regular"
                 android:inputType="number"
                 android:maxLines="1"
                 android:maxLength="11"
@@ -97,6 +101,7 @@
             android:textColor="@android:color/darker_gray"
             android:textSize="18sp"
             android:textAlignment="center"
+            android:fontFamily="@font/dinpro_regular"
             android:visibility="visible"
             android:button="@drawable/checkbox_selector"
             app:layout_constraintBottom_toTopOf="@+id/sendButton"
@@ -107,18 +112,18 @@
 
         <Button
             android:id="@+id/sendButton"
-            android:layout_width="315dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="132dp"
-            android:layout_marginEnd="34dp"
-            android:layout_marginStart="35dp"
+            android:layout_marginBottom="128dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginStart="14dp"
             android:background="@drawable/mybutton"
+            android:fontFamily="@font/dinpro_regular"
             android:text="@string/enviar"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent">
 
         </Button>
