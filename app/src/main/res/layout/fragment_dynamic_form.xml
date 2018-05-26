@@ -3,12 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".views.fragments.DynamicFormFragment">
-
-    <!-- TODO: Update blank fragment layout -->
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/formRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbars="vertical"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="75dp"/>
 </FrameLayout>
