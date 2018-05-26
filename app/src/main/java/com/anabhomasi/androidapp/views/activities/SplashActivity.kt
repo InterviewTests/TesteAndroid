@@ -58,7 +58,7 @@ class SplashActivity : AppCompatActivity() {
         if (cells != null && funds != null){
             val intent = Intent(this, MainActivity::class.java)
 
-            App.getInstance().cells = cells!!
+            App.getInstance().form = cells!!
             App.getInstance().funds = funds!!
 
             this.startActivity(intent)

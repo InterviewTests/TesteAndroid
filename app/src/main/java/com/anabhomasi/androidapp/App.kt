@@ -5,7 +5,7 @@ import com.anabhomasi.androidapp.data.models.Form
 import com.anabhomasi.androidapp.data.models.Fund
 
 class App : Application() {
-    lateinit var cells : Form.Response
+    lateinit var form : Form.Response
     lateinit var funds : Fund.Response
 
     override fun onCreate() {
