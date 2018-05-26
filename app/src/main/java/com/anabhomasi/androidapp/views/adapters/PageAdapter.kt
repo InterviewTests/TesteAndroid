@@ -3,7 +3,7 @@ package com.anabhomasi.androidapp.views.adapters
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.anabhomasi.androidapp.views.fragments.FormFragment
+import com.anabhomasi.androidapp.views.fragments.DynamicFormFragment
 import com.anabhomasi.androidapp.views.fragments.FundFragment
 import com.anabhomasi.androidapp.views.fragments.SuccessFormFragment
 
@@ -19,7 +19,7 @@ class PageAdapter(fragmentManager: FragmentManager) :
     override fun getItem(position: Int): Fragment? {
         return when (position) {
             FUND_PAGE -> FundFragment.newInstance("Investimento", FUND_PAGE)
-            FORM_PAGE -> FormFragment.newInstance("Contato", FORM_PAGE)
+            FORM_PAGE -> DynamicFormFragment.newInstance()
             SUCCESS_FORM_PAGE -> SuccessFormFragment.newInstance("Contato", SUCCESS_FORM_PAGE)
             else -> null
         }

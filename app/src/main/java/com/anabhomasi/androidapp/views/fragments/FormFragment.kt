@@ -42,6 +42,7 @@ private const val PHONE_REGEX = "^\\((\\d{2})\\)\\s(\\d{4,5}\\-\\d{4})\$"
  * create an instance of this fragment.
  *
  */
+@Deprecated("Replaced with DynamicFormFragment")
 class FormFragment : Fragment() {
 
     private var title: String? = null
