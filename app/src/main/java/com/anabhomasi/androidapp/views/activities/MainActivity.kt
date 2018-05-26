@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import com.anabhomasi.androidapp.R
 import com.anabhomasi.androidapp.views.adapters.PageAdapter
+import com.anabhomasi.androidapp.views.fragments.DynamicFormFragment
 import com.anabhomasi.androidapp.views.fragments.FormFragment
 import com.anabhomasi.androidapp.views.fragments.FundFragment
 import com.anabhomasi.androidapp.views.fragments.SuccessFormFragment
@@ -16,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(),
-        FormFragment.OnFragmentInteractionListener,
+        DynamicFormFragment.OnFragmentInteractionListener,
         FundFragment.OnFragmentInteractionListener,
         SuccessFormFragment.OnFragmentInteractionListener{
 
@@ -34,11 +35,11 @@ class MainActivity : AppCompatActivity(),
         adapterViewPager = PageAdapter(supportFragmentManager)
         myViewPager.adapter = adapterViewPager
 
-        btnContato.setOnClickListener { v ->
+        btnContato.setOnClickListener {
             myViewPager.currentItem = 1
         }
 
-        btnInvestimento.setOnClickListener { v ->
+        btnInvestimento.setOnClickListener {
             myViewPager.currentItem = 0
         }
 
