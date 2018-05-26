@@ -23,6 +23,7 @@ import android.text.Editable
 import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.Patterns
+import android.view.inputmethod.EditorInfo
 import kotlinx.android.synthetic.main.fragment_form.*
 import java.util.regex.Pattern
 
@@ -111,7 +112,22 @@ class FormFragment : Fragment() {
                 validateEditText(field)
             }
         })
+        editText?.setOnEditorActionListener() { v, actionId, event ->
+            if(actionId == EditorInfo.IME_ACTION_DONE){
+                if (field == R.id.phoneEdTx) {
+                    //New max length
+                    (v as TextInputEditText).filters = arrayOf(InputFilter.LengthFilter(15))
+                    //Format number
+                    v.setText(formatPhone(v.text.toString()))
+                }
 
+                validateEditText(field)
+
+                true
+            } else {
+                false
+            }
+        }
         editText?.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
             if (!hasFocus) {
                 if (field == R.id.phoneEdTx) {
@@ -196,6 +212,9 @@ class FormFragment : Fragment() {
     }
 
     private fun clearAllFields() {
+
+        checkBox.isChecked = false
+
         emailEdTx.text.clear()
         emailTxInLayout.error = null
 
@@ -205,6 +224,7 @@ class FormFragment : Fragment() {
         nameEdTx.text.clear()
         nameEdTx.requestFocus()
         nameTxInLayout.error = null
+
     }
 
     override fun onAttach(context: Context) {
