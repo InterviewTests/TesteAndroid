@@ -97,7 +97,7 @@
                 <RadioButton
                     android:id="@+id/riskOneView"
                     android:layout_width="0dp"
-                    android:layout_height="20dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="18dp"
                     android:layout_weight="1"
                     android:background="@drawable/risk_one_radiobutton_selector"
@@ -112,7 +112,7 @@
                 <RadioButton
                     android:id="@+id/riskTwoView"
                     android:layout_width="0dp"
-                    android:layout_height="20dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="18dp"
                     android:layout_weight="1"
                     android:background="@drawable/risk_two_radiobutton_selector"
@@ -126,7 +126,7 @@
                 <RadioButton
                     android:id="@+id/riskThreeView"
                     android:layout_width="0dp"
-                    android:layout_height="20dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="18dp"
                     android:layout_weight="1"
                     android:background="@drawable/risk_three_radiobutton_selector"
@@ -140,7 +140,7 @@
                 <RadioButton
                     android:id="@+id/riskFourView"
                     android:layout_width="0dp"
-                    android:layout_height="20dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="18dp"
                     android:layout_weight="1"
                     android:background="@drawable/risk_four_radiobutton_selector"
@@ -154,7 +154,7 @@
                 <RadioButton
                     android:id="@+id/riskFiveView"
                     android:layout_width="0dp"
-                    android:layout_height="20dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="18dp"
                     android:layout_weight="1"
                     android:background="@drawable/risk_five_radiobutton_selector"

@@ -12,7 +12,7 @@
 
     <!-- This is for border bottom but
     you can change this according to your need -->
-    <item android:top="10dp" >
+    <item android:top="16dp" >
         <shape
             android:shape="rectangle">
             <!-- Set the background color of your layout here -->
