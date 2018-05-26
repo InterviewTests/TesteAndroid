@@ -18,38 +18,23 @@ object Fund {
             val infoTitle: String,
             val moreInfo: MoreInfo,
             val info: List<Info>,
-            val downInfo: List<DownInfo>
+            val downInfo: List<Info>
     )
 
     data class Info(
             val name: String,
-            val data: String
+            val data: String?
     )
 
     data class MoreInfo(
-            val month: Month,
-            val year: Year,
+            val month: Revenue,
+            val year: Revenue,
             @SerializedName("12months")
-            val twelveMonths: Months
+            val twelveMonths: Revenue
     )
 
-    data class Year(
+    data class Revenue(
             val fund: Double,
             val CDI: Double
-    )
-
-    data class Month(
-            val fund: Double,
-            val CDI: Double
-    )
-
-    data class Months(
-            val fund: Double,
-            val CDI: Double
-    )
-
-    data class DownInfo(
-            val name: String,
-            val data: Any
     )
 }
