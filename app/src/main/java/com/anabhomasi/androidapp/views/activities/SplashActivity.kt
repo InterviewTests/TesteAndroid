@@ -3,6 +3,7 @@ package com.anabhomasi.androidapp.views.activities
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.anabhomasi.androidapp.App
 import com.anabhomasi.androidapp.R
 import com.anabhomasi.androidapp.data.models.Form
@@ -13,7 +14,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SplashActivity : AppCompatActivity() {
-    private var cells : Form.Response? = null
+    private var form : Form.Response? = null
     private var funds : Fund.Response? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,12 +33,12 @@ class SplashActivity : AppCompatActivity() {
         val callForm = taskService.getCells()
         callForm.enqueue(object : Callback<Form.Response> {
             override fun onResponse(request: Call<Form.Response>, response: Response<Form.Response>) {
-                cells = response.body()
+                form = response.body()
                 validateData()
             }
 
             override fun onFailure(request: Call<Form.Response>, t: Throwable) {
-
+                callForm.clone().enqueue(this)
             }
         })
 
@@ -49,21 +50,22 @@ class SplashActivity : AppCompatActivity() {
             }
 
             override fun onFailure(request: Call<Fund.Response>, t: Throwable) {
-
+                callFunds.clone().enqueue(this)
             }
         })
     }
 
     private fun validateData() {
-        if (cells != null && funds != null){
+        if (form != null && funds != null){
             val intent = Intent(this, MainActivity::class.java)
 
-            App.getInstance().form = cells!!
+            App.getInstance().form = form!!
             App.getInstance().funds = funds!!
 
             this.startActivity(intent)
             this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
-        }
+        } else
+            Log.e("validationError", "cells = $form and funds = $funds")
     }
 }
