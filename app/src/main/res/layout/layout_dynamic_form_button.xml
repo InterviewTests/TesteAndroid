@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dynamicButton"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginEnd="13dp"
+    android:layout_marginStart="14dp"
+    android:background="@drawable/mybutton"
+    android:fontFamily="@font/dinpro_regular"
+    android:textAllCaps="false"
+    android:textColor="@android:color/white">
+</Button>

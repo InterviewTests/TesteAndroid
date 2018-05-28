@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".views.fragments.FundFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="vertical">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
+
+            <TextView
+                android:id="@+id/titleTxv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/dinpro_light"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Fundos de investimento" />
+
+            <TextView
+                android:id="@+id/fundNameTxv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/dinpro_black"
+                android:textAlignment="center"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleTxv"
+                tools:text="Vinci Valorem FI Multimercado" />
+
+            <TextView
+                android:id="@+id/whatIsTxv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="19dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dividerTop"
+                tools:text="O que é?" />
+
+            <TextView
+                android:id="@+id/definitionTxv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/dinpro_light"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/whatIsTxv"
+                tools:text="O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos." />
+
+            <TextView
+                android:id="@+id/riskTitleTxv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="27dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/definitionTxv"
+                tools:text="Grau de risco do investimento" />
+
+
+            <RadioGroup
+                android:id="@+id/riskRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv">
+
+                <RadioButton
+                    android:id="@+id/riskOneView"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/risk_one_radiobutton_selector"
+                    android:button="@null"
+                    android:clickable="false"
+                    app:layout_constraintEnd_toEndOf="@+id/risTwoView"
+                    app:layout_constraintEnd_toStartOf="@+id/risTwoView"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv" />
+
+                <RadioButton
+                    android:id="@+id/riskTwoView"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/risk_two_radiobutton_selector"
+                    android:button="@null"
+                    android:clickable="false"
+                    app:layout_constraintEnd_toStartOf="@+id/riskThreeView"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/riskOneView"
+                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv" />
+
+                <RadioButton
+                    android:id="@+id/riskThreeView"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/risk_three_radiobutton_selector"
+                    android:button="@null"
+                    android:clickable="false"
+                    app:layout_constraintEnd_toStartOf="@+id/riskFourView"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/risTwoView"
+                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv" />
+
+                <RadioButton
+                    android:id="@+id/riskFourView"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/risk_four_radiobutton_selector"
+                    android:button="@null"
+                    android:clickable="false"
+                    app:layout_constraintEnd_toStartOf="@+id/riskFiveView"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/riskThreeView"
+                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv" />
+
+                <RadioButton
+                    android:id="@+id/riskFiveView"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/risk_five_radiobutton_selector"
+                    android:button="@null"
+                    android:clickable="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/riskFourView"
+                    app:layout_constraintTop_toBottomOf="@+id/riskTitleTxv" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/infoTitleTxv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="27dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/riskRadioGroup"
+                tools:text="Mais informacoes sobre o investimento" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/moreInfoRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:clipChildren="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/infoTitleTxv" />
+
+            <View
+                android:id="@+id/dividerBottom"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="18dp"
+                android:layout_marginTop="30dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintBottom_toTopOf="@+id/infoRecyclerView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/moreInfoRecyclerView" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/infoRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
+                android:clipChildren="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/moreInfoRecyclerView" />
+
+            <Button
+                android:id="@+id/investButton"
+                android:layout_width="315dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="152dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/mybutton"
+                android:text="@string/Investir"
+                android:textAllCaps="false"
+                android:fontFamily="@font/dinpro_regular"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/infoRecyclerView"
+                app:layout_constraintVertical_bias="0.0">
+
+            </Button>
+
+            <View
+                android:id="@+id/dividerTop"
+                android:layout_width="328dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="13dp"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintBottom_toTopOf="@+id/whatIsTxv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fundNameTxv" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</FrameLayout>
