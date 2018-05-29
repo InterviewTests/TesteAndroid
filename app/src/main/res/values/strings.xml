@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name" translatable="false">Teste Android</string>
+    <string name="contact">Contact</string>
+    <string name="investiment">Investiment</string>
+    <string name="fund">Fund</string>
+    <string name="cdi">CDI</string>
+    <string name="month">In month</string>
+    <string name="year">In year</string>
+    <string name="months">12 months</string>
+    <string name="download">Download</string>
+    <string name="icon" translatable="false">icon</string>
+    <string name="percent" translatable="false">%s %%</string>
+    <string name="new_message">Send new message</string>
+    <string name="message">Message sent successfully :)</string>
+    <string name="thanks">Thanks!</string>
+    <string name="error_message">Oops! Please, try again!</string>
+</resources>

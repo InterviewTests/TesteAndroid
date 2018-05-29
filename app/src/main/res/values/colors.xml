@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    
+    
+    <color name="rosso_corsa">#da0101</color>
+    <color name="redButtonChecked">#c80404</color>
+    <color name="taupe">#333333</color>
+    <color name="manatee">#979797</color>
+    <color name="trolley_grey">#7e7e7e</color>
+    <color name="isabelline">#efeeed</color>
+    <color name="paris_green">#4ac16c</color>
+    <color name="kelly_green">#65be30</color>
+    <color name="mikado_yellow">#ffc011</color>
+    <color name="pumpkin">#ff742c</color>
+    <color name="dark_gray">#acacac</color>
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="contact">Contato</string>
+    <string name="investiment">Investimento</string>
+    <string name="fund">Fundo</string>
+    <string name="cdi">CDI</string>
+    <string name="month">No mês</string>
+    <string name="year">No ano</string>
+    <string name="months">12 meses</string>
+    <string name="download">Baixar</string>
+    <string name="new_message">Enviar nova mensagem</string>
+    <string name="message">Mensagem enviada com sucesso :)</string>
+    <string name="thanks">Obrigado!</string>
+    <string name="error_message">Oops! Por favor, tente novamente!</string>
+</resources>
