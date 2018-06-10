@@ -5,7 +5,7 @@ public class Cell {
     private int id;
     private int type;
     private String message;
-    private int typefield;
+    private Object typefield;
     private boolean hidden;
     private int topSpacing;
     private int show;
@@ -35,11 +35,11 @@ public class Cell {
         this.message = message;
     }
 
-    public int getTypefield() {
+    public Object getTypefield() {
         return typefield;
     }
 
-    public void setTypefield(int typefield) {
+    public void setTypefield(Object typefield) {
         this.typefield = typefield;
     }
 

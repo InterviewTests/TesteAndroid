@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TesteAndroid</string>
+    <string name="contato">Contato</string>
+    <string name="error_form_contact">Ops! não estamos conseguindo carregar o formulário, tente mais tarde</string>
+    <string name="mensagem_enviada_n_com_sucesso">Mensagem enviada  com sucesso :)</string>
+    <string name="enviar_nova_mensagem">Enviar nova mensagem</string>
+    <string name="obrigado">Obrigado!</string>
 </resources>
