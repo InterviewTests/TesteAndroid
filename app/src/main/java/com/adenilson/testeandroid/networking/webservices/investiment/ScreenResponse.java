@@ -1,5 +1,7 @@
 package com.adenilson.testeandroid.networking.webservices.investiment;
 
+import com.adenilson.testeandroid.investiment.model.RiskEnum;
+
 import java.util.List;
 
 /**
@@ -14,7 +16,7 @@ public class ScreenResponse {
     private String whatIs;
     private String definition;
     private String riskTitle;
-    private int risk;
+    private RiskEnum risk;
     private String infoTitle;
     private MoreInfoResponse moreInfo;
     private List<InfoResponse> info;
@@ -40,7 +42,7 @@ public class ScreenResponse {
         return riskTitle;
     }
 
-    public int getRisk() {
+    public RiskEnum getRisk() {
         return risk;
     }
 
@@ -59,4 +61,5 @@ public class ScreenResponse {
     public List<InfoResponse> getDownInfo() {
         return downInfo;
     }
+
 }

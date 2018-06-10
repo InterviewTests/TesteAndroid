@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp">
+
+    <TextView
+        android:id="@+id/text_view_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/din_pro_bold"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Mais informações sobre o investimento" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/din_pro_light"
+        android:text="@string/text_fund"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_view_month_fund"
+        app:layout_constraintRight_toRightOf="@+id/text_view_month_fund" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/din_pro_light"
+        android:text="@string/text_cdi"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_view_month_cdi"
+        app:layout_constraintRight_toRightOf="@+id/text_view_month_cdi" />
+
+
+    <TextView
+        android:id="@+id/text_view_month"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:fontFamily="@font/din_pro_light"
+        android:text="@string/text_on_month"
+        android:textSize="15sp"
+        app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/text_view_month_fund"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_title" />
+
+
+    <TextView
+        android:id="@+id/text_view_month_fund"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/din_pro_medium"
+        android:gravity="end"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/text_view_month"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/text_view_month"
+        app:layout_constraintRight_toLeftOf="@+id/text_view_month_cdi"
+        app:layout_constraintTop_toTopOf="@id/text_view_month"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/text_view_month_cdi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/din_pro_medium"
+        android:gravity="end"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/text_view_month"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/text_view_month_fund"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_view_month"
+        tools:text="0,3%" />
+
+
+    <TextView
+        android:id="@+id/text_view_year"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/din_pro_light"
+        android:text="@string/text_on_year"
+        android:textSize="15sp"
+        app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/text_view_month_fund"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_month" />
+
+
+    <TextView
+        android:id="@+id/text_view_year_fund"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/din_pro_medium"
+        android:gravity="end"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/text_view_year"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/text_view_year"
+        app:layout_constraintRight_toLeftOf="@+id/text_view_year_cdi"
+        app:layout_constraintTop_toTopOf="@id/text_view_year"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/text_view_year_cdi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/din_pro_medium"
+        android:gravity="end"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/text_view_year_fund"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/text_view_year_fund"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_view_year_fund"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/text_view_twelve_months"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/din_pro_light"
+        android:text="@string/text_twelve_months"
+        android:textSize="15sp"
+        app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/text_view_month_fund"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_year" />
+
+
+    <TextView
+        android:id="@+id/text_view_twelve_months_fund"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/din_pro_medium"
+        android:gravity="end"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/text_view_twelve_months"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/text_view_twelve_months"
+        app:layout_constraintRight_toLeftOf="@+id/text_view_twelve_months_cdi"
+        app:layout_constraintTop_toTopOf="@id/text_view_twelve_months"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/text_view_twelve_months_cdi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/din_pro_medium"
+        android:gravity="end"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/text_view_twelve_months"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/text_view_twelve_months_fund"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_view_twelve_months"
+        tools:text="0,3%" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/divider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_twelve_months" />
+
+</android.support.constraint.ConstraintLayout>
