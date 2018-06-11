@@ -23,7 +23,6 @@ import com.adenilson.testeandroid.util.ThemeUtils;
 
 import org.parceler.Parcels;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

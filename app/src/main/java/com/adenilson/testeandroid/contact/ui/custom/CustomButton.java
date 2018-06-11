@@ -7,7 +7,6 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.adenilson.testeandroid.R;
 import com.adenilson.testeandroid.contact.model.Cell;

@@ -1,7 +1,6 @@
 package com.adenilson.testeandroid.investiment.model.mapper;
 
 import com.adenilson.testeandroid.investiment.model.Risk;
-import com.adenilson.testeandroid.investiment.model.RiskEnum;
 import com.adenilson.testeandroid.networking.webservices.investiment.ScreenResponse;
 
 /**

@@ -2,16 +2,9 @@ package com.adenilson.testeandroid;
 
 import com.adenilson.testeandroid.util.StringUtils;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.annotation.Config;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;

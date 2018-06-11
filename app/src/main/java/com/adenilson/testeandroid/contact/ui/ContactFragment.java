@@ -25,7 +25,6 @@ import com.adenilson.testeandroid.contact.ui.custom.CustomButton;
 import com.adenilson.testeandroid.contact.ui.custom.CustomCheckbox;
 import com.adenilson.testeandroid.contact.ui.custom.CustomEditText;
 import com.adenilson.testeandroid.contact.ui.custom.CustomTextView;
-import com.adenilson.testeandroid.contact.ui.custom.CustomViewInterface;
 
 import org.parceler.Parcels;
 

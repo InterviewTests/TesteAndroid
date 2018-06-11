@@ -1,8 +1,5 @@
 package com.adenilson.testeandroid.investiment.model;
 
-import com.adenilson.testeandroid.networking.webservices.investiment.MoreInfoDetailResponse;
-import com.adenilson.testeandroid.networking.webservices.investiment.MoreInfoResponse;
-
 import org.parceler.Parcel;
 import org.parceler.ParcelConstructor;
 

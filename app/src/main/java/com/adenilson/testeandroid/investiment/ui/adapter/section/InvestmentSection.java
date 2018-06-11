@@ -1,7 +1,5 @@
 package com.adenilson.testeandroid.investiment.ui.adapter.section;
 
-import org.parceler.Parcel;
-
 /**
  * @author: Adenilson N. da Silva Junior
  * On date: 09/06/2018

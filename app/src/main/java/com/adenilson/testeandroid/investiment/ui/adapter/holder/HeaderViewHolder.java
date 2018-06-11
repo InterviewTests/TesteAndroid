@@ -1,6 +1,5 @@
 package com.adenilson.testeandroid.investiment.ui.adapter.holder;
 
-import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
