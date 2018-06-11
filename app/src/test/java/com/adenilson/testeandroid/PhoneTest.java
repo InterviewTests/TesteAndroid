@@ -11,6 +11,11 @@ import static junit.framework.Assert.assertTrue;
 /**
  * @author: Adenilson N. da Silva Junior
  * On date: 11/06/2018
+ *
+ * Using Mockito we can test our classes with fake data, that is, the mockito create data simulating a query in database, data from http request( in
+ * this case, Mockito can do all the Interactor functions about objects/responses) and etc. So, it make the unit tests easier!
+ * Using Roboletric to solve the problem with android.jar (null in Matcher and Pattern object)
+ * 
  */
 
 public class PhoneTest {
