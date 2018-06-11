@@ -16,17 +16,17 @@ public class EditTextMask {
     private static final String mask10 = "(##) ####-####";
     private static final String mask11 = "(##) #####-####";
 
-    public static String unmask(String s) {
+    public String unmask(String s) {
         return s.replaceAll("[^0-9]*", "");
     }
 
-    public static TextWatcher insert(final EditText editText) {
+    public TextWatcher insert(final EditText editText) {
         return new TextWatcher() {
             boolean isUpdating;
             String old = "";
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String str = EditTextMask.unmask(s.toString());
+                String str = unmask(s.toString());
                 String mask;
                 String defaultMask = getDefaultMask(str);
                 switch (str.length()) {

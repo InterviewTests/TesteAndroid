@@ -24,6 +24,13 @@ android {
             buildConfigField 'String', 'BASE_URL', '"https://floating-mountain-50292.herokuapp.com/"'
         }
     }
+
+    testOptions{
+        unitTests.returnDefaultValues = true
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -46,6 +53,13 @@ dependencies {
     //Parceler library
     implementation 'org.parceler:parceler-api:1.1.10'
     annotationProcessor 'org.parceler:parceler:1.1.10'
+
+    //Mockito
+    testImplementation "org.mockito:mockito-core:2.12.0"
+    androidTestImplementation "org.mockito:mockito-android:2.12.0"
+
+    //Roboletric
+    testImplementation "org.robolectric:robolectric:3.8"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

@@ -46,7 +46,8 @@ public class CustomEditText extends TextInputEditText implements CustomViewInter
             setInputType(InputType.TYPE_CLASS_TEXT);
         } else if (type == TypeFieldEnum.TEL_NUMBER) {
             setInputType(InputType.TYPE_CLASS_PHONE);
-            addTextChangedListener(EditTextMask.insert(this));
+            EditTextMask editTextMask = new EditTextMask();
+            addTextChangedListener(editTextMask.insert(this));
         } else if (type == TypeFieldEnum.EMAIL) {
             setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
             //set first requirement
@@ -99,7 +100,8 @@ public class CustomEditText extends TextInputEditText implements CustomViewInter
         if (typeField == TypeFieldEnum.EMAIL) {
             error = !StringUtils.isValidEmail(getText().toString());
         } else if (typeField == TypeFieldEnum.TEL_NUMBER) {
-            int length = EditTextMask.unmask(getText().toString()).length();
+            EditTextMask editTextMask = new EditTextMask();
+            int length = editTextMask.unmask(getText().toString()).length();
             error = length != 11 & length != 10 && length != 9 && length != 8;
         } else {
             error = TextUtils.isEmpty(getText().toString());
