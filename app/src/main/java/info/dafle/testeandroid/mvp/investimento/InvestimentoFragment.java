@@ -62,7 +62,13 @@ public class InvestimentoFragment extends Fragment implements  InvestimentoContr
     }
 
     public String formatToPercentage(double db) {
-        return db+"".replace(".",",")+"%";
+        try {
+
+            return db+"".replace(".",",")+"%";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "-";
     }
 
     @Override
