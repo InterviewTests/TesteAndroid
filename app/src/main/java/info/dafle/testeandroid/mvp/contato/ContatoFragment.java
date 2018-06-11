@@ -87,7 +87,7 @@ public class ContatoFragment extends Fragment implements ContatoContract.View, V
     public void buildLayout(@NonNull List<Cell> cells) {
         this.cells = cells;
 
-        for (Cell cell:cells) {
+        for (Cell cell : cells) {
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             params.setMargins(0, cell.getTopSpacing(), 0, 0);

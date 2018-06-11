@@ -8,4 +8,9 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="gray">#b2b2b2</color>
+    <color name="risk1">#50f442</color>
+    <color name="risk2">#319b28</color>
+    <color name="risk3">#c0ce2b</color>
+    <color name="risk4">#ce7f2a</color>
+    <color name="risk5">#ce3229</color>
 </resources>

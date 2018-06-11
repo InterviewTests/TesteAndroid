@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "info.dafle.testeandroid"
         minSdkVersion 19
         targetSdkVersion 27

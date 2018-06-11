@@ -1,5 +1,8 @@
 package info.dafle.testeandroid.model;
 
+
+import java.util.List;
+
 public class Cell {
 
     private int id;

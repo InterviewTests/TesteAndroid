@@ -2,19 +2,19 @@ package info.dafle.testeandroid.mvp.contato;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
-import android.text.TextUtils;
 import android.view.View;
 
 import java.util.List;
 
 import info.dafle.testeandroid.model.Cell;
+import info.dafle.testeandroid.util.Util;
 
 public class ContatoPresenter implements ContatoContract.Presenter {
 
     private ContatoContract.View mView;
     private ContatoModel mModel;
 
-    ContatoPresenter(@NonNull ContatoContract.View view) {
+    public ContatoPresenter(@NonNull ContatoContract.View view) {
         mView = view;
         mView.setPresenter(this);
         mModel = new ContatoModel();
@@ -32,7 +32,6 @@ public class ContatoPresenter implements ContatoContract.Presenter {
         mModel.getCells(new ContatoContract.Model.LoadCellsCallback() {
             @Override
             public void onCellsLoaded(List<Cell> cells) {
-
                 if (!mView.isActive()) {
                     return;
                 }
@@ -51,7 +50,7 @@ public class ContatoPresenter implements ContatoContract.Presenter {
     @Override
     public void validateForm(List<Cell> cells) {
 
-        for (Cell cell: cells) {
+        for (Cell cell : cells) {
 
             View view = mView.findViewById(cell.getId());
 
@@ -67,13 +66,13 @@ public class ContatoPresenter implements ContatoContract.Presenter {
                     return;
                 }
 
-                if (TypeField.getFromObject(cell.getTypefield()).equals(TypeField.email) && !isValidEmail(textInputLayout.getEditText().getText().toString())) {
+                if (TypeField.getFromObject(cell.getTypefield()).equals(TypeField.email) && !new Util().isValidEmail(textInputLayout.getEditText().getText().toString())) {
 
                     mView.setErrorToEditText(textInputLayout, "Por favor preencha um email válido");
                     return;
                 }
 
-                if (TypeField.getFromObject(cell.getTypefield()).equals(TypeField.telNumber) && !isValidPhoneNumber(textInputLayout.getEditText().getText().toString())) {
+                if (TypeField.getFromObject(cell.getTypefield()).equals(TypeField.telNumber) && !new Util().isValidPhoneNumber(textInputLayout.getEditText().getText().toString())) {
 
                     mView.setErrorToEditText(textInputLayout, "Por favor preencha um telefone válido");
                     return;
@@ -82,19 +81,5 @@ public class ContatoPresenter implements ContatoContract.Presenter {
         }
 
         mView.showMessageSuccess(true);
-    }
-
-    private static boolean isValidEmail(CharSequence target) {
-        return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
-    }
-
-    private static boolean isValidPhoneNumber(CharSequence target) {
-        int lengt_phone = target.toString()
-                .replace("(","")
-                .replace(")","")
-                .replace("-","")
-                .replace(" ","")
-                .length();
-        return lengt_phone == 10 || lengt_phone == 11;
     }
 }

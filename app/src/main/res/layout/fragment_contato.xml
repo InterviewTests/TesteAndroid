@@ -68,6 +68,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/mensagem_enviada_n_com_sucesso"
             android:textColor="@color/black"
+            android:gravity="center"
             android:textSize="26sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_send_new_message"
             app:layout_constraintEnd_toEndOf="parent"
