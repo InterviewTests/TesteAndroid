@@ -5,16 +5,19 @@
     <string name="indicator_image">Risk indicator image</string>
     <string name="text_fund">Fund</string>
     <string name="text_cdi" translatable="false">CDI</string>
-    <string name="text_on_month">No mês</string>
-    <string name="text_on_year">No ano</string>
-    <string name="text_twelve_months">12 meses</string>
-    <string name="text_download">Baixar</string>
+    <string name="text_on_month">On month</string>
+    <string name="text_on_year">On year</string>
+    <string name="text_twelve_months">12 month</string>
+    <string name="text_download">Download</string>
     <string name="cd_download_image">Download Image</string>
-    <string name="message_unavailable">Indisponível</string>
-    <string name="text_invest">Investir</string>
-    <string name="generic_error">Houve um falha</string>
-    <string name="message_investment_done">Investimento feito!</string>
+    <string name="message_unavailable">Unavailable!</string>
+    <string name="text_invest">Invest</string>
+    <string name="generic_error">There was failure!</string>
+    <string name="message_investment_done">Investment done!</string>
     <string name="cd_share_image">Share image</string>
-    <string name="report">Relatório</string>
-    <string name="share_with">Compartilhar com</string>
+    <string name="report">Report</string>
+    <string name="share_with">Share with</string>
+    <string name="text_message_sent">Message sent with success! :D</string>
+    <string name="text_thanks">Thanks!</string>
+    <string name="text_send_another">Send another message</string>
 </resources>

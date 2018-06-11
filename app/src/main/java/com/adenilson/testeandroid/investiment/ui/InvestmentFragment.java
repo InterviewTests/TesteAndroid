@@ -125,14 +125,17 @@ public class InvestmentFragment extends BaseFragment implements InvestmentView, 
 
     @Override
     public void showLoading() {
-        super.showLoading();
         mSwipeRefreshInvestment.setRefreshing(true);
     }
 
     @Override
     public void hideLoading() {
-        super.hideLoading();
         mSwipeRefreshInvestment.setRefreshing(false);
+    }
+
+    @Override
+    public void showError(int messageResourceId) {
+        Toast.makeText(getContext(), messageResourceId, Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -9,18 +9,5 @@ import android.support.v4.app.Fragment;
 
 public abstract class BaseFragment extends Fragment implements BaseView {
 
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showError(int messageResourceId) {
-
-    }
+    //Empty
 }

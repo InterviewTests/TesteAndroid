@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#EA0404</color>
     <color name="colorPrimaryDark">#B80700</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#4C6E6C</color>
     <color name="white">#FFFFFF</color>
 
     <!--custom colors-->
@@ -16,4 +16,5 @@
     <color name="red_higher">#FE2434</color>
     <color name="black">#000000</color>
     <color name="divider">#BDBDBD</color>
+    <color name="gray">#6A6E68</color>
 </resources>

@@ -17,4 +17,7 @@
     <string name="cd_share_image">Share image</string>
     <string name="report">Relatório</string>
     <string name="share_with">Compartilhar com</string>
+    <string name="text_message_sent">Mensagem enviada com sucesso :D</string>
+    <string name="text_thanks">Obrigado!</string>
+    <string name="text_send_another">Enviar nova mensagem</string>
 </resources>

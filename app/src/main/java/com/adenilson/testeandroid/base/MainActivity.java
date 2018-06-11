@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
             window.setStatusBarColor(Color.TRANSPARENT);
         }
 
-
         PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), this);
         mViewPagerHome.setAdapter(adapter);
         mTabLayoutHome.setupWithViewPager(mViewPagerHome);
+        mViewPagerHome.setCurrentItem(PagerAdapter.TAB_CONTACT);
     }
 }

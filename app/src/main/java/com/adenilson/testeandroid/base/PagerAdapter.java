@@ -17,8 +17,8 @@ import com.adenilson.testeandroid.investiment.ui.InvestmentFragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
 
-    private static final int TAB_INVESTMENT = 0;
-    private static final int TAB_CONTACT = 1;
+    public static final int TAB_INVESTMENT = 0;
+    public static final int TAB_CONTACT = 1;
 
     private static final int TAB_COUNT = 2;
 
