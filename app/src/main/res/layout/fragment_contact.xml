@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:overScrollMode="never"
-    android:padding="30dp"
-    tools:context=".ui.main.fragments.contact.ContactFragment">
+    android:padding="30dp">
 
     <ScrollView
         android:layout_width="match_parent"

@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundSplash"
-    android:fitsSystemWindows="true"
-    tools:context=".ui.splash.SplashActivity">
+    android:fitsSystemWindows="true">
 
     <ImageView
         android:layout_width="match_parent"
