@@ -11,6 +11,3 @@
 
 #### Testes unitários (De preferência JNunit + Mockito). Mas pode usar o que você tem mais experiência, só nos explique o que ele tem de bom.
 * Utilizei, apenas está no projeto o Mockito, pois não soube como usá-los à tempo
-
-#### Arquitetura a ser utilizada MVP Clean
-* Foi feito em MVP Clean
