@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SantanderInvestimento</string>
+    <string name="tab_investiment_title">Investimento</string>
+    <string name="tab_contact_title">Contato</string>
+</resources>
