@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#c80404</color>
     <color name="colorAccent">#DA0101</color>
     <color name="tab_title">#FFFFFF</color>
+    
+    <color name="btn_call_to_action_normal">#DA0101</color>
+    <color name="btn_call_to_action_pressed">#EB7676</color>
+    <color name="btn_call_to_action_text">#FFFFFF</color>
 </resources>

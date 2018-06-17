@@ -2,13 +2,14 @@ package lzacheu.com.br.santanderinvestimento.util;
 
 import android.content.Context;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.widget.AppCompatEditText;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import lzacheu.com.br.santanderinvestimento.R;
 import lzacheu.com.br.santanderinvestimento.model.contact.InputField;
 import lzacheu.com.br.santanderinvestimento.widget.CustomEditText;
 
@@ -35,6 +36,8 @@ public class InputFieldHelper {
         editText.setId(inputField.getId());
         editText.setHint(inputField.getMessage());
         editText.setRequired(inputField.getRequired());
+        if (inputField.getHidden())
+            editText.setVisibility(View.GONE);
 
 
         return editText;
@@ -45,7 +48,8 @@ public class InputFieldHelper {
         textView.setId(inputField.getId());
         textView.setLayoutParams(getParams(inputField.getTopSpacing()));
         textView.setText(inputField.getMessage());
-        textView.setTextSize(20);
+        textView.setGravity(Gravity.CENTER);
+        textView.setTextSize(18);
 
         return textView;
     }
@@ -56,6 +60,7 @@ public class InputFieldHelper {
         checkBox.setText(inputField.getMessage());
         checkBox.setLayoutParams(getParams(inputField.getTopSpacing()));
 
+
         return checkBox;
     }
 
@@ -63,7 +68,10 @@ public class InputFieldHelper {
         Button button = new Button(context);
         button.setId(inputField.getId());
         button.setText(inputField.getMessage());
+        button.setTextColor(context.getResources().getColor(R.color.btn_call_to_action_text));
         button.setLayoutParams(getParams(inputField.getTopSpacing()));
+        button.setBackground(context.getResources().getDrawable(R.drawable.btn_call_to_action));
+
 
         return button;
     }
@@ -72,7 +80,7 @@ public class InputFieldHelper {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-        params.setMargins(0,topSpacing,0,0);
+        params.setMargins(0,AndroidUtils.dpToPx(topSpacing),0,0);
         return params;
     }
 

@@ -6,12 +6,16 @@ package lzacheu.com.br.santanderinvestimento.model.contact;
 
 public enum TypeField {
     text(1),
-    telNumber(2),
+    telNumber("telnumber"),
     email(3);
 
-    private int value;
+    private Object value;
 
-    TypeField(int value) {
+    TypeField(Object value) {
         this.value = value;
+    }
+
+    public Object getValue() {
+        return value;
     }
 }

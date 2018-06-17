@@ -1,13 +1,13 @@
 package lzacheu.com.br.santanderinvestimento.contact;
 
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.AppCompatEditText;
+import android.text.InputType;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +19,15 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import lzacheu.com.br.santanderinvestimento.R;
 import lzacheu.com.br.santanderinvestimento.model.contact.InputField;
 import lzacheu.com.br.santanderinvestimento.util.InputFieldHelper;
+import lzacheu.com.br.santanderinvestimento.util.MaskEditText;
 import lzacheu.com.br.santanderinvestimento.widget.CustomEditText;
 
 /**
@@ -83,6 +86,12 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
             switch (inputField.getType()) {
                 case 1:
                     CustomEditText appCompatEditText = InputFieldHelper.createEditText(getContext(), inputField);
+                    if (inputField.getMessage().equalsIgnoreCase("telefone")){
+                        appCompatEditText.addTextChangedListener(MaskEditText.mask(appCompatEditText, MaskEditText.FORMAT_FONE));
+                        appCompatEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    } else if(inputField.getMessage().equalsIgnoreCase("email")){
+                        appCompatEditText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+                    }
                     View inputTextLayout = InputFieldHelper.wrapChildOnTextInputLayout(getContext(), appCompatEditText);
                     contentLayout.addView(inputTextLayout);
                     viewList.add(inputTextLayout);
@@ -96,6 +105,7 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
                     ///
                 case 4:
                     CheckBox checkBox = InputFieldHelper.createCheckBox(getContext(), inputField);
+                    checkBox.setOnClickListener(toggleHiddenFields);
                     contentLayout.addView(checkBox);
                     viewList.add(checkBox);
                     break;
@@ -149,14 +159,47 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
         for (View view : viewList){
             if (view instanceof TextInputLayout){
                 CustomEditText customEditText = (CustomEditText)((TextInputLayout) view).getEditText();
-                if (customEditText.isRequired()){
-                    if (customEditText.getText().toString().length() == 0){
+                if (customEditText.isRequired() && customEditText.isShown()){
+                    if (customEditText.getText().toString().isEmpty()){
                         ((TextInputLayout) view).setError("Campo é obrigatório.");
                         existError =true;
+                    }else{
+                        ((TextInputLayout) view).setError(null);
+                    }
+
+                    if (customEditText.getInputType() == InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS){
+                        Pattern pattern = Patterns.EMAIL_ADDRESS;
+                        Matcher matcher = pattern.matcher(customEditText.getText().toString());
+                        if (!matcher.matches()){
+                            ((TextInputLayout) view).setError("Formato do e-mail incorreto.");
+                            existError =true;
+                        }
                     }
                 }
             }
         }
         return existError;
     }
+
+    private View.OnClickListener toggleHiddenFields = new View.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            for (View component: viewList){
+                if (component instanceof TextInputLayout){
+                    CustomEditText customEditText = (CustomEditText)((TextInputLayout) component).getEditText();
+                    if (customEditText.getInputType() == InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS){
+                        if (customEditText.isShown()){
+                            customEditText.setVisibility(View.GONE);
+                        }else{
+                            customEditText.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+
+            }
+
+        }
+    };
+
+
 }
