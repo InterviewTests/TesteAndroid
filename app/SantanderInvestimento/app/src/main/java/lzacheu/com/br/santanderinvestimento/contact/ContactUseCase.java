@@ -6,7 +6,7 @@ import lzacheu.com.br.santanderinvestimento.base.BaseUseCase;
  * Created by luiszacheu on 6/16/18.
  */
 
-public class ContactBaseUseCase extends BaseUseCase<ContactBaseUseCase.RequestValues, ContactBaseUseCase.ResponseValues> {
+public class ContactUseCase extends BaseUseCase<ContactUseCase.RequestValues, ContactUseCase.ResponseValues> {
 
     @Override
     protected void executeUseCase(RequestValues requestValues) {

@@ -6,7 +6,7 @@ import lzacheu.com.br.santanderinvestimento.base.BaseUseCase;
  * Created by luiszacheu on 6/16/18.
  */
 
-public class FundInfoBaseUseCase extends BaseUseCase<FundInfoBaseUseCase.RequestValues, FundInfoBaseUseCase.ResponseValue> {
+public class FundInfoUseCase extends BaseUseCase<FundInfoUseCase.RequestValues, FundInfoUseCase.ResponseValue> {
 
     @Override
     protected void executeUseCase(RequestValues requestValues) {
