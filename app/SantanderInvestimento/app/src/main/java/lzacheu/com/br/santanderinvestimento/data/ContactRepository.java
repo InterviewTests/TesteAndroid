@@ -14,9 +14,9 @@ import retrofit2.Response;
  * Created by luiszacheu on 6/16/18.
  */
 
-public class ContactRepository extends FundRepository {
+public class ContactRepository implements ContactDataSource {
 
-    private static final String TAG_LOG = ContactRepository.class.getSimpleName();
+    private static final String LOG_TAG = ContactRepository.class.getSimpleName();
     private ContactService service;
 
 
@@ -24,21 +24,18 @@ public class ContactRepository extends FundRepository {
         this.service = ApiClient.getRetrofitInstance().create(ContactService.class);
     }
 
-    public void getContactFields(){
+    @Override
+    public void getCells(final LoadCellsCallback callback) {
         Call<ContactResponse> contactResponseCall = service.getContactFields();
         contactResponseCall.enqueue(new Callback<ContactResponse>() {
             @Override
             public void onResponse(Call<ContactResponse> call, Response<ContactResponse> response) {
-                Log.e(TAG_LOG, "-->" + response.body().getInputFields().size());
-                for (InputField inputField : response.body().getInputFields()  ){
-                    Log.e(TAG_LOG, "onResponse: " + inputField.toString());
-                }
-
+                callback.onCellsLoaded(response.body().getInputFields());
             }
 
             @Override
             public void onFailure(Call<ContactResponse> call, Throwable t) {
-
+                Log.e(LOG_TAG, " Ocorreu alguma falha" );
             }
         });
     }
