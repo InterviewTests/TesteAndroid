@@ -2,4 +2,7 @@
     <string name="app_name">SantanderInvestimento</string>
     <string name="tab_investiment_title">Investimento</string>
     <string name="tab_contact_title">Contato</string>
+    <string name="message_contact_title">Obrigado!</string>
+    <string name="message_contact_message">Mensagem enviada com sucesso :)</string>
+    <string name="message_contact_new_contact">Enviar nova mensagem</string>
 </resources>

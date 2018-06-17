@@ -16,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
-            app:layout_scrollFlags="scroll|enterAlways"
             app:title="@string/app_name"
             app:titleTextColor="@color/tab_title" />
 
