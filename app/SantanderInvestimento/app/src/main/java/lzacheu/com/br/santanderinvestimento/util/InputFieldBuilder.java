@@ -17,13 +17,14 @@ import lzacheu.com.br.santanderinvestimento.widget.CustomEditText;
  * Created by luiszacheu on 6/17/18.
  */
 
-public class InputFieldHelper {
+public class InputFieldBuilder {
 
     public static View wrapChildOnTextInputLayout(Context context, View childView){
         TextInputLayout textInputLayout = new TextInputLayout(context);
         LinearLayout.LayoutParams textInputLayoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         textInputLayout.setLayoutParams(textInputLayoutParams);
+        textInputLayout.setTypeface(TypeFaceBuilder.getDinpRegular(context));
         textInputLayout.addView(childView, textInputLayoutParams);
 
         return textInputLayout;
@@ -35,6 +36,7 @@ public class InputFieldHelper {
         editText.setLayoutParams(getParams(inputField.getTopSpacing()));
         editText.setId(inputField.getId());
         editText.setHint(inputField.getMessage());
+        editText.setTypeface(TypeFaceBuilder.getDinpRegular(context));
         editText.setRequired(inputField.getRequired());
         if (inputField.getHidden())
             editText.setVisibility(View.GONE);
@@ -48,6 +50,7 @@ public class InputFieldHelper {
         textView.setId(inputField.getId());
         textView.setLayoutParams(getParams(inputField.getTopSpacing()));
         textView.setText(inputField.getMessage());
+        textView.setTypeface(TypeFaceBuilder.getDinpRegular(context));
         textView.setGravity(Gravity.CENTER);
         textView.setTextSize(18);
 
@@ -58,6 +61,7 @@ public class InputFieldHelper {
         CheckBox checkBox = new CheckBox(context);
         checkBox.setId(inputField.getId());
         checkBox.setText(inputField.getMessage());
+        checkBox.setTypeface(TypeFaceBuilder.getDinpRegular(context));
         checkBox.setLayoutParams(getParams(inputField.getTopSpacing()));
 
 

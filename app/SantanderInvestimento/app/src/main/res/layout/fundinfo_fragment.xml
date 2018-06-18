@@ -7,104 +7,310 @@
     android:fillViewport="true">
 
     <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/fund_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/screen_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.014"
-            tools:text="Fundos de investimento" />
-
-        <TextView
-            android:id="@+id/screen_fund_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/screen_title"
-            tools:text="Vinci Valorem FI Multimercado" />
-
-        <TextView
-            android:id="@+id/screen_whatis"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:textColor="@color/content_text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintHorizontal_bias="0.117"
+            app:layout_constraintStart_toEndOf="@+id/guideline_left"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Fundos de investimento" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="28dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintGuide_begin="358dp" />
+
+        <TextView
+            android:id="@+id/screen_fund_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toEndOf="@+id/guideline_left"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/screen_title"
+            tools:text="Vinci Valorem FI \n Multimercado " />
+
+
+        <View
+            android:id="@+id/separetor"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:background="@drawable/img_separetor"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toEndOf="@+id/guideline_left"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/screen_fund_name" />
+
+        <TextView
+            android:id="@+id/screen_whatis"
+            android:layout_width="0dp"
+            android:layout_height="23dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:textColor="@color/content_text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/guideline_left"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/screen_fund_name"
             tools:text="O que é?" />
 
         <TextView
             android:id="@+id/screen_definition"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/screen_whatis"
             tools:text="O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos." />
 
         <TextView
             android:id="@+id/screen_risk_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="52dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:textColor="@color/content_text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/screen_definition"
             tools:text="Grau de risco do investimento" />
 
         <LinearLayout
             android:id="@+id/risk_view"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_width="0dp"
+            android:layout_height="26dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/screen_risk_title">
-
-        </LinearLayout>
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/screen_risk_title" />
 
         <TextView
             android:id="@+id/more_info_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:textColor="@color/content_text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/risk_view"
-            tools:text="Mains informações sobre o investimento" />
+            tools:text="Mais informações sobre o investimento" />
+
+        <TextView
+            android:id="@+id/title_fund"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:gravity="end"
+            android:text="@string/text_title_fund"
+            android:textColor="@color/content_text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_more_info_right"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline_more_info_left"
+            app:layout_constraintTop_toTopOf="@+id/guideline_more_info_top" />
+
+        <TextView
+            android:id="@+id/title_cdi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:gravity="end"
+            android:text="@string/text_title_cdi"
+            android:textColor="@color/content_text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline_more_info_right"
+            app:layout_constraintTop_toTopOf="@+id/guideline_more_info_top" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_more_info_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="293dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_more_info_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="230dp" />
+
+        <TextView
+            android:id="@+id/more_info_month"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="@string/text_more_info_month"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_more_info_left"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toTopOf="@+id/guideline_more_info_top" />
+
+        <TextView
+            android:id="@+id/more_info_month_fund"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="end"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_more_info_right"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline_more_info_left"
+            app:layout_constraintTop_toBottomOf="@+id/title_fund"
+            tools:text="0.3%" />
+
+        <TextView
+            android:id="@+id/more_info_month_cdi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:gravity="end"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_more_info_right"
+            app:layout_constraintTop_toBottomOf="@+id/title_cdi"
+            tools:text="0.4%" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_more_info_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="363dp" />
+
+        <TextView
+            android:id="@+id/more_info_year"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/text_more_info_year"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_more_info_left"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/more_info_month" />
+
+        <TextView
+            android:id="@+id/more_info_twelve"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/text_more_info_twelve"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_more_info_left"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/more_info_year" />
+
+        <TextView
+            android:id="@+id/more_info_year_fund"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="end"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_more_info_right"
+            app:layout_constraintStart_toEndOf="@+id/more_info_year"
+            app:layout_constraintTop_toBottomOf="@+id/more_info_month_fund"
+            tools:text="10.0%" />
+
+        <TextView
+            android:id="@+id/more_info_year_cdi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="end"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toEndOf="@+id/more_info_year_fund"
+            app:layout_constraintTop_toBottomOf="@+id/more_info_month_cdi"
+            tools:text="11.00%" />
+
+        <TextView
+            android:id="@+id/more_info_twelve_fund"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="end"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_more_info_right"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline_more_info_left"
+            app:layout_constraintTop_toBottomOf="@+id/more_info_year_fund"
+            app:layout_constraintVertical_bias="0.034"
+            tools:text="0.5%" />
+
+        <TextView
+            android:id="@+id/more_info_twelve_cdi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="end"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline_more_info_right"
+            app:layout_constraintTop_toBottomOf="@+id/more_info_year_cdi"
+            app:layout_constraintVertical_bias="0.034"
+            tools:text="9.00%" />
 
         <ProgressBar
-            android:id="@+id/progressBar"
+            android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -112,152 +318,19 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:elevation="2dp"
-            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/risk_view"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/more_info_content"
-            android:layout_width="match_parent"
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_down"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/more_info_title"
-            app:layout_constraintVertical_bias="0.134">
-
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/more_info_month"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:layout_margin="2dp"
-                    android:text="No Mês" />
-
-                <TextView
-                    android:id="@+id/more_info_year"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:layout_margin="2dp"
-                    android:text="No Ano" />
-
-
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:layout_margin="2dp"
-                    android:text="12 meses" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/title_fund"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:layout_margin="2dp"
-                    android:text="Fundo" />
-
-                <TextView
-                    android:id="@+id/more_info_month_fund"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:layout_margin="2dp"
-                    android:text="0.3%" />
-
-                <TextView
-                    android:id="@+id/more_info_year_fund"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:layout_margin="2dp"
-                    android:text="13,01%" />
-
-                <TextView
-                    android:id="@+id/more_info_twelve_fund"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:layout_margin="2dp"
-                    android:text="0.5%" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/title_cdi"
-                    android:gravity="end"
-                    android:layout_margin="2dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="CDI" />
-
-                <TextView
-                    android:id="@+id/more_info_month_cdi"
-                    android:layout_width="match_parent"
-                    android:gravity="end"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"
-                    android:text="0.3%" />
-
-                <TextView
-                    android:id="@+id/more_info_year_cdi"
-                    android:layout_width="match_parent"
-                    android:gravity="end"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"
-                    android:text="13,01%" />
-
-
-                <TextView
-                    android:id="@+id/more_info_twelve_cdi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:layout_margin="2dp"
-                    android:text="0.5%" />
-            </LinearLayout>
-
-
-        </LinearLayout>
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="282dp" />
 
 
     </android.support.constraint.ConstraintLayout>
-
-
 </ScrollView>

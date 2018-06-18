@@ -5,4 +5,10 @@
     <string name="message_contact_title">Obrigado!</string>
     <string name="message_contact_message">Mensagem enviada com sucesso :)</string>
     <string name="message_contact_new_contact">Enviar nova mensagem</string>
+    <string name="btn_invest">Investir</string>
+    <string name="text_title_fund">Fundo</string>
+    <string name="text_title_cdi">CDI</string>
+    <string name="text_more_info_month">No mês</string>
+    <string name="text_more_info_year">No ano</string>
+    <string name="text_more_info_twelve">12 meses</string>
 </resources>

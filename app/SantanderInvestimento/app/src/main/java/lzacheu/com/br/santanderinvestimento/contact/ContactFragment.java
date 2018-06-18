@@ -26,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import lzacheu.com.br.santanderinvestimento.R;
 import lzacheu.com.br.santanderinvestimento.model.contact.InputField;
-import lzacheu.com.br.santanderinvestimento.util.InputFieldHelper;
+import lzacheu.com.br.santanderinvestimento.util.InputFieldBuilder;
 import lzacheu.com.br.santanderinvestimento.util.MaskEditText;
 import lzacheu.com.br.santanderinvestimento.widget.CustomEditText;
 
@@ -85,32 +85,32 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
         for (InputField inputField : inputFieldList) {
             switch (inputField.getType()) {
                 case 1:
-                    CustomEditText appCompatEditText = InputFieldHelper.createEditText(getContext(), inputField);
+                    CustomEditText appCompatEditText = InputFieldBuilder.createEditText(getContext(), inputField);
                     if (inputField.getMessage().equalsIgnoreCase("telefone")){
                         appCompatEditText.addTextChangedListener(MaskEditText.mask(appCompatEditText, MaskEditText.FORMAT_FONE));
                         appCompatEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
                     } else if(inputField.getMessage().equalsIgnoreCase("email")){
                         appCompatEditText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
                     }
-                    View inputTextLayout = InputFieldHelper.wrapChildOnTextInputLayout(getContext(), appCompatEditText);
+                    View inputTextLayout = InputFieldBuilder.wrapChildOnTextInputLayout(getContext(), appCompatEditText);
                     contentLayout.addView(inputTextLayout);
                     viewList.add(inputTextLayout);
                     break;
                 case 2:
-                    TextView textView = InputFieldHelper.createTextView(getContext(), inputField);
+                    TextView textView = InputFieldBuilder.createTextView(getContext(), inputField);
                     contentLayout.addView(textView);
                     viewList.add(textView);
                     break;
                 case 3:
                     ///
                 case 4:
-                    CheckBox checkBox = InputFieldHelper.createCheckBox(getContext(), inputField);
+                    CheckBox checkBox = InputFieldBuilder.createCheckBox(getContext(), inputField);
                     checkBox.setOnClickListener(toggleHiddenFields);
                     contentLayout.addView(checkBox);
                     viewList.add(checkBox);
                     break;
                 case 5:
-                    Button button = InputFieldHelper.createButtom(getContext(), inputField);
+                    Button button = InputFieldBuilder.createButtom(getContext(), inputField);
                     button.setOnClickListener(this);
                     contentLayout.addView(button);
                     viewList.add(button);
