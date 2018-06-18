@@ -26,6 +26,7 @@ import butterknife.ButterKnife;
 import lzacheu.com.br.santanderinvestimento.R;
 import lzacheu.com.br.santanderinvestimento.model.fund.Screen;
 import lzacheu.com.br.santanderinvestimento.util.TypeFaceBuilder;
+import lzacheu.com.br.santanderinvestimento.widget.RiskLayout;
 
 /**
  * Created by luiszacheu on 6/16/18.
@@ -84,6 +85,9 @@ public class FundInfoFragment extends Fragment implements FundInfoContract.View,
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
 
+    @BindView(R.id.risk_layout)
+    RiskLayout riskLayout;
+
     private int lastReferenceIdName;
     private int lastReferenceIdData;
 
@@ -95,6 +99,7 @@ public class FundInfoFragment extends Fragment implements FundInfoContract.View,
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         presenter = new FundInfoPresenter(this);
+
     }
 
     @Override
@@ -130,6 +135,8 @@ public class FundInfoFragment extends Fragment implements FundInfoContract.View,
 
     @Override
     public void bindValues(Screen screen) {
+        riskLayout.setRisk(screen.getRisk());
+
         screenTitleText.setText(screen.getTitle());
         screenTitleText.setTypeface(TypeFaceBuilder.getDinpMedium(getContext()));
 

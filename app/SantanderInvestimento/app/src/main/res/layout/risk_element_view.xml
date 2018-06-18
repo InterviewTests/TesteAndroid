@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|bottom"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/ll_low_risk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/arrow_point_low_risk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_down"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/low_risk_highlight"
+            android:layout_width="50dp"
+            android:layout_height="6dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/shape_low_risk" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_shape_low_m_risk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/arrow_point_low_m_risk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_down"
+            android:visibility="invisible" />
+
+        <View
+            android:id="@+id/low_m_risk_highlight"
+            android:layout_width="50dp"
+            android:layout_height="6dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/shape_low_m_risk" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_shape_medium_risk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/arrow_point_medium_risk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_down"
+            android:visibility="invisible" />
+
+        <View
+            android:id="@+id/medium_risk_highlight"
+            android:layout_width="50dp"
+            android:layout_height="6dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/shape_medium_risk" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_shape_medium_m_risk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/arrow_point_medium_m_risk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_down"
+            android:visibility="invisible" />
+
+        <View
+            android:id="@+id/medium_m_risk_highlight"
+            android:layout_width="50dp"
+            android:layout_height="6dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/shape_medium_m_risk" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_shape_high_risk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/arrow_point_high_risk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_down"
+            android:visibility="invisible" />
+
+        <View
+            android:id="@+id/high_risk_highlight"
+            android:layout_width="50dp"
+            android:layout_height="6dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/shape_high_risk" />
+    </LinearLayout>
+
+
+</LinearLayout>

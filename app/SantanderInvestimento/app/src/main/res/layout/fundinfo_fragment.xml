@@ -68,10 +68,10 @@
             android:id="@+id/separetor"
             android:layout_width="0dp"
             android:layout_height="5dp"
-            android:background="@drawable/img_separetor"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:background="@drawable/img_separetor"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
             app:layout_constraintStart_toEndOf="@+id/guideline_left"
             app:layout_constraintStart_toStartOf="@+id/guideline_left"
@@ -112,9 +112,9 @@
             android:id="@+id/screen_risk_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:textColor="@color/content_text"
@@ -128,15 +128,24 @@
         <LinearLayout
             android:id="@+id/risk_view"
             android:layout_width="0dp"
-            android:layout_height="26dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
+            android:padding="5dp"
             android:orientation="horizontal"
+            android:gravity="center|bottom"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline_left"
-            app:layout_constraintTop_toBottomOf="@+id/screen_risk_title" />
+            app:layout_constraintTop_toBottomOf="@+id/screen_risk_title">
+
+            <lzacheu.com.br.santanderinvestimento.widget.RiskLayout
+                android:id="@+id/risk_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            
+        </LinearLayout>
 
         <TextView
             android:id="@+id/more_info_title"
