@@ -146,39 +146,12 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
             presenter.getFields();
             Toast.makeText(getContext(), "New Form", Toast.LENGTH_SHORT).show();
         }else{
-            if (!validateFields()){
+            if (!presenter.validFields(viewList)){
                 presenter.sendMessage();
             }
             Toast.makeText(getContext(), "Envia Form", Toast.LENGTH_SHORT).show();
         }
 
-    }
-
-    private boolean validateFields(){
-        boolean existError = false;
-        for (View view : viewList){
-            if (view instanceof TextInputLayout){
-                CustomEditText customEditText = (CustomEditText)((TextInputLayout) view).getEditText();
-                if (customEditText.isRequired() && customEditText.isShown()){
-                    if (customEditText.getText().toString().isEmpty()){
-                        ((TextInputLayout) view).setError("Campo é obrigatório.");
-                        existError =true;
-                    }else{
-                        ((TextInputLayout) view).setError(null);
-                    }
-
-                    if (customEditText.getInputType() == InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS){
-                        Pattern pattern = Patterns.EMAIL_ADDRESS;
-                        Matcher matcher = pattern.matcher(customEditText.getText().toString());
-                        if (!matcher.matches()){
-                            ((TextInputLayout) view).setError("Formato do e-mail incorreto.");
-                            existError =true;
-                        }
-                    }
-                }
-            }
-        }
-        return existError;
     }
 
     private View.OnClickListener toggleHiddenFields = new View.OnClickListener(){

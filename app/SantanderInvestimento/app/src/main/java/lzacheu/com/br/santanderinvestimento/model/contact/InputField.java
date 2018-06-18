@@ -25,6 +25,19 @@ public class InputField {
 
     private Boolean required;
 
+    public InputField() {
+    }
+
+    public InputField(Integer id, Integer type, String message, Object typeTield, Boolean hidden, Integer topSpacing, Object show, Boolean required) {
+        this.id = id;
+        this.type = type;
+        this.message = message;
+        this.typeTield = typeTield;
+        this.hidden = hidden;
+        this.topSpacing = topSpacing;
+        this.show = show;
+        this.required = required;
+    }
 
     public Integer getId() {
         return id;

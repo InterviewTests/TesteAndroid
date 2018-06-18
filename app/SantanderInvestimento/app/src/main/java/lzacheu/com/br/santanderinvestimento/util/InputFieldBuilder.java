@@ -36,7 +36,7 @@ public class InputFieldBuilder {
         editText.setLayoutParams(getParams(inputField.getTopSpacing()));
         editText.setId(inputField.getId());
         editText.setHint(inputField.getMessage());
-        editText.setTypeface(TypeFaceBuilder.getDinpRegular(context));
+        editText.setTypeface(TypeFaceBuilder.getDinpMedium(context));
         editText.setRequired(inputField.getRequired());
         if (inputField.getHidden())
             editText.setVisibility(View.GONE);

@@ -1,5 +1,7 @@
 package lzacheu.com.br.santanderinvestimento.contact;
 
+import android.view.View;
+
 import java.util.List;
 
 import lzacheu.com.br.santanderinvestimento.base.BasePresenter;
@@ -29,5 +31,7 @@ public interface ContactContract {
         void getFields();
 
         void sendMessage();
+
+        boolean validFields(List<android.view.View> views);
     }
 }
