@@ -17,4 +17,15 @@ public class MoreInfo {
     @SerializedName("12months")
     private MoreInfoDetail twelveMonths;
 
+    public MoreInfoDetail getMonth() {
+        return month;
+    }
+
+    public MoreInfoDetail getYear() {
+        return year;
+    }
+
+    public MoreInfoDetail getTwelveMonths() {
+        return twelveMonths;
+    }
 }

@@ -17,8 +17,8 @@ public class MoreInfoDetail {
         return fund;
     }
 
-    public void setFund(double fund) {
-        this.fund = fund;
+    public double getCdi() {
+        return cdi;
     }
 
     @Override

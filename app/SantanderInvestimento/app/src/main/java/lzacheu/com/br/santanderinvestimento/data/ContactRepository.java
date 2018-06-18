@@ -5,7 +5,6 @@ import android.util.Log;
 import lzacheu.com.br.santanderinvestimento.data.remote.ApiClient;
 import lzacheu.com.br.santanderinvestimento.data.remote.contact.ContactResponse;
 import lzacheu.com.br.santanderinvestimento.data.remote.contact.ContactService;
-import lzacheu.com.br.santanderinvestimento.model.contact.InputField;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
