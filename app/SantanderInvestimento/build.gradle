@@ -40,5 +40,5 @@ ext {
     junitVersion = '4.12'
     runnerTestVersion = '1.0.1'
     espressoVersion = '3.0.2'
-    mockitoVersion = '2.7.19'
+    mockitoVersion = '1.10.19'
 }
