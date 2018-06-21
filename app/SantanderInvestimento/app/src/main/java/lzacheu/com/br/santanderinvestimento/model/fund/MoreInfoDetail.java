@@ -21,6 +21,14 @@ public class MoreInfoDetail {
         return cdi;
     }
 
+    public MoreInfoDetail() {
+    }
+
+    public MoreInfoDetail(double fund, double cdi) {
+        this.fund = fund;
+        this.cdi = cdi;
+    }
+
     @Override
     public String toString() {
         return "MoreInfoDetail{" +

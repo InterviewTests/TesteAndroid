@@ -7,7 +7,6 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +18,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,14 +47,14 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new ContactPresenter(this);
+        presenter = new ContactPresenter(Injection.provideContactRepository(), this);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         presenter.start();
-        presenter.getFields();
+        presenter.loadFields();
     }
 
     @Nullable
@@ -127,11 +124,6 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
     }
 
     @Override
-    public void sendForm() {
-
-    }
-
-    @Override
     public void showSendMessageView() {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         ConstraintLayout messageLayout = (ConstraintLayout) inflater.inflate(R.layout.message_contact, null, false);
@@ -141,9 +133,20 @@ public class ContactFragment extends Fragment implements ContactContract.View, V
     }
 
     @Override
+    public void showErrorsMessage(TextInputLayout textInputLayout) {
+        textInputLayout.setError("Campo é obrigatório.");
+    }
+
+    @Override
+    public void hideErrosMessage(TextInputLayout textInputLayout) {
+        textInputLayout.setError(null);
+    }
+
+
+    @Override
     public void onClick(View view) {
         if (view.getId() == R.id.new_message){
-            presenter.getFields();
+            presenter.loadFields();
             Toast.makeText(getContext(), "New Form", Toast.LENGTH_SHORT).show();
         }else{
             if (!presenter.validFields(viewList)){

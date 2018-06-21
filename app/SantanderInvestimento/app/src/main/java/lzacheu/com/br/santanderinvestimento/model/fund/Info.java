@@ -16,6 +16,14 @@ public class Info {
         return data;
     }
 
+    public Info() {
+    }
+
+    public Info(String name, String data) {
+        this.name = name;
+        this.data = data;
+    }
+
     @Override
     public String toString() {
         return "Info{" +

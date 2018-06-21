@@ -1,6 +1,5 @@
 package lzacheu.com.br.santanderinvestimento.fund;
 
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.res.ResourcesCompat;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -24,6 +22,7 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import lzacheu.com.br.santanderinvestimento.R;
+import lzacheu.com.br.santanderinvestimento.contact.Injection;
 import lzacheu.com.br.santanderinvestimento.model.fund.Screen;
 import lzacheu.com.br.santanderinvestimento.util.TypeFaceBuilder;
 import lzacheu.com.br.santanderinvestimento.widget.RiskLayout;
@@ -98,7 +97,7 @@ public class FundInfoFragment extends Fragment implements FundInfoContract.View,
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new FundInfoPresenter(this);
+        presenter = new FundInfoPresenter(Injection.provideFundRepository(),this);
 
     }
 

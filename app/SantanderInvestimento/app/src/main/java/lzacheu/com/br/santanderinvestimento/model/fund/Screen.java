@@ -19,6 +19,23 @@ public class Screen  {
     private List<Info> info = null;
     private List<DownInfo> downInfo = null;
 
+    public Screen() {
+    }
+
+    public Screen(String title, String fundName, String whatIs, String definition, String riskTitle,
+                  Integer risk, String infoTitle, MoreInfo moreInfo, List<Info> info, List<DownInfo> downInfo) {
+        this.title = title;
+        this.fundName = fundName;
+        this.whatIs = whatIs;
+        this.definition = definition;
+        this.riskTitle = riskTitle;
+        this.risk = risk;
+        this.infoTitle = infoTitle;
+        this.moreInfo = moreInfo;
+        this.info = info;
+        this.downInfo = downInfo;
+    }
+
     public String getTitle() {
         return title;
     }

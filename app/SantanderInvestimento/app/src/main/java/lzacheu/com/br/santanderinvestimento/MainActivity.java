@@ -15,6 +15,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import lzacheu.com.br.santanderinvestimento.contact.ContactContract;
 import lzacheu.com.br.santanderinvestimento.contact.ContactFragment;
 import lzacheu.com.br.santanderinvestimento.fund.FundInfoFragment;
 

@@ -1,6 +1,6 @@
 package lzacheu.com.br.santanderinvestimento.contact;
 
-import android.view.View;
+import android.support.design.widget.TextInputLayout;
 
 import java.util.List;
 
@@ -21,14 +21,16 @@ public interface ContactContract {
 
         void hideForm();
 
-        void sendForm();
-
         void showSendMessageView();
+
+        void showErrorsMessage(TextInputLayout textInputLayout);
+
+        void hideErrosMessage(TextInputLayout textInputLayout);
     }
 
     interface Presenter extends BasePresenter {
 
-        void getFields();
+        void loadFields();
 
         void sendMessage();
 

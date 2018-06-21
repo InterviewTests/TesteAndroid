@@ -16,6 +16,14 @@ public class DownInfo {
         return data;
     }
 
+    public DownInfo() {
+    }
+
+    public DownInfo(String name, String data) {
+        this.name = name;
+        this.data = data;
+    }
+
     @Override
     public String toString() {
         return "DownInfo{" +

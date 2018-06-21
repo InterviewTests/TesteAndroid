@@ -16,8 +16,9 @@ public class FundInfoPresenter implements FundInfoContract.Presenter {
     private FundInfoContract.View view;
     private FundRepository fundRepository;
 
-    public FundInfoPresenter(FundInfoContract.View view) {
+    public FundInfoPresenter(FundRepository fundRepository, FundInfoContract.View view) {
         this.view = view;
+        this.fundRepository = fundRepository;
         view.setPresenter(this);
     }
 
