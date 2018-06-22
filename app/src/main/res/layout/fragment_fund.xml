@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        tools:context=".view.FundFragment"
+        tools:ignore="ScrollViewSize">
+
+        <TextView
+            android:id="@+id/fund_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.06"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/fund_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fund_title"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/grayOpac"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fund_name"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/fund_whatis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/fund_definition"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fund_whatis"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/fund_risk_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fund_definition"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/fund_risk1"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/lightGreen"
+            android:button="@android:color/transparent"
+            android:clickable="false"
+            android:text="1"
+            android:textColor="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fund_risk2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fund_risk_title"
+            app:layout_constraintVertical_bias="0"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/fund_risk2"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/green"
+            android:button="@android:color/transparent"
+            android:clickable="false"
+            android:text="2"
+            android:textColor="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fund_risk3"
+            app:layout_constraintStart_toEndOf="@+id/fund_risk1"
+            app:layout_constraintTop_toBottomOf="@+id/fund_risk_title"
+            app:layout_constraintVertical_bias="0"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/fund_risk3"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/yellow"
+            android:button="@android:color/transparent"
+            android:clickable="false"
+            android:text="3"
+            android:textColor="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fund_risk4"
+            app:layout_constraintStart_toEndOf="@+id/fund_risk2"
+            app:layout_constraintTop_toBottomOf="@+id/fund_risk_title"
+            app:layout_constraintVertical_bias="0"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/fund_risk4"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/orange"
+            android:button="@android:color/transparent"
+            android:clickable="false"
+            android:text="4"
+            android:textColor="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fund_risk5"
+            app:layout_constraintStart_toEndOf="@+id/fund_risk3"
+            app:layout_constraintTop_toBottomOf="@+id/fund_risk_title"
+            app:layout_constraintVertical_bias="0"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/fund_risk5"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/colorPrimary"
+            android:button="@android:color/transparent"
+            android:clickable="false"
+            android:text="5"
+            android:textColor="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fund_risk4"
+            app:layout_constraintTop_toBottomOf="@+id/fund_risk_title"
+            app:layout_constraintVertical_bias="0"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/fund_info_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fund_risk3"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fund_info_title"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="UselessLeaf">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text="Fundo"
+                android:textColor="@color/gray"
+                tools:ignore="HardcodedText,UnusedAttribute" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text="CDI"
+                android:textColor="@color/gray"
+                tools:ignore="HardcodedText,UnusedAttribute" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="start"
+                android:padding="5dp"
+                android:text="No mês"
+                android:textColor="@color/gray"
+                tools:ignore="HardcodedText,UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/fund_month_fund"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/fund_month_cdi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,UnusedAttribute" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="start"
+                android:padding="5dp"
+                android:text="No ano"
+                android:textColor="@color/gray"
+                tools:ignore="HardcodedText,UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/fund_year_fund"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/fund_year_cdi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,UnusedAttribute" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/end_more_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="start"
+                android:padding="5dp"
+                android:text="12 meses"
+                android:textColor="@color/gray"
+                tools:ignore="HardcodedText,UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/fund_12months_fund"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/fund_12months_cdi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,UnusedAttribute" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/grayOpac"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/end_more_info"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fund_recycler_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
