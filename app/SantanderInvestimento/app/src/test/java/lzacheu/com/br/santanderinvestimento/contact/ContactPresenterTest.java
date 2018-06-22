@@ -10,9 +10,7 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.verification.VerificationMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,12 +18,9 @@ import java.util.List;
 import lzacheu.com.br.santanderinvestimento.data.ContactDataSource;
 import lzacheu.com.br.santanderinvestimento.data.ContactRepository;
 import lzacheu.com.br.santanderinvestimento.model.contact.InputField;
-import lzacheu.com.br.santanderinvestimento.widget.CustomEditText;
 
 import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.only;
 import static org.mockito.Mockito.verify;
-import static org.powermock.api.mockito.PowerMockito.when;
 
 /**
  * Created by luiszacheu on 6/21/18.

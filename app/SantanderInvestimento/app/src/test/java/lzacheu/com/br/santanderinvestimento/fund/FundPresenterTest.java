@@ -19,7 +19,6 @@ import lzacheu.com.br.santanderinvestimento.model.fund.MoreInfoDetail;
 import lzacheu.com.br.santanderinvestimento.model.fund.Screen;
 
 import static org.mockito.Mockito.verify;
-import static org.powermock.api.mockito.PowerMockito.when;
 
 /**
  * Created by luiszacheu on 6/21/18.

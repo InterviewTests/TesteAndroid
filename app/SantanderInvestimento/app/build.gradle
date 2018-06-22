@@ -66,9 +66,6 @@ dependencies {
     //Test
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     testImplementation "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
-    testImplementation "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
-    testImplementation "org.powermock:powermock-module-junit4:$rootProject.ext.powerMockito"
-    testImplementation "org.powermock:powermock-api-mockito:$rootProject.ext.powerMockito"
 
     // Android Testing Support Library's runner and rules
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
