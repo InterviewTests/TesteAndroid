@@ -11,6 +11,6 @@ public class Injection{
     }
 
     public static FundRepository provideFundRepository(){
-        return FundRepository;
+        return new FakeFundRepository();
     }
 }

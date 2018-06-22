@@ -21,8 +21,8 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import lzacheu.com.br.santanderinvestimento.Injection;
 import lzacheu.com.br.santanderinvestimento.R;
-import lzacheu.com.br.santanderinvestimento.contact.Injection;
 import lzacheu.com.br.santanderinvestimento.model.fund.Screen;
 import lzacheu.com.br.santanderinvestimento.util.TypeFaceBuilder;
 import lzacheu.com.br.santanderinvestimento.widget.RiskLayout;

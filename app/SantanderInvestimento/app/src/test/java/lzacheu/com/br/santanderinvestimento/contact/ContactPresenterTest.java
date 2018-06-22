@@ -12,6 +12,7 @@ import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.verification.VerificationMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,8 @@ import lzacheu.com.br.santanderinvestimento.data.ContactRepository;
 import lzacheu.com.br.santanderinvestimento.model.contact.InputField;
 import lzacheu.com.br.santanderinvestimento.widget.CustomEditText;
 
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.only;
 import static org.mockito.Mockito.verify;
 import static org.powermock.api.mockito.PowerMockito.when;
 
@@ -43,9 +46,6 @@ public class ContactPresenterTest {
 
     @Mock
     private ContactRepository contactRepository;
-
-    @Mock
-    private CustomEditText customEditTextEmail;
 
     @Mock
     private TextInputLayout textInputLayout;
@@ -76,21 +76,20 @@ public class ContactPresenterTest {
 
     @Test
     public void clickSendContact(){
+        //Dado tap no button enviar, verificamos se a tela de mensagem é chamda
         contactPresenter.sendMessage();
         verify(contactView).showSendMessageView();
     }
 
     @Test
     public void validateFieldsIsEmpty(){
+        //Dado uma lista de Views vazia, o metodo showErros nunca será chamado, pois não há campos
+        //na tela
         Assert.assertFalse(contactPresenter.validFields(VIEWS));
+        contactView.setPresenter(contactPresenter);
+        verify(contactView, never()).showErrorsMessage(textInputLayout);
     }
 
-    @Test
-    public void validateFieldsEmailInvalid(){
-        customEditTextEmail.setText("luis@mail.com");
-//        Assert.assertTrue(contactPresenter.);
-
-    }
 
 
 }

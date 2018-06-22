@@ -21,6 +21,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import lzacheu.com.br.santanderinvestimento.Injection;
 import lzacheu.com.br.santanderinvestimento.R;
 import lzacheu.com.br.santanderinvestimento.model.contact.InputField;
 import lzacheu.com.br.santanderinvestimento.util.InputFieldBuilder;

@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lzacheu.com.br.santanderinvestimento.model.fund.DownInfo;
+import lzacheu.com.br.santanderinvestimento.model.fund.Fund;
 import lzacheu.com.br.santanderinvestimento.model.fund.Info;
 import lzacheu.com.br.santanderinvestimento.model.fund.MoreInfo;
 import lzacheu.com.br.santanderinvestimento.model.fund.MoreInfoDetail;
 import lzacheu.com.br.santanderinvestimento.model.fund.Screen;
 
-public class FakeFundRepository implements FundDataSource {
+public class FakeFundRepository  extends FundRepository implements FundDataSource {
 
     private Screen screen;
 
