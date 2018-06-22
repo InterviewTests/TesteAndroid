@@ -63,7 +63,7 @@ public class ContactPresenterTest {
     }
 
     @Test
-    public void fetchFieldsFromRepositoryAndRenderForm(){
+    public void fetchFields_FromRepositoryAndRenderForm(){
         contactPresenter.loadFields();
 
         //A callback é capturadan atraves do ArgumentCaptor e adicionamos a lista de inputFields mockada

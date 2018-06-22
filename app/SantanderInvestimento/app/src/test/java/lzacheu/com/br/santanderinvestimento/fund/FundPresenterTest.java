@@ -65,14 +65,13 @@ public class FundPresenterTest {
     }
 
     @Test
-    public void fetchDataFromRepositoryAndBindViews(){
+    public void fetchData_FromRepositoryAndBindViews(){
         fundPresenter.fetchData();
 
         verify(fundRepository).getFunds(loadFundCallback.capture());
         loadFundCallback.getValue().onFundsLoaded(screen);
 
         verify(fundView).bindValues(screen);
-
     }
 
     @Test
