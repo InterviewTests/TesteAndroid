@@ -33,6 +33,12 @@ public class InvestimentFragment extends BaseFragment
     @BindView(R.id.state_investiment_loading)
     View stateInvestimentLoading;
 
+    @BindView(R.id.state_investiment_error)
+    View stateInvestimentError;
+
+    @BindView(R.id.state_investiment_content)
+    View stateInvestimentContent;
+
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Dependency Injection
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,5 +79,12 @@ public class InvestimentFragment extends BaseFragment
                 .investimentModule(new InvestimentModule(this))
                 .build()
                 .inject(this);
+    }
+
+    @Override
+    public void showLoading() {
+        stateInvestimentLoading.setVisibility(View.VISIBLE);
+        stateInvestimentError.setVisibility(View.GONE);
+        stateInvestimentContent.setVisibility(View.GONE);
     }
 }

@@ -7,4 +7,5 @@
     <string name="tab_title_contact">Contato</string>
 
     <string name="fragment_investiment_error_text">Ocorreu um erro, tente novamente.</string>
+    <string name="fragment_investiment_button_text">Investir</string>
 </resources>
