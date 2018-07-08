@@ -2,6 +2,7 @@ package com.meteoro.testeandroid.core.di.component;
 
 import android.content.Context;
 
+import com.meteoro.testeandroid.core.data.remote.RepositoryApi;
 import com.meteoro.testeandroid.core.di.module.ApplicationModule;
 import com.meteoro.testeandroid.core.di.module.LibraryModule;
 import com.meteoro.testeandroid.core.di.qualifers.IoScheduler;
@@ -22,4 +23,6 @@ public interface LibraryComponent {
 
     @UiScheduler
     Scheduler uiScheduler();
+
+    RepositoryApi repositoryApi();
 }
