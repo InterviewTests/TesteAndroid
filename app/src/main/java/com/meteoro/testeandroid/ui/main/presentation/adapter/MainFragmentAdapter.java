@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.meteoro.testeandroid.R;
 import com.meteoro.testeandroid.ui.contact.ContactFragment;
-import com.meteoro.testeandroid.ui.investiment.InvestimentFragment;
+import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentFragment;
 
 import java.util.ArrayList;
 import java.util.List;
