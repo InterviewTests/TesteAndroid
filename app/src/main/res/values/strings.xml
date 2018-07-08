@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">TesteAndroid</string>
+
     <string name="host_api">https://floating-mountain-50292.herokuapp.com</string>
+
     <string name="tab_title_investiment">Investimento</string>
     <string name="tab_title_contact">Contato</string>
+
+    <string name="fragment_investiment_error_text">Ocorreu um erro, tente novamente.</string>
 </resources>

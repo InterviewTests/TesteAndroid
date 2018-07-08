@@ -18,6 +18,7 @@ import com.meteoro.testeandroid.ui.investiment.di.InvestimentModule;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -28,6 +29,9 @@ public class InvestimentFragment extends BaseFragment
     // Views
     ////////////////////////////////////////////////////////////////////////////////////////////////
     private Unbinder unbinder;
+
+    @BindView(R.id.state_investiment_loading)
+    View stateInvestimentLoading;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Dependency Injection
