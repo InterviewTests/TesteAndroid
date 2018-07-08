@@ -59,6 +59,7 @@ public class InvestimentFragment extends BaseFragment
         super.onActivityCreated(savedInstanceState);
 
         initializeInjection();
+        presenter.initializeContents();
     }
 
     private void initializeInjection() {

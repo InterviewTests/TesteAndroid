@@ -5,6 +5,8 @@ import android.arch.lifecycle.LifecycleOwner;
 import com.meteoro.testeandroid.core.di.PerFragment;
 import com.meteoro.testeandroid.core.lifecycle.AutomaticUnsubscriber;
 import com.meteoro.testeandroid.core.lifecycle.LifecycleUnsubscriber;
+import com.meteoro.testeandroid.ui.investiment.domain.interactor.GetFund;
+import com.meteoro.testeandroid.ui.investiment.domain.interactor.GetFundImpl;
 import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentContract;
 import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentFragment;
 import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentPresenter;
@@ -42,6 +44,12 @@ public class InvestimentModule {
     @Provides
     @PerFragment
     AutomaticUnsubscriber automaticUnsubscriber(LifecycleUnsubscriber impl) {
+        return impl;
+    }
+
+    @Provides
+    @PerFragment
+    GetFund getFund(GetFundImpl impl) {
         return impl;
     }
 }

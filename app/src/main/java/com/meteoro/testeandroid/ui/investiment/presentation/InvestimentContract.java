@@ -6,6 +6,6 @@ public interface InvestimentContract {
     }
 
     interface Presenter {
-
+        void initializeContents();
     }
 }
