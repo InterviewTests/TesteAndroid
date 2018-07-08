@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TesteAndroid</string>
+    <string name="tab_title_investiment">Investimento</string>
+    <string name="tab_title_contact">Contato</string>
 </resources>
