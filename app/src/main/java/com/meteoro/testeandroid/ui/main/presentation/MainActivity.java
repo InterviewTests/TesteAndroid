@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.meteoro.testeandroid.R;
+import com.meteoro.testeandroid.core.view.BaseActivity;
 import com.meteoro.testeandroid.ui.main.presentation.adapter.MainFragmentAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Views
