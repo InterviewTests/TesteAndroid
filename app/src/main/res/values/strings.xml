@@ -12,4 +12,7 @@
     <string name="fragment_investiment_fund_label">Fundo</string>
     <string name="fragment_investiment_cdi_label">CDI</string>
     <string name="fragment_investiment_down_info_label">Baixar</string>
+    <string name="fragment_investiment_month_label">No mês</string>
+    <string name="fragment_investiment_year_label">No ano</string>
+    <string name="fragment_investiment_12months_label">12 meses</string>
 </resources>

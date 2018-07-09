@@ -47,6 +47,9 @@ public class HeaderInfoAdapterDelegate implements AdapterDelegate<ScreenViewMode
         viewHolder.tvCdiMonth.setText(moreInfoViewModel.month().cdi());
         viewHolder.tvCdiYear.setText(moreInfoViewModel.year().cdi());
         viewHolder.tvCdi12Months.setText(moreInfoViewModel.months12().cdi());
+        viewHolder.tvFundMonth.setText(moreInfoViewModel.month().fund());
+        viewHolder.tvFundYear.setText(moreInfoViewModel.year().fund());
+        viewHolder.tvFund12Months.setText(moreInfoViewModel.months12().fund());
     }
 
     private ModelType getItem(ScreenViewModel data, int position) {
@@ -81,6 +84,15 @@ public class HeaderInfoAdapterDelegate implements AdapterDelegate<ScreenViewMode
 
         @BindView(R.id.tv_cdi_12months)
         TextView tvCdi12Months;
+
+        @BindView(R.id.tv_fund_month)
+        TextView tvFundMonth;
+
+        @BindView(R.id.tv_fund_year)
+        TextView tvFundYear;
+
+        @BindView(R.id.tv_fund_12months)
+        TextView tvFund12Months;
 
         public ViewHolder(View itemView) {
             super(itemView);
