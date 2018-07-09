@@ -5,6 +5,8 @@ import android.arch.lifecycle.LifecycleOwner;
 import com.meteoro.testeandroid.core.di.PerFragment;
 import com.meteoro.testeandroid.core.lifecycle.AutomaticUnsubscriber;
 import com.meteoro.testeandroid.core.lifecycle.LifecycleUnsubscriber;
+import com.meteoro.testeandroid.ui.contact.domain.interactor.ConvertToCellsViewModel;
+import com.meteoro.testeandroid.ui.contact.domain.interactor.ConvertToCellsViewModelImpl;
 import com.meteoro.testeandroid.ui.contact.domain.interactor.GetCells;
 import com.meteoro.testeandroid.ui.contact.domain.interactor.GetCellsImpl;
 import com.meteoro.testeandroid.ui.contact.domain.interactor.ShowLoadingContact;
@@ -58,6 +60,12 @@ public class ContactModule {
     @Provides
     @PerFragment
     GetCells getCells(GetCellsImpl impl) {
+        return impl;
+    }
+
+    @Provides
+    @PerFragment
+    ConvertToCellsViewModel convertToCellsViewModel(ConvertToCellsViewModelImpl impl) {
         return impl;
     }
 }
