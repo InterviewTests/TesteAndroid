@@ -11,4 +11,5 @@
     <string name="fragment_investiment_percent_format">%.2f %%</string>
     <string name="fragment_investiment_fund_label">Fundo</string>
     <string name="fragment_investiment_cdi_label">CDI</string>
+    <string name="fragment_investiment_down_info_label">Baixar</string>
 </resources>
