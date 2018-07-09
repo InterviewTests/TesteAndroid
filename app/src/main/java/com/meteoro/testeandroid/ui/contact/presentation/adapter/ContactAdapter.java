@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 
 import com.meteoro.testeandroid.core.adapter.AdapterDelegateManager;
 import com.meteoro.testeandroid.ui.contact.domain.model.CellsViewModel;
+import com.meteoro.testeandroid.ui.contact.presentation.listener.OnSendClickListener;
 
 import javax.inject.Inject;
 
@@ -38,6 +39,10 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void setData(CellsViewModel data) {
         this.data = data;
         notifyDataSetChanged();
+    }
+
+    public void setOnSendClickListener(OnSendClickListener listener) {
+        sendAdapterDelegate.setOnSendClickListener(listener);
     }
 
     @NonNull

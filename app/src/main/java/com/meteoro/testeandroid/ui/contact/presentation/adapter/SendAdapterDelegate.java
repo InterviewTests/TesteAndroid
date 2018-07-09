@@ -13,11 +13,14 @@ import com.meteoro.testeandroid.ui.contact.domain.model.CellsModelType;
 import com.meteoro.testeandroid.ui.contact.domain.model.CellsType;
 import com.meteoro.testeandroid.ui.contact.domain.model.CellsViewModel;
 import com.meteoro.testeandroid.ui.contact.domain.model.SendViewModel;
+import com.meteoro.testeandroid.ui.contact.presentation.listener.OnSendClickListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SendAdapterDelegate implements AdapterDelegate<CellsViewModel> {
+
+    private OnSendClickListener listener;
 
     @Override
     public boolean isViewForData(CellsViewModel data, int position) {
@@ -37,6 +40,8 @@ public class SendAdapterDelegate implements AdapterDelegate<CellsViewModel> {
 
         ViewHolder viewHolder = (ViewHolder) holder;
         viewHolder.btnMessage.setText(viewModel.message());
+        viewHolder.btnMessage.setOnClickListener(
+                view -> callOnSendClickListener());
 
         ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) viewHolder
                 .btnMessage.getLayoutParams();
@@ -45,6 +50,16 @@ public class SendAdapterDelegate implements AdapterDelegate<CellsViewModel> {
 
     private CellsType getItem(CellsViewModel data, int position) {
         return data.cellsTypeList().get(position);
+    }
+
+    private void callOnSendClickListener() {
+        if (listener != null) {
+            listener.onClick();
+        }
+    }
+
+    public void setOnSendClickListener(OnSendClickListener listener) {
+        this.listener = listener;
     }
 
     protected class ViewHolder extends RecyclerView.ViewHolder {

@@ -18,11 +18,13 @@ import com.meteoro.testeandroid.ui.contact.di.ContactModule;
 import com.meteoro.testeandroid.ui.contact.di.DaggerContactComponent;
 import com.meteoro.testeandroid.ui.contact.domain.model.CellsViewModel;
 import com.meteoro.testeandroid.ui.contact.presentation.adapter.ContactAdapter;
+import com.meteoro.testeandroid.ui.contact.presentation.listener.OnSendClickListener;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class ContactFragment extends BaseFragment
@@ -42,6 +44,9 @@ public class ContactFragment extends BaseFragment
     @BindView(R.id.state_contact_content)
     View stateContactContent;
 
+    @BindView(R.id.state_contact_send)
+    View stateContactSend;
+
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
@@ -53,6 +58,12 @@ public class ContactFragment extends BaseFragment
 
     @Inject
     ContactAdapter adapter;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Listener
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    private OnSendClickListener onSendClickListener =
+            this::handleSendClickListener;
 
     public static ContactFragment newInstance() {
         return new ContactFragment();
@@ -93,6 +104,7 @@ public class ContactFragment extends BaseFragment
 
     private void initializeViews() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter.setOnSendClickListener(onSendClickListener);
     }
 
     private void initializeContents() {
@@ -104,6 +116,7 @@ public class ContactFragment extends BaseFragment
         stateContactLoading.setVisibility(View.VISIBLE);
         stateContactError.setVisibility(View.GONE);
         stateContactContent.setVisibility(View.GONE);
+        stateContactSend.setVisibility(View.GONE);
     }
 
     @Override
@@ -111,6 +124,7 @@ public class ContactFragment extends BaseFragment
         stateContactLoading.setVisibility(View.GONE);
         stateContactError.setVisibility(View.GONE);
         stateContactContent.setVisibility(View.VISIBLE);
+        stateContactSend.setVisibility(View.GONE);
 
         adapter.setData(viewModel);
         recyclerView.setAdapter(adapter);
@@ -121,5 +135,18 @@ public class ContactFragment extends BaseFragment
         stateContactLoading.setVisibility(View.GONE);
         stateContactError.setVisibility(View.VISIBLE);
         stateContactContent.setVisibility(View.GONE);
+        stateContactSend.setVisibility(View.GONE);
+    }
+
+    private void handleSendClickListener() {
+        stateContactLoading.setVisibility(View.GONE);
+        stateContactError.setVisibility(View.GONE);
+        stateContactContent.setVisibility(View.GONE);
+        stateContactSend.setVisibility(View.VISIBLE);
+    }
+
+    @OnClick(R.id.tv_send_new)
+    public void handleNewMessageClick() {
+        presenter.initializeContents();
     }
 }

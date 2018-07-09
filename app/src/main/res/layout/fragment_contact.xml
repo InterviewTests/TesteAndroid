@@ -33,4 +33,14 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/state_contact_send"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/state_contact_send" />
+
+    </RelativeLayout>
+
 </RelativeLayout>

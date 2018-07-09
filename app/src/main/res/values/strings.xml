@@ -15,4 +15,8 @@
     <string name="fragment_investiment_month_label">No mês</string>
     <string name="fragment_investiment_year_label">No ano</string>
     <string name="fragment_investiment_12months_label">12 meses</string>
+
+    <string name="fragment_contact_thanks_label">Obrigado!</string>
+    <string name="fragment_contact_message_label">Mensagem enviada com sucesso :)</string>
+    <string name="fragment_contact_send_new_label">Enviar nova mensagem</string>
 </resources>
