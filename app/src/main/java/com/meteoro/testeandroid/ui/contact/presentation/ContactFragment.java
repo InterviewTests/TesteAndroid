@@ -3,6 +3,7 @@ package com.meteoro.testeandroid.ui.contact.presentation;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,6 +73,8 @@ public class ContactFragment extends BaseFragment
         super.onActivityCreated(savedInstanceState);
 
         initializeInjection();
+        initializeViews();
+        initializeContents();
     }
 
     private void initializeInjection() {
@@ -81,5 +84,20 @@ public class ContactFragment extends BaseFragment
                 .contactModule(new ContactModule(this))
                 .build()
                 .inject(this);
+    }
+
+    private void initializeViews() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+    }
+
+    private void initializeContents() {
+        presenter.initializeContents();
+    }
+
+    @Override
+    public void showLoading() {
+        stateContactLoading.setVisibility(View.VISIBLE);
+        stateContactError.setVisibility(View.GONE);
+        stateContactContent.setVisibility(View.GONE);
     }
 }
