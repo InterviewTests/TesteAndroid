@@ -4,6 +4,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,9 @@ import com.meteoro.testeandroid.ui.contact.domain.model.CellsModelType;
 import com.meteoro.testeandroid.ui.contact.domain.model.CellsType;
 import com.meteoro.testeandroid.ui.contact.domain.model.CellsViewModel;
 import com.meteoro.testeandroid.ui.contact.domain.model.FieldViewModel;
+import com.meteoro.testeandroid.ui.contact.presentation.listener.BrPhoneNumberFormatter;
+
+import java.lang.ref.WeakReference;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,6 +48,10 @@ public class FieldAdapterDelegate implements AdapterDelegate<CellsViewModel> {
         ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) viewHolder
                 .tilMessage.getLayoutParams();
         params.setMargins(0, viewModel.topSpacing(), 0, 0);
+
+        viewHolder.tieMessage.setInputType(InputType.TYPE_CLASS_PHONE);
+        BrPhoneNumberFormatter formatter = new BrPhoneNumberFormatter(new WeakReference<>(viewHolder.tieMessage));
+        viewHolder.tieMessage.addTextChangedListener(formatter);
     }
 
     private CellsType getItem(CellsViewModel data, int position) {
