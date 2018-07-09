@@ -77,30 +77,35 @@ public class ConvertToCellsViewModelImpl implements ConvertToCellsViewModel {
     private FieldViewModel convertToField(Cell cell) {
         return new FieldViewModel()
                 .id(cell.id())
-                .message(cell.message());
+                .message(cell.message())
+                .topSpacing(cell.topSpacing());
     }
 
     private TextViewModel convertToText(Cell cell) {
         return new TextViewModel()
                 .id(cell.id())
-                .message(cell.message());
+                .message(cell.message())
+                .topSpacing(cell.topSpacing());
     }
 
     private ImageViewModel convertToImage(Cell cell) {
         return new ImageViewModel()
                 .id(cell.id())
-                .message(cell.message());
+                .message(cell.message())
+                .topSpacing(cell.topSpacing());
     }
 
     private CheckboxViewModel convertToCheckbox(Cell cell) {
         return new CheckboxViewModel()
                 .id(cell.id())
-                .message(cell.message());
+                .message(cell.message())
+                .topSpacing(cell.topSpacing());
     }
 
     private SendViewModel convertToSend(Cell cell) {
         return new SendViewModel()
                 .id(cell.id())
-                .message(cell.message());
+                .message(cell.message())
+                .topSpacing(cell.topSpacing());
     }
 }

@@ -15,6 +15,10 @@ public class ImageViewModel implements CellsType {
     @Getter
     String message;
 
+    @Getter
+    @Setter
+    int topSpacing;
+
     @Override
     public CellsModelType getType() {
         return CellsModelType.IMAGE;

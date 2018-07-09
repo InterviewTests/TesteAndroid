@@ -15,6 +15,10 @@ public class CheckboxViewModel implements CellsType {
     @Setter
     String message;
 
+    @Getter
+    @Setter
+    int topSpacing;
+
     @Override
     public CellsModelType getType() {
         return CellsModelType.CHECKBOCK;

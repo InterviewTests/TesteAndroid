@@ -1,5 +1,6 @@
 package com.meteoro.testeandroid.ui.contact.presentation.adapter;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,10 @@ public class TextAdapterDelegate implements AdapterDelegate<CellsViewModel> {
 
         ViewHolder viewHolder = (ViewHolder) holder;
         viewHolder.tvMessage.setText(viewModel.message());
+
+        ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) viewHolder
+                .tvMessage.getLayoutParams();
+        params.setMargins(0, viewModel.topSpacing(), 0, 0);
     }
 
     private CellsType getItem(CellsViewModel data, int position) {

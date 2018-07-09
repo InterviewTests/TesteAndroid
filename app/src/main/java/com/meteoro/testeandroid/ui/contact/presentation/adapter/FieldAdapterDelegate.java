@@ -1,10 +1,13 @@
 package com.meteoro.testeandroid.ui.contact.presentation.adapter;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.meteoro.testeandroid.R;
 import com.meteoro.testeandroid.core.adapter.AdapterDelegate;
@@ -35,7 +38,12 @@ public class FieldAdapterDelegate implements AdapterDelegate<CellsViewModel> {
         FieldViewModel viewModel = (FieldViewModel) getItem(data, position);
 
         ViewHolder viewHolder = (ViewHolder) holder;
+        viewHolder.tilMessage.setHint(viewModel.message());
         viewHolder.tieMessage.setHint(viewModel.message());
+
+        ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) viewHolder
+                .tilMessage.getLayoutParams();
+        params.setMargins(0, viewModel.topSpacing(), 0, 0);
     }
 
     private CellsType getItem(CellsViewModel data, int position) {
@@ -43,6 +51,9 @@ public class FieldAdapterDelegate implements AdapterDelegate<CellsViewModel> {
     }
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
+
+        @BindView(R.id.til_message)
+        TextInputLayout tilMessage;
 
         @BindView(R.id.tie_message)
         TextInputEditText tieMessage;
