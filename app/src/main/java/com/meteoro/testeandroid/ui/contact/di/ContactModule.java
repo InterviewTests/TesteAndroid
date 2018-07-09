@@ -13,6 +13,8 @@ import com.meteoro.testeandroid.ui.contact.domain.interactor.ShowCellsViewModel;
 import com.meteoro.testeandroid.ui.contact.domain.interactor.ShowCellsViewModelImpl;
 import com.meteoro.testeandroid.ui.contact.domain.interactor.ShowLoadingContact;
 import com.meteoro.testeandroid.ui.contact.domain.interactor.ShowLoadingContactImpl;
+import com.meteoro.testeandroid.ui.contact.domain.interactor.ValidateFields;
+import com.meteoro.testeandroid.ui.contact.domain.interactor.ValidateFieldsImpl;
 import com.meteoro.testeandroid.ui.contact.presentation.ContactContract;
 import com.meteoro.testeandroid.ui.contact.presentation.ContactFragment;
 import com.meteoro.testeandroid.ui.contact.presentation.ContactPresenter;
@@ -74,6 +76,12 @@ public class ContactModule {
     @Provides
     @PerFragment
     ShowCellsViewModel showCellsViewModel(ShowCellsViewModelImpl impl) {
+        return impl;
+    }
+
+    @Provides
+    @PerFragment
+    ValidateFields validateFields(ValidateFieldsImpl impl) {
         return impl;
     }
 }

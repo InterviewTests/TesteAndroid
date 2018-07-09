@@ -36,6 +36,10 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         delegateManager.addDelegate(sendAdapterDelegate);
     }
 
+    public CellsViewModel getData() {
+        return data;
+    }
+
     public void setData(CellsViewModel data) {
         this.data = data;
         notifyDataSetChanged();

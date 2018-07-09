@@ -1,6 +1,7 @@
 package com.meteoro.testeandroid.ui.contact.presentation;
 
 import com.meteoro.testeandroid.core.lifecycle.AutomaticUnsubscriber;
+import com.meteoro.testeandroid.ui.contact.domain.model.CellsViewModel;
 import com.meteoro.testeandroid.ui.contact.presentation.coordinator.GetCellsCoordinator;
 
 import javax.inject.Inject;
@@ -27,5 +28,10 @@ public class ContactPresenter implements ContactContract.Presenter {
                         .compose(getCellsCoordinator)
                         .subscribe();
         automaticUnsubscriber.add(subscription);
+    }
+
+    @Override
+    public void validateFields(CellsViewModel viewModel) {
+
     }
 }

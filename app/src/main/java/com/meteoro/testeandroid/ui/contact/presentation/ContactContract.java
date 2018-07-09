@@ -13,5 +13,7 @@ public interface ContactContract {
 
     interface Presenter {
         void initializeContents();
+
+        void validateFields(CellsViewModel viewModel);
     }
 }

@@ -80,7 +80,8 @@ public class ConvertToCellsViewModelImpl implements ConvertToCellsViewModel {
                 .id(cell.id())
                 .message(cell.message())
                 .topSpacing(cell.topSpacing())
-                .typeField(convertTypeField(cell.typeField()));
+                .typeField(convertTypeField(cell.typeField()))
+                .required(cell.required());
     }
 
     private TypeField convertTypeField(String type) {
@@ -99,27 +100,31 @@ public class ConvertToCellsViewModelImpl implements ConvertToCellsViewModel {
         return new TextViewModel()
                 .id(cell.id())
                 .message(cell.message())
-                .topSpacing(cell.topSpacing());
+                .topSpacing(cell.topSpacing())
+                .required(cell.required());
     }
 
     private ImageViewModel convertToImage(Cell cell) {
         return new ImageViewModel()
                 .id(cell.id())
                 .message(cell.message())
-                .topSpacing(cell.topSpacing());
+                .topSpacing(cell.topSpacing())
+                .required(cell.required());
     }
 
     private CheckboxViewModel convertToCheckbox(Cell cell) {
         return new CheckboxViewModel()
                 .id(cell.id())
                 .message(cell.message())
-                .topSpacing(cell.topSpacing());
+                .topSpacing(cell.topSpacing())
+                .required(cell.required());
     }
 
     private SendViewModel convertToSend(Cell cell) {
         return new SendViewModel()
                 .id(cell.id())
                 .message(cell.message())
-                .topSpacing(cell.topSpacing());
+                .topSpacing(cell.topSpacing())
+                .required(cell.required());
     }
 }

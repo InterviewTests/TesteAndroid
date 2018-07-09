@@ -19,6 +19,10 @@ public class ImageViewModel implements CellsType {
     @Setter
     int topSpacing;
 
+    @Getter
+    @Setter
+    boolean required;
+
     @Override
     public CellsModelType getType() {
         return CellsModelType.IMAGE;

@@ -4,7 +4,9 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class FieldAdapterDelegate implements AdapterDelegate<CellsViewModel> {
+
+    private BrPhoneNumberFormatter numberFormatter;
 
     @Override
     public boolean isViewForData(CellsViewModel data, int position) {
@@ -51,6 +55,23 @@ public class FieldAdapterDelegate implements AdapterDelegate<CellsViewModel> {
         params.setMargins(0, viewModel.topSpacing(), 0, 0);
 
         setInputType(viewHolder.tieMessage, viewModel.typeField());
+
+        viewHolder.tieMessage.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                viewModel.valueField(s.toString());
+            }
+        });
     }
 
     private CellsType getItem(CellsViewModel data, int position) {
@@ -67,8 +88,8 @@ public class FieldAdapterDelegate implements AdapterDelegate<CellsViewModel> {
                 break;
             case TEL_NUMBER:
                 editText.setInputType(InputType.TYPE_CLASS_PHONE);
-                BrPhoneNumberFormatter formatter = new BrPhoneNumberFormatter(new WeakReference<>(editText));
-                editText.addTextChangedListener(formatter);
+                numberFormatter = new BrPhoneNumberFormatter(new WeakReference<>(editText));
+                editText.addTextChangedListener(numberFormatter);
                 break;
         }
     }

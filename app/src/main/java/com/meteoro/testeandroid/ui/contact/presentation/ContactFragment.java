@@ -139,10 +139,12 @@ public class ContactFragment extends BaseFragment
     }
 
     private void handleSendClickListener() {
-        stateContactLoading.setVisibility(View.GONE);
-        stateContactError.setVisibility(View.GONE);
-        stateContactContent.setVisibility(View.GONE);
-        stateContactSend.setVisibility(View.VISIBLE);
+//        stateContactLoading.setVisibility(View.GONE);
+//        stateContactError.setVisibility(View.GONE);
+//        stateContactContent.setVisibility(View.GONE);
+//        stateContactSend.setVisibility(View.VISIBLE);
+
+        presenter.validateFields(adapter.getData());
     }
 
     @OnClick(R.id.tv_send_new)
