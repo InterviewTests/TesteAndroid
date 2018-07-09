@@ -7,6 +7,8 @@ public interface InvestimentContract {
         void showLoading();
 
         void showViewModel(ScreenViewModel viewModel);
+
+        void showError();
     }
 
     interface Presenter {

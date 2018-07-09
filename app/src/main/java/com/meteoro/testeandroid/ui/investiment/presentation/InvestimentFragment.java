@@ -115,4 +115,11 @@ public class InvestimentFragment extends BaseFragment
         adapter.setData(viewModel);
         recyclerView.setAdapter(adapter);
     }
+
+    @Override
+    public void showError() {
+        stateInvestimentLoading.setVisibility(View.GONE);
+        stateInvestimentError.setVisibility(View.VISIBLE);
+        stateInvestimentContent.setVisibility(View.GONE);
+    }
 }

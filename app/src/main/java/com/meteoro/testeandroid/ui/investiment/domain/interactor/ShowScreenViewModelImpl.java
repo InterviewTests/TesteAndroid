@@ -26,10 +26,17 @@ public class ShowScreenViewModelImpl implements ShowScreenViewModel {
         return observable
                 .observeOn(uiScheduler)
                 .subscribeOn(uiScheduler)
-                .doOnNext(this::showViewModel);
+                .doOnNext(this::showViewModel)
+                .doOnError(this::showError)
+                .onErrorResumeNext(Observable.empty());
     }
 
     private void showViewModel(ScreenViewModel viewModel) {
         view.showViewModel(viewModel);
+    }
+
+    private void showError(Throwable throwable) {
+        throwable.printStackTrace();
+        view.showError();
     }
 }
