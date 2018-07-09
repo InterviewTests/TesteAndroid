@@ -3,6 +3,8 @@ package com.meteoro.testeandroid.ui.investiment.presentation;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,8 @@ import com.meteoro.testeandroid.core.di.component.LibraryComponent;
 import com.meteoro.testeandroid.core.view.BaseFragment;
 import com.meteoro.testeandroid.ui.investiment.di.DaggerInvestimentComponent;
 import com.meteoro.testeandroid.ui.investiment.di.InvestimentModule;
+import com.meteoro.testeandroid.ui.investiment.domain.model.ScreenViewModel;
+import com.meteoro.testeandroid.ui.investiment.presentation.adapter.InvestimentAdapter;
 
 import javax.inject.Inject;
 
@@ -38,11 +42,17 @@ public class InvestimentFragment extends BaseFragment
     @BindView(R.id.state_investiment_content)
     View stateInvestimentContent;
 
+    @BindView(R.id.recycler_view)
+    RecyclerView recyclerView;
+
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Dependency Injection
     ////////////////////////////////////////////////////////////////////////////////////////////////
     @Inject
     InvestimentContract.Presenter presenter;
+
+    @Inject
+    InvestimentAdapter adapter;
 
     public static InvestimentFragment newInstance() {
         return new InvestimentFragment();
@@ -68,7 +78,8 @@ public class InvestimentFragment extends BaseFragment
         super.onActivityCreated(savedInstanceState);
 
         initializeInjection();
-        presenter.initializeContents();
+        initializeViews();
+        initializeContents();
     }
 
     private void initializeInjection() {
@@ -80,10 +91,28 @@ public class InvestimentFragment extends BaseFragment
                 .inject(this);
     }
 
+    private void initializeViews() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+    }
+
+    private void initializeContents() {
+        presenter.initializeContents();
+    }
+
     @Override
     public void showLoading() {
         stateInvestimentLoading.setVisibility(View.VISIBLE);
         stateInvestimentError.setVisibility(View.GONE);
         stateInvestimentContent.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showViewModel(ScreenViewModel viewModel) {
+        stateInvestimentLoading.setVisibility(View.GONE);
+        stateInvestimentError.setVisibility(View.GONE);
+        stateInvestimentContent.setVisibility(View.VISIBLE);
+
+        adapter.setData(viewModel);
+        recyclerView.setAdapter(adapter);
     }
 }

@@ -3,6 +3,7 @@ package com.meteoro.testeandroid.ui.investiment.presentation.coordinator;
 import com.meteoro.testeandroid.ui.investiment.domain.interactor.ConvertScreenToViewModel;
 import com.meteoro.testeandroid.ui.investiment.domain.interactor.GetFund;
 import com.meteoro.testeandroid.ui.investiment.domain.interactor.ShowLoadingInvestiment;
+import com.meteoro.testeandroid.ui.investiment.domain.interactor.ShowScreenViewModel;
 import com.meteoro.testeandroid.ui.investiment.domain.model.ScreenViewModel;
 
 import javax.inject.Inject;
@@ -14,14 +15,17 @@ public class GetFundCoordinator implements Observable.Transformer<String, Screen
     private ShowLoadingInvestiment showLoadingInvestiment;
     private GetFund getFund;
     private ConvertScreenToViewModel convertScreenToViewModel;
+    private ShowScreenViewModel showScreenViewModel;
 
     @Inject
     public GetFundCoordinator(ShowLoadingInvestiment showLoadingInvestiment,
                               GetFund getFund,
-                              ConvertScreenToViewModel convertScreenToViewModel) {
+                              ConvertScreenToViewModel convertScreenToViewModel,
+                              ShowScreenViewModel showScreenViewModel) {
         this.showLoadingInvestiment = showLoadingInvestiment;
         this.getFund = getFund;
         this.convertScreenToViewModel = convertScreenToViewModel;
+        this.showScreenViewModel = showScreenViewModel;
     }
 
     @Override
@@ -29,6 +33,7 @@ public class GetFundCoordinator implements Observable.Transformer<String, Screen
         return observable
                 .compose(showLoadingInvestiment)
                 .compose(getFund)
-                .compose(convertScreenToViewModel);
+                .compose(convertScreenToViewModel)
+                .compose(showScreenViewModel);
     }
 }

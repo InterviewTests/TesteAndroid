@@ -1,7 +1,5 @@
 package com.meteoro.testeandroid.ui.investiment.presentation;
 
-import android.util.Log;
-
 import com.meteoro.testeandroid.core.lifecycle.AutomaticUnsubscriber;
 import com.meteoro.testeandroid.ui.investiment.presentation.coordinator.GetFundCoordinator;
 
@@ -27,9 +25,7 @@ public class InvestimentPresenter implements InvestimentContract.Presenter {
         Subscription subscription =
                 Observable.just("")
                         .compose(getFundCoordinator)
-                        .subscribe(screen -> {
-                            Log.d("Presenter", "Screen " + screen.title());
-                        }, Throwable::printStackTrace);
+                        .subscribe();
         automaticUnsubscriber.add(subscription);
     }
 }

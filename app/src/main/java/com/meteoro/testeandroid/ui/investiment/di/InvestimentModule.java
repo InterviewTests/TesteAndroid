@@ -11,6 +11,8 @@ import com.meteoro.testeandroid.ui.investiment.domain.interactor.GetFund;
 import com.meteoro.testeandroid.ui.investiment.domain.interactor.GetFundImpl;
 import com.meteoro.testeandroid.ui.investiment.domain.interactor.ShowLoadingInvestiment;
 import com.meteoro.testeandroid.ui.investiment.domain.interactor.ShowLoadingInvestimentImpl;
+import com.meteoro.testeandroid.ui.investiment.domain.interactor.ShowScreenViewModel;
+import com.meteoro.testeandroid.ui.investiment.domain.interactor.ShowScreenViewModelImpl;
 import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentContract;
 import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentFragment;
 import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentPresenter;
@@ -67,6 +69,12 @@ public class InvestimentModule {
     @Provides
     @PerFragment
     ConvertScreenToViewModel convertScreenToViewModel(ConvertScreenToViewModelImpl impl) {
+        return impl;
+    }
+
+    @Provides
+    @PerFragment
+    ShowScreenViewModel showScreenViewModel(ShowScreenViewModelImpl impl) {
         return impl;
     }
 }
