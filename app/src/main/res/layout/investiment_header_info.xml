@@ -99,4 +99,48 @@
         app:layout_constraintTop_toBottomOf="@+id/view"
         tools:text="Mais informações sobre o investimento" />
 
+    <TextView
+        android:id="@+id/tv_cdi_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/fragment_investiment_cdi_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_info_title" />
+
+    <TextView
+        android:id="@+id/tv_cdi_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cdi_label"
+        tools:text="0,0 %" />
+
+    <TextView
+        android:id="@+id/tv_cdi_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cdi_month"
+        tools:text="0,0 %" />
+
+    <TextView
+        android:id="@+id/tv_cdi_12months"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cdi_year"
+        tools:text="0,0 %" />
+
+
 </android.support.constraint.ConstraintLayout>

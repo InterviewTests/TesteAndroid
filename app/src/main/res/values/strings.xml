@@ -9,4 +9,6 @@
     <string name="fragment_investiment_error_text">Ocorreu um erro, tente novamente.</string>
     <string name="fragment_investiment_button_text">Investir</string>
     <string name="fragment_investiment_percent_format">%.2f %%</string>
+    <string name="fragment_investiment_fund_label">Fundo</string>
+    <string name="fragment_investiment_cdi_label">CDI</string>
 </resources>
