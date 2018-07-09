@@ -9,6 +9,8 @@ import com.meteoro.testeandroid.ui.contact.domain.interactor.ConvertToCellsViewM
 import com.meteoro.testeandroid.ui.contact.domain.interactor.ConvertToCellsViewModelImpl;
 import com.meteoro.testeandroid.ui.contact.domain.interactor.GetCells;
 import com.meteoro.testeandroid.ui.contact.domain.interactor.GetCellsImpl;
+import com.meteoro.testeandroid.ui.contact.domain.interactor.ShowCellsViewModel;
+import com.meteoro.testeandroid.ui.contact.domain.interactor.ShowCellsViewModelImpl;
 import com.meteoro.testeandroid.ui.contact.domain.interactor.ShowLoadingContact;
 import com.meteoro.testeandroid.ui.contact.domain.interactor.ShowLoadingContactImpl;
 import com.meteoro.testeandroid.ui.contact.presentation.ContactContract;
@@ -66,6 +68,12 @@ public class ContactModule {
     @Provides
     @PerFragment
     ConvertToCellsViewModel convertToCellsViewModel(ConvertToCellsViewModelImpl impl) {
+        return impl;
+    }
+
+    @Provides
+    @PerFragment
+    ShowCellsViewModel showCellsViewModel(ShowCellsViewModelImpl impl) {
         return impl;
     }
 }

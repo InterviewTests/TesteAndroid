@@ -16,6 +16,7 @@ import com.meteoro.testeandroid.core.di.component.LibraryComponent;
 import com.meteoro.testeandroid.core.view.BaseFragment;
 import com.meteoro.testeandroid.ui.contact.di.ContactModule;
 import com.meteoro.testeandroid.ui.contact.di.DaggerContactComponent;
+import com.meteoro.testeandroid.ui.contact.domain.model.CellsViewModel;
 
 import javax.inject.Inject;
 
@@ -98,6 +99,20 @@ public class ContactFragment extends BaseFragment
     public void showLoading() {
         stateContactLoading.setVisibility(View.VISIBLE);
         stateContactError.setVisibility(View.GONE);
+        stateContactContent.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showViewModel(CellsViewModel viewModel) {
+        stateContactLoading.setVisibility(View.GONE);
+        stateContactError.setVisibility(View.GONE);
+        stateContactContent.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void showError() {
+        stateContactLoading.setVisibility(View.GONE);
+        stateContactError.setVisibility(View.VISIBLE);
         stateContactContent.setVisibility(View.GONE);
     }
 }
