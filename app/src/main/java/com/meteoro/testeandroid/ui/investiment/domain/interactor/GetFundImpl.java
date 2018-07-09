@@ -1,6 +1,6 @@
 package com.meteoro.testeandroid.ui.investiment.domain.interactor;
 
-import com.meteoro.testeandroid.core.data.model.Screen;
+import com.meteoro.testeandroid.core.data.model.ScreenVo;
 import com.meteoro.testeandroid.core.data.remote.RepositoryApi;
 import com.meteoro.testeandroid.core.di.qualifers.IoScheduler;
 import com.meteoro.testeandroid.core.di.qualifers.UiScheduler;
@@ -26,12 +26,12 @@ public class GetFundImpl implements GetFund {
     }
 
     @Override
-    public Observable<Screen> call(Observable<String> observable) {
+    public Observable<ScreenVo> call(Observable<String> observable) {
         return observable
                 .flatMap(this::getScreen);
     }
 
-    private Observable<Screen> getScreen(String ignore) {
+    private Observable<ScreenVo> getScreen(String ignore) {
         return repositoryApi.getFundInfo()
                 .observeOn(uiScheduler)
                 .subscribeOn(ioScheduler);

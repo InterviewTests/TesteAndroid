@@ -1,6 +1,6 @@
 package com.meteoro.testeandroid.core.data.remote;
 
-import com.meteoro.testeandroid.core.data.model.Screen;
+import com.meteoro.testeandroid.core.data.model.ScreenVo;
 
 import retrofit2.http.GET;
 import rx.Observable;
@@ -8,5 +8,5 @@ import rx.Observable;
 public interface WebClientApi {
 
     @GET("/fund.json")
-    Observable<Screen> getFundInfo();
+    Observable<ScreenVo> getFundInfo();
 }

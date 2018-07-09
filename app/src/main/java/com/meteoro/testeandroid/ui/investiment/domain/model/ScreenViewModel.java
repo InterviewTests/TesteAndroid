@@ -1,40 +1,51 @@
-package com.meteoro.testeandroid.core.data.model;
+package com.meteoro.testeandroid.ui.investiment.domain.model;
 
 import java.util.List;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Accessors(fluent = true, chain = true)
-public class Screen {
+public class ScreenViewModel {
 
     @Getter
+    @Setter
     String title;
 
     @Getter
+    @Setter
     String fundName;
 
     @Getter
+    @Setter
     String whatIs;
 
     @Getter
+    @Setter
     String definition;
 
     @Getter
+    @Setter
     String riskTitle;
 
     @Getter
+    @Setter
     int risk;
 
     @Getter
+    @Setter
     String infoTitle;
 
     @Getter
-    MoreInfo moreInfo;
+    @Setter
+    MoreInfoViewModel moreInfoViewModel;
 
     @Getter
-    List<Info> info;
+    @Setter
+    List<InfoViewModel> infoViewModels;
 
     @Getter
-    List<DownInfo> downInfo;
+    @Setter
+    List<DownInfoViewModel> downInfoViewModels;
 }

@@ -5,6 +5,8 @@ import android.arch.lifecycle.LifecycleOwner;
 import com.meteoro.testeandroid.core.di.PerFragment;
 import com.meteoro.testeandroid.core.lifecycle.AutomaticUnsubscriber;
 import com.meteoro.testeandroid.core.lifecycle.LifecycleUnsubscriber;
+import com.meteoro.testeandroid.ui.investiment.domain.interactor.ConvertScreenToViewModel;
+import com.meteoro.testeandroid.ui.investiment.domain.interactor.ConvertScreenToViewModelImpl;
 import com.meteoro.testeandroid.ui.investiment.domain.interactor.GetFund;
 import com.meteoro.testeandroid.ui.investiment.domain.interactor.GetFundImpl;
 import com.meteoro.testeandroid.ui.investiment.domain.interactor.ShowLoadingInvestiment;
@@ -12,6 +14,7 @@ import com.meteoro.testeandroid.ui.investiment.domain.interactor.ShowLoadingInve
 import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentContract;
 import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentFragment;
 import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentPresenter;
+import com.meteoro.testeandroid.ui.investiment.presentation.formatter.PercentFormatter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -58,6 +61,12 @@ public class InvestimentModule {
     @Provides
     @PerFragment
     GetFund getFund(GetFundImpl impl) {
+        return impl;
+    }
+
+    @Provides
+    @PerFragment
+    ConvertScreenToViewModel convertScreenToViewModel(ConvertScreenToViewModelImpl impl) {
         return impl;
     }
 }
