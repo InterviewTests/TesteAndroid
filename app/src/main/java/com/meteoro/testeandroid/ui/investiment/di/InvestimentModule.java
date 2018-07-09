@@ -16,7 +16,6 @@ import com.meteoro.testeandroid.ui.investiment.domain.interactor.ShowScreenViewM
 import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentContract;
 import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentFragment;
 import com.meteoro.testeandroid.ui.investiment.presentation.InvestimentPresenter;
-import com.meteoro.testeandroid.ui.investiment.presentation.formatter.PercentFormatter;
 
 import dagger.Module;
 import dagger.Provides;
