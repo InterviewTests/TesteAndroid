@@ -16,13 +16,16 @@ public class InvestimentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     private AdapterDelegateManager<ScreenViewModel> delegateManager;
 
     private HeaderInfoAdapterDelegate headerInfoAdapterDelegate;
+    private InfoAdapterDelegate infoAdapterDelegate;
 
     @Inject
     public InvestimentAdapter() {
         delegateManager = new AdapterDelegateManager<>();
 
         headerInfoAdapterDelegate = new HeaderInfoAdapterDelegate();
+        infoAdapterDelegate = new InfoAdapterDelegate();
         delegateManager.addDelegate(headerInfoAdapterDelegate);
+        delegateManager.addDelegate(infoAdapterDelegate);
     }
 
     public void setData(ScreenViewModel data) {
@@ -44,7 +47,7 @@ public class InvestimentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public int getItemCount() {
 //        return data.modelTypeList().size();
-        return 1;
+        return 3;
     }
 
     @Override
