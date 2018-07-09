@@ -1,6 +1,7 @@
 package com.meteoro.testeandroid.core.data.remote;
 
 import com.meteoro.testeandroid.core.client.ApiClientUtil;
+import com.meteoro.testeandroid.core.data.model.Cells;
 import com.meteoro.testeandroid.core.data.model.ScreenVo;
 
 import rx.Observable;
@@ -20,5 +21,10 @@ public class RepositoryApiImpl implements RepositoryApi {
     @Override
     public Observable<ScreenVo> getFundInfo() {
         return api.getFundInfo();
+    }
+
+    @Override
+    public Observable<Cells> getCells() {
+        return api.getCells();
     }
 }
