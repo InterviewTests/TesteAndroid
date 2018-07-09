@@ -1,5 +1,7 @@
 package com.meteoro.testeandroid.core.data.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import lombok.Getter;
 import lombok.experimental.Accessors;
 
@@ -16,6 +18,7 @@ public class Cell {
     String message;
 
     @Getter
+    @SerializedName("typefield")
     String typeField;
 
     @Getter

@@ -12,6 +12,7 @@ import com.meteoro.testeandroid.ui.contact.domain.model.FieldViewModel;
 import com.meteoro.testeandroid.ui.contact.domain.model.ImageViewModel;
 import com.meteoro.testeandroid.ui.contact.domain.model.SendViewModel;
 import com.meteoro.testeandroid.ui.contact.domain.model.TextViewModel;
+import com.meteoro.testeandroid.ui.contact.domain.model.TypeField;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +79,20 @@ public class ConvertToCellsViewModelImpl implements ConvertToCellsViewModel {
         return new FieldViewModel()
                 .id(cell.id())
                 .message(cell.message())
-                .topSpacing(cell.topSpacing());
+                .topSpacing(cell.topSpacing())
+                .typeField(convertTypeField(cell.typeField()));
+    }
+
+    private TypeField convertTypeField(String type) {
+        if ("1".equalsIgnoreCase(type)) {
+            return TypeField.TEXT;
+        } else if ("3".equalsIgnoreCase(type)) {
+            return TypeField.EMAIL;
+        } else if ("telnumber".equalsIgnoreCase(type)) {
+            return TypeField.TEL_NUMBER;
+        }
+
+        return null;
     }
 
     private TextViewModel convertToText(Cell cell) {

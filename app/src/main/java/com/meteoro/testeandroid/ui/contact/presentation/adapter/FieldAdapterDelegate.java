@@ -16,6 +16,7 @@ import com.meteoro.testeandroid.ui.contact.domain.model.CellsModelType;
 import com.meteoro.testeandroid.ui.contact.domain.model.CellsType;
 import com.meteoro.testeandroid.ui.contact.domain.model.CellsViewModel;
 import com.meteoro.testeandroid.ui.contact.domain.model.FieldViewModel;
+import com.meteoro.testeandroid.ui.contact.domain.model.TypeField;
 import com.meteoro.testeandroid.ui.contact.presentation.listener.BrPhoneNumberFormatter;
 
 import java.lang.ref.WeakReference;
@@ -49,13 +50,27 @@ public class FieldAdapterDelegate implements AdapterDelegate<CellsViewModel> {
                 .tilMessage.getLayoutParams();
         params.setMargins(0, viewModel.topSpacing(), 0, 0);
 
-        viewHolder.tieMessage.setInputType(InputType.TYPE_CLASS_PHONE);
-        BrPhoneNumberFormatter formatter = new BrPhoneNumberFormatter(new WeakReference<>(viewHolder.tieMessage));
-        viewHolder.tieMessage.addTextChangedListener(formatter);
+        setInputType(viewHolder.tieMessage, viewModel.typeField());
     }
 
     private CellsType getItem(CellsViewModel data, int position) {
         return data.cellsTypeList().get(position);
+    }
+
+    private void setInputType(TextInputEditText editText, TypeField typeField) {
+        switch (typeField) {
+            case TEXT:
+                editText.setInputType(InputType.TYPE_CLASS_TEXT);
+                break;
+            case EMAIL:
+                editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+                break;
+            case TEL_NUMBER:
+                editText.setInputType(InputType.TYPE_CLASS_PHONE);
+                BrPhoneNumberFormatter formatter = new BrPhoneNumberFormatter(new WeakReference<>(editText));
+                editText.addTextChangedListener(formatter);
+                break;
+        }
     }
 
     protected class ViewHolder extends RecyclerView.ViewHolder {

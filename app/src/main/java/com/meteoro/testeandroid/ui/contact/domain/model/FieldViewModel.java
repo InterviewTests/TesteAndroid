@@ -19,6 +19,10 @@ public class FieldViewModel implements CellsType {
     @Setter
     int topSpacing;
 
+    @Getter
+    @Setter
+    TypeField typeField;
+
     @Override
     public CellsModelType getType() {
         return CellsModelType.FIELD;
