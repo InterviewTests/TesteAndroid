@@ -10,7 +10,9 @@ import com.meteoro.testeandroid.core.di.qualifers.IoScheduler;
 import com.meteoro.testeandroid.core.di.qualifers.UiScheduler;
 import com.meteoro.testeandroid.ui.investiment.domain.model.DownInfoViewModel;
 import com.meteoro.testeandroid.ui.investiment.domain.model.FundInfoViewModel;
+import com.meteoro.testeandroid.ui.investiment.domain.model.HeaderViewModel;
 import com.meteoro.testeandroid.ui.investiment.domain.model.InfoViewModel;
+import com.meteoro.testeandroid.ui.investiment.domain.model.ModelType;
 import com.meteoro.testeandroid.ui.investiment.domain.model.MoreInfoViewModel;
 import com.meteoro.testeandroid.ui.investiment.domain.model.ScreenViewModel;
 import com.meteoro.testeandroid.ui.investiment.presentation.formatter.PercentFormatter;
@@ -53,7 +55,18 @@ public class ConvertScreenToViewModelImpl implements ConvertScreenToViewModel {
 
     private ScreenViewModel convertScreenViewModel(ScreenVo vo) {
         Screen screen = vo.screen();
+
+        List<ModelType> modelTypes = new ArrayList<>();
+        modelTypes.add(convertHeaderViewModel(screen));
+        modelTypes.addAll(convertListInfoViewModel(screen.info()));
+        modelTypes.addAll(convertListDownInfoViewModel(screen.downInfo()));
+
         return new ScreenViewModel()
+                .modelTypeList(modelTypes);
+    }
+
+    private HeaderViewModel convertHeaderViewModel(Screen screen) {
+        return new HeaderViewModel()
                 .title(screen.title())
                 .fundName(screen.fundName())
                 .whatIs(screen.whatIs())
@@ -61,10 +74,9 @@ public class ConvertScreenToViewModelImpl implements ConvertScreenToViewModel {
                 .riskTitle(screen.riskTitle())
                 .risk(screen.risk())
                 .infoTitle(screen.infoTitle())
-                .moreInfoViewModel(convertMoreInfoViewModel(screen.moreInfo()))
-                .infoViewModels(convetListInfoViewModel(screen.info()))
-                .downInfoViewModels(convertListDownInfoViewModel(screen.downInfo()));
+                .moreInfoViewModel(convertMoreInfoViewModel(screen.moreInfo()));
     }
+
 
     private MoreInfoViewModel convertMoreInfoViewModel(MoreInfo moreInfo) {
         return new MoreInfoViewModel()
@@ -79,7 +91,7 @@ public class ConvertScreenToViewModelImpl implements ConvertScreenToViewModel {
                 .cdi(percentFormatter.format(fundInfo.cdi()));
     }
 
-    private List<InfoViewModel> convetListInfoViewModel(List<Info> infoList) {
+    private List<InfoViewModel> convertListInfoViewModel(List<Info> infoList) {
         List<InfoViewModel> list = new ArrayList<>();
         for (Info info : infoList) {
             list.add(convetInfoViewModel(info));

@@ -8,7 +8,10 @@ import android.widget.TextView;
 
 import com.meteoro.testeandroid.R;
 import com.meteoro.testeandroid.core.adapter.AdapterDelegate;
+import com.meteoro.testeandroid.ui.investiment.domain.model.HeaderViewModel;
+import com.meteoro.testeandroid.ui.investiment.domain.model.ModelType;
 import com.meteoro.testeandroid.ui.investiment.domain.model.ScreenViewModel;
+import com.meteoro.testeandroid.ui.investiment.domain.model.ViewModelType;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,7 +20,7 @@ public class HeaderInfoAdapterDelegate implements AdapterDelegate<ScreenViewMode
 
     @Override
     public boolean isViewForData(ScreenViewModel data, int position) {
-        return true;
+        return getItem(data, position).getType() == ViewModelType.HEADER;
     }
 
     @Override
@@ -29,11 +32,19 @@ public class HeaderInfoAdapterDelegate implements AdapterDelegate<ScreenViewMode
 
     @Override
     public void onBindViewHolder(ScreenViewModel data, int position, RecyclerView.ViewHolder holder) {
+        HeaderViewModel viewModel = (HeaderViewModel) getItem(data, position);
+
         ViewHolder viewHolder = (ViewHolder) holder;
-        viewHolder.tvTitle.setText(data.title());
-        viewHolder.tvFundName.setText(data.fundName());
-        viewHolder.tvWhatIs.setText(data.whatIs());
-        viewHolder.tvDefinition.setText(data.definition());
+        viewHolder.tvTitle.setText(viewModel.title());
+        viewHolder.tvFundName.setText(viewModel.fundName());
+        viewHolder.tvWhatIs.setText(viewModel.whatIs());
+        viewHolder.tvDefinition.setText(viewModel.definition());
+        viewHolder.tvRiskTitle.setText(viewModel.riskTitle());
+        viewHolder.tvInfoTitle.setText(viewModel.infoTitle());
+    }
+
+    private ModelType getItem(ScreenViewModel data, int position) {
+        return data.modelTypeList().get(position);
     }
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
@@ -49,6 +60,12 @@ public class HeaderInfoAdapterDelegate implements AdapterDelegate<ScreenViewMode
 
         @BindView(R.id.tv_definition)
         TextView tvDefinition;
+
+        @BindView(R.id.tv_risk_title)
+        TextView tvRiskTitle;
+
+        @BindView(R.id.tv_info_title)
+        TextView tvInfoTitle;
 
         public ViewHolder(View itemView) {
             super(itemView);

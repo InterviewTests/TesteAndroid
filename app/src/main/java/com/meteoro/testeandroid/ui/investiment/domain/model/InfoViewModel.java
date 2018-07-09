@@ -5,7 +5,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Accessors(fluent = true, chain = true)
-public class InfoViewModel {
+public class InfoViewModel implements ModelType {
 
     @Getter
     @Setter
@@ -14,4 +14,9 @@ public class InfoViewModel {
     @Getter
     @Setter
     String data;
+
+    @Override
+    public ViewModelType getType() {
+        return ViewModelType.INFO;
+    }
 }

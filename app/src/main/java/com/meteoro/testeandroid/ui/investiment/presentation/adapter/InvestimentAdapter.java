@@ -43,6 +43,7 @@ public class InvestimentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public int getItemCount() {
+//        return data.modelTypeList().size();
         return 1;
     }
 

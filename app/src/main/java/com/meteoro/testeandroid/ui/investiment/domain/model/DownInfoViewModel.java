@@ -5,7 +5,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Accessors(fluent = true, chain = true)
-public class DownInfoViewModel {
+public class DownInfoViewModel implements ModelType {
 
     @Getter
     @Setter
@@ -14,4 +14,9 @@ public class DownInfoViewModel {
     @Getter
     @Setter
     String data;
+
+    @Override
+    public ViewModelType getType() {
+        return ViewModelType.DOWN_INFO;
+    }
 }
