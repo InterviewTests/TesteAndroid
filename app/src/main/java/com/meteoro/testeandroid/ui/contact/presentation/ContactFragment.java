@@ -103,8 +103,9 @@ public class ContactFragment extends BaseFragment
     }
 
     private void initializeViews() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter.setOnSendClickListener(onSendClickListener);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adapter);
     }
 
     private void initializeContents() {
@@ -127,7 +128,6 @@ public class ContactFragment extends BaseFragment
         stateContactSend.setVisibility(View.GONE);
 
         adapter.setData(viewModel);
-        recyclerView.setAdapter(adapter);
     }
 
     @Override
