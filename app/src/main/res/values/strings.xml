@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">TesteAndroid</string>
+
+    <string name="host_api">https://floating-mountain-50292.herokuapp.com</string>
+
+    <string name="tab_title_investiment">Investimento</string>
+    <string name="tab_title_contact">Contato</string>
+
+    <string name="fragment_investiment_error_text">Ocorreu um erro, tente novamente.</string>
+    <string name="fragment_investiment_button_text">Investir</string>
+    <string name="fragment_investiment_percent_format">%.2f %%</string>
+    <string name="fragment_investiment_fund_label">Fundo</string>
+    <string name="fragment_investiment_cdi_label">CDI</string>
+    <string name="fragment_investiment_down_info_label">Baixar</string>
+    <string name="fragment_investiment_month_label">No mês</string>
+    <string name="fragment_investiment_year_label">No ano</string>
+    <string name="fragment_investiment_12months_label">12 meses</string>
+
+    <string name="fragment_contact_thanks_label">Obrigado!</string>
+    <string name="fragment_contact_message_label">Mensagem enviada com sucesso :)</string>
+    <string name="fragment_contact_send_new_label">Enviar nova mensagem</string>
 </resources>
