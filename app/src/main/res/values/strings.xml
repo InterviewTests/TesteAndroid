@@ -19,4 +19,5 @@
     <string name="fragment_contact_thanks_label">Obrigado!</string>
     <string name="fragment_contact_message_label">Mensagem enviada com sucesso :)</string>
     <string name="fragment_contact_send_new_label">Enviar nova mensagem</string>
+    <string name="fragment_contact_field_invalid">Campo inválido</string>
 </resources>

@@ -8,8 +8,9 @@ import com.meteoro.testeandroid.core.adapter.AdapterDelegateManager;
 import com.meteoro.testeandroid.ui.contact.domain.model.CellsViewModel;
 import com.meteoro.testeandroid.ui.contact.presentation.listener.OnSendClickListener;
 
-import javax.inject.Inject;
-
+/**
+ * Não foi uma boa decisão criar um formulário usando um adapter dessa forma.
+ */
 public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private CellsViewModel data;
@@ -21,7 +22,6 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private CheckboxAdapterDelegate checkboxAdapterDelegate;
     private SendAdapterDelegate sendAdapterDelegate;
 
-    @Inject
     public ContactAdapter() {
         delegateManager = new AdapterDelegateManager<>();
 

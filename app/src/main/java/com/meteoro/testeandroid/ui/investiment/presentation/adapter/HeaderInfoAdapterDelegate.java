@@ -13,6 +13,7 @@ import com.meteoro.testeandroid.ui.investiment.domain.model.ModelType;
 import com.meteoro.testeandroid.ui.investiment.domain.model.MoreInfoViewModel;
 import com.meteoro.testeandroid.ui.investiment.domain.model.ScreenViewModel;
 import com.meteoro.testeandroid.ui.investiment.domain.model.ViewModelType;
+import com.meteoro.testeandroid.ui.investiment.presentation.view.RiskView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,6 +42,7 @@ public class HeaderInfoAdapterDelegate implements AdapterDelegate<ScreenViewMode
         viewHolder.tvWhatIs.setText(viewModel.whatIs());
         viewHolder.tvDefinition.setText(viewModel.definition());
         viewHolder.tvRiskTitle.setText(viewModel.riskTitle());
+        viewHolder.riskView.setRisk(viewModel.risk());
         viewHolder.tvInfoTitle.setText(viewModel.infoTitle());
 
         MoreInfoViewModel moreInfoViewModel = viewModel.moreInfoViewModel();
@@ -72,6 +74,9 @@ public class HeaderInfoAdapterDelegate implements AdapterDelegate<ScreenViewMode
 
         @BindView(R.id.tv_risk_title)
         TextView tvRiskTitle;
+
+        @BindView(R.id.risk_view)
+        RiskView riskView;
 
         @BindView(R.id.tv_info_title)
         TextView tvInfoTitle;

@@ -56,7 +56,6 @@ public class ContactFragment extends BaseFragment
     @Inject
     ContactContract.Presenter presenter;
 
-    @Inject
     ContactAdapter adapter;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -89,7 +88,6 @@ public class ContactFragment extends BaseFragment
         super.onActivityCreated(savedInstanceState);
 
         initializeInjection();
-        initializeViews();
         initializeContents();
     }
 
@@ -103,8 +101,10 @@ public class ContactFragment extends BaseFragment
     }
 
     private void initializeViews() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new ContactAdapter();
         adapter.setOnSendClickListener(onSendClickListener);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adapter);
     }
 
     private void initializeContents() {
@@ -126,8 +126,8 @@ public class ContactFragment extends BaseFragment
         stateContactContent.setVisibility(View.VISIBLE);
         stateContactSend.setVisibility(View.GONE);
 
+        initializeViews();
         adapter.setData(viewModel);
-        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -138,12 +138,15 @@ public class ContactFragment extends BaseFragment
         stateContactSend.setVisibility(View.GONE);
     }
 
-    private void handleSendClickListener() {
-//        stateContactLoading.setVisibility(View.GONE);
-//        stateContactError.setVisibility(View.GONE);
-//        stateContactContent.setVisibility(View.GONE);
-//        stateContactSend.setVisibility(View.VISIBLE);
+    @Override
+    public void successValidate() {
+        stateContactLoading.setVisibility(View.GONE);
+        stateContactError.setVisibility(View.GONE);
+        stateContactContent.setVisibility(View.GONE);
+        stateContactSend.setVisibility(View.VISIBLE);
+    }
 
+    private void handleSendClickListener() {
         presenter.validateFields(adapter.getData());
     }
 

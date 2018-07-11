@@ -4,7 +4,6 @@ import com.meteoro.testeandroid.core.data.model.Cell;
 import com.meteoro.testeandroid.core.data.model.Cells;
 import com.meteoro.testeandroid.core.di.qualifers.IoScheduler;
 import com.meteoro.testeandroid.core.di.qualifers.UiScheduler;
-import com.meteoro.testeandroid.ui.contact.domain.model.CellsModelType;
 import com.meteoro.testeandroid.ui.contact.domain.model.CellsType;
 import com.meteoro.testeandroid.ui.contact.domain.model.CellsViewModel;
 import com.meteoro.testeandroid.ui.contact.domain.model.CheckboxViewModel;

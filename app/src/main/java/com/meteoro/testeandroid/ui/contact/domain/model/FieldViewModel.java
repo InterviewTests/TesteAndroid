@@ -31,6 +31,14 @@ public class FieldViewModel implements CellsType {
     @Setter
     String valueField;
 
+    @Getter
+    @Setter
+    boolean validated;
+
+    @Getter
+    @Setter
+    boolean isNotValid;
+
     @Override
     public CellsModelType getType() {
         return CellsModelType.FIELD;

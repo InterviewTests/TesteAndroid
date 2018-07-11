@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="tab_indicator_color">#000000</color>
     <color name="tab_text_color">#ffffff</color>
+
+    <color name="colorRisk1">#8BC34A</color>
+    <color name="colorRisk2">#689F38</color>
+    <color name="colorRisk3">#FFC107</color>
+    <color name="colorRisk4">#FF5722</color>
+    <color name="colorRisk5">#F44336</color>
 </resources>
