@@ -8,6 +8,9 @@ import com.meteoro.testeandroid.core.adapter.AdapterDelegateManager;
 import com.meteoro.testeandroid.ui.contact.domain.model.CellsViewModel;
 import com.meteoro.testeandroid.ui.contact.presentation.listener.OnSendClickListener;
 
+/**
+ * Não foi uma boa decisão criar um formulário usando um adapter dessa forma.
+ */
 public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private CellsViewModel data;
