@@ -38,13 +38,16 @@ public class ValidateFieldsImpl implements ValidateFields {
     }
 
     private Observable<CellsViewModel> validate(CellsViewModel viewModel) {
+        viewModel.isAllValid(false);
+
         for (CellsType cellsType : viewModel.cellsTypeList()) {
             boolean isValid = validateCell(cellsType);
             if (!isValid) {
-                break;
+                return Observable.just(viewModel);
             }
         }
 
+        viewModel.isAllValid(true);
         return Observable.just(viewModel);
     }
 

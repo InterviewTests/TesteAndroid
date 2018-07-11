@@ -11,5 +11,9 @@ public class CellsViewModel {
 
     @Getter
     @Setter
+    boolean isAllValid;
+
+    @Getter
+    @Setter
     List<CellsType> cellsTypeList;
 }

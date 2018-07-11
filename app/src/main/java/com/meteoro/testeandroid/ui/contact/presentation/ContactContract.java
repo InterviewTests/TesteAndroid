@@ -9,6 +9,8 @@ public interface ContactContract {
         void showViewModel(CellsViewModel viewModel);
 
         void showError();
+
+        void successValidate();
     }
 
     interface Presenter {

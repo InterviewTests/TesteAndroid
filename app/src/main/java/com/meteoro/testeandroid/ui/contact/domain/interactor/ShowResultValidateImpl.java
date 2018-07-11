@@ -30,6 +30,10 @@ public class ShowResultValidateImpl implements ShowResultValidate {
     }
 
     private void showViewModel(CellsViewModel viewModel) {
-        view.showViewModel(viewModel);
+        if (viewModel.isAllValid()) {
+            view.successValidate();
+        } else {
+            view.showViewModel(viewModel);
+        }
     }
 }

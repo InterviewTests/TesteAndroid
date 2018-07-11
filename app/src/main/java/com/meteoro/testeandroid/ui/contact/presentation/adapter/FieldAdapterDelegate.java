@@ -10,7 +10,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.meteoro.testeandroid.R;
 import com.meteoro.testeandroid.core.adapter.AdapterDelegate;
@@ -48,7 +47,6 @@ public class FieldAdapterDelegate implements AdapterDelegate<CellsViewModel> {
 
         ViewHolder viewHolder = (ViewHolder) holder;
         viewHolder.tilMessage.setHint(viewModel.message());
-        viewHolder.tieMessage.setHint(viewModel.message());
 
         ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) viewHolder
                 .tilMessage.getLayoutParams();
@@ -70,8 +68,12 @@ public class FieldAdapterDelegate implements AdapterDelegate<CellsViewModel> {
             @Override
             public void afterTextChanged(Editable s) {
                 viewModel.valueField(s.toString());
+                viewHolder.tilMessage.setError(null);
             }
         });
+
+        viewHolder.tieMessage.setText(viewModel.valueField());
+        setFieldValid(viewHolder.tilMessage, viewModel);
     }
 
     private CellsType getItem(CellsViewModel data, int position) {
@@ -91,6 +93,13 @@ public class FieldAdapterDelegate implements AdapterDelegate<CellsViewModel> {
                 numberFormatter = new BrPhoneNumberFormatter(new WeakReference<>(editText));
                 editText.addTextChangedListener(numberFormatter);
                 break;
+        }
+    }
+
+    private void setFieldValid(TextInputLayout inputLayout, FieldViewModel viewModel) {
+        if (viewModel.validated() && viewModel.isNotValid()) {
+            String invalidText = inputLayout.getContext().getString(R.string.fragment_contact_field_invalid);
+            inputLayout.setError(invalidText);
         }
     }
 
