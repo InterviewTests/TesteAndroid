@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TesteAndroid</string>
+
+    <!-- strings login screen -->
+    <string name="lg_et_name">Nome Completo</string>
+    <string name="lg_et_email">Email</string>
+    <string name="lg_et_phone">Telefone</string>
+    <string name="lg_cb_email">Gostaria de cadastrar meu email</string>
+    <string name="lg_bt_send">Enviar</string>
+    <string name="lg_bt_investment">Investimento</string>
+    <string name="lg_bt_contact">Contato</string>
+</resources>
