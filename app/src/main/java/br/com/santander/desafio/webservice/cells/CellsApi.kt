@@ -10,7 +10,7 @@ import io.reactivex.Observable
  */
 class CellsApi(): BaseApi(){
 
-    fun getCardList(): Observable<ResponseCells> {
+    fun getCellsList(): Observable<ResponseCells> {
         return serviceCells.getCellsList()
     }
 }
