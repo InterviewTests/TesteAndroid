@@ -21,10 +21,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginFragment.kt" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginFragment.kt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/detail.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginMVP.kt" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginMVP.kt" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/login.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,53 +52,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DetailFragment.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt">
+      <file leaf-file-name="LoginFragment.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="64" column="18" lean-forward="false" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+            <state relative-caret-position="165">
+              <caret line="68" column="44" lean-forward="false" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
               <folding>
-                <element signature="e#1803#1839#0" expanded="true" />
+                <element signature="e#1579#1612#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginFragment.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginFragment.kt">
+      <file leaf-file-name="LoginMVP.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginMVP.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detail.xml">
+      <file leaf-file-name="login.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+            <state relative-caret-position="284">
+              <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
               <folding>
-                <element signature="e#1441#1974#0" expanded="false" />
-                <element signature="e#1988#2324#0" expanded="false" />
-                <element signature="e#2338#2657#0" expanded="false" />
-                <element signature="e#2671#3051#0" expanded="false" />
-                <element signature="e#3065#3508#0" expanded="false" />
-                <element signature="e#3522#3868#0" expanded="false" />
-                <element signature="e#3882#4135#0" expanded="false" />
-                <element signature="e#4149#4535#0" expanded="false" />
-                <element signature="e#4549#5681#0" expanded="false" />
-                <element signature="e#5752#6071#0" expanded="false" />
-                <element signature="e#6085#6270#0" expanded="false" />
-                <element signature="e#6284#6474#0" expanded="false" />
-                <element signature="e#6488#7217#0" expanded="false" />
-                <element signature="e#6940#6966#0" expanded="true" />
+                <element signature="e#489#866#0" expanded="false" />
+                <element signature="e#5491#7354#0" expanded="false" />
               </folding>
             </state>
           </provider>
           <provider editor-type-id="android-designer2">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="29" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -115,6 +113,7 @@
     <findStrings>
       <find>textView10</find>
       <find>adapterInfo</find>
+      <find>lg_et_name</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2302,11 +2301,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginMVP.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/ContentFragment/ContentFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/webservice/fund/FundApi.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailPresenter.kt" />
@@ -2320,10 +2317,12 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_down_info.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_info.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/adapter/DownInfoListAdapter.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginMVP.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginFragment.kt" />
       </list>
     </option>
   </component>
@@ -2349,7 +2348,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2370,8 +2371,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -2380,7 +2379,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../beneficios-android" />
     <property name="device.picker.selection" value="Pixel_API_28" />
-    <property name="SearchEverywhereHistoryKey" value="de&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt&#10;Deta&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/layout/detail.xml&#10;Login&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/login/LoginFragment.kt&#10;Detail&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/detail/DetailInteractor.kt&#10;Android&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/AndroidManifest.xml&#10;det&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/layout/detail.xml&#10;Main&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/MainActivity.kt&#10;Detailf&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt&#10;LoginF&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/login/LoginFragment.kt&#10;Detailp&#9;null&#9;null&#10;Detai&#9;null&#9;null&#10;strings.&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/values/strings.xml&#10;logi&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/layout/login.xml&#10;De&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt&#10;s&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/values/strings.xml&#10;login&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/layout/login.xml&#10;conte&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/layout/content.xml" />
+    <property name="SearchEverywhereHistoryKey" value="Login&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/login/LoginFragment.kt&#10;de&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt&#10;Deta&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/layout/detail.xml&#10;Detail&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/detail/DetailInteractor.kt&#10;Android&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/AndroidManifest.xml&#10;det&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/layout/detail.xml&#10;Main&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/MainActivity.kt&#10;Detailf&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt&#10;LoginF&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/login/LoginFragment.kt&#10;Detailp&#9;null&#9;null&#10;Detai&#9;null&#9;null&#10;strings.&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/values/strings.xml&#10;logi&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/layout/login.xml&#10;De&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt&#10;s&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/values/strings.xml&#10;login&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/layout/login.xml&#10;conte&#9;FILE&#9;file:///home/enzoteles/Projetos/TesteAndroid/app/src/main/res/layout/content.xml" />
   </component>
   <component name="RecentsManager">
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
@@ -2640,7 +2639,7 @@
         <state relative-caret-position="504">
           <caret line="48" column="10" lean-forward="false" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
           <folding>
-            <element signature="e#1803#1839#0" expanded="true" />
+            <element signature="e#1803#1839#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2649,7 +2648,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1579#1612#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2658,7 +2659,7 @@
         <state relative-caret-position="396">
           <caret line="22" column="0" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <element signature="e#5452#7315#0" expanded="false" />
+            <element signature="e#5491#7354#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2684,7 +2685,7 @@
             <element signature="e#6085#6270#0" expanded="false" />
             <element signature="e#6284#6474#0" expanded="false" />
             <element signature="e#6488#7217#0" expanded="false" />
-            <element signature="e#6940#6966#0" expanded="true" />
+            <element signature="e#6940#6966#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2697,7 +2698,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1803#1839#0" expanded="true" />
+            <element signature="e#1803#1839#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2736,7 +2737,7 @@
             <element signature="e#6085#6270#0" expanded="false" />
             <element signature="e#6284#6474#0" expanded="false" />
             <element signature="e#6488#7217#0" expanded="false" />
-            <element signature="e#6940#6966#0" expanded="true" />
+            <element signature="e#6940#6966#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2748,7 +2749,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="40" column="44" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="40" selection-end-column="44" />
-          <folding />
+          <folding>
+            <element signature="e#1579#1612#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2757,7 +2760,7 @@
         <state relative-caret-position="306">
           <caret line="17" column="50" lean-forward="false" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
           <folding>
-            <element signature="e#1803#1839#0" expanded="true" />
+            <element signature="e#1803#1839#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2780,7 +2783,7 @@
             <element signature="e#6085#6270#0" expanded="false" />
             <element signature="e#6284#6474#0" expanded="false" />
             <element signature="e#6488#7217#0" expanded="false" />
-            <element signature="e#6940#6966#0" expanded="true" />
+            <element signature="e#6940#6966#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2838,14 +2841,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_details.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
@@ -2855,14 +2850,6 @@
       </provider>
       <provider editor-type-id="android-designer2">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginMVP.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginInteractor.kt">
@@ -3033,6 +3020,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-16">
           <caret line="51" column="25" lean-forward="false" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3040,20 +3028,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#5452#7315#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Android/Sdk/sources/android-27/android/view/View.java">
@@ -3063,24 +3039,6 @@
           <folding>
             <element signature="e#378921#378922#0" expanded="false" />
             <element signature="e#378974#378975#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="64" column="18" lean-forward="false" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
-          <folding>
-            <element signature="e#1803#1839#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3103,7 +3061,57 @@
             <element signature="e#6085#6270#0" expanded="false" />
             <element signature="e#6284#6474#0" expanded="false" />
             <element signature="e#6488#7217#0" expanded="false" />
-            <element signature="e#6940#6966#0" expanded="true" />
+            <element signature="e#6940#6966#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="64" column="18" lean-forward="false" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+          <folding>
+            <element signature="e#1803#1839#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginMVP.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/login/LoginFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="68" column="44" lean-forward="false" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+          <folding>
+            <element signature="e#1579#1612#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+          <folding>
+            <element signature="e#489#866#0" expanded="false" />
+            <element signature="e#5491#7354#0" expanded="false" />
           </folding>
         </state>
       </provider>

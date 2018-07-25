@@ -11,6 +11,7 @@ interface LoginMVP{
         fun validationCampos(id: CellsItem?)
         fun initUI()
         fun initDate()
+        fun inputPhone()
     }
 
     interface Presenter {

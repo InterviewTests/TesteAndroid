@@ -94,6 +94,7 @@
                 android:layout_marginLeft="35dp"
                 android:layout_marginRight="35dp"
                 android:ems="10"
+                android:maxLength="13"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.503"

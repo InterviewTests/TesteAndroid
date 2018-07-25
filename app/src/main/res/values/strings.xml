@@ -11,5 +11,6 @@
     <string name="lg_bt_contact">Contato</string>
 
     <string name="dt_tx_investment">Investir</string>
+    <string name="dt_tx_phone">(##) ####-#####</string>
 
 </resources>
