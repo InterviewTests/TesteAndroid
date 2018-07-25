@@ -9,4 +9,7 @@
     <string name="lg_bt_send">Enviar</string>
     <string name="lg_bt_investment">Investimento</string>
     <string name="lg_bt_contact">Contato</string>
+
+    <string name="dt_tx_investment">Investir</string>
+
 </resources>

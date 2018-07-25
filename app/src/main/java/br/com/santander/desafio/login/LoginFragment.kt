@@ -37,7 +37,7 @@ class LoginFragment: HelpFragment(), LoginMVP.View{
 
     @SuppressLint("ResourceType")
     override fun initUI() {
-        val contato = getString(R.id.lg_bt_contact) as String
+        val contato = getString(R.string.lg_bt_contact)
         toolbar.tb_tv_title.setText(contato)
     }
     override fun initDate() {

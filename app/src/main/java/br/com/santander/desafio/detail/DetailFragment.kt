@@ -7,10 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.enzoteles.quickhelp.fragment.HelpFragment
 import br.com.santander.desafio.R
-import kotlinx.android.synthetic.main.toolbar.*
-import kotlinx.android.synthetic.main.toolbar.view.*
+import kotlinx.android.synthetic.main.toolbar_details.*
+import kotlinx.android.synthetic.main.toolbar_details.view.*
 
 class DetailFragment: HelpFragment(),DetailMVP.View{
+
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
@@ -21,8 +22,13 @@ class DetailFragment: HelpFragment(),DetailMVP.View{
     @SuppressLint("ResourceType")
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val investment = getString(R.id.lg_bt_investment) as String
-        //toolbar.tb_tv_title.setText(investment)
+        initUI()
     }
+    fun initUI(){
+
+        var investimento = getString(R.string.lg_bt_investment)
+        toolbar_detail.dt_tb_tv_title.setText(investimento)
+    }
+
 
 }
