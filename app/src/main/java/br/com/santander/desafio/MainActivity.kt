@@ -4,11 +4,12 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import br.com.enzoteles.quickhelp.fragment.HelpManagerFragment
 import br.com.enzoteles.quickhelp.security.HelpSecurity
+import br.com.santander.desafio.ContentFragment.ContentFragment
 import br.com.santander.desafio.login.LoginFragment
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var login : LoginFragment
+    lateinit var content : ContentFragment
     lateinit var manager: HelpManagerFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,10 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         manager = HelpManagerFragment(this)
         HelpSecurity.manager = manager
-        login = LoginFragment()
-        manager!!.addFragment(R.id.content, login, "login", false)
-
-
-
+        content = ContentFragment()
+        manager!!.addFragment(R.id.content, content, "login", false)
     }
 }

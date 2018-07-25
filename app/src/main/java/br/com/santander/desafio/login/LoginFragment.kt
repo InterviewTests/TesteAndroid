@@ -1,5 +1,6 @@
 package br.com.santander.desafio.login
 
+import android.annotation.SuppressLint
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.annotation.Nullable
@@ -9,14 +10,18 @@ import android.view.ViewGroup
 import br.com.enzoteles.quickhelp.fragment.HelpFragment
 import br.com.santander.desafio.MainActivity
 import br.com.santander.desafio.R
+import br.com.santander.desafio.detail.DetailFragment
 import br.com.santander.desafio.webservice.cells.CellsItem
 import br.com.santander.desafio.webservice.cells.ResponseCells
 import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.toolbar.view.*
 
 
-class LoginFragment: HelpFragment(), LoginMVP.View {
-
+class LoginFragment: HelpFragment(), LoginMVP.View{
     lateinit var presenter: LoginMVP.Presenter
+    lateinit var login: LoginFragment
+    lateinit var detail: DetailFragment
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view = inflater!!.inflate(R.layout.login, container, false)
@@ -26,10 +31,16 @@ class LoginFragment: HelpFragment(), LoginMVP.View {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = LoginPresenter()
-        getCells()
+        initUI()
+        initDate()
     }
 
-    override fun getCells() {
+    @SuppressLint("ResourceType")
+    override fun initUI() {
+        val contato = getString(R.id.lg_bt_contact) as String
+        toolbar.tb_tv_title.setText(contato)
+    }
+    override fun initDate() {
         presenter.getCells()?.observe(activity as MainActivity, object : Observer<ResponseCells> {
             override fun onChanged(@Nullable response: ResponseCells?) {
                 verificationCells(response)

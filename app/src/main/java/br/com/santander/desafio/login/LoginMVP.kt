@@ -7,9 +7,10 @@ import br.com.santander.desafio.webservice.cells.ResponseCells
 interface LoginMVP{
 
     interface View {
-        fun getCells()
         fun verificationCells(responses: ResponseCells?)
         fun validationCampos(id: CellsItem?)
+        fun initUI()
+        fun initDate()
     }
 
     interface Presenter {
