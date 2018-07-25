@@ -11,33 +11,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d9c9b9b-8fcf-403c-b54d-1b87ac4ae8b5" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/adapter/DownInfoListAdapter.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/adapter/InfoListAdapter.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_down_info.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_info.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_more_info.xml" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/Constants.kt" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/Constants.kt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/MainActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/MainActivity.kt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailInteractor.kt" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailInteractor.kt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailMVP.kt" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailMVP.kt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailPresenter.kt" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailPresenter.kt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/detail.xml" />
-    </list>
+    <list default="true" id="6d9c9b9b-8fcf-403c-b54d-1b87ac4ae8b5" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,8 +41,8 @@
       <file leaf-file-name="DetailFragment.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="92" column="18" lean-forward="false" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
+            <state relative-caret-position="191">
+              <caret line="87" column="63" lean-forward="true" selection-start-line="87" selection-start-column="63" selection-end-line="87" selection-end-column="63" />
               <folding>
                 <element signature="e#41#1106#0" expanded="true" />
                 <element signature="e#1875#1911#0" expanded="true" />
@@ -3013,8 +2987,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/desafio/detail/DetailFragment.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="92" column="18" lean-forward="false" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
+        <state relative-caret-position="191">
+          <caret line="87" column="63" lean-forward="true" selection-start-line="87" selection-start-column="63" selection-end-line="87" selection-end-column="63" />
           <folding>
             <element signature="e#41#1106#0" expanded="true" />
             <element signature="e#1875#1911#0" expanded="true" />
