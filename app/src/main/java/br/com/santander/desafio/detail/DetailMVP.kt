@@ -12,6 +12,7 @@ interface DetailMVP{
         fun setDataView(response: ResponseFund)
         fun setRecyclerviewInfo(listInfo: MutableList<InfoItem>)
         fun setRecyclerviewDownInfo(listDownInfo: MutableList<DownInfoItem>)
+        fun verificationRisk(risk: Int?)
     }
     interface Presenter{
         fun getFunc(): MutableLiveData<ResponseFund>

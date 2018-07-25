@@ -12,4 +12,12 @@
     <color name="red_06">#d32f2f</color>
     <color name="red_07">#e53935</color>
 
+
+    <color name="green_01">#4caf50</color>
+    <color name="green_02">#1b5e20</color>
+    <color name="yellow_01">#ffc107</color>
+    <color name="orange_01">#ff9800</color>
+
+
+
 </resources>

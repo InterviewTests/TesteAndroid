@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.enzoteles.quickhelp.fragment.HelpFragment
+import br.com.enzoteles.quickhelp.log.HelpLog
+import br.com.enzoteles.quickhelp.security.HelpSecurity
 import br.com.santander.desafio.Constants
 import br.com.santander.desafio.MainActivity
 import br.com.santander.desafio.R
@@ -17,6 +19,7 @@ import br.com.santander.desafio.detail.adapter.InfoListAdapter
 import br.com.santander.desafio.webservice.fund.DownInfoItem
 import br.com.santander.desafio.webservice.fund.InfoItem
 import br.com.santander.desafio.webservice.fund.ResponseFund
+import kotlinx.android.synthetic.main.component_risk.*
 import kotlinx.android.synthetic.main.detail.*
 import kotlinx.android.synthetic.main.item_more_info.*
 import kotlinx.android.synthetic.main.toolbar_details.*
@@ -67,6 +70,7 @@ class DetailFragment: HelpFragment(),DetailMVP.View{
         var listInfo:MutableList<InfoItem> = arrayListOf()
         var listDownInfo:MutableList<DownInfoItem> = arrayListOf()
 
+        verificationRisk(response!!.screen!!.risk)
         response.screen!!.info!!.forEach {
             it->
             if (it != null) {
@@ -100,7 +104,6 @@ class DetailFragment: HelpFragment(),DetailMVP.View{
         dt_12m_tv_found.setText("${response!!.screen!!.moreInfo!!.jsonMember12months!!.fund}%")
         dt_12m_tv_cdi.setText("${response!!.screen!!.moreInfo!!.jsonMember12months!!.cDI}%")
 
-
     }
 
     override fun setRecyclerviewInfo(listInfo: MutableList<InfoItem>) {
@@ -121,6 +124,34 @@ class DetailFragment: HelpFragment(),DetailMVP.View{
         dt_rv_down_info.setHasFixedSize(true)
         adapterDonwInfo = DownInfoListAdapter(listDownInfo, Constants.context!!)
         dt_rv_down_info.adapter = adapterDonwInfo
+    }
+
+    override fun verificationRisk(risk: Int?) {
+
+        when(risk) {
+            1 ->{
+                img_one.visibility = View.VISIBLE
+                view_one_one.visibility = View.VISIBLE
+            }
+            2 ->{
+                img_two.visibility = View.VISIBLE
+                view_two_one.visibility = View.VISIBLE
+            }
+            3 ->{
+                img_three.visibility = View.VISIBLE
+                view_three_one.visibility = View.VISIBLE
+            }
+            4 ->{
+                img_four.visibility = View.VISIBLE
+                view_four_one.visibility = View.VISIBLE
+            }
+            5 ->{
+                img_five.visibility = View.VISIBLE
+                view_five_one.visibility = View.VISIBLE
+            }
+
+        }
+
     }
 
 

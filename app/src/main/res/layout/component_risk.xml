@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginLeft="35dp"
+    android:layout_marginRight="35dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@android:color/white"
+    android:orientation="horizontal"
+    android:weightSum="5"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/grau_one"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginRight="1dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:src="@android:drawable/arrow_down_float" />
+
+        <View
+            android:id="@+id/view_one_one"
+            android:layout_width="match_parent"
+            android:visibility="invisible"
+            android:layout_height="5dp"
+            android:background="@color/green_01" />
+
+        <View
+            android:id="@+id/view_one_two"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/green_01" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/grau_two"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginRight="1dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_two"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/arrow_down_float" />
+
+        <View
+            android:id="@+id/view_two_one"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/green_02" />
+
+        <View
+            android:id="@+id/view_two_two"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/green_02" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/grau_three"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginRight="1dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_three"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/arrow_down_float" />
+
+        <View
+            android:id="@+id/view_three_one"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/yellow_01" />
+
+        <View
+            android:id="@+id/view_three_two"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/yellow_01" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/grau_four"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_marginRight="1dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_four"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/arrow_down_float" />
+
+        <View
+            android:id="@+id/view_four_one"
+            android:layout_width="match_parent"
+            android:visibility="invisible"
+            android:layout_height="5dp"
+            android:background="@color/orange_01" />
+
+        <View
+            android:id="@+id/view_four_two"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/orange_01" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/grau_five"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_five"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/arrow_down_float" />
+
+        <View
+            android:id="@+id/view_five_one"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:visibility="invisible"
+            android:background="@color/red_05" />
+
+        <View
+            android:id="@+id/view_five_two"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/red_05" />
+
+    </LinearLayout>
+
+</LinearLayout>
