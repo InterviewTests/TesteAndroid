@@ -132,14 +132,14 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/dt_rv_info"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="#ff00ff" />
+            android:layout_height="300dp"
+            />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/dt_rv_down_info"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#0000ff" />
+            android:layout_height="220dp"
+            />
 
         <Button
             android:id="@+id/dt_bt_send"

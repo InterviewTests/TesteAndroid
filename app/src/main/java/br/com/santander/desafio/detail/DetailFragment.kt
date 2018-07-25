@@ -3,10 +3,8 @@ package br.com.santander.desafio.detail
 import android.annotation.SuppressLint
 import android.arch.lifecycle.Observer
 import android.os.Bundle
-import android.os.Handler
 import android.support.annotation.Nullable
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,12 +53,34 @@ class DetailFragment: HelpFragment(),DetailMVP.View{
             override fun onChanged(@Nullable response: ResponseFund?) {
                 if (response != null) {
                     setDataView(response)
+                    //setRecyclerviewInfo(response.screen!!.info)
                 }
             }
         })
     }
 
     override fun setDataView(response: ResponseFund) {
+
+        var listInfo:MutableList<InfoItem> = arrayListOf()
+        var listDownInfo:MutableList<DownInfoItem> = arrayListOf()
+
+        response.screen!!.info!!.forEach {
+            it->
+            if (it != null) {
+                listInfo.add(it)
+            }
+        }
+
+        response.screen!!.downInfo!!.forEach {
+            down->
+            if (down != null) {
+                listDownInfo.add(down)
+            }
+        }
+
+        setRecyclerviewInfo(listInfo)
+        setRecyclerviewDownInfo(listDownInfo)
+
         dt_tv_title.setText(response!!.screen!!.title)
         dt_tv_fund_name.setText(response!!.screen!!.fundName)
         dt_tv_what.setText(response!!.screen!!.whatIs)
@@ -77,28 +97,26 @@ class DetailFragment: HelpFragment(),DetailMVP.View{
         dt_12m_tv_found.setText("${response!!.screen!!.moreInfo!!.jsonMember12months!!.fund}%")
         dt_12m_tv_cdi.setText("${response!!.screen!!.moreInfo!!.jsonMember12months!!.cDI}%")
 
-        setRecyclerviewInfo(response.screen!!.info)
-        setRecyclerviewDownInfo(response.screen!!.downInfo)
-
-
 
     }
 
-
-    override fun setRecyclerviewInfo(infos: List<InfoItem?>?) {
-
-        dt_rv_info.layoutManager = layoutManager
-        dt_rv_info.setHasFixedSize(true)
-        adapterInfo = InfoListAdapter(infos, Constants.context!!)
-        dt_rv_info.adapter = adapterInfo
-    }
-
-    override fun setRecyclerviewDownInfo(downInfos: List<DownInfoItem?>?) {
+    override fun setRecyclerviewInfo(listInfo: MutableList<InfoItem>) {
 
         layoutManager = LinearLayoutManager(Constants.context, LinearLayoutManager.VERTICAL, false)
+        //list info
+        dt_rv_info.layoutManager = layoutManager
+        dt_rv_info.setHasFixedSize(true)
+        adapterInfo = InfoListAdapter(listInfo, Constants.context!!)
+        dt_rv_info.adapter = adapterInfo
+
+    }
+
+    override fun setRecyclerviewDownInfo(listDownInfo: MutableList<DownInfoItem>) {
+        layoutManager = LinearLayoutManager(Constants.context, LinearLayoutManager.VERTICAL, false)
+        //list download info
         dt_rv_down_info.layoutManager = layoutManager
         dt_rv_down_info.setHasFixedSize(true)
-        adapterDonwInfo = DownInfoListAdapter(downInfos, Constants.context!!)
+        adapterDonwInfo = DownInfoListAdapter(listDownInfo, Constants.context!!)
         dt_rv_down_info.adapter = adapterDonwInfo
     }
 

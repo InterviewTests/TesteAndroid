@@ -13,7 +13,7 @@ class DetailInteractor: DetailMVP.Interactor{
         var data: MutableLiveData<ResponseFund>?=  MutableLiveData<ResponseFund>()
         val api = ScreenApi()
         api.getScreenList()
-                ?.subscribeOn(Schedulers.io())
+                ?.subscribeOn(Schedulers.newThread())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe ({ response ->
                     data?.value = response as ResponseFund

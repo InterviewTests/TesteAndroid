@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@android:color/white"
     android:orientation="horizontal"
     android:weightSum="5"
@@ -16,6 +16,7 @@
         android:layout_weight="3"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="Essenciais"
         tools:ignore="Suspicious0dp" />
 
@@ -28,6 +29,7 @@
         android:textStyle="bold"
         android:textColor="#ff0000"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         tools:ignore="Suspicious0dp" />
 
