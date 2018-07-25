@@ -25,7 +25,6 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
-            android:text="Fundo de Investimento"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -35,12 +34,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="Vinci Valorem FI Multimercado"
             android:textSize="30dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginLeft="20dp"
@@ -55,7 +52,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="O que é ?"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -68,7 +64,6 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos."
             android:textSize="18sp" />
 
         <TextView
@@ -78,7 +73,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:gravity="center"
-            android:text="Grau de risco do investimento"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -95,7 +89,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:gravity="center"
-            android:text="Mais informações sobre o investimento"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -109,7 +102,7 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
+                android:layout_marginRight="40dp"
                 android:text="Fundo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -118,7 +111,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
+                android:layout_marginRight="25dp"
                 android:text="CDI"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView10"
@@ -126,11 +119,15 @@
 
         </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/dt_rv_more_info"
+        <include layout="@layout/item_more_info"/>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#ff0000" />
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="28dp"
+            android:background="@android:color/background_dark" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/dt_rv_info"

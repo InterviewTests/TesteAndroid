@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="No mês"
+            tools:ignore="Suspicious0dp" />
+
+        <TextView
+            android:id="@+id/dt_mounth_tv_found"
+            android:layout_width="0dp"
+            android:text="0.3%"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            tools:ignore="Suspicious0dp" />
+
+        <TextView
+            android:id="@+id/dt_mounth_tv_cdi"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0.3%"
+            android:gravity="center"
+            tools:ignore="Suspicious0dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="No Ano"
+            tools:ignore="Suspicious0dp" />
+
+        <TextView
+            android:id="@+id/dt_year_tv_found"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="13.01%"
+            tools:ignore="Suspicious0dp" />
+
+        <TextView
+            android:id="@+id/dt_year_tv_cdi"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="12.08%"
+            android:gravity="center"
+            tools:ignore="Suspicious0dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="12 meses"
+            tools:ignore="Suspicious0dp" />
+
+        <TextView
+            android:id="@+id/dt_12m_tv_found"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="17.9%"
+            tools:ignore="Suspicious0dp" />
+
+        <TextView
+            android:id="@+id/dt_12m_tv_cdi"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="17.6%"
+            android:gravity="center"
+            tools:ignore="Suspicious0dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

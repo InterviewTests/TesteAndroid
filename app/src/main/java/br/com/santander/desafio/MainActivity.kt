@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Constants.context = this
         manager = HelpManagerFragment(this)
         HelpSecurity.manager = manager
         content = ContentFragment()
