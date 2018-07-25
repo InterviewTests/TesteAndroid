@@ -10,10 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.enzoteles.quickhelp.fragment.HelpFragment
 import br.com.santander.desafio.Constants
-import br.com.santander.desafio.main.MainActivity
 import br.com.santander.desafio.R
 import br.com.santander.desafio.detail.adapter.DownInfoListAdapter
 import br.com.santander.desafio.detail.adapter.InfoListAdapter
+import br.com.santander.desafio.main.MainActivity
 import br.com.santander.desafio.webservice.fund.DownInfoItem
 import br.com.santander.desafio.webservice.fund.InfoItem
 import br.com.santander.desafio.webservice.fund.ResponseFund
@@ -22,10 +22,12 @@ import kotlinx.android.synthetic.main.detail.*
 import kotlinx.android.synthetic.main.item_more_info.*
 import kotlinx.android.synthetic.main.toolbar_details.*
 import kotlinx.android.synthetic.main.toolbar_details.view.*
+import javax.inject.Inject
 
 class DetailFragment: HelpFragment(),DetailMVP.View{
 
-    lateinit var presenter: DetailPresenter
+    @Inject
+    lateinit var presenter: DetailMVP.Presenter
     lateinit var adapterInfo: InfoListAdapter
     lateinit var adapterDonwInfo: DownInfoListAdapter
     lateinit var layoutManager: LinearLayoutManager
@@ -38,9 +40,16 @@ class DetailFragment: HelpFragment(),DetailMVP.View{
     @SuppressLint("ResourceType")
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        presenter = DetailPresenter()
+        initInject()
         initUI()
         initDate()
+    }
+
+    override fun initInject() {
+        val detailComponent = DaggerDetailComponent.builder()
+                .detailModule(DetailModule(this))
+                .build()
+        detailComponent.inject(this)
     }
 
     override fun initUI(){
@@ -48,6 +57,7 @@ class DetailFragment: HelpFragment(),DetailMVP.View{
         var investimento = getString(R.string.lg_bt_investment)
         toolbar_detail.dt_tb_tv_title.setText(investimento)
         avi_detail.show()
+        presenter.initInteractor()
     }
 
     override fun initDate() {

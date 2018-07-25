@@ -13,9 +13,11 @@ interface DetailMVP{
         fun setRecyclerviewInfo(listInfo: MutableList<InfoItem>)
         fun setRecyclerviewDownInfo(listDownInfo: MutableList<DownInfoItem>)
         fun verificationRisk(risk: Int?)
+        fun initInject()
     }
     interface Presenter{
         fun getFunc(): MutableLiveData<ResponseFund>
+        fun initInteractor()
     }
     interface Interactor{
         fun getFund(): MutableLiveData<ResponseFund>

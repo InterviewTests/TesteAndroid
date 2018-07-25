@@ -14,19 +14,20 @@ import br.com.enzoteles.quickhelp.fragment.HelpFragment
 import br.com.enzoteles.quickhelp.mask.HelpMask
 import br.com.santander.desafio.main.MainActivity
 import br.com.santander.desafio.R
-import br.com.santander.desafio.detail.DetailFragment
+import br.com.santander.desafio.content.ContentModule
+import br.com.santander.desafio.content.DaggerContentComponent
 import br.com.santander.desafio.webservice.cells.CellsItem
 import br.com.santander.desafio.webservice.cells.ResponseCells
 import kotlinx.android.synthetic.main.login.*
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar.view.*
+import javax.inject.Inject
 
 
 class LoginFragment: HelpFragment(), LoginMVP.View, View.OnClickListener{
 
+    @Inject
     lateinit var presenter: LoginMVP.Presenter
-    lateinit var login: LoginFragment
-    lateinit var detail: DetailFragment
     var mPhoneTextWatcher: TextWatcher?= null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -36,9 +37,17 @@ class LoginFragment: HelpFragment(), LoginMVP.View, View.OnClickListener{
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        presenter = LoginPresenter()
+        initInject()
         initUI()
         initDate()
+    }
+
+    override fun initInject() {
+
+        val loginComponent = DaggerLoginComponent.builder()
+                .loginModule(LoginModule(this))
+                .build()
+        loginComponent.inject(this)
     }
 
     @SuppressLint("ResourceType")
@@ -49,6 +58,7 @@ class LoginFragment: HelpFragment(), LoginMVP.View, View.OnClickListener{
         msg_btn_send.setOnClickListener(this)
         avi.show()
         inputPhone()
+        presenter.initInteractor()
     }
     override fun initDate() {
         presenter.getCells()?.observe(activity as MainActivity, object : Observer<ResponseCells> {

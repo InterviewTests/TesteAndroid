@@ -14,10 +14,12 @@ interface LoginMVP{
         fun initDate()
         fun inputPhone()
         fun validationEditText(lg_et_name: EditText?, lg_et_email: EditText?)
+        fun initInject()
     }
 
     interface Presenter {
         fun getCells(): MutableLiveData<ResponseCells>
+        fun initInteractor()
     }
 
     interface Interactor{

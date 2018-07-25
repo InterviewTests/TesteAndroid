@@ -7,7 +7,7 @@ import br.com.santander.desafio.webservice.fund.ResponseFund
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class DetailInteractor: DetailMVP.Interactor{
+class DetailInteractor(var callback: DetailMVP.Presenter) : DetailMVP.Interactor{
 
     override fun getFund() : MutableLiveData<ResponseFund> {
         var data: MutableLiveData<ResponseFund>?=  MutableLiveData<ResponseFund>()
