@@ -7,7 +7,7 @@
     android:background="@android:color/white"
     android:orientation="vertical"
     android:weightSum="5"
-    tools:context=".MainActivity">
+    tools:context=".main.MainActivity">
 
     <include layout="@layout/toolbar" />
 

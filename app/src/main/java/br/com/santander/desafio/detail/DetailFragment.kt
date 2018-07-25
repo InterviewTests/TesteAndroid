@@ -9,10 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.enzoteles.quickhelp.fragment.HelpFragment
-import br.com.enzoteles.quickhelp.log.HelpLog
-import br.com.enzoteles.quickhelp.security.HelpSecurity
 import br.com.santander.desafio.Constants
-import br.com.santander.desafio.MainActivity
+import br.com.santander.desafio.main.MainActivity
 import br.com.santander.desafio.R
 import br.com.santander.desafio.detail.adapter.DownInfoListAdapter
 import br.com.santander.desafio.detail.adapter.InfoListAdapter

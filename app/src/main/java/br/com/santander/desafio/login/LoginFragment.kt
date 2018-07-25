@@ -12,8 +12,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import br.com.enzoteles.quickhelp.fragment.HelpFragment
 import br.com.enzoteles.quickhelp.mask.HelpMask
-import br.com.enzoteles.quickhelp.security.HelpSecurity
-import br.com.santander.desafio.MainActivity
+import br.com.santander.desafio.main.MainActivity
 import br.com.santander.desafio.R
 import br.com.santander.desafio.detail.DetailFragment
 import br.com.santander.desafio.webservice.cells.CellsItem

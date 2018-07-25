@@ -1,4 +1,4 @@
-package br.com.santander.desafio.ContentFragment
+package br.com.santander.desafio.content
 
 import android.os.Bundle
 import android.view.LayoutInflater

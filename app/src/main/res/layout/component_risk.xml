@@ -11,7 +11,7 @@
     android:background="@android:color/white"
     android:orientation="horizontal"
     android:weightSum="5"
-    tools:context=".MainActivity">
+    tools:context=".main.MainActivity">
 
     <LinearLayout
         android:id="@+id/grau_one"

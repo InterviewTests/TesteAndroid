@@ -7,7 +7,7 @@
     android:background="@android:color/white"
     android:orientation="horizontal"
     android:weightSum="5"
-    tools:context=".MainActivity">
+    tools:context=".main.MainActivity">
 
     <TextView
         android:id="@+id/dt_tv_down_name"
