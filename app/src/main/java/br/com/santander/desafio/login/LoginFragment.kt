@@ -9,8 +9,10 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import br.com.enzoteles.quickhelp.fragment.HelpFragment
 import br.com.enzoteles.quickhelp.mask.HelpMask
+import br.com.enzoteles.quickhelp.security.HelpSecurity
 import br.com.santander.desafio.MainActivity
 import br.com.santander.desafio.R
 import br.com.santander.desafio.detail.DetailFragment
@@ -21,7 +23,8 @@ import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar.view.*
 
 
-class LoginFragment: HelpFragment(), LoginMVP.View{
+class LoginFragment: HelpFragment(), LoginMVP.View, View.OnClickListener{
+
     lateinit var presenter: LoginMVP.Presenter
     lateinit var login: LoginFragment
     lateinit var detail: DetailFragment
@@ -43,6 +46,8 @@ class LoginFragment: HelpFragment(), LoginMVP.View{
     override fun initUI() {
         val contato = getString(R.string.lg_bt_contact)
         toolbar.tb_tv_title.setText(contato)
+        lg_bt_send.setOnClickListener(this)
+        msg_btn_send.setOnClickListener(this)
         avi.show()
         inputPhone()
     }
@@ -93,6 +98,37 @@ class LoginFragment: HelpFragment(), LoginMVP.View{
         }
         lg_et_phone.addTextChangedListener(mPhoneTextWatcher)
         lg_et_phone.inputType = InputType.TYPE_CLASS_PHONE
+    }
+
+    override fun validationEditText(lg_et_name: EditText?, lg_et_email: EditText?) {
+        if(lg_et_name!!.text.isNullOrEmpty()){
+            lg_et_name.setError(getString(R.string.validation_tx_name))
+        }
+
+        if(lg_et_phone!!.text.isNullOrEmpty()){
+            lg_et_phone.setError(getString(R.string.validation_tx_phone))
+        }
+    }
+
+    override fun onClick(v: View?) {
+
+
+
+        when(v!!.id) {
+            R.id.lg_bt_send -> {
+                if(lg_et_name!!.text.isNullOrEmpty() || lg_et_phone!!.text.isNullOrEmpty()){
+                    validationEditText(lg_et_name, lg_et_phone)
+                }else{
+                    lg_ll_options.visibility = View.GONE
+                    lg_ll_msg.visibility = View.VISIBLE
+                }
+            }
+            R.id.msg_btn_send -> {
+                lg_ll_options.visibility = View.VISIBLE
+                lg_ll_msg.visibility = View.GONE
+            }
+        }
+
     }
 
 }

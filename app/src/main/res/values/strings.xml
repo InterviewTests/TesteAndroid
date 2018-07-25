@@ -11,6 +11,12 @@
     <string name="lg_bt_contact">Contato</string>
 
     <string name="dt_tx_investment">Investir</string>
-    <string name="dt_tx_phone">(##) ####-#####</string>
+    <string name="validation_tx_name">Preencha o nome!</string>
+    <string name="validation_tx_phone">Preencha o telefone!</string>
+
+    <string name="msg_tx_thank">Obrigado!</string>
+    <string name="msg_tx_title">Mensagem enviada \n com sucesso :)</string>
+    <string name="msg_send">Enviar nova mensage</string>
+
 
 </resources>
