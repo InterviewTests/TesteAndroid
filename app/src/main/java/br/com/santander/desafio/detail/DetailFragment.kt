@@ -46,6 +46,7 @@ class DetailFragment: HelpFragment(),DetailMVP.View{
 
         var investimento = getString(R.string.lg_bt_investment)
         toolbar_detail.dt_tb_tv_title.setText(investimento)
+        avi_detail.show()
     }
 
     override fun initDate() {
@@ -53,13 +54,15 @@ class DetailFragment: HelpFragment(),DetailMVP.View{
             override fun onChanged(@Nullable response: ResponseFund?) {
                 if (response != null) {
                     setDataView(response)
-                    //setRecyclerviewInfo(response.screen!!.info)
                 }
             }
         })
     }
 
     override fun setDataView(response: ResponseFund) {
+
+        avi_detail.hide()
+        dt_ll_details.visibility = View.VISIBLE
 
         var listInfo:MutableList<InfoItem> = arrayListOf()
         var listDownInfo:MutableList<DownInfoItem> = arrayListOf()

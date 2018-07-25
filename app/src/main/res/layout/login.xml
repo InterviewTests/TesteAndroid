@@ -11,13 +11,23 @@
 
     <include layout="@layout/toolbar" />
 
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avi"
+        style="@style/AVLoadingIndicatorView.Small"
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center"
+        app:indicatorColor="@color/red_01"
+        app:indicatorName="BallClipRotatePulseIndicator" />
+
     <LinearLayout
         android:id="@+id/lg_ll_options"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         android:weightSum="5">
 
         <android.support.design.widget.TextInputLayout

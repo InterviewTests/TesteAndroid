@@ -39,10 +39,13 @@ class LoginFragment: HelpFragment(), LoginMVP.View{
     override fun initUI() {
         val contato = getString(R.string.lg_bt_contact)
         toolbar.tb_tv_title.setText(contato)
+        avi.show()
     }
     override fun initDate() {
         presenter.getCells()?.observe(activity as MainActivity, object : Observer<ResponseCells> {
             override fun onChanged(@Nullable response: ResponseCells?) {
+                avi.hide()
+                lg_ll_options.visibility = View.VISIBLE
                 verificationCells(response)
             }
         })
