@@ -2,7 +2,8 @@
 <resources>
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#ffffff</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ACACAC</color>
     <color name="progressBaackground">#30000000</color>
     <color name="default_red">#DA0101</color>
+    <color name="invalid_red">#FF1F1F</color>
 </resources>

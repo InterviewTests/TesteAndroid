@@ -1,7 +1,6 @@
 package com.rafhack.testeandroid.base
 
 import android.os.Bundle
-import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,13 +18,11 @@ abstract class BaseProgressFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_base_progress, container, false)
         val frmContent = view.findViewById<FrameLayout>(R.id.fragment_base_progress_frm_content)
         frmProgress = view.findViewById(R.id.fragment_base_progress_frm_progress)
-        inflater.inflate(onCreateView(), frmContent, true)
+        onCreateView(inflater, frmContent)
         return view
     }
 
-    @LayoutRes
-    abstract fun onCreateView(): Int
-
+    abstract fun onCreateView(inflater: LayoutInflater, container: ViewGroup?): View
 
     protected fun showProgress() {
         frmProgress?.visibility = VISIBLE
