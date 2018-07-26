@@ -5,6 +5,7 @@ import android.support.constraint.ConstraintLayout
 import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
 import android.text.Editable
+import android.text.InputFilter
 import android.text.InputType
 import android.text.TextWatcher
 import android.util.AttributeSet
@@ -17,7 +18,6 @@ import com.rafhack.testeandroid.R
 import com.rafhack.testeandroid.data.entities.Cell
 import com.rafhack.testeandroid.data.entities.FieldType
 import java.util.regex.Pattern
-import android.text.InputFilter
 
 
 class CustomCellType1 : ConstraintLayout {
@@ -107,34 +107,26 @@ class CustomCellType1 : ConstraintLayout {
         private val mask2 = "(##) #####-####"
 
         override fun afterTextChanged(s: Editable?) {
-            if (isRunning || isDeleting) {
-                return
-            }
+            if (isRunning || isDeleting) return
             isRunning = true
             val length = s?.length as Int
             val maskToCompare = if (autoAddind) mask2 else mask1
             when {
                 length < maskToCompare.length -> processText(s, maskToCompare)
-                length <= mask2.length && length > mask1.length -> {
-                    if (!autoAddind) {
-                        autoAddind = true
-                        val phone = s.toString().
-                                replace("(", "").
-                                replace(")", "").
-                                replace(" ", "").
-                                replace("-", "")
-                        edtText.removeTextChangedListener(this)
-                        edtText.setText("")
-                        edtText.addTextChangedListener(this)
-                        isRunning = false
-                        phone.forEach {
-                            edtText.setText(edtText.text.toString().plus(it))
-                        }
-                        edtText.setSelection(edtText.text.length)
-                        autoAddind = false
+                length <= mask2.length && length > mask1.length -> if (!autoAddind) {
+                    autoAddind = true
+                    val phone = s.toString()
+                            .replace("(", "")
+                            .replace(")", "")
+                            .replace(" ", "")
+                            .replace("-", "")
+                    edtText.setText("")
+                    isRunning = false
+                    phone.forEach {
+                        edtText.setText(edtText.text.toString().plus(it))
                     }
-                }
-                else -> {
+                    edtText.setSelection(edtText.text.length)
+                    autoAddind = false
                 }
             }
             isRunning = false

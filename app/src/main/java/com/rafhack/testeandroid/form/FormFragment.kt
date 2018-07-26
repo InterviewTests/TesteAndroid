@@ -21,14 +21,17 @@ class FormFragment : BaseProgressFragment(), FormContract.View {
 
     override fun inflateCells() {
         val manager = DynamicFormManager(linContainer!!)
-        manager.cells = arrayListOf(Cell(1, 2, "Olá, primeiro se apresente com o seu nome:", null, false,
-                60, null, true),
+        manager.cells = arrayListOf(
+                Cell(1, 2, "Olá, primeiro se apresente com o seu nome:", null, false,
+                        60, null, true),
                 Cell(2, 1, "Nome completo", "1", false,
                         35, null, true),
-                Cell(4, 1, "Email", "3", false,
+                Cell(4, 1, "Email", "3", true,
                         35, null, true),
                 Cell(5, 1, "Telefone", "telnumber", false,
-                        35, null, true))
+                        35, null, true),
+                Cell(3, 4, "Gostaria de cadastrar meu email", null, false,
+                        35, 4, true))
     }
 
 }
