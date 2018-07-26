@@ -1,10 +1,10 @@
 package info.dafle.testeandroid.mvp.investimento;
 
-import android.arch.lifecycle.ViewModelProviders;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.XmlResourceParser;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,9 +17,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,13 +31,13 @@ import info.dafle.testeandroid.model.Investment;
 public class InvestimentoFragment extends Fragment implements  InvestimentoContract.View {
 
     private static final String TAG = InvestimentoFragment.class.getSimpleName();
-    private Fund fund;
+    static private Fund mFund;
     private Context context;
     private ConstraintLayout constraintLayout;
     private Typeface typeFace;
     private View root;
-    private RecyclerView recyclerView;
     private ProgressBar progressBar;
+    private InvestimentoContract.Presenter mPresenter;
 
     @Nullable
     @Override
@@ -51,13 +48,10 @@ public class InvestimentoFragment extends Fragment implements  InvestimentoContr
         constraintLayout = root.findViewById(R.id.main);
         progressBar = root.findViewById(R.id.progressBar);
         typeFace = Typeface.createFromAsset(context.getAssets(), "fonts/DINPro-Light.ttf");
-        InvestimentoViewModel viewModel = ViewModelProviders.of(this).get(InvestimentoViewModel.class);
-        viewModel.setView(this);
-        showProgress();
-        viewModel.getFund().observe(this, fund1 -> {
-            buildLayout(fund1);
-            hideProgress();
-        });
+
+        new InvestimentoPresenter(this);
+        mPresenter.start();
+
         return root;
     }
 
@@ -71,9 +65,11 @@ public class InvestimentoFragment extends Fragment implements  InvestimentoContr
         return "-";
     }
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     public void buildLayout(Fund fund) {
-        this.fund = fund;
+        mFund = fund;
+
         Fund.Screen screen = fund.getScreen();
         for (int i=0; i<screen.titles().length; i++) {
             TextView textView = (TextView) constraintLayout.getChildAt(i+1);
@@ -121,16 +117,16 @@ public class InvestimentoFragment extends Fragment implements  InvestimentoContr
             investments.add(investment);
         }
 
-
-        recyclerView = root.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(new InvestmentAdapter(investments));
+        recyclerView.setAdapter(new InvestimentoAdapter(context, investments,typeFace));
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
         ConstraintLayout.LayoutParams c = (ConstraintLayout.LayoutParams) recyclerView.getLayoutParams();
 
         c.height = dpToPx(36 * investments.size());
         recyclerView.setLayoutParams(c);
+
         showCurrentArrow(screen.getRisk());
     }
 
@@ -153,8 +149,8 @@ public class InvestimentoFragment extends Fragment implements  InvestimentoContr
 
     @Override
     public void showProgress() {
-        progressBar.setVisibility(View.VISIBLE);
         constraintLayout.setVisibility(View.GONE);
+        progressBar.setVisibility(View.VISIBLE);
 
     }
 
@@ -169,53 +165,8 @@ public class InvestimentoFragment extends Fragment implements  InvestimentoContr
         return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
     }
 
-    class InvestmentAdapter extends RecyclerView.Adapter<InvestmentAdapter.InvestmentVH> {
-
-        List<Investment> investments;
-
-        InvestmentAdapter(List<Investment> investments) {
-            this.investments = investments;
-        }
-
-        @NonNull
-        @Override
-        public InvestmentVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new InvestmentVH(LayoutInflater.from(context).inflate(R.layout.adapter_investimento, parent, false));
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull InvestmentVH holder, int position) {
-            holder.bind(investments.get(position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return investments.size();
-        }
-
-        class InvestmentVH extends RecyclerView.ViewHolder {
-
-            TextView tv_title, tv_middle, tv_end;
-            ImageView iv_baixar;
-
-            InvestmentVH(View itemView) {
-                super(itemView);
-                tv_title = itemView.findViewById(R.id.tv_title);
-                tv_middle = itemView.findViewById(R.id.tv_middle);
-                tv_end = itemView.findViewById(R.id.tv_end);
-                iv_baixar = itemView.findViewById(R.id.iv_baixar);
-                tv_title.setTypeface(typeFace);
-                tv_middle.setTypeface(typeFace);
-                tv_end.setTypeface(typeFace);
-            }
-
-            void bind(Investment investment) {
-                tv_title.setText(investment.getTitle());
-                tv_middle.setText(investment.getFirstValue());
-                tv_end.setText(investment.getSecondValue());
-                tv_end.setTextColor(investment.getTextColor());
-                iv_baixar.setVisibility(investment.isShowImageDownload() ? View.VISIBLE : View.INVISIBLE);
-            }
-        }
+    @Override
+    public void setPresenter(InvestimentoContract.Presenter presenter) {
+        mPresenter = presenter;
     }
 }

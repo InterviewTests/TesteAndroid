@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.content, typeFragment == 1 ? new InvestimentoFragment() : new ContatoFragment());
             transaction.commit();
+
+            Log.i("Script", "AKiiiiii");
         }
     }
 

@@ -14,7 +14,7 @@ public class ContatoPresenter implements ContatoContract.Presenter {
     private ContatoContract.View mView;
     private ContatoModel mModel;
 
-    public ContatoPresenter(@NonNull ContatoContract.View view) {
+    ContatoPresenter(@NonNull ContatoContract.View view) {
         mView = view;
         mView.setPresenter(this);
         mModel = new ContatoModel();

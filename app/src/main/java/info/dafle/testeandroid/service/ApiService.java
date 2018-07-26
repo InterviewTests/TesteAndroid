@@ -1,6 +1,5 @@
 package info.dafle.testeandroid.service;
 
-import info.dafle.testeandroid.model.Cell;
 import info.dafle.testeandroid.model.ContatoResponse;
 import info.dafle.testeandroid.model.Fund;
 import retrofit2.Call;
