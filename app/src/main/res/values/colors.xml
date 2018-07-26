@@ -5,5 +5,6 @@
     <color name="colorAccent">#ACACAC</color>
     <color name="progressBaackground">#30000000</color>
     <color name="default_red">#DA0101</color>
+    <color name="light_red">#EB7676</color>
     <color name="invalid_red">#FF1F1F</color>
 </resources>

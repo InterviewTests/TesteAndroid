@@ -31,7 +31,9 @@ class FormFragment : BaseProgressFragment(), FormContract.View {
                 Cell(5, 1, "Telefone", "telnumber", false,
                         35, null, true),
                 Cell(3, 4, "Gostaria de cadastrar meu email", null, false,
-                        35, 4, true))
+                        35, 4, true),
+                Cell(7, 5, "Enviar", null, false,
+                        10, null, true))
     }
 
 }

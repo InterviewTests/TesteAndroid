@@ -9,6 +9,7 @@ import com.rafhack.testeandroid.data.entities.Type
 import com.rafhack.testeandroid.form.customCells.CustomCellType1
 import com.rafhack.testeandroid.form.customCells.CustomCellType2
 import com.rafhack.testeandroid.form.customCells.CustomCellType4
+import com.rafhack.testeandroid.form.customCells.CustomCellType5
 
 class DynamicFormManager(val container: LinearLayout) {
 
@@ -23,6 +24,7 @@ class DynamicFormManager(val container: LinearLayout) {
                 Type.TEXT -> getTextTypeCell(cell)
                 Type.FIELD -> getFieldTypeCell(cell)
                 Type.CHECKBOX -> getCheckBoxTypeCell(cell)
+                Type.SEND -> getButtonTypeCell(cell)
                 else -> null
             }
             cellViewMap[cell.id] = cellView
@@ -44,6 +46,12 @@ class DynamicFormManager(val container: LinearLayout) {
         return cellView
     }
 
+    private fun getButtonTypeCell(cell: Cell): View {
+        val cellView = CustomCellType5(container.context)
+        cellView.cell = cell
+        return cellView
+    }
+
     private fun getTextTypeCell(cell: Cell): View {
         val cellView = CustomCellType2(container.context)
         cellView.cell = cell
@@ -55,4 +63,5 @@ class DynamicFormManager(val container: LinearLayout) {
         cellView.cell = cell
         return cellView
     }
+
 }

@@ -25,7 +25,7 @@
             android:paddingBottom="@dimen/cell_padding"
             android:textColor="#333333"
             android:textColorHint="@color/colorAccent"
-            android:textSize="23sp"
+            android:textSize="16sp"
             tools:ignore="LabelFor" />
 
     </android.support.design.widget.TextInputLayout>
@@ -34,7 +34,7 @@
         android:id="@+id/view"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:background="@drawable/dark_circle"
+        android:background="@drawable/shape_dark_circle"
         app:layout_constraintBottom_toBottomOf="@+id/dynamic_form_cell_type_1_imb_clear"
         app:layout_constraintEnd_toEndOf="@+id/dynamic_form_cell_type_1_imb_clear"
         app:layout_constraintStart_toStartOf="@+id/dynamic_form_cell_type_1_imb_clear"
