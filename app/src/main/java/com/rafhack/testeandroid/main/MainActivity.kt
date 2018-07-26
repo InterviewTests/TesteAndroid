@@ -31,9 +31,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupActionBar() {
         val viewActionBar = layoutInflater.inflate(R.layout.custom_actionbar, null, false)
         val params = ActionBar.LayoutParams(
-                ActionBar.LayoutParams.WRAP_CONTENT,
-                ActionBar.LayoutParams.MATCH_PARENT,
-                Gravity.CENTER)
+                ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER)
         supportActionBar?.setCustomView(viewActionBar, params)
         supportActionBar?.setDisplayShowCustomEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)

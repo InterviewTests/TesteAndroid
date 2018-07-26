@@ -9,4 +9,5 @@
             <solid android:color="@color/default_red" />
         </shape>
     </item>
+    <item android:drawable="?android:attr/selectableItemBackground" />
 </layer-list>

@@ -1,7 +1,12 @@
 package com.rafhack.testeandroid.form
 
-import android.support.v4.app.Fragment
+import com.rafhack.testeandroid.R
+import com.rafhack.testeandroid.base.BaseProgressFragment
 
-class FormFragment : Fragment() {
+class FormFragment : BaseProgressFragment(), FormContract.View {
+
+    override fun onCreateView(): Int {
+        return R.layout.fragment_form
+    }
 
 }
