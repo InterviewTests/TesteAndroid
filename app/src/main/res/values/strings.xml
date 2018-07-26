@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TesteAndroid</string>
+    <string name="investiment">Investiment</string>
+    <string name="contact">Contact</string>
 </resources>

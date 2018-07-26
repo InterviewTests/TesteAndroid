@@ -25,3 +25,12 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    junitVersion = '4.12'
+    retrofitVersion = '2.2.0'
+    appCompatVersion = '27.1.1'
+    runnerVersion = '1.0.2'
+    okHTTPVersion = '3.7.0'
+    roomVersion = '1.1.1'
+}
