@@ -1,5 +1,6 @@
 package com.rafhack.testeandroid.form
 
+import android.content.res.Resources
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -15,7 +16,7 @@ class DynamicFormManager(val container: LinearLayout) {
 
     var cells: ArrayList<Cell> = arrayListOf()
         set(value) = populateCells(value)
-    var cellViewMap: HashMap<Int?, View?> = hashMapOf()
+    private var cellViewMap: HashMap<Int?, View?> = hashMapOf()
 
     private fun populateCells(value: ArrayList<Cell>) {
         value.forEach { cell ->
@@ -29,7 +30,8 @@ class DynamicFormManager(val container: LinearLayout) {
             }
             cellViewMap[cell.id] = cellView
             container.addView(cellView)
-            (cellView?.layoutParams as LinearLayout.LayoutParams).topMargin = cell.topSpacing
+            (cellView?.layoutParams as LinearLayout.LayoutParams).topMargin =
+                    (cell.topSpacing * Resources.getSystem().displayMetrics.density).toInt()
             cellView.visibility = if (cell.hidden) GONE else VISIBLE
         }
     }

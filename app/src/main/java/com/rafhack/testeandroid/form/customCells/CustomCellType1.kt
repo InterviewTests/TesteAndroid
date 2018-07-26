@@ -85,7 +85,7 @@ class CustomCellType1 : ConstraintLayout {
     }
 
     private fun updateCell(cell: Cell?) {
-        fieldType = FieldType.from(cell?.typeField!!)
+        fieldType = FieldType.from(cell?.typefield!!)
         if (fieldType == FieldType.PHONE_NUMBER) {
             edtText.inputType = InputType.TYPE_CLASS_PHONE
             edtText.addTextChangedListener(PhoneWatcher())

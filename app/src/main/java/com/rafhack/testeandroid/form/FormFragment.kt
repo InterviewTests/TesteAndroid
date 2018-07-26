@@ -1,5 +1,6 @@
 package com.rafhack.testeandroid.form
 
+import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,29 +12,27 @@ import com.rafhack.testeandroid.data.entities.Cell
 class FormFragment : BaseProgressFragment(), FormContract.View {
 
     private var linContainer: LinearLayout? = null
+    private val presenter = FormPresenter(this)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?): View {
         val view = inflater.inflate(R.layout.fragment_form, container, true)
         linContainer = view.findViewById(R.id.fragment_form_lin_content)
-        inflateCells()
+        presenter.getCells()
         return view
     }
 
-    override fun inflateCells() {
+    override fun setProgress(active: Boolean) {
+        if (active) showProgress() else hideProgress()
+    }
+
+    override fun showErrorMessage(message: String) {
+        Snackbar.make(view?.findViewById(R.id.fragment_base_progress_ctl_root)!!,
+                message, Snackbar.LENGTH_LONG).show()
+    }
+
+    override fun inflateCells(cells: ArrayList<Cell>) {
         val manager = DynamicFormManager(linContainer!!)
-        manager.cells = arrayListOf(
-                Cell(1, 2, "Olá, primeiro se apresente com o seu nome:", null, false,
-                        60, null, true),
-                Cell(2, 1, "Nome completo", "1", false,
-                        35, null, true),
-                Cell(4, 1, "Email", "3", true,
-                        35, null, true),
-                Cell(5, 1, "Telefone", "telnumber", false,
-                        35, null, true),
-                Cell(3, 4, "Gostaria de cadastrar meu email", null, false,
-                        35, 4, true),
-                Cell(7, 5, "Enviar", null, false,
-                        10, null, true))
+        manager.cells = cells
     }
 
 }
