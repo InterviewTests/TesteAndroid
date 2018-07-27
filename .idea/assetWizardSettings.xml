@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_share_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/editor/ic_monetization_on_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,9 +28,12 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="979797" />
-                            <entry key="outputName" value="ic_share" />
+                            <entry key="color" value="da0101" />
+                            <entry key="height" value="100" />
+                            <entry key="outputName" value="ic_logo" />
+                            <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="C:\Users\Rafhack" />
+                            <entry key="width" value="100" />
                           </map>
                         </option>
                       </PersistentState>
