@@ -1,6 +1,5 @@
 package com.rafhack.testeandroid.form.customCells.customCellType1
 
-import android.util.Patterns
 import java.util.regex.Pattern
 
 class CustomCellType1Presenter(val view: CustomCellType1Contract.View) : CustomCellType1Contract.UserActionListener {
@@ -19,7 +18,14 @@ class CustomCellType1Presenter(val view: CustomCellType1Contract.View) : CustomC
     }
 
     override fun validateEmailField(string: String): Boolean {
-        val valid = string.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(string).matches()
+        val valid = string.isNotEmpty() && Pattern.compile(
+                "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                        "\\@" +
+                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                        "(" +
+                            "\\." +
+                            "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                        ")+").matcher(string).matches()
         view.updateErrorState(valid)
         return valid
     }
