@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/investment_more_info_tvw_fund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/dinproregular"
+        android:text="@string/fund"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/investment_more_info_tvw_di"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/investment_more_info_tvw_di"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dinproregular"
+        android:text="@string/di"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/investment_more_info_tvw_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/dinproregular"
+        android:text="@string/on_month"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/investment_more_info_tvw_fund" />
+
+    <TextView
+        android:id="@+id/investment_more_info_tvw_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/dinproregular"
+        android:text="@string/on_year"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/investment_more_info_tvw_month" />
+
+    <TextView
+        android:id="@+id/investment_more_info_tvw_12_months"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/dinproregular"
+        android:text="@string/twelve_months"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/investment_more_info_tvw_year" />
+
+
+    <TextView
+        android:id="@+id/investment_more_info_tvw_month_fund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/dinproregular"
+        android:textColor="@color/dark_gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/investment_more_info_tvw_fund"
+        app:layout_constraintStart_toStartOf="@+id/investment_more_info_tvw_fund"
+        app:layout_constraintTop_toBottomOf="@+id/investment_more_info_tvw_fund"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/investment_more_info_tvw_year_fund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/dinproregular"
+        android:textColor="@color/dark_gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/investment_more_info_tvw_fund"
+        app:layout_constraintStart_toStartOf="@+id/investment_more_info_tvw_fund"
+        app:layout_constraintTop_toBottomOf="@+id/investment_more_info_tvw_month_fund"
+        tools:text="13,01%" />
+
+    <TextView
+        android:id="@+id/investment_more_info_tvw_12_month_fund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/dinproregular"
+        android:textColor="@color/dark_gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/investment_more_info_tvw_fund"
+        app:layout_constraintStart_toStartOf="@+id/investment_more_info_tvw_fund"
+        app:layout_constraintTop_toBottomOf="@+id/investment_more_info_tvw_year_fund"
+        tools:text="17.9%" />
+
+    <TextView
+        android:id="@+id/investment_more_info_tvw_month_di"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/dinproregular"
+        android:textColor="@color/dark_gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/investment_more_info_tvw_di"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/investment_more_info_tvw_year_di"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/dinproregular"
+        android:textColor="@color/dark_gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/investment_more_info_tvw_month_di"
+        tools:text="12.08%" />
+
+    <TextView
+        android:id="@+id/investment_more_info_tvw_12_month_di"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/dinproregular"
+        android:textColor="@color/dark_gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/investment_more_info_tvw_year_di"
+        tools:text="17.6%" />
+
+
+</android.support.constraint.ConstraintLayout>

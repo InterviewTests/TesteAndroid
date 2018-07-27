@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/dynamic_form_cell_type_1_til_text_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/dynamic_form_cell_type_1_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/dinproregular"
+            android:hint="@string/investment"
+            android:inputType="text"
+            android:paddingBottom="@dimen/cell_padding"
+            android:textColor="#333333"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="16sp"
+            tools:ignore="LabelFor" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:background="@drawable/shape_dark_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/dynamic_form_cell_type_1_imb_clear"
+        app:layout_constraintEnd_toEndOf="@+id/dynamic_form_cell_type_1_imb_clear"
+        app:layout_constraintStart_toStartOf="@+id/dynamic_form_cell_type_1_imb_clear"
+        app:layout_constraintTop_toTopOf="@+id/dynamic_form_cell_type_1_imb_clear" />
+
+    <ImageButton
+        android:id="@+id/dynamic_form_cell_type_1_imb_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="24dp"
+        android:padding="10dp"
+        android:background="@drawable/ic_cancel"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dynamic_form_cell_type_1_til_text_input" />
+
+</android.support.constraint.ConstraintLayout>

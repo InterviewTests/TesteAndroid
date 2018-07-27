@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TesteAndroid</string>
+    <string name="investment">Investment</string>
+    <string name="contact">Contact</string>
+    <string name="text_field_error">Field cannot be empty</string>
+    <string name="tel_number_field_error">Enter a valid phone number</string>
+    <string name="email_field_error">Enter a valid email address</string>
+    <string name="thank_you">Thank  you!</string>
+    <string name="message_sent_successfully">Message sent successfully :)</string>
+    <string name="send_new_message">Send new message</string>
+    <string name="fund">Fund</string>
+    <string name="di">DI</string>
+    <string name="on_month">On month</string>
+    <string name="on_year">On year</string>
+    <string name="twelve_months">12 months</string>
+    <string name="download">Download</string>
+    <string name="invest">Invest</string>
+</resources>
