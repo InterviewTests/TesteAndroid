@@ -1,17 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:clipToPadding="false"
-    android:isScrollContainer="false"
-    android:paddingBottom="24dp">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/fragment_form_lin_content"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:animateLayoutChanges="true"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:isScrollContainer="false"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:id="@+id/fragment_form_lin_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp" />
+    </ScrollView>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_form_ctl_success"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:visibility="gone"
         android:paddingLeft="40dp"
-        android:paddingRight="40dp"/>
-</ScrollView>
+        android:paddingRight="40dp">
+
+        <TextView
+            android:id="@+id/fragment_form_tvw_thank_you"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="67dp"
+            android:fontFamily="@font/dinpromedium"
+            android:text="@string/thank_you"
+            android:textColor="@color/light_gray"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/dinpromedium"
+            android:gravity="center"
+            android:text="@string/message_sent_successfully"
+            android:textColor="@color/dark_gray"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_form_tvw_thank_you" />
+
+        <TextView
+            android:id="@+id/fragment_form_tvw_send_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/dinpromedium"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="20dp"
+            android:text="@string/send_new_message"
+            android:textColor="@color/default_red"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.75" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

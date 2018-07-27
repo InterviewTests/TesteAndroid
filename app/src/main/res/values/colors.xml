@@ -7,4 +7,6 @@
     <color name="default_red">#DA0101</color>
     <color name="light_red">#EB7676</color>
     <color name="invalid_red">#FF1F1F</color>
+    <color name="light_gray">#7E7E7E</color>
+    <color name="dark_gray">#333333</color>
 </resources>

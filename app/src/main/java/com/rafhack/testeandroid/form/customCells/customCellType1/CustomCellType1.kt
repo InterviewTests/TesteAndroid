@@ -22,11 +22,11 @@ class CustomCellType1 : ConstraintLayout, CustomCellType1Contract.View {
 
     var cell: Cell? = null
         set(value) = updateCell(value)
-    private var valid: Boolean = false
+    var isValid: Boolean = false
     private var fieldType: FieldType = FieldType.TEXT
     private var presenter = CustomCellType1Presenter(this)
 
-    private lateinit var edtText: TextInputEditText
+    lateinit var edtText: TextInputEditText
     private lateinit var tilTextInput: TextInputLayout
 
     constructor(context: Context) : this(context, null)
@@ -60,11 +60,11 @@ class CustomCellType1 : ConstraintLayout, CustomCellType1Contract.View {
         imgDelete.setOnClickListener { edtText.setText("") }
     }
 
-    private fun performValidation(s: String) {
+    fun performValidation(s: String) {
         when (fieldType) {
-            FieldType.TEXT -> valid = presenter.validateTextField(s)
-            FieldType.EMAIL_ADDRESS -> valid = presenter.validateEmailField(s)
-            FieldType.PHONE_NUMBER -> valid = presenter.validatePhoneField(s)
+            FieldType.TEXT -> isValid = presenter.validateTextField(s)
+            FieldType.EMAIL_ADDRESS -> isValid = presenter.validateEmailField(s)
+            FieldType.PHONE_NUMBER -> isValid = presenter.validatePhoneField(s)
             else -> {
             }
         }

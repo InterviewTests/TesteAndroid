@@ -5,4 +5,7 @@
     <string name="text_field_error">Field cannot be empty</string>
     <string name="tel_number_field_error">Enter a valid phone number</string>
     <string name="email_field_error">Enter a valid email address</string>
+    <string name="thank_you">Thank  you!</string>
+    <string name="message_sent_successfully">Message sent successfully :)</string>
+    <string name="send_new_message">Send new message</string>
 </resources>

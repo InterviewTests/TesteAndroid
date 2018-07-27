@@ -6,4 +6,7 @@
     <string name="text_field_error">Campo não pode estar vazio</string>
     <string name="tel_number_field_error">Insira um número de telefone válido</string>
     <string name="email_field_error">Insira um endereço de email válido</string>
+    <string name="thank_you">Obrigado!</string>
+    <string name="message_sent_successfully">Mensagem enviada com sucesso :)</string>
+    <string name="send_new_message">Enviar nova mensagem</string>
 </resources>
