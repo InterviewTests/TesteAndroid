@@ -1,4 +1,4 @@
-package com.rafhack.testeandroid
+package com.rafhack.testeandroid.form.customCells
 
 import com.rafhack.testeandroid.form.customCells.customCellType1.CustomCellType1Contract
 import com.rafhack.testeandroid.form.customCells.customCellType1.CustomCellType1Presenter
