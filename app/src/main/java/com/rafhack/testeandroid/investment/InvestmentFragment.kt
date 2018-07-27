@@ -8,7 +8,7 @@ import com.rafhack.testeandroid.R
 import com.rafhack.testeandroid.base.BaseProgressFragment
 import com.rafhack.testeandroid.data.entities.investment.Investment
 
-class InvestimentFragment : BaseProgressFragment(), InvestimentContract.View {
+class InvestmentFragment : BaseProgressFragment(), InvestmentContract.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?): View {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -23,7 +23,7 @@ class InvestimentFragment : BaseProgressFragment(), InvestimentContract.View {
                 message, Snackbar.LENGTH_LONG).show()
     }
 
-    override fun showInvestimentInfo(investment: Investment) {
+    override fun showInvestmentInfo(investment: Investment) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

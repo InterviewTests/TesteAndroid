@@ -11,7 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.rafhack.testeandroid.R
 import com.rafhack.testeandroid.form.FormFragment
-import com.rafhack.testeandroid.investment.InvestimentFragment
+import com.rafhack.testeandroid.investment.InvestmentFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         tvwTitleText = findViewById(R.id.custom_actionbar_title)
 
         val adapter = ViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(InvestimentFragment(), getString(R.string.investiment))
+        adapter.addFragment(InvestmentFragment(), getString(R.string.investment))
         adapter.addFragment(FormFragment(), getString(R.string.contact))
         vpgFragments.adapter = adapter
 
