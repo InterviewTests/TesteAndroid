@@ -28,6 +28,9 @@ android {
 
 dependencies {
 
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
     //Retrofit dependencies
     implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
@@ -37,12 +40,15 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 
 
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:design:27.1.1'
+    //Android support libraries
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.appCompatVersion"
+    implementation "com.android.support:design:$rootProject.ext.appCompatVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+
+
+    //Testing libraries
     testImplementation 'junit:junit:4.12'
+    testImplementation "org.mockito:mockito-core:2.7.21"
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }

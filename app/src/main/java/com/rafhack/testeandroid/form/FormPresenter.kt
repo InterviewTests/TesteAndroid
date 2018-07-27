@@ -6,7 +6,7 @@ import io.reactivex.schedulers.Schedulers
 
 class FormPresenter(val view: FormContract.View) : FormContract.UserActionListener {
 
-    private val interactor = FormInteractor()
+    var interactor = FormInteractor()
 
     override fun getCells() {
         view.setProgress(true)
