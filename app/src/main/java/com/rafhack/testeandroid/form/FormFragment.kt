@@ -9,8 +9,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.rafhack.testeandroid.R
 import com.rafhack.testeandroid.base.BaseProgressFragment
-import com.rafhack.testeandroid.data.entities.Cell
-import com.rafhack.testeandroid.data.entities.Type
+import com.rafhack.testeandroid.data.entities.form.Cell
+import com.rafhack.testeandroid.data.entities.form.Type
 
 class FormFragment : BaseProgressFragment(), FormContract.View {
 

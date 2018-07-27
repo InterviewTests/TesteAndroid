@@ -1,4 +1,4 @@
-package com.rafhack.testeandroid.data.entities
+package com.rafhack.testeandroid.data.entities.form
 
 import com.rafhack.testeandroid.R
 

@@ -1,6 +1,6 @@
 package com.rafhack.testeandroid.form
 
-import com.rafhack.testeandroid.data.entities.Cell
+import com.rafhack.testeandroid.data.entities.form.Cell
 
 interface FormContract {
 

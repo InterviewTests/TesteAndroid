@@ -1,7 +1,7 @@
 package com.rafhack.testeandroid
 
 import com.rafhack.testeandroid.data.domain.FormInteractor
-import com.rafhack.testeandroid.data.entities.Cell
+import com.rafhack.testeandroid.data.entities.form.Cell
 import com.rafhack.testeandroid.form.FormContract
 import com.rafhack.testeandroid.form.FormPresenter
 import io.reactivex.Single

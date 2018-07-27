@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/dinproregular"
-            android:hint="@string/investiment"
+            android:hint="@string/investment"
             android:inputType="text"
             android:paddingBottom="@dimen/cell_padding"
             android:textColor="#333333"

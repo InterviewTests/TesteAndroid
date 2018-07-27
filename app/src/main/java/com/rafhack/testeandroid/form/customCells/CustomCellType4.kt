@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.CheckBox
 import com.rafhack.testeandroid.R
-import com.rafhack.testeandroid.data.entities.Cell
+import com.rafhack.testeandroid.data.entities.form.Cell
 
 class CustomCellType4 : ConstraintLayout {
 

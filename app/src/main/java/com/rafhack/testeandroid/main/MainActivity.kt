@@ -11,7 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.rafhack.testeandroid.R
 import com.rafhack.testeandroid.form.FormFragment
-import com.rafhack.testeandroid.investiment.InvestimentFragment
+import com.rafhack.testeandroid.investment.InvestimentFragment
 
 
 class MainActivity : AppCompatActivity() {

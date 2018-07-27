@@ -14,8 +14,8 @@ import android.view.View.OnFocusChangeListener
 import android.widget.EditText
 import android.widget.ImageButton
 import com.rafhack.testeandroid.R
-import com.rafhack.testeandroid.data.entities.Cell
-import com.rafhack.testeandroid.data.entities.FieldType
+import com.rafhack.testeandroid.data.entities.form.Cell
+import com.rafhack.testeandroid.data.entities.form.FieldType
 
 
 class CustomCellType1 : ConstraintLayout, CustomCellType1Contract.View {
@@ -71,7 +71,7 @@ class CustomCellType1 : ConstraintLayout, CustomCellType1Contract.View {
     }
 
     private fun updateCell(cell: Cell?) {
-        fieldType = FieldType.from(cell?.typefield!!)
+        fieldType = FieldType.from(cell?.typeField!!)
         if (fieldType == FieldType.PHONE_NUMBER) {
             edtText.inputType = InputType.TYPE_CLASS_PHONE
             edtText.addTextChangedListener(PhoneWatcher())
