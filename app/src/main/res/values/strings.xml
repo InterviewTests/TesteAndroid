@@ -8,4 +8,11 @@
     <string name="thank_you">Thank  you!</string>
     <string name="message_sent_successfully">Message sent successfully :)</string>
     <string name="send_new_message">Send new message</string>
+    <string name="fund">Fund</string>
+    <string name="di">DI</string>
+    <string name="on_month">On month</string>
+    <string name="on_year">On year</string>
+    <string name="twelve_months">12 months</string>
+    <string name="download">Download</string>
+    <string name="invest">Invest</string>
 </resources>

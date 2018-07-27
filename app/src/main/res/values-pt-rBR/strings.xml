@@ -9,4 +9,11 @@
     <string name="thank_you">Obrigado!</string>
     <string name="message_sent_successfully">Mensagem enviada com sucesso :)</string>
     <string name="send_new_message">Enviar nova mensagem</string>
+    <string name="fund">Fundo</string>
+    <string name="di">CDI</string>
+    <string name="on_month">No mês</string>
+    <string name="on_year">No ano</string>
+    <string name="twelve_months">12 meses</string>
+    <string name="download">Baixar</string>
+    <string name="invest">Investir</string>
 </resources>

@@ -2,8 +2,11 @@ package com.rafhack.testeandroid.investment.riskView
 
 import android.content.Context
 import android.support.constraint.ConstraintLayout
+import android.support.constraint.ConstraintSet
+import android.support.constraint.ConstraintSet.PARENT_ID
 import android.util.AttributeSet
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.rafhack.testeandroid.R
 
@@ -47,11 +50,19 @@ class RiskView : ConstraintLayout {
     }
 
     private fun updateRiskIndicator() {
-        riskMap.values.forEach { it.minimumHeight = resources.getDimensionPixelSize(R.dimen.risk_disabled) }
-        riskMap[risk]?.minimumHeight = resources.getDimensionPixelSize(R.dimen.risk_enabled)
-        val index = riskMap.values.indexOf(riskMap[risk]!!)
-        (indicator.layoutParams as ConstraintLayout.LayoutParams).horizontalBias =
-                ((index + index + 1) * 10).toFloat()
+        riskMap.values.forEach {
+            (it.layoutParams as LinearLayout.LayoutParams).height =
+                    resources.getDimensionPixelSize(R.dimen.risk_disabled)
+        }
 
+        (riskMap[risk]?.layoutParams as LinearLayout.LayoutParams).height =
+                resources.getDimensionPixelSize(R.dimen.risk_enabled)
+
+        val set = ConstraintSet()
+        val id = R.id.risk_view_tvw_indicator
+        val index = riskMap.values.indexOf(riskMap[risk]!!)
+        set.clone(this.getChildAt(0) as ConstraintLayout)
+        set.setHorizontalBias(id, ((index + index + 1) * 10).toFloat() / 100)
+        set.applyTo(this.getChildAt(0) as ConstraintLayout)
     }
 }
