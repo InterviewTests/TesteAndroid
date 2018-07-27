@@ -11,7 +11,8 @@ import com.rafhack.testeandroid.data.entities.investment.Investment
 class InvestmentFragment : BaseProgressFragment(), InvestmentContract.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?): View {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val view = inflater.inflate(R.layout.fragment_investment, container, true)
+        return view
     }
 
     override fun setProgress(active: Boolean) {

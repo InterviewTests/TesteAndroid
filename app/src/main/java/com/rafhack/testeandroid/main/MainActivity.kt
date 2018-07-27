@@ -7,6 +7,9 @@ import android.support.v4.view.ViewPager
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.rafhack.testeandroid.R
@@ -19,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var vpgFragments: ViewPager
     private lateinit var tblTabs: TabLayout
     private lateinit var tvwTitleText: TextView
+    private lateinit var imgShare: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupActionBar() {
         val viewActionBar = layoutInflater.inflate(R.layout.custom_actionbar, null, false)
         val params = ActionBar.LayoutParams(
-                ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER)
+                ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER)
         supportActionBar?.elevation = 0f
         supportActionBar?.setCustomView(viewActionBar, params)
         supportActionBar?.setDisplayShowCustomEnabled(true)
@@ -42,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         vpgFragments = findViewById(R.id.activity_main_vpg_fragements)
         tblTabs = findViewById(R.id.activity_main_tbl_tabs)
         tvwTitleText = findViewById(R.id.custom_actionbar_title)
+        imgShare = findViewById(R.id.custom_actionbar_img_share)
 
         val adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addFragment(InvestmentFragment(), getString(R.string.investment))
@@ -57,6 +62,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onPageSelected(position: Int) {
                 tvwTitleText.text = adapter.getPageTitle(position)
+                imgShare.visibility = if (position == 0) VISIBLE else GONE
             }
         })
 

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/fragment_investment_tvw_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/dinpromedium"
+        android:textColor="@color/light_gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Fundos de investimento" />
+
+    <TextView
+        android:id="@+id/fragment_investment_tvw_fund_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/dinpromedium"
+        android:gravity="center"
+        android:textColor="@color/dark_gray"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_investment_tvw_title"
+        tools:text="Vinci Valorem FI Multimercado" />
+
+    <View
+        android:id="@+id/fragment_investment_view_divier"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="#EFEEED"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_investment_tvw_fund_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/dinprolight"
+        android:scaleX="2"
+        android:scaleY="-1"
+        android:text="^"
+        android:textColor="#EFEEED"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_investment_view_divier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_investment_view_divier"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/fragment_investment_tvw_what_is"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/dinpromedium"
+        android:textColor="@color/light_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fragment_investment_view_divier"
+        tools:text="O que é?" />
+
+    <TextView
+        android:id="@+id/fragment_investment_tvw_definition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/dinproregular"
+        android:gravity="center"
+        android:textColor="@color/light_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_investment_tvw_what_is"
+        tools:text="O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos." />
+
+    <TextView
+        android:id="@+id/fragment_investment_tvw_risk_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/dinpromedium"
+        android:textColor="@color/light_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_investment_tvw_definition"
+        tools:text="Grau de risco do investimento" />
+
+
+</android.support.constraint.ConstraintLayout>
