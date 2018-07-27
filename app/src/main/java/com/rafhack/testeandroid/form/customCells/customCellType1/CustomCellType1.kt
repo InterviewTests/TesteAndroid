@@ -1,4 +1,4 @@
-package com.rafhack.testeandroid.form.customCells
+package com.rafhack.testeandroid.form.customCells.customCellType1
 
 import android.content.Context
 import android.support.constraint.ConstraintLayout
@@ -9,7 +9,6 @@ import android.text.InputFilter
 import android.text.InputType
 import android.text.TextWatcher
 import android.util.AttributeSet
-import android.util.Patterns.EMAIL_ADDRESS
 import android.view.View
 import android.view.View.OnFocusChangeListener
 import android.widget.EditText
@@ -17,16 +16,15 @@ import android.widget.ImageButton
 import com.rafhack.testeandroid.R
 import com.rafhack.testeandroid.data.entities.Cell
 import com.rafhack.testeandroid.data.entities.FieldType
-import java.util.regex.Pattern
 
 
-class CustomCellType1 : ConstraintLayout {
+class CustomCellType1 : ConstraintLayout, CustomCellType1Contract.View {
 
-    private var valid: Boolean = true
-        set(value) = updateErrorState(value)
     var cell: Cell? = null
         set(value) = updateCell(value)
+    private var valid: Boolean = false
     private var fieldType: FieldType = FieldType.TEXT
+    private var presenter = CustomCellType1Presenter(this)
 
     private lateinit var edtText: TextInputEditText
     private lateinit var tilTextInput: TextInputLayout
@@ -42,6 +40,7 @@ class CustomCellType1 : ConstraintLayout {
         val imgDelete = findViewById<ImageButton>(R.id.dynamic_form_cell_type_1_imb_clear)
         tilTextInput = findViewById(R.id.dynamic_form_cell_type_1_til_text_input)
         edtText = findViewById(R.id.dynamic_form_cell_type_1_edit_text)
+
         edtText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
@@ -63,25 +62,12 @@ class CustomCellType1 : ConstraintLayout {
 
     private fun performValidation(s: String) {
         when (fieldType) {
-            FieldType.TEXT -> valid = validateTextField(s)
-            FieldType.EMAIL_ADDRESS -> valid = validateEmailField(s)
-            FieldType.PHONE_NUMBER -> valid = validatePhoneField(s)
+            FieldType.TEXT -> valid = presenter.validateTextField(s)
+            FieldType.EMAIL_ADDRESS -> valid = presenter.validateEmailField(s)
+            FieldType.PHONE_NUMBER -> valid = presenter.validatePhoneField(s)
             else -> {
             }
         }
-    }
-
-    private fun validatePhoneField(string: String): Boolean {
-        return string.isNotEmpty() && Pattern.compile(
-                "[(]\\d{2}[)]\\s\\d{4,5}-\\d{4}").matcher(string).matches()
-    }
-
-    private fun validateTextField(string: String): Boolean {
-        return string.isNotEmpty()
-    }
-
-    private fun validateEmailField(string: String): Boolean {
-        return string.isNotEmpty() && EMAIL_ADDRESS.matcher(string).matches()
     }
 
     private fun updateCell(cell: Cell?) {
@@ -94,9 +80,9 @@ class CustomCellType1 : ConstraintLayout {
         tilTextInput.hint = cell.message
     }
 
-    private fun updateErrorState(value: Boolean) {
+    override fun updateErrorState(valid: Boolean) {
         tilTextInput.error = resources.getString(fieldType.errorMessage)
-        tilTextInput.isErrorEnabled = !value
+        tilTextInput.isErrorEnabled = !valid
     }
 
     inner class PhoneWatcher : TextWatcher {

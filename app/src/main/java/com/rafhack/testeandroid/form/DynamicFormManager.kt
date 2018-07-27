@@ -7,7 +7,7 @@ import android.view.View.VISIBLE
 import android.widget.LinearLayout
 import com.rafhack.testeandroid.data.entities.Cell
 import com.rafhack.testeandroid.data.entities.Type
-import com.rafhack.testeandroid.form.customCells.CustomCellType1
+import com.rafhack.testeandroid.form.customCells.customCellType1.CustomCellType1
 import com.rafhack.testeandroid.form.customCells.CustomCellType2
 import com.rafhack.testeandroid.form.customCells.CustomCellType4
 import com.rafhack.testeandroid.form.customCells.CustomCellType5
