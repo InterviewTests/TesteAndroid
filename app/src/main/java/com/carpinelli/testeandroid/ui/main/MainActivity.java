@@ -4,16 +4,15 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.carpinelli.testeandroid.R;
 import com.carpinelli.testeandroid.ui.form.FormFragment;
-import com.carpinelli.testeandroid.ui.invest.InvestFragment;
+import com.carpinelli.testeandroid.ui.invest.InvestmentFragment;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-
     public class PageViewAdapter extends FragmentPagerAdapter {
 
         public PageViewAdapter(FragmentManager fm) {
@@ -46,10 +44,11 @@ public class MainActivity extends AppCompatActivity{
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new InvestFragment();
+                    return new InvestmentFragment();
                 case 1:
                     return new FormFragment();
             }
+
             return new Fragment();
         }
 

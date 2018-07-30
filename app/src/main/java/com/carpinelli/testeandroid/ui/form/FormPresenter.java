@@ -1,7 +1,6 @@
 package com.carpinelli.testeandroid.ui.form;
 
 import android.util.Log;
-import android.view.View;
 
 import com.carpinelli.testeandroid.service.InvestService;
 import com.carpinelli.testeandroid.service.RetrofitInitializer;
@@ -15,28 +14,28 @@ public class FormPresenter implements MvpForm.Presenter {
 
     private static final String TAG = InvestService.class.getSimpleName();
 
-    private MvpForm.View mvpView;
+    private MvpForm.View formView;
 
-    public FormPresenter(MvpForm.View mvpView) {
-        this.mvpView = mvpView;
+    public FormPresenter(MvpForm.View formView) {
+        this.formView = formView;
     }
 
     @Override
     public void onStart() {
 
-        if (mvpView != null) {
+        if (formView != null) {
             Call<CellSync> call = new RetrofitInitializer().getFormService().getCells();
 
             call.enqueue(new Callback<CellSync>() {
                 @Override
                 public void onResponse(Call<CellSync> call, Response<CellSync> response) {
 
-                    mvpView.onCellsReady(response.body().getCells());
-
+                    formView.onCellsReady(response.body().getCells());
                 }
 
                 @Override
                 public void onFailure(Call<CellSync> call, Throwable t) {
+
                     Log.d(TAG, "onFailure: ");
                 }
             });
@@ -46,10 +45,11 @@ public class FormPresenter implements MvpForm.Presenter {
     }
 
     @Override
-    public View.OnClickListener onSend() {
+    public void onFormCompleted() {
 
-        return null;
+        formView.onSendForm();
     }
+
 
     @Override
     public void onAttach(Object mvpView) {

@@ -1,4 +1,4 @@
-package com.carpinelli.testeandroid.ui.base;
+package com.carpinelli.testeandroid.di;
 
 public class BasePresenter<V extends Mvp> implements Mvp.Presenter<V> {
 

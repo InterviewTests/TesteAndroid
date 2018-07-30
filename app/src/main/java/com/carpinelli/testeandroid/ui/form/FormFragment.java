@@ -12,10 +12,10 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.carpinelli.testeandroid.R;
-import com.carpinelli.testeandroid.model.Cell;
+import com.carpinelli.testeandroid.model.form.Cell;
+import com.carpinelli.testeandroid.util.Mask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,15 +66,13 @@ public class FormFragment extends Fragment implements MvpForm.View {
     @BindView(R.id.tvSendNewMessage)
     TextView tvSendNewMessage;
 
-
-
     private FormPresenter formPresenter;
 
     private List<EditText> requiredFields = new ArrayList<>();
 
     public FormFragment() {
-        this.formPresenter = new FormPresenter(this);
 
+        this.formPresenter = new FormPresenter(this);
     }
 
     @Nullable
@@ -94,29 +92,20 @@ public class FormFragment extends Fragment implements MvpForm.View {
         if (formPresenter != null) {
             formPresenter.onStart();
         }
-
     }
 
     @Override
     public void onCellsReady(List<Cell> cells) {
 
-
         setFormLayout(cells);
 
-
         Log.d(TAG, "onCellsReady: " + cells.size());
-
-    }
-
-
-    @Override
-    public void onFormSucces() {
-
     }
 
     @Override
-    public void onFormFail() {
+    public void onSendForm() {
 
+        openSuccessScreen();
     }
 
     public void setFormLayout(List<Cell> cells) {
@@ -124,7 +113,6 @@ public class FormFragment extends Fragment implements MvpForm.View {
         for (Cell cell : cells) {
 
             setupForm(cell);
-
         }
 
     }
@@ -171,6 +159,7 @@ public class FormFragment extends Fragment implements MvpForm.View {
                 tvTelefone.setText(cell.getMessage());
                 tvTelefone.setVisibility(cell.isHidden() ? View.GONE : VISIBLE);
                 editTelefone.setVisibility(cell.isHidden() ? View.GONE : VISIBLE);
+                editTelefone.addTextChangedListener(Mask.insertPhoneMask(editTelefone));
                 if (cell.isRequired()) {
                     requiredFields.add(editTelefone);
                 }
@@ -182,16 +171,7 @@ public class FormFragment extends Fragment implements MvpForm.View {
                     public void onClick(View v) {
 
                         if (checkFieldsRequired(requiredFields)) {
-
-                            openSuccessScreen();
-
-//                            tvSendNewMessage.setOnClickListener(new View.OnClickListener() {
-//                                @Override
-//                                public void onClick(View v) {
-//                                    openFormScreen();
-//                                }
-//                            });
-
+                            formPresenter.onFormCompleted();
                         }
 
                     }
@@ -201,22 +181,18 @@ public class FormFragment extends Fragment implements MvpForm.View {
     }
 
     private void openSuccessScreen() {
+
         fmForm.setVisibility(View.GONE);
         fmSuccess.setVisibility(View.VISIBLE);
-
-
     }
 
     private void openFormScreen() {
 
         fmSuccess.setVisibility(View.GONE);
-
         fmForm.setVisibility(View.VISIBLE);
-
     }
 
     private boolean checkFieldsRequired(List<EditText> requiredFields) {
-
 
         for (EditText editText : requiredFields) {
 
@@ -230,12 +206,12 @@ public class FormFragment extends Fragment implements MvpForm.View {
         }
 
         return true;
-
     }
 
 
     @OnClick(R.id.tvSendNewMessage)
-    public void onClickSendNewMessage(View view ){
+    public void onClickSendNewMessage(View view) {
+
         openFormScreen();
     }
 

@@ -1,26 +1,18 @@
 package com.carpinelli.testeandroid.ui.invest;
 
-import com.carpinelli.testeandroid.model.Info;
-import com.carpinelli.testeandroid.model.MoreInfo;
-import com.carpinelli.testeandroid.model.Screen;
-import com.carpinelli.testeandroid.ui.base.Mvp;
-
-import java.util.List;
+import com.carpinelli.testeandroid.model.invest.Investment;
+import com.carpinelli.testeandroid.di.Mvp;
 
 public interface MvpInvest {
 
     interface View extends Mvp.View {
 
-        void onScreenReady(Screen screen);
-
+        void onInvestmentReady(Investment investment);
     }
 
     interface Presenter extends Mvp.Presenter {
         
         void onStart();
-
-        android.view.View.OnClickListener onInvestment();
-
     }
 
 }

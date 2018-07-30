@@ -5,8 +5,9 @@
     <color name="colorAccent">#d90202</color>
 
     <color name="colorGrey">#FF8E8E8E</color>
-    <color name="colorGreyLight">#FFCBCBCB</color>
-    <color name="colorGreyDark">#FF212121</color>
+    <color name="colorGreyLight">#ACACAC</color>
+    <color name="colorGreyDark">#7E7E7E</color>
+    <color name="black">#333333</color>
 
 
     <color name="colorGreenLight">#FF74DA61</color>

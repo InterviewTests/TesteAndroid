@@ -1,7 +1,7 @@
 package com.carpinelli.testeandroid.ui.form;
 
-import com.carpinelli.testeandroid.model.Cell;
-import com.carpinelli.testeandroid.ui.base.Mvp;
+import com.carpinelli.testeandroid.model.form.Cell;
+import com.carpinelli.testeandroid.di.Mvp;
 
 import java.util.List;
 
@@ -11,18 +11,14 @@ public interface MvpForm {
 
         void onCellsReady(List<Cell> cells);
 
-        void onFormSucces();
-
-        void onFormFail();
-
+        void onSendForm();
     }
 
     interface Presenter extends Mvp.Presenter {
 
         void onStart();
 
-        android.view.View.OnClickListener onSend();
-
+        void onFormCompleted();
     }
 
 }

@@ -1,4 +1,4 @@
-package com.carpinelli.testeandroid.model;
+package com.carpinelli.testeandroid.model.form;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

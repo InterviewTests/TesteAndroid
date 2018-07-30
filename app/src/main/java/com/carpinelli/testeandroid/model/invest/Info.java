@@ -1,4 +1,4 @@
-package com.carpinelli.testeandroid.model;
+package com.carpinelli.testeandroid.model.invest;
 
 import java.io.Serializable;
 

@@ -1,6 +1,6 @@
 package com.carpinelli.testeandroid.service.dto;
 
-import com.carpinelli.testeandroid.model.Cell;
+import com.carpinelli.testeandroid.model.form.Cell;
 
 import java.util.List;
 

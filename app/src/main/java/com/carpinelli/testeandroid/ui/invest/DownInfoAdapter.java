@@ -9,8 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.carpinelli.testeandroid.R;
-import com.carpinelli.testeandroid.model.DownInfo;
-import com.carpinelli.testeandroid.model.Info;
+import com.carpinelli.testeandroid.model.invest.DownInfo;
 
 import java.util.List;
 

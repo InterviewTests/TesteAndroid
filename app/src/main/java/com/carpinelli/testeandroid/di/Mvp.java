@@ -1,4 +1,4 @@
-package com.carpinelli.testeandroid.ui.base;
+package com.carpinelli.testeandroid.di;
 
 public interface Mvp {
 

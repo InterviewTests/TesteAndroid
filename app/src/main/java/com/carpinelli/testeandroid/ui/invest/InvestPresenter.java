@@ -3,10 +3,9 @@ package com.carpinelli.testeandroid.ui.invest;
 import android.util.Log;
 import android.view.View;
 
-import com.carpinelli.testeandroid.model.Screen;
 import com.carpinelli.testeandroid.service.InvestService;
 import com.carpinelli.testeandroid.service.RetrofitInitializer;
-import com.carpinelli.testeandroid.service.dto.ScreenSync;
+import com.carpinelli.testeandroid.service.dto.InvestmentSync;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,8 +18,8 @@ public class InvestPresenter implements MvpInvest.Presenter {
     private MvpInvest.View mvpView;
 
     public InvestPresenter(MvpInvest.View mvpView) {
-        this.mvpView = mvpView;
 
+        this.mvpView = mvpView;
     }
 
     @Override
@@ -28,35 +27,27 @@ public class InvestPresenter implements MvpInvest.Presenter {
 
         if (mvpView != null) {
 
-            Call<ScreenSync> call = new RetrofitInitializer().getInvestService().getScreen();
+            Call<InvestmentSync> call = new RetrofitInitializer().getInvestService().getInvestment();
 
-            call.enqueue(new Callback<ScreenSync>() {
+            call.enqueue(new Callback<InvestmentSync>() {
                 @Override
-                public void onResponse(Call<ScreenSync> call, Response<ScreenSync> response) {
+                public void onResponse(Call<InvestmentSync> call, Response<InvestmentSync> response) {
 
-                    mvpView.onScreenReady(response.body().getScreen());
-
+                    mvpView.onInvestmentReady(response.body().getInvestment());
                 }
 
                 @Override
-                public void onFailure(Call<ScreenSync> call, Throwable t) {
+                public void onFailure(Call<InvestmentSync> call, Throwable t) {
                     Log.d(TAG, "onFailure: ");
                 }
             });
 
         }
-
-    }
-
-    @Override
-    public View.OnClickListener onInvestment() {
-        return null;
     }
 
     @Override
     public void onAttach(Object mvpView) {
 
     }
-
 
 }

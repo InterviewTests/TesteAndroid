@@ -1,11 +1,11 @@
-package com.carpinelli.testeandroid.model;
+package com.carpinelli.testeandroid.model.invest;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class Screen implements Serializable {
+public class Investment implements Serializable {
 
     private String title;
     private String fundName;
@@ -20,7 +20,7 @@ public class Screen implements Serializable {
     @JsonProperty("downInfo")
     private List<DownInfo> downInfos;
 
-    public Screen() {
+    public Investment() {
     }
 
 

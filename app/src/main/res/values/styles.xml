@@ -20,18 +20,19 @@
     <style name="TextStyleLabel" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/dinprobold</item>
         <item name="android:textSize">15sp</item>
-        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:textColor">@color/colorGreyDark</item>
     </style>
 
     <style name="TextStyleLabelSmall" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/dinprobold</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:textColor">@color/colorGreyDark</item>
     </style>
 
     <style name="TextStyleTitle" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/dinpromedium</item>
         <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="TextStyleContent" parent="TextAppearance.AppCompat">
@@ -54,7 +55,7 @@
     <style name="TextStyleItemContent" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/dinpromedium</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
 

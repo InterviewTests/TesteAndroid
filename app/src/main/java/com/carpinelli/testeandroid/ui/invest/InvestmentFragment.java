@@ -13,18 +13,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.carpinelli.testeandroid.R;
-import com.carpinelli.testeandroid.model.DownInfo;
-import com.carpinelli.testeandroid.model.Info;
-import com.carpinelli.testeandroid.model.Screen;
+import com.carpinelli.testeandroid.model.invest.DownInfo;
+import com.carpinelli.testeandroid.model.invest.Info;
+import com.carpinelli.testeandroid.model.invest.Investment;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class InvestFragment extends Fragment implements MvpInvest.View {
+public class InvestmentFragment extends Fragment implements MvpInvest.View {
 
-    private static final String TAG = InvestFragment.class.getSimpleName();
+    private static final String TAG = InvestmentFragment.class.getSimpleName();
 
     @BindView(R.id.tvTitle)
     TextView tvTitle;
@@ -72,7 +72,7 @@ public class InvestFragment extends Fragment implements MvpInvest.View {
     private InvestPresenter investPresenter;
 
 
-    public InvestFragment() {
+    public InvestmentFragment() {
         investPresenter = new InvestPresenter(this);
     }
 
@@ -97,35 +97,35 @@ public class InvestFragment extends Fragment implements MvpInvest.View {
     }
 
     @Override
-    public void onScreenReady(Screen screen) {
+    public void onInvestmentReady(Investment investment) {
 
-        setInvestInfos(screen);
+        setInvestmentInfo(investment);
 
-        setRisk(screen.getRisk());
+        setRisk(investment.getRisk());
 
-        setRecyclerInfos(screen.getInfos());
+        setRecyclerInfo(investment.getInfos());
 
-        setRecyclerDownInfos(screen.getDownInfos());
+        setRecyclerDownInfo(investment.getDownInfos());
 
     }
 
     @SuppressLint("SetTextI18n")
-    private void setInvestInfos(Screen screen) {
-        tvTitle.setText(screen.getTitle());
-        textFundName.setText(screen.getFundName());
-        tvWhatIs.setText(screen.getWhatIs());
-        tvDefinition.setText(screen.getDefinition());
-        tvRiskTitle.setText(screen.getRiskTitle());
-        tvInfoTitle.setText(screen.getInfoTitle());
+    private void setInvestmentInfo(Investment investment) {
+        tvTitle.setText(investment.getTitle());
+        textFundName.setText(investment.getFundName());
+        tvWhatIs.setText(investment.getWhatIs());
+        tvDefinition.setText(investment.getDefinition());
+        tvRiskTitle.setText(investment.getRiskTitle());
+        tvInfoTitle.setText(investment.getInfoTitle());
 
         // more infos
 
-        tvFundoMes.setText(screen.getMoreInfo().getMonth().getFund() + "%");
-        tvCDIMes.setText(screen.getMoreInfo().getMonth().getCDI() + "%");
-        tvFundoAno.setText(screen.getMoreInfo().getYear().getFund() + "%");
-        tvCDIAno.setText(screen.getMoreInfo().getYear().getFund() + "%");
-        tvFundo12Meses.setText(screen.getMoreInfo().getTwelveMonths().getFund() + "%");
-        tvCDI12Meses.setText(screen.getMoreInfo().getTwelveMonths().getFund() + "%");
+        tvFundoMes.setText(investment.getMoreInfo().getMonth().getFund() + "%");
+        tvCDIMes.setText(investment.getMoreInfo().getMonth().getCDI() + "%");
+        tvFundoAno.setText(investment.getMoreInfo().getYear().getFund() + "%");
+        tvCDIAno.setText(investment.getMoreInfo().getYear().getFund() + "%");
+        tvFundo12Meses.setText(investment.getMoreInfo().getTwelveMonths().getFund() + "%");
+        tvCDI12Meses.setText(investment.getMoreInfo().getTwelveMonths().getFund() + "%");
 
     }
 
@@ -152,14 +152,14 @@ public class InvestFragment extends Fragment implements MvpInvest.View {
     }
 
 
-    public void setRecyclerInfos(List<Info> recyclerInfos) {
+    public void setRecyclerInfo(List<Info> recyclerInfos) {
 
         recyclerViewInfos.setLayoutManager(new GridLayoutManager(getContext(), 1));
         recyclerViewInfos.setAdapter(new InfoAdapter(getContext(), recyclerInfos));
 
     }
 
-    public void setRecyclerDownInfos(List<DownInfo> recyclerInfos) {
+    public void setRecyclerDownInfo(List<DownInfo> recyclerInfos) {
 
         recyclerViewDownInfos.setLayoutManager(new GridLayoutManager(getContext(), 1));
         recyclerViewDownInfos.setAdapter(new DownInfoAdapter(getContext(), recyclerInfos));
