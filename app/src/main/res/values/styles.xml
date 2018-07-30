@@ -1,0 +1,71 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TextStyleField" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:fontFamily">@font/dinprobold</item>
+    </style>
+
+    <style name="TextStyleSubTitle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/dinpromedium</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextStyleLabel" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/dinprobold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorGreyDark</item>
+    </style>
+
+    <style name="TextStyleLabelSmall" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/dinprobold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorGreyDark</item>
+    </style>
+
+    <style name="TextStyleTitle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/dinpromedium</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextStyleContent" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/dinprolight</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextStyleListInfo" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/dinprolight</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/colorGreyLight</item>
+    </style>
+
+    <style name="TextStyleItemTitle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/dinproregular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorGreyLight</item>
+    </style>
+
+    <style name="TextStyleItemContent" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/dinpromedium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+    <style name="TextStyleForm" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/dinpromedium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+    </style>
+
+
+
+
+</resources>

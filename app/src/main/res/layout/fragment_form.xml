@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="60dp">
+
+    <include
+        android:id="@+id/fmForm"
+        layout="@layout/content_fragment_form"
+        android:visibility="visible"/>
+
+    <include
+        android:id="@+id/fmSuccess"
+        layout="@layout/content_fragment_form_success"
+        android:visibility="gone"/>
+
+</LinearLayout>
+
