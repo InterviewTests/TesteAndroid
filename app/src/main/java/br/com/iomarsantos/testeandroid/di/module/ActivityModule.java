@@ -4,6 +4,10 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
 import br.com.iomarsantos.testeandroid.di.ActivityContext;
+import br.com.iomarsantos.testeandroid.di.PerActivity;
+import br.com.iomarsantos.testeandroid.ui.splash.SplashBasePresenter;
+import br.com.iomarsantos.testeandroid.ui.splash.SplashPresenter;
+import br.com.iomarsantos.testeandroid.ui.splash.SplashView;
 import dagger.Module;
 import dagger.Provides;
 import io.reactivex.disposables.CompositeDisposable;
@@ -31,6 +35,13 @@ public class ActivityModule {
     @Provides
     CompositeDisposable provideCompositeDisposable() {
         return new CompositeDisposable();
+    }
+
+    @Provides
+    @PerActivity
+    SplashBasePresenter<SplashView> provideSplashPresenter(
+            SplashPresenter<SplashView> presenter) {
+        return presenter;
     }
 
 }
