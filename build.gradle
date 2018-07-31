@@ -42,10 +42,31 @@ ext {
     // constraint layout
     constraintLayoutVersion = '1.1.2'
 
+    // font
+    calligraphyVersion = '2.3.0'
+
+    // parse
+    jacksonAndroidNetworking = '1.0.0'
+
+    // network
+    rx2FastAndroidNetworking = '1.0.1'
+
+    // dependency injection
+    dagger2Version = '2.16'
+    jsr250ApiVersion = '1.0'
+    javaxInjectVersion = '1'
+
+    // reactive
+    rxjava2Version = '2.0.6'
+    rxandroidVersion = '2.0.2'
+
+    // generator for view
+    butterKnifeVersion = '8.8.1'
 
     //Test dependencies
     junitVersion = '4.12'
     runnerVersion = '1.0.2'
-    espressoCoreVersion = '3.0.2'
+    espressoVersion = '3.0.2'
+    mockitoVersion = '2.7.1'
 
 }
