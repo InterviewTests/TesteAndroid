@@ -39,6 +39,16 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okHTTPVersion"
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 
+    //DI
+    implementation "com.google.dagger:dagger:$rootProject.ext.dagger2_version"
+    implementation "com.google.dagger:dagger-android:$dagger2_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger2_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger2_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger2_version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger2_version"
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+    implementation 'javax.inject:javax.inject:1'
+
 
     //Android support libraries
     implementation "com.android.support:appcompat-v7:$rootProject.ext.appCompatVersion"
