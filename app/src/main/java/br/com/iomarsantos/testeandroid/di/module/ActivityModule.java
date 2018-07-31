@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import br.com.iomarsantos.testeandroid.di.ActivityContext;
 import dagger.Module;
 import dagger.Provides;
+import io.reactivex.disposables.CompositeDisposable;
 
 @Module
 public class ActivityModule {
@@ -25,6 +26,11 @@ public class ActivityModule {
     @Provides
     AppCompatActivity provideActivity() {
         return activity;
+    }
+
+    @Provides
+    CompositeDisposable provideCompositeDisposable() {
+        return new CompositeDisposable();
     }
 
 }
