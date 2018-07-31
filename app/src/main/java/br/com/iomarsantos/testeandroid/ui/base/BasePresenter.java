@@ -12,4 +12,14 @@ public class BasePresenter<V extends BaseView> implements Presenter<V> {
     @Inject
     public BasePresenter() {}
 
+    @Override
+    public void onAttach(V baseView) {
+
+    }
+
+    @Override
+    public void onDetach() {
+
+    }
+
 }

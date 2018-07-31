@@ -5,6 +5,7 @@ package br.com.iomarsantos.testeandroid.ui.base;
  * indicando o tipo BaseView que deseja ser anexado.
  */
 public interface Presenter<V extends BaseView> {
-
+    void onAttach(V baseView);
+    void onDetach();
 }
 
