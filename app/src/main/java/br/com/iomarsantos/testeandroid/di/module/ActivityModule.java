@@ -12,7 +12,7 @@ public class ActivityModule {
 
     private AppCompatActivity activity;
 
-    public ActivityModule(AppCompatActivity appCompatActivity){
+    public ActivityModule(AppCompatActivity appCompatActivity) {
         this.activity = appCompatActivity;
     }
 
