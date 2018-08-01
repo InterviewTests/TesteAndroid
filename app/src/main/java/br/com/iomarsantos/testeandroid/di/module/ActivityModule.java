@@ -8,6 +8,9 @@ import br.com.iomarsantos.testeandroid.di.PerActivity;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoBasePresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoPresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoView;
+import br.com.iomarsantos.testeandroid.ui.fundo.contato.ContatoBasePresenter;
+import br.com.iomarsantos.testeandroid.ui.fundo.contato.ContatoPresenter;
+import br.com.iomarsantos.testeandroid.ui.fundo.contato.ContatoView;
 import br.com.iomarsantos.testeandroid.ui.fundo.investimentos.InvestimentoBasePresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.investimentos.InvestimentoPresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.investimentos.InvestimentoView;
@@ -60,6 +63,12 @@ public class ActivityModule {
     @Provides
     InvestimentoBasePresenter<InvestimentoView> provideInvestimentoPresenter(
             InvestimentoPresenter<InvestimentoView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    ContatoBasePresenter<ContatoView> provideContatoPresenter(
+            ContatoPresenter<ContatoView> presenter) {
         return presenter;
     }
 
