@@ -12,6 +12,9 @@ public class FundoActivity extends BaseActivity implements FundoView {
     @Inject
     FundoBasePresenter<FundoView> mPresenter;
 
+    @Inject
+    FundoPagerAdapter fundoPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
