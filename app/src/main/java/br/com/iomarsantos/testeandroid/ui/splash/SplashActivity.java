@@ -26,6 +26,9 @@ public class SplashActivity extends BaseActivity implements SplashView {
     }
 
     @Override
+    protected void setup() {}
+
+    @Override
     protected void onDestroy() {
         mPresenter.onDetach();
         super.onDestroy();
