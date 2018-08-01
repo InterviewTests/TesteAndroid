@@ -8,6 +8,9 @@ import br.com.iomarsantos.testeandroid.di.PerActivity;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoBasePresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoPresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoView;
+import br.com.iomarsantos.testeandroid.ui.fundo.investimentos.InvestimentoBasePresenter;
+import br.com.iomarsantos.testeandroid.ui.fundo.investimentos.InvestimentoPresenter;
+import br.com.iomarsantos.testeandroid.ui.fundo.investimentos.InvestimentoView;
 import br.com.iomarsantos.testeandroid.ui.splash.SplashBasePresenter;
 import br.com.iomarsantos.testeandroid.ui.splash.SplashPresenter;
 import br.com.iomarsantos.testeandroid.ui.splash.SplashView;
@@ -51,6 +54,12 @@ public class ActivityModule {
     @PerActivity
     FundoBasePresenter<FundoView> provideFundoPresenter(
             FundoPresenter<FundoView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    InvestimentoBasePresenter<InvestimentoView> provideInvestimentoPresenter(
+            InvestimentoPresenter<InvestimentoView> presenter) {
         return presenter;
     }
 
