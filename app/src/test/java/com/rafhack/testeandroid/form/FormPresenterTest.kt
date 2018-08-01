@@ -14,6 +14,7 @@ import org.mockito.Mockito
 import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
+import javax.inject.Inject
 
 @RunWith(MockitoJUnitRunner::class)
 class FormPresenterTest {
@@ -22,14 +23,13 @@ class FormPresenterTest {
     private val view: FormContract.View? = null
     @Mock
     private val interactor: FormInteractor? = null
-    private lateinit var presenter: FormPresenter
+    @Inject lateinit var presenter: FormPresenter
 
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
         RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
         RxJavaPlugins.setIoSchedulerHandler { Schedulers.trampoline() }
-        presenter = FormPresenter(view!!)
         presenter.interactor = interactor!!
     }
 

@@ -28,7 +28,8 @@ class InvestmentPresenterTest {
         MockitoAnnotations.initMocks(this)
         RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
         RxJavaPlugins.setIoSchedulerHandler { Schedulers.trampoline() }
-        presenter = InvestmentPresenter(view!!)
+        presenter = InvestmentPresenter()
+        presenter.attach(view!!)
         presenter.interactor = interactor!!
     }
 

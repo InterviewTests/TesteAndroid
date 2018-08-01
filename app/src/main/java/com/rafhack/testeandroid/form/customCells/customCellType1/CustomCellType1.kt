@@ -16,6 +16,9 @@ import android.widget.ImageButton
 import com.rafhack.testeandroid.R
 import com.rafhack.testeandroid.data.entities.form.Cell
 import com.rafhack.testeandroid.data.entities.form.FieldType
+import com.rafhack.testeandroid.di.component.DaggerFragmentComponent
+import com.rafhack.testeandroid.di.module.FragmentModule
+import javax.inject.Inject
 
 
 class CustomCellType1 : ConstraintLayout, CustomCellType1Contract.View {
@@ -24,7 +27,8 @@ class CustomCellType1 : ConstraintLayout, CustomCellType1Contract.View {
         set(value) = updateCell(value)
     var isValid: Boolean = false
     private var fieldType: FieldType = FieldType.TEXT
-    private var presenter = CustomCellType1Presenter(this)
+    @Inject
+    lateinit var presenter: CustomCellType1Presenter
 
     lateinit var edtText: TextInputEditText
     private lateinit var tilTextInput: TextInputLayout
@@ -32,6 +36,10 @@ class CustomCellType1 : ConstraintLayout, CustomCellType1Contract.View {
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        DaggerFragmentComponent.builder()
+                .fragmentModule(FragmentModule())
+                .build().inject(this)
+        presenter.attach(this)
         setupView()
     }
 
