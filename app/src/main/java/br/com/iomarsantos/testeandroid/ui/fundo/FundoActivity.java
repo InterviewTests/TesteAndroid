@@ -27,6 +27,11 @@ public class FundoActivity extends BaseActivity implements FundoView {
     }
 
     @Override
+    protected void setup() {
+
+    }
+
+    @Override
     protected void onDestroy() {
         mPresenter.onDetach();
         super.onDestroy();

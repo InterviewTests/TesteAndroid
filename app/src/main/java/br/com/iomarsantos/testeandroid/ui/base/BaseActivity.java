@@ -26,4 +26,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         return mActivityComponent;
     }
 
+    protected abstract void setup();
+
 }
