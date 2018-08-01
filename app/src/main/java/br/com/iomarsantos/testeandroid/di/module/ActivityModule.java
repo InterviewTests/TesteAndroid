@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import br.com.iomarsantos.testeandroid.di.ActivityContext;
 import br.com.iomarsantos.testeandroid.di.PerActivity;
+import br.com.iomarsantos.testeandroid.ui.fundo.FundoBasePresenter;
+import br.com.iomarsantos.testeandroid.ui.fundo.FundoPresenter;
+import br.com.iomarsantos.testeandroid.ui.fundo.FundoView;
 import br.com.iomarsantos.testeandroid.ui.splash.SplashBasePresenter;
 import br.com.iomarsantos.testeandroid.ui.splash.SplashPresenter;
 import br.com.iomarsantos.testeandroid.ui.splash.SplashView;
@@ -41,6 +44,13 @@ public class ActivityModule {
     @PerActivity
     SplashBasePresenter<SplashView> provideSplashPresenter(
             SplashPresenter<SplashView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    FundoBasePresenter<FundoView> provideFundoPresenter(
+            FundoPresenter<FundoView> presenter) {
         return presenter;
     }
 
