@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import br.com.iomarsantos.testeandroid.di.ActivityContext;
 import br.com.iomarsantos.testeandroid.di.PerActivity;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoBasePresenter;
+import br.com.iomarsantos.testeandroid.ui.fundo.FundoPagerAdapter;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoPresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoView;
 import br.com.iomarsantos.testeandroid.ui.fundo.contato.ContatoBasePresenter;
@@ -64,6 +65,11 @@ public class ActivityModule {
     InvestimentoBasePresenter<InvestimentoView> provideInvestimentoPresenter(
             InvestimentoPresenter<InvestimentoView> presenter) {
         return presenter;
+    }
+
+    @Provides
+    FundoPagerAdapter provideFundoPagerAdapter(AppCompatActivity activity) {
+        return new FundoPagerAdapter(activity.getSupportFragmentManager());
     }
 
     @Provides
