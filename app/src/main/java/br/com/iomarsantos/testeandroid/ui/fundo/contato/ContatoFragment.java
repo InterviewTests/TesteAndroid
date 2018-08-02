@@ -33,7 +33,7 @@ public class ContatoFragment extends BaseFragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_investimento, container, false);
+        View view = inflater.inflate(R.layout.fragment_contato, container, false);
         ActivityComponent component = getActivityComponent();
         if (component != null) {
             component.inject(this);
