@@ -13,4 +13,10 @@ public class FundoPresenter<V extends FundoView> extends BasePresenter<V>
         super(compositeDisposable);
     }
 
+    @Override
+    public void onAttach(V view) {
+        super.onAttach(view);
+        getView().setup();
+    }
+
 }
