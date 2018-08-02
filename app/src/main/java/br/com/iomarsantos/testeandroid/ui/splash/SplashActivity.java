@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import br.com.iomarsantos.testeandroid.R;
 import br.com.iomarsantos.testeandroid.ui.base.BaseActivity;
+import br.com.iomarsantos.testeandroid.ui.fundo.FundoActivity;
 
 public class SplashActivity extends BaseActivity implements SplashView {
 
@@ -26,7 +27,11 @@ public class SplashActivity extends BaseActivity implements SplashView {
     }
 
     @Override
-    protected void setup() {}
+    public void openFundoActivity() {
+        Intent intent = FundoActivity.getStartIntent(SplashActivity.this);
+        startActivity(intent);
+        finish();
+    }
 
     @Override
     protected void onDestroy() {

@@ -13,4 +13,11 @@ public class SplashPresenter<V extends SplashView> extends BasePresenter<V>
         super(compositeDisposable);
     }
 
+    @Override
+    public void onAttach(V view) {
+        super.onAttach(view);
+        getView().openFundoActivity();
+    }
+
+
 }
