@@ -3,6 +3,7 @@ package br.com.iomarsantos.testeandroid.ui.base;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
@@ -41,6 +42,24 @@ public abstract class BaseFragment extends Fragment implements BaseView {
 
     public BaseActivity getBaseActivity() {
         return mActivity;
+    }
+
+    @Override
+    public void setup() {
+    }
+
+    @Override
+    public void setTitleActivity(@StringRes int resId) {
+        if (mActivity != null) {
+            mActivity.setTitleActivity(resId);
+        }
+    }
+
+    @Override
+    public void setTitleActivity(String title) {
+        if (mActivity != null) {
+            mActivity.setTitleActivity(title);
+        }
     }
 
 }
