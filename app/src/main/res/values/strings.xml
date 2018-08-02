@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">TesteAndroid</string>
+
+    <!--inicio fundo-->
+        <!--investimeto-->
+        <string name="investimento_titulo">Investimento</string>
+
+        <!--contato-->
+        <string name="contato_titulo">Contato</string>
+    <!--fim fundo-->
+
+
 </resources>
