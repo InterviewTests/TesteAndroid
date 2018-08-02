@@ -2,6 +2,7 @@ package br.com.iomarsantos.testeandroid.ui.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 
 import br.com.iomarsantos.testeandroid.TesteAndroidApp;
@@ -41,6 +42,13 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         super.onDestroy();
     }
 
-    protected abstract void setup();
+    @Override
+    public void setup() {}
+
+    @Override
+    public void setTitleActivity(@StringRes int resId) {}
+
+    @Override
+    public void setTitleActivity(String titulo) {}
 
 }
