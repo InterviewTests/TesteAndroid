@@ -1,5 +1,6 @@
 package br.com.iomarsantos.testeandroid.ui.fundo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -98,6 +99,7 @@ public class FundoActivity extends BaseActivity implements FundoView {
     private void configureTabLayout() {
         mTabLayout.addTab(mTabLayout.newTab().setText(getString(R.string.investimento_titulo)));
         mTabLayout.addTab(mTabLayout.newTab().setText(getString(R.string.contato_titulo)));
+        mTabLayout.setSelected(true);
     }
 
     private void configureAdapter() {
@@ -126,6 +128,11 @@ public class FundoActivity extends BaseActivity implements FundoView {
     @Override
     public void setTitleActivity(int resIdTitle) {
         this.mToolbar.setTitle(resIdTitle);
+    }
+
+    @Override
+    public Activity getActivity() {
+        return this;
     }
 
     @Override
