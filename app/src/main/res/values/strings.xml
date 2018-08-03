@@ -1,12 +1,26 @@
 <resources>
     <string name="app_name">TesteAndroid</string>
 
-    <!--inicio fundo-->
-        <!--investimeto-->
-        <string name="investimento_titulo">Investimento</string>
+    <!--App Message-->
+    <string name="msg_api_retry_error">Por favor tente novamente!</string>
+    <string name="msg_api_error">Aconteceu algo de errado!</string>
+    <string name="msg_error">Algum erro ocorreu!</string>
+    <string name="msg_connection_error">Conexão com a Internet perdida!</string>
+    <string name="msg_empty_no_result_found">Nenhum resultado encontrado.</string>
 
-        <!--contato-->
-        <string name="contato_titulo">Contato</string>
+    <!--inicio fundo-->
+    <!--investimeto-->
+    <string name="investimento_titulo">Investimento</string>
+
+    <!--inicio contato-->
+    <string name="contato_titulo">Contato</string>
+    <string name="contato_enviar_nova_mensagem">Enviar nova mensagem</string>
+    <string name="contato_mensagem_enviada_com_sucess">Mensagem enviada com sucesso :)</string>
+    <string name="contato_obrigado">Obrigado!</string>
+    <string name="contato_image_campo">Apagar campo!</string>
+    <!--fim contato-->
+
+
     <!--fim fundo-->
 
 
