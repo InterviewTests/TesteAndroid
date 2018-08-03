@@ -4,6 +4,12 @@ package br.com.iomarsantos.testeandroid.di.module;
 import android.app.Application;
 import android.content.Context;
 
+import javax.inject.Singleton;
+
+import br.com.iomarsantos.testeandroid.data.AppRepository;
+import br.com.iomarsantos.testeandroid.data.Repository;
+import br.com.iomarsantos.testeandroid.data.network.Api;
+import br.com.iomarsantos.testeandroid.data.network.AppApi;
 import br.com.iomarsantos.testeandroid.di.ApplicationContext;
 import dagger.Module;
 import dagger.Provides;
@@ -26,6 +32,18 @@ public class ApplicationModule {
     @Provides
     Application provideApplication() {
         return mApplication;
+    }
+
+    @Provides
+    @Singleton
+    Repository provideRepository(AppRepository appRepository) {
+        return appRepository;
+    }
+
+    @Provides
+    @Singleton
+    Api provideApiHelper(AppApi appApi) {
+        return appApi;
     }
 
 }
