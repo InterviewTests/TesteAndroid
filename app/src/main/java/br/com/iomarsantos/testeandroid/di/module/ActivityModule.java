@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import br.com.iomarsantos.testeandroid.di.ActivityContext;
 import br.com.iomarsantos.testeandroid.di.PerActivity;
+import br.com.iomarsantos.testeandroid.ui.base.rx.SchedulerProvider;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoBasePresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoPagerAdapter;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoPresenter;
@@ -18,6 +19,7 @@ import br.com.iomarsantos.testeandroid.ui.fundo.investimentos.InvestimentoView;
 import br.com.iomarsantos.testeandroid.ui.splash.SplashBasePresenter;
 import br.com.iomarsantos.testeandroid.ui.splash.SplashPresenter;
 import br.com.iomarsantos.testeandroid.ui.splash.SplashView;
+import br.com.iomarsantos.testeandroid.ui.base.rx.AppSchedulerProvider;
 import dagger.Module;
 import dagger.Provides;
 import io.reactivex.disposables.CompositeDisposable;
@@ -45,6 +47,11 @@ public class ActivityModule {
     @Provides
     CompositeDisposable provideCompositeDisposable() {
         return new CompositeDisposable();
+    }
+
+    @Provides
+    SchedulerProvider provideSchedulerProvider() {
+        return new AppSchedulerProvider();
     }
 
     @Provides
