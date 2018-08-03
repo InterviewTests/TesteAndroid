@@ -12,8 +12,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://floating-mountain-50292.herokuapp.com/\"")
+        }
         release {
             minifyEnabled false
+            buildConfigField("String", "BASE_URL", "\"https://floating-mountain-50292.herokuapp.com/\"")
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
