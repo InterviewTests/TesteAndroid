@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -20,9 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:elevation="0dp"
             android:paddingEnd="15dp"
             android:paddingRight="15dp"
-            android:elevation="0dp"
             app:subtitleTextColor="@color/gray_333333"
             app:title="Contato"
             app:titleTextAppearance="@style/Toolbar.TitleText"
