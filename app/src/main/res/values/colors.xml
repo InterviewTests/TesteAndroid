@@ -5,9 +5,12 @@
     <color name="colorAccent">@color/gray_777777</color>
     <color name="white">#ffffff</color>
     <color name="red">#DA0101</color>
+    <color name="red_EB7676">#EB7676</color>
 
     <color name="gray_333333">#333333</color>
     <color name="gray_777777">#777777</color>
+    <color name="gray_ACACAC">#ACACAC</color>
+    <color name="gray_7E7E7E">#7E7E7E</color>
 
     <color name="tab_background_selected">#ce0603</color>
     <color name="tab_background_unselected">@color/red</color>
