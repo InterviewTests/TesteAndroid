@@ -1,21 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fadingEdgeLength="0dp"
+    android:fillViewport="true"
+    android:overScrollMode="never">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Investimentos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_investimento"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/text_view_investimento_titulo"
+            style="@style/TextStyle.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textColor="@color/gray_7E7E7E"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="titulo" />
+
+        <TextView
+            android:id="@+id/text_view_investimento_nome_fundo"
+            style="@style/TextStyle.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textColor="@color/gray_333333"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_investimento_titulo"
+            tools:text="Nome Fundo" />
+
+        <View
+            android:id="@+id/divider_investimento_um"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="32dp"
+            android:background="@color/gray_EFEEED"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_investimento_nome_fundo" />
+
+        <TextView
+            android:id="@+id/text_view_investimento_o_que"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textColor="@color/gray_7E7E7E"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_investimento_um"
+            tools:text="O Que" />
+
+        <TextView
+            android:id="@+id/text_view_investimento_definicao"
+            style="@style/TextStyle.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/gray_7E7E7E"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_investimento_o_que"
+            tools:text="Definicao" />
+
+        <br.com.iomarsantos.testeandroid.ui.fundo.views.risk.RiskView
+            android:id="@+id/risk_view_investimento_degree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_investimento_definicao" />
+
+        <TextView
+            android:id="@+id/text_view_investimento_info_titulo"
+            style="@style/TextStyle.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:textColor="@color/gray_7E7E7E"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/risk_view_investimento_degree"
+            tools:text="infoTitle" />
+
+        <br.com.iomarsantos.testeandroid.ui.fundo.views.info.MoreInformationInvestmentView
+            android:id="@+id/investiment_view_more_info_investment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_investimento_info_titulo" />
+
+        <View
+            android:id="@+id/divider_investimento_dois"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/gray_EFEEED"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/investiment_view_more_info_investment" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_investimento_more_informations"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:clipToPadding="true"
+            android:scrollbars="vertical"
+            app:layout_constraintEnd_toEndOf="@+id/divider_investimento_dois"
+            app:layout_constraintStart_toStartOf="@+id/divider_investimento_dois"
+            app:layout_constraintTop_toBottomOf="@+id/divider_investimento_dois" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_investimento_downinfo_more_informations"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clipToPadding="true"
+            android:scrollbars="vertical"
+            app:layout_constraintEnd_toEndOf="@+id/recycler_view_investimento_more_informations"
+            app:layout_constraintStart_toStartOf="@+id/recycler_view_investimento_more_informations"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_investimento_more_informations" />
+
+        <Button
+            android:id="@+id/button_investimento_investir"
+            style="@style/TextStyle.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn_send_selector"
+            android:text="@string/investimento_acao_investir"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_investimento_downinfo_more_informations"
+            app:layout_constraintVertical_bias="0.70" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
