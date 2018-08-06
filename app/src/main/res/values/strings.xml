@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">InvestApp</string>
+    <string name="validator_starndard_txt_field_required">O campo deve ser `Preenchido</string>
+    <string name="form_txt_error_email">Digite um e-mail Válido</string>
+    <string name="form_txt_error_phone">O telefone deve ter entre 10 e 11 digitos</string>
+</resources>
