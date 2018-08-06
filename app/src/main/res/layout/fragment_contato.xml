@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_contato"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="true"
     android:animateLayoutChanges="true"
+    android:focusable="true"
     android:focusableInTouchMode="true">
 
     <ViewFlipper
@@ -38,7 +38,8 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/text_view_contato_titulo"
+                style="@style/TextStyle.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
@@ -55,7 +56,8 @@
                 app:layout_constraintVertical_bias="0.30" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/text_view_contato_mensagem"
+                style="@style/TextStyle.Medium"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
@@ -66,10 +68,11 @@
                 android:textSize="28sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toBottomOf="@+id/text_view_contato_titulo" />
 
             <Button
                 android:id="@+id/button_contato_new_message"
+                style="@style/TextStyle.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
@@ -83,7 +86,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_contato_mensagem"
                 app:layout_constraintVertical_bias="0.70" />
 
         </android.support.constraint.ConstraintLayout>
