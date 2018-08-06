@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:animateLayoutChanges="true">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
         app:elevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,21 +21,25 @@
             style="@style/Toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:animateLayoutChanges="true"
             android:elevation="0dp"
-            android:paddingEnd="15dp"
-            android:paddingRight="15dp"
+            android:paddingEnd="16dp"
+            android:paddingRight="16dp"
             app:subtitleTextColor="@color/gray_333333"
-            app:title="Contato"
             app:titleTextAppearance="@style/Toolbar.TitleText"
-            app:titleTextColor="@color/gray_333333" />
+            app:titleTextColor="@color/gray_333333">
+
+            <include android:id="@+id/actionBar" layout="@layout/custom_toolbar_layout"/>
+
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.view.ViewPager
+   <android.support.v4.view.ViewPager
         android:id="@+id/view_pager_fundo_tabs"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:animateLayoutChanges="true"
         android:background="@color/white"
         android:clipToPadding="false"
         app:layout_constraintBottom_toTopOf="@+id/tab_layout"
@@ -47,9 +52,11 @@
         style="@style/TabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways"
         app:tabBackground="@drawable/tab_background_color_selector"
         app:tabGravity="fill"
         app:tabIndicator="@color/tab_indicator_color"
