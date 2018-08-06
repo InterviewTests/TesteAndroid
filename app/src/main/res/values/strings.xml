@@ -9,8 +9,19 @@
     <string name="msg_empty_no_result_found">Nenhum resultado encontrado.</string>
 
     <!--inicio fundo-->
+    <string name="fundo_content_description">Compartilhamento</string>
+
     <!--investimeto-->
     <string name="investimento_titulo">Investimento</string>
+    <string name="investimento_fundo">Fundo</string>
+    <string name="investimento_cdi">CDI</string>
+    <string name="investimento_no_mes">No mês</string>
+    <string name="investimento_no_ano">No Ano</string>
+    <string name="investimento_12_meses">12 meses</string>
+    <string name="investimento_baixar">Baixar</string>
+
+    <string name="investimento_acao_investir">Investir</string>
+    <!-- fim investimeto-->
 
     <!--inicio contato-->
     <string name="contato_titulo">Contato</string>
@@ -18,6 +29,7 @@
     <string name="contato_mensagem_enviada_com_sucess">Mensagem enviada com sucesso :)</string>
     <string name="contato_obrigado">Obrigado!</string>
     <string name="contato_image_campo">Apagar campo!</string>
+    <string name="contato_enviar">Enviar</string>
     <!--fim contato-->
 
 
