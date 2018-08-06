@@ -1,6 +1,7 @@
 package br.com.iomarsantos.testeandroid.ui.fundo.contato;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.androidnetworking.error.ANError;
 
@@ -38,6 +39,11 @@ public class ContatoPresenter<V extends ContatoView> extends BasePresenter<V>
                         if (!isViewAttached()) {
                             return;
                         }
+
+                        if (cellResponse.getCells() != null && !cellResponse.getCells().isEmpty()) {
+                            getView().createViews(cellResponse.getCells());
+                        }
+
                         getView().hideLoading();
                     }
                 }, new Consumer<Throwable>() {
