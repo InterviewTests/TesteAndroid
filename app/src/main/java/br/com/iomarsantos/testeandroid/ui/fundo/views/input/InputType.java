@@ -1,11 +1,7 @@
 package br.com.iomarsantos.testeandroid.ui.fundo.views.input;
 
-import javax.inject.Inject;
-
 import br.com.iomarsantos.testeandroid.entity.Cell;
 import br.com.iomarsantos.testeandroid.entity.TypeField;
-import br.com.iomarsantos.testeandroid.ui.fundo.contato.ContatoBasePresenter;
-import br.com.iomarsantos.testeandroid.ui.fundo.contato.ContatoView;
 
 public class InputType {
 
