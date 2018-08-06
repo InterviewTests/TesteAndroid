@@ -30,7 +30,8 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:support-vector-drawable:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:animated-vector-drawable:$rootProject.supportLibraryVersion"
 
     // constraint-layout
     implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
@@ -77,3 +78,8 @@ configurations.all {
     resolutionStrategy.force "com.android.support:support-annotations:$supportLibraryVersion"
 }
 
+
+// Log test results to console
+tasks.matching {it instanceof Test}.all {
+    testLogging.events = ["failed", "passed", "skipped"]
+}
