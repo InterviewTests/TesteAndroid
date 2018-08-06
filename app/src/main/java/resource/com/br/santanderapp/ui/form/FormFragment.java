@@ -47,7 +47,7 @@ public class FormFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.contats_fragment, container, false);
+        View root = inflater.inflate(R.layout.form_fragment, container, false);
 
 
 

@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form);
+        setContentView(R.layout.activity_main);
 
         final Toolbar toolbar = findViewById(R.id.toobar_fragment);
         final TextView txtTitleToolbar = findViewById(R.id.toolbar_title);
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new SuccessFragment(viewPager));
 
         viewPager.setAdapter(adapter);
+        viewPager.beginFakeDrag();
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
