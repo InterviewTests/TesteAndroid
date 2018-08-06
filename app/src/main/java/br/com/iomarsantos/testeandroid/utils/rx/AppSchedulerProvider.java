@@ -1,4 +1,4 @@
-package br.com.iomarsantos.testeandroid.ui.base.rx;
+package br.com.iomarsantos.testeandroid.utils.rx;
 
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
