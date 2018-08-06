@@ -2,10 +2,14 @@ package br.com.iomarsantos.testeandroid.di.module;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+
+import java.util.ArrayList;
 
 import br.com.iomarsantos.testeandroid.di.ActivityContext;
 import br.com.iomarsantos.testeandroid.di.PerActivity;
-import br.com.iomarsantos.testeandroid.ui.base.rx.SchedulerProvider;
+import br.com.iomarsantos.testeandroid.entity.DownInfo;
+import br.com.iomarsantos.testeandroid.entity.Info;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoBasePresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoPagerAdapter;
 import br.com.iomarsantos.testeandroid.ui.fundo.FundoPresenter;
@@ -13,13 +17,16 @@ import br.com.iomarsantos.testeandroid.ui.fundo.FundoView;
 import br.com.iomarsantos.testeandroid.ui.fundo.contato.ContatoBasePresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.contato.ContatoPresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.contato.ContatoView;
+import br.com.iomarsantos.testeandroid.ui.fundo.investimentos.DownInfoAdapter;
+import br.com.iomarsantos.testeandroid.ui.fundo.investimentos.InfoAdapter;
 import br.com.iomarsantos.testeandroid.ui.fundo.investimentos.InvestimentoBasePresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.investimentos.InvestimentoPresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.investimentos.InvestimentoView;
 import br.com.iomarsantos.testeandroid.ui.splash.SplashBasePresenter;
 import br.com.iomarsantos.testeandroid.ui.splash.SplashPresenter;
 import br.com.iomarsantos.testeandroid.ui.splash.SplashView;
-import br.com.iomarsantos.testeandroid.ui.base.rx.AppSchedulerProvider;
+import br.com.iomarsantos.testeandroid.utils.rx.AppSchedulerProvider;
+import br.com.iomarsantos.testeandroid.utils.rx.SchedulerProvider;
 import dagger.Module;
 import dagger.Provides;
 import io.reactivex.disposables.CompositeDisposable;
@@ -62,7 +69,6 @@ public class ActivityModule {
     }
 
     @Provides
-    @PerActivity
     FundoBasePresenter<FundoView> provideFundoPresenter(
             FundoPresenter<FundoView> presenter) {
         return presenter;
@@ -77,6 +83,21 @@ public class ActivityModule {
     @Provides
     FundoPagerAdapter provideFundoPagerAdapter(AppCompatActivity activity) {
         return new FundoPagerAdapter(activity.getSupportFragmentManager());
+    }
+
+    @Provides
+    InfoAdapter provideInfoAdapter() {
+        return new InfoAdapter(new ArrayList<Info>());
+    }
+
+    @Provides
+    DownInfoAdapter provideDownInfoAdapter() {
+        return new DownInfoAdapter(new ArrayList<DownInfo>());
+    }
+
+    @Provides
+    LinearLayoutManager provideLinearLayoutManager(AppCompatActivity activity) {
+        return new LinearLayoutManager(activity);
     }
 
     @Provides
