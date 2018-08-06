@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/text_view_investimento_titulo_risco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textColor="@color/gray_7E7E7E"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Grau Risco" />
+
+    <br.com.iomarsantos.testeandroid.ui.fundo.views.risk.DegreeRiskView
+        android:id="@+id/degree_risk_view_investimento_one"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:customBackground="@drawable/shape_risk_left"
+        app:layout_constraintEnd_toStartOf="@+id/degree_risk_view_investimento_two"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_investimento_titulo_risco" />
+
+    <br.com.iomarsantos.testeandroid.ui.fundo.views.risk.DegreeRiskView
+        android:id="@+id/degree_risk_view_investimento_two"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="16dp"
+        app:customBackground="@color/degree_risk_4AC16C"
+        app:layout_constraintEnd_toStartOf="@+id/degree_risk_view_investimento_three"
+        app:layout_constraintStart_toEndOf="@id/degree_risk_view_investimento_one"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_investimento_titulo_risco" />
+
+    <br.com.iomarsantos.testeandroid.ui.fundo.views.risk.DegreeRiskView
+        android:id="@+id/degree_risk_view_investimento_three"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="16dp"
+        app:customBackground="@color/degree_risk_FFC011"
+        app:layout_constraintEnd_toStartOf="@+id/degree_risk_view_investimento_four"
+        app:layout_constraintStart_toEndOf="@id/degree_risk_view_investimento_two"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_investimento_titulo_risco" />
+
+    <br.com.iomarsantos.testeandroid.ui.fundo.views.risk.DegreeRiskView
+        android:id="@+id/degree_risk_view_investimento_four"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="16dp"
+        app:customBackground="@color/degree_risk_FF742C"
+        app:layout_constraintEnd_toStartOf="@+id/degree_risk_view_investimento_five"
+        app:layout_constraintStart_toEndOf="@id/degree_risk_view_investimento_three"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_investimento_titulo_risco" />
+
+
+    <br.com.iomarsantos.testeandroid.ui.fundo.views.risk.DegreeRiskView
+        android:id="@+id/degree_risk_view_investimento_five"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="16dp"
+        app:customBackground="@drawable/shape_risk_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/degree_risk_view_investimento_four"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_investimento_titulo_risco" />
+
+</android.support.constraint.ConstraintLayout>
