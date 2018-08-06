@@ -1,14 +1,11 @@
 package br.com.iomarsantos.testeandroid.ui.fundo.contato;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.TranslateAnimation;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -21,8 +18,13 @@ import javax.inject.Inject;
 
 import br.com.iomarsantos.testeandroid.R;
 import br.com.iomarsantos.testeandroid.di.component.ActivityComponent;
+import br.com.iomarsantos.testeandroid.entity.Cell;
+import br.com.iomarsantos.testeandroid.entity.TypeField;
 import br.com.iomarsantos.testeandroid.formatter.PhoneFormat;
 import br.com.iomarsantos.testeandroid.ui.base.BaseFragment;
+import br.com.iomarsantos.testeandroid.ui.fundo.views.cell.CellType;
+import br.com.iomarsantos.testeandroid.ui.fundo.views.cell.CellView;
+import br.com.iomarsantos.testeandroid.utils.ViewUtils;
 import br.com.iomarsantos.testeandroid.validator.DefaultValidation;
 import br.com.iomarsantos.testeandroid.validator.ValidEmail;
 import br.com.iomarsantos.testeandroid.validator.ValidPhone;
@@ -76,16 +78,55 @@ public class ContatoFragment extends BaseFragment implements
     }
 
     @Override
-    public void setup() {
+    protected void setUp(View view) {
         mPresenter.findAllCellsApiCall();
     }
 
-    @Override
     public void addView(View view) {
         this.layoutContainer.addView(view);
     }
 
     @Override
+    public void createViews(List<Cell> cells) {
+        for (Cell cell : cells) {
+            CellView cellView = new CellType().get(cell, this);
+            if (cellView != null) {
+                View view = cellView.getView();
+                addView(view);
+                configureMargin(cell, cellView);
+                configureFields(cell, view, cellView);
+            }
+        }
+    }
+
+
+    private void configureFields(Cell cell, View view, CellView cellView) {
+        String typefield = cell.getTypefield();
+        if (typefield != null) {
+            switch (typefield) {
+                case TypeField.TEXT:
+                    configureTextField(view);
+                    break;
+                case TypeField.PHONE_NUMBER:
+                    configuraPhoneField(view);
+                    break;
+                case TypeField.EMAIL:
+                    configureEmailField(view);
+                    break;
+            }
+        }
+    }
+
+    private void configureMargin(Cell cell, CellView cellView) {
+        LinearLayout.LayoutParams viewLayoutParams = (LinearLayout.LayoutParams) cellView.getView().getLayoutParams();
+        viewLayoutParams.topMargin = getMargin(cell);
+        cellView.getView().setLayoutParams(viewLayoutParams);
+    }
+
+    private int getMargin(Cell cell) {
+        return ViewUtils.dpToPx(cell.getTopSpacing());
+    }
+
     public void configureEmailField(View view) {
         this.cellTypeFieldEmailView = view;
         TextInputLayout textInputEmail = view.findViewById(R.id.text_input_layout_cell_type_field);
@@ -101,7 +142,6 @@ public class ContatoFragment extends BaseFragment implements
         });
     }
 
-    @Override
     public void configuraPhoneField(View view) {
         TextInputLayout textInputPhone = view.findViewById(R.id.text_input_layout_cell_type_field);
         phoneField = textInputPhone.getEditText();
@@ -111,9 +151,9 @@ public class ContatoFragment extends BaseFragment implements
         phoneField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                String telefoneComDdd = phoneField.getText().toString();
+                String phone = phoneField.getText().toString();
                 if (hasFocus) {
-                    String phoneWithNoFormat = formatter.remove(telefoneComDdd);
+                    String phoneWithNoFormat = formatter.remove(phone);
                     phoneField.setText(phoneWithNoFormat);
                 } else {
                     validator.isValid();
@@ -122,7 +162,6 @@ public class ContatoFragment extends BaseFragment implements
         });
     }
 
-    @Override
     public void configureTextField(View view) {
         TextInputLayout textInputName = view.findViewById(R.id.text_input_layout_cell_type_field);
         textField = textInputName.getEditText();
@@ -133,9 +172,9 @@ public class ContatoFragment extends BaseFragment implements
     @Override
     public void visibilityForCellTypeFieldEmailView(final int visibility, CheckBox checkBox) {
         this.checkBoxEmail = checkBox;
-        if (visibility == View.GONE){
+        if (visibility == View.GONE) {
             validators.remove(validEmail);
-        }else {
+        } else {
             validators.add(validEmail);
         }
         this.cellTypeFieldEmailView.setVisibility(visibility);
@@ -144,13 +183,13 @@ public class ContatoFragment extends BaseFragment implements
     @Override
     public void send() {
         boolean formIsValid = validAllFields();
-        if(formIsValid){
+        if (formIsValid) {
             viewFlipper.showNext();
             clearFields();
         }
     }
 
-    private void clearFields(){
+    private void clearFields() {
         this.textField.setText("");
         this.emailField.setText("");
         this.phoneField.setText("");
@@ -168,7 +207,7 @@ public class ContatoFragment extends BaseFragment implements
     private boolean validAllFields() {
         boolean formIsValid = true;
         for (Validator validator : validators) {
-            if(!validator.isValid()){
+            if (!validator.isValid()) {
                 formIsValid = false;
             }
         }
