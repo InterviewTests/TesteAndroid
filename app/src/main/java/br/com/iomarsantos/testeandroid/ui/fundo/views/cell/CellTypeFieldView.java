@@ -1,7 +1,5 @@
-package br.com.iomarsantos.testeandroid.ui.fundo.views;
+package br.com.iomarsantos.testeandroid.ui.fundo.views.cell;
 
-import android.content.Context;
-import android.service.autofill.Validator;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,23 +8,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import javax.inject.Inject;
-
 import br.com.iomarsantos.testeandroid.R;
 import br.com.iomarsantos.testeandroid.entity.Cell;
-import br.com.iomarsantos.testeandroid.entity.Type;
-import br.com.iomarsantos.testeandroid.entity.TypeField;
-import br.com.iomarsantos.testeandroid.formatter.PhoneFormat;
 import br.com.iomarsantos.testeandroid.ui.fundo.contato.ContatoView;
 import br.com.iomarsantos.testeandroid.ui.fundo.views.input.ClassInputType;
 import br.com.iomarsantos.testeandroid.ui.fundo.views.input.InputType;
-import br.com.iomarsantos.testeandroid.validator.DefaultValidation;
-import br.com.iomarsantos.testeandroid.validator.ValidEmail;
-import br.com.iomarsantos.testeandroid.validator.ValidPhone;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnTextChanged;
 
 public class CellTypeFieldView implements CellView {
 
@@ -87,6 +76,7 @@ public class CellTypeFieldView implements CellView {
             if (classInputType != null) {
                 int input = classInputType.getInputType();
                 this.editText.setInputType(input);
+                this.editText.setId(classInputType.getId());
             }
         }
     }

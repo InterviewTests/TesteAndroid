@@ -1,10 +1,7 @@
-package br.com.iomarsantos.testeandroid.ui.fundo.views;
-
-import android.content.Context;
+package br.com.iomarsantos.testeandroid.ui.fundo.views.cell;
 
 import br.com.iomarsantos.testeandroid.entity.Cell;
 import br.com.iomarsantos.testeandroid.entity.Type;
-import br.com.iomarsantos.testeandroid.ui.fundo.contato.ContatoPresenter;
 import br.com.iomarsantos.testeandroid.ui.fundo.contato.ContatoView;
 
 public class CellType {

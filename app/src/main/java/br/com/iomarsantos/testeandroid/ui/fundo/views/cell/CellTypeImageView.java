@@ -1,6 +1,5 @@
-package br.com.iomarsantos.testeandroid.ui.fundo.views;
+package br.com.iomarsantos.testeandroid.ui.fundo.views.cell;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 
