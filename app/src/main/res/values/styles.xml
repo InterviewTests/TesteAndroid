@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/gray_777777</item>
+        <item name="android:textAppearance">@style/TextAppearance.Text.Regular</item>
         <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
     </style>
 
@@ -16,15 +17,19 @@
     </style>
 
     <style name="TextAppearance.Text.Regular" parent="android:TextAppearance">
-
+        <item name="fontPath">fonts/din-pro/DINPro-Regular.otf</item>
     </style>
 
     <style name="TextAppearance.Text.Bold" parent="android:TextAppearance">
-
+        <item name="fontPath">fonts/din-pro/DINPro-Bold.otf</item>
     </style>
 
     <style name="TextAppearance.Text.Light" parent="android:TextAppearance">
+        <item name="fontPath">fonts/din-pro/DINPro-Light.otf</item>
+    </style>
 
+    <style name="TextAppearance.Text.Medium" parent="android:TextAppearance">
+        <item name="fontPath">fonts/din-pro/DINPro-Medium.otf</item>
     </style>
 
     <style name="TextStyle">
@@ -47,6 +52,14 @@
     <style name="TextStyle.Heading" parent="TextStyle">
         <item name="android:textSize">16sp</item>
         <item name="android:textAppearance">@style/TextAppearance.Text.Bold</item>
+    </style>
+
+    <style name="TextStyle.Medium" parent="TextStyle">
+        <item name="android:textAppearance">@style/TextAppearance.Text.Medium</item>
+    </style>
+
+    <style name="TextStyle.Regular" parent="TextStyle">
+        <item name="android:textAppearance">@style/TextAppearance.Text.Regular</item>
     </style>
 
     <!-- Toolbar -->
