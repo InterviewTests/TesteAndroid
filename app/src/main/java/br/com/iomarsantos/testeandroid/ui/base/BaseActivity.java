@@ -1,6 +1,7 @@
 package br.com.iomarsantos.testeandroid.ui.base;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -18,6 +19,7 @@ import br.com.iomarsantos.testeandroid.di.component.DaggerActivityComponent;
 import br.com.iomarsantos.testeandroid.di.module.ActivityModule;
 import br.com.iomarsantos.testeandroid.utils.DialogLoadingUtils;
 import butterknife.Unbinder;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {
 
@@ -34,6 +36,11 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
                 .activityModule(new ActivityModule(this))
                 .applicationComponent(((TesteAndroidApp) getApplication()).getComponent())
                 .build();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     public ActivityComponent getActivityComponent() {
