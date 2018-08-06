@@ -4,23 +4,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
 import br.com.iomarsantos.testeandroid.R;
 import br.com.iomarsantos.testeandroid.ui.base.BaseActivity;
+import br.com.iomarsantos.testeandroid.utils.ViewUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -34,6 +31,12 @@ public class FundoActivity extends BaseActivity implements FundoView {
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
+
+    @BindView(R.id.text_view_toolbar_title)
+    TextView textViewToolbarTitle;
+
+    @BindView(R.id.image_view_toolbar_share)
+    ImageView imageViewToolbarShare;
 
     @BindView(R.id.view_pager_fundo_tabs)
     ViewPager mViewPager;
@@ -55,8 +58,16 @@ public class FundoActivity extends BaseActivity implements FundoView {
 
         setUnBinder(ButterKnife.bind(this));
 
-        mPresenter.onAttach(FundoActivity.this);
+        mPresenter.onAttach(this);
 
+        setup();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mTabLayout.getTabAt(1).select();
     }
 
     @Override
@@ -66,22 +77,52 @@ public class FundoActivity extends BaseActivity implements FundoView {
 
         configureAdapter();
 
+       configureTabLayout();
+
+       configureViewPager();
+
+        /*mViewPager.setOffscreenPageLimit(mTabLayout.getTabCount());
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition(), true);
+                textViewToolbarTitle.setText(tab.getText());
+                configuraVisibilityShare(tab);
+                mToolbar.requestLayout();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });*/
+
+        /*configureAdapter();
+
         configureTabLayout();
 
-        configureViewPager();
+        configureViewPager();*/
     }
 
     private void configureViewPager() {
         mViewPager.setCurrentItem(1);
-        mViewPager.setSelected(true);
         mViewPager.setOffscreenPageLimit(mTabLayout.getTabCount());
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
 
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                mViewPager.setCurrentItem(tab.getPosition());
-                mToolbar.setTitle(tab.getText());
+                mViewPager.setCurrentItem(tab.getPosition(), true);
+                textViewToolbarTitle.setText(tab.getText());
+                configuraVisibilityShare(tab);
+                mToolbar.requestLayout();
             }
 
             @Override
@@ -96,10 +137,20 @@ public class FundoActivity extends BaseActivity implements FundoView {
         });
     }
 
+    private void configuraVisibilityShare(TabLayout.Tab tab) {
+        imageViewToolbarShare.setVisibility(View.GONE);
+        if (tab.getPosition() == 0) {
+            imageViewToolbarShare.setVisibility(View.VISIBLE);
+        }
+    }
+
     private void configureTabLayout() {
-        mTabLayout.addTab(mTabLayout.newTab().setText(getString(R.string.investimento_titulo)));
-        mTabLayout.addTab(mTabLayout.newTab().setText(getString(R.string.contato_titulo)));
-        mTabLayout.setSelected(true);
+        TabLayout.Tab tabInvestimento = mTabLayout.newTab().setText(getString(R.string.investimento_titulo));
+        mTabLayout.addTab(tabInvestimento);
+
+        TabLayout.Tab tabContato = mTabLayout.newTab().setText(getString(R.string.contato_titulo));
+        mTabLayout.addTab(tabContato);
+
     }
 
     private void configureAdapter() {
@@ -109,25 +160,14 @@ public class FundoActivity extends BaseActivity implements FundoView {
 
     private void configureToolbar() {
         setSupportActionBar(mToolbar);
-        centerToolbarTitle(mToolbar);
-    }
-
-    private void centerToolbarTitle(@NonNull final Toolbar toolbar) {
-        final CharSequence title = toolbar.getTitle();
-        final ArrayList<View> views = new ArrayList<>(1);
-        toolbar.findViewsWithText(views, title, View.FIND_VIEWS_WITH_TEXT);
-        if (!views.isEmpty()) {
-            final TextView titleView = (TextView) views.get(0);
-            titleView.setGravity(Gravity.CENTER);
-            final Toolbar.LayoutParams layoutParams = (Toolbar.LayoutParams) titleView.getLayoutParams();
-            layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
-            toolbar.requestLayout();
-        }
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
+        ViewUtils.centerToolbarTitle(mToolbar);
+        textViewToolbarTitle.setText(R.string.contato_titulo);
     }
 
     @Override
-    public void setTitleActivity(int resIdTitle) {
-        this.mToolbar.setTitle(resIdTitle);
+    public void setTitleActivity(String titleActivity) {
+
     }
 
     @Override
