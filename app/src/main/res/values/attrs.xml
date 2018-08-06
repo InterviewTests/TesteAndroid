@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="ViewDegreeRisk">
+        <attr name="customBackground" format="reference|color" />
+    </declare-styleable>
+</resources>
