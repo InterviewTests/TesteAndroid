@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import br.com.iomarsantos.testeandroid.data.model.CellResponse;
+import br.com.iomarsantos.testeandroid.data.model.ScreenResponse;
 import br.com.iomarsantos.testeandroid.data.network.Api;
 import br.com.iomarsantos.testeandroid.di.ApplicationContext;
 import io.reactivex.Single;
@@ -28,6 +29,11 @@ public class AppRepository implements Repository {
     @Override
     public Single<CellResponse> getCellApiCall() {
         return this.mApi.getCellApiCall();
+    }
+
+    @Override
+    public Single<ScreenResponse> getFundApiCall() {
+        return this.mApi.getFundApiCall();
     }
 
 }
