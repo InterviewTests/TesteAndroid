@@ -105,35 +105,4 @@ public class FundoActivityTest {
                 .check(matches(isDisplayed()));
     }
 
-    @Test
-    public void checkToolbarTitle() {
-        String toolbarTitile = getInstrumentation().getTargetContext().getString(R.string.contato_titulo);
-        onView(allOf(isAssignableFrom(TextView.class), withParent(isAssignableFrom(Toolbar.class)))).check(matches(withText(toolbarTitile)));
-    }
-
-
-    @Test
-    @UiThread
-    public void checkTabSwitch() {
-        /*onView(withId(R.id.view_pager_fundo_tabs))
-                .perform(swipeRight())
-                .check(matches(isCompletelyDisplayed()));
-        onView(withId(R.id.fragment_investimento))
-                .check(matches(isDisplayed()));
-        String toolbarTitile = getInstrumentation().getTargetContext().getString(R.string.investimento_titulo);
-        onView(allOf(isAssignableFrom(TextView.class), withParent(isAssignableFrom(Toolbar.class)))).check(matches(withText(toolbarTitile)));*/
-
-        // I'd like to switch to a tab (test2) and check that the switch happened
-        onView(allOf(withText("Contato"), isDescendantOfA(withId(R.id.view_pager_fundo_tabs))))
-                .perform(click())
-                .check(matches(isDisplayed()));
-
-        // Then I'd like to check that the tab text (test2) matches the current fragment title
-
-        //((ContatoFragment)fundoActivity.fundoPagerAdapter.getItem(0)).getTitle();
-
-        assertThat("Contato", Matchers.equalTo("Contato"));
-
-    }
-
 }
