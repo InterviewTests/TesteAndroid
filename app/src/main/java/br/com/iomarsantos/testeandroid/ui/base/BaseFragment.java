@@ -29,7 +29,7 @@ public abstract class BaseFragment extends Fragment implements BaseView {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setup();
+        setUp(view);
     }
 
     @Override
@@ -116,6 +116,8 @@ public abstract class BaseFragment extends Fragment implements BaseView {
     @Override
     public void setup() {
     }
+
+    protected abstract void setUp(View view);
 
     @Override
     public void setTitleActivity(@StringRes int resId) {
