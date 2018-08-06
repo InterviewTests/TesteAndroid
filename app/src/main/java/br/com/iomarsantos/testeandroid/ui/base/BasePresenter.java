@@ -14,8 +14,8 @@ import javax.net.ssl.HttpsURLConnection;
 import br.com.iomarsantos.testeandroid.R;
 import br.com.iomarsantos.testeandroid.data.Repository;
 import br.com.iomarsantos.testeandroid.data.model.ApiError;
-import br.com.iomarsantos.testeandroid.ui.base.rx.SchedulerProvider;
 import br.com.iomarsantos.testeandroid.utils.AppConstants;
+import br.com.iomarsantos.testeandroid.utils.rx.SchedulerProvider;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
@@ -41,25 +41,25 @@ public class BasePresenter<V extends BaseView> implements Presenter<V> {
     }
 
     @Override
-    public void onAttach(V baseView) {
-        this.mBaseView = baseView;
+    public void onAttach(V view) {
+        mBaseView = view;
     }
 
     @Override
     public void onDetach() {
-        this.mCompositeDisposable.dispose();
-        this.mBaseView = null;
-    }
-
-    public V getView() {
-        return this.mBaseView;
+        mCompositeDisposable.dispose();
+        mBaseView = null;
     }
 
     public boolean isViewAttached() {
-        return this.mBaseView != null;
+        return mBaseView != null;
     }
 
-    public Repository getDataManager() {
+    public V getView() {
+        return mBaseView;
+    }
+
+    public Repository getRepository() {
         return mRepository;
     }
 
