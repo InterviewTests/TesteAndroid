@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/investment_txt_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/investment_txt_fundName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/investment_txt_title"
+            app:layout_constraintStart_toStartOf="@+id/investment_txt_title"
+            app:layout_constraintTop_toBottomOf="@+id/investment_txt_title"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/investment_txt_whatIs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            android:text=""
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/investment_txt_fundName"
+            app:layout_constraintStart_toStartOf="@+id/investment_txt_fundName"
+            app:layout_constraintTop_toBottomOf="@+id/investment_txt_fundName"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/investment_txt_definition"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/investment_txt_whatIs"
+            app:layout_constraintStart_toStartOf="@+id/investment_txt_whatIs"
+            app:layout_constraintTop_toBottomOf="@+id/investment_txt_whatIs"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/investment_txt_risk_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="38dp"
+            android:gravity="center"
+            android:text=""
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/investment_txt_definition"
+            app:layout_constraintStart_toStartOf="@+id/investment_txt_definition"
+            app:layout_constraintTop_toBottomOf="@+id/investment_txt_definition"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TableLayout
+            android:id="@+id/tableLayout_risk"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/investment_txt_risk_title"
+            app:layout_constraintStart_toStartOf="@+id/investment_txt_risk_title"
+            app:layout_constraintTop_toBottomOf="@+id/investment_txt_risk_title"
+            app:layout_constraintVertical_bias="0.00999999">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center"
+                android:weightSum="10">
+
+                <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/img_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_down" />
+
+                <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/img_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_down" />
+
+                <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/img_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_down" />
+
+                <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/img_four"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_down" />
+
+                <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/img_five"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_down" />
+
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:weightSum="10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/investment_txt_risk_title"
+                app:layout_constraintStart_toStartOf="@+id/investment_txt_risk_title"
+                app:layout_constraintTop_toBottomOf="@+id/investment_txt_risk_title"
+                app:layout_constraintVertical_bias="0.00999999">
+
+
+                <RadioButton
+                    android:id="@+id/investment_rdb_risk_one"
+                    android:layout_width="55dp"
+                    android:layout_height="10dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/custom_risk_one"
+                    android:button="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="" />
+
+                <RadioButton
+                    android:id="@+id/investment_rdb_risk_two"
+                    android:layout_width="55dp"
+                    android:layout_height="10dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/custom_risk_two"
+                    android:button="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="" />
+
+                <RadioButton
+                    android:id="@+id/investment_rdb_risk_three"
+                    android:layout_width="55dp"
+                    android:layout_height="10dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/custom_risk_three"
+                    android:button="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="" />
+
+                <RadioButton
+                    android:id="@+id/investment_rdb_risk_four"
+                    android:layout_width="55dp"
+                    android:layout_height="10dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/custom_risk_four"
+                    android:button="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="" />
+
+                <RadioButton
+                    android:id="@+id/investment_rdb_risk_five"
+                    android:layout_width="55dp"
+                    android:layout_height="10dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/custom_risk_five"
+                    android:button="@android:color/transparent"
+                    android:clickable="false"
+                    android:text="" />
+
+
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/investment_txt_risk_infoTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text=""
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tableLayout_risk"
+            app:layout_constraintStart_toStartOf="@+id/tableLayout_risk"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout_risk"
+            app:layout_constraintVertical_bias="0.08" />
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/investment_txt_risk_infoTitle"
+            app:layout_constraintStart_toStartOf="@+id/investment_txt_risk_infoTitle"
+            app:layout_constraintTop_toBottomOf="@+id/investment_txt_risk_infoTitle"
+            app:layout_constraintVertical_bias="0.0">
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text=""
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/investment_txt_fund_tb_one"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="right"
+                    android:text="Fundo" />
+
+                <TextView
+                    android:id="@+id/investment_txt_cdi_tb_one"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="right"
+                    android:text="CDI" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/investment_txt_month_tb_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="No mês" />
+
+                <TextView
+                    android:id="@+id/investment_txt_fund_tb_two"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="right"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/investment_txt_cdi_tr_two"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="right"
+                    android:text="" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/investment_txt_year_tb_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="No ano" />
+
+                <TextView
+                    android:id="@+id/investment_txt_fund_tb_three"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="right"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/investment_txt_cdi_tr_three"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="right"
+                    android:text="" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/investment_txt_twelve_tb_four"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="12 meses" />
+
+                <TextView
+                    android:id="@+id/investment_txt_fund_tb_four"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="right"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/investment_txt_cdi_tr_four"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="right"
+                    android:text="" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/investment_rcv_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+            app:layout_constraintStart_toStartOf="@+id/tableLayout"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/investment_rcv_down_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/investment_rcv_info"
+            app:layout_constraintStart_toStartOf="@+id/investment_rcv_info"
+            app:layout_constraintTop_toBottomOf="@+id/investment_rcv_info"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/investment_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="38dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_button_red"
+            android:text="Investir"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/investment_rcv_down_info"
+            app:layout_constraintStart_toStartOf="@+id/investment_rcv_down_info"
+            app:layout_constraintTop_toBottomOf="@+id/investment_rcv_down_info" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
