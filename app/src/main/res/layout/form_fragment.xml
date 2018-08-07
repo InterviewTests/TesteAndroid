@@ -65,7 +65,7 @@
             android:inputType="phone" />
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.v7.widget.AppCompatCheckBox
+    <CheckBox
         android:id="@+id/form_check_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
