@@ -9,10 +9,10 @@ import android.widget.TextView;
 
 import br.com.santander.testeandroid.R;
 import br.com.santander.testeandroid.base.BaseActivity;
-import br.com.santander.testeandroid.main.MainActivityInterface;
+import br.com.santander.testeandroid.main.MainContract;
 import br.com.santander.testeandroid.main.presenter.MainPresenter;
 
-public class MainActivity extends BaseActivity<MainPresenter> implements MainActivityInterface {
+public class MainActivity extends BaseActivity<MainPresenter> implements MainContract {
 
     @NonNull
     @Override
@@ -29,15 +29,12 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainAct
 
     private void setUpTabs() {
         ViewPager vp = findViewById(R.id.view_pager);
+        TabLayout tl = findViewById(R.id.tab_layout);
 
         MainViewPagerAdapter adapter = new MainViewPagerAdapter(getViewFragmentManager(),
-                getPresenter().getTabNames());
-
+                getPresenter().getNames());
         vp.setAdapter(adapter);
-
         vp.addOnPageChangeListener(new OnPageSelected());
-
-        TabLayout tl = findViewById(R.id.tab_layout);
         tl.setupWithViewPager(vp);
 
         getPresenter().onTabSelected(0);

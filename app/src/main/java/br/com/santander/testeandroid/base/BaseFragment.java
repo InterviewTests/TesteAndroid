@@ -20,9 +20,8 @@ import android.widget.TextView;
 @SuppressWarnings("unused")
 public abstract class BaseFragment<Presenter extends BasePresenter> extends Fragment {
 
-    private BaseActivity baseView;
+    private BaseActivity baseActivity;
     private Presenter mPresenter;
-    private static final String TAG = "ST-LOG";
 
     @NonNull
     protected abstract Presenter createPresenter();
@@ -54,16 +53,12 @@ public abstract class BaseFragment<Presenter extends BasePresenter> extends Frag
         return mPresenter;
     }
 
-    private void setBaseView(@Nullable BaseActivity baseView) {
-        this.baseView = baseView;
+    private void setBaseView(@Nullable BaseActivity baseActivity) {
+        this.baseActivity = baseActivity;
     }
 
     public String[] getStringArray(@ArrayRes int resId) {
         return getResources().getStringArray(resId);
-    }
-
-    public void log(String msg) {
-        Log.d(TAG, msg);
     }
 
     public View findViewById(@IdRes int id) {

@@ -15,7 +15,6 @@ import android.util.Log;
  */
 public abstract class BaseActivity<Presenter extends BasePresenter> extends AppCompatActivity {
 
-    private static final String TAG = "ST-LOG";
     private Presenter mPresenter;
 
     @NonNull
@@ -76,10 +75,5 @@ public abstract class BaseActivity<Presenter extends BasePresenter> extends AppC
     public String[] getStringArray(@ArrayRes int resId) {
         return getResources().getStringArray(resId);
     }
-
-    protected void log(String msg) {
-        Log.d(TAG, msg);
-    }
-
 
 }

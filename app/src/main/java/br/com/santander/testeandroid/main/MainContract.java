@@ -3,7 +3,7 @@ package br.com.santander.testeandroid.main;
 /**
  * Definition contract between MainActivity and MainPresenter
  */
-public interface MainActivityInterface {
+public interface MainContract {
 
     String[] getNamesArray();
 

@@ -8,18 +8,18 @@ import java.util.Collections;
 import java.util.List;
 
 import br.com.santander.testeandroid.base.BasePresenter;
-import br.com.santander.testeandroid.main.MainActivityInterface;
+import br.com.santander.testeandroid.main.MainContract;
 
 public class MainPresenter extends BasePresenter {
 
-    private MainActivityInterface contractView;
+    private MainContract contractView;
 
-    public MainPresenter(@NonNull MainActivityInterface contractView) {
+    public MainPresenter(@NonNull MainContract contractView) {
         setContractView(contractView);
     }
 
     public void onTabSelected(int position) {
-        List<String> tabNames = getTabNames();
+        List<String> tabNames = getNames();
 
         if (tabNames != null && tabNames.size() > position)
             getContractView().setTitle(tabNames.get(position));
@@ -27,7 +27,7 @@ public class MainPresenter extends BasePresenter {
         getContractView().showShareButton(position == 0 ? View.VISIBLE : View.INVISIBLE);
     }
 
-    public List<String> getTabNames() {
+    public List<String> getNames() {
         String[] arr = getContractView().getNamesArray();
 
         if (arr == null || arr.length == 0) {
@@ -37,11 +37,11 @@ public class MainPresenter extends BasePresenter {
         return Arrays.asList(arr);
     }
 
-    private MainActivityInterface getContractView() {
+    private MainContract getContractView() {
         return contractView;
     }
 
-    private void setContractView(@NonNull MainActivityInterface contractView) {
+    private void setContractView(@NonNull MainContract contractView) {
         this.contractView = contractView;
     }
 }

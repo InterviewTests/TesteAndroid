@@ -16,7 +16,7 @@ public interface Api {
      * Retrieve investment funds data
      */
     @GET("/fund.json")
-    Call<InvestmentResponse> getFound();
+    Call<InvestmentResponse> getFunds();
 
     /**
      * Retrieve cells data
