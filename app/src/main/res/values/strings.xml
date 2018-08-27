@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">TesteAndroid</string>
+    <string name="app_name">Android Santander</string>
+
+    <string name="main_menu_share">Compartilhar</string>
+    <string name="main_tab_investment">Investimento</string>
+    <string name="main_tab_contact">Contato</string>
 
 </resources>
