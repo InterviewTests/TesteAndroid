@@ -1,6 +1,6 @@
 package br.com.santander.testeandroid.api;
 
-import br.com.santander.testeandroid.contact.model.GetCellsResponse;
+import br.com.santander.testeandroid.contact.model.CellsResponse;
 import br.com.santander.testeandroid.investment.model.InvestmentResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -22,6 +22,6 @@ public interface Api {
      * Retrieve cells data
      */
     @GET("/cells.json")
-    Call<GetCellsResponse> getCells();
+    Call<CellsResponse> getCells();
 
 }
