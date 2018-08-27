@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="default_dimen_1_dp">1dp</dimen>
     <dimen name="default_dimen_4_dp">4dp</dimen>
+    <dimen name="default_dimen_8_dp">8dp</dimen>
+    <dimen name="default_dimen_14_dp">14dp</dimen>
+    <dimen name="default_dimen_16_dp">16dp</dimen>
+    <dimen name="default_dimen_32_dp">32dp</dimen>
     <dimen name="default_size_22_sp">22sp</dimen>
-    <dimen name="default_dimen_16_dp">16sp</dimen>
 </resources>

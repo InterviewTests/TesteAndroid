@@ -3,6 +3,17 @@
 
     <string name="main_menu_share">Compartilhar</string>
     <string name="main_tab_investment">Investimento</string>
-    <string name="main_tab_contact">Contato</string>
+
+    <string name="an_error_occurred">Um erro ocorreu.\nPor favor tente novamente mais tarde</string>
+
+    <string name="in_the_month">No mês</string>
+    <string name="in_the_year">No ano</string>
+    <string name="twelve_months">12 meses</string>
+    <string name="investment_fund">Fundo</string>
+    <string name="cdi">CDI</string>
+
+    <string name="invest">Investir</string>
+
+    <string name="download">Baixar</string>
 
 </resources>

@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
+import br.com.santander.testeandroid.investment.view.InvestmentFragment;
+
 public class MainViewPagerAdapter extends FragmentPagerAdapter {
     private List<String> tabTitles;
 
@@ -19,7 +21,7 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                //call first screen
+                return InvestmentFragment.getInstance();
             case 1:
                 //call second screen
             default:
