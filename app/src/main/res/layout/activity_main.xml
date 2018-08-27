@@ -35,7 +35,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/default_dimen_16_dp"
-            android:src="@android:drawable/ic_menu_share"
+            android:src="@drawable/ic_cloud_upload"
             android:tint="@color/colorPrimary"
             android:title="@string/main_menu_share" />
     </RelativeLayout>

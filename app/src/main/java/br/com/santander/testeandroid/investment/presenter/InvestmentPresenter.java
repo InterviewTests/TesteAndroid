@@ -34,7 +34,7 @@ public class InvestmentPresenter extends BasePresenter implements
         getContractView().hideContainer();
         getContractView().showLoading();
         getContractView().hideError();
-        investmentInteractor.getFound(this);
+        investmentInteractor.getFunds(this);
     }
 
     public void onInvestmentAction() {

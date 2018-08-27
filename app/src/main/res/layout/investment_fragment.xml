@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/view_loading"
+            layout="@layout/view_loading"
+            app:layout_constraintBottom_toTopOf="@+id/view_error"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/view_error"
+            layout="@layout/view_error"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/container_investment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/default_dimen_32_dp"
+            android:paddingLeft="@dimen/default_dimen_32_dp"
+            android:paddingRight="@dimen/default_dimen_32_dp"
+            android:paddingStart="@dimen/default_dimen_32_dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/investment_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Fundos de investimento" />
+
+                <TextView
+                    android:id="@+id/fund_name"
+                    style="@style/TextAppearance.AppCompat.Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_dimen_8_dp"
+                    android:gravity="center"
+                    tools:text="Vinci Valorem FI Multimercado" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_dimen_1_dp"
+                    android:layout_marginTop="@dimen/default_dimen_16_dp"
+                    android:background="@color/colorLightGrey" />
+
+                <TextView
+                    android:id="@+id/subtitle_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_dimen_16_dp"
+                    tools:text="O que e?" />
+
+                <TextView
+                    android:id="@+id/definition_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_dimen_8_dp"
+                    android:gravity="center"
+                    tools:maxLines="3"
+                    tools:text="@tools:sample/lorem/random" />
+
+            </LinearLayout>
+
+            <include layout="@layout/view_risk_indicator" />
+
+            <include layout="@layout/view_more_info" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_dimen_16_dp"
+                tools:itemCount="3"
+                tools:listitem="@layout/view_simple_info" />
+
+            <Button
+                android:id="@+id/investment_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_dimen_32_dp"
+                android:layout_marginTop="@dimen/default_dimen_32_dp"
+                android:background="@drawable/investment_button_selector"
+                android:text="@string/invest"
+                android:textColor="@color/colorLightGrey" />
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

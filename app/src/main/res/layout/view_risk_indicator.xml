@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/risk_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorLightGrey"
+            tools:text="Risco do investimento" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/iv_lower"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <ImageView
+                android:id="@+id/iv_low"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <ImageView
+                android:id="@+id/iv_medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <ImageView
+                android:id="@+id/iv_high"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <ImageView
+                android:id="@+id/iv_higher"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <View
+                android:id="@+id/view_lower"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="0.2"
+                android:background="@color/colorLightGreen" />
+
+            <View
+                android:id="@+id/view_low"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="0.2"
+                android:background="@color/colorGreen" />
+
+            <View
+                android:id="@+id/view_medium"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="0.2"
+                android:background="@color/colorYellow" />
+
+            <View
+                android:id="@+id/view_high"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="0.2"
+                android:background="@color/colorOrange" />
+
+            <View
+                android:id="@+id/view_higher"
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="0.2"
+                android:background="@color/colorAccent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
