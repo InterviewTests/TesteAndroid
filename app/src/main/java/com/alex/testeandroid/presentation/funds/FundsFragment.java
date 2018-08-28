@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +17,7 @@ import android.widget.Toast;
 import com.alex.testeandroid.R;
 import com.alex.testeandroid.data.entities.funds.Funds;
 import com.alex.testeandroid.data.entities.funds.Info;
-import com.alex.testeandroid.presentation.helpers.DimenHelper;
+import com.alex.testeandroid.presentation.common.RiskView;
 import com.alex.testeandroid.presentation.helpers.FormatHelper;
 
 import java.util.List;
@@ -44,28 +43,8 @@ public class FundsFragment extends Fragment implements FundsView {
     TextView tvwWhatIsDefinition;
     @BindView(R.id.fragment_funds_tvw_risk_title)
     TextView tvwRiskTitle;
-    @BindView(R.id.fragment_funds_cons_scale_risk)
-    ConstraintLayout consScale;
-    @BindView(R.id.fragment_funds_img_scale_risk_1)
-    ImageView imgRisk1;
-    @BindView(R.id.fragment_funds_img_scale_risk_2)
-    ImageView imgRisk2;
-    @BindView(R.id.fragment_funds_img_scale_risk_3)
-    ImageView imgRisk3;
-    @BindView(R.id.fragment_funds_img_scale_risk_4)
-    ImageView imgRisk4;
-    @BindView(R.id.fragment_funds_img_scale_risk_5)
-    ImageView imgRisk5;
-    @BindView(R.id.fragment_funds_vw_scale_risk_1)
-    View vwRisk1;
-    @BindView(R.id.fragment_funds_vw_scale_risk_2)
-    View vwRisk2;
-    @BindView(R.id.fragment_funds_vw_scale_risk_3)
-    View vwRisk3;
-    @BindView(R.id.fragment_funds_vw_scale_risk_4)
-    View vwRisk4;
-    @BindView(R.id.fragment_funds_vw_scale_risk_5)
-    View vwRisk5;
+    @BindView(R.id.fragment_funds_vw_scale_risk)
+    RiskView riskView;
     @BindView(R.id.fragment_funds_tvw_more_information)
     TextView tvwMoreInformation;
     @BindView(R.id.fragment_funds_cons_more_information)
@@ -186,35 +165,8 @@ public class FundsFragment extends Fragment implements FundsView {
 
     //region PRIVATE METHODS
     private void selectRisk(int risk) {
-        int height = new DimenHelper().toPx(getResources(), 14);
-        switch (risk) {
-            case 1:
-                imgRisk1.setVisibility(View.VISIBLE);
-                vwRisk1.getLayoutParams().height = height;
-                vwRisk1.requestLayout();
-                break;
-            case 2:
-                imgRisk2.setVisibility(View.VISIBLE);
-                vwRisk2.getLayoutParams().height = height;
-                vwRisk2.requestLayout();
-                break;
-            case 3:
-                imgRisk3.setVisibility(View.VISIBLE);
-                vwRisk3.getLayoutParams().height = height;
-                vwRisk3.requestLayout();
-                break;
-            case 4:
-                imgRisk4.setVisibility(View.VISIBLE);
-                vwRisk4.getLayoutParams().height = height;
-                vwRisk4.requestLayout();
-                break;
-            default:
-                imgRisk5.setVisibility(View.VISIBLE);
-                vwRisk5.getLayoutParams().height = height;
-                vwRisk5.requestLayout();
-                break;
-        }
-        consScale.setVisibility(View.VISIBLE);
+        riskView.selectRisk(risk);
+        riskView.setVisibility(View.VISIBLE);
     }
 
     private void buildInfo(List<Info> infos) {
