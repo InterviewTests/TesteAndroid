@@ -10,7 +10,7 @@
         <item name="windowActionBar">false</item>
     </style>
 
-    <style name="TextInput" parent="@android:style/TextAppearance">
+    <style name="TextInput" parent="AppTheme">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/grey_field_contact_hint</item>
@@ -33,7 +33,7 @@
     </style>
 
     <style name="TextInputError" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@android:color/holo_red_dark</item>
+        <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">12sp</item>
     </style>
 

@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -32,6 +33,7 @@ import com.alex.testeandroid.data.entities.contact.TypeField;
 import com.alex.testeandroid.presentation.common.TextMask;
 import com.alex.testeandroid.presentation.helpers.DimenHelper;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 /**
@@ -95,7 +97,10 @@ public class ContactFragment extends Fragment implements ContactView {
         for (Cell cell : cells) {
             switch (cell.getType().getId()) {
                 case Type.FIELD:
-                    TextInputLayout textInputLayout = new TextInputLayout(new ContextThemeWrapper(getContext(), R.style.TextInput));
+                    ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(getContext(), R.style.TextInput);
+                    final TextInputLayout textInputLayout = new TextInputLayout(contextThemeWrapper);
+                    textInputLayout.setTag(cell);
+                    textInputLayout.setErrorEnabled(true);
                     textInputLayout.setId(cell.getId());
                     textInputLayout.setOrientation(LinearLayout.HORIZONTAL);
                     textInputLayout.setHintTextAppearance(R.style.TextInputHint);
@@ -124,13 +129,13 @@ public class ContactFragment extends Fragment implements ContactView {
 
                                 @Override
                                 public void afterTextChanged(Editable s) {
-
+                                    textInputLayout.setError(null);
                                 }
                             });
                             break;
                         case TypeField.TEL_NUMBER:
                             textInputEditText.setInputType(InputType.TYPE_CLASS_PHONE);
-                            textInputEditText.addTextChangedListener(TextMask.insert("(##) #####-####", textInputEditText));
+                            textInputEditText.addTextChangedListener(new TextMask(new WeakReference<EditText>(textInputEditText)));
                             textInputEditText.addTextChangedListener(new TextWatcher() {
                                 @Override
                                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -144,7 +149,7 @@ public class ContactFragment extends Fragment implements ContactView {
 
                                 @Override
                                 public void afterTextChanged(Editable s) {
-
+                                    textInputLayout.setError(null);
                                 }
                             });
                             break;
@@ -163,7 +168,7 @@ public class ContactFragment extends Fragment implements ContactView {
 
                                 @Override
                                 public void afterTextChanged(Editable s) {
-
+                                    textInputLayout.setError(null);
                                 }
                             });
                             break;
@@ -185,6 +190,7 @@ public class ContactFragment extends Fragment implements ContactView {
                     break;
                 case Type.TEXT:
                     TextView textView = new TextView(getContext());
+                    textView.setTag(cell);
                     textView.setId(cell.getId());
                     textView.setTextColor(ContextCompat.getColor(getContext(), R.color.grey_field_contact_hint));
                     textView.setText(cell.getMessage());
@@ -198,6 +204,7 @@ public class ContactFragment extends Fragment implements ContactView {
                     break;
                 case Type.CHECK_BOX:
                     CheckBox checkBox = new CheckBox(new ContextThemeWrapper(getContext(), R.style.CheckBox));
+                    checkBox.setTag(cell);
                     checkBox.setId(cell.getId());
                     checkBox.setTextColor(ContextCompat.getColor(getContext(), R.color.grey_field_contact_hint));
                     checkBox.setTextSize(16);
@@ -211,6 +218,7 @@ public class ContactFragment extends Fragment implements ContactView {
                     break;
                 case Type.SEND:
                     Button button = new Button(new ContextThemeWrapper(getContext(), R.style.Button));
+                    button.setTag(cell);
                     button.setBackgroundResource(R.drawable.shape_rectangle_rounded_color_primary);
                     button.setId(cell.getId());
                     button.setText(cell.getMessage());
@@ -236,10 +244,37 @@ public class ContactFragment extends Fragment implements ContactView {
             }
         }
     }
+
+    @Override
+    public void showErrorName() {
+        TextInputLayout textInputLayout = getFieldByType(TypeField.TEXT);
+        textInputLayout.getEditText().setError("preencha o campo");
+    }
+
+    @Override
+    public void showErrorEmail() {
+        TextInputLayout textInputLayout = getFieldByType(TypeField.EMAIL);
+        textInputLayout.getEditText().setError("email inválido");
+    }
+
+    @Override
+    public void showErrorPhone() {
+        TextInputLayout textInputLayout = getFieldByType(TypeField.TEL_NUMBER);
+        textInputLayout.getEditText().setError("telefone inválido");
+    }
     //endregion
 
     //region PRIVATE METHODS
-
+    private TextInputLayout getFieldByType(@TypeField.TypeFieldCell int type) {
+        for (int i = 0; i < consForm.getChildCount(); i++) {
+            View view = consForm.getChildAt(i);
+            Cell cell = (Cell) view.getTag();
+            if (cell.getType().getId() == Type.FIELD && cell.getTypefield().getId() == type) {
+                return (TextInputLayout) view;
+            }
+        }
+        return null;
+    }
     //endregion
     //endregion
 }

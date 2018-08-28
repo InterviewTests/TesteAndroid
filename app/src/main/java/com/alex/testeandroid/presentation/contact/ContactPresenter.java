@@ -3,6 +3,7 @@ package com.alex.testeandroid.presentation.contact;
 import com.alex.testeandroid.data.entities.contact.Cell;
 import com.alex.testeandroid.domain.ContactInteractor;
 import com.alex.testeandroid.presentation.BasePresenter;
+import com.alex.testeandroid.presentation.helpers.ValidatorHelper;
 
 import java.util.List;
 
@@ -53,6 +54,25 @@ public class ContactPresenter implements BasePresenter {
     }
 
     public void send(String name, String email, String phone) {
+        ValidatorHelper validatorHelper = new ValidatorHelper();
+
+        boolean error = false;
+        if (validatorHelper.isEmpty(name)) {
+            view.showErrorName();
+            error = true;
+        }
+
+        if (!validatorHelper.isValidEmail(email)) {
+            view.showErrorEmail();
+            error = true;
+        }
+
+        if (!validatorHelper.isValidPhone(phone)) {
+            view.showErrorPhone();
+            error = true;
+        }
+
+        if (error) return;
 
     }
     //endregion
