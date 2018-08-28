@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:paddingEnd="32dp"
+    android:paddingStart="32dp">
+
+    <include
+        android:id="@+id/view_success"
+        layout="@layout/view_success" />
+
+    <include
+        android:id="@+id/view_loading"
+        layout="@layout/view_loading" />
+
+    <include
+        android:id="@+id/view_error"
+        layout="@layout/view_error" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/form_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>
