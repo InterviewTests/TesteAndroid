@@ -14,11 +14,15 @@ public interface ContactView extends BaseView {
 
     void showMessageErrorRequest();
 
-    void setupCells(List<Cell> cells);
+    void buildForm(List<Cell> cells);
 
     void showErrorName();
 
     void showErrorEmail();
 
     void showErrorPhone();
+
+    void messageSendSuccess();
+
+
 }

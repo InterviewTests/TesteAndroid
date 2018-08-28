@@ -4,4 +4,6 @@
     <string name="ta_investment">Investimento</string>
     <string name="invest">Investir</string>
     <string name="ta_download">Baixar</string>
+    <string name="ta_thanks">Obrigado!</string>
+    <string name="ta_message_sent_successfully">Mensagem enviada com sucesso :)</string>
 </resources>

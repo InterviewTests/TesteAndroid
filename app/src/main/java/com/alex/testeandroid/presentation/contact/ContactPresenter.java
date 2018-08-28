@@ -41,7 +41,7 @@ public class ContactPresenter implements BasePresenter {
                     public void accept(List<Cell> cells) throws Exception {
                         if (view == null) return;
                         view.showProgress(false);
-                        view.setupCells(cells);
+                        view.buildForm(cells);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -73,6 +73,8 @@ public class ContactPresenter implements BasePresenter {
         }
 
         if (error) return;
+
+        view.messageSendSuccess();
 
     }
     //endregion

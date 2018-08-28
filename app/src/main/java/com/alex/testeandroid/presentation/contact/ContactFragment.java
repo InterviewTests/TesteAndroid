@@ -23,6 +23,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,10 @@ import com.alex.testeandroid.presentation.helpers.DimenHelper;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by Alex on 27/08/18.
  */
@@ -44,8 +49,21 @@ public class ContactFragment extends Fragment implements ContactView {
     //region FIELDS
     private String name, email, phone;
     private ContactPresenter presenter;
-    private ConstraintLayout consForm;
-    private ProgressBar pgbLoading;
+
+    @BindView(R.id.fragment_contact_scv_content)
+    ScrollView scvContent;
+
+    @BindView(R.id.fragment_contact_cons_form)
+    ConstraintLayout consForm;
+
+    @BindView(R.id.fragment_contact_cons_message_send)
+    ConstraintLayout consMessageSend;
+
+    @BindView(R.id.fragment_contact_btn_send_new_message)
+    Button btnSendNewMessage;
+
+    @BindView(R.id.fragment_contact_pgb_loading)
+    ProgressBar pgbLoading;
     //endregion
 
     public static ContactFragment newInstance() {
@@ -57,8 +75,9 @@ public class ContactFragment extends Fragment implements ContactView {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contact, container, false);
-        consForm = view.findViewById(R.id.fragment_contact_cons_form);
-        pgbLoading = view.findViewById(R.id.fragment_contact_pgb_loading);
+
+        ButterKnife.bind(this, view);
+
         return view;
     }
 
@@ -78,6 +97,13 @@ public class ContactFragment extends Fragment implements ContactView {
     //endregion
 
     //region METHODS
+    //region PACKAGE METHODS
+    @OnClick(R.id.fragment_contact_btn_send_new_message)
+    void onSendNewMessage() {
+        presenter.getContactForm();
+    }
+    //endregion
+
     //region OVERRIDES METHODS
     @Override
     public void showProgress(boolean show) {
@@ -90,7 +116,15 @@ public class ContactFragment extends Fragment implements ContactView {
     }
 
     @Override
-    public void setupCells(List<Cell> cells) {
+    public void buildForm(List<Cell> cells) {
+        name = "";
+        email = "";
+        phone = "";
+
+        consForm.removeAllViews();
+        scvContent.setVisibility(View.VISIBLE);
+        consMessageSend.setVisibility(View.GONE);
+
         DimenHelper dimenHelper = new DimenHelper();
         ConstraintLayout.LayoutParams params;
         ConstraintSet constraintSet;
@@ -262,6 +296,13 @@ public class ContactFragment extends Fragment implements ContactView {
         TextInputLayout textInputLayout = getFieldByType(TypeField.TEL_NUMBER);
         textInputLayout.getEditText().setError("telefone inválido");
     }
+
+    @Override
+    public void messageSendSuccess() {
+        scvContent.setVisibility(View.GONE);
+        consMessageSend.setVisibility(View.VISIBLE);
+    }
+
     //endregion
 
     //region PRIVATE METHODS
