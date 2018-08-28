@@ -26,9 +26,9 @@ public class TypeField {
     }
 
     public TypeField(@TypeFieldDescCell String desc) {
-        if (desc.equals("text")) {
+        if (desc.equals(TEXT_DESC)) {
             this.id = TEXT;
-        } else if (desc.equals("telnumber")) {
+        } else if (desc.equals(TEL_NUMBER_DESC)) {
             this.id = TEL_NUMBER;
         } else {
             this.id = EMAIL;
