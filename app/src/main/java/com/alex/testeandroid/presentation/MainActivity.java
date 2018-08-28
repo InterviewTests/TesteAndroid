@@ -12,12 +12,16 @@ import com.alex.testeandroid.R;
 import com.alex.testeandroid.presentation.contact.ContactFragment;
 import com.alex.testeandroid.presentation.funds.FundsFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Alex on 27/08/18.
  */
 public class MainActivity extends AppCompatActivity {
 
     //region FIELDS
+    @BindView(R.id.activity_main_bnv_options)
     BottomNavigationView bnvOptions;
     //endregion
 
@@ -28,10 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        bnvOptions = findViewById(R.id.activity_main_bnv_options);
+        ButterKnife.bind(this);
 
         setupBnvOptions();
-        bnvOptions.setSelectedItemId(R.id.menu_main_options_investment);
     }
     //endregion
 
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        bnvOptions.setSelectedItemId(R.id.menu_main_options_investment);
     }
 
     private void loadFragment(Fragment fragment) {

@@ -252,9 +252,9 @@ public class FundsFragment extends Fragment implements FundsView {
                 view.setId(id);
                 TextView tvwName = view.findViewById(R.id.fragment_funds_down_info_item_tvw_name);
                 tvwName.setText(info.getName());
-                TextView tvwDownload = view.findViewById(R.id.fragment_funds_down_info_item_tvw_download);
-                tvwDownload.setTag(info);
-                tvwDownload.setOnClickListener(new View.OnClickListener() {
+                ConstraintLayout consDownload = view.findViewById(R.id.fragment_funds_down_info_item_cons_download);
+                consDownload.setTag(info);
+                consDownload.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Info info1 = (Info) v.getTag();

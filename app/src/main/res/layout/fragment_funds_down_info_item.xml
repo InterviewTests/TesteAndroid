@@ -9,30 +9,51 @@
         android:id="@+id/fragment_funds_down_info_item_tvw_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:layout_marginTop="6dp"
         android:textColor="@color/grey_field_funds_title"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/fragment_funds_down_info_item_tvw_download"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_funds_down_info_item_cons_download"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Taxa de administração" />
 
-    <TextView
-        android:id="@+id/fragment_funds_down_info_item_tvw_download"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_funds_down_info_item_cons_download"
         style="?attr/selectableItemBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:drawableLeft="@drawable/ic_download"
-        android:drawableTint="@color/colorPrimary"
-        android:drawablePadding="4dp"
-        android:gravity="center"
-        android:text="@string/ta_download"
-        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fragment_funds_down_info_item_tvw_name"
-        app:layout_constraintTop_toTopOf="@+id/fragment_funds_down_info_item_tvw_name" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/fragment_funds_down_info_item_img_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:src="@drawable/ic_download"
+            android:tint="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_funds_down_info_item_tvw_download"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fragment_funds_down_info_item_tvw_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/ta_download"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fragment_funds_down_info_item_img_download"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
