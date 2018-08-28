@@ -16,6 +16,10 @@
         <item name="colorAccent">@color/grey_field_contact_hint</item>
     </style>
 
+    <style name="Progress" parent="AppTheme">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
     <style name="CheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
