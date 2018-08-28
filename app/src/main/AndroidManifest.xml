@@ -14,7 +14,7 @@
         <activity
             android:name=".presentation.MainActivity"
             android:screenOrientation="sensorPortrait"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

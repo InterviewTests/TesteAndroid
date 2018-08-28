@@ -5,4 +5,7 @@
     <color name="colorAccent">@color/white</color>
     <color name="white">#FFFFFF</color>
     <color name="grey">#5B5B5B</color>
+    <color name="grey_opacity">#1A322A2A</color>
+    <color name="grey_field_contact_hint">#ACACAC</color>
+    <color name="grey_field_contact_text">#333333</color>
 </resources>

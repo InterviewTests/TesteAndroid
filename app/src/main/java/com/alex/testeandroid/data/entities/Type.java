@@ -25,7 +25,7 @@ public class Type {
     //endregion
 
     //region PROPERTIES
-    public int getId() {
+    public @TypeCell int getId() {
         return id;
     }
     //endregion
