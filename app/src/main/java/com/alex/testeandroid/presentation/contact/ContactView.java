@@ -1,6 +1,6 @@
 package com.alex.testeandroid.presentation.contact;
 
-import com.alex.testeandroid.data.entities.Cell;
+import com.alex.testeandroid.data.entities.contact.Cell;
 import com.alex.testeandroid.presentation.BaseView;
 
 import java.util.List;

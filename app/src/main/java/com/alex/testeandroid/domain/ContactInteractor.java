@@ -1,6 +1,7 @@
 package com.alex.testeandroid.domain;
 
-import com.alex.testeandroid.data.entities.Cell;
+import com.alex.testeandroid.data.entities.contact.Cell;
+import com.alex.testeandroid.data.entities.contact.TypeField;
 import com.alex.testeandroid.data.remote.ServiceGenerator;
 import com.alex.testeandroid.data.remote.services.ContactService;
 import com.google.gson.Gson;
@@ -33,20 +34,20 @@ public class ContactInteractor extends BaseInteractor {
                     @Override
                     public List<Cell> apply(JsonObject jsonObject) throws Exception {
                         Gson gson = new GsonBuilder()
-                                .registerTypeAdapter(com.alex.testeandroid.data.entities.Type.class, new JsonDeserializer<com.alex.testeandroid.data.entities.Type>() {
+                                .registerTypeAdapter(com.alex.testeandroid.data.entities.contact.Type.class, new JsonDeserializer<com.alex.testeandroid.data.entities.contact.Type>() {
                                     @Override
-                                    public com.alex.testeandroid.data.entities.Type deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-                                        return new com.alex.testeandroid.data.entities.Type(json.getAsInt());
+                                    public com.alex.testeandroid.data.entities.contact.Type deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+                                        return new com.alex.testeandroid.data.entities.contact.Type(json.getAsInt());
                                     }
                                 })
-                                .registerTypeAdapter(com.alex.testeandroid.data.entities.TypeField.class, new JsonDeserializer<com.alex.testeandroid.data.entities.TypeField>() {
+                                .registerTypeAdapter(TypeField.class, new JsonDeserializer<TypeField>() {
                                     @Override
-                                    public com.alex.testeandroid.data.entities.TypeField deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+                                    public TypeField deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
                                         if (json.isJsonNull()) return null;
                                         if (json.getAsJsonPrimitive().isString()) {
-                                            return new com.alex.testeandroid.data.entities.TypeField(json.getAsString());
+                                            return new TypeField(json.getAsString());
                                         } else {
-                                            return new com.alex.testeandroid.data.entities.TypeField(json.getAsInt());
+                                            return new TypeField(json.getAsInt());
                                         }
                                     }
                                 })

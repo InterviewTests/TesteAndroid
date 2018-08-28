@@ -1,4 +1,4 @@
-package com.alex.testeandroid.data.entities;
+package com.alex.testeandroid.data.entities.contact;
 
 import android.support.annotation.IntDef;
 

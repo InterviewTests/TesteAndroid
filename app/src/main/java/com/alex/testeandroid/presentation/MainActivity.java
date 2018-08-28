@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.alex.testeandroid.R;
 import com.alex.testeandroid.presentation.contact.ContactFragment;
+import com.alex.testeandroid.presentation.funds.FundsFragment;
 
 /**
  * Created by Alex on 27/08/18.
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment;
                 switch (item.getItemId()) {
                     case R.id.menu_main_options_investment:
-                        fragment = ContactFragment.newInstance();
+                        fragment = FundsFragment.newInstance();
                         break;
                     default:
                         fragment = ContactFragment.newInstance();

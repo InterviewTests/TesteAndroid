@@ -1,5 +1,6 @@
 package com.alex.testeandroid.presentation.contact;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,7 +11,9 @@ import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,9 +26,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alex.testeandroid.R;
-import com.alex.testeandroid.data.entities.Cell;
-import com.alex.testeandroid.data.entities.Type;
-import com.alex.testeandroid.data.entities.TypeField;
+import com.alex.testeandroid.data.entities.contact.Cell;
+import com.alex.testeandroid.data.entities.contact.Type;
+import com.alex.testeandroid.data.entities.contact.TypeField;
+import com.alex.testeandroid.presentation.common.TextMask;
+import com.alex.testeandroid.presentation.helpers.DimenHelper;
 
 import java.util.List;
 
@@ -35,6 +40,7 @@ import java.util.List;
 public class ContactFragment extends Fragment implements ContactView {
 
     //region FIELDS
+    private String name, email, phone;
     private ContactPresenter presenter;
     private ConstraintLayout consForm;
     private ProgressBar pgbLoading;
@@ -83,6 +89,7 @@ public class ContactFragment extends Fragment implements ContactView {
 
     @Override
     public void setupCells(List<Cell> cells) {
+        DimenHelper dimenHelper = new DimenHelper();
         ConstraintLayout.LayoutParams params;
         ConstraintSet constraintSet;
         for (Cell cell : cells) {
@@ -93,20 +100,81 @@ public class ContactFragment extends Fragment implements ContactView {
                     textInputLayout.setOrientation(LinearLayout.HORIZONTAL);
                     textInputLayout.setHintTextAppearance(R.style.TextInputHint);
                     textInputLayout.setErrorTextAppearance(R.style.TextInputError);
-                    textInputLayout.setVisibility(cell.isHidden() ? View.GONE : View.VISIBLE);
+                    textInputLayout.setVisibility(cell.isHidden() && !cell.isRequired() ? View.GONE : View.VISIBLE);
 
                     TextInputEditText textInputEditText = new TextInputEditText(new ContextThemeWrapper(getContext(), R.style.TextInput));
                     textInputEditText.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/DINPro-Medium.otf"));
                     textInputEditText.setTextColor(ContextCompat.getColor(getContext(), R.color.grey_field_contact_text));
                     textInputEditText.setHint(cell.getMessage());
                     textInputEditText.setHintTextColor(ContextCompat.getColor(getContext(), R.color.grey_field_contact_hint));
-                    textInputEditText.setInputType(cell.getTypefield().getId() == TypeField.TEXT ? InputType.TYPE_CLASS_TEXT : cell.getTypefield().getId() == TypeField.TEL_NUMBER ? InputType.TYPE_CLASS_PHONE : InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+
+                    switch (cell.getTypefield().getId()) {
+                        case TypeField.TEXT:
+                            textInputEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+                            textInputEditText.addTextChangedListener(new TextWatcher() {
+                                @Override
+                                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                                }
+
+                                @Override
+                                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                    name = s.toString();
+                                }
+
+                                @Override
+                                public void afterTextChanged(Editable s) {
+
+                                }
+                            });
+                            break;
+                        case TypeField.TEL_NUMBER:
+                            textInputEditText.setInputType(InputType.TYPE_CLASS_PHONE);
+                            textInputEditText.addTextChangedListener(TextMask.insert("(##) #####-####", textInputEditText));
+                            textInputEditText.addTextChangedListener(new TextWatcher() {
+                                @Override
+                                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                                }
+
+                                @Override
+                                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                    phone = s.toString();
+                                }
+
+                                @Override
+                                public void afterTextChanged(Editable s) {
+
+                                }
+                            });
+                            break;
+                        default:
+                            textInputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+                            textInputEditText.addTextChangedListener(new TextWatcher() {
+                                @Override
+                                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                                }
+
+                                @Override
+                                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                    email = s.toString();
+                                }
+
+                                @Override
+                                public void afterTextChanged(Editable s) {
+
+                                }
+                            });
+                            break;
+                    }
+
                     textInputLayout.addView(textInputEditText, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     textInputLayout.requestLayout();
 
-                    params = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_CONSTRAINT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+                    params = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
                     params.topToBottom = consForm.getChildAt(consForm.getChildCount() - 1).getId();
-                    params.topMargin = Math.round(cell.getTopSpacing());
+                    params.topMargin = dimenHelper.toPx(getResources(), Math.round(cell.getTopSpacing()));
                     consForm.addView(textInputLayout, params);
 
                     constraintSet = new ConstraintSet();
@@ -123,7 +191,7 @@ public class ContactFragment extends Fragment implements ContactView {
                     textView.setTextSize(16);
                     textView.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/DINPro-Medium.otf"));
                     params = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
-                    params.topMargin = Math.round(cell.getTopSpacing());
+                    params.topMargin = dimenHelper.toPx(getResources(), Math.round(cell.getTopSpacing()));
                     consForm.addView(textView, params);
                     break;
                 case Type.IMAGE:
@@ -138,7 +206,7 @@ public class ContactFragment extends Fragment implements ContactView {
 
                     params = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
                     params.topToBottom = consForm.getChildAt(consForm.getChildCount() - 1).getId();
-                    params.topMargin = Math.round(cell.getTopSpacing());
+                    params.topMargin = dimenHelper.toPx(getResources(), Math.round(cell.getTopSpacing()));
                     consForm.addView(checkBox, params);
                     break;
                 case Type.SEND:
@@ -146,16 +214,17 @@ public class ContactFragment extends Fragment implements ContactView {
                     button.setBackgroundResource(R.drawable.shape_rectangle_rounded_color_primary);
                     button.setId(cell.getId());
                     button.setText(cell.getMessage());
+                    button.setTextColor(Color.WHITE);
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
+                            presenter.send(name, email, phone);
                         }
                     });
 
                     params = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
                     params.topToBottom = consForm.getChildAt(consForm.getChildCount() - 1).getId();
-                    params.topMargin = Math.round(cell.getTopSpacing());
+                    params.topMargin = dimenHelper.toPx(getResources(), Math.round(cell.getTopSpacing()));
                     consForm.addView(button, params);
 
                     constraintSet = new ConstraintSet();
@@ -167,6 +236,10 @@ public class ContactFragment extends Fragment implements ContactView {
             }
         }
     }
+    //endregion
+
+    //region PRIVATE METHODS
+
     //endregion
     //endregion
 }

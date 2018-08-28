@@ -7,11 +7,11 @@
     android:background="@color/white">
 
     <TextView
-        android:id="@+id/fragment_contact_tvw_title"
+        android:id="@+id/fragment_funds_tvw_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/ta_contact"
+        android:text="@string/ta_investment"
         android:textColor="@color/grey"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -22,18 +22,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_contact_tvw_title">
+        app:layout_constraintTop_toBottomOf="@+id/fragment_funds_tvw_title">
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/fragment_contact_cons_form"
+            android:id="@+id/fragment_funds_cons_form"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center">
@@ -43,7 +39,7 @@
     </ScrollView>
 
     <ProgressBar
-        android:id="@+id/fragment_contact_pgb_loading"
+        android:id="@+id/fragment_funds_pgb_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminate="true"

@@ -1,4 +1,4 @@
-package com.alex.testeandroid.data.entities;
+package com.alex.testeandroid.data.entities.contact;
 
 /**
  * Created by Alex on 27/08/18.

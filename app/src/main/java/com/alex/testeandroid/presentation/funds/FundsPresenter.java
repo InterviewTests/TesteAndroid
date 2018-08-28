@@ -1,10 +1,8 @@
-package com.alex.testeandroid.presentation.contact;
+package com.alex.testeandroid.presentation.funds;
 
-import com.alex.testeandroid.data.entities.contact.Cell;
-import com.alex.testeandroid.domain.ContactInteractor;
+import com.alex.testeandroid.data.entities.funds.Funds;
+import com.alex.testeandroid.domain.FundsInteractor;
 import com.alex.testeandroid.presentation.BasePresenter;
-
-import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -13,34 +11,34 @@ import io.reactivex.functions.Consumer;
 /**
  * Created by alex on 27/08/18.
  */
-public class ContactPresenter implements BasePresenter {
+public class FundsPresenter implements BasePresenter {
 
     //region FIELDS
-    private ContactView view;
-    private ContactInteractor contactInteractor;
+    private FundsView view;
+    private FundsInteractor fundsInteractor;
     private Disposable disposable;
     //endregion
 
     //region CONSTRUCT
-    public ContactPresenter(ContactView view) {
+    public FundsPresenter(FundsView view) {
         this.view = view;
-        this.contactInteractor = new ContactInteractor();
+        this.fundsInteractor = new FundsInteractor();
     }
     //endregion
 
     //region METHODS
     //region PUBLIC METHODS
-    public void getContactForm() {
+    public void getFunds() {
         view.showProgress(true);
 
-        disposable = contactInteractor.getContactForm()
+        disposable = fundsInteractor.getFunds()
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<List<Cell>>() {
+                .subscribe(new Consumer<Funds>() {
                     @Override
-                    public void accept(List<Cell> cells) throws Exception {
+                    public void accept(Funds funds) throws Exception {
                         if (view == null) return;
                         view.showProgress(false);
-                        view.setupCells(cells);
+                        view.setupCells(funds);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -50,10 +48,6 @@ public class ContactPresenter implements BasePresenter {
                         view.showMessageErrorRequest();
                     }
                 });
-    }
-
-    public void send(String name, String email, String phone) {
-
     }
     //endregion
 
