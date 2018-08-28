@@ -3,6 +3,7 @@
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
             <solid android:color="#80DA0101" />
+            <corners android:radius="@dimen/radius_send" />
         </shape>
     </item>
     <item android:drawable="@drawable/shape_rectangle_rounded_color_primary_bg" />

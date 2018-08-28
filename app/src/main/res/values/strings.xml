@@ -2,4 +2,6 @@
     <string name="app_name">TesteAndroid</string>
     <string name="ta_contact">Contato</string>
     <string name="ta_investment">Investimento</string>
+    <string name="invest">Investir</string>
+    <string name="ta_download">Baixar</string>
 </resources>

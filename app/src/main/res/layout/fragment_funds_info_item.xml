@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/fragment_funds_info_item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/grey_field_funds_title"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_funds_info_item_data"
+        app:layout_constraintHorizontal_weight="0.65"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Taxa de administração" />
+
+    <TextView
+        android:id="@+id/fragment_funds_info_item_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textColor="@color/grey_field_contact_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="0.35"
+        app:layout_constraintStart_toEndOf="@+id/fragment_funds_info_item_name"
+        app:layout_constraintTop_toTopOf="@+id/fragment_funds_info_item_name"
+        tools:text="0,50%" />
+
+</android.support.constraint.ConstraintLayout>

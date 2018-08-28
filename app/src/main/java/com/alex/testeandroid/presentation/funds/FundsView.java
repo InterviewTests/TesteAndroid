@@ -12,5 +12,5 @@ public interface FundsView extends BaseView {
 
     void showMessageErrorRequest();
 
-    void setupCells(Funds funds);
+    void loadData(Funds funds);
 }

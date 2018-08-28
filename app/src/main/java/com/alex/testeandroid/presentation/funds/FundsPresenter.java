@@ -38,7 +38,7 @@ public class FundsPresenter implements BasePresenter {
                     public void accept(Funds funds) throws Exception {
                         if (view == null) return;
                         view.showProgress(false);
-                        view.setupCells(funds);
+                        view.loadData(funds);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
