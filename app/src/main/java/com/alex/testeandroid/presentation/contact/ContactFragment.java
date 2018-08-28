@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -48,6 +49,7 @@ public class ContactFragment extends Fragment implements ContactView {
 
     //region FIELDS
     private String name, email, phone;
+    private boolean registerEmail;
     private ContactPresenter presenter;
 
     @BindView(R.id.fragment_contact_scv_content)
@@ -116,10 +118,11 @@ public class ContactFragment extends Fragment implements ContactView {
     }
 
     @Override
-    public void buildForm(List<Cell> cells) {
+    public void buildForm(final List<Cell> cells) {
         name = "";
         email = "";
         phone = "";
+        registerEmail = false;
 
         consForm.removeAllViews();
         scvContent.setVisibility(View.VISIBLE);
@@ -139,7 +142,7 @@ public class ContactFragment extends Fragment implements ContactView {
                     textInputLayout.setOrientation(LinearLayout.HORIZONTAL);
                     textInputLayout.setHintTextAppearance(R.style.TextInputHint);
                     textInputLayout.setErrorTextAppearance(R.style.TextInputError);
-                    textInputLayout.setVisibility(cell.isHidden() && !cell.isRequired() ? View.GONE : View.VISIBLE);
+                    textInputLayout.setVisibility(cell.isHidden() ? View.GONE : View.VISIBLE);
 
                     TextInputEditText textInputEditText = new TextInputEditText(new ContextThemeWrapper(getContext(), R.style.TextInput));
                     textInputEditText.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/DINPro-Medium.otf"));
@@ -244,6 +247,14 @@ public class ContactFragment extends Fragment implements ContactView {
                     checkBox.setTextSize(16);
                     checkBox.setText(cell.getMessage());
                     checkBox.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/DINPro-Medium.otf"));
+                    checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                        @Override
+                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                            Cell cell1 = (Cell) buttonView.getTag();
+                            registerEmail = isChecked;
+                            consForm.findViewById(cell1.getShow()).setVisibility(registerEmail ? View.VISIBLE : View.GONE);
+                        }
+                    });
 
                     params = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
                     params.topToBottom = consForm.getChildAt(consForm.getChildCount() - 1).getId();
@@ -260,7 +271,7 @@ public class ContactFragment extends Fragment implements ContactView {
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            presenter.send(name, email, phone);
+                            presenter.send(name, email, phone, registerEmail);
                         }
                     });
 

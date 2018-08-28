@@ -53,7 +53,7 @@ public class ContactPresenter implements BasePresenter {
                 });
     }
 
-    public void send(String name, String email, String phone) {
+    public void send(String name, String email, String phone, boolean registerEmail) {
         ValidatorHelper validatorHelper = new ValidatorHelper();
 
         boolean error = false;
@@ -62,7 +62,7 @@ public class ContactPresenter implements BasePresenter {
             error = true;
         }
 
-        if (!validatorHelper.isValidEmail(email)) {
+        if (registerEmail && !validatorHelper.isValidEmail(email)) {
             view.showErrorEmail();
             error = true;
         }
