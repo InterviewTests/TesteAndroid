@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
+import br.com.santander.testeandroid.contact.view.ContactFragment;
 import br.com.santander.testeandroid.investment.view.InvestmentFragment;
 
 public class MainViewPagerAdapter extends FragmentPagerAdapter {
@@ -23,7 +24,7 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return InvestmentFragment.getInstance();
             case 1:
-                //call second screen
+                return ContactFragment.getInstance();
             default:
                 return new Fragment();
         }

@@ -13,7 +13,7 @@ public class CellResponse {
     private String message;
 
     @SerializedName("typefield")
-    private Integer typeField;
+    private String typeField;
 
     @SerializedName("hidden")
     private Boolean hidden;
@@ -51,11 +51,11 @@ public class CellResponse {
         this.message = message;
     }
 
-    public Integer getTypeField() {
+    public String getTypeField() {
         return typeField;
     }
 
-    public void setTypeField(Integer typeField) {
+    public void setTypeField(String typeField) {
         this.typeField = typeField;
     }
 

@@ -57,6 +57,10 @@ public abstract class BaseFragment<Presenter extends BasePresenter> extends Frag
         this.baseActivity = baseActivity;
     }
 
+    public BaseActivity getRootView() {
+        return baseActivity;
+    }
+
     public String[] getStringArray(@ArrayRes int resId) {
         return getResources().getStringArray(resId);
     }

@@ -42,7 +42,7 @@ public class InvestmentFragment extends BaseFragment<InvestmentPresenter>
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.investment_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_investment, container, false);
     }
 
     @Override
