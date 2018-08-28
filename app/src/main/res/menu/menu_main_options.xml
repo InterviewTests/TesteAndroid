@@ -5,11 +5,13 @@
         android:id="@+id/menu_main_options_investment"
         android:checked="true"
         android:enabled="true"
+        android:icon="@drawable/ic_invest"
         android:title="@string/ta_investment"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_main_options_contact"
         android:enabled="true"
+        android:icon="@drawable/ic_contact"
         android:title="@string/ta_contact"
         app:showAsAction="ifRoom" />
 </menu>
