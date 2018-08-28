@@ -1,19 +1,18 @@
 <resources>
     <string name="app_name">Android Santander</string>
-
     <string name="main_menu_share">Compartilhar</string>
     <string name="main_tab_investment">Investimento</string>
-
     <string name="an_error_occurred">Um erro ocorreu.\nPor favor tente novamente mais tarde</string>
-
     <string name="in_the_month">No mês</string>
     <string name="in_the_year">No ano</string>
     <string name="twelve_months">12 meses</string>
     <string name="investment_fund">Fundo</string>
     <string name="cdi">CDI</string>
-
     <string name="invest">Investir</string>
-
     <string name="download">Baixar</string>
+    <string name="thanks">Obrigado!</string>
+    <string name="success_view_message">Mensagem enviada\ncom sucesso :]</string>
+    <string name="send_new_message">Enviar nova mensagem</string>
+
 
 </resources>

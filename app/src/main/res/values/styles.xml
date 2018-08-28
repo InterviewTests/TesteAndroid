@@ -13,4 +13,16 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
+    <style name="AppThemeButton">
+        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:textColor">@color/colorLightGrey</item>
+    </style>
+
+    <style name="AppThemeTextView">
+        <item name="android:textColor">@color/colorLightGrey</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

@@ -99,13 +99,12 @@
 
             <Button
                 android:id="@+id/investment_button"
+                style="@style/AppThemeButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_dimen_32_dp"
                 android:layout_marginTop="@dimen/default_dimen_32_dp"
-                android:background="@drawable/investment_button_selector"
-                android:text="@string/invest"
-                android:textColor="@color/colorLightGrey" />
+                android:text="@string/invest" />
 
         </LinearLayout>
 
