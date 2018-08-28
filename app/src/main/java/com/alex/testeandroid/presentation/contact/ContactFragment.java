@@ -11,6 +11,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -19,7 +20,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -102,6 +102,7 @@ public class ContactFragment extends Fragment implements ContactView {
     //region PACKAGE METHODS
     @OnClick(R.id.fragment_contact_btn_send_new_message)
     void onSendNewMessage() {
+        consMessageSend.setVisibility(View.GONE);
         presenter.getContactForm();
     }
     //endregion
@@ -240,9 +241,10 @@ public class ContactFragment extends Fragment implements ContactView {
                 case Type.IMAGE:
                     break;
                 case Type.CHECK_BOX:
-                    CheckBox checkBox = new CheckBox(new ContextThemeWrapper(getContext(), R.style.CheckBox));
+                    AppCompatCheckBox checkBox = new AppCompatCheckBox(new ContextThemeWrapper(getContext(), R.style.CheckBox));
                     checkBox.setTag(cell);
                     checkBox.setId(cell.getId());
+                    checkBox.setSupportButtonTintList(ContextCompat.getColorStateList(getContext(), R.color.selector_check_box_red));
                     checkBox.setTextColor(ContextCompat.getColor(getContext(), R.color.grey_field_contact_hint));
                     checkBox.setTextSize(16);
                     checkBox.setText(cell.getMessage());
