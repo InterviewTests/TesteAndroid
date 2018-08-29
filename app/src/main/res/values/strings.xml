@@ -6,4 +6,8 @@
     <string name="ta_download">Baixar</string>
     <string name="ta_thanks">Obrigado!</string>
     <string name="ta_message_sent_successfully">Mensagem enviada com sucesso :)</string>
+    <string name="ta_send_new_message">Enviar nova mensagem</string>
+    <string name="ta_fill_field">preencha o campo</string>
+    <string name="ta_invalid_email">email inválido</string>
+    <string name="ta_invalid_phone">telefone inválido</string>
 </resources>

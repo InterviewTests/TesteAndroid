@@ -1,7 +1,6 @@
 package com.alex.testeandroid.presentation.contact;
 
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +10,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.text.Editable;
 import android.text.InputType;
@@ -140,13 +140,13 @@ public class ContactFragment extends Fragment implements ContactView {
                     textInputLayout.setTag(cell);
                     textInputLayout.setErrorEnabled(true);
                     textInputLayout.setId(cell.getId());
+                    textInputLayout.setTypeface(ResourcesCompat.getFont(getContext(), R.font.dinproregular));
                     textInputLayout.setOrientation(LinearLayout.HORIZONTAL);
                     textInputLayout.setHintTextAppearance(R.style.TextInputHint);
                     textInputLayout.setErrorTextAppearance(R.style.TextInputError);
                     textInputLayout.setVisibility(cell.isHidden() ? View.GONE : View.VISIBLE);
 
                     TextInputEditText textInputEditText = new TextInputEditText(new ContextThemeWrapper(getContext(), R.style.TextInput));
-                    textInputEditText.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/DINPro-Medium.otf"));
                     textInputEditText.setTextColor(ContextCompat.getColor(getContext(), R.color.grey_field_contact_text));
                     textInputEditText.setHint(cell.getMessage());
                     textInputEditText.setHintTextColor(ContextCompat.getColor(getContext(), R.color.grey_field_contact_hint));
@@ -233,7 +233,6 @@ public class ContactFragment extends Fragment implements ContactView {
                     textView.setTextColor(ContextCompat.getColor(getContext(), R.color.grey_field_contact_hint));
                     textView.setText(cell.getMessage());
                     textView.setTextSize(16);
-                    textView.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/DINPro-Medium.otf"));
                     params = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
                     params.topMargin = dimenHelper.toPx(getResources(), Math.round(cell.getTopSpacing()));
                     consForm.addView(textView, params);
@@ -245,10 +244,10 @@ public class ContactFragment extends Fragment implements ContactView {
                     checkBox.setTag(cell);
                     checkBox.setId(cell.getId());
                     checkBox.setSupportButtonTintList(ContextCompat.getColorStateList(getContext(), R.color.selector_check_box_red));
+                    checkBox.setTypeface(ResourcesCompat.getFont(getContext(), R.font.dinproregular));
                     checkBox.setTextColor(ContextCompat.getColor(getContext(), R.color.grey_field_contact_hint));
                     checkBox.setTextSize(16);
                     checkBox.setText(cell.getMessage());
-                    checkBox.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/DINPro-Medium.otf"));
                     checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                         @Override
                         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -266,6 +265,7 @@ public class ContactFragment extends Fragment implements ContactView {
                 case Type.SEND:
                     Button button = new Button(new ContextThemeWrapper(getContext(), R.style.Button));
                     button.setTag(cell);
+                    button.setTypeface(ResourcesCompat.getFont(getContext(), R.font.dinpromedium));
                     button.setBackgroundResource(R.drawable.shape_rectangle_rounded_color_primary);
                     button.setId(cell.getId());
                     button.setText(cell.getMessage());
@@ -295,19 +295,19 @@ public class ContactFragment extends Fragment implements ContactView {
     @Override
     public void showErrorName() {
         TextInputLayout textInputLayout = getFieldByType(TypeField.TEXT);
-        textInputLayout.getEditText().setError("preencha o campo");
+        textInputLayout.getEditText().setError(getString(R.string.ta_fill_field));
     }
 
     @Override
     public void showErrorEmail() {
         TextInputLayout textInputLayout = getFieldByType(TypeField.EMAIL);
-        textInputLayout.getEditText().setError("email inválido");
+        textInputLayout.getEditText().setError(getString(R.string.ta_invalid_email));
     }
 
     @Override
     public void showErrorPhone() {
         TextInputLayout textInputLayout = getFieldByType(TypeField.TEL_NUMBER);
-        textInputLayout.getEditText().setError("telefone inválido");
+        textInputLayout.getEditText().setError(getString(R.string.ta_invalid_phone));
     }
 
     @Override
