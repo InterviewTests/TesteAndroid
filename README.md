@@ -7,7 +7,7 @@
 
  e após no AS -> Tools > Android > Sync Project with Gradle Files:
 
-![Imgur](https://i.imgur.com/5864fmM.png)
+![Imgur](https://i.imgur.com/ZmqIp4Y.png)
 
 
 * Projeto para vaga na Avanade
