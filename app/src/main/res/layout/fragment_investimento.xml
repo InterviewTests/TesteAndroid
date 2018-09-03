@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feature.InvestimentoFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:id="@+id/txtInvestiment"
+                style="@style/FonteDINPro_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/investimento"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtSubTitulo"
+                style="@style/FonteDINPro_regularCinzaClaro_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtInvestiment" />
+
+            <TextView
+                android:id="@+id/txtNomePessoa"
+                style="@style/FonteDINPro_regular28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="TextView"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSubTitulo" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="315dp"
+                android:layout_height="1dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:background="#d9d9d9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtNomePessoa" />
+
+            <TextView
+                android:id="@+id/txtpergunta"
+                style="@style/FonteDINPro_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view" />
+
+            <TextView
+                android:id="@+id/txtResposta"
+                style="@style/FonteDINPro_light_regularCinzaClaro_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="7dp"
+                android:text="TextView"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtpergunta" />
+
+            <TextView
+                android:id="@+id/txtGrauInvest"
+                style="@style/FonteDINPro_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="35dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtResposta" />
+
+            <LinearLayout
+                android:id="@+id/layoutRisk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtGrauInvest">
+
+                <include
+                    android:id="@+id/includRisk"
+                    layout="@layout/view_risk" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtInfoInvestimento"
+                style="@style/FonteDINPro_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutRisk" />
+
+            <TextView
+                android:id="@+id/txtCdi"
+                style="@style/FonteDINPro_regularCinzaClaro_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="20dp"
+                android:text="CDI"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtInfoInvestimento" />
+
+            <TextView
+                android:id="@+id/txtFundo"
+                style="@style/FonteDINPro_regularCinzaClaro_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="80dp"
+                android:layout_marginTop="20dp"
+                android:text="Fundo"
+                app:layout_constraintEnd_toStartOf="@+id/txtCdi"
+                app:layout_constraintTop_toBottomOf="@+id/txtInfoInvestimento" />
+
+            <TextView
+                android:id="@+id/txtMes"
+                style="@style/FonteDINPro_regularCinzaClaro_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtFundo" />
+
+            <TextView
+                android:id="@+id/txtMesCdi"
+                style="@style/FonteDINPro_regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtCdi" />
+
+            <TextView
+                android:id="@+id/txtMesFundo"
+                style="@style/FonteDINPro_regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="@+id/txtFundo"
+                app:layout_constraintTop_toBottomOf="@+id/txtFundo" />
+
+            <TextView
+                android:id="@+id/txtAno"
+                style="@style/FonteDINPro_regularCinzaClaro_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="@+id/txtMes"
+                app:layout_constraintTop_toBottomOf="@+id/txtMes" />
+
+            <TextView
+                android:id="@+id/txtAnoFundo"
+                style="@style/FonteDINPro_regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="@+id/txtMesFundo"
+                app:layout_constraintTop_toBottomOf="@+id/txtMesFundo" />
+
+            <TextView
+                android:id="@+id/txtAnoCdi"
+                style="@style/FonteDINPro_regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="@+id/txtMesCdi"
+                app:layout_constraintTop_toBottomOf="@+id/txtMesCdi" />
+
+            <TextView
+                android:id="@+id/txtDozeMes"
+                style="@style/FonteDINPro_regularCinzaClaro_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="@+id/txtAno"
+                app:layout_constraintTop_toBottomOf="@+id/txtAno" />
+
+            <TextView
+                android:id="@+id/txtDozeMesFundo"
+                style="@style/FonteDINPro_regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="@+id/txtAnoFundo"
+                app:layout_constraintTop_toBottomOf="@+id/txtAnoFundo" />
+
+            <TextView
+                android:id="@+id/txtDozeMesCdi"
+                style="@style/FonteDINPro_regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="@+id/txtAnoCdi"
+                app:layout_constraintTop_toBottomOf="@+id/txtAnoCdi" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="315dp"
+                android:layout_height="1dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:background="#d9d9d9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDozeMesCdi" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleViewDadosArray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/txtCdi"
+                app:layout_constraintStart_toStartOf="@+id/view2"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="19dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_investimento"
+                app:layout_constraintEnd_toEndOf="@+id/view"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <Button
+                android:id="@+id/btInvestir"
+                android:layout_width="315dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/investir"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycleViewDadosArray"
+                android:background="@drawable/button_backgroud"
+                style="@style/ButtonConfig"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/btInvestir"
+                android:layout_marginTop="1dp"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/viewLoading"
+        layout="@layout/loading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/viewErroLoading"
+        layout="@layout/fragment_erro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+</android.support.constraint.ConstraintLayout>

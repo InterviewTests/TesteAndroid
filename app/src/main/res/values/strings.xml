@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TesteAndroid</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="investimento">Investimento</string>
+    <string name="contato">Contato</string>
+    <string name="investir">Investir</string>
+    <string name="obrigado">Obrigado!</string>
+    <string name="msgSucesso">Mensagem enviada com sucesso :)</string>
+    <string name="enviarNovaMsg">Enviar nova mensagem</string>
+    <string name="msgErro">Ops ocorreu um erro!</string>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:paddingEnd="32dp"
+    android:paddingStart="32dp">
+
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/contato"
+        tools:layout_editor_absoluteX="121dp"
+        tools:layout_editor_absoluteY="0dp"
+        style="@style/FonteDINPro_regular"
+        android:textAlignment="center" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/viewLoading"
+            layout="@layout/loading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/viewSucesso"
+            layout="@layout/frangment_sucesso"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/viewErroLoading"
+            layout="@layout/fragment_erro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/formLayoutContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+</LinearLayout>
