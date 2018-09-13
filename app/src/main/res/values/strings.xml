@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Invest</string>
+    <string name="investment">Investment</string>
+    <string name="invest">Invest</string>
+    <string name="share_button_description">Share button</string>
+    <string name="download_item_description">Download item</string>
+    <string name="error_message">Something wrong happened</string>
+    <string name="try_again_description">Try Again Button</string>
+    <string name="try_again">Try again</string>
+
 </resources>
