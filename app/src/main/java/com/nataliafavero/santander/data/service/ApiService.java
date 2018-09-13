@@ -1,6 +1,7 @@
 package com.nataliafavero.santander.data.service;
 
 import com.nataliafavero.santander.data.model.CellResponse;
+import com.nataliafavero.santander.data.model.Screen;
 import com.nataliafavero.santander.data.model.ScreenResponse;
 
 import retrofit2.Call;

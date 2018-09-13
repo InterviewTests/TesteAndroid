@@ -5,7 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.nataliafavero.santander.R;
 import com.nataliafavero.santander.ui.detailFund.DetailFundFragment;
+import com.nataliafavero.santander.ui.detailFund.DetailFundPresenter;
 
 /**
  * Created by nataliafavero on 11/09/18.R
@@ -23,26 +25,36 @@ public class StartFragmentPageAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        return DetailFundFragment.newInstance();
-//        switch (position) {
-//            case 0:
-//                return DetailFundFragment.newInstance();
-//            case 1:
-//                //TODO: call Contact
-//                return null;
-//            default:
-//                return DetailFundFragment.newInstance();
-//        }
+        switch (position) {
+            case 0:
+                DetailFundFragment fragment = DetailFundFragment.newInstance();
+                new DetailFundPresenter(fragment);
+                return fragment;
+            case 1:
+                DetailFundFragment fragment1 = DetailFundFragment.newInstance();
+                new DetailFundPresenter(fragment1);
+                return fragment1;
+            default:
+                DetailFundFragment fragment2 = DetailFundFragment.newInstance();
+                new DetailFundPresenter(fragment2);
+                return fragment2;
+        }
     }
 
     @Override
     public int getCount() {
-        return 1;
+        return 2;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-//        return super.getPageTitle(position);
-        return "Teste";
+        switch (position) {
+            case 0:
+                return mContext.getResources().getString(R.string.fund_title);
+            case 1:
+                return mContext.getResources().getString(R.string.contact_title);
+            default:
+                return mContext.getResources().getString(R.string.fund_title);
+        }
     }
 }

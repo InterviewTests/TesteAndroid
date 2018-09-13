@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Santander</string>
 
+    <string name="fund_title">Investimento</string>
     <string name="fund_fund">Fundo</string>
     <string name="fund_cdi">CDI</string>
     <string name="fund_btn_invest">Investir</string>
+
+    <string name="contact_title">Contato</string>
 </resources>
