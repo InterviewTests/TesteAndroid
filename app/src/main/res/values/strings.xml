@@ -7,5 +7,9 @@
     <string name="error_message">Something wrong happened</string>
     <string name="try_again_description">Try Again Button</string>
     <string name="try_again">Try again</string>
+    <string name="contact">Contact</string>
+    <string name="thanks">Thanks</string>
+    <string name="message_sent_successfully">Message sended successfully</string>
+    <string name="send_new_message">Send new message</string>
 
 </resources>

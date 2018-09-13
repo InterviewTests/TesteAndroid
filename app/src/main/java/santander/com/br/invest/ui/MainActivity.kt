@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import santander.com.br.invest.R
 import santander.com.br.invest.ui.adapter.ViewPagerAdapter
+import santander.com.br.invest.ui.fragments.ContactFragment
 import santander.com.br.invest.ui.fragments.InvestmentFragment
 
 
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addFragment(InvestmentFragment(), "Investimento")
-        adapter.addFragment(InvestmentFragment(), "Contato")
+        adapter.addFragment(ContactFragment(), "Contato")
         viewPager.adapter = adapter
     }
 }
