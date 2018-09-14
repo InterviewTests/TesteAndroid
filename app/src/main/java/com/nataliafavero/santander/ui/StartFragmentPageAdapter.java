@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.nataliafavero.santander.R;
+import com.nataliafavero.santander.ui.createContact.CreateContactFragment;
+import com.nataliafavero.santander.ui.createContact.CreateContactPresenter;
 import com.nataliafavero.santander.ui.detailFund.DetailFundFragment;
 import com.nataliafavero.santander.ui.detailFund.DetailFundPresenter;
 
@@ -31,13 +33,11 @@ public class StartFragmentPageAdapter extends FragmentPagerAdapter {
                 new DetailFundPresenter(fragment);
                 return fragment;
             case 1:
-                DetailFundFragment fragment1 = DetailFundFragment.newInstance();
-                new DetailFundPresenter(fragment1);
+                CreateContactFragment fragment1 = CreateContactFragment.newInstance();
+                new CreateContactPresenter(fragment1);
                 return fragment1;
             default:
-                DetailFundFragment fragment2 = DetailFundFragment.newInstance();
-                new DetailFundPresenter(fragment2);
-                return fragment2;
+                return null;
         }
     }
 

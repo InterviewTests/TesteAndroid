@@ -10,6 +10,7 @@
     <color name="riskOrange">#FF742C</color>
     <color name="riskRed">#FF3634</color>
 
+    <color name="white">@android:color/white</color>
     <color name="lightGray">#EFEEED</color>
     <color name="gray">#ACACAC</color>
     <color name="darkGray">#7E7E7E</color>
@@ -17,5 +18,11 @@
     <color name="lightBlack">#333333</color>
     <color name="red">#DA0101</color>
     <color name="darkRed">#c80404</color>
+
+    <color name="error_color">#C62828</color> // Error color (Red 800)
+    <color name="hint_color_active">#00897B</color> // Active label color (Teal 600)
+    <color name="hint_color_inactive">#9E9E9E</color> // Inactive label / Hint (Grey 500)
+
+
 
 </resources>

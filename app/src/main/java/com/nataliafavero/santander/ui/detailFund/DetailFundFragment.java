@@ -1,6 +1,5 @@
 package com.nataliafavero.santander.ui.detailFund;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.nataliafavero.santander.R;
+import com.nataliafavero.santander.ui.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -107,31 +107,26 @@ public class DetailFundFragment extends Fragment implements DetailFundContract.V
         InfoBaseAdapter moreInfoAdapter = new InfoBaseAdapter(moreInfo, this);
         mListMoreInfo.setAdapter(moreInfoAdapter);
         ViewGroup.LayoutParams lp = mListMoreInfo.getLayoutParams();
-        lp.height = moreInfo.size() * convertDpToPixel(sizeLine);
+        lp.height = moreInfo.size() * Utils.convertDpToPixel(getContext(), sizeLine);
         mListMoreInfo.setLayoutParams(lp);
 
         InfoBaseAdapter infoAdapter = new InfoBaseAdapter(info, this);
         mInfo.setAdapter(infoAdapter);
         ViewGroup.LayoutParams lpInfo = mInfo.getLayoutParams();
-        lpInfo.height = info.size() * convertDpToPixel(sizeLine);
+        lpInfo.height = info.size() * Utils.convertDpToPixel(getContext(), sizeLine);
         lpInfo.resolveLayoutDirection(View.LAYOUT_DIRECTION_INHERIT);
         mInfo.setLayoutParams(lpInfo);
 
-    }
-
-    public int convertDpToPixel(int dp) {
-        float density = getContext().getResources().getDisplayMetrics().density;
-        return Math.round((float) dp * density);
     }
 
     private void setRisk(int risk) {
         View riskView = listRisk.get(risk-1);
 
         ViewGroup.LayoutParams params = riskView.getLayoutParams();
-        params.height = convertDpToPixel(15);
+        params.height = Utils.convertDpToPixel(getContext(),15);
         riskView.setLayoutParams(params);
         ViewGroup.MarginLayoutParams margins = (ViewGroup.MarginLayoutParams) riskView.getLayoutParams();
-        margins.setMargins(0, convertDpToPixel(10), 2, 0);
+        margins.setMargins(0, Utils.convertDpToPixel(getContext(), 10), 2, 0);
         riskView.setLayoutParams(margins);
     }
 }

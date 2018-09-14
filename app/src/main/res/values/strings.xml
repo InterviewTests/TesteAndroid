@@ -7,4 +7,5 @@
     <string name="fund_btn_invest">Investir</string>
 
     <string name="contact_title">Contato</string>
+    <string name="contact_btn_send">Enviar</string>
 </resources>
