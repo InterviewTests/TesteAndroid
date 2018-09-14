@@ -20,13 +20,9 @@ public class CellButton extends android.support.v7.widget.AppCompatButton {
 
     public CellButton(Context context) {
         super(context);
-
-        setId(View.generateViewId());
         params = new RelativeLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.MATCH_PARENT,
                 Utils.convertDpToPixel(getContext(), 50));
-        int marginInPx = Utils.convertDpToPixel(getContext(), 20);
-        params.setMargins(marginInPx, marginInPx, marginInPx, marginInPx);
 
         setLayoutParams(params);
         setBackground(getContext().getResources().getDrawable(R.drawable.button_background));
@@ -40,7 +36,8 @@ public class CellButton extends android.support.v7.widget.AppCompatButton {
     }
 
     public void setMarginTop(int margin) {
-        params.setMargins(params.leftMargin, margin, params.rightMargin, params.bottomMargin);
+        int marginInPx = Utils.convertDpToPixel(getContext(), 20);
+        params.setMargins(marginInPx, Utils.convertDpToPixel(getContext(), margin), marginInPx, marginInPx);
     }
 
     public void setBelow(Integer id) {

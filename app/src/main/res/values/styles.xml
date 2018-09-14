@@ -18,6 +18,9 @@
         <item name="colorControlNormal">@color/gray</item>
         <item name="colorControlActivated">@color/gray</item>
         <item name="colorControlHighlight">@color/gray</item>
+
+        <item name="android:textColorHighlight">@color/gray</item>
+        <item name="android:textColorLink">@color/gray</item>
     </style>
 
     <style name="Tab" parent="Theme.AppCompat.Light.DarkActionBar">

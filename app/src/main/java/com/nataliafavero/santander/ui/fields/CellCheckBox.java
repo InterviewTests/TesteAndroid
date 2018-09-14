@@ -21,14 +21,15 @@ public class CellCheckBox extends android.support.v7.widget.AppCompatCheckBox {
         super(new ContextThemeWrapper(context, R.style.MyCheckbox));
 
          params = new RelativeLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
          setTextColor(context.getResources().getColor(R.color.gray));
-        setId(View.generateViewId());
+         setLayoutParams(params);
     }
 
     public void setMarginTop(int marginTopPx) {
-        params.setMargins(20,  Utils.convertDpToPixel(getContext(), marginTopPx), 20, 0 );
+        int marginInPx = Utils.convertDpToPixel(getContext(), 20);
+        params.setMargins(marginInPx, Utils.convertDpToPixel(getContext(), marginTopPx), marginInPx, 0);
     }
 
     public void setBelow(Integer id) {

@@ -1,18 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_contact"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView02"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/contact_view_title"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/dinpromedium"
-        android:text="@string/contact_title"
-        android:textAlignment="center"
-        android:textColor="@color/lightBlack"
-        android:textSize="16dp" />
+        android:layout_height="match_parent">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/contact_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/dinpromedium"
+            android:text="@string/contact_title"
+            android:textAlignment="center"
+            android:textColor="@color/lightBlack"
+            android:textSize="16dp" />
+
+        <RelativeLayout
+            android:id="@+id/relative_contact"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_contact_success"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/contact_view_success_message_thanks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/dinpromedium"
+                android:text="@string/contact_success_message_thank"
+                android:layout_above="@+id/contact_view_success_message"
+                android:textAlignment="center"
+                android:textColor="@color/darkGray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/contact_view_success_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/dinpromedium"
+                android:text="@string/contact_success_message"
+                android:textAlignment="center"
+                android:textColor="@color/lightBlack"
+                android:textSize="28sp" />
+
+            <Button
+                android:id="@+id/contact_view_success_btn_send"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/dinpromedium"
+                android:text="@string/contact_success_btn_new_message"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</ScrollView>
