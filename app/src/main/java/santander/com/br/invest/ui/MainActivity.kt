@@ -11,20 +11,20 @@ import santander.com.br.invest.ui.fragments.InvestmentFragment
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
 
-        initViewPager()
-    }
+    initViewPager()
+  }
 
-    private fun initViewPager() {
-        viewPager.offscreenPageLimit = 2
-        tabLayout.setupWithViewPager(viewPager)
+  private fun initViewPager() {
+    viewPager.offscreenPageLimit = 2
+    tabLayout.setupWithViewPager(viewPager)
 
-        val adapter = ViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(InvestmentFragment(), "Investimento")
-        adapter.addFragment(ContactFragment(), "Contato")
-        viewPager.adapter = adapter
-    }
+    val adapter = ViewPagerAdapter(supportFragmentManager)
+    adapter.addFragment(InvestmentFragment(), getString(R.string.investment))
+    adapter.addFragment(ContactFragment(), getString(R.string.contact))
+    viewPager.adapter = adapter
+  }
 }
