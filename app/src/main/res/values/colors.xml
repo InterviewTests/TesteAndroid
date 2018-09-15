@@ -3,4 +3,9 @@
     <color name="colorPrimary">#EA0404</color>
     <color name="colorPrimaryDark">#B80700</color>
     <color name="colorAccent">#4C6E6C</color>
+
+    <!-- Colors of state button -->
+    <color name="colorButtonNormal">#da0101</color>
+    <color name="colorButtonPressed">#eb7676</color>
+
 </resources>
