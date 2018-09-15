@@ -8,4 +8,7 @@
     <color name="colorButtonNormal">#da0101</color>
     <color name="colorButtonPressed">#eb7676</color>
 
+    <!-- Colors of state tab -->
+    <color name="colorTabSelected">#B80700</color>
+    <color name="colorTabUnSelected">#da0101</color>
 </resources>

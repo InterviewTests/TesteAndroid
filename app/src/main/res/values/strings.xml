@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TesteAndroid</string>
+    <string name="tab_contact_title">Contato</string>
+    <string name="tab_investment_title">Investimento</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
