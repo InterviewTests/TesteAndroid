@@ -1,5 +1,6 @@
 package com.santander.luizlago.testeandroid.ui.fragments.investment
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -42,6 +43,14 @@ class InvestmentFragment : BaseFragment<InvestmentContract.Presenter>(), Investm
     override fun addHeaderView(fund: Fund) {
         val headerView = InvestmentHeaderView(this.context!!)
         headerView.setFund(fund)
+        headerView.listener = object : InvestmentHeaderView.InvestmentHeaderViewListener {
+            override fun onShareButtonClicked() {
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.type = "text/plain"
+                intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.investment))
+                startActivity(Intent.createChooser(intent, context!!.getString(R.string.shareContentDescription)))
+            }
+        }
         this.investmentContainer.addView(headerView)
     }
 

@@ -16,6 +16,7 @@
     <string name="downloadClicked">Baixar Clicado!</string>
     <string name="investmentButtonClicked">Botão Clicado!</string>
     <string name="invest">Investir</string>
+    <string name="investment">Investmentimento</string>
 
     <string name="fundMoreInfoText">Fundo</string>
     <string name="cdiMoreInfoText" translatable="false">CDI</string>

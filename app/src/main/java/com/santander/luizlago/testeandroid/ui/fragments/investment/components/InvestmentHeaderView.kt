@@ -14,6 +14,7 @@ class InvestmentHeaderView @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     var viewLayout: View?= null
+    var listener: InvestmentHeaderViewListener? = null
 
     init {
         viewLayout = LayoutInflater.from(context)
@@ -25,6 +26,12 @@ class InvestmentHeaderView @JvmOverloads constructor(
         this.fundNameText.text = fund.fundName
         this.whatIsText.text = fund.whatIs
         this.definitionText.text = fund.definition
+        this.shareButton.setOnClickListener {
+            this.listener?.onShareButtonClicked()
+        }
     }
 
+    interface InvestmentHeaderViewListener {
+        fun onShareButtonClicked()
+    }
 }
