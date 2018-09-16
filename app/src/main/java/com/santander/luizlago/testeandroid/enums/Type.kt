@@ -1,9 +1,13 @@
 package com.santander.luizlago.testeandroid.enums
 
-enum class Type(value: Int) {
+enum class Type(val value: Int) {
     FIELD(1),
-    TEXT(1),
-    IMAGE(1),
-    CHECKBOX(1),
-    SEND(1)
+    TEXT(2),
+    IMAGE(3),
+    CHECKBOX(4),
+    SEND(5);
+
+    companion object {
+        fun valueOf(value: Int): Type? = Type.values().find { it.value == value }
+    }
 }

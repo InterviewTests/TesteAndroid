@@ -9,6 +9,7 @@ import io.reactivex.schedulers.Schedulers
 
 class ContactPresenter : ContactContract.Presenter {
 
+    var cells: List<Cell>? = null
     var view: ContactContract.View? = null
     var repository: SantanderRepository? = null
 
@@ -21,6 +22,10 @@ class ContactPresenter : ContactContract.Presenter {
     }
 
     override fun onResume() {
+        if (this.cells?.isNotEmpty() == true) {
+            return
+        }
+
         repository!!.getCells()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -42,18 +47,19 @@ class ContactPresenter : ContactContract.Presenter {
     }
 
     fun processResponse(cells: List<Cell>) {
+        this.cells = cells
         cells.forEach {
             createCell(it)
         }
     }
 
     fun createCell(cell: Cell) {
-        when(cell.type) {
-            Type.FIELD.ordinal -> return
-            Type.TEXT.ordinal -> return
-            Type.IMAGE.ordinal -> return
-            Type.CHECKBOX.ordinal -> return
-            Type.SEND.ordinal -> return
+        when(Type.valueOf(cell.type)) {
+            Type.FIELD -> this.view?.addCellField(cell)
+            Type.TEXT -> this.view?.addCellText(cell)
+            Type.IMAGE -> this.view?.addCellImage(cell)
+            Type.CHECKBOX -> this.view?.addCellCheckBox(cell)
+            Type.SEND -> this.view?.addCellSend(cell)
         }
     }
 }
