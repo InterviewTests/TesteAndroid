@@ -5,4 +5,14 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="red">#DA0101</color>
+    <color name="red_selected">#eb7676</color>
+    <color name="black">#333333</color>
+    <color name="gray">#7e7e7e</color>
+    <color name="light_gray">#acacac</color>
+    <color name="separator_gray">#afa9a3</color>
+    <color name="risk_lvl_1">#74da61</color>
+    <color name="risk_lvl_2">#4ac16c</color>
+    <color name="risk_lvl_3">#ffc011</color>
+    <color name="risk_lvl_4">#ff742c</color>
+    <color name="risk_lvl_5">#ff3634</color>
 </resources>

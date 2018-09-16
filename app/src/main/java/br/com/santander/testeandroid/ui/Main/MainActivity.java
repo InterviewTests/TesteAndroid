@@ -1,5 +1,6 @@
 package br.com.santander.testeandroid.ui.Main;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.santander.testeandroid.R;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class MainActivity extends AppCompatActivity implements MainView {
 
@@ -48,5 +50,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
         tabLayout.setupWithViewPager(viewPager);
         TabLayout.Tab tab = tabLayout.getTabAt(1);
         tab.select();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 }

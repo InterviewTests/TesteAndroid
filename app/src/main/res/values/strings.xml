@@ -3,4 +3,7 @@
 
     <string name="funds">Investimento</string>
     <string name="contact">Contato</string>
+
+    <!-- Menus -->
+    <string name="share">Compartilhar</string>
 </resources>
