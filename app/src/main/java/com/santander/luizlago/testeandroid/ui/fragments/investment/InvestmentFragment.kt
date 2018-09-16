@@ -34,6 +34,7 @@ class InvestmentFragment : BaseFragment<InvestmentContract.Presenter>(), Investm
 
     override fun addHeaderView(fund: Fund) {
         val headerView = InvestmentHeaderView(this.context!!)
+        headerView.setFund(fund)
         this.investmentContainer.addView(headerView)
     }
 

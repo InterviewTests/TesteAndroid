@@ -2,7 +2,7 @@ package com.santander.luizlago.testeandroid.api.models
 
 data class Fund(
         val title: String,
-        val funName: String,
+        val fundName: String,
         val whatIs: String,
         val definition: String,
         val riskTitle: String,

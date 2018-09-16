@@ -4,9 +4,10 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.santander.luizlago.testeandroid.R
+import com.santander.luizlago.testeandroid.api.models.Fund
+import kotlinx.android.synthetic.main.layout_investment_header.view.*
 
 class InvestmentHeaderView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -19,12 +20,11 @@ class InvestmentHeaderView @JvmOverloads constructor(
                 .inflate(R.layout.layout_investment_header, this, true)
     }
 
-//    override fun onFinishInflate() {
-//        super.onFinishInflate()
-//        val marginLayoutParams = ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-//        this.layoutParams = marginLayoutParams
-////        viewLayout = View.inflate(this.context, R.layout.layout_investment_header, this)
-//    }
-
+    fun setFund(fund: Fund) {
+        this.titleText.text = fund.title
+        this.fundNameText.text = fund.fundName
+        this.whatIsText.text = fund.whatIs
+        this.definitionText.text = fund.definition
+    }
 
 }
