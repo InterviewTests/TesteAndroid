@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp">
+
+    <TextView
+        android:id="@+id/riskTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/din_pro_bold"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Grau de risco do investimento" />
+
+    <View
+        android:id="@+id/viewRiskLevel01"
+        android:layout_width="0dp"
+        android:layout_height="6dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/colorRiskLevel01"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/viewRiskLevel02"
+        app:layout_constraintTop_toBottomOf="@id/riskTitleTextView" />
+
+    <View
+        android:id="@+id/viewRiskLevel02"
+        android:layout_width="0dp"
+        android:layout_height="6dp"
+        android:background="@color/colorRiskLevel02"
+        app:layout_constraintBottom_toBottomOf="@id/viewRiskLevel01"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/viewRiskLevel01"
+        app:layout_constraintRight_toLeftOf="@id/viewRiskLevel03"
+        app:layout_constraintTop_toTopOf="@id/viewRiskLevel01" />
+
+
+    <View
+        android:id="@+id/viewRiskLevel03"
+        android:layout_width="0dp"
+        android:layout_height="6dp"
+        android:background="@color/colorRiskLevel03"
+        app:layout_constraintBottom_toBottomOf="@id/viewRiskLevel01"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/viewRiskLevel02"
+        app:layout_constraintRight_toLeftOf="@id/viewRiskLevel04"
+        app:layout_constraintTop_toTopOf="@id/viewRiskLevel01" />
+
+    <View
+        android:id="@+id/viewRiskLevel04"
+        android:layout_width="0dp"
+        android:layout_height="6dp"
+        android:background="@color/colorRiskLevel04"
+        app:layout_constraintBottom_toBottomOf="@id/viewRiskLevel01"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/viewRiskLevel03"
+        app:layout_constraintRight_toLeftOf="@id/viewRiskLevel05"
+        app:layout_constraintTop_toTopOf="@id/viewRiskLevel01" />
+
+    <View
+        android:id="@+id/viewRiskLevel05"
+        android:layout_width="0dp"
+        android:layout_height="6dp"
+        android:background="@color/colorRiskLevel05"
+        app:layout_constraintBottom_toBottomOf="@id/viewRiskLevel01"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/viewRiskLevel04"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/viewRiskLevel01" />
+
+
+    <ImageView
+        android:id="@+id/indicatorView"
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        android:contentDescription="@string/indicatorContentDescription"
+        android:padding="2dp"
+        android:src="@drawable/ic_indicator"
+        app:layout_constraintBottom_toTopOf="@id/viewRiskLevel01"
+        app:layout_constraintLeft_toLeftOf="@id/viewRiskLevel01"
+        app:layout_constraintRight_toRightOf="@id/viewRiskLevel01" />
+
+</android.support.constraint.ConstraintLayout>

@@ -23,7 +23,7 @@
         android:layout_height="45dp"
         android:layout_marginEnd="12dp"
         android:layout_marginTop="24dp"
-        android:contentDescription="@string/share_content_description"
+        android:contentDescription="@string/shareContentDescription"
         android:padding="8dp"
         android:src="@drawable/ic_share"
         app:layout_constraintRight_toRightOf="parent"

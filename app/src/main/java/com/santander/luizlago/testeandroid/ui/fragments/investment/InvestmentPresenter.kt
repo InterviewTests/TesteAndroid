@@ -52,5 +52,10 @@ class InvestmentPresenter : InvestmentContract.Presenter {
     private fun processResponse(fund: Fund) {
         this.fund = fund
         this.view?.addHeaderView(this.fund!!)
+        this.view?.addRiskView(this.fund!!)
+        this.view?.addMoreInfoView(this.fund!!)
+        this.view?.addInfoValues(this.fund!!.info)
+        this.view?.addDownInfoValues(this.fund!!.downInfo)
+        this.view?.addInvestmentButton()
     }
 }

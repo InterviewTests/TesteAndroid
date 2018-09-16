@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/din_pro_bold"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Mais informações sobre o investimento" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/din_pro_light"
+        android:text="@string/fundMoreInfoText"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/monthFundTextView"
+        app:layout_constraintEnd_toEndOf="@+id/monthFundTextView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/din_pro_light"
+        android:text="@string/cdiMoreInfoText"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/monthCdiTextView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/monthCdiTextView"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:fontFamily="@font/din_pro_medium"
+        android:gravity="end"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/monthFundTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/din_pro_medium"
+        android:gravity="end"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/monthCdiTextView"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/monthTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:fontFamily="@font/din_pro_light"
+        android:text="@string/monthMoreInfoText"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+    <TextView
+        android:id="@+id/yearTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/din_pro_light"
+        android:text="@string/yearMoreInfoText"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/monthTextView" />
+
+    <TextView
+        android:id="@+id/twelveMonthsTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/din_pro_light"
+        android:text="@string/twelveMoreInfoText"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yearTextView" />
+
+    <TextView
+        android:id="@+id/yearFundTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/din_pro_medium"
+        android:gravity="end"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/monthFundTextView"
+        app:layout_constraintTop_toBottomOf="@+id/monthFundTextView"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/yearCdiTextView"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/din_pro_medium"
+        android:gravity="end"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/monthCdiTextView"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/twelveMonthsFundTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/din_pro_medium"
+        android:gravity="end"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/yearFundTextView"
+        app:layout_constraintTop_toBottomOf="@+id/yearFundTextView"
+        tools:text="0,3%" />
+
+    <TextView
+        android:id="@+id/twelveMonthsCdiTextView"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/din_pro_medium"
+        android:gravity="end"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yearCdiTextView"
+        tools:text="0,3%" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/divider_bdbdbd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/twelveMonthsTextView" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -5,13 +5,23 @@
     <string name="comunication_failed">Falha de comunicação</string>
     <string name="comunication_failed_message">Fail communication with our server!!!!</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="contactTitleText">Contact</string>
     <string name="textThanks">Thanks!</string>
     <string name="textMessageSentSuccessfull">Message sent with success! :)</string>
     <string name="textSendAnotherMessage">Send another message</string>
-    <string name="share_content_description">Share with</string>
+    <string name="shareContentDescription">Share with</string>
+    <string name="indicatorContentDescription">Indicator</string>
+    <string name="downloadContentDescription">Download</string>
+    <string name="download">Download</string>
+    <string name="downloadClicked">Download Clicked!</string>
+    <string name="investmentButtonClicked">Button CLicked!</string>
+    <string name="invest">Invest</string>
+
+    <string name="fundMoreInfoText">Fund</string>
+    <string name="cdiMoreInfoText" translatable="false">CDI</string>
+    <string name="monthMoreInfoText">On month</string>
+    <string name="yearMoreInfoText">On year</string>
+    <string name="twelveMoreInfoText">12 month</string>
 
 
 </resources>

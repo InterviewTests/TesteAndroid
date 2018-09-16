@@ -15,4 +15,11 @@
     <!-- Colors of dividers -->
     <color name="divider_bdbdbd">#BDBDBD</color>
 
+    <!-- Colors of risk -->
+    <color name="colorRiskLevel01">#74da61</color>
+    <color name="colorRiskLevel02">#4ac16c</color>
+    <color name="colorRiskLevel03">#ffc011</color>
+    <color name="colorRiskLevel04">#ff742c</color>
+    <color name="colorRiskLevel05">#ff3634</color>
+
 </resources>

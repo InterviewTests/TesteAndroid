@@ -5,12 +5,22 @@
     <string name="comunication_failed">Falha de comunicação</string>
     <string name="comunication_failed_message">Houve uma falha de comunicação com o nosso servidor!!!!</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="contactTitleText">Contato</string>
     <string name="textThanks">Obrigado!</string>
     <string name="textMessageSentSuccessfull">Mensagem enviada com sucesso :)</string>
     <string name="textSendAnotherMessage">Send another message</string>
-    <string name="share_content_description">Compartilhar com</string>
+    <string name="shareContentDescription">Compartilhar com</string>
+    <string name="indicatorContentDescription">Indicador</string>
+    <string name="downloadContentDescription">Baixar</string>
+    <string name="download">Baixar</string>
+    <string name="downloadClicked">Baixar Clicado!</string>
+    <string name="investmentButtonClicked">Botão Clicado!</string>
+    <string name="invest">Investir</string>
+
+    <string name="fundMoreInfoText">Fundo</string>
+    <string name="cdiMoreInfoText" translatable="false">CDI</string>
+    <string name="monthMoreInfoText">No mês</string>
+    <string name="yearMoreInfoText">No ano</string>
+    <string name="twelveMoreInfoText">12 meses</string>
 
 </resources>

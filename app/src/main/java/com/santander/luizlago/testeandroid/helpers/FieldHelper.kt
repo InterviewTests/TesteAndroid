@@ -46,7 +46,7 @@ class FieldHelper {
             view.visibility = if (isHidden) View.GONE else View.VISIBLE
         }
 
-        private fun convertDpToPx(context: Context, dp: Int): Int {
+        fun convertDpToPx(context: Context, dp: Int): Int {
             val displayMetrics = context.resources.displayMetrics
             return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT))
         }

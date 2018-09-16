@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="12dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingTop="12dp">
+
+    <TextView
+        android:id="@+id/downInfoNameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/din_pro_light"
+        android:maxLines="1"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/downInfoLayoutButton"
+        app:layout_constraintEnd_toStartOf="@+id/downInfoLayoutButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/downInfoLayoutButton"
+        tools:text="Taxa de administração" />
+
+    <LinearLayout
+        android:id="@+id/downInfoLayoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/downloadContentDescription"
+            android:src="@drawable/ic_download" />
+
+        <TextView
+            android:fontFamily="@font/din_pro_medium"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginStart="2dp"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:text="@string/download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
