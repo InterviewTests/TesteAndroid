@@ -11,4 +11,8 @@
     <!-- Colors of state tab -->
     <color name="colorTabSelected">#B80700</color>
     <color name="colorTabUnSelected">#da0101</color>
+
+    <!-- Colors of dividers -->
+    <color name="divider_bdbdbd">#BDBDBD</color>
+
 </resources>
