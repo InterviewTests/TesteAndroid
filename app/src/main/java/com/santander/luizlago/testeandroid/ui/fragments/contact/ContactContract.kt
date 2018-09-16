@@ -13,6 +13,8 @@ interface ContactContract {
         fun addCellImage(cell: Cell)
         fun addCellCheckBox(cell: Cell)
         fun addCellSend(cell: Cell)
+        fun showLayoutMessageSuccessFull(isShow: Boolean)
+        fun clearFields()
     }
 
     interface Presenter : BasePresenter {

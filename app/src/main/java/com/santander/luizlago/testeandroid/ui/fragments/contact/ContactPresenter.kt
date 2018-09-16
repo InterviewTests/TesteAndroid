@@ -22,10 +22,19 @@ class ContactPresenter : ContactContract.Presenter {
     }
 
     override fun onResume() {
+        loadCells()
+    }
+
+    override fun onPause() {
+    }
+
+    override fun onDestroy() {
+    }
+
+    private fun loadCells() {
         if (this.cells?.isNotEmpty() == true) {
             return
         }
-
         repository!!.getCells()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -38,12 +47,6 @@ class ContactPresenter : ContactContract.Presenter {
                 }, {
                     this.view?.showLoadingIndication(false)
                 })
-    }
-
-    override fun onPause() {
-    }
-
-    override fun onDestroy() {
     }
 
     fun processResponse(cells: List<Cell>) {
@@ -60,6 +63,21 @@ class ContactPresenter : ContactContract.Presenter {
             Type.IMAGE -> this.view?.addCellImage(cell)
             Type.CHECKBOX -> this.view?.addCellCheckBox(cell)
             Type.SEND -> this.view?.addCellSend(cell)
+        }
+    }
+
+    fun sendContactValues(values: Map<Int, String>) {
+        this.view?.showLayoutMessageSuccessFull(true)
+    }
+
+    fun sendAnotherMessageButtonClicked() {
+        this.view?.clearFields()
+        this.view?.showLayoutMessageSuccessFull(false)
+        if (this.cells != null) {
+            processResponse(this.cells!!)
+        }
+        else {
+            loadCells()
         }
     }
 }

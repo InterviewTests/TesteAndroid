@@ -73,9 +73,14 @@ class FieldHelper {
             when(enumType) {
                 TypeField.TEXT -> editTextView.inputType = InputType.TYPE_CLASS_TEXT
                 TypeField.EMAIL -> editTextView.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
-                TypeField.TELNUMBER -> editTextView.inputType = InputType.TYPE_CLASS_NUMBER
+                TypeField.TELNUMBER -> configureEditTextFieldForPhoneNumber(editTextView)
                 else -> return
             }
+        }
+
+        fun configureEditTextFieldForPhoneNumber(editTextView: EditText) {
+            editTextView.inputType = InputType.TYPE_CLASS_NUMBER
+            MaskHelper().addWatcher(editTextView)
         }
 
         fun configureCheckBox(view: View, cell: Cell) {
@@ -122,19 +127,73 @@ class FieldHelper {
             val childCount = viewGroup.childCount
             for (idx in 0..childCount) {
                 val view = viewGroup.getChildAt(idx)
-                val tag = view.tag
-                if (tag != null) {
-                    if (tag is Cell) {
-                        if (tag.require) {
-                            when(view) {
-                                is EditText -> return false
-                                else -> return false
+                if (view != null) {
+                    val tag = view.tag
+                    if (tag != null) {
+                        if (tag is Cell) {
+                            if (view is EditText) {
+                                if (validateEditTextField(view, tag))
+                                    return true
                             }
                         }
                     }
                 }
             }
             return false
+        }
+
+        fun validateEditTextField(view: View, cell: Cell): Boolean {
+            var error = false
+            val value = (view as EditText).text.toString()
+            val enumType = TypeFieldValueOfOrNull(cell.typefield!!)
+
+            if (view.visibility == View.VISIBLE) {
+                error =
+                        when(enumType) {
+                            TypeField.EMAIL -> !ValidationHelper.isValidEmail(value)
+                            TypeField.TELNUMBER -> ValidationHelper.isValidPhoneNumber(value)
+                            TypeField.TEXT -> ValidationHelper.isValidText(value)
+                            else -> false
+                        }
+
+                if (error) {
+                    ViewCompat.setBackgroundTintList(view, ColorStateList.valueOf(Color.RED))
+                } else {
+                    ViewCompat.setBackgroundTintList(view, ColorStateList.valueOf(Color.GREEN))
+                }
+            }
+
+            return error
+        }
+
+        fun getValuesFromFields(viewGroup: ViewGroup): Map<Int, String> {
+            val values = HashMap<Int, String>()
+
+            val childCount = viewGroup.childCount
+            for (idx in 0..childCount) {
+                val view = viewGroup.getChildAt(idx)
+                if (view != null) {
+                    val tag = view.tag
+                    if (tag != null) {
+                        if (tag is Cell) {
+                            if (view is EditText) {
+                                values.put(tag.id, view.text.toString())
+                            }
+                        }
+                    }
+                }
+            }
+
+            return values
+        }
+
+        fun removeAllFields(viewGroup: ViewGroup) {
+            val childCount = viewGroup.childCount
+//            for (idx in 1..childCount) {
+//                val view = viewGroup.getChildAt(idx)
+                viewGroup.removeViewsInLayout(1, childCount-1)
+//            }
+//            viewGroup.invalidate()
         }
 
     }

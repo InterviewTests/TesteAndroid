@@ -8,4 +8,4 @@ data class Cell(
         val hidden: Boolean,
         val topSpacing: Float,
         val show: Int?,
-        val require: Boolean)
+        val required: Boolean)
