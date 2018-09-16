@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.santander.luizlago.testeandroid.R
+import com.santander.luizlago.testeandroid.api.models.Fund
+import com.santander.luizlago.testeandroid.commons.BaseFragment
 import com.santander.luizlago.testeandroid.ui.fragments.investment.components.InvestmentHeaderView
 import kotlinx.android.synthetic.main.fragment_investment.*
 
-class InvestmentFragment : Fragment() {
+class InvestmentFragment : BaseFragment<InvestmentContract.Presenter>(), InvestmentContract.View{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +25,16 @@ class InvestmentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        this.investmentContainer.addView(InvestmentHeaderView(this.context!!))
+    }
+
+    override fun createPresente(): InvestmentContract.Presenter = InvestmentPresenter(this)
+
+    override fun showLoadingIndication(isShow: Boolean) {
+    }
+
+    override fun addHeaderView(fund: Fund) {
+        val headerView = InvestmentHeaderView(this.context!!)
+        this.investmentContainer.addView(headerView)
     }
 
     companion object {

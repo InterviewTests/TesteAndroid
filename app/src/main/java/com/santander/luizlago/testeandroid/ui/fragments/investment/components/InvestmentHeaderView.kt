@@ -19,11 +19,12 @@ class InvestmentHeaderView @JvmOverloads constructor(
                 .inflate(R.layout.layout_investment_header, this, true)
     }
 
-    override fun onFinishInflate() {
-        super.onFinishInflate()
-        val marginLayoutParams = ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        this.layoutParams = marginLayoutParams
-//        viewLayout = View.inflate(this.context, R.layout.layout_investment_header, this)
-    }
+//    override fun onFinishInflate() {
+//        super.onFinishInflate()
+//        val marginLayoutParams = ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+//        this.layoutParams = marginLayoutParams
+////        viewLayout = View.inflate(this.context, R.layout.layout_investment_header, this)
+//    }
+
 
 }
