@@ -7,7 +7,14 @@ class ValidationHelper {
 
     companion object {
         fun isValidEmail(email: String): Boolean {
-            return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
+            //return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
+            return email.matches(("[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                    "\\@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                    ")+").toRegex())
         }
 
         fun isValidPhoneNumber(number: String) : Boolean {
@@ -16,7 +23,7 @@ class ValidationHelper {
         }
 
         fun isValidText(text: String) : Boolean {
-            return TextUtils.isEmpty(text)
+            return text.isNullOrEmpty()
         }
      }
 
