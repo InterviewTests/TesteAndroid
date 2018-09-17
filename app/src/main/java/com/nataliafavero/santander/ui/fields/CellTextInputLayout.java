@@ -97,6 +97,9 @@ public class CellTextInputLayout extends TextInputLayout {
                             && !Patterns.EMAIL_ADDRESS.matcher(s).matches()) {
                         self.setErrorEnabled(true);
                         self.setError(getContext().getResources().getString(R.string.contact_error_email));
+                    } else if (editText.getInputType() == InputType.TYPE_CLASS_PHONE && s.length() < 14) {
+                        self.setErrorEnabled(true);
+                        self.setError(getContext().getResources().getString(R.string.contact_error_number));
                     }
                 } else {
                     self.setErrorEnabled(true);
