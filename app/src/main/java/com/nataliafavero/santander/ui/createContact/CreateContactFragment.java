@@ -165,7 +165,7 @@ public class CreateContactFragment extends Fragment implements CreateContactCont
             case "text":
                 return InputType.TYPE_CLASS_TEXT;
             case "2":
-            case "telNumber":
+            case "telnumber":
                 return InputType.TYPE_CLASS_PHONE;
             case "3":
             case "email":
