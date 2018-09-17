@@ -3,8 +3,8 @@ package com.nataliafavero.santander.ui.createContact;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +36,7 @@ public class CreateContactFragment extends Fragment implements CreateContactCont
     RelativeLayout mRelative;
 
     @BindView(R.id.relative_contact_success)
-    RelativeLayout mRelativeSucces;
+    ConstraintLayout mRelativeSuccess;
 
     private CreateContactContract.Presenter mPresenter;
     private Button mButton;
@@ -104,7 +104,7 @@ public class CreateContactFragment extends Fragment implements CreateContactCont
                             }
                             if (isValid) {
                                 mRelative.setVisibility(View.GONE);
-                                mRelativeSucces.setVisibility(View.VISIBLE);
+                                mRelativeSuccess.setVisibility(View.VISIBLE);
                             }
                         }
                     });
@@ -120,7 +120,7 @@ public class CreateContactFragment extends Fragment implements CreateContactCont
         mRelative.removeAllViews();
         mRelative.setVisibility(View.VISIBLE);
         mPresenter.start();
-        mRelativeSucces.setVisibility(View.GONE);
+        mRelativeSuccess.setVisibility(View.GONE);
     }
 
     private CellTextInputLayout createEditText(Cell cell, int idBelow) {
