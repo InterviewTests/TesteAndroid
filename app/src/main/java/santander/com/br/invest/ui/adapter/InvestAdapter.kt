@@ -31,7 +31,7 @@ class InvestAdapter(private val infoList: ArrayList<Info>) : RecyclerView.Adapte
       if (info.data != null) {
         itemView.txtDescription.text = info.data
       } else {
-        itemView.txtDescription.text = "Baixar"
+        itemView.txtDescription.text = itemView.context.getString(R.string.download)
         itemView.imgDownload.visible()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
           itemView.txtDescription.setTextAppearance(R.style.regular_14_red)
