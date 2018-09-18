@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_general_info_lbl"
+        fontPath="fonts/DINPro-Regular.otf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="start"
+        android:textColor="@color/light_gray"
+        android:textSize="14sp"
+        tools:ignore="MissingPrefix" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/tv_general_info_value"
+        fontPath="fonts/DINPro-Regular.otf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="end"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:ignore="MissingPrefix" />
+
+    <LinearLayout
+        android:id="@+id/ll_download_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:gravity="end|center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/seta_baixar" />
+
+        <TextView
+            fontPath="fonts/DINPro-Regular.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/download"
+            android:textColor="@color/red"
+            android:textSize="14sp"
+            tools:ignore="MissingPrefix" />
+
+    </LinearLayout>
+
+</TableRow>

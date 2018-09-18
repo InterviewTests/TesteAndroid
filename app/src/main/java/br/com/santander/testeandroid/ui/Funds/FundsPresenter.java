@@ -1,5 +1,11 @@
 package br.com.santander.testeandroid.ui.Funds;
 
+import br.com.santander.testeandroid.ui.Funds.domain.Models.Funds;
+import br.com.santander.testeandroid.ui.Funds.domain.UseCases.GetFunds;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class FundsPresenter {
     private FundsView view;
 
@@ -9,5 +15,28 @@ public class FundsPresenter {
 
     public void loadScreenInfo() {
         view.prepareToolbar();
+        view.showProgressBar();
+
+        GetFunds.getFunds(new Callback<Funds>() {
+            @Override
+            public void onResponse(Call<Funds> call, Response<Funds> response) {
+                if (response.isSuccessful()) {
+                    Funds funds = response.body();
+                    if (funds != null) {
+                        view.loadInformationSuccess(funds.getScreen());
+                        return;
+                    }
+
+                    view.loadInfomationFailed();
+                } else {
+                    view.loadInfomationFailed();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Funds> call, Throwable t) {
+                view.loadInfomationFailed();
+            }
+        });
     }
 }

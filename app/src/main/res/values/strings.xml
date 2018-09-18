@@ -3,6 +3,8 @@
 
     <string name="funds">Investimento</string>
     <string name="contact">Contato</string>
+    <string name="error">Ocorreu um erro :(</string>
+    <string name="try_again_later">Tente novamente mais tarde</string>
 
     <!-- Menus -->
     <string name="share">Compartilhar</string>
@@ -11,4 +13,13 @@
     <string name="thanks">Obrigado!</string>
     <string name="message_successfully_sent">Mensagem enviada \n com sucesso :)</string>
     <string name="send_new_message">Enviar nova mensagem</string>
+
+    <!-- Fragment Funds -->
+    <string name="fund">Fundo</string>
+    <string name="cdi">CDI</string>
+    <string name="month">No mês</string>
+    <string name="year">No ano</string>
+    <string name="twelve_months">12 meses</string>
+    <string name="download">Baixar</string>
+    <string name="invest">Investir</string>
 </resources>

@@ -8,7 +8,45 @@
 
     <include layout="@layout/toolbar_layout" />
 
+    <RelativeLayout
+        android:id="@+id/rl_container_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_container_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/error"
+            android:textSize="28sp"
+            android:textColor="@color/red"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/try_again_later"
+            android:textColor="@color/gray"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
     <ScrollView
+        android:visibility="gone"
+        android:id="@+id/sv_container_fund"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -19,19 +57,19 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="Fundos de investimentos"
                 android:textColor="@color/gray"
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/tv_fund_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Vinci Valorem FI Multimercado"
                 android:textColor="@color/black"
                 android:textSize="28sp" />
 
@@ -44,31 +82,31 @@
                 android:src="@drawable/separador" />
 
             <TextView
+                android:id="@+id/tv_what_is"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
-                android:text="O que é?"
                 android:textColor="@color/gray"
                 android:textSize="16sp" />
 
             <TextView
+                android:id="@+id/tv_definition"
                 fontPath="fonts/DINPro-Light.otf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
                 android:gravity="center"
-                android:text="O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos."
                 android:textColor="@color/gray"
                 android:textSize="16sp"
                 tools:ignore="MissingPrefix" />
 
             <TextView
+                android:id="@+id/tv_risk_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:gravity="center"
-                android:text="Grau de risco do investimento"
                 android:textColor="@color/gray"
                 android:textSize="16sp" />
 
@@ -90,6 +128,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/iv_risk_lvl_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -98,6 +137,7 @@
                         android:visibility="invisible" />
 
                     <View
+                        android:id="@+id/v_risk_bar_1"
                         android:layout_width="match_parent"
                         android:layout_height="5dp"
                         android:background="@color/risk_lvl_1" />
@@ -112,6 +152,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/iv_risk_lvl_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -120,6 +161,7 @@
                         android:visibility="invisible" />
 
                     <View
+                        android:id="@+id/v_risk_bar_2"
                         android:layout_width="match_parent"
                         android:layout_height="5dp"
                         android:background="@color/risk_lvl_2" />
@@ -134,6 +176,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/iv_risk_lvl_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -142,6 +185,7 @@
                         android:visibility="invisible" />
 
                     <View
+                        android:id="@+id/v_risk_bar_3"
                         android:layout_width="match_parent"
                         android:layout_height="5dp"
                         android:background="@color/risk_lvl_3" />
@@ -156,15 +200,18 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/iv_risk_lvl_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginBottom="5dp"
-                        android:src="@drawable/seta_investimento" />
+                        android:src="@drawable/seta_investimento"
+                        android:visibility="invisible" />
 
                     <View
+                        android:id="@+id/v_risk_bar_4"
                         android:layout_width="match_parent"
-                        android:layout_height="10dp"
+                        android:layout_height="5dp"
                         android:background="@color/risk_lvl_4" />
 
                 </LinearLayout>
@@ -177,6 +224,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/iv_risk_lvl_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -185,6 +233,7 @@
                         android:visibility="invisible" />
 
                     <View
+                        android:id="@+id/v_risk_bar_5"
                         android:layout_width="match_parent"
                         android:layout_height="5dp"
                         android:background="@color/risk_lvl_5" />
@@ -195,15 +244,16 @@
 
 
             <TextView
+                android:id="@+id/tv_info_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
-                android:text="Mais informações sobre o investimento"
                 android:textColor="@color/gray"
                 android:textSize="16sp" />
 
             <TableLayout
+                android:id="@+id/tl_more_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:shrinkColumns="*"
@@ -225,7 +275,7 @@
                         android:layout_height="wrap_content"
                         android:layout_span="3"
                         android:gravity="end"
-                        android:text="Fundo"
+                        android:text="@string/fund"
                         android:textColor="@color/light_gray"
                         android:textSize="14sp"
                         tools:ignore="MissingPrefix" />
@@ -236,127 +286,10 @@
                         android:layout_height="wrap_content"
                         android:layout_span="3"
                         android:gravity="end"
-                        android:text="CDI"
+                        android:text="@string/cdi"
                         android:textColor="@color/light_gray"
                         android:textSize="14sp"
                         tools:ignore="MissingPrefix" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_span="5"
-                        android:gravity="start"
-                        android:text="No mês"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_span="3"
-                        android:gravity="end"
-                        android:text="0,3%"
-                        android:textColor="@color/black"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_span="3"
-                        android:gravity="end"
-                        android:text="0,3%"
-                        android:textColor="@color/black"
-                        tools:ignore="MissingPrefix" />
-
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_span="5"
-                        android:gravity="start"
-                        android:text="No ano"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_span="3"
-                        android:gravity="end"
-                        android:text="13,01%"
-                        android:textColor="@color/black"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_span="3"
-                        android:gravity="end"
-                        android:text="12,08%"
-                        android:textColor="@color/black"
-                        tools:ignore="MissingPrefix" />
-
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_span="5"
-                        android:gravity="start"
-                        android:text="12 meses"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_span="3"
-                        android:gravity="end"
-                        android:text="17,9%"
-                        android:textColor="@color/black"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_span="3"
-                        android:gravity="end"
-                        android:text="17,6%"
-                        android:textColor="@color/black"
-                        tools:ignore="MissingPrefix" />
-
 
                 </TableRow>
 
@@ -371,406 +304,11 @@
                 android:background="@color/separator_gray" />
 
             <TableLayout
+                android:id="@+id/tl_general_information"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:shrinkColumns="*"
-                android:stretchColumns="*">
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:text="Taxa de administração"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="0,50%"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:text="Aplicação inicial"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="R$ 10.000,00"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:text="Movimentação mínima"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="R$ 1.000,00"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:text="Saldo mínino"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="R$ 5.000,00"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:text="Resgate (valor bruto)"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="D+0"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:text="Cota (valor bruto)"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="D+1"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:text="Pagamento (valor bruto)"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="D+2"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:text="Essenciais"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:gravity="end|center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="5dp"
-                            android:src="@drawable/seta_baixar" />
-
-                        <TextView
-                            fontPath="fonts/DINPro-Regular.otf"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Baixar"
-                            android:textColor="@color/red"
-                            android:textSize="14sp"
-                            tools:ignore="MissingPrefix" />
-
-                    </LinearLayout>
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:text="Desempenho"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:gravity="end|center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="5dp"
-                            android:src="@drawable/seta_baixar" />
-
-                        <TextView
-                            fontPath="fonts/DINPro-Regular.otf"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Baixar"
-                            android:textColor="@color/red"
-                            android:textSize="14sp"
-                            tools:ignore="MissingPrefix" />
-
-                    </LinearLayout>
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:text="Complementares"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:gravity="end|center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="5dp"
-                            android:src="@drawable/seta_baixar" />
-
-                        <TextView
-                            fontPath="fonts/DINPro-Regular.otf"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Baixar"
-                            android:textColor="@color/red"
-                            android:textSize="14sp"
-                            tools:ignore="MissingPrefix" />
-
-                    </LinearLayout>
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:text="Regulamento"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:gravity="end|center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="5dp"
-                            android:src="@drawable/seta_baixar" />
-
-                        <TextView
-                            fontPath="fonts/DINPro-Regular.otf"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Baixar"
-                            android:textColor="@color/red"
-                            android:textSize="14sp"
-                            tools:ignore="MissingPrefix" />
-
-                    </LinearLayout>
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        fontPath="fonts/DINPro-Regular.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:text="Adesão"
-                        android:textColor="@color/light_gray"
-                        android:textSize="14sp"
-                        tools:ignore="MissingPrefix" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:gravity="end|center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="5dp"
-                            android:src="@drawable/seta_baixar" />
-
-                        <TextView
-                            fontPath="fonts/DINPro-Regular.otf"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Baixar"
-                            android:textColor="@color/red"
-                            android:textSize="14sp"
-                            tools:ignore="MissingPrefix" />
-
-                    </LinearLayout>
-
-                </TableRow>
-
-            </TableLayout>
+                android:stretchColumns="*" />
 
             <Button
                 android:layout_width="match_parent"
@@ -780,7 +318,7 @@
                 android:background="@drawable/button_background"
                 android:paddingBottom="15dp"
                 android:paddingTop="15dp"
-                android:text="Investir"
+                android:text="@string/invest"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
 
@@ -792,6 +330,5 @@
         </LinearLayout>
 
     </ScrollView>
-
 
 </LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_lbl_more_info"
+        fontPath="fonts/DINPro-Regular.otf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_span="5"
+        android:gravity="start"
+        android:textColor="@color/light_gray"
+        android:textSize="14sp"
+        android:layout_marginBottom="10dp"
+        tools:ignore="MissingPrefix" />
+
+    <TextView
+        android:id="@+id/tv_fund_value"
+        fontPath="fonts/DINPro-Regular.otf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_span="3"
+        android:gravity="end"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"
+        tools:ignore="MissingPrefix" />
+
+    <TextView
+        android:id="@+id/tv_cdi_value"
+        fontPath="fonts/DINPro-Regular.otf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_span="3"
+        android:gravity="end"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"
+        tools:ignore="MissingPrefix" />
+</TableRow>
