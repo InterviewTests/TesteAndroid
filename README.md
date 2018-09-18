@@ -17,7 +17,7 @@ O visual do aplicativo está em anexo no arquivo telas.png e em um arquivo do [S
 Você será avaliado pela usabilidade, por respeitar o design e pela arquitetura do app. É esperado que você consiga explicar as decisões que tomou durante o desenvolvimento através de commits.
 
 * Java ou Kotlin
-* Constraintlayout
+* ConstraintLayout
 * O app deve funcionar no Android 4.4
 * Testes unitários (De preferência JUnit + Mockito). Mas pode usar o que você tem mais experiência, só nos explique o que ele tem de bom.
 * Arquitetura a ser utilizada: MVP Clean ([https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean/](https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean/)) && ([https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)).
