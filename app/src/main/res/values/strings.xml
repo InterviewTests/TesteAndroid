@@ -6,4 +6,9 @@
 
     <!-- Menus -->
     <string name="share">Compartilhar</string>
+
+    <!-- Content Message Form -->
+    <string name="thanks">Obrigado!</string>
+    <string name="message_successfully_sent">Mensagem enviada \n com sucesso :)</string>
+    <string name="send_new_message">Enviar nova mensagem</string>
 </resources>

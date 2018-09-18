@@ -9,6 +9,7 @@
     <color name="black">#333333</color>
     <color name="gray">#7e7e7e</color>
     <color name="light_gray">#acacac</color>
+    <color name="edittext_gray">#efeeed</color>
     <color name="separator_gray">#afa9a3</color>
     <color name="risk_lvl_1">#74da61</color>
     <color name="risk_lvl_2">#4ac16c</color>
