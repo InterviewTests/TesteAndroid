@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -18,26 +19,27 @@
 
     <TextView
         android:id="@+id/txtDescription"
+        style="@style/regular_14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        tools:text="TextView"
-        style="@style/regular_14"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="TextView" />
 
     <ImageView
         android:id="@+id/imgDownload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="4dp"
         android:contentDescription="@string/download_item_description"
-        android:visibility="gone"
         android:src="@drawable/ic_download"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDescription"
         app:layout_constraintEnd_toStartOf="@+id/txtDescription"
         app:layout_constraintTop_toTopOf="@+id/txtDescription"
         app:srcCompat="@drawable/ic_download"
-        tools:ignore="VectorDrawableCompat" />
+        tools:ignore="VectorDrawableCompat"
+        tools:visibility="visible" />
 
 </android.support.constraint.ConstraintLayout>

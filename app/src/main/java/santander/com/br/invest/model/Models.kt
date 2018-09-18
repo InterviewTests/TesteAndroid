@@ -13,19 +13,14 @@ data class Screen(
     val riskTitle: String,
     val risk: Int,
     val infoTitle: String,
-    val moreInfo: MoreInfo,
-    val infoList: List<Info>,
-    val downInfoList: List<DownInfo>
-)
-
-data class DownInfo(
-    val name: String,
-    val data: String
+    @Json(name = "moreInfo")  val taxInfo: MoreInfo,
+    @Json(name = "info") val infoList: List<Info>,
+    @Json(name = "downInfo")   val downInfoList: List<Info>
 )
 
 data class Info(
     val name: String,
-    val data: String
+    val data: String?
 )
 
 data class MoreInfo(

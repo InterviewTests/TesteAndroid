@@ -4,6 +4,7 @@
     <string name="invest">Invest</string>
     <string name="share_button_description">Share button</string>
     <string name="download_item_description">Download item</string>
+    <string name="download">Download item</string>
     <string name="error_message">Something wrong happened</string>
     <string name="try_again_description">Try Again Button</string>
     <string name="try_again">Try again</string>
@@ -11,5 +12,12 @@
     <string name="thanks">Thanks</string>
     <string name="message_sent_successfully">Message sended successfully</string>
     <string name="send_new_message">Send new message</string>
+    <string name="cdi">CDI</string>
+    <string name="fund">Fund</string>
+    <string name="on_year">On Year</string>
+    <string name="on_month">On Month</string>
+    <string name="on_12_months">12 Months</string>
+    <string name="number_percentage_placeholder">%.2f\%%</string>
+
 
 </resources>

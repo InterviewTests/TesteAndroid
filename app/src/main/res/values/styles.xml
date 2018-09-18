@@ -31,6 +31,12 @@
         <item name="android:textColor">@color/darkGrey</item>
     </style>
 
+    <style name="regular_14_red" parent="android:Widget.TextView">
+        <item name="android:fontFamily">font/dinpro_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+
     <style name="regular_14_white" parent="android:Widget.TextView">
         <item name="android:fontFamily">font/dinpro_regular</item>
         <item name="android:textSize">14sp</item>
