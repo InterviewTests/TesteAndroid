@@ -20,13 +20,19 @@ class ContactPresenter @Inject constructor(
 
   private lateinit var view: ContactContract.View
   private var cellList: List<CellRemote>? = null
+  private var cellListFormatted: ArrayList<Cell>? = null
 
   private var disposable: Disposable? = null
 
   override fun onCreate(savedInstanceState: Bundle?) {
     if (savedInstanceState == null) {
       getCellsInfo()
+    } else {
+      @Suppress("UNCHECKED_CAST")
+      cellListFormatted = savedInstanceState[ContactContract.CELL_LIST_KEY] as ArrayList<Cell>
+      getCellsInfo()
     }
+
   }
 
   override fun bindView(view: ContactContract.View) {
@@ -69,7 +75,7 @@ class ContactPresenter @Inject constructor(
   }
 
   private fun getCellsInfo() {
-    if (cellList == null) {
+    if (cellList == null && cellListFormatted == null) {
       disposable = contactRepository.getCells()
           .subscribeOn(Schedulers.io())
           .observeOn(AndroidSchedulers.mainThread())
@@ -89,6 +95,11 @@ class ContactPresenter @Inject constructor(
               }
           )
     } else {
+
+      cellListFormatted?.let {
+        view.createContactForm(it)
+        return
+      }
       cellList?.let {
         formatCells(it)
       }

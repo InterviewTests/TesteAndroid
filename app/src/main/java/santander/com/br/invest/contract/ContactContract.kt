@@ -4,6 +4,8 @@ import santander.com.br.invest.model.Cell
 
 object ContactContract {
 
+  const val CELL_LIST_KEY = "cell_list_key"
+
   interface Presenter : PresenterFragment<View> {
     fun sendContact(name: String?, phone: String?, email: String?, registerEmail: Boolean)
     fun showFormsAgain()

@@ -45,6 +45,7 @@ class ContactFragment : Fragment(), ContactContract.View {
   private var phone: String? = ""
   private var email: String? = ""
   private var registerEmail: Boolean = false
+  private var cellList: ArrayList<Cell>? = null
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
@@ -60,6 +61,13 @@ class ContactFragment : Fragment(), ContactContract.View {
     super.onViewCreated(view, savedInstanceState)
     initView(savedInstanceState)
     initListeners()
+  }
+
+  override fun onSaveInstanceState(outState: Bundle) {
+    super.onSaveInstanceState(outState)
+    if(cellList != null){
+      outState.putParcelableArrayList(ContactContract.CELL_LIST_KEY, cellList)
+    }
   }
 
   override fun showContactLayout() {
@@ -88,6 +96,8 @@ class ContactFragment : Fragment(), ContactContract.View {
 
   override fun createContactForm(cellList: ArrayList<Cell>) {
     contactForm.removeAllViews()
+
+    this.cellList = cellList
 
     name = ""
     phone = ""
