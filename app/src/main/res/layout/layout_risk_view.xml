@@ -6,12 +6,12 @@
 
     <ImageView
         android:id="@+id/imageOne"
-        android:layout_width="0dp"
-        android:layout_height="15dp"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/risk_arrow_height"
         android:contentDescription="@null"
         android:scaleType="center"
-        android:visibility="invisible"
         android:src="@drawable/ic_arrow_down"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/imageTwo"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,11 +20,11 @@
     <ImageView
         android:id="@+id/imageTwo"
         android:layout_width="0dp"
-        android:layout_height="15dp"
+        android:layout_height="@dimen/risk_arrow_height"
         android:contentDescription="@null"
         android:scaleType="center"
-        android:visibility="invisible"
         android:src="@drawable/ic_arrow_down"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/imageThree"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@id/imageOne"
@@ -33,11 +33,11 @@
     <ImageView
         android:id="@+id/imageThree"
         android:layout_width="0dp"
-        android:layout_height="15dp"
+        android:layout_height="@dimen/risk_arrow_height"
         android:contentDescription="@null"
         android:scaleType="center"
-        android:visibility="invisible"
         android:src="@drawable/ic_arrow_down"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/imageFour"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@id/imageTwo"
@@ -46,11 +46,11 @@
     <ImageView
         android:id="@+id/imageFour"
         android:layout_width="0dp"
-        android:layout_height="15dp"
+        android:layout_height="@dimen/risk_arrow_height"
         android:contentDescription="@null"
         android:scaleType="center"
-        android:visibility="invisible"
         android:src="@drawable/ic_arrow_down"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/imageFive"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@id/imageThree"
@@ -59,21 +59,21 @@
     <ImageView
         android:id="@+id/imageFive"
         android:layout_width="0dp"
-        android:layout_height="15dp"
+        android:layout_height="@dimen/risk_arrow_height"
         android:contentDescription="@null"
         android:scaleType="center"
-        android:visibility="invisible"
         android:src="@drawable/ic_arrow_down"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@id/imageFour"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <View
         android:id="@+id/viewOne"
-        android:layout_width="0dp"
-        android:layout_height="10dp"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/risk_level_height"
+        android:layout_marginStart="1dp"
         android:background="@color/lightGreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/imageTwo"
@@ -82,18 +82,20 @@
 
     <View
         android:id="@+id/viewTwo"
-        android:layout_width="0dp"
-        android:layout_height="10dp"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/risk_level_height"
+        android:layout_marginStart="1dp"
         android:background="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/imageThree"
         app:layout_constraintStart_toEndOf="@id/viewOne"
-        app:layout_constraintTop_toBottomOf="@+id/imageTwo" />
+        app:layout_constraintTop_toBottomOf="@+id/imageTwo"/>
 
     <View
         android:id="@+id/viewThree"
-        android:layout_width="0dp"
-        android:layout_height="10dp"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/risk_level_height"
+        android:layout_marginStart="1dp"
         android:background="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageFour"
@@ -102,8 +104,9 @@
 
     <View
         android:id="@+id/viewFour"
-        android:layout_width="0dp"
-        android:layout_height="10dp"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/risk_level_height"
+        android:layout_marginStart="1dp"
         android:background="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageFive"
@@ -113,8 +116,10 @@
 
     <View
         android:id="@+id/viewFive"
-        android:layout_width="0dp"
-        android:layout_height="10dp"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/risk_level_height"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
         android:background="@color/darkRed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -4,7 +4,7 @@
     <string name="invest">Invest</string>
     <string name="share_button_description">Share button</string>
     <string name="download_item_description">Download item</string>
-    <string name="download">Download item</string>
+    <string name="download">Download</string>
     <string name="error_message">Something wrong happened</string>
     <string name="try_again_description">Try Again Button</string>
     <string name="try_again">Try again</string>
@@ -18,6 +18,9 @@
     <string name="on_month">On Month</string>
     <string name="on_12_months">12 Months</string>
     <string name="number_percentage_placeholder">%.2f\%%</string>
+    <string name="required_field">Required field</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="invalid_phone">Invalid phone number</string>
 
 
 </resources>
