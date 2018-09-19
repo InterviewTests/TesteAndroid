@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="investment">Investimento</string>
+    <string name="invest">Investir</string>
+    <string name="share_button_description">Botão compartilhar</string>
+    <string name="download_item_description">Baixar item</string>
+    <string name="download">Baixar</string>
+    <string name="error_message">Ocorreu algum erro</string>
+    <string name="try_again_description">Botão tentar novamente</string>
+    <string name="try_again">Tentar novamente</string>
+    <string name="contact">Contato</string>
+    <string name="thanks">Obrigado</string>
+    <string name="message_sent_successfully">Mensagem enviada com sucesso</string>
+    <string name="send_new_message">Enviar nova mensagem</string>
+    <string name="fund">Fundos</string>
+    <string name="on_year">No ano</string>
+    <string name="on_month">No mês</string>
+    <string name="on_12_months">12 Meses</string>
+    <string name="required_field">Campo obrigatório</string>
+    <string name="invalid_email">Email inválido</string>
+    <string name="invalid_phone">Telefone inválido</string>
+
+</resources>
