@@ -1,4 +1,4 @@
-package br.com.santander.testeandroid.ui.Contact;
+package br.com.santander.testeandroid.ui.contact;
 
 public class ContactPresenter {
     private ContactView view;

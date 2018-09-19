@@ -1,4 +1,4 @@
-package br.com.santander.testeandroid.ui.Funds.domain.Models;
+package br.com.santander.testeandroid.ui.funds.domain.models;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -1,4 +1,4 @@
-package br.com.santander.testeandroid.ui.Funds;
+package br.com.santander.testeandroid.ui.funds;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,9 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.santander.testeandroid.R;
-import br.com.santander.testeandroid.ui.Funds.domain.Models.FundsScreen;
-import br.com.santander.testeandroid.ui.Funds.domain.Models.InfoDetail;
-import br.com.santander.testeandroid.ui.Funds.domain.Models.MoreInfoFundsDetail;
+import br.com.santander.testeandroid.ui.funds.domain.models.FundsScreen;
+import br.com.santander.testeandroid.ui.funds.domain.models.InfoDetail;
+import br.com.santander.testeandroid.ui.funds.domain.models.MoreInfoFundsDetail;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

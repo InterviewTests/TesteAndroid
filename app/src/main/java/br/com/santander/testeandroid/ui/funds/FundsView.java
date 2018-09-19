@@ -1,6 +1,6 @@
-package br.com.santander.testeandroid.ui.Funds;
+package br.com.santander.testeandroid.ui.funds;
 
-import br.com.santander.testeandroid.ui.Funds.domain.Models.FundsScreen;
+import br.com.santander.testeandroid.ui.funds.domain.models.FundsScreen;
 
 public interface FundsView {
     void prepareToolbar();

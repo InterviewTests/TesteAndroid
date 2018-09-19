@@ -1,8 +1,8 @@
-package br.com.santander.testeandroid.ui.Funds.domain.UseCases;
+package br.com.santander.testeandroid.ui.funds.domain.usecases;
 
-import br.com.santander.testeandroid.data.Funds.FundsService;
+import br.com.santander.testeandroid.data.funds.FundsService;
 import br.com.santander.testeandroid.data.RetrofitConfiguration;
-import br.com.santander.testeandroid.ui.Funds.domain.Models.Funds;
+import br.com.santander.testeandroid.ui.funds.domain.models.Funds;
 import retrofit2.Call;
 import retrofit2.Callback;
 

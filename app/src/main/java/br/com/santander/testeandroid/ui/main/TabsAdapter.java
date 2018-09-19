@@ -1,4 +1,4 @@
-package br.com.santander.testeandroid.ui.Main;
+package br.com.santander.testeandroid.ui.main;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;

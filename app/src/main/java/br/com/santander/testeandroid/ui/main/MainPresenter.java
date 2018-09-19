@@ -1,11 +1,11 @@
-package br.com.santander.testeandroid.ui.Main;
+package br.com.santander.testeandroid.ui.main;
 
 import android.support.v4.app.FragmentManager;
 
 import java.util.List;
 
-import br.com.santander.testeandroid.ui.Contact.ContactFragment;
-import br.com.santander.testeandroid.ui.Funds.FundsFragment;
+import br.com.santander.testeandroid.ui.contact.ContactFragment;
+import br.com.santander.testeandroid.ui.funds.FundsFragment;
 
 public class MainPresenter {
     private MainView view;
