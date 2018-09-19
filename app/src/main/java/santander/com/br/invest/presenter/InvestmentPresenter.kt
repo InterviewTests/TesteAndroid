@@ -25,6 +25,9 @@ class InvestmentPresenter @Inject constructor(
   override fun onCreate(savedInstanceState: Bundle?) {
     if (savedInstanceState == null) {
       getFundInfo()
+    } else {
+      screen = savedInstanceState[InvestmentContract.SCREEN_KEY] as Screen
+      getFundInfo()
     }
   }
 
@@ -55,6 +58,10 @@ class InvestmentPresenter @Inject constructor(
                 showErrorView(it)
               }
           )
+    } else {
+      screen?.let {
+        formatScreenData(it)
+      }
     }
   }
 

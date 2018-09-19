@@ -5,6 +5,8 @@ import santander.com.br.invest.model.Screen
 
 object InvestmentContract {
 
+  const val SCREEN_KEY = "screen_key"
+
   interface Presenter : PresenterFragment<View> {
 
     fun getFunds()

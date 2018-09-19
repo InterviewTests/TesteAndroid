@@ -27,6 +27,7 @@ class InvestmentFragment : Fragment(), InvestmentContract.View {
   lateinit var presenter: InvestmentContract.Presenter
 
   private var investView: View? = null
+  private var screen: Screen? = null
 
   private val RISK_SELECTED_HEIGHT by lazy { TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15f, resources.displayMetrics).toInt() }
 
@@ -70,6 +71,8 @@ class InvestmentFragment : Fragment(), InvestmentContract.View {
   }
 
   override fun updateFundInfo(screen: Screen) {
+    this.screen = screen
+
     txtTitle.text = screen.title
     txtFundName.text = screen.fundName
     txtWhatIs.text = screen.whatIs
@@ -84,6 +87,13 @@ class InvestmentFragment : Fragment(), InvestmentContract.View {
 
   override fun updateFundList(infoList: ArrayList<Info>) {
     initRecycler(infoList)
+  }
+
+  override fun onSaveInstanceState(outState: Bundle) {
+    super.onSaveInstanceState(outState)
+    if (screen != null) {
+      outState.putParcelable(InvestmentContract.SCREEN_KEY, screen)
+    }
   }
 
   private fun initView(savedInstanceState: Bundle?) {
