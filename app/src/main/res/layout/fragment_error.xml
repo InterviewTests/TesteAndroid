@@ -24,10 +24,10 @@
             android:text="@string/error_message" />
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/try_again_width"
+            android:layout_height="@dimen/try_again_height"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/default_margin_8dp"
             android:contentDescription="@string/try_again_description"
             android:src="@drawable/refresh" />
 

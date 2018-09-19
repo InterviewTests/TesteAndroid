@@ -23,7 +23,7 @@
         android:id="@+id/scroll"
         android:layout_width="@dimen/zero_dp"
         android:layout_height="@dimen/zero_dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/default_margin_8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

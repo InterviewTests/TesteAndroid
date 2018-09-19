@@ -17,16 +17,16 @@
         app:tabBackground="@color/red"
         app:tabGravity="fill"
         app:tabIndicatorColor="@color/red"
-        app:tabIndicatorHeight="2dp"
         app:tabMode="fixed"
+        app:tabMaxWidth="@dimen/zero_dp"
         app:tabSelectedTextColor="@android:color/white"
         app:tabTextAppearance="@style/TabTextAppearance"
         app:tabTextColor="@android:color/white" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/zero_dp"
         app:layout_constraintBottom_toTopOf="@+id/tabLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

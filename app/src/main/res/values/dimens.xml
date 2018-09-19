@@ -10,10 +10,14 @@
     <dimen name="margin_end_more_info">80dp</dimen>
     <dimen name="margin_top_more_info_item">16dp</dimen>
     <dimen name="margin_top_separator">24dp</dimen>
-    <dimen name="margin_end_button">32dp</dimen>
+    <dimen name="margin_button">32dp</dimen>
     <dimen name="separator_height">1dp</dimen>
 
     <dimen name="contact_form_text_size">16sp</dimen>
     <dimen name="risk_arrow_height">16dp</dimen>
     <dimen name="risk_level_height">10dp</dimen>
+    <dimen name="try_again_width">40dp</dimen>
+    <dimen name="try_again_height">40dp</dimen>
+    <dimen name="margin_end_download_image">4dp</dimen>
+    <dimen name="margin_separator_risk">1dp</dimen>
 </resources>
