@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/text_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextInputEditText"
+            app:errorTextAppearance="@style/AppTheme.TextErrorAppearance" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/ib_clear_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/limpar" />
+
+</FrameLayout>

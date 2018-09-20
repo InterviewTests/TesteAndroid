@@ -11,88 +11,10 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/ll_container_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="23dp"
-                        android:hint="Nome completo"
-                        android:inputType="text"
-                        android:paddingBottom="23dp"
-                        android:paddingRight="30dp"
-                        android:paddingTop="8dp"
-                        android:textSize="18sp" />
-                </android.support.design.widget.TextInputLayout>
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|center_vertical"
-                    android:layout_marginBottom="20dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/limpar" />
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Email"
-                        android:inputType="text"
-                        android:theme="@style/TextInputEditText" />
-                </android.support.design.widget.TextInputLayout>
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|center_vertical"
-                    android:layout_marginBottom="5dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/limpar" />
-
-            </FrameLayout>
-
-            <android.support.v7.widget.AppCompatCheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="24dp"
-                android:text="Gostaria de cadastrar meu email"
-                android:textColor="@color/light_gray"
-                android:theme="@style/CheckBox" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/button_background"
-                android:paddingBottom="15dp"
-                android:paddingTop="15dp"
-                android:text="Enviar"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white" />
-
-        </LinearLayout>
+            android:orientation="vertical" />
 
         <View
             android:layout_width="1dp"
