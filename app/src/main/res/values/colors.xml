@@ -7,6 +7,7 @@
     <color name="red">#DA0101</color>
     <color name="red_selected">#eb7676</color>
     <color name="black">#333333</color>
+    <color name="black_tab_selected">#33322a2a</color>
     <color name="gray">#7e7e7e</color>
     <color name="light_gray">#acacac</color>
     <color name="edittext_gray">#efeeed</color>

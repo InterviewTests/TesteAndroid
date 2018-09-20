@@ -11,13 +11,15 @@
         android:id="@+id/tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:tabGravity="fill"
-        app:tabIndicatorHeight="2dp"
+        app:tabIndicatorHeight="0dp"
         app:tabMode="fixed"
         app:tabSelectedTextColor="@android:color/white"
-        app:tabTextColor="@android:color/white" />
+        app:tabTextColor="@android:color/white"
+        app:tabPaddingEnd="-1dp"
+        app:tabPaddingStart="-1dp"
+        app:tabMaxWidth="0dp"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
