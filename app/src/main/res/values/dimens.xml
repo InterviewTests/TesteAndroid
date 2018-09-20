@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_padding_16dp">16dp</dimen>
+    <dimen name="default_margin_16dp">16dp</dimen>
+    <dimen name="zero_dp">0dp</dimen>
+    <dimen name="margin_spacer">24dp</dimen>
+    <dimen name="default_margin_8dp">8dp</dimen>
+    <dimen name="margin_top_risk">32dp</dimen>
+    <dimen name="margin_top_more_info">24dp</dimen>
+    <dimen name="margin_end_more_info">80dp</dimen>
+    <dimen name="margin_top_more_info_item">16dp</dimen>
+    <dimen name="margin_top_separator">24dp</dimen>
+    <dimen name="margin_button">32dp</dimen>
+    <dimen name="separator_height">1dp</dimen>
+
+    <dimen name="contact_form_text_size">16sp</dimen>
+    <dimen name="risk_arrow_height">16dp</dimen>
+    <dimen name="risk_level_height">10dp</dimen>
+    <dimen name="try_again_width">40dp</dimen>
+    <dimen name="try_again_height">40dp</dimen>
+    <dimen name="margin_end_download_image">4dp</dimen>
+    <dimen name="margin_separator_risk">1dp</dimen>
+</resources>

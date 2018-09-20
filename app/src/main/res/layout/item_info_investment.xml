@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin_16dp"
+        tools:text="TextView"
+        style="@style/regular_14_light_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDescription"
+        style="@style/regular_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_margin_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="TextView" />
+
+    <ImageView
+        android:id="@+id/imgDownload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_end_download_image"
+        android:contentDescription="@string/download_item_description"
+        android:src="@drawable/ic_download"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDescription"
+        app:layout_constraintEnd_toStartOf="@+id/txtDescription"
+        app:layout_constraintTop_toTopOf="@+id/txtDescription"
+        app:srcCompat="@drawable/ic_download"
+        tools:ignore="VectorDrawableCompat"
+        tools:visibility="visible" />
+
+</android.support.constraint.ConstraintLayout>

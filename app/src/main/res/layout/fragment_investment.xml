@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_padding_16dp">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtInvestment"
+            style="@style/regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/investment"
+            app:layout_constraintBottom_toTopOf="@id/scroll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/shareView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin_16dp"
+            android:contentDescription="@string/share_button_description"
+            android:src="@drawable/ic_share"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_share"
+            tools:ignore="VectorDrawableCompat" />
+
+        <ScrollView
+            android:id="@+id/scroll"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="@dimen/zero_dp"
+            android:layout_marginTop="@dimen/default_margin_16dp"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/buttonInvest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtInvestment">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_padding_16dp">
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    style="@style/regular_14_light_grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="Fundos de Investimento" />
+
+                <TextView
+                    android:id="@+id/txtFundName"
+                    style="@style/regular_28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin_16dp"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+                    tools:text="Vinci Valorem Fi\nMultimercado"
+                    tools:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/spacer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_spacer"
+                    android:contentDescription="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtFundName"
+                    app:srcCompat="@drawable/spacer" />
+
+                <TextView
+                    android:id="@+id/txtWhatIs"
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_spacer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/spacer"
+                    tools:text="O que é?" />
+
+                <TextView
+                    android:id="@+id/txtDefinition"
+                    style="@style/light_16_light_grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin_8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtWhatIs"
+                    tools:text="O fundo tem por objetivo proporcionar ao seus cotistas rentabilidade no longo prazo através de investimentos"
+                    tools:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/txtRiskLevel"
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/default_margin_8dp"
+                    android:layout_marginStart="@dimen/default_margin_8dp"
+                    android:layout_marginTop="@dimen/margin_top_risk"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDefinition"
+                    tools:text="Grau de Risco de Investimento" />
+
+                <LinearLayout
+                    android:id="@+id/layoutRisk"
+                    android:layout_width="@dimen/zero_dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin_8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtRiskLevel">
+
+                    <include layout="@layout/layout_risk_view" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtInfoTitle"
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/default_margin_8dp"
+                    android:layout_marginStart="@dimen/default_margin_8dp"
+                    android:layout_marginTop="@dimen/margin_top_more_info"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutRisk"
+                    tools:text="Mais informações sobre o investimento" />
+
+                <TextView
+                    android:id="@+id/txtCdi"
+                    style="@style/regular_14_light_grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/default_margin_8dp"
+                    android:layout_marginTop="@dimen/margin_top_more_info"
+                    android:text="@string/cdi"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtInfoTitle" />
+
+                <TextView
+                    android:id="@+id/txtFund"
+                    style="@style/regular_14_light_grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_end_more_info"
+                    android:layout_marginTop="@dimen/margin_top_more_info"
+                    android:text="@string/fund"
+                    app:layout_constraintEnd_toStartOf="@+id/txtCdi"
+                    app:layout_constraintTop_toBottomOf="@+id/txtInfoTitle" />
+
+                <TextView
+                    android:id="@+id/txtMonth"
+                    style="@style/regular_14_light_grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_8dp"
+                    android:layout_marginTop="@dimen/margin_top_more_info_item"
+                    android:text="@string/on_month"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtFund" />
+
+                <TextView
+                    android:id="@+id/txtCdiMonth"
+                    style="@style/regular_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/default_margin_8dp"
+                    android:layout_marginTop="@dimen/margin_top_more_info_item"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCdi"
+                    tools:text="0.3%" />
+
+                <TextView
+                    android:id="@+id/txtFundMonth"
+                    style="@style/regular_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_more_info_item"
+                    app:layout_constraintEnd_toEndOf="@+id/txtFund"
+                    app:layout_constraintTop_toBottomOf="@+id/txtFund"
+                    tools:text="0.3%" />
+
+                <TextView
+                    android:id="@+id/txtYear"
+                    style="@style/regular_14_light_grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_more_info_item"
+                    android:text="@string/on_year"
+                    app:layout_constraintStart_toStartOf="@+id/txtMonth"
+                    app:layout_constraintTop_toBottomOf="@+id/txtMonth" />
+
+                <TextView
+                    android:id="@+id/txtFundYear"
+                    style="@style/regular_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_more_info_item"
+                    app:layout_constraintEnd_toEndOf="@+id/txtFundMonth"
+                    app:layout_constraintTop_toBottomOf="@+id/txtFundMonth"
+                    tools:text="13,01%" />
+
+                <TextView
+                    android:id="@+id/txtCdiYear"
+                    style="@style/regular_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_more_info_item"
+                    app:layout_constraintEnd_toEndOf="@+id/txtCdiMonth"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCdiMonth"
+                    tools:text="12,08%" />
+
+                <TextView
+                    android:id="@+id/txt12Month"
+                    style="@style/regular_14_light_grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_more_info_item"
+                    android:text="@string/on_12_months"
+                    app:layout_constraintStart_toStartOf="@+id/txtYear"
+                    app:layout_constraintTop_toBottomOf="@+id/txtYear" />
+
+                <TextView
+                    android:id="@+id/txt12Fund"
+                    style="@style/regular_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_more_info_item"
+                    app:layout_constraintEnd_toEndOf="@+id/txtFundYear"
+                    app:layout_constraintTop_toBottomOf="@+id/txtFundYear"
+                    tools:text="17,9%" />
+
+                <TextView
+                    android:id="@+id/txt12Cdi"
+                    style="@style/regular_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_more_info_item"
+                    app:layout_constraintEnd_toEndOf="@+id/txtCdiYear"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCdiYear"
+                    tools:text="17,6%" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/separator_height"
+                    android:layout_marginTop="@dimen/margin_top_separator"
+                    android:background="@color/lightGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt12Cdi" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycleViewInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_top_separator"
+                    app:layout_constraintEnd_toEndOf="@+id/txtCdi"
+                    app:layout_constraintStart_toStartOf="@+id/view2"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/view2"
+                    tools:listitem="@layout/item_info_investment" />
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/buttonInvest"
+            style="@style/ButtonConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_margin_16dp"
+            android:layout_marginEnd="@dimen/margin_button"
+            android:layout_marginStart="@dimen/margin_button"
+            android:layout_marginTop="@dimen/default_margin_16dp"
+            android:background="@drawable/button_background"
+            android:text="@string/invest"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scroll" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/Progress"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <include
+        android:id="@+id/viewError"
+        layout="@layout/fragment_error"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
