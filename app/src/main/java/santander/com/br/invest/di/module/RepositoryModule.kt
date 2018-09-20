@@ -6,7 +6,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
-import santander.com.br.invest.api.Api
+import santander.com.br.invest.BuildConfig
 import santander.com.br.invest.api.ContactApi
 import santander.com.br.invest.api.InvestmentApi
 import santander.com.br.invest.repository.ContactRepository
@@ -48,7 +48,7 @@ class RepositoryModule {
   @Singleton
   fun providesRetroFit(): Retrofit {
     return Retrofit.Builder()
-        .baseUrl(Api.BASE_URL)
+        .baseUrl(BuildConfig.BASE_URL)
         .client(OkHttpClient.Builder().build())
         .addConverterFactory(MoshiConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
