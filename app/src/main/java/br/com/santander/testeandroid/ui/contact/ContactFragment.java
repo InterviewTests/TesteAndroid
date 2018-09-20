@@ -27,6 +27,7 @@ import java.util.List;
 
 import br.com.santander.testeandroid.R;
 import br.com.santander.testeandroid.ui.contact.domain.models.Cell;
+import br.com.santander.testeandroid.utils.PhoneMask;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -51,6 +52,7 @@ public class ContactFragment extends Fragment implements ContactView {
         activity = ((AppCompatActivity) getActivity());
         presenter = new ContactPresenter(this);
         presenter.loadScreenInfo();
+        presenter.setResources(getResources());
 
         return view;
     }
@@ -71,15 +73,18 @@ public class ContactFragment extends Fragment implements ContactView {
 
     @Override
     public void hideProgressBar() {
-
+        containerMessageSuccess.setVisibility(View.GONE);
+        containerForm.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void loadInformationSuccess(List<Cell> cellsList) {
         View view;
         containerFields.removeAllViews();
+        hideProgressBar();
+
         final HashMap<Integer, View> hiddenViews = new HashMap<>();
-        final HashMap<Cell, EditText> viewsToValidate = new HashMap<>();
+        final HashMap<Cell, TextInputLayout> viewsToValidate = new HashMap<>();
 
         for (final Cell cell : cellsList) {
             switch (cell.getType()) {
@@ -90,7 +95,7 @@ public class ContactFragment extends Fragment implements ContactView {
 
                     textView.setText(cell.getMessage());
 
-                    if(cell.isHidden()) {
+                    if (cell.isHidden()) {
                         view.setVisibility(View.GONE);
                         hiddenViews.put(cell.getId(), view);
                     }
@@ -114,6 +119,7 @@ public class ContactFragment extends Fragment implements ContactView {
                                 break;
                             case TEL_NUMBER:
                                 editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+                                editText.addTextChangedListener(PhoneMask.insert(editText));
                                 break;
                             default:
                                 editText.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -124,13 +130,13 @@ public class ContactFragment extends Fragment implements ContactView {
                     inputLayout.setLayoutParams(params);
                     inputLayout.setHint(cell.getMessage());
 
-                    if(cell.isHidden()) {
+                    if (cell.isHidden()) {
                         view.setVisibility(View.GONE);
                         hiddenViews.put(cell.getId(), view);
                     }
 
-                    if(cell.isRequired()) {
-                        viewsToValidate.put(cell, editText);
+                    if (cell.isRequired()) {
+                        viewsToValidate.put(cell, inputLayout);
                     }
 
                     clearButton.setOnClickListener(new View.OnClickListener() {
@@ -155,7 +161,7 @@ public class ContactFragment extends Fragment implements ContactView {
                     checkboxLayoutParams.setMargins(0, cell.getTopSpacing(), 0, 0);
                     checkBox.setLayoutParams(checkboxLayoutParams);
 
-                    if(cell.isHidden()) {
+                    if (cell.isHidden()) {
                         view.setVisibility(View.GONE);
                         hiddenViews.put(cell.getId(), view);
                     }
@@ -163,7 +169,7 @@ public class ContactFragment extends Fragment implements ContactView {
                     checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                         @Override
                         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                            if(isChecked) {
+                            if (isChecked) {
                                 hiddenViews.get(cell.getShow()).setVisibility(View.VISIBLE);
                                 hiddenViews.get(cell.getShow()).requestFocus();
                             } else {
@@ -188,7 +194,7 @@ public class ContactFragment extends Fragment implements ContactView {
                     button.setText(cell.getMessage());
                     button.setLayoutParams(buttonLayoutParams);
 
-                    if(cell.isHidden()) {
+                    if (cell.isHidden()) {
                         view.setVisibility(View.GONE);
                         hiddenViews.put(cell.getId(), view);
                     }
@@ -217,9 +223,14 @@ public class ContactFragment extends Fragment implements ContactView {
         containerMessageSuccess.setVisibility(View.VISIBLE);
     }
 
-    @OnClick(R.id.bt_send_new_message)
-    public void sendNewMessage() {
+    @Override
+    public void showForm() {
         containerMessageSuccess.setVisibility(View.GONE);
         containerForm.setVisibility(View.VISIBLE);
+    }
+
+    @OnClick(R.id.bt_send_new_message)
+    public void sendNewMessage() {
+        presenter.loadScreenInfo();
     }
 }

@@ -22,4 +22,9 @@
     <string name="twelve_months">12 meses</string>
     <string name="download">Baixar</string>
     <string name="invest">Investir</string>
+
+    <!-- Error Messages -->
+    <string name="empty_field_error">%s não pode ficar em branco</string>
+    <string name="invalid_phone_error">Telefone inválido</string>
+    <string name="invalid_email_error">Email inválido</string>
 </resources>

@@ -24,7 +24,7 @@
     <style name="AppTheme.TextErrorAppearance" parent="TextAppearance.Design.Error">
         <!-- Error message appearance here -->
         <item name="android:textColor">@color/red</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">11sp</item>
     </style>
 
     <style name="TextInputEditText" parent="AppTheme">

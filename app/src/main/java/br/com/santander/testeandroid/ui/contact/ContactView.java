@@ -13,4 +13,5 @@ public interface ContactView {
     void loadInformationSuccess(List<Cell> cellsList);
     void loadInformationFailed();
     void showSuccessMessage();
+    void showForm();
 }

@@ -16,5 +16,6 @@
     <color name="risk_lvl_3">#ffc011</color>
     <color name="risk_lvl_4">#ff742c</color>
     <color name="risk_lvl_5">#ff3634</color>
-    <color name="error_color">#ff1f1f</color>
+    <color name="error_field">#ff1f1f</color>
+    <color name="valid_field">#65be30</color>
 </resources>
