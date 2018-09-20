@@ -4,6 +4,8 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.ViewCompat;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -58,7 +60,7 @@ public class ContactPresenter {
         });
     }
 
-    public void validateFields(HashMap<Cell, TextInputLayout> viewsToValidate) {
+    public void validateFields(HashMap<Cell, TextInputLayout> viewsToValidate, LinearLayout containerFields) {
         view.showProgressBar();
         boolean isValid = true;
 
@@ -70,7 +72,9 @@ public class ContactPresenter {
             TextInputLayout inputLayout = (TextInputLayout) pair.getValue();
             String value = inputLayout.getEditText().getText().toString();
 
-            if (inputLayout.isShown()) {
+            View view = containerFields.findViewById(cell.getId());
+
+            if (view.getVisibility() == View.VISIBLE) {
                 switch (cell.getTypeField()) {
                     case TEL_NUMBER:
                         if (PhoneValidator.isEmpty(value)) {

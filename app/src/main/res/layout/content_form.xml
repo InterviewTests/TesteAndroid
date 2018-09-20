@@ -18,7 +18,7 @@
 
         <View
             android:layout_width="1dp"
-            android:layout_height="40dp"
+            android:layout_height="60dp"
             android:visibility="invisible" />
 
     </LinearLayout>

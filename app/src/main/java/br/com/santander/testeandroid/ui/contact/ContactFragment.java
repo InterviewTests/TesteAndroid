@@ -113,6 +113,7 @@ public class ContactFragment extends Fragment implements ContactView {
                     break;
                 case FIELD:
                     view = LayoutInflater.from(getContext()).inflate(R.layout.item_edittext, null);
+                    view.setId(cell.getId());
 
                     TextInputLayout inputLayout = view.findViewById(R.id.text_input_layout);
                     final EditText editText = inputLayout.getEditText();
@@ -211,7 +212,7 @@ public class ContactFragment extends Fragment implements ContactView {
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            presenter.validateFields(viewsToValidate);
+                            presenter.validateFields(viewsToValidate, containerFields);
                         }
                     });
 
