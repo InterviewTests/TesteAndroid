@@ -43,6 +43,10 @@ public class ContactFragment extends Fragment implements ContactView {
     ScrollView containerForm;
     @BindView(R.id.rl_msg_successfully_sent)
     RelativeLayout containerMessageSuccess;
+    @BindView(R.id.rl_container_progress_bar)
+    RelativeLayout containerProgressBar;
+    @BindView(R.id.ll_container_error)
+    LinearLayout containerError;
 
     @Nullable
     @Override
@@ -68,11 +72,16 @@ public class ContactFragment extends Fragment implements ContactView {
 
     @Override
     public void showProgressBar() {
-
+        containerError.setVisibility(View.GONE);
+        containerMessageSuccess.setVisibility(View.GONE);
+        containerForm.setVisibility(View.GONE);
+        containerProgressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressBar() {
+        containerProgressBar.setVisibility(View.GONE);
+        containerError.setVisibility(View.GONE);
         containerMessageSuccess.setVisibility(View.GONE);
         containerForm.setVisibility(View.VISIBLE);
     }
@@ -214,17 +223,24 @@ public class ContactFragment extends Fragment implements ContactView {
 
     @Override
     public void loadInformationFailed() {
-
+        containerProgressBar.setVisibility(View.GONE);
+        containerMessageSuccess.setVisibility(View.GONE);
+        containerForm.setVisibility(View.GONE);
+        containerError.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void showSuccessMessage() {
+        containerError.setVisibility(View.GONE);
+        containerProgressBar.setVisibility(View.GONE);
         containerForm.setVisibility(View.GONE);
         containerMessageSuccess.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void showForm() {
+        containerError.setVisibility(View.GONE);
+        containerProgressBar.setVisibility(View.GONE);
         containerMessageSuccess.setVisibility(View.GONE);
         containerForm.setVisibility(View.VISIBLE);
     }

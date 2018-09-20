@@ -8,47 +8,15 @@
 
     <include layout="@layout/toolbar_layout" />
 
-    <RelativeLayout
-        android:id="@+id/rl_container_progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <include layout="@layout/content_progressbar" />
 
-        <ProgressBar
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerInParent="true"/>
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_container_error"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/error"
-            android:textSize="28sp"
-            android:textColor="@color/red"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/try_again_later"
-            android:textColor="@color/gray"
-            android:textSize="14sp"/>
-
-    </LinearLayout>
+    <include layout="@layout/content_error" />
 
     <ScrollView
-        android:visibility="gone"
         android:id="@+id/sv_container_fund"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
