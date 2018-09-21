@@ -93,10 +93,6 @@ class InvestmentPresenter @Inject constructor(
   }
 
   private fun formatScreenData(screen: Screen) {
-    val infoList: ArrayList<Info> = ArrayList()
-    infoList.addAll(screen.infoList)
-    infoList.addAll(screen.downInfoList)
-
-    updateScreenInfo(screen, infoList)
+    updateScreenInfo(screen, screen.concatLists())
   }
 }

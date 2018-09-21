@@ -18,7 +18,15 @@ data class Screen(
     @Json(name = "moreInfo") val taxInfo: MoreInfo,
     @Json(name = "info") val infoList: List<Info>,
     @Json(name = "downInfo") val downInfoList: List<Info>
-) : Parcelable
+) : Parcelable {
+
+  fun concatLists(): ArrayList<Info> {
+    val infoList: ArrayList<Info> = ArrayList()
+    infoList.addAll(this.infoList)
+    infoList.addAll(this.downInfoList)
+    return infoList
+  }
+}
 
 @Parcelize
 data class Info(
