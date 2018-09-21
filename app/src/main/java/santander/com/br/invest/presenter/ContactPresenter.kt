@@ -1,15 +1,16 @@
 package santander.com.br.invest.presenter
 
 import android.os.Bundle
-import android.support.v4.util.PatternsCompat
 import android.util.Log
-import android.util.Patterns
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import santander.com.br.invest.contract.ContactContract
-import santander.com.br.invest.model.*
+import santander.com.br.invest.model.Cell
+import santander.com.br.invest.model.CellRemote
+import santander.com.br.invest.model.CellTransformer
 import santander.com.br.invest.repository.ContactRepository
+import santander.com.br.invest.util.ValidatorFields
 import javax.inject.Inject
 
 class ContactPresenter @Inject constructor(
@@ -43,19 +44,17 @@ class ContactPresenter @Inject constructor(
 
     var hasError = false
 
-    if (name.isNullOrEmpty()) {
+    if (ValidatorFields.isInvalidName(name)) {
       view.showNameErrorMessage()
       hasError = true
     }
 
-    if (phone.isNullOrEmpty() ||
-        !Patterns.PHONE.matcher(phone).matches()) {
+    if (ValidatorFields.isPhoneInvalid(phone)) {
       view.showPhoneErrorMessage()
       hasError = true
     }
 
-    if ((email.isNullOrEmpty()
-            || !PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()) && registerEmail) {
+    if (ValidatorFields.isInvalidEmail(email) && registerEmail) {
       view.showEmailErrorMEssage()
       hasError = true
     }
