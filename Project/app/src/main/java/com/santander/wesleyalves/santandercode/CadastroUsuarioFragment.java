@@ -1,5 +1,6 @@
 package com.santander.wesleyalves.santandercode;
 
+import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,10 +14,23 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.santander.wesleyalves.santandercode._utils.FieldValidator;
 import com.santander.wesleyalves.santandercode._utils.FontUtils;
+import com.santander.wesleyalves.santandercode.cadastrousuario.domain.model.Usuario;
+import com.santander.wesleyalves.santandercode.fundosinvestimento.domain.model.FundoInvestimentoResponse;
 
-public class CadastroUsuarioFragment extends Fragment {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class CadastroUsuarioFragment extends Fragment implements CadastroUsuarioContract.View {
 
     private View root;
     private TextView txt_saudacao;
@@ -32,6 +46,9 @@ public class CadastroUsuarioFragment extends Fragment {
     private final String EMAIL_INVALIDO = "Por favor, preencha um email válido!";
     private final String TELEFONE_INVALIDO = "Por favor, preencha um telefone válido!";
 
+    private CadastroUsuarioPresenter usuarioCadastroPresenter;
+
+
     public static CadastroUsuarioFragment newInstance() {
         return new CadastroUsuarioFragment();
     }
@@ -43,14 +60,47 @@ public class CadastroUsuarioFragment extends Fragment {
         root = inflater.inflate(R.layout.fragment_cadastro_usuario, container, false);
         setHasOptionsMenu(true);
 
-        DefinirObjetosLayout();
-        DefinirFontes();
-        DefinirListeners();
+        usuarioCadastroPresenter = new CadastroUsuarioPresenter();
+
+        definirObjetosLayout();
+        definirFontes();
+        definirListeners();
 
         return root;
     }
 
     private void BtnEnviarClick() {
+
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, "https://floating-mountain-50292.herokuapp.com/fund.json", null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONObject object = response.getJSONObject("screen");
+                            String teste = object.getString("title");
+
+                            String jsonString = object.toString();
+                            FundoInvestimentoResponse data = new FundoInvestimentoResponse();
+                            Gson gson = new Gson();
+                            data = gson.fromJson(jsonString, FundoInvestimentoResponse.class);
+
+                            String kkk = data.getTitle();
+                            String xdd = "";
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        boolean Error = true;
+                    }
+                });
+        requestQueue.add(jsonObjectRequest);
+
         boolean formularioValido = true;
 
         if (!FieldValidator.EditTextValidator(tfield_nome_completo, 1, NOME_INVALIDO))
@@ -70,9 +120,17 @@ public class CadastroUsuarioFragment extends Fragment {
         tfield_nome_completo.setError(null);
         tfield_email.setError(null);
         tfield_telefone.setError(null);
+
+        if (usuarioCadastroPresenter.salvarUsuario(tfield_nome_completo.getText().toString(), tfield_email.getText().toString(), tfield_telefone.getText().toString(), ckb_cadastrar_email.isChecked()))
+            exibirTelaSucesso();
     }
 
-    private void DefinirFontes() {
+    public void exibirTelaSucesso() {
+        getActivity().setResult(Activity.RESULT_OK);
+        getActivity().finish();
+    }
+
+    public void definirFontes() {
         Typeface custom_font = Typeface.createFromAsset(root.getContext().getAssets(), FontUtils.DINPRO_BOLD);
         txt_saudacao.setTypeface(custom_font);
 
@@ -86,7 +144,7 @@ public class CadastroUsuarioFragment extends Fragment {
         btn_enviar.setTypeface((custom_font));
     }
 
-    private void DefinirObjetosLayout() {
+    public void definirObjetosLayout() {
         txt_saudacao = root.findViewById(R.id.txt_saudacao);
         tfield_nome_completo = root.findViewById(R.id.tfield_nome_completo);
         tfield_email = root.findViewById(R.id.tfield_email);
@@ -97,7 +155,7 @@ public class CadastroUsuarioFragment extends Fragment {
         btn_enviar.setBackgroundResource(R.drawable.button_bg_color);
     }
 
-    private void DefinirListeners() {
+    public void definirListeners() {
         ckb_cadastrar_email.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
