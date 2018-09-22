@@ -1,16 +1,10 @@
 package com.santander.wesleyalves.santandercode.fundosinvestimento;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.santander.wesleyalves.santandercode.R;
-
-import org.json.JSONObject;
+import com.santander.wesleyalves.santandercode._utils.ActivityUtils;
 
 public class FundosInvestimentoActivity extends AppCompatActivity {
 
@@ -19,20 +13,13 @@ public class FundosInvestimentoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fundos_investimento);
 
-        String teste = "";
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, "https://floating-mountain-50292.herokuapp.com/fund.json", null, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        String teste = response.toString();
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                });
+        FundosInvestimentoFragment fundosInvestimentoFragment =
+                (FundosInvestimentoFragment) getSupportFragmentManager().findFragmentById(R.id.fundos_investimento_fragment);
+        if (fundosInvestimentoFragment == null) {
+            // Create the fragment
+            fundosInvestimentoFragment = FundosInvestimentoFragment.newInstance();
+            ActivityUtils.addFragmentToActivity(
+                    getSupportFragmentManager(), fundosInvestimentoFragment, R.id.fundos_investimento_fragment);
+        }
     }
 }

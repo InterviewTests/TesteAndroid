@@ -1,6 +1,7 @@
 package com.santander.wesleyalves.santandercode;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,6 +25,7 @@ import com.google.gson.Gson;
 import com.santander.wesleyalves.santandercode._utils.FieldValidator;
 import com.santander.wesleyalves.santandercode._utils.FontUtils;
 import com.santander.wesleyalves.santandercode.cadastrousuario.domain.model.Usuario;
+import com.santander.wesleyalves.santandercode.fundosinvestimento.FundosInvestimentoActivity;
 import com.santander.wesleyalves.santandercode.fundosinvestimento.domain.model.FundoInvestimentoResponse;
 
 import org.json.JSONArray;
@@ -70,37 +72,6 @@ public class CadastroUsuarioFragment extends Fragment implements CadastroUsuario
     }
 
     private void BtnEnviarClick() {
-
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, "https://floating-mountain-50292.herokuapp.com/fund.json", null, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONObject object = response.getJSONObject("screen");
-                            String teste = object.getString("title");
-
-                            String jsonString = object.toString();
-                            FundoInvestimentoResponse data = new FundoInvestimentoResponse();
-                            Gson gson = new Gson();
-                            data = gson.fromJson(jsonString, FundoInvestimentoResponse.class);
-
-                            String kkk = data.getTitle();
-                            String xdd = "";
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        boolean Error = true;
-                    }
-                });
-        requestQueue.add(jsonObjectRequest);
-
         boolean formularioValido = true;
 
         if (!FieldValidator.EditTextValidator(tfield_nome_completo, 1, NOME_INVALIDO))
@@ -127,7 +98,8 @@ public class CadastroUsuarioFragment extends Fragment implements CadastroUsuario
 
     public void exibirTelaSucesso() {
         getActivity().setResult(Activity.RESULT_OK);
-        getActivity().finish();
+        Intent myIntent = new Intent(getActivity(), FundosInvestimentoActivity.class);
+        getActivity().startActivity(myIntent);
     }
 
     public void definirFontes() {
