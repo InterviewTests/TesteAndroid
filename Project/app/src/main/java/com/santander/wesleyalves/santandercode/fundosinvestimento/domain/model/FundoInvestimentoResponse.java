@@ -1,5 +1,6 @@
 package com.santander.wesleyalves.santandercode.fundosinvestimento.domain.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FundoInvestimentoResponse {
@@ -11,6 +12,6 @@ public class FundoInvestimentoResponse {
     public int risk;
     public String infoTitle;
     public MoreInfo moreInfo;
-    public List<Info> info;
-    public List<DownInfo> downInfo;
+    public ArrayList<Info> info;
+    public ArrayList<DownInfo> downInfo;
 }
