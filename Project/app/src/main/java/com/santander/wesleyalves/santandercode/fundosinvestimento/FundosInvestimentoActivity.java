@@ -9,6 +9,8 @@ import android.widget.Button;
 
 import com.santander.wesleyalves.santandercode.R;
 import com.santander.wesleyalves.santandercode._utils.ActivityUtils;
+import com.santander.wesleyalves.santandercode.cadastrousuario.CadastroUsuarioFragment;
+import com.santander.wesleyalves.santandercode.contatosucesso.ContatoSucessoFragment;
 
 public class FundosInvestimentoActivity extends AppCompatActivity {
 
@@ -16,9 +18,11 @@ public class FundosInvestimentoActivity extends AppCompatActivity {
     private Button btn_footer_contato;
     private ConstraintLayout constraint_investimentos;
     private ConstraintLayout constraint_contato;
+    private ConstraintLayout constraint_sucesso;
 
     private FundosInvestimentoFragment fundosInvestimentoFragment;
-    private ContatoFragment contatoFragment;
+    private CadastroUsuarioFragment contatoFragment;
+    private ContatoSucessoFragment contatoSucessoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +49,7 @@ public class FundosInvestimentoActivity extends AppCompatActivity {
 
     private void ContatoFragment() {
         contatoFragment =
-                (ContatoFragment) getSupportFragmentManager().findFragmentById(R.id.contato_fragment);
+                (CadastroUsuarioFragment) getSupportFragmentManager().findFragmentById(R.id.contato_fragment);
 
         if (contatoFragment == null) {
             contatoFragment = contatoFragment.newInstance();
@@ -56,9 +60,23 @@ public class FundosInvestimentoActivity extends AppCompatActivity {
         }
     }
 
-    private void BtnInvestimentoClick() {
+    private void SucessoFragment() {
+        contatoSucessoFragment =
+                (ContatoSucessoFragment) getSupportFragmentManager().findFragmentById(R.id.contato_sucesso_fragment);
+
+        if (contatoSucessoFragment == null) {
+            contatoSucessoFragment = contatoSucessoFragment.newInstance();
+
+            ActivityUtils.addFragmentToActivity(
+                    getSupportFragmentManager(), contatoSucessoFragment, R.id.contato_sucesso_fragment);
+
+        }
+    }
+
+    public void BtnInvestimentoClick() {
         constraint_contato.setVisibility(View.GONE);
         constraint_investimentos.setVisibility(View.VISIBLE);
+        constraint_sucesso.setVisibility(View.GONE);
 
         btn_footer_investimento.setBackgroundResource(R.drawable.button_footer_pressed);
         btn_footer_contato.setBackgroundResource(R.drawable.button_footer);
@@ -74,9 +92,10 @@ public class FundosInvestimentoActivity extends AppCompatActivity {
         InvestimentosFragment();
     }
 
-    private void BtnContatoClick() {
+    public void BtnContatoClick() {
         constraint_investimentos.setVisibility(View.GONE);
         constraint_contato.setVisibility(View.VISIBLE);
+        constraint_sucesso.setVisibility(View.GONE);
 
         btn_footer_contato.setBackgroundResource(R.drawable.button_footer_pressed);
         btn_footer_investimento.setBackgroundResource(R.drawable.button_footer);
@@ -90,6 +109,14 @@ public class FundosInvestimentoActivity extends AppCompatActivity {
         btn_footer_contato.setLayoutParams(paramsContato);
 
         ContatoFragment();
+    }
+
+    public void SucessoContatoClick() {
+        constraint_investimentos.setVisibility(View.GONE);
+        constraint_contato.setVisibility(View.GONE);
+        constraint_sucesso.setVisibility(View.VISIBLE);
+
+        SucessoFragment();
     }
 
     private void definirListeners() {
@@ -111,5 +138,6 @@ public class FundosInvestimentoActivity extends AppCompatActivity {
         btn_footer_contato = findViewById(R.id.btn_contato);
         constraint_investimentos = findViewById(R.id.fundos_investimento_fragment);
         constraint_contato = findViewById(R.id.contato_fragment);
+        constraint_sucesso = findViewById(R.id.contato_sucesso_fragment);
     }
 }

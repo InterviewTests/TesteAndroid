@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF890000</color>
+    <color name="colorPrimary">#fff</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="bg_cadastro">#ffffff</color>
@@ -11,4 +11,8 @@
     <color name="tfield_line_focus">#ff1f1f</color>
     <color name="button_bg_footer">#da0101</color>
     <color name="button_bg_footer_active">#FFC60000</color>
+    <color name="txt_obrigado_color">#7E7E7E</color>
+    <color name="txt_mensagem_sucesso_color">#333333</color>
+    <color name="txt_nova_mensagem_color">#da0101</color>
+
 </resources>

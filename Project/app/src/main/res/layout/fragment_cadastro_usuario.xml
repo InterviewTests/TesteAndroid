@@ -7,9 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg_cadastro"
     android:visibility="visible"
-    tools:context=".CadastroUsuarioFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".cadastrousuario.CadastroUsuarioFragment">
 
     <TextView
         android:id="@+id/txt_saudacao"

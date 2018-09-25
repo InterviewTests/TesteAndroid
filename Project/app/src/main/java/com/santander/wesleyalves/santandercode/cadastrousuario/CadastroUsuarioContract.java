@@ -1,4 +1,4 @@
-package com.santander.wesleyalves.santandercode;
+package com.santander.wesleyalves.santandercode.cadastrousuario;
 
 public interface CadastroUsuarioContract {
 

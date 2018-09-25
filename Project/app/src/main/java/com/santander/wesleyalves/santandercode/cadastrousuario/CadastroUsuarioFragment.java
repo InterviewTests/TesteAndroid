@@ -1,4 +1,4 @@
-package com.santander.wesleyalves.santandercode;
+package com.santander.wesleyalves.santandercode.cadastrousuario;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,22 +15,10 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
+import com.santander.wesleyalves.santandercode.R;
 import com.santander.wesleyalves.santandercode._utils.FieldValidator;
 import com.santander.wesleyalves.santandercode._utils.FontUtils;
-import com.santander.wesleyalves.santandercode.cadastrousuario.domain.model.Usuario;
 import com.santander.wesleyalves.santandercode.fundosinvestimento.FundosInvestimentoActivity;
-import com.santander.wesleyalves.santandercode.fundosinvestimento.domain.model.FundoInvestimentoResponse;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class CadastroUsuarioFragment extends Fragment implements CadastroUsuarioContract.View {
 
@@ -97,9 +85,18 @@ public class CadastroUsuarioFragment extends Fragment implements CadastroUsuario
     }
 
     public void exibirTelaSucesso() {
-        getActivity().setResult(Activity.RESULT_OK);
-        Intent myIntent = new Intent(getActivity(), FundosInvestimentoActivity.class);
-        getActivity().startActivity(myIntent);
+        ((FundosInvestimentoActivity) getActivity()).SucessoContatoClick();
+    }
+
+    public void definirObjetosLayout() {
+        txt_saudacao = root.findViewById(R.id.txt_saudacao);
+        tfield_nome_completo = root.findViewById(R.id.tfield_nome_completo);
+        tfield_email = root.findViewById(R.id.tfield_email);
+        tfield_email.setVisibility(View.GONE);
+        tfield_telefone = root.findViewById(R.id.tfield_telefone);
+        ckb_cadastrar_email = root.findViewById(R.id.ckb_cadastrar_email);
+        btn_enviar = root.findViewById(R.id.btn_enviar);
+        btn_enviar.setBackgroundResource(R.drawable.button_bg_color);
     }
 
     public void definirFontes() {
@@ -114,17 +111,6 @@ public class CadastroUsuarioFragment extends Fragment implements CadastroUsuario
         tfield_email.setTypeface(custom_font);
         tfield_telefone.setTypeface(custom_font);
         btn_enviar.setTypeface((custom_font));
-    }
-
-    public void definirObjetosLayout() {
-        txt_saudacao = root.findViewById(R.id.txt_saudacao);
-        tfield_nome_completo = root.findViewById(R.id.tfield_nome_completo);
-        tfield_email = root.findViewById(R.id.tfield_email);
-        tfield_email.setVisibility(View.GONE);
-        tfield_telefone = root.findViewById(R.id.tfield_telefone);
-        ckb_cadastrar_email = root.findViewById(R.id.ckb_cadastrar_email);
-        btn_enviar = root.findViewById(R.id.btn_enviar);
-        btn_enviar.setBackgroundResource(R.drawable.button_bg_color);
     }
 
     public void definirListeners() {

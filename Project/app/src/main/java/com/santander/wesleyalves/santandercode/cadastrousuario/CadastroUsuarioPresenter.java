@@ -1,4 +1,4 @@
-package com.santander.wesleyalves.santandercode;
+package com.santander.wesleyalves.santandercode.cadastrousuario;
 
 import com.santander.wesleyalves.santandercode.cadastrousuario.domain.model.Usuario;
 

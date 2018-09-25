@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.santander.wesleyalves.santandercode.CadastroUsuarioContract;
 import com.santander.wesleyalves.santandercode.R;
 import com.santander.wesleyalves.santandercode.fundosinvestimento.domain.model.Info;
 
