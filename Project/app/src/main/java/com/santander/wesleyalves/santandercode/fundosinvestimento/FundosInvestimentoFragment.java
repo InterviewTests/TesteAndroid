@@ -116,7 +116,7 @@ public class FundosInvestimentoFragment extends Fragment implements FundosInvest
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-Fun
+
                     }
                 }, new Response.ErrorListener() {
                     @Override
