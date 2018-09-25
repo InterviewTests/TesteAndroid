@@ -51,7 +51,7 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Scanner;
 
-public class FundosInvestimentoFragment extends Fragment {
+public class FundosInvestimentoFragment extends Fragment implements FundosInvestimentoContract.View {
 
     private View root;
 
@@ -116,7 +116,7 @@ public class FundosInvestimentoFragment extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
+Fun
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -134,13 +134,6 @@ public class FundosInvestimentoFragment extends Fragment {
         txt_definicao.setText(fundosInvestimento.definition);
         txt_titulo_grau_risco.setText(fundosInvestimento.riskTitle);
         seekBar.setProgress(fundosInvestimento.risk);
-//        seekBar.post(new Runnable() {
-//            @Override
-//            public void run() {
-//                seekBar.setProgress(fundosInvestimento.risk);
-//            }
-//        });
-
         txt_titulo_mais_investimento.setText(fundosInvestimento.infoTitle);
         txt_mes_fundo.setText(String.valueOf(fundosInvestimento.moreInfo.month.fund));
         txt_mes_CDI.setText(String.valueOf(fundosInvestimento.moreInfo.month.CDI));
