@@ -9,4 +9,6 @@
     <color name="bg_button_pressed">#EB7676</color>
     <color name="ckb_checked">#da0101</color>
     <color name="tfield_line_focus">#ff1f1f</color>
+    <color name="button_bg_footer">#da0101</color>
+    <color name="button_bg_footer_active">#FFC60000</color>
 </resources>

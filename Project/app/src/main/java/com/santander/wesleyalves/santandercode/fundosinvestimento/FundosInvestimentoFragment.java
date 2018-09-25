@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -49,6 +50,7 @@ public class FundosInvestimentoFragment extends Fragment {
 
     private LinearLayout list_infos;
     private LinearLayout list_down_infos;
+    private Button btn_investir;
 
     private final String URL_INVESTIMENTOS = "https://floating-mountain-50292.herokuapp.com/fund.json";
 
@@ -175,12 +177,26 @@ public class FundosInvestimentoFragment extends Fragment {
         }
     }
 
+    public void BtnInvestirClick() {
+
+    }
+
     public static FundosInvestimentoFragment newInstance() {
         return new FundosInvestimentoFragment();
+    }
+
+    public void definirListeners() {
+        btn_investir.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                BtnInvestirClick();
+            }
+        });
     }
 
     public void definirObjetosLayout() {
         list_infos = root.findViewById(R.id.linear_info_fundos);
         list_down_infos = root.findViewById(R.id.linear_downinfo_fundos);
+        btn_investir = root.findViewById(R.id.btn_investir);
+        btn_investir.setBackgroundResource(R.drawable.button_bg_color);
     }
 }
