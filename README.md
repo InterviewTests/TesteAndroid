@@ -1,3 +1,5 @@
+Para executar o projeto, basta abri-lo no Android Studio e executa-lo em um aparelho com android versão 4.4 ou superior.
+
 # Show me the code
 
 ### # DESAFIO:
