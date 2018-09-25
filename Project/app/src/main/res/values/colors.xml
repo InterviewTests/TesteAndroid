@@ -14,5 +14,8 @@
     <color name="txt_obrigado_color">#7E7E7E</color>
     <color name="txt_mensagem_sucesso_color">#333333</color>
     <color name="txt_nova_mensagem_color">#da0101</color>
+    <color name="txt_fundos_periodo">#ACACAC</color>
+    <color name="txt_valor_periodo">#333333</color>
+    <color name="txt_texto_investimentos">#7E7E7E</color>
 
 </resources>

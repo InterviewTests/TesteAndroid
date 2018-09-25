@@ -2,7 +2,11 @@ package com.santander.wesleyalves.santandercode.fundosinvestimento;
 
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -24,6 +28,9 @@ public class FundosInvestimentoActivity extends AppCompatActivity {
     private CadastroUsuarioFragment contatoFragment;
     private ContatoSucessoFragment contatoSucessoFragment;
 
+    private final String TITULO_INVESTIMENTO = "Investimento";
+    private final String TITULO_CONTATO = "Contato";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +40,7 @@ public class FundosInvestimentoActivity extends AppCompatActivity {
 
         definirObjetosLayout();
         definirListeners();
+        definirTituloActivity(TITULO_INVESTIMENTO);
     }
 
     private void InvestimentosFragment() {
@@ -74,6 +82,8 @@ public class FundosInvestimentoActivity extends AppCompatActivity {
     }
 
     public void BtnInvestimentoClick() {
+        definirTituloActivity(TITULO_INVESTIMENTO);
+
         constraint_contato.setVisibility(View.GONE);
         constraint_investimentos.setVisibility(View.VISIBLE);
         constraint_sucesso.setVisibility(View.GONE);
@@ -93,6 +103,8 @@ public class FundosInvestimentoActivity extends AppCompatActivity {
     }
 
     public void BtnContatoClick() {
+        definirTituloActivity(TITULO_CONTATO);
+
         constraint_investimentos.setVisibility(View.GONE);
         constraint_contato.setVisibility(View.VISIBLE);
         constraint_sucesso.setVisibility(View.GONE);
@@ -117,6 +129,12 @@ public class FundosInvestimentoActivity extends AppCompatActivity {
         constraint_sucesso.setVisibility(View.VISIBLE);
 
         SucessoFragment();
+    }
+
+    public void definirTituloActivity(String tituloActivity) {
+        SpannableString s = new SpannableString(tituloActivity);
+        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(this, R.color.txt_nova_mensagem_color)), 0, tituloActivity.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        getSupportActionBar().setTitle(s);
     }
 
     private void definirListeners() {
