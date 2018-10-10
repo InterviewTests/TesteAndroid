@@ -2,12 +2,16 @@ package br.com.santander.santanderinvestimento.investiment.presentation
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import br.com.santander.santanderinvestimento.R
 import br.com.santander.santanderinvestimento.core.presentation.BaseFragment
+import br.com.santander.santanderinvestimento.investiment.adapter.InfoAdapter
+import br.com.santander.santanderinvestimento.investiment.domain.entity.Info
 import br.com.santander.santanderinvestimento.investiment.domain.entity.Investment
 import br.com.santander.santanderinvestimento.util.showSnack
 import kotlinx.android.synthetic.main.fragment_investment.*
@@ -21,6 +25,47 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, SwipeRefresh
         txDefinition.text = investment.definition
         txRiskTitle.text = investment.riskTitle
         txInfoTitle.text = investment.infoTitle
+
+        fillRiskLayout(investment.risk)
+        fillInfo(investment.info)
+        fillDownInfo(investment.downInfo)
+    }
+
+    fun fillDownInfo(list :List<Info>){
+        val listAdapter = InfoAdapter(list as MutableList<Info>)
+        rcvDownInfo.adapter = listAdapter
+        list.let { listAdapter.addOpenSourcesToList(it) }
+    }
+
+    fun fillInfo(list: List<Info>) {
+        val listAdapter = InfoAdapter(list as MutableList<Info>)
+        rcvInfo.adapter = listAdapter
+        list.let { listAdapter.addOpenSourcesToList(it) }
+    }
+
+    fun fillRiskLayout(risk: Int) {
+        when (risk) {
+            1 -> {
+                ivRisk1.visibility = View.VISIBLE
+                bgRisk1.layoutParams.height = resources.getDimensionPixelSize(R.dimen.size_risk_expanded)
+            }
+            2 -> {
+                ivRisk2.setImageResource(R.drawable.arrow)
+                bgRisk2.layoutParams.height = resources.getDimensionPixelSize(R.dimen.size_risk_expanded)
+            }
+            3 -> {
+                ivRisk3.setImageResource(R.drawable.arrow)
+                bgRisk3.layoutParams.height = resources.getDimensionPixelSize(R.dimen.size_risk_expanded)
+            }
+            4 -> {
+                ivRisk4.setImageResource(R.drawable.arrow)
+                bgRisk4.layoutParams.height = resources.getDimensionPixelSize(R.dimen.size_risk_expanded)
+            }
+            5 -> {
+                ivRisk5.setImageResource(R.drawable.arrow)
+                bgRisk5.layoutParams.height = resources.getDimensionPixelSize(R.dimen.size_risk_expanded)
+            }
+        }
     }
 
     override fun onRefresh() {
@@ -48,7 +93,13 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, SwipeRefresh
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        prepareRecyclerView()
         prepareSwipeRefreshLayout()
+    }
+
+    fun prepareRecyclerView() {
+
+        rcvInfo.layoutManager = LinearLayoutManager(context)
     }
 
     private fun prepareSwipeRefreshLayout() {

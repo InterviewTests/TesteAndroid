@@ -10,6 +10,8 @@
 
     <style name="CustomTab" parent="TextAppearance.Design.Tab">
         <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/dinproregular</item>
+        <item name="textSize">@dimen/text_medium</item>
     </style>
 
 </resources>

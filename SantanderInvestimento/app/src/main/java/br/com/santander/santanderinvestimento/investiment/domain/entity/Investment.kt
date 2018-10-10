@@ -6,4 +6,6 @@ data class Investment(val title: String,
                       val definition: String,
                       val riskTitle: String,
                       val risk: Int,
-                      val infoTitle: String)
+                      val infoTitle: String,
+                      val info: List<Info>,
+                      val downInfo: List<Info>)
