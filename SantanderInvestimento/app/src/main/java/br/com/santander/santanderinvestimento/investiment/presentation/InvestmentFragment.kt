@@ -30,10 +30,10 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, SwipeRefresh
         txRiskTitle.text = investment.riskTitle
         txInfoTitle.text = investment.infoTitle
 
-        fillRiskLayout(investment.risk)
-        fillInfo(investment.info)
-        fillDownInfo(investment.downInfo)
-        fillMoreInfo(investment.moreInfo)
+        fillRiskLayout(investment.risk!!)
+        fillInfo(investment.info!!)
+        fillDownInfo(investment.downInfo!!)
+        fillMoreInfo(investment.moreInfo!!)
     }
 
     fun fillMoreInfo(moreInfo: TimeInfo) {
@@ -51,7 +51,6 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, SwipeRefresh
     fun fillDownInfo(list: List<Info>) {
         val listAdapter = DownInfoAdapter(list as MutableList<Info>) { item: String -> presenter.clickDownload(item) }
         rcvDownInfo.adapter = listAdapter
-       // list.let { listAdapter.addOpenSourcesToList(it) }
     }
 
 
@@ -59,7 +58,6 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, SwipeRefresh
     fun fillInfo(list: List<Info>) {
         val listAdapter = InfoAdapter(list as MutableList<Info>)
         rcvInfo.adapter = listAdapter
-        //list.let { listAdapter.addOpenSourcesToList(it) }
     }
 
     fun fillRiskLayout(risk: Int) {
