@@ -21,7 +21,8 @@ class CustomCellType1PresenterTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        presenter = CustomCellType1Presenter(view!!)
+        presenter = CustomCellType1Presenter()
+        presenter.attach(view!!)
     }
 
     @Test
