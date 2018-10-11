@@ -25,11 +25,6 @@ class InfoAdapter(listItems: MutableList<Info>) : RecyclerView.Adapter<InfoAdapt
         holder.bindView(note)
     }
 
-    internal fun addOpenSourcesToList(sources: List<Info>) {
-        this.infoListItems.addAll(sources)
-        notifyDataSetChanged()
-    }
-
     inner class InfoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bindView(item: Info) {

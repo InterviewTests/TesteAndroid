@@ -1,10 +1,19 @@
 package br.com.santander.santanderinvestimento.investiment.presentation
 
+import br.com.santander.santanderinvestimento.R
+import br.com.santander.santanderinvestimento.SantanderInvestimentoApp
 import br.com.santander.santanderinvestimento.core.presentation.RxPresenter
 import br.com.santander.santanderinvestimento.investiment.domain.InvestmentRepository
 import br.com.santander.santanderinvestimento.util.rx.SchedulerProvider
 
-class InvestmentPresenter(private val schedulerProvider: SchedulerProvider, val repository: InvestmentRepository) : RxPresenter<InvestmentContract.View>(), InvestmentContract.Presenter {
+class InvestmentPresenter(private val schedulerProvider: SchedulerProvider, private val repository: InvestmentRepository, private val application: SantanderInvestimentoApp) : RxPresenter<InvestmentContract.View>(), InvestmentContract.Presenter {
+    override fun clickShare() {
+        view?.showMessage(application.resources.getString(R.string.not_disponible))
+    }
+
+    override fun clickDownload(item: String) {
+        view?.showMessage(application.resources.getString(R.string.not_disponible))
+    }
 
     override var view: InvestmentContract.View? = null
 

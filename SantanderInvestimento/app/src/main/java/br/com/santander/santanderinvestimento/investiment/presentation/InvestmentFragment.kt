@@ -10,9 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import br.com.santander.santanderinvestimento.R
 import br.com.santander.santanderinvestimento.core.presentation.BaseFragment
+import br.com.santander.santanderinvestimento.investiment.adapter.DownInfoAdapter
 import br.com.santander.santanderinvestimento.investiment.adapter.InfoAdapter
 import br.com.santander.santanderinvestimento.investiment.domain.entity.Info
 import br.com.santander.santanderinvestimento.investiment.domain.entity.Investment
+import br.com.santander.santanderinvestimento.investiment.domain.entity.TimeInfo
+import br.com.santander.santanderinvestimento.util.StringHelper
+import br.com.santander.santanderinvestimento.util.StringHelper.Companion.formatDoubleToString
 import br.com.santander.santanderinvestimento.util.showSnack
 import kotlinx.android.synthetic.main.fragment_investment.*
 import org.koin.android.ext.android.inject
@@ -29,18 +33,33 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, SwipeRefresh
         fillRiskLayout(investment.risk)
         fillInfo(investment.info)
         fillDownInfo(investment.downInfo)
+        fillMoreInfo(investment.moreInfo)
     }
 
-    fun fillDownInfo(list :List<Info>){
-        val listAdapter = InfoAdapter(list as MutableList<Info>)
-        rcvDownInfo.adapter = listAdapter
-        list.let { listAdapter.addOpenSourcesToList(it) }
+    fun fillMoreInfo(moreInfo: TimeInfo) {
+        txMonthFound.text = formatDoubleToString(moreInfo.month.fund)
+        txMonthCDI.text = formatDoubleToString(moreInfo.month.CDI)
+
+        txYearFound.text = formatDoubleToString(moreInfo.year.fund)
+        txYearCDI.text = formatDoubleToString(moreInfo.year.CDI)
+
+        tx12MonthFound.text = formatDoubleToString(moreInfo.months12.fund)
+        tx12MonthCDI.text = formatDoubleToString(moreInfo.months12.CDI)
     }
+
+
+    fun fillDownInfo(list: List<Info>) {
+        val listAdapter = DownInfoAdapter(list as MutableList<Info>) { item: String -> presenter.clickDownload(item) }
+        rcvDownInfo.adapter = listAdapter
+       // list.let { listAdapter.addOpenSourcesToList(it) }
+    }
+
+
 
     fun fillInfo(list: List<Info>) {
         val listAdapter = InfoAdapter(list as MutableList<Info>)
         rcvInfo.adapter = listAdapter
-        list.let { listAdapter.addOpenSourcesToList(it) }
+        //list.let { listAdapter.addOpenSourcesToList(it) }
     }
 
     fun fillRiskLayout(risk: Int) {
@@ -95,11 +114,13 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, SwipeRefresh
         super.onViewCreated(view, savedInstanceState)
         prepareRecyclerView()
         prepareSwipeRefreshLayout()
+        ivShare.setOnClickListener { presenter.clickShare() }
     }
 
     fun prepareRecyclerView() {
 
         rcvInfo.layoutManager = LinearLayoutManager(context)
+        rcvDownInfo.layoutManager = LinearLayoutManager(context)
     }
 
     private fun prepareSwipeRefreshLayout() {

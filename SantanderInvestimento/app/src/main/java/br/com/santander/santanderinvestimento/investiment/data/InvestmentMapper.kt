@@ -14,6 +14,7 @@ object InvestmentMapper {
                 investmentJsonResponse.screen.risk,
                 investmentJsonResponse.screen.infoTitle,
                 investmentJsonResponse.screen.info,
-                investmentJsonResponse.screen.downInfo)
+                investmentJsonResponse.screen.downInfo,
+                investmentJsonResponse.screen.moreInfo)
     }
 }

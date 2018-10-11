@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
 
     <TextView
         android:id="@+id/txName"
@@ -14,7 +16,6 @@
         android:layout_marginRight="16dp"
         android:fontFamily="@font/dinproregular"
         android:text="Taxa de adm"
-
         android:textColor="@color/grayacac"
         android:textSize="@dimen/text_small"
         app:layout_constraintBaseline_toBaselineOf="@+id/txTax"
@@ -28,6 +29,7 @@
         android:fontFamily="@font/dinproregular"
         android:text="0,50%"
         android:textColor="@color/black333"
+        android:textSize="@dimen/text_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

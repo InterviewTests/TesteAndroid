@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.santander.santanderinvestimento.R
 import br.com.santander.santanderinvestimento.investiment.domain.entity.Info
-import kotlinx.android.synthetic.main.item_view_info.view.*
+import kotlinx.android.synthetic.main.item_view_down_info.view.*
 
-class DownInfoAdapter(listItems: MutableList<Info>) : RecyclerView.Adapter<DownInfoAdapter.InfoViewHolder>() {
+class DownInfoAdapter(listItems: MutableList<Info>, val clickListener: (String) -> Unit) : RecyclerView.Adapter<DownInfoAdapter.DownInfoViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfoViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_view_info, parent, false)
-        return InfoViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DownInfoViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_view_down_info, parent, false)
+        return DownInfoViewHolder(view)
     }
 
     private val infoListItems: MutableList<Info> = listItems
@@ -20,22 +20,17 @@ class DownInfoAdapter(listItems: MutableList<Info>) : RecyclerView.Adapter<DownI
 
     override fun getItemCount() = infoListItems.size
 
-    override fun onBindViewHolder(holder: InfoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DownInfoViewHolder, position: Int) {
         val note = infoListItems[position]
         holder.bindView(note)
     }
 
-    internal fun addOpenSourcesToList(sources: List<Info>) {
-        this.infoListItems.addAll(sources)
-        notifyDataSetChanged()
-    }
-
-    inner class InfoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class DownInfoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bindView(item: Info) {
             setIsRecyclable(false)
             itemView.txName.text = item.name
-            itemView.txTax.text = item.data
+            itemView.clDownload.setOnClickListener { clickListener("") }
         }
     }
 }
