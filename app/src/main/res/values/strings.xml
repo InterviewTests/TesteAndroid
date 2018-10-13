@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Santander Tecnologia - Teste Android</string>
+
+    <string name="error_validate_cell_message">Mensagem não pode ser vazia.</string>
+    <string name="error_validate_cell_message_size">Sua mensagem tem que ter mais de 10 letras.</string>
+    <string name="error_request_cell">Desculpe, ocorreu um erro, por favor, tente novamente!</string>
+    <string name="investments">Investimento</string>
+    <string name="contact">Contato</string>
 </resources>

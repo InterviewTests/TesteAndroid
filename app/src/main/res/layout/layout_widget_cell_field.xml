@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.TextInputLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/textInputLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <br.com.itamarlourenco.santandertecnologia_testeandroid.widgets.CustomEditText
+        android:id="@+id/textView"
+        style="@style/customTextView"
+        android:text="Vamos la"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</android.support.design.widget.TextInputLayout>

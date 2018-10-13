@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <br.com.itamarlourenco.santandertecnologia_testeandroid.widgets.CustomTextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:id="@+id/textView"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:paddingBottom="@dimen/padding_title"
+        android:paddingTop="@dimen/padding_title"
+        android:layout_height="wrap_content" />
