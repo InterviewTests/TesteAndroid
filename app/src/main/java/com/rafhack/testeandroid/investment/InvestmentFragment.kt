@@ -1,6 +1,7 @@
 package com.rafhack.testeandroid.investment
 
 import android.annotation.SuppressLint
+import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -11,16 +12,31 @@ import android.widget.TextView
 import com.rafhack.testeandroid.R
 import com.rafhack.testeandroid.base.BaseProgressFragment
 import com.rafhack.testeandroid.data.entities.investment.Investment
+import com.rafhack.testeandroid.di.component.DaggerFragmentComponent
+import com.rafhack.testeandroid.di.module.FragmentModule
 import com.rafhack.testeandroid.investment.riskView.RiskView
+import javax.inject.Inject
 
 class InvestmentFragment : BaseProgressFragment(), InvestmentContract.View {
 
-    private val presenter = InvestmentPresenter(this)
+    @Inject
+    lateinit var presenter: InvestmentPresenter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DaggerFragmentComponent.builder()
+                .fragmentModule(FragmentModule())
+                .build().inject(this)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        presenter.attach(this)
+        presenter.loadInvestments()
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?): View {
-        val view = inflater.inflate(R.layout.fragment_investment, container, true)
-        presenter.loadInvestments()
-        return view
+        return inflater.inflate(R.layout.fragment_investment, container, true)
     }
 
     override fun setProgress(active: Boolean) {

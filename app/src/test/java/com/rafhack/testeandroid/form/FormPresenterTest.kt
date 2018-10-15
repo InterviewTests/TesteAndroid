@@ -22,6 +22,7 @@ class FormPresenterTest {
     private val view: FormContract.View? = null
     @Mock
     private val interactor: FormInteractor? = null
+
     private lateinit var presenter: FormPresenter
 
     @Before
@@ -29,7 +30,8 @@ class FormPresenterTest {
         MockitoAnnotations.initMocks(this)
         RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
         RxJavaPlugins.setIoSchedulerHandler { Schedulers.trampoline() }
-        presenter = FormPresenter(view!!)
+        presenter = FormPresenter()
+        presenter.attach(view!!)
         presenter.interactor = interactor!!
     }
 

@@ -1,5 +1,6 @@
 package com.rafhack.testeandroid.form
 
+import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
@@ -11,6 +12,9 @@ import com.rafhack.testeandroid.R
 import com.rafhack.testeandroid.base.BaseProgressFragment
 import com.rafhack.testeandroid.data.entities.form.Cell
 import com.rafhack.testeandroid.data.entities.form.Type
+import com.rafhack.testeandroid.di.component.DaggerFragmentComponent
+import com.rafhack.testeandroid.di.module.FragmentModule
+import javax.inject.Inject
 
 class FormFragment : BaseProgressFragment(), FormContract.View {
 
@@ -18,7 +22,22 @@ class FormFragment : BaseProgressFragment(), FormContract.View {
     private lateinit var ctlSuccess: ConstraintLayout
     private lateinit var tvwSendNew: TextView
     private var manager: DynamicFormManager? = null
-    private val presenter = FormPresenter(this)
+
+    @Inject
+    lateinit var presenter: FormPresenter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DaggerFragmentComponent.builder()
+                .fragmentModule(FragmentModule())
+                .build().inject(this)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        presenter.attach(this)
+        presenter.getCells()
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?): View {
         val view = inflater.inflate(R.layout.fragment_form, container, true)
@@ -26,7 +45,6 @@ class FormFragment : BaseProgressFragment(), FormContract.View {
         ctlSuccess = view.findViewById(R.id.fragment_form_ctl_success)
         tvwSendNew = view.findViewById(R.id.fragment_form_tvw_send_new)
         setupListner()
-        presenter.getCells()
         return view
     }
 

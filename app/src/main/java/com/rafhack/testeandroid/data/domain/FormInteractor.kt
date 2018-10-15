@@ -11,7 +11,7 @@ import io.reactivex.Single
 
 class FormInteractor {
 
-    private val service get() = ServiceGenerator.createService(FormService::class.java)
+    val service get() = ServiceGenerator.createService(FormService::class.java)
 
     fun getCells(): Single<ArrayList<Cell>> {
         return service.getCells()
