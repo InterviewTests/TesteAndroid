@@ -37,14 +37,14 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, SwipeRefresh
     }
 
     fun fillMoreInfo(moreInfo: TimeInfo) {
-        txMonthFound.text = formatDoubleToString(moreInfo.month.fund)
-        txMonthCDI.text = formatDoubleToString(moreInfo.month.CDI)
+        txMonthFound.text = formatDoubleToString(moreInfo.month?.fund)
+        txMonthCDI.text = formatDoubleToString(moreInfo.month?.CDI)
 
-        txYearFound.text = formatDoubleToString(moreInfo.year.fund)
-        txYearCDI.text = formatDoubleToString(moreInfo.year.CDI)
+        txYearFound.text = formatDoubleToString(moreInfo.year?.fund)
+        txYearCDI.text = formatDoubleToString(moreInfo.year?.CDI)
 
-        tx12MonthFound.text = formatDoubleToString(moreInfo.months12.fund)
-        tx12MonthCDI.text = formatDoubleToString(moreInfo.months12.CDI)
+        tx12MonthFound.text = formatDoubleToString(moreInfo.months12?.fund)
+        tx12MonthCDI.text = formatDoubleToString(moreInfo.months12?.CDI)
     }
 
 

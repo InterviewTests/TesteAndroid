@@ -10,4 +10,7 @@ class Contact(@SerializedName("id") val id: Int?,
               @SerializedName("hidden") val hidden: Boolean?,
               @SerializedName("topSpacing") val topSpacing: Double?,
               @SerializedName("show") val show: Int?,
-              @SerializedName("required") val required: Boolean?) : JSONConvertable
+              @SerializedName("required") val required: Boolean?,
+              var userExpected: String,
+              var messageError: String,
+              var requireValidateCheck: Boolean) : JSONConvertable

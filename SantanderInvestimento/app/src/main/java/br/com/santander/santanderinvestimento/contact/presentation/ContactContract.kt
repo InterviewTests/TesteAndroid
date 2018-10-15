@@ -8,11 +8,15 @@ interface ContactContract {
 
     interface View : BaseView<Presenter> {
         fun showSuccess(contract: List<Contact>)
+        fun clearForm()
     }
 
 
     interface Presenter : BasePresenter<View> {
         fun loadContact()
+        fun sendContact()
+        fun setContactList(form: List<Contact>)
+        fun updateObjectList(contact: Contact)
     }
 
 }

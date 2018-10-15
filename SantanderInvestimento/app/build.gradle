@@ -44,7 +44,7 @@ dependencies {
 
     //test
     testImplementation "junit:junit:$rootProject.junitVersion"
-    androidTestImplementation 'androidx.test:runner:1.1.0-beta01'
+    androidTestImplementation 'androidx.test:runner:1.1.0-beta02'
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
     testImplementation "com.nhaarman:mockito-kotlin-kt1.1:$mockitoVersion"
@@ -71,7 +71,5 @@ dependencies {
     //koin
     implementation "org.koin:koin-androidx-scope:$koinVersion"
     implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-
 
 }
