@@ -1,8 +1,9 @@
-Importar no Android Studio 3.2
+1. Importar no Android Studio 3.2
 
-Deixar o gradle sincronizar e baixar as depencencias.
+2. Deixar o gradle sincronizar e baixar as depencencias.
 
-Rodar o projeto
+3. Rodar o projeto
 
 Empresa: Everis
+
 Candidato: Itamar Lourenço
