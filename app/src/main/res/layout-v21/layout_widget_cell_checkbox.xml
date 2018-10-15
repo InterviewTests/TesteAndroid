@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<br.com.itamarlourenco.santandertecnologia_testeandroid.widgets.CustomCheckBox xmlns:app="http://schemas.android.com/apk/res-auto"
+<br.com.itamarlourenco.santandertecnologia_testeandroid.widgets.CustomCheckBox
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/checkbox"
+    android:buttonTint="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />

@@ -10,8 +10,8 @@ import br.com.itamarlourenco.santandertecnologia_testeandroid.widgets.CustomText
 
 public class TextCell extends BaseCell {
 
-    public TextCell(Context context, Cell cell, ViewGroup viewGroup) {
-        super(context, cell, viewGroup);
+    public TextCell(Context context, Cell cell, ViewGroup viewGroup, BaseCell.OnClickListener onClickListener) {
+        super(context, cell, viewGroup, onClickListener);
     }
 
     @Override
@@ -24,4 +24,5 @@ public class TextCell extends BaseCell {
         CustomTextView customTextView = view.findViewById(R.id.textView);
         customTextView.setText(getCell().getMessage());
     }
+
 }

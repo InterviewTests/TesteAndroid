@@ -3,4 +3,5 @@
     <dimen name="margin_recycle_view_form">40dp</dimen>
     <dimen name="height_main_button">55dp</dimen>
     <dimen name="padding_title">50dp</dimen>
+    <dimen name="item_graphic">100dp</dimen>
 </resources>

@@ -1,13 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.TextInputLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/textInputLayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <br.com.itamarlourenco.santandertecnologia_testeandroid.widgets.CustomEditText
-        android:id="@+id/textView"
-        style="@style/customTextView"
-        android:text="Vamos la"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <android.support.design.widget.TextInputLayout
+        android:theme="@style/MyTextInputLayoutNormal"
+        android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</android.support.design.widget.TextInputLayout>
+        android:layout_height="match_parent">
+        <br.com.itamarlourenco.santandertecnologia_testeandroid.widgets.CustomEditText
+            android:id="@+id/textView"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <br.com.itamarlourenco.santandertecnologia_testeandroid.widgets.CustomButton
+        android:layout_width="30dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp"
+        android:paddingTop="25dp"
+        android:background="@android:color/transparent"
+        android:text="x"
+        android:id="@+id/clear"
+        android:textColor="#ACACAC"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="end"
+        android:paddingEnd="10dp"
+        tools:ignore="RtlSymmetry" />
+
+    <LinearLayout
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:background="@color/line_custom_edit_text_normal"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout>

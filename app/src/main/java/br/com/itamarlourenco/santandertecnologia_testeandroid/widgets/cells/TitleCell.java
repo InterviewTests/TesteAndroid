@@ -11,8 +11,8 @@ import br.com.itamarlourenco.santandertecnologia_testeandroid.widgets.CustomText
 
 public class TitleCell extends BaseCell {
 
-    public TitleCell(Context context, Cell cell, ViewGroup viewGroup) {
-        super(context, cell, viewGroup);
+    public TitleCell(Context context, Cell cell, ViewGroup viewGroup, BaseCell.OnClickListener onClickListener) {
+        super(context, cell, viewGroup, onClickListener);
     }
 
     @Override
@@ -25,4 +25,5 @@ public class TitleCell extends BaseCell {
         CustomTextView customTextView = view.findViewById(R.id.textView);
         customTextView.setText(getCell().getMessage());
     }
+
 }

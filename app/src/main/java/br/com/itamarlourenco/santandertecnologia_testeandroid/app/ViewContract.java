@@ -3,8 +3,9 @@ package br.com.itamarlourenco.santandertecnologia_testeandroid.app;
 import java.util.ArrayList;
 
 import br.com.itamarlourenco.santandertecnologia_testeandroid.model.Cell;
+import br.com.itamarlourenco.santandertecnologia_testeandroid.model.Funds;
 
-public interface MainContract {
+public interface ViewContract {
     /**
      * Interact with View
      * */
@@ -18,32 +19,31 @@ public interface MainContract {
 
     }
 
-
     /**
      * Classes for fetching data of database, api, or others.
      **/
-    interface GetCellsIntractors {
+    interface GetIntractors {
 
-        interface OnFinishedListener {
-            void onFinished(ArrayList<Cell> cellArrayList);
+        interface OnFinishedListener<T> {
+            void onFinished(T funds);
 
             void onFailure(Throwable t);
         }
 
-        void getCellArrayList(OnFinishedListener onFinishedListener);
+        void getArrayList(OnFinishedListener onFinishedListener);
     }
 
     /**
      * showProgress() and hideProgress() would be used for displaying and hiding the progressBar
      * while the dateis fetched
      **/
-    interface MainView {
+    interface ViewActions<T> {
 
         void showProgress();
 
         void hideProgress();
 
-        void setDataToRecyclerView(ArrayList<Cell> cellArrayList);
+        void setDataToRecyclerView(T data);
 
         void onResponseFailure(Throwable throwable);
     }

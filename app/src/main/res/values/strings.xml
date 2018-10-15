@@ -6,4 +6,21 @@
     <string name="error_request_cell">Desculpe, ocorreu um erro, por favor, tente novamente!</string>
     <string name="investments">Investimento</string>
     <string name="contact">Contato</string>
+    <string name="error_validate_form">Por favor, verifique seu contato e tente novamente: \nVerifique o campo: %s</string>
+    <string name="investment_funds">Fundos de investimento</string>
+    <string name="secondTitle">Vinci Valorem FI  Multimercado</string>
+    <string name="descriptionTitle">O que é?</string>
+    <string name="description">O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos.</string>
+    <string name="degree">Grau de risco do investimento</string>
+    <string name="moreInformation">Mais informações sobre o investimento</string>
+    <string name="invest">Investir</string>
+    <string name="whichIs">O que é?</string>
+    <string name="in_month">No mês</string>
+    <string name="in_year">No Ano</string>
+    <string name="months_12">12 meses</string>
+    <string name="download">Baixar</string>
+    <string name="thank">Obrigado!</string>
+    <string name="message_success">Mensagem enviada com sucesso :)</string>
+    <string name="send_new_contact">Enviar nova mensagem</string>
+
 </resources>

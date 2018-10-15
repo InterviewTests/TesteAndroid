@@ -15,19 +15,26 @@ public class CellRecyclerView  extends RecyclerView.Adapter<CellRecyclerView.Vie
 
     private ArrayList<Cell> cells;
     private Context context;
+    private BaseCell.OnClickListener onClickListener;
 
-    CellRecyclerView(ArrayList<Cell> cells, Context context) {
+    CellRecyclerView(ArrayList<Cell> cells, Context context, BaseCell.OnClickListener onClickListener) {
         this.cells = cells;
         this.context = context;
+        this.onClickListener = onClickListener;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         Cell cell = cells.get(viewType);
-        return new ViewHolder(
-                BaseCell.returnViewOfTypeCell(cell, context, viewGroup)
-        );
+        ViewHolder viewHolder = new ViewHolder(BaseCell.returnViewOfTypeCell(cell, context, viewGroup, onClickListener));
+        cell.setView(viewHolder);
+
+        if(cell.isHidden()){
+            viewHolder.hide();
+        }
+
+        return viewHolder;
     }
 
     @Override
@@ -37,6 +44,7 @@ public class CellRecyclerView  extends RecyclerView.Adapter<CellRecyclerView.Vie
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int viewType) {
+
     }
 
     @Override
@@ -44,9 +52,29 @@ public class CellRecyclerView  extends RecyclerView.Adapter<CellRecyclerView.Vie
         return this.cells != null ? this.cells.size() : 0;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        View view;
         ViewHolder(View view) {
             super(view);
+            this.view = view;
         }
+
+        public void hide(){
+            this.view.setVisibility(View.GONE);
+            this.view.getLayoutParams().height = 0;
+        }
+
+        public void show(){
+            this.view.setVisibility(View.VISIBLE);
+            this.view.getLayoutParams().height = -2;
+        }
+    }
+
+    public ArrayList<Cell> getCells() {
+        return cells;
+    }
+
+    public void setCells(ArrayList<Cell> cells) {
+        this.cells = cells;
     }
 }

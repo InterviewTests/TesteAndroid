@@ -7,6 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
+import br.com.itamarlourenco.santandertecnologia_testeandroid.model.Cell;
+
 public abstract class BaseFragment  extends Fragment {
 
     @Override
@@ -15,4 +19,8 @@ public abstract class BaseFragment  extends Fragment {
     }
 
     protected abstract int idLayoutFragment();
+
+    protected void alterFragment(BaseFragment baseFragment){
+        ((BaseActivity) getActivity()).alterFragments(baseFragment);
+    }
 }

@@ -34,7 +34,7 @@ public class CustomTextView extends TextView {
     public void setFont(){
         if(getTypeface() != null){
             if(getTypeface().isBold()) {
-                this.setTypeface(App.Fonts.normal());
+                this.setTypeface(App.Fonts.bold());
             } else {
                 this.setTypeface(App.Fonts.normal());
             }

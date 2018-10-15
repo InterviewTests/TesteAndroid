@@ -9,8 +9,8 @@ import br.com.itamarlourenco.santandertecnologia_testeandroid.model.Cell;
 
 public class ImageCell extends BaseCell {
 
-    public ImageCell(Context context, Cell cell, ViewGroup viewGroup) {
-        super(context, cell, viewGroup);
+    public ImageCell(Context context, Cell cell, ViewGroup viewGroup, BaseCell.OnClickListener onClickListener) {
+        super(context, cell, viewGroup, onClickListener);
     }
 
     @Override

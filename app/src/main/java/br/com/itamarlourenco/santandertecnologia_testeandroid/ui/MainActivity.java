@@ -1,35 +1,45 @@
 package br.com.itamarlourenco.santandertecnologia_testeandroid.ui;
 
-import android.support.v7.app.AppCompatActivity;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import br.com.itamarlourenco.santandertecnologia_testeandroid.R;
-import br.com.itamarlourenco.santandertecnologia_testeandroid.app.App;
-import br.com.itamarlourenco.santandertecnologia_testeandroid.app.MainContract;
-import br.com.itamarlourenco.santandertecnologia_testeandroid.model.Cell;
-import br.com.itamarlourenco.santandertecnologia_testeandroid.services.CellServices;
-import br.com.itamarlourenco.santandertecnologia_testeandroid.services.Intractors.GetCellsIntractorImpl;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import br.com.itamarlourenco.santandertecnologia_testeandroid.widgets.CustomButton;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity  implements View.OnClickListener {
+    private CustomButton investment;
+    private CustomButton contact;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        investment = findViewById(R.id.investment);
+        contact = findViewById(R.id.contact);
+        investment.setOnClickListener(this);
+        contact.setOnClickListener(this);
     }
 
     @Override
     protected BaseFragment getFragment() {
-        return new FormFragment();
+        return FormFragment.newInstance();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public void onClick(View v) {
+        if(v == investment){
+            investment.setBackground(getDrawable(R.drawable.button_red_hover_main_selected));
+            contact.setBackground(getDrawable(R.drawable.button_red_hover_main));
+
+            alterFragments(InvestmentFragment.newInstance());
+        }else if(v == contact){
+            investment.setBackground(getDrawable(R.drawable.button_red_hover_main));
+            contact.setBackground(getDrawable(R.drawable.button_red_hover_main_selected));
+
+            alterFragments(getFragment());
+        }
     }
 
 

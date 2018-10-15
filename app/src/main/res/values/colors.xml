@@ -3,5 +3,10 @@
     <color name="colorPrimary">#DA0101</color>
     <color name="colorPrimaryDark">#970000</color>
     <color name="colorAccent">#660000</color>
+    <color name="button_main_selected">#c70404</color>
     <color name="button_hover">#EB7676</color>
+    <color name="line_custom_edit_text_normal">#D8D8D8</color>
+    <color name="line_custom_edit_text_error">#FF1F1F</color>
+    <color name="line_custom_edit_text_success">#65BE30</color>
+    <color name="color_label_table">#ACACAC</color>
 </resources>

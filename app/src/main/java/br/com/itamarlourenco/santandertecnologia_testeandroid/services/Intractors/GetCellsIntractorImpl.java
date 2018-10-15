@@ -3,17 +3,17 @@ package br.com.itamarlourenco.santandertecnologia_testeandroid.services.Intracto
 import android.support.annotation.NonNull;
 
 import br.com.itamarlourenco.santandertecnologia_testeandroid.app.App;
-import br.com.itamarlourenco.santandertecnologia_testeandroid.app.MainContract;
+import br.com.itamarlourenco.santandertecnologia_testeandroid.app.ViewContract;
 import br.com.itamarlourenco.santandertecnologia_testeandroid.model.Cell;
 import br.com.itamarlourenco.santandertecnologia_testeandroid.services.CellServices;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class GetCellsIntractorImpl implements MainContract.GetCellsIntractors {
+public class GetCellsIntractorImpl implements ViewContract.GetIntractors {
 
     @Override
-    public void getCellArrayList(final OnFinishedListener onFinishedListener) {
+    public void getArrayList(final OnFinishedListener onFinishedListener) {
         CellServices cellServices = App.getRetrofitInstance().create(CellServices.class);
         Call<Cell.Cells> call = cellServices.getCellData();
 
