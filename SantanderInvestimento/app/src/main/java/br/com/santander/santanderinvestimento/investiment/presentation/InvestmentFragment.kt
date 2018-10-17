@@ -30,28 +30,27 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, SwipeRefresh
         txRiskTitle.text = investment.riskTitle
         txInfoTitle.text = investment.infoTitle
 
-        fillRiskLayout(investment.risk)
-        fillInfo(investment.info)
-        fillDownInfo(investment.downInfo)
-        fillMoreInfo(investment.moreInfo)
+        fillRiskLayout(investment.risk!!)
+        fillInfo(investment.info!!)
+        fillDownInfo(investment.downInfo!!)
+        fillMoreInfo(investment.moreInfo!!)
     }
 
     fun fillMoreInfo(moreInfo: TimeInfo) {
-        txMonthFound.text = formatDoubleToString(moreInfo.month.fund)
-        txMonthCDI.text = formatDoubleToString(moreInfo.month.CDI)
+        txMonthFound.text = formatDoubleToString(moreInfo.month?.fund)
+        txMonthCDI.text = formatDoubleToString(moreInfo.month?.CDI)
 
-        txYearFound.text = formatDoubleToString(moreInfo.year.fund)
-        txYearCDI.text = formatDoubleToString(moreInfo.year.CDI)
+        txYearFound.text = formatDoubleToString(moreInfo.year?.fund)
+        txYearCDI.text = formatDoubleToString(moreInfo.year?.CDI)
 
-        tx12MonthFound.text = formatDoubleToString(moreInfo.months12.fund)
-        tx12MonthCDI.text = formatDoubleToString(moreInfo.months12.CDI)
+        tx12MonthFound.text = formatDoubleToString(moreInfo.months12?.fund)
+        tx12MonthCDI.text = formatDoubleToString(moreInfo.months12?.CDI)
     }
 
 
     fun fillDownInfo(list: List<Info>) {
         val listAdapter = DownInfoAdapter(list as MutableList<Info>) { item: String -> presenter.clickDownload(item) }
         rcvDownInfo.adapter = listAdapter
-       // list.let { listAdapter.addOpenSourcesToList(it) }
     }
 
 
@@ -59,7 +58,6 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, SwipeRefresh
     fun fillInfo(list: List<Info>) {
         val listAdapter = InfoAdapter(list as MutableList<Info>)
         rcvInfo.adapter = listAdapter
-        //list.let { listAdapter.addOpenSourcesToList(it) }
     }
 
     fun fillRiskLayout(risk: Int) {

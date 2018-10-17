@@ -1,7 +1,7 @@
 package br.com.santander.santanderinvestimento
 
 import android.app.Application
-import android.content.Context
+import br.com.santander.santanderinvestimento.contact.di.contactModule
 import br.com.santander.santanderinvestimento.core.di.appModule
 import br.com.santander.santanderinvestimento.core.di.remoteDatasourceModule
 import br.com.santander.santanderinvestimento.investiment.di.investimentModule
@@ -17,7 +17,7 @@ class SantanderInvestimentoApp : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
-        startKoin(this, listOf(appModule, remoteDatasourceModule, investimentModule))
+        startKoin(this, listOf(appModule, remoteDatasourceModule, investimentModule,  contactModule))
         Fabric.with(this, Crashlytics())
     }
 
