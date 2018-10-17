@@ -17,6 +17,7 @@ interface ContactContract {
         fun sendContact()
         fun setContactList(form: List<Contact>)
         fun updateObjectList(contact: Contact)
+        fun updateObjectListHidden(contact: Contact)
     }
 
 }

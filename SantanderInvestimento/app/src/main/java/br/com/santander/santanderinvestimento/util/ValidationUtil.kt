@@ -9,5 +9,5 @@ object ValidationUtil {
     fun isInvalidName(name: String?): Boolean = name.isNullOrEmpty()
 
     fun isPhoneInvalid(phone: String): Boolean =
-            phone.isNotEmpty() && (phone.length == 10 || phone.length == 11)
+            phone.isNotEmpty() && (phone.length == 10 || phone.length >= 11)
 }

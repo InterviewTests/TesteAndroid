@@ -3,14 +3,24 @@ package br.com.santander.santanderinvestimento.contact.presentation
 import br.com.santander.santanderinvestimento.SantanderInvestimentoApp
 import br.com.santander.santanderinvestimento.contact.data.entity.Contact
 import br.com.santander.santanderinvestimento.contact.domain.ContactRepository
-import br.com.santander.santanderinvestimento.contact.domain.TypeField
 import br.com.santander.santanderinvestimento.core.presentation.RxPresenter
 import br.com.santander.santanderinvestimento.util.ErrorUtil.parseError
 import br.com.santander.santanderinvestimento.util.rx.SchedulerProvider
 
 class ContactPresenter(private val schedulerProvider: SchedulerProvider, private val repository: ContactRepository, private val application: SantanderInvestimentoApp) : RxPresenter<ContactContract.View>(), ContactContract.Presenter {
+
+
     private lateinit var listContact: List<Contact>
 
+
+    override fun updateObjectListHidden(contact: Contact) {
+        for (i in listContact.indices) {
+            if (contact.show == listContact[i].id) {
+                listContact[i].requireValidateCheck = contact.requireValidateCheck
+                break
+            }
+        }
+    }
 
     override fun updateObjectList(contact: Contact) {
         for (i in listContact.indices) {
@@ -24,10 +34,16 @@ class ContactPresenter(private val schedulerProvider: SchedulerProvider, private
     override fun sendContact() {
         var messageError = ""
         listContact?.forEach { contact ->
-            if (contact.required!! && !contact.hidden!! && contact.messageError != "") {
+
+            if (contact.messageError != "" && contact.required!! && !contact.requireValidateCheck && !contact.hidden!!) {
+                messageError += contact.messageError + "\n"
+            }
+
+            if (contact.messageError != "" && contact.required!! && contact.requireValidateCheck && contact.hidden!!) {
                 messageError += contact.messageError + "\n"
             }
         }
+
 
         if (messageError != "")
             view?.showMessage(messageError)

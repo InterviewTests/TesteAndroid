@@ -14,6 +14,9 @@
     <string name="message_success_form">Mensagem enviada com sucesso :)</string>
     <string name="send_new_message">Enviar nova mensagem</string>
     <string name="email_invalid">E-mail inválido</string>
+    <string name="email_null">E-mail vazio</string>
     <string name="text_invalid">Texto inválido</string>
+    <string name="text_null">Texto vazio</string>
     <string name="phone_invalid">Telefone inválido</string>
+    <string name="phone_null">Telefone vazio</string>
 </resources>

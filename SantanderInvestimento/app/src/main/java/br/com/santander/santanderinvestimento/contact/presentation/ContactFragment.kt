@@ -88,9 +88,9 @@ class ContactFragment : BaseFragment(), ContactContract.View, SwipeRefreshLayout
     override fun showSuccess(contact: List<Contact>) {
         contactForm.removeAllViews()
         successForm.visibility = View.INVISIBLE
+        layoutMain.visibility = View.VISIBLE
         this.contactList = contact
         presenter.setContactList(contact)
-
 
         var params: ConstraintLayout.LayoutParams
         var constraintSet: ConstraintSet
@@ -112,9 +112,11 @@ class ContactFragment : BaseFragment(), ContactContract.View, SwipeRefreshLayout
                     when (contact.typeField) {
                         TypeField.TEXT -> {
                             textInputEditText.inputType = InputType.TYPE_CLASS_TEXT
+                            if(contact.required!!)
+                                contact.messageError = getString(R.string.text_null)
                             textInputEditText.addTextChangedListener(object : TextWatcher {
                                 override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-
+                                    contact.messageError = ""
                                 }
 
                                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -123,7 +125,6 @@ class ContactFragment : BaseFragment(), ContactContract.View, SwipeRefreshLayout
                                         contact.messageError = getString(R.string.text_invalid)
                                         (typeComponent as TextInputLayout).isErrorEnabled = true
                                         (typeComponent as TextInputLayout).error = contact.messageError
-
                                     }else {
                                         (typeComponent as TextInputLayout).error = null
                                         contact.messageError = ""
@@ -140,15 +141,17 @@ class ContactFragment : BaseFragment(), ContactContract.View, SwipeRefreshLayout
 
                         TypeField.TELNUMBER -> {
                             textInputEditText.inputType = InputType.TYPE_CLASS_PHONE
+                            if(contact.required!!)
+                                contact.messageError = getString(R.string.phone_null)
                             textInputEditText.addTextChangedListener(StringHelper.adicionaMascaraTelefoneCadastro(textInputEditText))
                             textInputEditText.addTextChangedListener(object : TextWatcher {
                                 override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-
+                                    contact.messageError = ""
                                 }
 
                                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                                     contact.userExpected = s.toString()
-                                    if (ValidationUtil.isPhoneInvalid(contact.userExpected)){
+                                    if (!ValidationUtil.isPhoneInvalid(StringHelper.unmaskString(contact.userExpected))){
                                         contact.messageError = getString(R.string.phone_invalid)
                                         (typeComponent as TextInputLayout).isErrorEnabled = true
                                         (typeComponent as TextInputLayout).error = contact.messageError
@@ -165,20 +168,22 @@ class ContactFragment : BaseFragment(), ContactContract.View, SwipeRefreshLayout
                                 }
                             })
                         }
+
                         TypeField.EMAIL -> {
                             textInputEditText.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+                            if(contact.required!!)
+                                contact.messageError = getString(R.string.email_null)
                             textInputEditText.addTextChangedListener(object : TextWatcher {
                                 override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-
+                                    contact.messageError = ""
                                 }
 
                                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                                     contact.userExpected = s.toString()
-                                    if (ValidationUtil.isValidEmail(contact.userExpected)){
+                                    if (!ValidationUtil.isValidEmail(contact.userExpected)){
                                         contact.messageError = getString(R.string.email_invalid)
                                         (typeComponent as TextInputLayout).isErrorEnabled = true
                                         (typeComponent as TextInputLayout).error = contact.messageError
-
                                     }else {
                                         (typeComponent as TextInputLayout).error = null
                                         (typeComponent as TextInputLayout).isErrorEnabled =false
@@ -213,7 +218,9 @@ class ContactFragment : BaseFragment(), ContactContract.View, SwipeRefreshLayout
                             contactForm.findViewById<View>(show).visibility = (
                                     if (isChecked) View.VISIBLE else View.GONE)
                         }
+
                         contact.requireValidateCheck = isChecked
+                        presenter.updateObjectListHidden(contact)
                     }
                 }
                 Type.SEND -> {
