@@ -7,6 +7,10 @@ import br.com.santander.santanderinvestimento.investiment.domain.InvestmentRepos
 import br.com.santander.santanderinvestimento.util.rx.SchedulerProvider
 
 class InvestmentPresenter(private val schedulerProvider: SchedulerProvider, private val repository: InvestmentRepository, private val application: SantanderInvestimentoApp) : RxPresenter<InvestmentContract.View>(), InvestmentContract.Presenter {
+    override fun clickInvest() {
+        view?.showMessage(application.resources.getString(R.string.not_disponible))
+    }
+
     override fun clickShare() {
         view?.showMessage(application.resources.getString(R.string.not_disponible))
     }

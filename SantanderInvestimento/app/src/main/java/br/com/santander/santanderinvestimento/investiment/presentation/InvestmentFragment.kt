@@ -113,6 +113,7 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, SwipeRefresh
         prepareRecyclerView()
         prepareSwipeRefreshLayout()
         ivShare.setOnClickListener { presenter.clickShare() }
+        btnInvest.setOnClickListener { presenter.clickInvest() }
     }
 
     fun prepareRecyclerView() {

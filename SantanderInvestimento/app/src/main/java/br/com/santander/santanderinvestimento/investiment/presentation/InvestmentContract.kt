@@ -14,6 +14,7 @@ interface InvestmentContract {
     interface Presenter : BasePresenter<View> {
         fun loadFeed()
         fun clickShare()
+        fun clickInvest()
         fun clickDownload(item: String)
     }
 
