@@ -19,4 +19,5 @@
     <string name="text_null">Texto vazio</string>
     <string name="phone_invalid">Telefone inválido</string>
     <string name="phone_null">Telefone vazio</string>
+    <string name="invest">Investir</string>
 </resources>

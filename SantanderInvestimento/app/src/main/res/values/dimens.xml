@@ -7,6 +7,7 @@
     <dimen name="size_risk_expanded">13dp</dimen>
     <dimen name="size_risk">10dp</dimen>
     <dimen name="size_button">100dp</dimen>
+    <dimen name="spacing_large_30">30dp</dimen>
     <dimen name="spacing_large_40">40dp</dimen>
     <dimen name="spacing_large_65">65dp</dimen>
 </resources>
