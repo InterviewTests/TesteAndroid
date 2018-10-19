@@ -4,6 +4,9 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -13,6 +16,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", '"https://floating-mountain-50292.herokuapp.com"'
+
     }
     buildTypes {
         release {
@@ -25,8 +31,30 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    // ReactiveX
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+    // Dagger core
+    kapt "com.google.dagger:dagger-compiler:$project.daggerVersion"
+    implementation "com.google.dagger:dagger:$project.daggerVersion"
+
+    // Dagger Android
+    kapt "com.google.dagger:dagger-android-processor:$project.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$project.daggerVersion"
+    implementation "com.google.dagger:dagger-android:$project.daggerVersion"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
