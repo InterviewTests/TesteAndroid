@@ -23,6 +23,7 @@ class NetworkModule {
 
         return httpClient.build()
     }
+
     @Provides
     fun provideGson(): Gson {
         return GsonBuilder().setLenient().create()
