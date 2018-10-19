@@ -3,6 +3,8 @@ package com.study.vipoliveira.investapp.di
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.study.vipoliveira.investapp.BuildConfig
+import com.study.vipoliveira.investapp.data.network.contact.api.ContactApi
+import com.study.vipoliveira.investapp.data.network.investment.api.InvestApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -37,5 +39,15 @@ class NetworkModule {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(httpClient)
                 .build()
+    }
+
+    @Provides
+    fun provideContactApi(retrofit: Retrofit) : ContactApi {
+        return retrofit.create<ContactApi>(ContactApi::class.java)
+    }
+
+    @Provides
+    fun provideInvestApi(retrofit: Retrofit) : InvestApi {
+        return retrofit.create<InvestApi>(InvestApi::class.java)
     }
 }
