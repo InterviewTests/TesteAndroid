@@ -33,5 +33,7 @@ class InvestPresenter (private val domain: InvestDomain,
         )
     }
 
-
+    override fun clearDiposable() {
+        disposable.clear()
+    }
 }

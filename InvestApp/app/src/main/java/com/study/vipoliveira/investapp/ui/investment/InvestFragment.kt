@@ -94,14 +94,14 @@ class InvestFragment: Fragment(), InvestmentContract.View{
     }
 
     private fun setTaxes(taxInfo: MoreInfo) {
-        monthCdiTxt.text = getString(R.string.percent, taxInfo.month.cdi)
-        monthFundTxt.text = getString(R.string.percent, taxInfo.month.fund)
+        monthCdiTxt.text = getString(R.string.percent, taxInfo.month.cdi.toString())
+        monthFundTxt.text = getString(R.string.percent, taxInfo.month.fund.toString())
 
-        yearCdiTxt.text = getString(R.string.percent, taxInfo.year.cdi)
-        yearFundTxt.text = getString(R.string.percent, taxInfo.year.fund)
+        yearCdiTxt.text = getString(R.string.percent, taxInfo.year.cdi.toString())
+        yearFundTxt.text = getString(R.string.percent, taxInfo.year.fund.toString())
 
-        monthsCdiTxt.text = getString(R.string.percent, taxInfo.twelveMonths.cdi)
-        monthsFundTxt.text = getString(R.string.percent, taxInfo.twelveMonths.fund)
+        monthsCdiTxt.text = getString(R.string.percent, taxInfo.twelveMonths.cdi.toString())
+        monthsFundTxt.text = getString(R.string.percent, taxInfo.twelveMonths.fund.toString())
     }
 
     private fun updateInvestList(screen: Screen) {
@@ -114,5 +114,10 @@ class InvestFragment: Fragment(), InvestmentContract.View{
         recycleViewInfo.layoutManager = linearLayoutManager
         recycleViewInfo.adapter = investAdapter
         investAdapter.notifyDataSetChanged()
+    }
+
+    override fun onDestroy() {
+        presenter.clearDiposable()
+        super.onDestroy()
     }
 }

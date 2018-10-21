@@ -4,6 +4,9 @@
     <string name="try_again_button">Tentar novamente</string>
     <string name="invest_btn">Investir</string>
     <string name="contact_title">Contato</string>
+    <string name="thank_you">Obrigado!</string>
+    <string name="success">Mensagem enviado com sucesso :)</string>
+    <string name="back_to_form">Enviar nova mensagem</string>
     <string name="month">No Mês</string>
     <string name="year">No Ano</string>
     <string name="months">12 meses</string>
@@ -11,4 +14,7 @@
     <string name="cdi">CDI</string>
     <string name="percent">%s %%</string>
     <string name="download_content">Baixar</string>
+    <string name="email_error">Email não preenchido corretamente.</string>
+    <string name="phone_error">Telefone não preenchido corretamente.</string>
+    <string name="text_error">Texto não preenchido corretamente.</string>
 </resources>

@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         tools:text="TextView"
+        android:fontFamily="@font/dinpro_light"
+        android:textColor="@color/grey"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,6 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
+        android:fontFamily="@font/dinpro_regular"
+        android:textColor="@color/grey"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -4,10 +4,14 @@
     <color name="colorPrimaryDark">#C80404</color>
     <color name="colorPrimaryLight">#D64E4E</color>
 
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">@color/grey</color>
 
     <color name="green">#FF4AC16C</color>
     <color name="light_green">#FF74DA61</color>
     <color name="yellow">#FFFFC011</color>
     <color name="orange">#FFFF742C</color>
+
+    <color name="darkGrey">#333333</color>
+    <color name="grey">#7E7E7E</color>
+    <color name="lightGrey">#D8D8D8</color>
 </resources>
