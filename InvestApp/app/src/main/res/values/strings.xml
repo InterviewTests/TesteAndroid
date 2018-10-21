@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">InvestApp</string>
     <string name="investment_title">Investimento</string>
+    <string name="try_again_button">Tentar novamente</string>
+    <string name="invest_btn">Investir</string>
     <string name="contact_title">Contato</string>
+    <string name="month">No Mês</string>
+    <string name="year">No Ano</string>
+    <string name="months">12 meses</string>
+    <string name="fund">Fundos</string>
+    <string name="cdi">CDI</string>
+    <string name="percent">%s %%</string>
+    <string name="download_content">Baixar</string>
 </resources>

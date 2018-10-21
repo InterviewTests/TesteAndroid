@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/arrowOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintStart_toStartOf="@+id/riskOne"/>
+
+    <Button
+        android:id="@+id/riskOne"
+        android:layout_width="@dimen/layout_width_60dp"
+        android:layout_height="@dimen/layout_height_6dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/round_left_corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/arrowOne" />
+
+    <ImageView
+        android:id="@+id/arrowTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:padding="0dp"
+        android:visibility="invisible"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintStart_toEndOf="@+id/arrowOne" />
+
+    <Button
+        android:id="@+id/riskTwo"
+        android:layout_width="@dimen/layout_width_60dp"
+        android:layout_height="@dimen/layout_height_6dp"
+        android:background="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/riskOne"
+        app:layout_constraintTop_toBottomOf="@+id/arrowTwo" />
+
+    <ImageView
+        android:id="@+id/arrowThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:padding="0dp"
+        android:visibility="invisible"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintStart_toEndOf="@+id/arrowTwo" />
+
+    <Button
+        android:id="@+id/riskThree"
+        android:layout_width="@dimen/layout_width_60dp"
+        android:layout_height="@dimen/layout_height_6dp"
+        android:background="@color/yellow"
+        app:layout_constraintStart_toEndOf="@+id/riskTwo"
+        app:layout_constraintTop_toBottomOf="@+id/arrowThree" />
+
+    <ImageView
+        android:id="@+id/arrowFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:padding="0dp"
+        android:visibility="invisible"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintStart_toEndOf="@+id/arrowThree"/>
+
+    <Button
+        android:id="@+id/riskFour"
+        android:layout_width="@dimen/layout_width_60dp"
+        android:layout_height="@dimen/layout_height_6dp"
+        android:background="@color/orange"
+        app:layout_constraintStart_toEndOf="@+id/riskThree"
+        app:layout_constraintTop_toBottomOf="@+id/arrowFour" />
+
+    <ImageView
+        android:id="@+id/arrowFive"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:padding="0dp"
+        android:visibility="invisible"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintStart_toEndOf="@+id/arrowFour"/>
+
+    <Button
+        android:id="@+id/riskFive"
+        android:layout_width="@dimen/layout_width_60dp"
+        android:layout_height="@dimen/layout_height_6dp"
+
+        android:background="@drawable/round_right_corner"
+        app:layout_constraintStart_toEndOf="@+id/riskFour"
+        app:layout_constraintTop_toBottomOf="@+id/arrowFive" />
+
+</android.support.constraint.ConstraintLayout>

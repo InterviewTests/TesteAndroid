@@ -23,10 +23,12 @@ class InvestPresenter (private val domain: InvestDomain,
                             _ -> view.displayLoadingUI()
                         }
                         .subscribe({
-//                            items -> view.hideLoadingUI()
+                            items -> view.hideLoadingUI()
+                            view.updateInvestScreen(items.screen)
                         },
                                 {
-//                                    error ->view.hideLoadingUI()
+                                    error ->
+                                    error.message?.let { view.displayError(it) }
                                 })
         )
     }

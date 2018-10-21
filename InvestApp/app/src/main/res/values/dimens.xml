@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_width_60dp">60dp</dimen>
+    <dimen name="layout_height_6dp">6dp</dimen>
+
+</resources>

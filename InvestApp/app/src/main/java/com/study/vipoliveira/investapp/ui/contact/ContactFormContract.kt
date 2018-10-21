@@ -1,14 +1,13 @@
-package com.study.vipoliveira.investapp.ui.investment
+package com.study.vipoliveira.investapp.ui.contact
 
 import com.study.vipoliveira.investapp.data.network.investment.entities.Screen
 import com.study.vipoliveira.investapp.ui.BaseContract
 
-interface InvestmentContract {
+interface ContactFormContract {
     interface View: BaseContract.View{
-        fun updateInvestScreen(screen: Screen)
     }
 
     interface Presenter: BaseContract.Presenter<View> {
-        fun getInvestments()
+        fun getContactForm()
     }
 }
