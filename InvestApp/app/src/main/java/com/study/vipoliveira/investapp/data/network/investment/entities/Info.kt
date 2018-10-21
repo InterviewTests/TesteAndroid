@@ -1,5 +1,6 @@
 package com.study.vipoliveira.investapp.data.network.investment.entities
 
-data class InvestResponse (
-        val screen: Screen
+data class Info(
+        val name: String,
+        val data: String?
 )

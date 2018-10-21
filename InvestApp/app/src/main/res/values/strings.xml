@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">InvestApp</string>
+    <string name="investment_title">Investimento</string>
+    <string name="contact_title">Contato</string>
 </resources>

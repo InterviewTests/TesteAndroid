@@ -2,11 +2,13 @@ package com.study.vipoliveira.investapp
 
 import android.app.Activity
 import android.app.Application
+import android.support.v4.app.Fragment
 import com.study.vipoliveira.investapp.di.AppComponent
 import com.study.vipoliveira.investapp.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
 class App: Application(), HasActivityInjector {
