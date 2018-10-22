@@ -4,6 +4,7 @@ import com.study.vipoliveira.investapp.data.network.investment.InvestmentDataSou
 import com.study.vipoliveira.investapp.data.network.investment.InvestmentRepository
 import com.study.vipoliveira.investapp.data.network.investment.api.InvestApi
 import com.study.vipoliveira.investapp.domain.InvestDomain
+import com.study.vipoliveira.investapp.domain.SchedulersFacade
 import com.study.vipoliveira.investapp.ui.investment.InvestPresenter
 import com.study.vipoliveira.investapp.ui.investment.InvestmentContract
 import dagger.Module
@@ -23,7 +24,7 @@ class InvestmentModule {
     }
 
     @Provides
-    fun provideInvestPresenter(domain: InvestDomain, disposable: CompositeDisposable): InvestmentContract.Presenter {
-        return InvestPresenter(domain, disposable)
+    fun provideInvestPresenter(domain: InvestDomain, facade: SchedulersFacade, disposable: CompositeDisposable): InvestmentContract.Presenter {
+        return InvestPresenter(domain, facade, disposable)
     }
 }

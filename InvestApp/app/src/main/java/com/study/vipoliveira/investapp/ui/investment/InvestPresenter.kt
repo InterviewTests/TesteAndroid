@@ -1,11 +1,13 @@
 package com.study.vipoliveira.investapp.ui.investment
 
 import com.study.vipoliveira.investapp.domain.InvestDomain
+import com.study.vipoliveira.investapp.domain.SchedulersFacade
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class InvestPresenter (private val domain: InvestDomain,
+                       private val facade: SchedulersFacade,
                        private val disposable: CompositeDisposable): InvestmentContract.Presenter {
 
     private lateinit var view: InvestmentContract.View
@@ -17,8 +19,8 @@ class InvestPresenter (private val domain: InvestDomain,
     override fun getInvestments(){
         disposable.add(
                 domain.requestInvestment()
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeOn(facade.io())
+                        .observeOn(facade.ui())
                         .doOnSubscribe {
                             _ -> view.displayLoadingUI()
                         }
