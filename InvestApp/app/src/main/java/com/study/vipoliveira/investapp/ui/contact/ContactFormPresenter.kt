@@ -4,15 +4,15 @@ import android.text.InputType
 import android.view.View
 import android.widget.EditText
 import com.study.vipoliveira.investapp.domain.ContactDomain
+import com.study.vipoliveira.investapp.domain.SchedulersFacade
 import com.study.vipoliveira.investapp.util.isValidEmail
 import com.study.vipoliveira.investapp.util.isValidPhoneNumber
 import com.study.vipoliveira.investapp.util.isValidText
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import java.util.ArrayList
 
 class ContactFormPresenter(private val domain: ContactDomain,
+                           private val facade: SchedulersFacade,
                            private val disposable: CompositeDisposable): ContactFormContract.Presenter {
 
     private lateinit var view: ContactFormContract.View
@@ -21,8 +21,8 @@ class ContactFormPresenter(private val domain: ContactDomain,
     override fun getContactForm() {
         disposable.add(
                 domain.requestContactForm()
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeOn(facade.io())
+                        .observeOn(facade.ui())
                         .doOnSubscribe {
                             _ -> view.displayLoadingUI()
                         }
