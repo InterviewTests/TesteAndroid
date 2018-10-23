@@ -33,8 +33,7 @@ class ContactPresenter(private val schedulerProvider: SchedulerProvider, private
 
     override fun sendContact() {
         var messageError = ""
-        listContact?.forEach { contact ->
-
+        listContact.forEach { contact ->
             if (contact.messageError != "" && contact.required!! && !contact.requireValidateCheck && !contact.hidden!!) {
                 messageError += contact.messageError + "\n"
             }

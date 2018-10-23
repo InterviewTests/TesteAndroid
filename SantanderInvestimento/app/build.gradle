@@ -50,6 +50,7 @@ dependencies {
     testImplementation "com.nhaarman:mockito-kotlin-kt1.1:$mockitoVersion"
     androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinJunitTest"
     androidTestImplementation "org.mockito:mockito-android:$mockitoTestVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$rootProject.okHttpVersion"
 
     // rx
     implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlin_version"
