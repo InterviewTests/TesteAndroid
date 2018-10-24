@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="cell_margin">8dp</dimen>
+    <dimen name="text_view_padding">2dp</dimen>
+    <dimen name="text_size_small">18sp</dimen>
+    <dimen name="text_size_normal">22sp</dimen>
+    <dimen name="text_size_large">28sp</dimen>
+    <dimen name="text_size_huge">40sp</dimen>
+    <dimen name="button_radius_large">4dp</dimen>
+    <dimen name="base_margin">8dp</dimen>
+</resources>

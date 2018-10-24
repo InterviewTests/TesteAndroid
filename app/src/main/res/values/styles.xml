@@ -8,4 +8,151 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Fullscreen" parent="AppTheme.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="background">@color/colorAccent</item>
+        <item name="titleTextStyle">@style/AppTheme.ActionBarTabText</item>
+        <item name="android:actionMenuTextColor">@color/text_color_light</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.ActionBarTitleText"
+        parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+
+    <!-- ActionBar tabs text styles -->
+    <style name="AppTheme.ActionBarTabText"
+        parent="@android:style/Widget.Holo.ActionBar.TabText">
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+
+    <style name="TitleTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">@dimen/text_view_padding</item>
+        <item name="android:textSize">@dimen/text_size_huge</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TitleTextView.Light" parent="TitleTextView">
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+
+    <style name="TitleTextView.Dark" parent="TitleTextView">
+        <item name="android:textColor">@color/text_color_dark</item>
+    </style>
+
+    <style name="Title2TextView.Light" parent="TitleTextView.Light">
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="Title2TextView.Dark" parent="TitleTextView.Dark">
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="Title3TextView.Light" parent="TitleTextView.Light">
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+    </style>
+
+    <style name="Title3TextView.Dark" parent="TitleTextView.Dark">
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+    </style>
+
+    <style name="InnerCellTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:layout_marginStart">@dimen/base_margin</item>
+        <item name="android:layout_marginTop">@dimen/base_margin</item>
+        <item name="android:layout_marginEnd">@dimen/base_margin</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="InnerCellTextView.Light" parent="InnerCellTextView">
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+
+    <style name="InnerCellTextView.Dark" parent="InnerCellTextView">
+        <item name="android:textColor">@color/text_color_dark</item>
+    </style>
+
+    <style name="CellTextView" parent="InnerCellTextView">
+        <item name="android:layout_margin">@dimen/base_margin</item>
+    </style>
+
+    <style name="CellTextView.Light" parent="CellTextView">
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+
+    <style name="CellTextView.Dark" parent="CellTextView">
+        <item name="android:textColor">@color/text_color_dark</item>
+    </style>
+
+    <style name="InnerCellTitleTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:layout_marginStart">@dimen/base_margin</item>
+        <item name="android:layout_marginTop">@dimen/base_margin</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="InnerCellTitleTextView.Light" parent="InnerCellTitleTextView">
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+
+    <style name="InnerCellTitleTextView.Dark" parent="InnerCellTitleTextView">
+        <item name="android:textColor">@color/text_color_dark</item>
+    </style>
+
+    <style name="CellTitleTextView" parent="InnerCellTitleTextView">
+        <item name="android:layout_margin">@dimen/base_margin</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CellTitleTextView.Light" parent="CellTitleTextView">
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+
+    <style name="CellTitleTextView.Dark" parent="CellTitleTextView">
+        <item name="android:textColor">@color/text_color_dark</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">@dimen/base_margin</item>
+        <item name="android:text">Button</item>
+    </style>
+
+    <style name="Button.Dark">
+        <item name="android:background">@drawable/button_background_solid_dark</item>
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+
+    <style name="Button.Light">
+        <item name="android:background">@drawable/button_background_solid_light</item>
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+
 </resources>
