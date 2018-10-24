@@ -6,6 +6,6 @@
     <dimen name="text_size_normal">22sp</dimen>
     <dimen name="text_size_large">28sp</dimen>
     <dimen name="text_size_huge">40sp</dimen>
-    <dimen name="button_radius_large">4dp</dimen>
+    <dimen name="button_radius_large">24dp</dimen>
     <dimen name="base_margin">8dp</dimen>
 </resources>
