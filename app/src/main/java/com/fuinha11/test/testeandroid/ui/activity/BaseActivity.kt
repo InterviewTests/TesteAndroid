@@ -9,6 +9,9 @@ import android.view.WindowManager
 import android.widget.TextView
 import com.fuinha11.test.testeandroid.R
 import com.fuinha11.test.testeandroid.contract.BaseContracts
+import com.fuinha11.test.testeandroid.util.extension.hideKeyboard
+import com.fuinha11.test.testeandroid.util.extension.toast
+import org.androidannotations.annotations.AfterInject
 import org.androidannotations.annotations.AfterViews
 import org.androidannotations.annotations.EActivity
 import org.androidannotations.annotations.UiThread
@@ -43,6 +46,14 @@ abstract class BaseActivity
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
             loadingDialog.visibility = View.GONE
         }
+    }
+
+    override fun dismissKeyboard() {
+        hideKeyboard()
+    }
+
+    override fun showToast(message: String, length: Int) {
+        toast(message, length)
     }
 
     @AfterViews

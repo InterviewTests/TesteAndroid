@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/base_margin">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:padding="12dp">
 
     <TextView
         style="@style/Title3TextView.Dark"
@@ -20,7 +18,8 @@
 
     <TextView
         style="@style/Title4TextView.Light"
-        android:text="@string/placeholder"/>
+        android:layout_marginTop="12dp"
+        android:text="@string/funds"/>
 
     <TextView
         android:id="@+id/fund_name"
@@ -42,8 +41,7 @@
 
     <TextView
         android:id="@+id/what_is_TV"
-        style="@style/Title4TextView.Light"
-        android:text="@string/placeholder"/>
+        style="@style/Title4TextView.Light"/>
 
     <TextView
         style="@style/Title4TextView.Dark"
@@ -96,12 +94,12 @@
                 android:text="@string/on_month" />
 
             <TextView
-                style="@style/InnerCellTextView.Dark"
-                android:text="@string/placeholder" />
+                android:id="@+id/fund_month"
+                style="@style/InnerCellTextView.Dark" />
 
             <TextView
-                style="@style/InnerCellTextView.Dark"
-                android:text="@string/placeholder" />
+                android:id="@+id/cdi_month"
+                style="@style/InnerCellTextView.Dark"/>
         </LinearLayout>
 
         <LinearLayout
@@ -115,12 +113,12 @@
                 android:text="@string/on_year" />
 
             <TextView
-                style="@style/InnerCellTextView.Dark"
-                android:text="@string/placeholder" />
+                android:id="@+id/fund_year"
+                style="@style/InnerCellTextView.Dark"/>
 
             <TextView
-                style="@style/InnerCellTextView.Dark"
-                android:text="@string/placeholder" />
+                android:id="@+id/cdi_year"
+                style="@style/InnerCellTextView.Dark" />
         </LinearLayout>
 
         <LinearLayout
@@ -134,12 +132,12 @@
                 android:text="@string/twelve_months" />
 
             <TextView
-                style="@style/InnerCellTextView.Dark"
-                android:text="@string/placeholder" />
+                android:id="@+id/fund_12"
+                style="@style/InnerCellTextView.Dark" />
 
             <TextView
-                style="@style/InnerCellTextView.Dark"
-                android:text="@string/placeholder" />
+                android:id="@+id/cdi_12"
+                style="@style/InnerCellTextView.Dark"/>
         </LinearLayout>
 
         <View
