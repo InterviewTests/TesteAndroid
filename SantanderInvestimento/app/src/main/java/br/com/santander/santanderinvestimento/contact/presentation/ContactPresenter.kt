@@ -7,7 +7,7 @@ import br.com.santander.santanderinvestimento.core.presentation.RxPresenter
 import br.com.santander.santanderinvestimento.util.ErrorUtil.parseError
 import br.com.santander.santanderinvestimento.util.rx.SchedulerProvider
 
-class ContactPresenter(private val schedulerProvider: SchedulerProvider, private val repository: ContactRepository, private val application: SantanderInvestimentoApp) : RxPresenter<ContactContract.View>(), ContactContract.Presenter {
+class ContactPresenter(private val schedulerProvider: SchedulerProvider, private val repository: ContactRepository) : RxPresenter<ContactContract.View>(), ContactContract.Presenter {
 
 
     private lateinit var listContact: List<Contact>

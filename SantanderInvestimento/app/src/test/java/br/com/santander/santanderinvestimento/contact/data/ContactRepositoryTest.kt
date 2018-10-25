@@ -27,17 +27,14 @@ class ContactRepositoryTest : SantanderRepositoryTest() {
     }
 
     @Test
-    fun `test get empty contact error 404`() {
+    fun `test get contact when http 500`(){
         val values = repository.getContacts()
-
         val jsonResponse = Gson().toJson(values.test().values())
         val mockedResponse = MockResponse()
-        mockedResponse.setResponseCode(404)
+        mockedResponse.setResponseCode(500)
         mockedResponse.setBody(jsonResponse)
         mockServer.enqueue(mockedResponse)
-//TODO view this
-
-        assertEquals(values.test().values().count(), mockedResponse.body)
+        assertEquals(1, values.test().valueCount())
     }
 
 }
