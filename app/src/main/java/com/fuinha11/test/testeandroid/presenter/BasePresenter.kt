@@ -2,7 +2,7 @@ package com.fuinha11.test.testeandroid.presenter
 
 import android.content.Context
 import com.fuinha11.test.testeandroid.contract.BaseContracts
-import com.fuinha11.test.testeandroid.ui.BaseActivity
+import com.fuinha11.test.testeandroid.ui.activity.BaseActivity
 import org.androidannotations.annotations.EBean
 import org.androidannotations.annotations.RootContext
 

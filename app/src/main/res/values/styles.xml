@@ -78,6 +78,31 @@
         <item name="android:textSize">@dimen/text_size_normal</item>
     </style>
 
+    <style name="Title4TextView.Light" parent="TitleTextView.Light">
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="Title4TextView.Dark" parent="TitleTextView.Dark">
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+
+    <style name="Title5TextView.Light" parent="TitleTextView.Light">
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_tiny</item>
+    </style>
+
+    <style name="Title5TextView.Dark" parent="TitleTextView.Dark">
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_tiny</item>
+    </style>
+
     <style name="InnerCellTextView">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
@@ -151,6 +176,23 @@
     </style>
 
     <style name="Button.Light">
+        <item name="android:background">@drawable/button_background_solid_light</item>
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+
+    <style name="Checkbox">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">@dimen/base_margin</item>
+        <item name="android:text">Button</item>
+    </style>
+
+    <style name="Checkbox.Dark">
+        <item name="android:background">@drawable/button_background_solid_dark</item>
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+
+    <style name="Checkbox.Light">
         <item name="android:background">@drawable/button_background_solid_light</item>
         <item name="android:textColor">@color/text_color_light</item>
     </style>

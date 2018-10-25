@@ -1,4 +1,4 @@
-package com.fuinha11.test.testeandroid.ui
+package com.fuinha11.test.testeandroid.ui.activity
 
 import android.content.Context
 import android.support.v7.app.AppCompatActivity

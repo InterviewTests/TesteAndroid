@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <TextView
+        style="@style/Title3TextView.Dark"
+        android:textStyle="bold"
+        android:text="@string/contact"
+        android:layout_weight="0"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+
+        <LinearLayout
+            android:id="@+id/thank_you_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/Title4TextView.Light"
+                android:text="@string/thank_you"/>
+
+            <TextView
+                style="@style/Title2TextView.Dark"
+                android:textStyle="bold"
+                android:text="@string/message_sent"/>
+
+
+            <TextView
+                style="@style/Title4TextView.Light"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/new_message"/>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/form_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top">
+
+            <LinearLayout
+                android:id="@+id/cells_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

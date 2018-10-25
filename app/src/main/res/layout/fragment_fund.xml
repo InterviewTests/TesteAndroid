@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/base_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+    <TextView
+        style="@style/Title3TextView.Dark"
+        android:textStyle="bold"
+        android:text="@string/investment"/>
+
+    <TextView
+        style="@style/Title4TextView.Light"
+        android:text="@string/placeholder"/>
+
+    <TextView
+        android:id="@+id/fund_name"
+        style="@style/Title2TextView.Dark"
+        android:textStyle="bold"
+        android:text="@string/investment"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightGray"
+        android:layout_margin="@dimen/base_margin"/>
+
+
+    <TextView
+        style="@style/Title4TextView.Dark"
+        android:textStyle="bold"
+        android:text="@string/what_is"/>
+
+    <TextView
+        android:id="@+id/what_is_TV"
+        style="@style/Title4TextView.Light"
+        android:text="@string/placeholder"/>
+
+    <TextView
+        style="@style/Title4TextView.Dark"
+        android:textStyle="bold"
+        android:text="@string/risk_amount"/>
+
+    <TextView
+        style="@style/Title4TextView.Dark"
+        android:textStyle="bold"
+        android:text="@string/more_info"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightGray"
+        android:layout_margin="@dimen/base_margin"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/InnerCellTextView.Light"
+                android:layout_weight="0.5"/>
+
+            <TextView
+                style="@style/InnerCellTextView.Light"
+                android:text="@string/fund" />
+
+            <TextView
+                style="@style/InnerCellTextView.Light"
+                android:text="@string/cdi" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/InnerCellTextView.Light"
+                android:layout_weight="0.5"
+                android:text="@string/on_month" />
+
+            <TextView
+                style="@style/InnerCellTextView.Dark"
+                android:text="@string/placeholder" />
+
+            <TextView
+                style="@style/InnerCellTextView.Dark"
+                android:text="@string/placeholder" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/InnerCellTextView.Light"
+                android:layout_weight="0.5"
+                android:text="@string/on_year" />
+
+            <TextView
+                style="@style/InnerCellTextView.Dark"
+                android:text="@string/placeholder" />
+
+            <TextView
+                style="@style/InnerCellTextView.Dark"
+                android:text="@string/placeholder" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/InnerCellTextView.Light"
+                android:layout_weight="0.5"
+                android:text="@string/twelve_months" />
+
+            <TextView
+                style="@style/InnerCellTextView.Dark"
+                android:text="@string/placeholder" />
+
+            <TextView
+                style="@style/InnerCellTextView.Dark"
+                android:text="@string/placeholder" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightGray"
+            android:layout_margin="@dimen/base_margin"/>
+
+        <LinearLayout
+            android:id="@+id/info_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
