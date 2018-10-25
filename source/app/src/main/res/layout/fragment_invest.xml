@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:id="@+id/fund_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/dinpromedium"
+        android:text="Investimento"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/fund_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fund_view_title"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/dinpromedium"
+        android:text="Teste"
+        android:textAlignment="center"
+        android:textColor="@color/darkGray"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/fund_fundName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fund_title"
+        android:layout_marginBottom="13dp"
+        android:fontFamily="@font/dinpromedium"
+        android:text="Fund name"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="28sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/fund_fundName"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@+id/arrow"
+        android:background="@color/lightGray" />
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/fund_fundName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/rotate_arrow"
+        android:tint="@color/lightGray" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/fund_fundName"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/arrow"
+        android:background="@color/lightGray" />
+
+    <TextView
+        android:id="@+id/fund_whatIs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrow"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/dinpromedium"
+        android:text="O que é"
+        android:textAlignment="center"
+        android:textColor="@color/darkGray"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/fund_definition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fund_whatIs"
+        android:fontFamily="@font/dinpromedium"
+        android:text="Definição"
+        android:textAlignment="center"
+        android:textColor="@color/darkGray"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/fund_riskTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fund_definition"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/dinpromedium"
+        android:text="Grau de Risco do investimento"
+        android:textColor="@color/darkGray"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/fund_risk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fund_riskTitle"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="13dp"
+            android:layout_weight="0.20"
+            android:backgroundTint="@color/green"
+            android:background="@drawable/risk_border_left"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="13dp"
+            android:layout_weight="0.20"
+            android:background="@color/greenDark" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="13dp"
+            android:layout_weight="0.20"
+            android:background="@color/yellow" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="13dp"
+            android:layout_weight="0.20"
+            android:background="@color/orange" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.20"
+            android:backgroundTint="@color/colorPrimary"
+            android:background="@drawable/risk_border_right" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/fund_infoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fund_risk"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/dinpromedium"
+        android:text="Info title"
+        android:textColor="@color/darkGray"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/listview_more_info_fund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fund_infoTitle"
+        android:layout_marginEnd="20dp"
+        android:layout_toStartOf="@+id/listview_more_info_data"
+        android:fontFamily="@font/dinproregular"
+        android:text="@string/fundo"
+        android:textColor="@color/gray"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/listview_more_info_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/fund_infoTitle"
+        android:fontFamily="@font/dinproregular"
+        android:text="@string/cdi"
+        android:textColor="@color/gray"
+        android:textSize="14sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fund_list_moreInfo"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/listview_more_info_fund"/>
+
+    <View
+        android:id="@+id/fund_view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/fund_list_moreInfo"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/lightGray" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fund_list_info"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/fund_view_line"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/fund_list_info"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/dinpromedium"
+        android:text="@string/investir"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:stateListAnimator="@null"
+        android:textSize="16sp" />
+
+</RelativeLayout>

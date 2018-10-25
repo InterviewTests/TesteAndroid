@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TesteSantander</string>
+
+    <string name="fundo">Fundo</string>
+    <string name="cdi">CDI</string>
+    <string name="investir">Investir</string>
+    <string name="invest_title">Investimento</string>
+    <string name="contact_title">Contato</string>
+</resources>
