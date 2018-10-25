@@ -10,6 +10,10 @@ class InvestPresenter(
         val view: InvestContract.View
 ): InvestContract.Presenter {
 
+    override fun start() {
+        getData()
+    }
+
     private val apiService = ApiService()
 
     init {
@@ -20,7 +24,7 @@ class InvestPresenter(
         apiService.getApi().fund.enqueue(object : Callback<InvestResponse> {
             override fun onResponse(call: Call<InvestResponse>, response: Response<InvestResponse>) {
                 if (response.isSuccessful) {
-                    view.showData()
+                    view.showData(response.body()?.screen!!)
                 }
             }
 

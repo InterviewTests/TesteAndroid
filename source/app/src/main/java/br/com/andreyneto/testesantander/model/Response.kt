@@ -25,4 +25,5 @@ data class MoreInfoDetail(
 
 data class Info(
         var name: String?,
+        var fund: String?,
         var data: String?)
