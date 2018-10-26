@@ -30,7 +30,11 @@ open class MainPresenter :
     val cells: MutableList<CellHolder> = mutableListOf()
 
 
+    var fieldsLoaded = false
     override fun getFields() {
+        if (fieldsLoaded)
+            return
+
         view.showLoading()
         apiService.getCells(object : Callback<CellsResponse>{
             override fun onFailure(call: Call<CellsResponse>, t: Throwable) {
@@ -50,6 +54,7 @@ open class MainPresenter :
                         cells.add(holder)
                     }
                     view.populateContactFragment(cells)
+                    fieldsLoaded = true
                 } else
                     onError(Exception("Impossible to find cells"))
 
@@ -70,7 +75,11 @@ open class MainPresenter :
         }
     }
 
+    var investmentLoaded = false
     override fun getInvestment() {
+        if (investmentLoaded)
+            return
+
         view.showLoading()
         apiService.getInvestment(object : Callback<FundResponse>{
             override fun onFailure(call: Call<FundResponse>, t: Throwable) {
@@ -82,6 +91,7 @@ open class MainPresenter :
                 if (response.isSuccessful && response.body() != null) {
                     val resp = response.body() as FundResponse
                     view.populateInvestmentFragment(resp.screen)
+                    investmentLoaded = true
                 } else
                     onError(Exception("Impossible to find cells"))
 

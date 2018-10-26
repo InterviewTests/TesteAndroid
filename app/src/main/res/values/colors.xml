@@ -11,4 +11,10 @@
     <color name="lightGray">#e9e9e9</color>
     <color name="text_color_light">#b1b1b1</color>
     <color name="text_color_dark">#646464</color>
+
+
+    <color name="green">#FF4AC16C</color>
+    <color name="light_green">#FF74DA61</color>
+    <color name="yellow">#FFFFC011</color>
+    <color name="orange">#FFFF742C</color>
 </resources>

@@ -30,4 +30,11 @@ data class Investment (
                         val CDI: Double
                 )
         }
+
+        fun getAllInfo() : List<Info> {
+                val result =  ArrayList<Info>()
+                result.addAll(info)
+                result.addAll(downInfo)
+                return result
+        }
 }

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/arrowOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+        android:src="@drawable/chevron_down"
+        app:layout_constraintStart_toStartOf="@+id/riskOne"/>
+
+    <View
+        android:id="@+id/riskOne"
+        android:layout_width="60dp"
+        android:layout_height="6dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginStart="40dp"
+        android:background="@color/light_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/arrowOne" />
+
+    <ImageView
+        android:id="@+id/arrowTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:padding="0dp"
+        android:visibility="invisible"
+        android:src="@drawable/chevron_down"
+        app:layout_constraintStart_toEndOf="@+id/arrowOne" />
+
+    <View
+        android:id="@+id/riskTwo"
+        android:layout_width="60dp"
+        android:layout_height="6dp"
+        android:background="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/riskOne"
+        app:layout_constraintTop_toBottomOf="@+id/arrowTwo" />
+
+    <ImageView
+        android:id="@+id/arrowThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:padding="0dp"
+        android:visibility="invisible"
+        android:src="@drawable/chevron_down"
+        app:layout_constraintStart_toEndOf="@+id/arrowTwo" />
+
+    <View
+        android:id="@+id/riskThree"
+        android:layout_width="60dp"
+        android:layout_height="6dp"
+        android:background="@color/yellow"
+        app:layout_constraintStart_toEndOf="@+id/riskTwo"
+        app:layout_constraintTop_toBottomOf="@+id/arrowThree" />
+
+    <ImageView
+        android:id="@+id/arrowFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:padding="0dp"
+        android:visibility="invisible"
+        android:src="@drawable/chevron_down"
+        app:layout_constraintStart_toEndOf="@+id/arrowThree"/>
+
+    <View
+        android:id="@+id/riskFour"
+        android:layout_width="60dp"
+        android:layout_height="6dp"
+        android:background="@color/orange"
+        app:layout_constraintStart_toEndOf="@+id/riskThree"
+        app:layout_constraintTop_toBottomOf="@+id/arrowFour" />
+
+    <ImageView
+        android:id="@+id/arrowFive"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:padding="0dp"
+        android:visibility="invisible"
+        android:src="@drawable/chevron_down"
+        app:layout_constraintStart_toEndOf="@+id/arrowFour"/>
+
+    <View
+        android:id="@+id/riskFive"
+        android:layout_width="60dp"
+        android:layout_height="6dp"
+
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintStart_toEndOf="@+id/riskFour"
+        app:layout_constraintTop_toBottomOf="@+id/arrowFive" />
+
+</android.support.constraint.ConstraintLayout>

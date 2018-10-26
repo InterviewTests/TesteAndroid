@@ -20,4 +20,6 @@
     <string name="twelve_months">12 meses</string>
     <string name="fund">Fundo</string>
     <string name="cdi">CDI</string>
+
+    <string name="formated_percent">%.2f</string>
 </resources>

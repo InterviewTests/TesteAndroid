@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -168,6 +168,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_margin">@dimen/base_margin</item>
         <item name="android:text">Button</item>
+        <item name="textAllCaps">false</item>
     </style>
 
     <style name="Button.Dark">

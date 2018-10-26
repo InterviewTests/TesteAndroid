@@ -1,5 +1,6 @@
 package com.fuinha11.test.testeandroid.ui.activity
 
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import com.fuinha11.test.testeandroid.R
 import org.androidannotations.annotations.AfterViews
@@ -9,6 +10,12 @@ import org.androidannotations.annotations.EActivity
 open class SplashActivity : AppCompatActivity() {
     @AfterViews
     open fun redirect(){
-        MainActivity_.intent(this).start()
+        Handler().postDelayed(
+                {
+                    MainActivity_.intent(this).start()
+                },
+                1500
+        )
+
     }
 }

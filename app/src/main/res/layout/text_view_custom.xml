@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/CellTextView.Dark"/>
+    style="@style/CellTextView.Dark"
+    android:fontFamily="@font/dinpro_regular"/>

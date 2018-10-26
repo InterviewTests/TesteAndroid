@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".ui.activity.SplashActivity_"
-            android:theme="@style/AppTheme.NoActionBar.Fullscreen">
+            android:theme="@style/AppTheme.NoActionBar.Fullscreen"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
