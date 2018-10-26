@@ -10,4 +10,25 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="EditText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item>
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="colorControlNormal">@color/gray</item>
+        <item name="colorControlActivated">@color/gray</item>
+        <item name="colorControlHighlight">@color/gray</item>
+        <item name="android:fontFamily">@font/dinproregular</item>
+    </style>
+
+    <style name="CheckBox" parent="@style/Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:colorControlNormal">@color/gray</item>
+        <item name="android:colorControlActivated">@color/red</item>
+        <item name="android:colorControlHighlight">@color/red</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/dinproregular</item>
+    </style>
+
+    <style name="Title">
+        <item name="android:fontFamily">@font/dinpromedium</item>
+    </style>
 </resources>
