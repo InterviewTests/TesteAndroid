@@ -2,6 +2,7 @@ package br.com.andreyneto.testesantander.model
 
 import com.google.gson.annotations.SerializedName
 
+//----------------------Invest
 data class InvestResponse(
         var screen: Screen)
 
@@ -30,3 +31,24 @@ data class Info(
         var name: Any,
         var fund: Any,
         var data: Any?)
+//----------------------Contact
+
+data class ContactResponse(
+        var cells: List<Cell>)
+
+data class Cell(
+        var id: Int,
+        var type: Int,
+        var message: String,
+        var typefield: String,
+        var hidden: Boolean,
+        var topSpacing: Int,
+        var show: Int,
+        var required: Boolean)
+enum class CellType(val type: Int) {
+    FIELD(1),
+    TEXT(2),
+    IMAGE(3),
+    CHECKBOX(4),
+    SEND(5)
+}

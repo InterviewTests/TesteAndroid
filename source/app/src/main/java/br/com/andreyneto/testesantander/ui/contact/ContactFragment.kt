@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.andreyneto.testesantander.R
+import br.com.andreyneto.testesantander.model.Cell
 import kotlinx.android.synthetic.main.fragment_contact.*
 
 class ContactFragment: Fragment(), ContactContract.View {
 
     private var mPresenter: ContactContract.Presenter? = null
 
-    override fun showCells(cells: List<Any>?) {
+    override fun showCells(cells: List<Cell>) {
         container.visibility = View.VISIBLE
     }
 

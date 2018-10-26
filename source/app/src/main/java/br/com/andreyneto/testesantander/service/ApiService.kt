@@ -1,6 +1,6 @@
 package br.com.andreyneto.testesantander.service
 
-import br.com.andreyneto.testesantander.model.CellResponse
+import br.com.andreyneto.testesantander.model.ContactResponse
 import br.com.andreyneto.testesantander.model.InvestResponse
 import retrofit2.Call
 import retrofit2.Response
@@ -25,6 +25,6 @@ class ApiService {
         val fund: Call<InvestResponse>
 
         @get:GET("cells.json")
-        val cells: Call<CellResponse>
+        val cells: Call<ContactResponse>
     }
 }
