@@ -1,6 +1,5 @@
 package br.com.andreyneto.testesantander.ui.contact
 
-import android.graphics.Typeface
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v4.app.Fragment
@@ -13,14 +12,11 @@ import kotlinx.android.synthetic.main.fragment_contact.*
 import android.support.constraint.ConstraintSet
 import android.support.v4.content.ContextCompat
 import android.support.v7.view.ContextThemeWrapper
-import android.util.Log
 import android.util.TypedValue
-import android.widget.Button
 import android.widget.CheckBox
-import android.widget.EditText
 import android.widget.TextView
 import br.com.andreyneto.testesantander.convertDpToPixel
-import br.com.andreyneto.testesantander.ui.CustomButton
+import br.com.andreyneto.testesantander.ui.components.CustomButton
 import br.com.andreyneto.testesantander.ui.components.CustomTextInputLayout
 
 

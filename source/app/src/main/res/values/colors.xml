@@ -13,4 +13,6 @@
     <color name="lightGray">#EFEEED</color>
     <color name="gray">#ACACAC</color>
     <color name="darkGray">#7E7E7E</color>
+
+    <color name="error">#c80404</color>
 </resources>

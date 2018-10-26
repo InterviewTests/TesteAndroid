@@ -1,4 +1,4 @@
-package br.com.andreyneto.testesantander.ui
+package br.com.andreyneto.testesantander.ui.components
 
 import android.content.Context
 import android.support.v4.content.ContextCompat

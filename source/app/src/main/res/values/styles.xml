@@ -10,7 +10,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="EditText" parent="TextAppearance.AppCompat">
+    <style name="EditText" parent="Widget.Design.TextInputLayout">
         <item name="android:textSize">16sp</item>
         <item name="colorAccent">@android:color/white</item>
         <item name="android:textColorHint">@color/gray</item>
