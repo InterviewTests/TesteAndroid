@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckBox xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Checkbox.Dark"
+    android:fontFamily="@font/dinpro_regular"
+    android:layout_marginTop="35dp"/>

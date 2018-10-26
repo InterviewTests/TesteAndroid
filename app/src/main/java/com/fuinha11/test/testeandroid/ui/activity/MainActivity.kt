@@ -17,6 +17,7 @@ import com.fuinha11.test.testeandroid.ui.fragment.ContactFragment_
 import com.fuinha11.test.testeandroid.ui.fragment.InvestmentFragment
 import com.fuinha11.test.testeandroid.ui.fragment.InvestmentFragment_
 import com.fuinha11.test.testeandroid.ui.view.CellHolder
+import com.fuinha11.test.testeandroid.util.extension.toast
 import kotlinx.android.synthetic.main.activity_main.*
 import org.androidannotations.annotations.AfterInject
 import org.androidannotations.annotations.AfterViews
@@ -79,6 +80,7 @@ open class MainActivity :
                     }
                     else -> {
                         presenter.getFields()
+                        contactFrag.showContactView()
                     }
                 }
             }
@@ -98,7 +100,10 @@ open class MainActivity :
     }
 
 
-    override fun showCellErrors() = contactFrag.showCellErrors()
+    override fun showCellErrors() {
+        contactFrag.showCellErrors()
+        toast("Campos inválidos")
+    }
 
     override fun showContactView() = contactFrag.showContactView()
 

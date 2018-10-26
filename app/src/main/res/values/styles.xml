@@ -103,7 +103,7 @@
         <item name="android:textSize">@dimen/text_size_tiny</item>
     </style>
 
-    <style name="InnerCellTextView">
+    <style name="InnerCellTextView" parent="TextAppearance.AppCompat.Title">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:textSize">@dimen/text_size_small</item>
@@ -163,7 +163,7 @@
         <item name="android:textColor">@color/text_color_dark</item>
     </style>
 
-    <style name="Button">
+    <style name="Button" parent="Base.TextAppearance.AppCompat.Widget.Button">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_margin">@dimen/base_margin</item>
@@ -172,7 +172,7 @@
 
     <style name="Button.Dark">
         <item name="android:background">@drawable/button_background_solid_dark</item>
-        <item name="android:textColor">@color/text_color_light</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="Button.Light">
@@ -188,12 +188,10 @@
     </style>
 
     <style name="Checkbox.Dark">
-        <item name="android:background">@drawable/button_background_solid_dark</item>
         <item name="android:textColor">@color/text_color_light</item>
     </style>
 
     <style name="Checkbox.Light">
-        <item name="android:background">@drawable/button_background_solid_light</item>
         <item name="android:textColor">@color/text_color_light</item>
     </style>
 

@@ -12,6 +12,7 @@ import com.fuinha11.test.testeandroid.contract.ContactFragContracts
 import com.fuinha11.test.testeandroid.data.model.Cell
 import com.fuinha11.test.testeandroid.ui.view.CellHolder
 import kotlinx.android.synthetic.main.fragment_contact.*
+import org.androidannotations.annotations.Click
 import org.androidannotations.annotations.EFragment
 import org.androidannotations.annotations.UiThread
 import org.androidannotations.annotations.ViewById
@@ -36,20 +37,7 @@ open class ContactFragment : Fragment(), ContactFragContracts.Fragment {
         if (this.cells != cells) {
             this.cells = cells
             for (c in cells) {
-                when (c.cell.type) {
-                    Cell.CellType.field -> {
-                        container.addView(c.editText)
-                    }
-                    Cell.CellType.text -> {
-                        container.addView(c.textView)
-                    }
-                    Cell.CellType.checkbox -> {
-                        container.addView(c.checkBox)
-                    }
-                    Cell.CellType.send -> {
-                        container.addView(c.button)
-                    }
-                }
+                container.addView(c.view)
             }
         }
     }
@@ -57,6 +45,9 @@ open class ContactFragment : Fragment(), ContactFragContracts.Fragment {
     override fun showContactView() {
         thank_you_container.visibility = GONE
         form_container.visibility = VISIBLE
+        for (c in cells) {
+            c.clearText()
+        }
     }
 
     override fun showThankYouView() {
@@ -68,5 +59,10 @@ open class ContactFragment : Fragment(), ContactFragContracts.Fragment {
         for (c in cells) {
             c.checkError()
         }
+    }
+
+    @Click(R.id.new_message)
+    open fun newMessageclick() {
+        showContactView()
     }
 }

@@ -1,6 +1,8 @@
 package com.fuinha11.test.testeandroid.presenter
 
 import android.content.Context
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import com.fuinha11.test.testeandroid.contract.MainScreenContracts
 import com.fuinha11.test.testeandroid.data.model.Cell
 import com.fuinha11.test.testeandroid.data.model.Investment
@@ -43,6 +45,8 @@ open class MainPresenter :
                         val holder = CellHolder(c, activity)
                         if (holder.cell.type == Cell.CellType.send)
                             holder.setCallback { sendBtnClick() }
+                        if (holder.cell.show != null)
+                            holder.setCallback { toogleView(holder.cell.show) }
                         cells.add(holder)
                     }
                     view.populateContactFragment(cells)
@@ -52,6 +56,18 @@ open class MainPresenter :
                 view.hideLoading()
             }
         })
+    }
+
+    private fun toogleView(show: Int) {
+        for(c in cells) {
+            if (c.cell.id == show) {
+                if (c.view.visibility == GONE)
+                    c.view.visibility = VISIBLE
+                else
+                    c.view.visibility = GONE
+                break
+            }
+        }
     }
 
     override fun getInvestment() {
@@ -75,6 +91,7 @@ open class MainPresenter :
     }
 
     override fun sendBtnClick() {
+        view.dismissKeyboard()
         if (fieldsAreValid(cells))
             view.showThankYouView()
         else
