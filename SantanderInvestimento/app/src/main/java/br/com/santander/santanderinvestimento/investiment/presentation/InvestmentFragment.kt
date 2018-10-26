@@ -23,6 +23,7 @@ import org.koin.android.ext.android.inject
 
 class InvestmentFragment : BaseFragment(), InvestmentContract.View, SwipeRefreshLayout.OnRefreshListener {
     override fun showSuccess(investment: Investment) {
+        clRoot.visibility = View.VISIBLE
         txTitle.text = investment.title
         txFundName.text = investment.fundName
         txWhatsIs.text = investment.whatIs

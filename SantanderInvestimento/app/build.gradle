@@ -29,6 +29,9 @@ android {
         disable 'GoogleAppIndexingWarning'
         baseline file("lint-baseline.xml")
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -50,6 +53,7 @@ dependencies {
     testImplementation "com.nhaarman:mockito-kotlin-kt1.1:$mockitoVersion"
     androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinJunitTest"
     androidTestImplementation "org.mockito:mockito-android:$mockitoTestVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$rootProject.okHttpVersion"
 
     // rx
     implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlin_version"
@@ -71,5 +75,7 @@ dependencies {
     //koin
     implementation "org.koin:koin-androidx-scope:$koinVersion"
     implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+    testImplementation "org.koin:koin-test:$koinVersion"
+
 
 }

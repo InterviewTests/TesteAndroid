@@ -11,5 +11,5 @@ val contactModule = module {
     single<ContactRepository> { ContactRepositoryImpl(get()) }
 
 
-    factory<ContactContract.Presenter> { ContactPresenter(get(), get(), get()) }
+    factory<ContactContract.Presenter> { ContactPresenter(get(), get()) }
 }
