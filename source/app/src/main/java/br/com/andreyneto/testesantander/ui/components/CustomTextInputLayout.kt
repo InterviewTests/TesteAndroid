@@ -8,16 +8,16 @@ import android.support.v4.content.ContextCompat
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
+import android.util.Patterns
 import android.view.ContextThemeWrapper
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import br.com.andreyneto.testesantander.R
-import java.lang.reflect.AccessibleObject.setAccessible
-import android.widget.TextView
-
 
 
 class CustomTextInputLayout(context: Context) : TextInputLayout(ContextThemeWrapper(context, R.style.EditText)), TextWatcher {
+    private var mInputType: String? = null
+
     override fun afterTextChanged(p0: Editable?) {
     }
 
@@ -29,10 +29,13 @@ class CustomTextInputLayout(context: Context) : TextInputLayout(ContextThemeWrap
             this.isErrorEnabled = false
             this.error = null
             editText!!.background.setColorFilter(ContextCompat.getColor(context, R.color.green), PorterDuff.Mode.SRC_ATOP)
-
+            if(mInputType!! == "3" && !Patterns.EMAIL_ADDRESS.matcher(p0).matches()) {
+                editText!!.background.setColorFilter(ContextCompat.getColor(context, R.color.error), PorterDuff.Mode.SRC_ATOP)
+                this.isErrorEnabled = true
+                this.error = "Email inválido"
+            }
         } else {
-            this.isErrorEnabled = true
-            this.error = ""
+            editText!!.background.setColorFilter(ContextCompat.getColor(context, R.color.error), PorterDuff.Mode.SRC_ATOP)
         }
     }
 
@@ -52,8 +55,8 @@ class CustomTextInputLayout(context: Context) : TextInputLayout(ContextThemeWrap
         this.addView(editText, editTextParams)
     }
 
-    fun setInputType(inputType: Int) {
-        editText!!.inputType = inputType
+    fun setInputType(inputType: String) {
+        mInputType = inputType
     }
 
 }

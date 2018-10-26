@@ -45,10 +45,3 @@ data class Cell(
         var topSpacing: Int,
         var show: Int,
         var required: Boolean)
-enum class CellType(val type: Int) {
-    FIELD(1),
-    TEXT(2),
-    IMAGE(3),
-    CHECKBOX(4),
-    SEND(5)
-}

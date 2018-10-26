@@ -59,6 +59,7 @@ class ContactFragment: Fragment(), ContactContract.View {
         val view = CustomTextInputLayout(context!!)
         view.id = cell.id
         view.setHint(cell.message)
+        view.setInputType(cell.typefield)
         addView(view, cell.topSpacing)
     }
 
