@@ -22,23 +22,22 @@ class DashboardActivityTest {
     val activity = IntentsTestRule<DashboardActivity>(DashboardActivity::class.java)
 
     @Before
-    fun setUp() {
+    fun init() {
         MockitoAnnotations.initMocks(this)
     }
 
     @Test
-    fun testBillingFragmentAlreadyAttached() {
+    fun testSwiptDashboard() {
         Espresso.onView(withId(R.id.vpDashboard)).perform(swipeRight())
     }
 
     @Test
-    fun testHomeActivityRequiredComponents() {
+    fun testRequiredComponents() {
         Espresso.onView(ViewMatchers.withId(R.id.vpDashboard))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 
         Espresso.onView(ViewMatchers.withId(R.id.tabDashboard))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
-
 
 }

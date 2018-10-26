@@ -26,9 +26,8 @@ class InvestmentFragmentTest {
         MockitoAnnotations.initMocks(this)
     }
 
-
     @Test
-    fun testBillingFragmentAlreadyAttached() {
+    fun testSwipeViewPager() {
         Espresso.onView(withId(R.id.vpDashboard)).perform(ViewActions.swipeRight())
     }
 
@@ -43,29 +42,9 @@ class InvestmentFragmentTest {
         onView(withId(R.id.txFundName)).check(matches(withText("Vinci Valorem FI Multimercado")))
         onView(withId(R.id.ivSeparator)).check(matches(isDisplayed()))
         onView(withId(R.id.txWhatsIs)).check(matches(withText("O que é?")))
-        /*onView(withId(R.id.txDefinition)).check(matches(withText("O Fundo tem por objetivo proporcionar")))
-        onView(withId(R.id.txRiskTitle)).check(matches(not(withText(""))))
-        onView(withId(R.id.constraintLayout)).check(matches(not(withText(""))))
-        onView(withId(R.id.txInfoTitle)).check(matches(not(withText(""))))
-        onView(withId(R.id.txFound)).check(matches(not(withText(""))))
-        onView(withId(R.id.txMonthFound)).check(matches(not(withText(""))))
-        onView(withId(R.id.txYearFound)).check(matches(not(withText(""))))
-        onView(withId(R.id.tx12MonthFound)).check(matches(not(withText(""))))
-        onView(withId(R.id.txMonthCDI)).check(matches(not(withText(""))))
-        onView(withId(R.id.txYearCDI)).check(matches(not(withText(""))))
-        onView(withId(R.id.tx12MonthCDI)).check(matches(not(withText(""))))
-        onView(withId(R.id.txCdi)).check(matches(not(withText(""))))
-        onView(withId(R.id.txInMonth)).check(matches(not(withText(""))))
-        onView(withId(R.id.txInYear)).check(matches(not(withText(""))))
-        onView(withId(R.id.tx12Month)).check(matches(not(withText(""))))*/
         onView(withId(R.id.ivShare)).check(matches(isDisplayed()))
-     //   onView(withId(R.id.imageView)).check(matches(isDisplayed()))
-        onView(withId(R.id.btnInvest)).check(matches(isDisplayed()))
         onView(withId(R.id.rcvInfo)).check(matches(hasMinimumChildCount(1)))
         onView(withId(R.id.rcvDownInfo)).check(matches(hasMinimumChildCount(1)))
         registry.unregister(idlingResource)
-
     }
-
-
 }
