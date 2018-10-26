@@ -3,7 +3,6 @@ package br.com.andreyneto.testesantander.ui.components
 import android.content.Context
 import android.graphics.PorterDuff
 import android.support.constraint.ConstraintLayout
-import android.support.constraint.ConstraintSet
 import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
 import android.support.v4.content.ContextCompat
@@ -12,7 +11,6 @@ import android.text.InputType
 import android.text.TextWatcher
 import android.util.Patterns
 import android.view.ContextThemeWrapper
-import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import br.com.andreyneto.testesantander.R
@@ -22,8 +20,7 @@ import br.com.andreyneto.testesantander.ui.PhoneTextWatcher
 
 
 class CustomTextInputLayout(context: Context,
-                            private val cell: Cell,
-                            private val lastView: View) : TextInputLayout(ContextThemeWrapper(context, R.style.EditText)), TextWatcher {
+                            private val cell: Cell) : TextInputLayout(ContextThemeWrapper(context, R.style.EditText)), TextWatcher {
     private var mInputType: String? = null
 
     private var appearing: Boolean = true
@@ -86,7 +83,7 @@ class CustomTextInputLayout(context: Context,
         return appearing
     }
 
-    fun hide(container: ConstraintLayout) {
+    fun hide() {
         val params = this.layoutParams as ConstraintLayout.LayoutParams
         originalHeight = params.height
         params.height = 0
@@ -95,7 +92,7 @@ class CustomTextInputLayout(context: Context,
         appearing = false
     }
 
-    fun show(container: ConstraintLayout) {
+    fun show() {
         val params = this.layoutParams as ConstraintLayout.LayoutParams
         params.height = originalHeight
         params.topMargin = cell.topSpacing.convertDpToPixel(context)

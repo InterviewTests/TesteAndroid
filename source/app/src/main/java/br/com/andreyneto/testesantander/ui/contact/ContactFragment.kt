@@ -20,8 +20,6 @@ import br.com.andreyneto.testesantander.ui.components.CustomButton
 import br.com.andreyneto.testesantander.ui.components.CustomTextInputLayout
 
 
-
-
 class ContactFragment: Fragment(), ContactContract.View {
     override fun showForm() {
         success.visibility = View.GONE
@@ -71,12 +69,12 @@ class ContactFragment: Fragment(), ContactContract.View {
         view.id = cell.id
         view.text = cell.message
         view.setTextColor(ContextCompat.getColor(context!!, R.color.gray))
-        view.setOnCheckedChangeListener { button, b ->
+        view.setOnCheckedChangeListener { _, b ->
             val v: CustomTextInputLayout = container.findViewById(cell.show)
             if (b) {
-                v.show(container)
+                v.show()
             } else {
-                v.hide(container)
+                v.hide()
             }
 
         }
@@ -84,12 +82,12 @@ class ContactFragment: Fragment(), ContactContract.View {
     }
 
     private fun createField(cell: Cell) {
-        val view = CustomTextInputLayout(context!!, cell, lastView)
+        val view = CustomTextInputLayout(context!!, cell)
         view.id = cell.id
         view.setHint(cell.message)
         view.setInputType(cell.typefield)
         addView(view, cell.topSpacing)
-        if(cell.hidden) view.hide(container)
+        if (cell.hidden) view.hide()
         fields.add(view)
     }
 
