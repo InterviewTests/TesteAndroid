@@ -8,7 +8,13 @@ import retrofit2.Response
 
 class ContactPresenter(
         val view: ContactContract.View): ContactContract.Presenter {
+    override fun sendForm() {
+        view.formSended()
+    }
 
+    override fun newMessage() {
+        view.showForm()
+    }
 
     private val apiService = ApiService()
 

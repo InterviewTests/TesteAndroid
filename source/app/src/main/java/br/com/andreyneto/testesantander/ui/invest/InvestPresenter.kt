@@ -1,7 +1,5 @@
 package br.com.andreyneto.testesantander.ui.invest
 
-import android.content.Context
-import android.widget.Toast
 import br.com.andreyneto.testesantander.model.InvestResponse
 import br.com.andreyneto.testesantander.service.ApiService
 import retrofit2.Call
@@ -11,10 +9,6 @@ import retrofit2.Response
 class InvestPresenter(
         val view: InvestContract.View
 ): InvestContract.Presenter {
-
-    override fun toast(ctx: Context, text: String) {
-        Toast.makeText(ctx, text, Toast.LENGTH_SHORT).show()
-    }
 
     override fun start() {
         getData()

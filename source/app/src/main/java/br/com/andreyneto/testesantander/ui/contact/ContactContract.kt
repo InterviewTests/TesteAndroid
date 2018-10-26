@@ -12,9 +12,13 @@ class ContactContract {
 
     interface View: BaseView<Presenter> {
         fun showCells(cells: List<Cell>)
+        fun showForm()
+        fun formSended()
     }
 
     interface Presenter: BasePresenter {
         fun getCells()
+        fun sendForm()
+        fun newMessage()
     }
 }

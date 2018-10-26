@@ -15,6 +15,5 @@ class InvestContract {
 
     interface Presenter: BasePresenter {
         fun getData()
-        fun toast(ctx: Context, text: String)
     }
 }
