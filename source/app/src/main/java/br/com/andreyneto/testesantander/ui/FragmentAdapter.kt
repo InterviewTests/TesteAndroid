@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import br.com.andreyneto.testesantander.R
+import br.com.andreyneto.testesantander.ui.contact.ContactFragment
+import br.com.andreyneto.testesantander.ui.contact.ContactPresenter
 import br.com.andreyneto.testesantander.ui.invest.InvestFragment
 import br.com.andreyneto.testesantander.ui.invest.InvestPresenter
 
@@ -18,8 +20,8 @@ class FragmentAdapter(private val mContext: Context, fm: FragmentManager) : Frag
                 return fragment
             }
             else -> {
-                val fragment = InvestFragment.newInstance()
-                InvestPresenter(fragment)
+                val fragment = ContactFragment.newInstance()
+                ContactPresenter(fragment)
                 return fragment
             }
         }
