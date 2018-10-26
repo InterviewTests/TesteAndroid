@@ -13,6 +13,7 @@ import android.view.ContextThemeWrapper
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import br.com.andreyneto.testesantander.R
+import br.com.andreyneto.testesantander.ui.PhoneTextWatcher
 
 
 class CustomTextInputLayout(context: Context) : TextInputLayout(ContextThemeWrapper(context, R.style.EditText)), TextWatcher {
@@ -26,17 +27,21 @@ class CustomTextInputLayout(context: Context) : TextInputLayout(ContextThemeWrap
 
     override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
         if(!p0.isNullOrEmpty()) {
-            this.isErrorEnabled = false
-            this.error = null
-            editText!!.background.setColorFilter(ContextCompat.getColor(context, R.color.green), PorterDuff.Mode.SRC_ATOP)
-            if(mInputType!! == "3" && !Patterns.EMAIL_ADDRESS.matcher(p0).matches()) {
-                editText!!.background.setColorFilter(ContextCompat.getColor(context, R.color.error), PorterDuff.Mode.SRC_ATOP)
-                this.isErrorEnabled = true
-                this.error = "Email inválido"
-            }
-        } else {
-            editText!!.background.setColorFilter(ContextCompat.getColor(context, R.color.error), PorterDuff.Mode.SRC_ATOP)
-        }
+            if(mInputType!! == "3" && !Patterns.EMAIL_ADDRESS.matcher(p0).matches()) setError(context.getString(R.string.erro_email))
+            else removeError()
+        } else setError()
+    }
+
+    private fun removeError() {
+        this.isErrorEnabled = false
+        this.error = null
+        editText!!.background.setColorFilter(ContextCompat.getColor(context, R.color.green), PorterDuff.Mode.SRC_ATOP)
+    }
+
+    private fun setError(message: String = " ") {
+        if(!this.isErrorEnabled)this.isErrorEnabled = true
+        this.error = message
+        editText!!.background.setColorFilter(ContextCompat.getColor(context, R.color.error), PorterDuff.Mode.SRC_ATOP)
     }
 
     private var editText: TextInputEditText? = null
@@ -57,6 +62,12 @@ class CustomTextInputLayout(context: Context) : TextInputLayout(ContextThemeWrap
 
     fun setInputType(inputType: String) {
         mInputType = inputType
+        if(mInputType!! == "3"){
+            editText!!.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+        } else if(mInputType!! == "telnumber") {
+            editText!!.inputType = InputType.TYPE_CLASS_PHONE
+            editText!!.addTextChangedListener(PhoneTextWatcher(editText!!))
+        }
     }
 
 }
