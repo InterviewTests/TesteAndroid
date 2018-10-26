@@ -26,6 +26,9 @@ open class ContactFragment : Fragment(), ContactFragContracts.Fragment {
     @ViewById(R.id.cells_container)
     lateinit var container: LinearLayout
 
+    @ViewById(R.id.new_message)
+    lateinit var newMessageButtun: Button
+
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         parent = context as ContactFragContracts.Parent
@@ -53,6 +56,7 @@ open class ContactFragment : Fragment(), ContactFragContracts.Fragment {
     override fun showThankYouView() {
         thank_you_container.visibility = VISIBLE
         form_container.visibility = GONE
+        newMessageButtun.setOnClickListener { newMessageclick() }
     }
 
     override fun showCellErrors() {
@@ -61,7 +65,6 @@ open class ContactFragment : Fragment(), ContactFragContracts.Fragment {
         }
     }
 
-    @Click(R.id.new_message)
     open fun newMessageclick() {
         showContactView()
     }

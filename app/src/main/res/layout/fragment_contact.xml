@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <TextView
                 style="@style/Title4TextView.Light"
@@ -39,11 +39,14 @@
                 android:text="@string/message_sent"/>
 
 
-            <TextView
+            <Button
                 android:id="@+id/new_message"
                 style="@style/Title4TextView.Light"
                 android:layout_marginTop="50dp"
                 android:textColor="@color/colorPrimaryDark"
+                android:clickable="true"
+                android:background="@android:color/transparent"
+                android:textAllCaps="false"
                 android:text="@string/new_message"/>
 
         </LinearLayout>
