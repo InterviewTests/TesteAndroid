@@ -1,5 +1,19 @@
 # Show me the code
 
+### # Notas do Autor
+
+Este repositório é uma resposta ao desafio técnico do santander.
+
+#### Para executar o app:
+
+- Clone o repositório e execute via Android Studio
+
+    ou
+
+- Instale o APK presente na raiz do repositório
+
+
+
 ### # DESAFIO:
 
 Em uma tela terá um formulário dinâmico com alguns campos predefinidos, conforme o arquivo JSON disponível no link ([https://floating-mountain-50292.herokuapp.com/cells.json](https://floating-mountain-50292.herokuapp.com/cells.json)) que deverá
