@@ -73,7 +73,7 @@
 
             <TextView
                 style="@style/InnerCellTextView.Light"
-                android:layout_weight="0.5"/>
+                android:layout_weight="0.7"/>
 
             <TextView
                 style="@style/InnerCellTextView.Light"
@@ -91,7 +91,7 @@
 
             <TextView
                 style="@style/InnerCellTextView.Light"
-                android:layout_weight="0.5"
+                android:layout_weight="0.7"
                 android:text="@string/on_month" />
 
             <TextView
@@ -110,7 +110,7 @@
 
             <TextView
                 style="@style/InnerCellTextView.Light"
-                android:layout_weight="0.5"
+                android:layout_weight="0.7"
                 android:text="@string/on_year" />
 
             <TextView
@@ -129,7 +129,7 @@
 
             <TextView
                 style="@style/InnerCellTextView.Light"
-                android:layout_weight="0.5"
+                android:layout_weight="0.7"
                 android:text="@string/twelve_months" />
 
             <TextView
