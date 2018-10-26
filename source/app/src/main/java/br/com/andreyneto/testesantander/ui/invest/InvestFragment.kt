@@ -1,6 +1,7 @@
 package br.com.andreyneto.testesantander.ui.invest
 
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -14,12 +15,9 @@ import kotlinx.android.synthetic.main.fragment_invest.*
 class InvestFragment : Fragment(), InvestContract.View {
 
     private var mPresenter: InvestContract.Presenter? = null
-    private var listRisk: List<View>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_invest, container, false)
-        listRisk = listOf(invest_risk_1, invest_risk_2, invest_risk_3, invest_risk_4, invest_risk_5)
-        return view
+        return inflater.inflate(R.layout.fragment_invest, container, false)
     }
 
     override fun setPresenter(presenter: InvestContract.Presenter) {
@@ -39,8 +37,19 @@ class InvestFragment : Fragment(), InvestContract.View {
         invest_list_moreInfo.adapter = MoreInfoAdapter(model.moreInfo, context!!)
         invest_list_moreInfo.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-        invest_list_info.adapter = InfoAdapter(model.info + model.downInfo, context!!)
+        invest_list_info.adapter = InfoAdapter(model.info + model.downInfo, context!!, mPresenter)
         invest_list_info.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+        invest_btn.setOnClickListener {
+            mPresenter?.toast(context!!, context!!.getString(R.string.investir))
+        }
+
+        invest_share.setOnClickListener {
+            mPresenter?.toast(context!!, context!!.getString(R.string.compartilhar))
+        }
+
+        container.visibility = View.VISIBLE
+        container.requestFocus()
     }
 
     override fun onStart() {
@@ -49,14 +58,23 @@ class InvestFragment : Fragment(), InvestContract.View {
     }
 
     private fun setRisk(risk: Int) {
-        val riskView = listRisk?.get(risk - 1)
-
-        val params = riskView?.layoutParams
+        lateinit var riskView: View
+        var bias = 0f
+        when (risk) {
+            1 -> { riskView = invest_risk_1; bias = 0.08f }
+            2 -> { riskView = invest_risk_2; bias = 0.285f }
+            3 -> { riskView = invest_risk_3; bias = 0.5f }
+            4 -> { riskView = invest_risk_4; bias = 0.715f }
+            5 -> { riskView = invest_risk_5; bias = 0.92f }
+        }
+        var params = riskView.layoutParams as ConstraintLayout.LayoutParams?
+        params?.setMargins(params.leftMargin, 49.convertDpToPixel(context!!), params.rightMargin, params.bottomMargin)
         params?.height = 15.convertDpToPixel(context!!)
-        riskView?.layoutParams = params
-//        val margins = riskView?.layoutParams as ViewGroup.MarginLayoutParams
-//        margins.setMargins(0, 10.convertDpToPixel(context!!), 2, 0)
-//        riskView.layoutParams = margins
+        riskView.layoutParams = params
+
+        params = invest_risk_indicator.layoutParams as ConstraintLayout.LayoutParams?
+        params?.horizontalBias = bias
+        invest_risk_indicator.layoutParams = params
     }
 
     companion object {

@@ -10,4 +10,7 @@
     <string name="mes">No mês</string>
     <string name="ano">No ano</string>
     <string name="last">12 meses</string>
+    <string name="baixar">Baixar</string>
+    <string name="compartilhar">Compartilhar</string>
+
 </resources>

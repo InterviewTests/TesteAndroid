@@ -1,5 +1,6 @@
 package br.com.andreyneto.testesantander.ui.invest
 
+import android.content.Context
 import br.com.andreyneto.testesantander.model.Info
 import br.com.andreyneto.testesantander.model.MoreInfo
 import br.com.andreyneto.testesantander.model.Screen
@@ -14,5 +15,6 @@ class InvestContract {
 
     interface Presenter: BasePresenter {
         fun getData()
+        fun toast(ctx: Context, text: String)
     }
 }

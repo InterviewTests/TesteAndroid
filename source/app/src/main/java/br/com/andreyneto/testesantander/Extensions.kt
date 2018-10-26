@@ -10,6 +10,6 @@ fun Int.convertDpToPixel(ctx: Context): Int {
 
 fun Any.toPercentage(): String {
     val value =  this as Double
-    val brasil = Locale("pt", "BR")
-    return java.lang.String.format(brasil, "%.2f%%", value)
+    val s = java.lang.String.valueOf(Math.round(value * 100.0) / 100.0).replace(".", ",")
+    return String.format("$s%%")
 }

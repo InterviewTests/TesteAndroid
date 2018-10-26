@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScrollView01"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/invest_view_title"
@@ -25,6 +28,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/invest_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/invest_view_title"
+            app:layout_constraintEnd_toEndOf="@+id/invest_view_title"
+            app:layout_constraintTop_toTopOf="@+id/invest_view_title"
+            app:srcCompat="@drawable/share" />
 
         <TextView
             android:id="@+id/invest_title"
@@ -149,6 +165,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/invest_definition" />
 
+        <ImageView
+            android:id="@+id/invest_risk_indicator"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="13dp"
+            android:rotation="90"
+            android:tint="@color/darkGray"
+            app:layout_constraintBottom_toTopOf="@+id/invest_risk_3"
+            app:layout_constraintEnd_toEndOf="@+id/invest_risk_5"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="@+id/invest_risk_1"
+            app:srcCompat="@drawable/arrow" />
+
         <View
             android:id="@+id/invest_risk_1"
             android:layout_width="0dp"
@@ -192,9 +221,9 @@
         <View
             android:id="@+id/invest_risk_4"
             android:layout_width="0dp"
-            android:layout_height="15dp"
+            android:layout_height="10dp"
             android:layout_marginStart="1dp"
-            android:layout_marginTop="49dp"
+            android:layout_marginTop="52dp"
             android:layout_marginEnd="1dp"
             android:layout_weight="0.20"
             android:background="@color/orange"
@@ -221,10 +250,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:textAlignment="center"
             android:layout_marginTop="52dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="@font/dinpromedium"
+            android:textAlignment="center"
             android:textColor="@color/darkGray"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -266,9 +295,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:nestedScrollingEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/more_info_data"/>
+            app:layout_constraintTop_toBottomOf="@+id/more_info_data" />
 
         <View
             android:id="@+id/invest_view_line"
@@ -280,15 +310,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/invest_list_moreInfo" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/invest_list_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:nestedScrollingEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/invest_view_line" />
+
         <Button
+            android:id="@+id/invest_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="40dp"
@@ -297,16 +331,17 @@
             android:layout_marginBottom="40dp"
             android:background="@drawable/button_background"
             android:fontFamily="@font/dinpromedium"
+            android:foreground="?attr/selectableItemBackground"
             android:stateListAnimator="@null"
             android:text="@string/investir"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/invest_list_info"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/invest_list_info" />
 
     </android.support.constraint.ConstraintLayout>
 
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>
