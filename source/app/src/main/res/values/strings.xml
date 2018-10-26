@@ -6,4 +6,8 @@
     <string name="investir">Investir</string>
     <string name="invest_title">Investimento</string>
     <string name="contact_title">Contato</string>
+
+    <string name="mes">No mês</string>
+    <string name="ano">No ano</string>
+    <string name="last">12 meses</string>
 </resources>
