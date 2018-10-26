@@ -12,5 +12,5 @@ val investimentModule = module {
     single<InvestmentRepository> { InvestmentRepositoryImpl(get()) }
 
 
-    factory<InvestmentContract.Presenter> { InvestmentPresenter(get(), get(), get()) }
+    factory<InvestmentContract.Presenter> { InvestmentPresenter(get(), get()) }
 }

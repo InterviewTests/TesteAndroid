@@ -11,6 +11,7 @@ import org.koin.standalone.StandAloneContext.stopKoin
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
 import org.mockito.Mockito
+import org.mockito.MockitoAnnotations
 
 /**
  * Unit tests for the implementation of {@link ContactPresenter}
@@ -22,6 +23,7 @@ class ContactPresenterTest : KoinTest {
 
     @Before
     fun before() {
+        MockitoAnnotations.initMocks(this)
         startKoin(testApp)
         presenter.subscribe(view)
     }

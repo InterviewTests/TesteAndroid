@@ -41,32 +41,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ContactPresenterTest.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/ContactPresenterTest.kt">
+      <file leaf-file-name="InvestmentPresenterTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/investment/InvestmentPresenterTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="60">
+              <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactPresenter.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/presentation/ContactPresenter.kt">
+      <file leaf-file-name="InvestmentMapperTest.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/investment/data/InvestmentMapperTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+            <state relative-caret-position="102">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
               <folding>
-                <element signature="e#69#512#0" expanded="true" />
+                <element signature="e#64#565#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_modules.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/di/test_modules.kt">
+      <file leaf-file-name="InvestmentMapper.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/data/InvestmentMapper.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="75">
+              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SantanderApi.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/core/data/SantanderApi.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -75,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/data/ContactMapperTest.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="24" selection-start-line="24" selection-end-line="25" selection-end-column="68" />
+              <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
               <folding>
                 <element signature="e#61#446#0" expanded="true" />
               </folding>
@@ -83,14 +92,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestSchedulerProvider.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/util/TestSchedulerProvider.kt">
+      <file leaf-file-name="InvestmentRepositoryTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/investment/data/InvestmentRepositoryTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            <state relative-caret-position="514">
+              <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
               <folding>
-                <element signature="e#54#167#0" expanded="true" />
+                <element signature="e#64#534#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvestmentResponse.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/data/entity/InvestmentResponse.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -110,9 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>24dp</find>
-      <find>&lt;button</find>
-      <find>recycler</find>
       <find>Matcher</find>
       <find>http</find>
       <find>MockWebServer</find>
@@ -140,6 +155,9 @@
       <find>ontactContract.View</find>
       <find>subs</find>
       <find>sen</find>
+      <find>distributionUrl</find>
+      <find>Context</find>
+      <find>DOWN_INFO_FIRST_DATA</find>
     </findStrings>
     <replaceStrings>
       <replace>dinpromedium</replace>
@@ -2620,12 +2638,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/core/data/SantanderApi.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/domain/Type.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/domain/entity/Investment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/data/ContactMapper.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/data/ContactRepositoryImpl.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/domain/ContactRepository.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/dashboard/DashboardPageAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/SantanderInvestimentoApp.kt" />
         <option value="$PROJECT_DIR$/build.gradle" />
@@ -2657,7 +2669,6 @@
         <option value="$PROJECT_DIR$/app/src/androidTest/java/br/com/santander/santanderinvestimento/InvestmentFragmentTest.kt" />
         <option value="$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/ContactRepositoryTest.kt" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/br/com/santander/santanderinvestimento/ElapsedTimeIdlingResource.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/presentation/InvestmentPresenter.kt" />
         <option value="$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/data/ContactPresenterTest.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/presentation/ContactPresenter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/di/contact_module.kt" />
@@ -2671,6 +2682,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/core/di/app_module.kt" />
         <option value="$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/di/test_modules.kt" />
         <option value="$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/ContactPresenterTest.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/di/investiment_module.kt" />
+        <option value="$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/investment/di/test_modules.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/presentation/InvestmentPresenter.kt" />
+        <option value="$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/investment/InvestmentPresenterTest.kt" />
+        <option value="$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/investment/data/InvestmentRepositoryTest.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/data/entity/InvestmentResponse.kt" />
+        <option value="$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/investment/data/InvestmentMapperTest.kt" />
       </list>
     </option>
   </component>
@@ -2684,6 +2702,115 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SantanderInvestimento" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="br.com.santander.santanderinvestimento" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="investiment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="investiment" type="462c0819:PsiDirectoryNode" />
+              <item name="presentation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="contact" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="contact" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="contact" type="462c0819:PsiDirectoryNode" />
+              <item name="di" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="investment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="investment" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2738,92 +2865,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="presentation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="santanderinvestimento" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SantanderInvestimento" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SantanderInvestimento" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="SantanderInvestimento" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-              <item name="br.com.santander.santanderinvestimento" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2835,22 +2876,23 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/di" />
+    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="br.com.santander.santanderinvestimento.contact.data" />
       <recent name="br.com.santander.santanderinvestimento.investiment.data.entity" />
       <recent name="br.com.santander.santanderinvestimento.dashboard" />
       <recent name="br.com.santander.santanderinvestimento.util.rx" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/font" />
-    </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="br.com.santander.santanderinvestimento.investiment.adapter" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/di" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/investment/di" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/font" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -2865,46 +2907,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android JUnit.ContactPresenterTest">
-    <configuration name="ContactMapperTest.test type contact convert to correct type" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Android JUnit.santanderinvestimento in app">
+    <configuration name="ContactMapperTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.santander.santanderinvestimento.contact.data.*" />
+          <option name="PATTERN" value="br.com.santander.santanderinvestimento.investment.data.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="br.com.santander.santanderinvestimento.contact.data" />
-      <option name="MAIN_CLASS_NAME" value="br.com.santander.santanderinvestimento.contact.data.ContactMapperTest" />
-      <option name="METHOD_NAME" value="test type contact convert to correct type" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-      <method>
-        <option name="Make" enabled="false" />
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ContactPresenterTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.santander.santanderinvestimento.contact.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="br.com.santander.santanderinvestimento.contact" />
-      <option name="MAIN_CLASS_NAME" value="br.com.santander.santanderinvestimento.contact.ContactPresenterTest" />
+      <option name="PACKAGE_NAME" value="br.com.santander.santanderinvestimento.investment.data" />
+      <option name="MAIN_CLASS_NAME" value="br.com.santander.santanderinvestimento.investment.data.ContactMapperTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -2919,56 +2934,6 @@
         <option name="Make" enabled="false" />
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="ContactPresenterTest.test loadContract presenter" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.santander.santanderinvestimento.contact.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="br.com.santander.santanderinvestimento.contact" />
-      <option name="MAIN_CLASS_NAME" value="br.com.santander.santanderinvestimento.contact.ContactPresenterTest" />
-      <option name="METHOD_NAME" value="test loadContract presenter" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-      <method>
-        <option name="Make" enabled="false" />
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ContactPresenterTest.testDisplayWeather" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.santander.santanderinvestimento.contact.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="br.com.santander.santanderinvestimento.contact" />
-      <option name="MAIN_CLASS_NAME" value="br.com.santander.santanderinvestimento.contact.ContactPresenterTest" />
-      <option name="METHOD_NAME" value="testDisplayWeather" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
     </configuration>
     <configuration name="ContactRepositoryTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
@@ -2997,6 +2962,60 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InvestmentPresenterTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.santander.santanderinvestimento.contact.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="br.com.santander.santanderinvestimento.investment" />
+      <option name="MAIN_CLASS_NAME" value="br.com.santander.santanderinvestimento.contact.InvestmentPresenterTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InvestmentRepositoryTest.test get investment correctly" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.santander.santanderinvestimento.investment.data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="br.com.santander.santanderinvestimento.investment.data" />
+      <option name="MAIN_CLASS_NAME" value="br.com.santander.santanderinvestimento.investment.data.InvestmentRepositoryTest" />
+      <option name="METHOD_NAME" value="test get investment correctly" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -3011,6 +3030,28 @@
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
+      <patterns />
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="santanderinvestimento in app" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="directory" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <dir value="$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento" />
       <patterns />
       <method>
         <option name="Make" enabled="false" />
@@ -3097,19 +3138,19 @@
     </configuration>
     <list>
       <item itemvalue="Android App.app" />
-      <item itemvalue="Android JUnit.ContactPresenterTest.testDisplayWeather" />
-      <item itemvalue="Android JUnit.ContactMapperTest.test type contact convert to correct type" />
+      <item itemvalue="Android JUnit.InvestmentPresenterTest" />
       <item itemvalue="Android JUnit.ContactRepositoryTest" />
-      <item itemvalue="Android JUnit.ContactPresenterTest" />
-      <item itemvalue="Android JUnit.ContactPresenterTest.test loadContract presenter" />
+      <item itemvalue="Android JUnit.InvestmentRepositoryTest.test get investment correctly" />
+      <item itemvalue="Android JUnit.ContactMapperTest" />
+      <item itemvalue="Android JUnit.santanderinvestimento in app" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Android JUnit.ContactPresenterTest" />
-        <item itemvalue="Android JUnit.ContactPresenterTest.test loadContract presenter" />
-        <item itemvalue="Android JUnit.ContactPresenterTest.testDisplayWeather" />
+        <item itemvalue="Android JUnit.santanderinvestimento in app" />
+        <item itemvalue="Android JUnit.ContactMapperTest" />
+        <item itemvalue="Android JUnit.InvestmentRepositoryTest.test get investment correctly" />
         <item itemvalue="Android JUnit.ContactRepositoryTest" />
-        <item itemvalue="Android JUnit.ContactMapperTest.test type contact convert to correct type" />
+        <item itemvalue="Android JUnit.InvestmentPresenterTest" />
       </list>
     </recent_temporary>
   </component>
@@ -3127,35 +3168,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ContactPresenterTest_test_loadContract_presenter - 2018.10.25 at 11h 13m 18s.xml">
-      <configuration name="ContactPresenterTest.test loadContract presenter" configurationId="AndroidJUnit" />
+    <history-entry file="InvestmentPresenterTest_test_loadFeed_presenter - 2018.10.26 at 15h 03m 33s.xml">
+      <configuration name="InvestmentPresenterTest.test loadFeed presenter" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ContactPresenterTest_test_loadContract_presenter - 2018.10.25 at 11h 13m 55s.xml">
-      <configuration name="ContactPresenterTest.test loadContract presenter" configurationId="AndroidJUnit" />
+    <history-entry file="InvestmentPresenterTest_test_loadFeed_presenter - 2018.10.26 at 15h 04m 30s.xml">
+      <configuration name="InvestmentPresenterTest.test loadFeed presenter" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ContactPresenterTest_test_loadContract_presenter - 2018.10.25 at 11h 14m 36s.xml">
-      <configuration name="ContactPresenterTest.test loadContract presenter" configurationId="AndroidJUnit" />
+    <history-entry file="InvestmentPresenterTest - 2018.10.26 at 15h 06m 23s.xml">
+      <configuration name="InvestmentPresenterTest" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ContactPresenterTest_test_loadContract_presenter - 2018.10.25 at 11h 21m 17s.xml">
-      <configuration name="ContactPresenterTest.test loadContract presenter" configurationId="AndroidJUnit" />
+    <history-entry file="InvestmentPresenterTest - 2018.10.26 at 15h 14m 28s.xml">
+      <configuration name="InvestmentPresenterTest" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ContactPresenterTest - 2018.10.25 at 11h 22m 24s.xml">
-      <configuration name="ContactPresenterTest" configurationId="AndroidJUnit" />
+    <history-entry file="InvestmentPresenterTest - 2018.10.26 at 15h 15m 37s.xml">
+      <configuration name="InvestmentPresenterTest" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ContactPresenterTest - 2018.10.25 at 11h 23m 53s.xml">
-      <configuration name="ContactPresenterTest" configurationId="AndroidJUnit" />
+    <history-entry file="ContactRepositoryTest - 2018.10.26 at 15h 21m 57s.xml">
+      <configuration name="ContactRepositoryTest" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ContactPresenterTest - 2018.10.25 at 11h 25m 20s.xml">
-      <configuration name="ContactPresenterTest" configurationId="AndroidJUnit" />
+    <history-entry file="ContactRepositoryTest - 2018.10.26 at 15h 22m 38s.xml">
+      <configuration name="ContactRepositoryTest" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ContactPresenterTest - 2018.10.25 at 11h 25m 58s.xml">
-      <configuration name="ContactPresenterTest" configurationId="AndroidJUnit" />
+    <history-entry file="InvestmentRepositoryTest_test_get_investment_correctly - 2018.10.26 at 15h 24m 01s.xml">
+      <configuration name="InvestmentRepositoryTest.test get investment correctly" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ContactPresenterTest - 2018.10.25 at 11h 27m 15s.xml">
-      <configuration name="ContactPresenterTest" configurationId="AndroidJUnit" />
+    <history-entry file="InvestmentRepositoryTest_test_get_investment_correctly - 2018.10.26 at 16h 02m 28s.xml">
+      <configuration name="InvestmentRepositoryTest.test get investment correctly" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ContactPresenterTest - 2018.10.25 at 11h 27m 34s.xml">
-      <configuration name="ContactPresenterTest" configurationId="AndroidJUnit" />
+    <history-entry file="ContactMapperTest - 2018.10.26 at 16h 02m 47s.xml">
+      <configuration name="ContactMapperTest" configurationId="AndroidJUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -3166,18 +3207,19 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="7" />
-      <window_info id="Build Variants" order="3" sideWeight="0.23725834" side_tool="true" visible="true" weight="0.24973376" />
+      <window_info id="Build Variants" order="3" sideWeight="0.23901582" side_tool="true" visible="true" weight="0.24973376" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32900944" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32900944" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32900944" />
       <window_info anchor="bottom" id="Logcat" order="10" weight="0.5483491" />
       <window_info id="Captures" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7627416" visible="true" weight="0.24973376" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7609842" visible="true" weight="0.24973376" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.33726415" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32900944" />
       <window_info anchor="right" id="Gradle" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="4" side_tool="true" />
@@ -3191,7 +3233,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32900944" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Build" order="7" weight="0.33726415" />
@@ -3245,7 +3286,7 @@
           <option name="timeStamp" value="104" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="113" />
+      <option name="time" value="116" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
@@ -3310,114 +3351,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/4d6041eddc2452ec452e420365836c6a/res/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="163" column="16" selection-start-line="163" selection-start-column="16" selection-end-line="163" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/br/com/santander/santanderinvestimento/DashboardActivityTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="43" column="1" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test/monitor/1.1.0-beta02/683c432550fc90747a0fc5e168ca0ca4cb46eb14/monitor-1.1.0-beta02-sources.jar!/androidx/test/runner/MonitoringInstrumentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="782" selection-start-line="782" selection-end-line="782" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="43" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/presentation/InvestmentFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/util/ValidationUtil.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/util/StringHelper.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/util/MessageUtil.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/br/com/santander/santanderinvestimento/ContactFragmentTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
-          <folding>
-            <element signature="e#55#865#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_investment.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="502" column="16" selection-start-line="502" selection-start-column="16" selection-end-line="502" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/util/JSONConvertable.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/data/entity/Contact.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/ExampleUnitTest.kt" />
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/br/com/santander/santanderinvestimento/ElapsedTimeIdlingResource.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/br/com/santander/santanderinvestimento/InvestmentFragmentTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
@@ -3436,20 +3369,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/presentation/InvestmentContract.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/presentation/InvestmentPresenter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -3485,9 +3404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="543">
           <caret line="78" column="17" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="17" />
-          <folding>
-            <element signature="e#69#1467#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3502,20 +3418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/core/di/network_module.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/di/investiment_module.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -3540,13 +3442,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/data/entity/ContactResponse.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="90" selection-start-line="5" selection-start-column="90" selection-end-line="5" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/domain/Type.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -3554,61 +3449,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/data/ContactRepositoryTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/domain/ContactRepository.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/data/ContactMapper.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/data/ContactMapperTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" selection-start-line="24" selection-end-line="25" selection-end-column="68" />
-          <folding>
-            <element signature="e#61#446#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/util/TestSchedulerProvider.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding>
-            <element signature="e#54#167#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/di/contact_module.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#59#419#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/core/di/app_module.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -3640,13 +3484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/util/ErrorUtil.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/presentation/ContactContract.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -3654,27 +3491,244 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/di/test_modules.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/util/ErrorUtil.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/util/TestSchedulerProvider.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding>
+            <element signature="e#54#167#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/presentation/ContactPresenter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+        <state relative-caret-position="771">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
           <folding>
             <element signature="e#69#512#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/presentation/InvestmentContract.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="39" selection-start-line="15" selection-start-column="7" selection-end-line="17" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.koin/koin-core/1.0.1/86b9fde2424128f070b2bad9c705f53430f8a914/koin-core-1.0.1-sources.jar!/org/koin/dsl/context/ModuleDefinition.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="183" column="32" lean-forward="true" selection-start-line="183" selection-start-column="32" selection-end-line="183" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/core/di/network_module.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/di/investiment_module.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#63#451#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/core/di/app_module.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/di/test_modules.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/investment/di/test_modules.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#62#281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/ContactPresenterTest.kt">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding>
+            <element signature="e#56#550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/presentation/InvestmentPresenter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/data/ContactRepositoryTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" selection-start-line="10" selection-end-line="39" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/domain/entity/TimeInfo.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="59" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/domain/entity/MoreInfo.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/junit/framework/Assert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="239" column="23" selection-start-line="239" selection-start-column="23" selection-end-line="239" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/data/entity/Contact.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/data/entity/ContactResponse.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/investment/InvestmentPresenterTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/data/ContactMapper.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/contact/domain/ContactRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="53" lean-forward="true" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/domain/InvestmentRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/data/entity/ScreenResponse.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/domain/entity/Investment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/data/entity/InvestmentResponse.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/investiment/data/InvestmentMapper.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/santander/santanderinvestimento/core/data/SantanderApi.kt">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/contact/data/ContactMapperTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding>
+            <element signature="e#61#446#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/investment/data/InvestmentRepositoryTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding>
+            <element signature="e#64#534#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/br/com/santander/santanderinvestimento/investment/data/InvestmentMapperTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#64#565#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
