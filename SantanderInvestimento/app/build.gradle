@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'io.fabric'
+apply plugin: 'kotlin-kapt'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    maven { url "https://kotlin.bintray.com/kotlinx" }
+}
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "br.com.santander.santanderinvestimento"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
+        baseline file("lint-baseline.xml")
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
+
+    //Ui
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    implementation "androidx.appcompat:appcompat:$rootProject.androidXVersion"
+    implementation "com.google.android.material:material:$rootProject.androidXVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.androidXVersion"
+    implementation "androidx.core:core-ktx:$rootProject.androidXVersion"
+
+    //test
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    androidTestImplementation 'androidx.test:runner:1.1.0-beta02'
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    testImplementation "com.nhaarman:mockito-kotlin-kt1.1:$mockitoVersion"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinJunitTest"
+    androidTestImplementation "org.mockito:mockito-android:$mockitoTestVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$rootProject.okHttpVersion"
+
+    // rx
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlin_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid_version"
+
+    // retrofit + gson
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okHttpVersion"
+
+
+    //crashlytics
+    implementation("com.crashlytics.sdk.android:crashlytics:$crashlyticsVersion") {
+        transitive = true
+    }
+
+    //koin
+    implementation "org.koin:koin-androidx-scope:$koinVersion"
+    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+    testImplementation "org.koin:koin-test:$koinVersion"
+
+
+}
