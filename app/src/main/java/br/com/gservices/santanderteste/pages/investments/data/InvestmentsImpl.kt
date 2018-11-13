@@ -15,6 +15,6 @@ class InvestmentsImpl (private val santanderApi: SantanderApi) : InvestmentsInte
                     Observable.empty()
                 }
             }
-            .map(InvestmentMapper::map)
+            .map(InvestmentsMapper::map)
     }
 }

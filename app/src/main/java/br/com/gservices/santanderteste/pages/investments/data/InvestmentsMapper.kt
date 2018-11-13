@@ -3,7 +3,7 @@ package br.com.gservices.santanderteste.pages.investments.data
 import br.com.gservices.santanderteste.pages.investments.data.entities.Investments
 import br.com.gservices.santanderteste.pages.investments.data.entities.InvestmentsResponse
 
-object InvestmentMapper {
+object InvestmentsMapper {
     fun map(investmentJsonResponse: InvestmentsResponse): Investments {
         return Investments(
             investmentJsonResponse.screen.title,

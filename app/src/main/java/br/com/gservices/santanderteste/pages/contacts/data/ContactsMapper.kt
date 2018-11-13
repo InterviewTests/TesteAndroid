@@ -5,7 +5,7 @@ import br.com.gservices.santanderteste.core.types.FieldTypes
 import br.com.gservices.santanderteste.pages.contacts.data.entities.Contacts
 import br.com.gservices.santanderteste.pages.contacts.data.entities.ContactsResponse
 
-object ContactMapper {
+object ContactsMapper {
     fun map(cellJsonResponse: ContactsResponse): MutableList<Contacts> {
         val cellList = mutableListOf<Contacts>()
         cellJsonResponse.cells.mapTo(cellList) { cellResponse -> map(cellResponse) }

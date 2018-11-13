@@ -15,6 +15,6 @@ class ContactsImpl(private val santanderApi: SantanderApi) : ContactsInterface {
                     Observable.empty()
                 }
             }
-            .map(ContactMapper::map)
+            .map(ContactsMapper::map)
     }
 }
