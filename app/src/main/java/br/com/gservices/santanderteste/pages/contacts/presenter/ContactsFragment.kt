@@ -31,7 +31,7 @@ import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.fragment_contact.*
 import org.koin.android.ext.android.inject
 
-class ContactFragment : BaseFragment(), ContractContactsInterface.View, SwipeRefreshLayout.OnRefreshListener {
+class ContactsFragment : BaseFragment(), ContractContactsInterface.View, SwipeRefreshLayout.OnRefreshListener {
     override fun clearForm() {
         contactForm.removeAllViews()
         successForm.visibility = View.VISIBLE
@@ -54,7 +54,7 @@ class ContactFragment : BaseFragment(), ContractContactsInterface.View, SwipeRef
     override val presenter: ContractContactsInterface.Presenter by inject()
 
     companion object {
-        fun newInstance() = ContactFragment()
+        fun newInstance() = ContactsFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
