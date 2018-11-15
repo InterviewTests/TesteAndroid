@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.galdino.testandroid">
 
     <application
@@ -9,8 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".TestApplication">
-        <activity android:name="com.galdino.testandroid.plataform.views.home.HomeActivity">
+        android:name=".TestApplication"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name="com.galdino.testandroid.plataform.views.home.HomeActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

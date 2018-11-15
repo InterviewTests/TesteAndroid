@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">@android:color/white</color>
+    <color name="colorPrimaryDark">@color/colorTitle</color>
+    <color name="colorAccent">#DD0000</color>
+
+    <color name="colorTitle">#777777</color>
+    <color name="colorHint">#BABABA</color>
+    <color name="colorAccentDark">#CA0000</color>
+    <color name="colorRiskLevel1">#70DC5A</color>
+    <color name="colorRiskLevel2">#44C268</color>
+    <color name="colorRiskLevel3">#FFC100</color>
+    <color name="colorRiskLevel4">#FF7418</color>
+    <color name="colorRiskLevel5">#FF332A</color>
+
+    <color name="colorLetter">#767676</color>
+    <color name="colorLetterDarkRed">#DF100E</color>
+    <color name="colorIconDarkRed">#E42C27</color>
+    <color name="colorBigTitle">#424242</color>
+    <color name="colorButtonRipple">#ED7574</color>
+
+    <color name="colorHintError">#FF7371</color>
+    <color name="colorHintSuccess">#9ED979</color>
+    <color name="colorHintActive">#D4D4D4</color>
+
 </resources>

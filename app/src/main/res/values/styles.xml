@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -8,4 +8,51 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextViewTitle" parent="android:Widget.TextView">
+        <item name="android:textSize">@dimen/textSizeListTitle</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorTitle</item>
+    </style>
+
+    <style name="ButtonRoundedAccent" parent="ButtonAccent">
+        <item name="android:background">@drawable/bg_button_accent</item>
+    </style>
+
+    <style name="ButtonAccent" parent="android:Widget.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/colorAccent</item>
+    </style>
+
+    <style name="BaseEditText" parent="android:Widget.EditText">
+        <!--<item name="android:fontFamily">@font/ekmukta_regular</item>-->
+        <item name="android:textColorHint">@color/colorHint</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="colorControlActivated">@color/colorHintActive</item>
+        <item name="colorControlNormal">@color/colorHintActive</item>
+        <item name="colorControlHighlight">@color/colorHintActive</item>
+        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/colorHintActive</item>
+
+    </style>
+
+    <style name="EditTextSuccess" parent="BaseEditText">
+        <item name="colorControlNormal">@color/colorHintSuccess</item>
+        <item name="colorControlHighlight">@color/colorHintSuccess</item>
+        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/colorHintSuccess</item>
+    </style>
+
+    <style name="EditTextError" parent="BaseEditText">
+        <item name="colorControlNormal">@color/colorHintError</item>
+        <item name="colorControlHighlight">@color/colorHintError</item>
+        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/colorHintError</item>
+    </style>
+
+    <style name="TextViewHint">
+        <item name="android:textColor">@color/colorHint</item>
+    </style>
+
+    <style name="CheckBox" parent="TextViewHint">
+
+    </style>
 </resources>

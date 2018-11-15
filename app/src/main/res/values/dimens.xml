@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_small">6dp</dimen>
+    <dimen name="margin_default">8dp</dimen>
+    <dimen name="margin_default2x" >12dp</dimen>
+    <dimen name="margin_default3x" >16dp</dimen>
+    <dimen name="margin_default4x">22dp</dimen>
+    <dimen name="margin_default5x">24dp</dimen>
+    <dimen name="margin_default6x">26dp</dimen>
+    <dimen name="margin_default7x">28dp</dimen>
+    <dimen name="margin_default8x" >32dp</dimen>
+    <dimen name="margin_default10x" >36dp</dimen>
+    <dimen name="margin_default12x" >40dp</dimen>
+
+    <!--textSize-->
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_big">20sp</dimen>
+
+    <dimen name="textSizeListText">13sp</dimen>
+    <dimen name="textSizeListTitle">18sp</dimen>
+    <dimen name="radius_button">24dp</dimen>
+</resources>
