@@ -1,12 +1,11 @@
-package com.galdino.testandroid.screens
+package com.galdino.testandroid.plataform.views
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.widget.Toast
 import com.galdino.testandroid.mvp.Contract
-import com.galdino.testandroid.screens.base.ToastController
+import com.galdino.testandroid.plataform.views.base.ToastController
 
 abstract class BaseActivity: AppCompatActivity(), Contract.View {
     private lateinit var mToastController: ToastController

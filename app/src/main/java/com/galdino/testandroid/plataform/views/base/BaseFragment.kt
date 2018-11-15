@@ -1,4 +1,4 @@
-package com.galdino.testandroid.screens.base
+package com.galdino.testandroid.plataform.views.base
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -15,7 +15,7 @@ import android.view.animation.DecelerateInterpolator
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.galdino.testandroid.mvp.Contract
-import com.galdino.testandroid.screens.BaseActivity
+import com.galdino.testandroid.plataform.views.BaseActivity
 
 
 abstract class BaseFragment: Fragment(), Contract.View {

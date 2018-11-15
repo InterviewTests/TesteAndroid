@@ -1,9 +1,9 @@
-package com.galdino.testandroid.screens.form
+package com.galdino.testandroid.plataform.views.home
 
 import com.galdino.testandroid.R
-import com.galdino.testandroid.screens.BaseActivity
+import com.galdino.testandroid.plataform.views.BaseActivity
 
-class FormActivity : BaseActivity() {
+class HomeActivity : BaseActivity() {
     override fun getLayoutResource(): Int {
         return R.layout.form_activity
     }

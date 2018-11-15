@@ -1,4 +1,4 @@
-package com.galdino.testandroid.screens.base
+package com.galdino.testandroid.plataform.views.base
 
 import android.content.Context
 import android.widget.Toast

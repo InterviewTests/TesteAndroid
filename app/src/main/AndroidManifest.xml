@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".TestApplication">
-        <activity android:name=".screens.form.FormActivity">
+        <activity android:name="com.galdino.testandroid.plataform.views.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
