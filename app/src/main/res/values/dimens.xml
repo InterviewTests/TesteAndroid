@@ -20,4 +20,5 @@
     <dimen name="textSizeListText">13sp</dimen>
     <dimen name="textSizeListTitle">18sp</dimen>
     <dimen name="radius_button">24dp</dimen>
+    <dimen name="sizeButtonCLose">24dp</dimen>
 </resources>

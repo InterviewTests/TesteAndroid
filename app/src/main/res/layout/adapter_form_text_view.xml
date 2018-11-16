@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:paddingTop="@dimen/margin_default">
 
     <TextView
         android:id="@+id/tvCell"
@@ -16,6 +17,7 @@
         style="@style/TextViewTitle"
         tools:text="@string/contact"
         android:textSize="@dimen/text_size_small"
+        android:layout_marginStart="@dimen/margin_small"
         />
 
 </android.support.constraint.ConstraintLayout>
