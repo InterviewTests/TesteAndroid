@@ -7,7 +7,7 @@ import com.galdino.testandroid.domain.model.Cell
 import io.reactivex.Single
 import java.util.concurrent.TimeUnit
 
-class RemoteDataSourceMocked(context: Context): DataSource, BaseMocked(context) {
+class RemoteDataSourceMocked(context: Context): Api, BaseMocked(context) {
     override fun getCell(): Single<CellResponseBody> {
         return getSingleFromFile("mockapi/cells.json", CellResponseBody::class.java)
                 .delay(1.3.toLong(), TimeUnit.SECONDS)
