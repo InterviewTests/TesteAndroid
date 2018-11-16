@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 typealias CellType = Int
 typealias CellTypeField = Int
 
-class Cell(@SerializedName("id")
+data class Cell(@SerializedName("id")
            val id: Int? = null,
 
            @SerializedName("type")

@@ -10,6 +10,6 @@ import org.koin.dsl.module.module
 
 val presenterModule = module{
     factory { HomePresenter() as HomeContract.Presenter }
-    factory { ContactPresenter() as ContactContract.Presenter }
+    factory { ContactPresenter(get()) as ContactContract.Presenter }
     factory { InvestmentPresenter() as InvestmentContract.Presenter }
 }
