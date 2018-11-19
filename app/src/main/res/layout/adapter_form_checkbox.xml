@@ -14,9 +14,12 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="@dimen/margin_default10x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/margin_default4x"
+        android:layout_marginStart="7dp"
         tools:text="@string/i_would_like_to_register_my_email"
         style="@style/TextViewHint"
-
-        />
+        android:button="@drawable/bg_checkbox"
+        android:paddingStart="@dimen/margin_default2x"
+        tools:ignore="RtlSymmetry" />
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:drawable="@drawable/ic_cb_pressed_v4" />
+    <item android:state_checked="false" android:drawable="@drawable/ic_vt_cb_not_pressed" />
+</selector>
