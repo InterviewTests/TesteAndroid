@@ -8,6 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.FullScreen" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="actionModeBackground">@android:color/white</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:screenOrientation">portrait</item>
+    </style>
+
     <style name="TextViewTitle" parent="android:Widget.TextView">
         <item name="android:textSize">@dimen/textSizeListTitle</item>
         <item name="android:textStyle">bold</item>
@@ -24,28 +34,30 @@
         <item name="android:background">@color/colorAccent</item>
     </style>
 
-    <style name="BaseEditText" parent="android:Widget.EditText">
-        <!--<item name="android:fontFamily">@font/ekmukta_regular</item>-->
-        <item name="android:textColorHint">@color/colorHint</item>
+    <style name="MyThemeEditWithHint" parent="Widget.AppCompat.EditText">
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/colorHint</item>
+        <item name="colorControlHighlight">@color/colorHint</item>
+        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/colorHint</item>
+    </style>
+
+    <style name="BaseTextInputLayout" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">18sp</item>
-        <item name="colorControlActivated">@color/colorHintActive</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/colorHintActive</item>
         <item name="colorControlNormal">@color/colorHintActive</item>
-        <item name="colorControlHighlight">@color/colorHintActive</item>
-        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/colorHintActive</item>
-
+        <item name="colorControlActivated">@color/colorHintActive</item>
     </style>
 
-    <style name="EditTextSuccess" parent="BaseEditText">
+    <style name="TextInputLayoutSuccess" parent="BaseTextInputLayout">
         <item name="colorControlNormal">@color/colorHintSuccess</item>
-        <item name="colorControlHighlight">@color/colorHintSuccess</item>
-        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/colorHintSuccess</item>
+
     </style>
 
-    <style name="EditTextError" parent="BaseEditText">
+    <style name="BaseTextInputLayoutError" parent="BaseTextInputLayout">
         <item name="colorControlNormal">@color/colorHintError</item>
-        <item name="colorControlHighlight">@color/colorHintError</item>
-        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/colorHintError</item>
     </style>
 
     <style name="TextViewHint">

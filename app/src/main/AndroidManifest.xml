@@ -14,7 +14,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name="com.galdino.testandroid.plataform.views.home.HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:theme="@style/AppTheme.FullScreen"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorPrimary"
-    android:paddingTop="@dimen/margin_default">
+    android:paddingTop="@dimen/margin_default2x">
 
 
     <android.support.design.widget.TextInputLayout
@@ -17,16 +17,17 @@
         app:layout_constraintRight_toRightOf="parent"
         android:textColorHint="@color/colorHint"
         android:layout_marginStart="2.6dp"
+        android:theme="@style/BaseTextInputLayout"
+        tools:hint="Nome completo"
         >
         <EditText
             android:id="@+id/etCell"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:hint="Nome completo"
-            android:inputType="textPassword"
-            android:imeOptions="actionDone"
+            tools:text="@string/contact"
             android:maxLines="1"
-            style="@style/BaseEditText"
+            android:imeOptions="actionNext"
+            android:inputType="text"
             />
     </android.support.design.widget.TextInputLayout>
 
@@ -39,6 +40,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/tilCell"
         android:src="@drawable/iv_vt_close"
         android:background="@drawable/circle_gray"
-        android:padding="6dp"
+        android:padding="7dp"
         />
 </android.support.constraint.ConstraintLayout>

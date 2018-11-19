@@ -9,6 +9,7 @@ import com.galdino.testandroid.domain.model.Cell
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.adapter_form_checkbox.*
 import kotlinx.android.synthetic.main.adapter_form_edit_text.*
+import kotlinx.android.synthetic.main.adapter_form_send.*
 import kotlinx.android.synthetic.main.adapter_form_text_view.*
 
 class FormAdapter(private val mList: List<Cell>): RecyclerView.Adapter<FormAdapter.ViewHolder>() {
@@ -23,6 +24,9 @@ class FormAdapter(private val mList: List<Cell>): RecyclerView.Adapter<FormAdapt
             }
             Cell.Type.CHECK_BOX->{
                 inflater.inflate(R.layout.adapter_form_checkbox, viewGroup, false)
+            }
+            Cell.Type.SEND->{
+                inflater.inflate(R.layout.adapter_form_send, viewGroup, false)
             }
             else-> {
                 inflater.inflate(R.layout.adapter_form_text_view, viewGroup, false)
@@ -48,6 +52,9 @@ class FormAdapter(private val mList: List<Cell>): RecyclerView.Adapter<FormAdapt
             }
             Cell.Type.CHECK_BOX->{
                 viewHolder.cbCell.text = mList[position].message
+            }
+            Cell.Type.SEND->{
+                viewHolder.btSend.text = mList[position].message
             }
         }
     }
