@@ -2,16 +2,27 @@ package com.galdino.testandroid.plataform.views.contact
 
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import com.galdino.testandroid.R
 import com.galdino.testandroid.domain.model.Cell
+import com.galdino.testandroid.domain.model.CellAnswer
+import com.galdino.testandroid.util.MaskUtils
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.adapter_form_checkbox.*
 import kotlinx.android.synthetic.main.adapter_form_edit_text.*
 import kotlinx.android.synthetic.main.adapter_form_send.*
 import kotlinx.android.synthetic.main.adapter_form_text_view.*
+import android.R.attr.inputType
+import android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
+import android.text.InputType
+import android.R.attr.password
+
+
 
 
 class FormAdapter(private val mList: List<Cell>): RecyclerView.Adapter<FormAdapter.ViewHolder>() {
@@ -50,6 +61,20 @@ class FormAdapter(private val mList: List<Cell>): RecyclerView.Adapter<FormAdapt
             Cell.Type.FIELD->{
                 holder.tilCell.hint = cell.message
                 setCommonData(holder.tilCell, holder.clRootEditText, cell, false)
+                val etCell = holder.etCell
+                when(cell.typefield)
+                {
+                    Cell.TypeField.TELL_NUMBER_S,
+                    Cell.TypeField.TELL_NUMBER ->
+                    {
+                        insertMaskWatcher("(##)#####-####", etCell,cell)
+                        etCell.inputType = InputType.TYPE_CLASS_NUMBER
+                    }
+                    else->{
+                        etCell.inputType = InputType.TYPE_CLASS_TEXT
+                    }
+                }
+
 
             }
             Cell.Type.TEXT->{
@@ -99,5 +124,41 @@ class FormAdapter(private val mList: List<Cell>): RecyclerView.Adapter<FormAdapt
 
     inner class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer{
 
+    }
+
+    private fun insertMaskWatcher(mask: String, field: EditText, cell: Cell) {
+        var founded = false
+        val textWatcher: TextWatcher = MaskUtils.insert(mask, field, object : MaskUtils.OnAfterTextChanged {
+            override fun afterTextChanged(s: Editable)
+            {
+                if (s.length != mask.length) {
+                    founded = false
+                    return
+                }
+
+                if (!founded) {
+                    founded = true
+                    cell.cellAnswer = CellAnswer(text = s.toString())
+                }
+            }
+        })
+        field.addTextChangedListener(textWatcher)
+    }
+
+    fun insertTextWatcher(field: EditText, cell: Cell)
+    {
+        field.addTextChangedListener(object: TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                cell.cellAnswer = CellAnswer(text = p0.toString())
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+        })
     }
 }

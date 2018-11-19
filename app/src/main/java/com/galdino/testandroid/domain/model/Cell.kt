@@ -3,7 +3,7 @@ package com.galdino.testandroid.domain.model
 import com.google.gson.annotations.SerializedName
 
 typealias CellType = Int
-typealias CellTypeField = Int
+typealias CellTypeField = Any
 
 data class Cell(@SerializedName("id")
            val id: Int? = null,
@@ -27,7 +27,9 @@ data class Cell(@SerializedName("id")
            val show: Any? = null,
 
            @SerializedName("required")
-           val required: Boolean? = null){
+           val required: Boolean? = null,
+
+            var cellAnswer: CellAnswer? = null){
 
     object Type
     {
@@ -39,8 +41,9 @@ data class Cell(@SerializedName("id")
     }
 
     object TypeField{
-        val TEXT: CellType = 1
+        val TEXT: CellTypeField = 1
         val TELL_NUMBER: CellTypeField = 2
-        val EMAIL: CellType = 3
+        val EMAIL: CellTypeField = 3
+        val TELL_NUMBER_S: CellTypeField = "telnumber"
     }
 }

@@ -28,7 +28,7 @@
             tools:text="@string/contact"
             android:maxLines="1"
             android:imeOptions="actionNext"
-            android:inputType="text"
+            android:inputType="numberDecimal"
             />
     </android.support.design.widget.TextInputLayout>
 
