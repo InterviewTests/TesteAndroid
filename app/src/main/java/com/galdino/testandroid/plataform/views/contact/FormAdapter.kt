@@ -1,5 +1,6 @@
 package com.galdino.testandroid.plataform.views.contact
 
+import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import kotlinx.android.synthetic.main.adapter_form_checkbox.*
 import kotlinx.android.synthetic.main.adapter_form_edit_text.*
 import kotlinx.android.synthetic.main.adapter_form_send.*
 import kotlinx.android.synthetic.main.adapter_form_text_view.*
+
 
 class FormAdapter(private val mList: List<Cell>): RecyclerView.Adapter<FormAdapter.ViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -41,21 +43,53 @@ class FormAdapter(private val mList: List<Cell>): RecyclerView.Adapter<FormAdapt
         return mList.size
     }
 
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val cell = mList[position]
         when(getItemViewType(position))
         {
             Cell.Type.FIELD->{
-                viewHolder.tilCell.hint = mList[position].message
+                holder.tilCell.hint = cell.message
+                setCommonData(holder.tilCell, holder.clRootEditText, cell, false)
+
             }
             Cell.Type.TEXT->{
-                viewHolder.tvCell.text = mList[position].message
+                holder.tvCell.text = cell.message
+                setCommonData(holder.tvCell, holder.clRootTextView, cell, false)
             }
             Cell.Type.CHECK_BOX->{
-                viewHolder.cbCell.text = mList[position].message
+                holder.cbCell.text = cell.message
+                setCommonData(holder.cbCell, holder.clRootCheckbox, cell, false)
             }
             Cell.Type.SEND->{
-                viewHolder.btSend.text = mList[position].message
+                holder.btSend.text = cell.message
+                setCommonData(holder.btSend,holder.clRootSend, cell, true)
             }
+        }
+    }
+
+    private fun setCommonData(viewToMarginUp: View, clRootToVisibility: ConstraintLayout, cell: Cell, isButton: Boolean) {
+        if(cell.hidden != null && cell.hidden) {
+            clRootToVisibility.visibility = View.GONE
+            clRootToVisibility.layoutParams = RecyclerView.LayoutParams(0, 0)
+        }
+        else{
+            setMarginTop(viewToMarginUp,cell,isButton)
+        }
+    }
+
+    private fun setMarginTop(viewToMarginUp: View, cell: Cell, isButton: Boolean) {
+        cell.topSpacing?.let {
+            val layoutParams = viewToMarginUp.layoutParams as ConstraintLayout.LayoutParams
+            val resources = viewToMarginUp.context.resources
+            val density = resources.displayMetrics.density
+            val px = it * density
+            var bottomMargin = 0
+            if(isButton)
+            {
+               bottomMargin = resources.getDimension(R.dimen.margin_default4x).toInt()
+            }
+            layoutParams.setMargins(0, px.toInt(), 0, bottomMargin) // left, top, right, bottom
+            viewToMarginUp.layoutParams = layoutParams
         }
     }
 
