@@ -17,12 +17,8 @@ import kotlinx.android.synthetic.main.adapter_form_checkbox.*
 import kotlinx.android.synthetic.main.adapter_form_edit_text.*
 import kotlinx.android.synthetic.main.adapter_form_send.*
 import kotlinx.android.synthetic.main.adapter_form_text_view.*
-import android.R.attr.inputType
-import android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
 import android.text.InputType
-import android.R.attr.password
-
-
+import com.galdino.testandroid.util.MasksType
 
 
 class FormAdapter(private val mList: List<Cell>): RecyclerView.Adapter<FormAdapter.ViewHolder>() {
@@ -67,10 +63,11 @@ class FormAdapter(private val mList: List<Cell>): RecyclerView.Adapter<FormAdapt
                     Cell.TypeField.TELL_NUMBER_S,
                     Cell.TypeField.TELL_NUMBER ->
                     {
-                        insertMaskWatcher("(##)#####-####", etCell,cell)
+                        insertPhoneMask(MasksType.PHONE_NUMBER, etCell,cell)
                         etCell.inputType = InputType.TYPE_CLASS_NUMBER
                     }
                     else->{
+                        insertTextWatcher(etCell,cell)
                         etCell.inputType = InputType.TYPE_CLASS_TEXT
                     }
                 }
@@ -126,22 +123,33 @@ class FormAdapter(private val mList: List<Cell>): RecyclerView.Adapter<FormAdapt
 
     }
 
-    private fun insertMaskWatcher(mask: String, field: EditText, cell: Cell) {
+    lateinit var phoneMaskListener :MaskUtils.OnAfterTextChanged
+
+    private fun insertPhoneMask(mask: String, field: EditText, cell: Cell) {
         var founded = false
-        val textWatcher: TextWatcher = MaskUtils.insert(mask, field, object : MaskUtils.OnAfterTextChanged {
-            override fun afterTextChanged(s: Editable)
-            {
+        var maskChanged = false
+        phoneMaskListener = object : MaskUtils.OnAfterTextChanged {
+            override fun afterTextChanged(s: Editable) {
+                if (s.length == 13 && maskChanged) {
+                    maskChanged = false
+                    MaskUtils.changePhoneMask(field,s.toString(),MasksType.PHONE_NUMBER)
+                }
                 if (s.length != mask.length) {
                     founded = false
                     return
                 }
-
                 if (!founded) {
                     founded = true
+
+                    if (s.length == 14 && !maskChanged) {
+                        maskChanged = true
+                        MaskUtils.changePhoneMask(field,s.toString(),MasksType.CEL_NUMBER)
+                    }
                     cell.cellAnswer = CellAnswer(text = s.toString())
                 }
             }
-        })
+        }
+        val textWatcher: TextWatcher = MaskUtils.insertPhoneMask(mask, field, phoneMaskListener)
         field.addTextChangedListener(textWatcher)
     }
 
