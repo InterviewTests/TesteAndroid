@@ -34,11 +34,18 @@ class InvestmentPresenter(private val useCaseFactory: IinvestmentUseCaseFactory)
             }, GetInvestment.Params())
         }
         else{
-            // continuar
+            loadScreenData()
         }
     }
 
     private fun loadScreenData() {
-
+        mInvestmentResponseBody?.screen?.let {screenInvestment->
+            screenInvestment.info?.let {
+                mView?.loadInfoList(it)
+            }
+            screenInvestment.downInfo?.let {
+                mView?.loadDownList(it)
+            }
+        }
     }
 }
