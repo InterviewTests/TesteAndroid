@@ -14,9 +14,13 @@ object MaskUtils {
         var maskChanged = false
         val phoneMaskListener :MaskUtils.OnAfterTextChanged = object : MaskUtils.OnAfterTextChanged {
             override fun afterTextChanged(s: Editable) {
+                val phone = s.toString()
+                if(phone.length > 1 && phone.contains("(")) {
+                    cell.cellAnswer = CellAnswer(text = phone)
+                }
                 if (s.length == 13 && maskChanged) {
                     maskChanged = false
-                    MaskUtils.changePhoneMask(field,s.toString(),MasksType.PHONE_NUMBER)
+                    MaskUtils.changePhoneMask(field, phone,MasksType.PHONE_NUMBER)
                 }
                 if (s.length != mask.length) {
                     founded = false
@@ -27,9 +31,8 @@ object MaskUtils {
 
                     if (s.length == 14 && !maskChanged) {
                         maskChanged = true
-                        MaskUtils.changePhoneMask(field,s.toString(),MasksType.CEL_NUMBER)
+                        MaskUtils.changePhoneMask(field, phone,MasksType.CEL_NUMBER)
                     }
-                    cell.cellAnswer = CellAnswer(text = s.toString())
                 }
             }
         }
