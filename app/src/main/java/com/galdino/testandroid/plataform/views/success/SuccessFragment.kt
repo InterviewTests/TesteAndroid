@@ -3,7 +3,6 @@ package com.galdino.testandroid.plataform.views.success
 import android.view.View
 import com.galdino.testandroid.R
 import com.galdino.testandroid.plataform.views.base.BaseFragment
-import com.galdino.testandroid.plataform.views.contact.ContactFragment
 import kotlinx.android.synthetic.main.fragment_success.*
 
 class SuccessFragment : BaseFragment(), View.OnClickListener {
