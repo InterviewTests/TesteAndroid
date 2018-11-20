@@ -14,7 +14,7 @@ class HomeActivity : BaseActivity(), HomeContract.View, View.OnClickListener
 {
     private val mPresenter: HomeContract.Presenter by inject()
     private var mInvestmentFragment: InvestmentFragment? = null
-    private var mContactFragment: ContactFragment? = null
+    private val mContactFragment: ContactFragment = ContactFragment.newInstance()
     override fun getLayoutResource(): Int {
         return R.layout.form_activity
     }
@@ -22,6 +22,7 @@ class HomeActivity : BaseActivity(), HomeContract.View, View.OnClickListener
     override fun onInitView() {
         mPresenter.attach(this)
         loadListeners()
+        mPresenter.initialize()
     }
 
     private fun loadListeners() {
@@ -51,11 +52,11 @@ class HomeActivity : BaseActivity(), HomeContract.View, View.OnClickListener
     override fun inflateContact() {
         MyAnimationUtils.translateShow(btContactPressed, this,null,null, null)
         MyAnimationUtils.translateHide(btInvestmentPressed, this,null,null, null)
-        if(mContactFragment == null)
-        {
-            mContactFragment = ContactFragment.newInstance()
-        }
-        inflateFragment(mContactFragment!!)
+//        if(mContactFragment == null)
+//        {
+//            mContactFragment = ContactFragment.newInstance()
+//        }
+        inflateFragment(mContactFragment)
     }
 
     private fun inflateFragment(fragment: Fragment) {

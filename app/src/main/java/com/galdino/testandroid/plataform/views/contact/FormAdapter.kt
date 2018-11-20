@@ -54,6 +54,10 @@ class FormAdapter(private val mList: List<Cell>, private val mListener: FormAdap
             Cell.Type.FIELD->{
                 holder.tilCell.hint = cell.message
                 cell.field = holder.etCell
+                cell.cellAnswer?.text?.let {
+                    holder.etCell.setText(it)
+                }
+
                 setCommonData(holder.tilCell, holder.clRootEditText, cell, false)
                 val etCell = holder.etCell
                 when(cell.typefield)
@@ -82,6 +86,9 @@ class FormAdapter(private val mList: List<Cell>, private val mListener: FormAdap
                 setCommonData(holder.cbCell, holder.clRootCheckbox, cell, false)
                 holder.cbCell.setOnCheckedChangeListener { _, p1 ->
                     cell.cellAnswer = CellAnswer(boolean = p1)
+                }
+                cell.cellAnswer?.boolean?.let {
+                    holder.cbCell.isChecked = it
                 }
             }
             Cell.Type.SEND->{

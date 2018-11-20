@@ -1,6 +1,10 @@
 package com.galdino.testandroid.plataform.views.contact
 
+import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.galdino.testandroid.R
 import com.galdino.testandroid.domain.model.Cell
 import com.galdino.testandroid.plataform.views.base.BaseFragment

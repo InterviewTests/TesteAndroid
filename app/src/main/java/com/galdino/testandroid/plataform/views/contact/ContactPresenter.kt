@@ -9,29 +9,35 @@ import com.galdino.testandroid.domain.model.Cell
 import com.galdino.testandroid.mvp.BasePresenter
 
 class ContactPresenter(private val useCaseFactory: IUseCaseFactory): BasePresenter<ContactContract.View>(), ContactContract.Presenter {
+    private var mCellResponseBody: CellResponseBody? = null
+
     override fun loadForm() {
-        val loadForm = useCaseFactory.loadForm()
-        loadForm.execute(object: Observer<CellResponseBody>(){
-            override fun onSuccess(t: CellResponseBody) {
-                mView?.onLoadFormSuccess(t.cells)
-                mView?.onLoading(false)
-            }
-
-            override fun onError(e: Throwable) {
-                mView?.onLoading(false)
-                if(e.message == null)
-                {
-                    mView?.showDefaultErrorOnLoadForm()
+        if (mCellResponseBody == null) {
+            val loadForm = useCaseFactory.loadForm()
+            loadForm.execute(object : Observer<CellResponseBody>() {
+                override fun onSuccess(t: CellResponseBody) {
+                    mCellResponseBody = t
+                    mView?.onLoadFormSuccess(t.cells)
+                    mView?.onLoading(false)
                 }
-                else{
-                    mView?.showError(e.message!!)
-                }
-            }
 
-            override fun onStart() {
-                mView?.onLoading(true)
-            }
-        }, GetCell.Params())
+                override fun onError(e: Throwable) {
+                    mView?.onLoading(false)
+                    if (e.message == null) {
+                        mView?.showDefaultErrorOnLoadForm()
+                    } else {
+                        mView?.showError(e.message!!)
+                    }
+                }
+
+                override fun onStart() {
+                    mView?.onLoading(true)
+                }
+            }, GetCell.Params())
+        }
+        else{
+            mView?.onLoadFormSuccess(mCellResponseBody!!.cells)
+        }
     }
 
     override fun onSendClicked(cells: List<Cell>, context: Context?)

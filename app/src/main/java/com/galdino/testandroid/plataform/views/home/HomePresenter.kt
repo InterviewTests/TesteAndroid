@@ -10,4 +10,8 @@ class HomePresenter(): BasePresenter<HomeContract.View>(), HomeContract.Presente
     override fun onContactClicked() {
         mView?.inflateContact()
     }
+
+    override fun initialize() {
+        mView?.inflateInvestment()
+    }
 }
