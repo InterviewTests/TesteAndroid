@@ -143,11 +143,34 @@
             android:textStyle="bold"
             />
 
+        <TextView
+            android:id="@+id/tvFund"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fund"
+            app:layout_constraintTop_toBottomOf="@+id/tvMoreInfo"
+            app:layout_constraintRight_toLeftOf="@+id/tvCdi"
+            android:layout_marginEnd="@dimen/margin_default6x"
+            style="@style/TextViewHint"
+            android:layout_marginTop="@dimen/margin_default2x"
+            />
+
+        <TextView
+            android:id="@+id/tvCdi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cdi"
+            app:layout_constraintTop_toBottomOf="@+id/tvMoreInfo"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            style="@style/TextViewHint"
+            android:layout_marginTop="@dimen/margin_default2x"
+            />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvMoreInfo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tvMoreInfo"
+            app:layout_constraintTop_toBottomOf="@+id/tvFund"
             app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
             app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
             android:layout_marginTop="@dimen/margin_default2x"

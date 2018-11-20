@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="O fundo Lorem Ipsum "
+        android:layout_marginTop="@dimen/margin_default"
+        style="@style/TextViewHint"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tvData"
+        />
+
+    <TextView
+        android:id="@+id/tvData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="0,3 %"
+        app:layout_constraintTop_toTopOf="@+id/tvName"
+        app:layout_constraintBottom_toBottomOf="@+id/tvName"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/TextViewSubTitle"
+        />
+
+</android.support.constraint.ConstraintLayout>
