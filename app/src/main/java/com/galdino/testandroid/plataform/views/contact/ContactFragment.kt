@@ -34,4 +34,8 @@ class ContactFragment: BaseFragment(), ContactContract.View, FormAdapter.Listene
     override fun onSendClicked(cells: List<Cell>) {
         mPresenter.onSendClicked(cells, context)
     }
+
+    override fun onLoading(isLoading: Boolean) {
+        onLoading(pbLoading,isLoading)
+    }
 }

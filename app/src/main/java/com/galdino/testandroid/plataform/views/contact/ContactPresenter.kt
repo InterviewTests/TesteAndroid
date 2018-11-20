@@ -8,17 +8,21 @@ import com.galdino.testandroid.domain.interactor.cell.GetCell
 import com.galdino.testandroid.domain.model.Cell
 import com.galdino.testandroid.mvp.BasePresenter
 
-
 class ContactPresenter(private val useCaseFactory: IUseCaseFactory): BasePresenter<ContactContract.View>(), ContactContract.Presenter {
     override fun loadForm() {
         val loadForm = useCaseFactory.loadForm()
         loadForm.execute(object: Observer<CellResponseBody>(){
             override fun onSuccess(t: CellResponseBody) {
                 mView?.onLoadFormSuccess(t.cells)
+                mView?.onLoading(false)
             }
 
             override fun onError(e: Throwable) {
-                super.onError(e)
+                mView?.onLoading(false)
+            }
+
+            override fun onStart() {
+                mView?.onLoading(true)
             }
         }, GetCell.Params())
     }

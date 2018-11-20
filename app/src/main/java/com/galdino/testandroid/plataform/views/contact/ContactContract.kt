@@ -7,6 +7,7 @@ import com.galdino.testandroid.mvp.Contract
 interface ContactContract {
     interface View: Contract.View{
         fun onLoadFormSuccess(cells: List<Cell>)
+        fun onLoading(isLoading: Boolean)
     }
 
     interface Presenter: Contract.Presenter<View>{
