@@ -183,5 +183,15 @@
             app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
             />
 
+        <ProgressBar
+            android:visibility="invisible"
+            android:id="@+id/pbLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default8x"
+            />
     </android.support.constraint.ConstraintLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -14,4 +14,5 @@
     <string name="thanks">Obrigado!</string>
     <string name="send_new_message">Enviar nova mensagem</string>
     <string name="message_sent_success">Mensagem enviada com sucesso :)</string>
+    <string name="error_on_loading_investment">Erro ao carregar o investimento</string>
 </resources>

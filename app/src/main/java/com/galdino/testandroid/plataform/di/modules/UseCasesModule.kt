@@ -1,13 +1,16 @@
 package com.galdino.testandroid.plataform.di.modules
 
-import com.galdino.testandroid.domain.interactor.IUseCaseFactory
-import com.galdino.testandroid.domain.interactor.UseCaseFactory
+import com.galdino.testandroid.domain.interactor.cell.ICelUseCaseFactory
+import com.galdino.testandroid.domain.interactor.cell.CelUseCaseFactory
 import com.galdino.testandroid.domain.interactor.cell.GetCell
 import com.galdino.testandroid.domain.interactor.cell.IGetCell
+import com.galdino.testandroid.domain.interactor.investment.IinvestmentUseCaseFactory
+import com.galdino.testandroid.domain.interactor.investment.InvestmentUseCaseFactory
 import org.koin.dsl.module.module
 
 
 val useCaseModule = module {
-    factory { UseCaseFactory(get(),get(),get()) as IUseCaseFactory }
+    factory { CelUseCaseFactory(get(), get(), get()) as ICelUseCaseFactory }
+    factory { InvestmentUseCaseFactory(get(), get(), get()) as IinvestmentUseCaseFactory }
     factory { GetCell(get(), get(), get()) as  IGetCell }
 }

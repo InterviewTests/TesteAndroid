@@ -3,12 +3,12 @@ package com.galdino.testandroid.plataform.views.contact
 import android.content.Context
 import com.galdino.testandroid.data.entity.CellResponseBody
 import com.galdino.testandroid.domain.Observer
-import com.galdino.testandroid.domain.interactor.IUseCaseFactory
+import com.galdino.testandroid.domain.interactor.cell.ICelUseCaseFactory
 import com.galdino.testandroid.domain.interactor.cell.GetCell
 import com.galdino.testandroid.domain.model.Cell
 import com.galdino.testandroid.mvp.BasePresenter
 
-class ContactPresenter(private val useCaseFactory: IUseCaseFactory): BasePresenter<ContactContract.View>(), ContactContract.Presenter {
+class ContactPresenter(private val useCaseFactory: ICelUseCaseFactory): BasePresenter<ContactContract.View>(), ContactContract.Presenter {
     private var mCellResponseBody: CellResponseBody? = null
 
     override fun loadForm() {
@@ -22,12 +22,12 @@ class ContactPresenter(private val useCaseFactory: IUseCaseFactory): BasePresent
                 }
 
                 override fun onError(e: Throwable) {
-                    mView?.onLoading(false)
                     if (e.message == null) {
                         mView?.showDefaultErrorOnLoadForm()
                     } else {
                         mView?.showError(e.message!!)
                     }
+                    mView?.onLoading(false)
                 }
 
                 override fun onStart() {

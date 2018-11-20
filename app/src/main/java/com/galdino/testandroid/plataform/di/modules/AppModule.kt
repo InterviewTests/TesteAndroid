@@ -18,7 +18,7 @@ import org.koin.dsl.module.module
 val appModule = module {
     factory { JobThread() as JobScheduler }
     factory { UIThread() as UIScheduler }
-    factory { RepositoryImpl(get()) as IRepository }
-    factory { RemoteDataSource(get()) as DataSource }
+    factory { RepositoryImpl(get(),get()) as IRepository }
+    factory { RemoteDataSource() as DataSource }
     factory { RemoteDataSourceMocked(androidApplication()) as Api }
 }
