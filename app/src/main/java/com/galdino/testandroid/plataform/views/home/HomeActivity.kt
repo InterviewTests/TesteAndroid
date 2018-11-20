@@ -6,6 +6,7 @@ import com.galdino.testandroid.R
 import com.galdino.testandroid.plataform.views.BaseActivity
 import com.galdino.testandroid.plataform.views.contact.ContactFragment
 import com.galdino.testandroid.plataform.views.investment.InvestmentFragment
+import com.galdino.testandroid.util.MyAnimationUtils
 import kotlinx.android.synthetic.main.form_activity.*
 import org.koin.android.ext.android.inject
 
@@ -37,6 +38,9 @@ class HomeActivity : BaseActivity(), HomeContract.View, View.OnClickListener
     }
 
     override fun inflateInvestment() {
+        MyAnimationUtils.translateShow(btInvestmentPressed, this,null,null, null)
+        MyAnimationUtils.translateHide(btContactPressed, this,null,null, null)
+
         if(mInvestmentFragment == null)
         {
             mInvestmentFragment = InvestmentFragment.newInstance()
@@ -45,6 +49,8 @@ class HomeActivity : BaseActivity(), HomeContract.View, View.OnClickListener
     }
 
     override fun inflateContact() {
+        MyAnimationUtils.translateShow(btContactPressed, this,null,null, null)
+        MyAnimationUtils.translateHide(btInvestmentPressed, this,null,null, null)
         if(mContactFragment == null)
         {
             mContactFragment = ContactFragment.newInstance()
