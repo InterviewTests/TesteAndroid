@@ -1,10 +1,12 @@
 package com.galdino.testandroid.plataform.views.success
 
+import android.view.View
 import com.galdino.testandroid.R
 import com.galdino.testandroid.plataform.views.base.BaseFragment
 import com.galdino.testandroid.plataform.views.contact.ContactFragment
+import kotlinx.android.synthetic.main.fragment_success.*
 
-class SuccessFragment : BaseFragment() {
+class SuccessFragment : BaseFragment(), View.OnClickListener {
     companion object {
 
         @JvmStatic
@@ -26,6 +28,14 @@ class SuccessFragment : BaseFragment() {
     }
 
     override fun onInitView() {
+        btSendNewMessage.setOnClickListener(this)
+    }
 
+    override fun onClick(p0: View?) {
+        when(p0?.id){
+            btSendNewMessage.id->{
+                mListener.sendNewMessage()
+            }
+        }
     }
 }
