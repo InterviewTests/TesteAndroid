@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.galdino.testandroid.R
-import com.galdino.testandroid.data.entity.investment.Info
 import com.galdino.testandroid.data.entity.investment.InfoModel
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.adapter_info.*
