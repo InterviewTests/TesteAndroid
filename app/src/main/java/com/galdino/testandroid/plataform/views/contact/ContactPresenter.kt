@@ -40,6 +40,9 @@ class ContactPresenter(private val useCaseFactory: IUseCaseFactory): BasePresent
         }
     }
 
+    /**
+     * cellsWithAnswer = Lista que contem as perguntas e respostas respondidas a serem usadas, ou enviadas
+     */
     override fun onSendClicked(cells: List<Cell>, context: Context?)
     {
         val cellsWithAnswer: MutableList<Cell> = mutableListOf()
@@ -54,5 +57,7 @@ class ContactPresenter(private val useCaseFactory: IUseCaseFactory): BasePresent
                 }
             }
         }
+        mCellResponseBody = null
+        mView?.callSuccessScreen()
     }
 }
