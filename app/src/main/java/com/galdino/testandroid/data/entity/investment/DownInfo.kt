@@ -1,6 +1,12 @@
 package com.galdino.testandroid.data.entity.investment
 
-data class DownInfo(override val name: String? = null,
-                    override val data: String? = null): InfoModel(name, data) {
+import com.google.gson.annotations.SerializedName
+
+data class DownInfo(
+        @SerializedName("name")
+        override val name: String? = null,
+
+        @SerializedName("data")
+        override val data: String? = null): InfoModel(name, data) {
 
 }

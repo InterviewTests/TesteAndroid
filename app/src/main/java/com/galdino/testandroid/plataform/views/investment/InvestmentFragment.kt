@@ -8,8 +8,7 @@ import com.galdino.testandroid.plataform.views.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_investment.*
 import org.koin.android.ext.android.inject
 
-class InvestmentFragment : BaseFragment(), InvestmentContract.View
-{
+class InvestmentFragment : BaseFragment(), InvestmentContract.View, InfoAdapter.Listener {
     private val mPresenter: InvestmentContract.Presenter by inject()
     companion object {
         @JvmStatic
@@ -44,7 +43,11 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View
     }
 
     override fun loadDownList(downsInfoList: List<DownInfo>) {
-        rvInfo.adapter = InfoAdapter(downsInfoList)
-        rvInfo.layoutManager = LinearLayoutManager(context)
+        rvDownInfo.adapter = InfoAdapter(downsInfoList, true, this)
+        rvDownInfo.layoutManager = LinearLayoutManager(context)
+    }
+
+    override fun onDownloadClicked(downInfo: DownInfo) {
+        showLongToast(R.string.downloading)
     }
 }

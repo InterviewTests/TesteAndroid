@@ -4,14 +4,15 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:paddingTop="@dimen/margin_default2x"
+    android:paddingBottom="@dimen/margin_default2x">
 
     <TextView
         android:id="@+id/tvName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         tools:text="O fundo Lorem Ipsum "
-        android:layout_marginTop="@dimen/margin_default"
         style="@style/TextViewHint"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

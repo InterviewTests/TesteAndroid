@@ -3,9 +3,9 @@ package com.galdino.testandroid.data.entity.investment
 import com.google.gson.annotations.SerializedName
 
 open class InfoModel(
-        @SerializedName("name")
+        @SerializedName("modelName")
         open val name: String? = null,
 
-        @SerializedName("data")
+        @SerializedName("modelData")
         open val data: String? = null) {
 }

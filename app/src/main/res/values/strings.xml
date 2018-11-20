@@ -17,4 +17,6 @@
     <string name="error_on_loading_investment">Erro ao carregar o investimento</string>
     <string name="fund">Fundo</string>
     <string name="cdi">CDI</string>
+    <string name="download">Baixar</string>
+    <string name="downloading">Baixando</string>
 </resources>
