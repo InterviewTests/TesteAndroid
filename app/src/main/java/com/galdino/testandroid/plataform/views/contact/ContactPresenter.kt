@@ -25,10 +25,16 @@ class ContactPresenter(private val useCaseFactory: IUseCaseFactory): BasePresent
 
     override fun onSendClicked(cells: List<Cell>, context: Context?)
     {
+        val cellsWithAnswer: MutableList<Cell> = mutableListOf()
         for(cell in cells) {
-            if(!cell.isValid(context))
-            {
+            if(!cell.isValid(context)) {
                 return
+            }
+            if(cell.hidden) {
+                when(cell.type) {
+                    Cell.Type.FIELD->cellsWithAnswer.add(cell)
+                    Cell.Type.CHECK_BOX->cellsWithAnswer.add(cell)
+                }
             }
         }
     }

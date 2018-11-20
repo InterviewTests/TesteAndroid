@@ -51,7 +51,7 @@ data class Cell(@SerializedName("id")
     object TypeField{
         val TEXT: CellTypeField = 1
         val TELL_NUMBER: CellTypeField = 2
-        val EMAIL: CellTypeField = 3
+        val EMAIL: CellTypeField = 3.0
         val TELL_NUMBER_S: CellTypeField = "telnumber"
     }
 
@@ -69,6 +69,7 @@ data class Cell(@SerializedName("id")
                    if(!Patterns.EMAIL_ADDRESS.matcher(text).matches())
                    {
                        showErrorWithAnimation(context, field,R.string.invalid_email)
+                       return false
                    }
                 }
                 TypeField.TELL_NUMBER,
@@ -76,6 +77,7 @@ data class Cell(@SerializedName("id")
                     if(text.length<13)
                     {
                         showErrorWithAnimation(context, field,R.string.invalid_phone_number)
+                        return false
                     }
                 }
             }

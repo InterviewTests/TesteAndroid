@@ -95,7 +95,7 @@ class FormAdapter(private val mList: List<Cell>, private val mListener: FormAdap
     }
 
     private fun setCommonData(viewToMarginUp: View, clRootToVisibility: ConstraintLayout, cell: Cell, isButton: Boolean) {
-        if(cell.hidden != null && cell.hidden) {
+        if(cell.hidden) {
             clRootToVisibility.visibility = View.GONE
             clRootToVisibility.layoutParams = RecyclerView.LayoutParams(0, 0)
         }
