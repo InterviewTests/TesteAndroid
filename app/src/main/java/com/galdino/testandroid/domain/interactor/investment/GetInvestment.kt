@@ -10,7 +10,7 @@ import io.reactivex.Single
 class GetInvestment(private val mRepository: IRepository,
                     uiScheduler: UIScheduler,
                     jobScheduler: JobScheduler): UseCase<InvestmentResponseBody,
-        GetInvestment.Params>(uiScheduler,jobScheduler), IGetInvestment {
+        GetInvestment.Params>(uiScheduler,jobScheduler){
 
     override fun buildUseCaseObservable(params: Params): Single<InvestmentResponseBody> {
         return mRepository.getInvestment(params)

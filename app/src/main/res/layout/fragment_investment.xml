@@ -150,20 +150,22 @@
             android:text="@string/fund"
             app:layout_constraintTop_toBottomOf="@+id/tvMoreInfo"
             app:layout_constraintRight_toLeftOf="@+id/tvCdi"
-            android:layout_marginEnd="@dimen/margin_default6x"
             style="@style/TextViewHint"
             android:layout_marginTop="@dimen/margin_default2x"
+            android:layout_marginEnd="42dp"
             />
 
         <TextView
             android:id="@+id/tvCdi"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:text="@string/cdi"
             app:layout_constraintTop_toBottomOf="@+id/tvMoreInfo"
             app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
             style="@style/TextViewHint"
             android:layout_marginTop="@dimen/margin_default2x"
+            android:gravity="end"
+
             />
 
         <android.support.v7.widget.RecyclerView
@@ -216,8 +218,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:text="@string/invest"
             style="@style/ButtonRoundedAccent"
-            android:layout_marginTop="@dimen/margin_default2x"
-            android:layout_marginBottom="@dimen/margin_default2x"
+            android:layout_marginTop="@dimen/margin_default10x"
+            android:layout_marginBottom="@dimen/margin_default10x"
             />
 
         <ProgressBar

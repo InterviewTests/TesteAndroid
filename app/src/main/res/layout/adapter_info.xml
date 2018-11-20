@@ -5,8 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorPrimary"
-    android:paddingTop="@dimen/margin_default2x"
-    android:paddingBottom="@dimen/margin_default2x">
+    android:paddingTop="@dimen/margin_default"
+    android:paddingBottom="@dimen/margin_default">
 
     <TextView
         android:id="@+id/tvName"
@@ -29,6 +29,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvName"
         app:layout_constraintRight_toRightOf="parent"
         style="@style/TextViewSubTitle"
+        android:textStyle="bold"
         />
 
 </android.support.constraint.ConstraintLayout>

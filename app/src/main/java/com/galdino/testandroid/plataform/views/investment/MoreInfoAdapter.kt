@@ -22,9 +22,10 @@ class MoreInfoAdapter(private val mList: List<PeriodModel>): RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val moreInfo = mList[position]
+        val context = holder.tvFund.context
         holder.tvLabel.text = moreInfo.title
-        holder.tvFund.text = moreInfo.fund?.toString()
-        holder.tvCdi.text = moreInfo.cdi?.toString()
+        holder.tvFund.text = context.getString(R.string.percent,moreInfo.fund?.toString())
+        holder.tvCdi.text = context.getString(R.string.percent,moreInfo.cdi?.toString())
     }
 
     class ViewHolder(override val containerView: View): LayoutContainer, RecyclerView.ViewHolder(containerView) {

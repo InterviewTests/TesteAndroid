@@ -5,6 +5,7 @@ import android.view.View
 import com.galdino.testandroid.R
 import com.galdino.testandroid.data.entity.investment.DownInfo
 import com.galdino.testandroid.data.entity.investment.Info
+import com.galdino.testandroid.data.entity.investment.PeriodModel
 import com.galdino.testandroid.data.entity.investment.ScreenInvestment
 import com.galdino.testandroid.plataform.views.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_investment.*
@@ -41,6 +42,10 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, InfoAdapter.
         showLongToast(R.string.error_on_loading_investment)
     }
 
+    override fun showDefaultErrorOnLoadMoreInfo() {
+        showLongToast(R.string.error_on_load_more_info)
+    }
+
     override fun showError(message: String) {
         showLongToast(message)
     }
@@ -62,6 +67,11 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, InfoAdapter.
     override fun loadDownList(downsInfoList: List<DownInfo>) {
         rvDownInfo.adapter = InfoAdapter(downsInfoList, true, this)
         rvDownInfo.layoutManager = LinearLayoutManager(context)
+    }
+
+    override fun loadMoreInfoList(periodList: List<PeriodModel>) {
+        rvMoreInfo.adapter = MoreInfoAdapter(periodList)
+        rvMoreInfo.layoutManager = LinearLayoutManager(context)
     }
 
     override fun onDownloadClicked(downInfo: DownInfo) {

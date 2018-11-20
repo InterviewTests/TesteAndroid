@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingTop="@dimen/margin_default2x"
-    android:paddingBottom="@dimen/margin_default2x"
+    android:paddingTop="@dimen/margin_small"
+    android:paddingBottom="@dimen/margin_small"
     android:background="@color/colorPrimary">
 
     <TextView
@@ -29,18 +29,22 @@
         app:layout_constraintTop_toTopOf="@+id/tvLabel"
         app:layout_constraintBottom_toBottomOf="@+id/tvLabel"
         app:layout_constraintRight_toLeftOf="@+id/tvCdi"
-        android:layout_marginEnd="@dimen/margin_default6x"
+        android:layout_marginEnd="42dp"
         style="@style/TextViewSubTitle"
+        android:gravity="end"
+        android:textStyle="bold"
         />
 
     <TextView
         android:id="@+id/tvCdi"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        tools:text="0,3 %"
+        tools:text="12,08 %"
         app:layout_constraintTop_toTopOf="@+id/tvLabel"
         app:layout_constraintBottom_toBottomOf="@+id/tvLabel"
         app:layout_constraintRight_toRightOf="parent"
         style="@style/TextViewSubTitle"
+        android:gravity="end"
+        android:textStyle="bold"
         />
 </android.support.constraint.ConstraintLayout>

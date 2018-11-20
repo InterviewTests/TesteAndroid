@@ -1,6 +1,7 @@
 package com.galdino.testandroid.domain.interactor.investment
 
 import com.galdino.testandroid.data.entity.investment.InvestmentResponseBody
+import com.galdino.testandroid.data.entity.investment.PeriodModel
 import com.galdino.testandroid.domain.IRepository
 import com.galdino.testandroid.domain.executor.JobScheduler
 import com.galdino.testandroid.domain.executor.UIScheduler
@@ -11,5 +12,9 @@ class InvestmentUseCaseFactory(private val mRepository: IRepository,
                                private val jobScheduler: JobScheduler): IinvestmentUseCaseFactory {
     override fun loadInvestment(): UseCase<InvestmentResponseBody, GetInvestment.Params> {
         return GetInvestment(mRepository, uiScheduler, jobScheduler)
+    }
+
+    override fun loadPeriods(): UseCase<List<PeriodModel>, GetPeriods.Params> {
+        return GetPeriods(mRepository, uiScheduler, jobScheduler)
     }
 }

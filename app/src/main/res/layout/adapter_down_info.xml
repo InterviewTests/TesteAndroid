@@ -16,8 +16,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/clDownload"
-        android:paddingTop="@dimen/margin_default2x"
-        android:paddingBottom="@dimen/margin_default2x"
+        android:paddingTop="@dimen/margin_default"
+        android:paddingBottom="@dimen/margin_default"
         />
 
     <android.support.constraint.ConstraintLayout

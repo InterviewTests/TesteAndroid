@@ -2,8 +2,11 @@ package com.galdino.testandroid.plataform.views.investment
 
 import com.galdino.testandroid.data.entity.investment.DownInfo
 import com.galdino.testandroid.data.entity.investment.InvestmentResponseBody
+import com.galdino.testandroid.data.entity.investment.MoreInfo
+import com.galdino.testandroid.data.entity.investment.PeriodModel
 import com.galdino.testandroid.domain.Observer
 import com.galdino.testandroid.domain.interactor.investment.GetInvestment
+import com.galdino.testandroid.domain.interactor.investment.GetPeriods
 import com.galdino.testandroid.domain.interactor.investment.IinvestmentUseCaseFactory
 import com.galdino.testandroid.mvp.BasePresenter
 
@@ -42,13 +45,40 @@ class InvestmentPresenter(private val useCaseFactory: IinvestmentUseCaseFactory)
     private fun loadScreenData() {
         mInvestmentResponseBody?.screen?.let {screenInvestment->
             mView?.loadScreenData(screenInvestment)
+            screenInvestment.moreInfo?.let {
+                loadPeriods(it)
+            }
             screenInvestment.info?.let {
                 mView?.loadInfoList(it)
             }
             screenInvestment.downInfo?.let {
                 mView?.loadDownList(it)
             }
+
         }
+    }
+
+    private fun loadPeriods(moreInfo: MoreInfo) {
+        val loadPeriods = useCaseFactory.loadPeriods()
+        loadPeriods.execute(object: Observer<List<PeriodModel>>(){
+            override fun onStart() {
+                mView?.onLoading(true)
+            }
+
+            override fun onError(e: Throwable) {
+                if (e.message == null) {
+                    mView?.showDefaultErrorOnLoadMoreInfo()
+                } else {
+                    mView?.showError(e.message!!)
+                }
+                mView?.onLoading(false)
+            }
+
+            override fun onSuccess(t: List<PeriodModel>) {
+                mView?.loadMoreInfoList(t)
+                mView?.onLoading(false)
+            }
+        },GetPeriods.Params(moreInfo))
     }
 
     override fun onDownloadClicked(downInfo: DownInfo) {

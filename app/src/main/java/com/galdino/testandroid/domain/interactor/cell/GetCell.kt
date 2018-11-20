@@ -9,7 +9,7 @@ import io.reactivex.Single
 
 class GetCell(private val repository: IRepository,
               uiScheduler: UIScheduler,
-              jobScheduler: JobScheduler): UseCase<CellResponseBody, GetCell.Params>(uiScheduler, jobScheduler), IGetCell {
+              jobScheduler: JobScheduler): UseCase<CellResponseBody, GetCell.Params>(uiScheduler, jobScheduler){
     override fun buildUseCaseObservable(params: Params): Single<CellResponseBody> {
         return repository.getCell(params)
     }
