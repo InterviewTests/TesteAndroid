@@ -10,4 +10,5 @@
     <string name="invalid_email">Email inválido</string>
     <string name="invalid_phone_number">Telefone inválido</string>
     <string name="empty_field">Campo vazio</string>
+    <string name="error_on_loading_form">Erro ao carregar os campos do formulário</string>
 </resources>

@@ -8,6 +8,8 @@ interface ContactContract {
     interface View: Contract.View{
         fun onLoadFormSuccess(cells: List<Cell>)
         fun onLoading(isLoading: Boolean)
+        fun showDefaultErrorOnLoadForm()
+        fun showError(message: String)
     }
 
     interface Presenter: Contract.Presenter<View>{

@@ -38,4 +38,12 @@ class ContactFragment: BaseFragment(), ContactContract.View, FormAdapter.Listene
     override fun onLoading(isLoading: Boolean) {
         onLoading(pbLoading,isLoading)
     }
+
+    override fun showDefaultErrorOnLoadForm() {
+        showLongToast(R.string.error_on_loading_form)
+    }
+
+    override fun showError(message: String) {
+        showLongToast(message)
+    }
 }

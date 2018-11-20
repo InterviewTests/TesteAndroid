@@ -19,6 +19,13 @@ class ContactPresenter(private val useCaseFactory: IUseCaseFactory): BasePresent
 
             override fun onError(e: Throwable) {
                 mView?.onLoading(false)
+                if(e.message == null)
+                {
+                    mView?.showDefaultErrorOnLoadForm()
+                }
+                else{
+                    mView?.showError(e.message!!)
+                }
             }
 
             override fun onStart() {
