@@ -69,6 +69,9 @@ class FormAdapter(private val mList: List<Cell>, private val mListener: FormAdap
                         etCell.inputType = InputType.TYPE_CLASS_TEXT
                     }
                 }
+                holder.ivClose.setOnClickListener {
+                    holder.etCell.setText("")
+                }
             }
             Cell.Type.TEXT->{
                 holder.tvCell.text = cell.message
