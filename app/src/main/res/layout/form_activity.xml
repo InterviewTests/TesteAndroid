@@ -37,4 +37,29 @@
         android:text="@string/contact"
         style="@style/ButtonAccent"
         />
+
+    <Button
+        android:id="@+id/btInvestmentPressed"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btContactPressed"
+        android:text="@string/investment"
+        style="@style/ButtonAccent"
+        android:background="@color/colorAccentDark"
+        />
+
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/btContactPressed"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btInvestmentPressed"
+        android:text="@string/contact"
+        style="@style/ButtonAccent"
+        android:background="@color/colorAccentDark"
+        />
 </android.support.constraint.ConstraintLayout>

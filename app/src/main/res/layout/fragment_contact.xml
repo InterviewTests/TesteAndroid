@@ -50,4 +50,15 @@
         android:layout_marginTop="@dimen/margin_default3x"
         android:layout_marginBottom="@dimen/margin_default4x"
         />
+
+    <ProgressBar
+        android:visibility="invisible"
+        android:id="@+id/pbLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+        app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+        />
 </android.support.constraint.ConstraintLayout>

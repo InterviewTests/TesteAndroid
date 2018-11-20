@@ -12,5 +12,6 @@ interface HomeContract
     interface Presenter: Contract.Presenter<View>{
         fun onInvestmentClicked()
         fun onContactClicked()
+        fun initialize()
     }
 }

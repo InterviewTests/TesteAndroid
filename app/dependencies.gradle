@@ -25,4 +25,9 @@ dependencies {
 
     //ConstraintLayout
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    // Yoyo
+    implementation 'com.android.support:support-compat:28.0.0'
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
 }
