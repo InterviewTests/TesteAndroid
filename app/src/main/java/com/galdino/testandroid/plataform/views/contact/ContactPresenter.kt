@@ -1,10 +1,11 @@
 package com.galdino.testandroid.plataform.views.contact
 
+import android.content.Context
 import com.galdino.testandroid.data.entity.CellResponseBody
 import com.galdino.testandroid.domain.Observer
 import com.galdino.testandroid.domain.interactor.IUseCaseFactory
 import com.galdino.testandroid.domain.interactor.cell.GetCell
-import com.galdino.testandroid.domain.interactor.UseCaseFactory
+import com.galdino.testandroid.domain.model.Cell
 import com.galdino.testandroid.mvp.BasePresenter
 
 
@@ -15,7 +16,20 @@ class ContactPresenter(private val useCaseFactory: IUseCaseFactory): BasePresent
             override fun onSuccess(t: CellResponseBody) {
                 mView?.onLoadFormSuccess(t.cells)
             }
+
+            override fun onError(e: Throwable) {
+                super.onError(e)
+            }
         }, GetCell.Params())
     }
 
+    override fun onSendClicked(cells: List<Cell>, context: Context?)
+    {
+        for(cell in cells) {
+            if(!cell.isValid(context))
+            {
+                return
+            }
+        }
+    }
 }

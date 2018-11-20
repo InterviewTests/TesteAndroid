@@ -7,7 +7,7 @@ import com.galdino.testandroid.plataform.views.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_contact.*
 import org.koin.android.ext.android.inject
 
-class ContactFragment: BaseFragment(), ContactContract.View {
+class ContactFragment: BaseFragment(), ContactContract.View, FormAdapter.Listener {
     private val mPresenter: ContactContract.Presenter by inject()
     companion object {
 
@@ -26,8 +26,12 @@ class ContactFragment: BaseFragment(), ContactContract.View {
     }
 
     override fun onLoadFormSuccess(cells: List<Cell>) {
-        val formAdapter = FormAdapter(cells)
+        val formAdapter = FormAdapter(cells, this)
         rvForm.adapter = formAdapter
         rvForm.layoutManager = LinearLayoutManager(context)
+    }
+
+    override fun onSendClicked(cells: List<Cell>) {
+        mPresenter.onSendClicked(cells, context)
     }
 }

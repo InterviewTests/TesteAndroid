@@ -1,5 +1,6 @@
 package com.galdino.testandroid.plataform.views.contact
 
+import android.content.Context
 import com.galdino.testandroid.domain.model.Cell
 import com.galdino.testandroid.mvp.Contract
 
@@ -10,5 +11,6 @@ interface ContactContract {
 
     interface Presenter: Contract.Presenter<View>{
         fun loadForm()
+        fun onSendClicked(cells: List<Cell>, context: Context?)
     }
 }

@@ -7,4 +7,7 @@
     <string name="send">Enviar</string>
     <string name="i_would_like_to_register_my_email">Gostaria de cadastrar meu email</string>
     <string name="investment">Investimento</string>
+    <string name="invalid_email">Email inválido</string>
+    <string name="invalid_phone_number">Telefone inválido</string>
+    <string name="empty_field">Campo vazio</string>
 </resources>
