@@ -1,14 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".plataform.views.investment.InvestmentFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        tools:context=".plataform.views.investment.InvestmentFragment"
+        android:background="@color/colorPrimary">
 
-</FrameLayout>
+        <View
+            android:id="@+id/vKeyLineLeft"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="@dimen/margin_default8x"
+            />
+
+        <View
+            android:id="@+id/vKeyLineRight"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="@dimen/margin_default8x"
+            />
+
+        <TextView
+            android:id="@+id/tvPageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/investment"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default8x"
+            style="@style/TextViewTitle"
+            />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Fundos de investimento"
+            app:layout_constraintTop_toBottomOf="@+id/tvPageTitle"
+            app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default8x"
+            style="@style/TextViewSubTitle"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tvFundName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Vinci Valorem FI Multimercado"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default2x"
+            style="@style/TextViewTitle"
+            android:textSize="24sp"
+            android:gravity="center"
+            />
+
+        <View
+            android:id="@+id/vSeparator"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvFundName"
+            app:layout_constraintLeft_toRightOf="@id/vKeyLineLeft"
+            app:layout_constraintRight_toLeftOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default6x"
+            android:background="@color/colorHint"
+            />
+
+        <TextView
+            android:id="@+id/tvWhatIs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="O que é?"
+            app:layout_constraintTop_toBottomOf="@+id/vSeparator"
+            app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default6x"
+            style="@style/TextViewSubTitle"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tvDefinition"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="O fundo Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley "
+            app:layout_constraintTop_toBottomOf="@+id/tvWhatIs"
+            app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default"
+            style="@style/TextViewSubTitle"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/tvRiskTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Grau de risco do investimento"
+            app:layout_constraintTop_toBottomOf="@+id/tvDefinition"
+            app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default6x"
+            style="@style/TextViewSubTitle"
+            android:textStyle="bold"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvRisks"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvRiskTitle"
+            app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default"
+            />
+
+        <TextView
+            android:id="@+id/tvMoreInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Mais informações sobre o investimento"
+            app:layout_constraintTop_toBottomOf="@+id/rvRisks"
+            app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default6x"
+            style="@style/TextViewSubTitle"
+            android:textStyle="bold"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvMoreInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvMoreInfo"
+            app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default2x"
+            />
+
+        <View
+            android:id="@+id/vSeparator2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@+id/rvMoreInfo"
+            app:layout_constraintLeft_toRightOf="@id/vKeyLineLeft"
+            app:layout_constraintRight_toLeftOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default6x"
+            android:background="@color/colorHint"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/vSeparator2"
+            app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            android:layout_marginTop="@dimen/margin_default6x"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvDownInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/rvInfo"
+            app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
+            app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

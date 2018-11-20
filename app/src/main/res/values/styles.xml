@@ -64,6 +64,10 @@
         <item name="android:textColor">@color/colorHint</item>
     </style>
 
+    <style name="TextViewSubTitle">
+        <item name="android:textColor">@color/colorSubTitle</item>
+    </style>
+
     <style name="ProgressBar" parent="TextViewHint">
         <item name="colorAccent">@color/colorAccent</item>
     </style>
@@ -74,4 +78,5 @@
     </style>
 
 
+    <color name="colorSubTitle">#ababab</color>
 </resources>
