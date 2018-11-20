@@ -10,6 +10,7 @@ interface ContactContract {
         fun onLoading(isLoading: Boolean)
         fun showDefaultErrorOnLoadForm()
         fun showError(message: String)
+        fun callSuccessScreen()
     }
 
     interface Presenter: Contract.Presenter<View>{

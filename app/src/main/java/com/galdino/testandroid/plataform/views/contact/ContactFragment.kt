@@ -1,10 +1,6 @@
 package com.galdino.testandroid.plataform.views.contact
 
-import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.galdino.testandroid.R
 import com.galdino.testandroid.domain.model.Cell
 import com.galdino.testandroid.plataform.views.base.BaseFragment
@@ -13,6 +9,7 @@ import org.koin.android.ext.android.inject
 
 class ContactFragment: BaseFragment(), ContactContract.View, FormAdapter.Listener {
     private val mPresenter: ContactContract.Presenter by inject()
+    private lateinit var mListener: Listener
     companion object {
 
         @JvmStatic
@@ -49,5 +46,17 @@ class ContactFragment: BaseFragment(), ContactContract.View, FormAdapter.Listene
 
     override fun showError(message: String) {
         showLongToast(message)
+    }
+
+    fun setListener(listener: ContactFragment.Listener){
+        mListener = listener
+    }
+
+    interface Listener{
+        fun onMessageSendSuccess()
+    }
+
+    override fun callSuccessScreen() {
+        mListener.onMessageSendSuccess()
     }
 }

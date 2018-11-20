@@ -11,4 +11,7 @@
     <string name="invalid_phone_number">Telefone inválido</string>
     <string name="empty_field">Campo vazio</string>
     <string name="error_on_loading_form">Erro ao carregar os campos do formulário</string>
+    <string name="thanks">Obrigado!</string>
+    <string name="send_new_message">Enviar nova mensagem</string>
+    <string name="message_sent_success">Mensagem enviada com sucesso :)</string>
 </resources>

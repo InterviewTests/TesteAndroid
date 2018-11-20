@@ -24,11 +24,11 @@
         <item name="android:textColor">@color/colorTitle</item>
     </style>
 
-    <style name="ButtonRoundedAccent" parent="ButtonAccent">
+    <style name="ButtonRoundedAccent" parent="Button">
         <item name="android:background">@drawable/ripple_accent_rounded</item>
     </style>
 
-    <style name="ButtonAccent" parent="android:Widget.Button">
+    <style name="Button" parent="android:Widget.Button">
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@drawable/ripple_accent</item>
@@ -66,6 +66,11 @@
 
     <style name="ProgressBar" parent="TextViewHint">
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Button.Borderless" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
 
