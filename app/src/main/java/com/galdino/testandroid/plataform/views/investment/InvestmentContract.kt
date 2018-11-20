@@ -8,6 +8,6 @@ interface InvestmentContract {
     }
 
     interface Presenter: Contract.Presenter<View>{
-
+        fun loadInvestment()
     }
 }

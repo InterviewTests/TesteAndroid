@@ -19,5 +19,6 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View
 
     override fun onInitView() {
         mPresenter.attach(this)
+        mPresenter.loadInvestment()
     }
 }
