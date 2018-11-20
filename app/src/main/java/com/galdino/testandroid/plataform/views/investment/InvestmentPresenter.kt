@@ -1,5 +1,6 @@
 package com.galdino.testandroid.plataform.views.investment
 
+import com.galdino.testandroid.data.entity.investment.DownInfo
 import com.galdino.testandroid.data.entity.investment.InvestmentResponseBody
 import com.galdino.testandroid.domain.Observer
 import com.galdino.testandroid.domain.interactor.investment.GetInvestment
@@ -40,6 +41,7 @@ class InvestmentPresenter(private val useCaseFactory: IinvestmentUseCaseFactory)
 
     private fun loadScreenData() {
         mInvestmentResponseBody?.screen?.let {screenInvestment->
+            mView?.loadScreenData(screenInvestment)
             screenInvestment.info?.let {
                 mView?.loadInfoList(it)
             }
@@ -47,5 +49,13 @@ class InvestmentPresenter(private val useCaseFactory: IinvestmentUseCaseFactory)
                 mView?.loadDownList(it)
             }
         }
+    }
+
+    override fun onDownloadClicked(downInfo: DownInfo) {
+        mView?.downloading()
+    }
+
+    override fun onInvestClicked() {
+        mView?.invest()
     }
 }
