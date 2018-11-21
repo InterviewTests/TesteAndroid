@@ -18,11 +18,13 @@ interface InvestmentContract {
         fun loadMoreInfoList(periodList: List<PeriodModel>)
         fun loadRisksList(risks: List<Risk>)
         fun hideBackgroundLoading()
+        fun shareInvestmentByWhatsApp(msg: String)
     }
 
     interface Presenter: Contract.Presenter<View>{
         fun loadInvestment()
         fun onDownloadClicked(downInfo: DownInfo)
         fun onInvestClicked()
+        fun shareInvestmentClicked()
     }
 }

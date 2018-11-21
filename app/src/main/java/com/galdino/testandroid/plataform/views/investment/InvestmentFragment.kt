@@ -1,5 +1,6 @@
 package com.galdino.testandroid.plataform.views.investment
 
+import android.content.Intent
 import android.graphics.Point
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
@@ -30,6 +31,7 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, InfoAdapter.
 
     private fun loadListeners() {
         btInvest.setOnClickListener(this)
+        ivShareInvestment.setOnClickListener(this)
     }
 
     override fun onLoading(isLoading: Boolean) {
@@ -99,6 +101,9 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, InfoAdapter.
             btInvest.id->{
                 mPresenter.onInvestClicked()
             }
+            ivShareInvestment.id->{
+                mPresenter.shareInvestmentClicked()
+            }
         }
     }
 
@@ -112,5 +117,19 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, InfoAdapter.
 
     override fun hideBackgroundLoading() {
         MyAnimationUtils.translateHide(vLoading, context,null,null,500)
+        MyAnimationUtils.translateShow(btInvest, context,null,null,500)
+    }
+
+    override fun shareInvestmentByWhatsApp(msg: String) {
+        val whatsappIntent = Intent(Intent.ACTION_SEND)
+        whatsappIntent.type = "text/plain"
+        whatsappIntent.setPackage("com.whatsapp")
+        whatsappIntent.putExtra(Intent.EXTRA_TEXT, msg)
+        try {
+            startActivity(whatsappIntent)
+        } catch (ex: android.content.ActivityNotFoundException) {
+            showLongToast(R.string.error_whats_app_not_installed)
+        }
+
     }
 }

@@ -112,4 +112,11 @@ class InvestmentPresenter(private val useCaseFactory: IinvestmentUseCaseFactory)
     override fun onInvestClicked() {
         mView?.invest()
     }
+
+    override fun shareInvestmentClicked() {
+        mInvestmentResponseBody?.screen?.let {
+            val msg = it.fundName + "\n\n" + it.definition
+                    mView?.shareInvestmentByWhatsApp(msg)
+        }
+    }
 }

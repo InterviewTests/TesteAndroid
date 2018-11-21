@@ -21,7 +21,7 @@ class RepositoryImpl(private val dataSource: DataSource,
     }
 
     override fun getInvestment(params: GetInvestment.Params): Single<InvestmentResponseBody> {
-        return mMockedApi.getInvestment()
+        return dataSource.getInvestment(params)
     }
 
     override fun getPeriods(params: GetPeriods.Params): Single<List<PeriodModel>> {
