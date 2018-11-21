@@ -73,12 +73,12 @@
         <View
             android:id="@+id/vSeparator"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="0.6dp"
             app:layout_constraintTop_toBottomOf="@+id/tvFundName"
             app:layout_constraintLeft_toRightOf="@id/vKeyLineLeft"
             app:layout_constraintRight_toLeftOf="@+id/vKeyLineRight"
-            android:layout_marginTop="@dimen/margin_default6x"
-            android:background="@color/colorHint"
+            android:layout_marginTop="@dimen/margin_default10x"
+            android:background="@color/colorHint2"
             />
 
         <TextView
@@ -89,7 +89,7 @@
             app:layout_constraintTop_toBottomOf="@+id/vSeparator"
             app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
             app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
-            android:layout_marginTop="@dimen/margin_default6x"
+            android:layout_marginTop="@dimen/margin_default10x"
             style="@style/TextViewSubTitle"
             android:textStyle="bold"
             />
@@ -115,7 +115,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvDefinition"
             app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
             app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
-            android:layout_marginTop="@dimen/margin_default6x"
+            android:layout_marginTop="@dimen/margin_default12x"
             style="@style/TextViewSubTitle"
             android:textStyle="bold"
             />
@@ -127,7 +127,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvRiskTitle"
             app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
             app:layout_constraintRight_toRightOf="@+id/vKeyLineRight"
-            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_default2x"
             />
 
         <TextView
@@ -181,12 +181,12 @@
         <View
             android:id="@+id/vSeparator2"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="0.6dp"
             app:layout_constraintTop_toBottomOf="@+id/rvMoreInfo"
             app:layout_constraintLeft_toRightOf="@id/vKeyLineLeft"
             app:layout_constraintRight_toLeftOf="@+id/vKeyLineRight"
             android:layout_marginTop="@dimen/margin_default6x"
-            android:background="@color/colorHint"
+            android:background="@color/colorHint2"
             />
 
         <android.support.v7.widget.RecyclerView
