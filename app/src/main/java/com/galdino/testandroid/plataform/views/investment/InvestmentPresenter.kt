@@ -41,6 +41,7 @@ class InvestmentPresenter(private val useCaseFactory: IinvestmentUseCaseFactory)
     }
 
     private fun loadScreenData() {
+        mView?.hideBackgroundLoading()
         mInvestmentResponseBody?.screen?.let {screenInvestment->
             mView?.loadScreenData(screenInvestment)
             screenInvestment.moreInfo?.let {

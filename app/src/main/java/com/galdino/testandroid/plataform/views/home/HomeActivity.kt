@@ -24,6 +24,13 @@ class HomeActivity : BaseActivity(), HomeContract.View, View.OnClickListener, Co
         mPresenter.attach(this)
         loadListeners()
         mPresenter.initialize()
+        loadAnimations()
+    }
+
+    private fun loadAnimations() {
+        MyAnimationUtils.upShowView(btInvestmentPressed, this,null,300)
+        MyAnimationUtils.upShowView(btInvestment, this,null,300)
+        MyAnimationUtils.rightShow(btContact, this,null,600)
     }
 
     private fun loadListeners() {
@@ -43,6 +50,10 @@ class HomeActivity : BaseActivity(), HomeContract.View, View.OnClickListener, Co
         MyAnimationUtils.translateShow(btInvestmentPressed, this,null,null, null)
         MyAnimationUtils.translateHide(btContactPressed, this,null,null, null)
 
+        inflateFragment(mInvestmentFragment)
+    }
+
+    override fun initializeInvestment() {
         inflateFragment(mInvestmentFragment)
     }
 

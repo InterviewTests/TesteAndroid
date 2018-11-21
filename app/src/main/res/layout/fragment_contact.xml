@@ -40,6 +40,8 @@
         />
 
     <android.support.v7.widget.RecyclerView
+        android:visibility="invisible"
+        tools:visibility="visible"
         android:id="@+id/rvForm"
         android:layout_width="0dp"
         android:layout_height="0dp"

@@ -1,9 +1,11 @@
 package com.galdino.testandroid.plataform.views.contact
 
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.galdino.testandroid.R
 import com.galdino.testandroid.domain.model.Cell
 import com.galdino.testandroid.plataform.views.base.BaseFragment
+import com.galdino.testandroid.util.MyAnimationUtils
 import kotlinx.android.synthetic.main.fragment_contact.*
 import org.koin.android.ext.android.inject
 
@@ -30,6 +32,9 @@ class ContactFragment: BaseFragment(), ContactContract.View, FormAdapter.Listene
         val formAdapter = FormAdapter(cells, this)
         rvForm.adapter = formAdapter
         rvForm.layoutManager = LinearLayoutManager(context)
+        if(rvForm.visibility == View.INVISIBLE) {
+            MyAnimationUtils.upShowView(rvForm, context, null, null)
+        }
     }
 
     override fun onSendClicked(cells: List<Cell>) {

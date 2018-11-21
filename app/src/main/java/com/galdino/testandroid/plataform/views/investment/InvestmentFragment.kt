@@ -6,6 +6,7 @@ import android.view.View
 import com.galdino.testandroid.R
 import com.galdino.testandroid.data.entity.investment.*
 import com.galdino.testandroid.plataform.views.base.BaseFragment
+import com.galdino.testandroid.util.MyAnimationUtils
 import kotlinx.android.synthetic.main.fragment_investment.*
 import org.koin.android.ext.android.inject
 
@@ -107,5 +108,9 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, InfoAdapter.
 
     override fun invest() {
         showLongToast(R.string.invest)
+    }
+
+    override fun hideBackgroundLoading() {
+        MyAnimationUtils.translateHide(vLoading, context,null,null,500)
     }
 }

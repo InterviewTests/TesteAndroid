@@ -17,6 +17,7 @@ interface InvestmentContract {
         fun invest()
         fun loadMoreInfoList(periodList: List<PeriodModel>)
         fun loadRisksList(risks: List<Risk>)
+        fun hideBackgroundLoading()
     }
 
     interface Presenter: Contract.Presenter<View>{
