@@ -2,7 +2,10 @@ package com.galdino.testandroid.data.source.remote
 
 import com.galdino.testandroid.BuildConfig
 import com.galdino.testandroid.data.entity.CellResponseBody
+import com.galdino.testandroid.data.entity.investment.InvestmentResponseBody
 import com.galdino.testandroid.data.source.DataSource
+import com.galdino.testandroid.domain.interactor.cell.GetCell
+import com.galdino.testandroid.domain.interactor.investment.GetInvestment
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -10,7 +13,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class RemoteDataSource(private val mMockedApi: Api): DataSource
+class RemoteDataSource: DataSource
 {
     private var mApi : Api
 
@@ -35,7 +38,11 @@ class RemoteDataSource(private val mMockedApi: Api): DataSource
                 .build()
     }
 
-    override fun getCell(): Single<CellResponseBody> {
+    override fun getCell(params: GetCell.Params): Single<CellResponseBody> {
         return mApi.getCell()
+    }
+
+    override fun getInvestment(params: GetInvestment.Params): Single<InvestmentResponseBody> {
+        return mApi.getInvestment()
     }
 }

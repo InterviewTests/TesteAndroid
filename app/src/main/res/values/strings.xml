@@ -10,8 +10,23 @@
     <string name="invalid_email">Email inválido</string>
     <string name="invalid_phone_number">Telefone inválido</string>
     <string name="empty_field">Campo vazio</string>
-    <string name="error_on_loading_form">Erro ao carregar os campos do formulário</string>
     <string name="thanks">Obrigado!</string>
     <string name="send_new_message">Enviar nova mensagem</string>
     <string name="message_sent_success">Mensagem enviada com sucesso :)</string>
+    <string name="fund">Fundo</string>
+    <string name="cdi">CDI</string>
+    <string name="download">Baixar</string>
+    <string name="downloading">Baixando</string>
+    <string name="invest">Investir</string>
+    <!--error-->
+    <string name="error_on_loading_form">Erro ao carregar os campos do formulário</string>
+    <string name="error_on_load_more_info">Erro ao carregar "mais informações"</string>
+    <string name="error_on_loading_investment">Erro ao carregar o investimento</string>
+    <!---->
+    <string name="on_month">No mês</string>
+    <string name="on_year">No ano</string>
+    <string name="on_twelve_month">12 meses</string>
+    <string name="percent">%s\%%</string>
+    <string name="error_on_load_risks">Erro ao carregar o grau de riscos</string>
+    <string name="error_whats_app_not_installed">Whatsapp não instalado</string>
 </resources>

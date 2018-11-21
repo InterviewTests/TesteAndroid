@@ -12,6 +12,6 @@ class HomePresenter(): BasePresenter<HomeContract.View>(), HomeContract.Presente
     }
 
     override fun initialize() {
-        mView?.inflateInvestment()
+        mView?.initializeInvestment()
     }
 }

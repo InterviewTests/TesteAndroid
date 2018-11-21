@@ -62,7 +62,6 @@
         app:layout_constraintLeft_toLeftOf="@+id/vKeyLineLeft"
         android:text="@string/message_sent_success"
         style="@style/TextViewTitle"
-        android:textColor="@android:color/black"
         android:layout_marginTop="@dimen/margin_default2x"
         />
 

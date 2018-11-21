@@ -64,6 +64,10 @@
         <item name="android:textColor">@color/colorHint</item>
     </style>
 
+    <style name="TextViewSubTitle">
+        <item name="android:textColor">@color/colorSubTitle</item>
+    </style>
+
     <style name="ProgressBar" parent="TextViewHint">
         <item name="colorAccent">@color/colorAccent</item>
     </style>
@@ -72,6 +76,4 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@color/colorAccent</item>
     </style>
-
-
 </resources>

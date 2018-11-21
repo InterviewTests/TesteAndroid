@@ -25,6 +25,8 @@
         app:layout_constraintRight_toLeftOf="@+id/btContact"
         android:text="@string/investment"
         style="@style/Button"
+        android:visibility="invisible"
+
         />
 
     <Button
@@ -36,6 +38,8 @@
         app:layout_constraintLeft_toRightOf="@+id/btInvestment"
         android:text="@string/contact"
         style="@style/Button"
+        android:visibility="invisible"
+        tools:visibility="visible"
         />
 
     <Button
@@ -48,6 +52,8 @@
         android:text="@string/investment"
         style="@style/Button"
         android:background="@color/colorAccentDark"
+        android:visibility="invisible"
+        tools:visibility="visible"
         />
 
     <Button

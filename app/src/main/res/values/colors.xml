@@ -4,8 +4,10 @@
     <color name="colorPrimaryDark">@color/colorTitle</color>
     <color name="colorAccent">#DD0000</color>
 
-    <color name="colorTitle">#777777</color>
+    <color name="colorTitle">#6d6d6d</color>
     <color name="colorHint">#BABABA</color>
+    <color name="colorHint2">#CACACA</color>
+    <color name="colorSubTitle">#818181</color>
     <color name="colorAccentDark">#CA0000</color>
     <color name="colorRiskLevel1">#70DC5A</color>
     <color name="colorRiskLevel2">#44C268</color>

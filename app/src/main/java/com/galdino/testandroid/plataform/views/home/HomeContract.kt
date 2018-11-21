@@ -7,6 +7,7 @@ interface HomeContract
     interface View: Contract.View{
         fun inflateInvestment()
         fun inflateContact()
+        fun initializeInvestment()
 
     }
     interface Presenter: Contract.Presenter<View>{
