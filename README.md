@@ -1,4 +1,8 @@
+
 # Show me the code
+### # INFORMAÇÕES DO AUTOR
+Autor: Galdino Rodrigues
+Instruções: Teste feito por completo, não há nenhuma instrução especial para rodar o projeto, basta baixar e abri-lo.
 
 ### # DESAFIO:
 
