@@ -27,4 +27,5 @@
     <string name="on_year">No ano</string>
     <string name="on_twelve_month">12 meses</string>
     <string name="percent">%s\%%</string>
+    <string name="error_on_load_risks">Erro ao carregar o grau de riscos</string>
 </resources>

@@ -1,12 +1,10 @@
 package com.galdino.testandroid.plataform.views.investment
 
-import com.galdino.testandroid.data.entity.investment.DownInfo
-import com.galdino.testandroid.data.entity.investment.InvestmentResponseBody
-import com.galdino.testandroid.data.entity.investment.MoreInfo
-import com.galdino.testandroid.data.entity.investment.PeriodModel
+import com.galdino.testandroid.data.entity.investment.*
 import com.galdino.testandroid.domain.Observer
 import com.galdino.testandroid.domain.interactor.investment.GetInvestment
 import com.galdino.testandroid.domain.interactor.investment.GetPeriods
+import com.galdino.testandroid.domain.interactor.investment.GetRisks
 import com.galdino.testandroid.domain.interactor.investment.IinvestmentUseCaseFactory
 import com.galdino.testandroid.mvp.BasePresenter
 
@@ -48,6 +46,9 @@ class InvestmentPresenter(private val useCaseFactory: IinvestmentUseCaseFactory)
             screenInvestment.moreInfo?.let {
                 loadPeriods(it)
             }
+            screenInvestment.risk?.let {
+                loadRisks(it)
+            }
             screenInvestment.info?.let {
                 mView?.loadInfoList(it)
             }
@@ -56,6 +57,28 @@ class InvestmentPresenter(private val useCaseFactory: IinvestmentUseCaseFactory)
             }
 
         }
+    }
+
+    private fun loadRisks(riskId: Int) {
+        val loadRisks = useCaseFactory.loadRisks()
+        loadRisks.execute(object: Observer<List<Risk>>(){
+            override fun onStart() {
+                mView?.onLoading(true)
+            }
+            override fun onError(e: Throwable) {
+                if (e.message == null) {
+                    mView?.showDefaultErrorOnLoadRisks()
+                } else {
+                    mView?.showError(e.message!!)
+                }
+                mView?.onLoading(false)
+            }
+
+            override fun onSuccess(t: List<Risk>) {
+                mView?.loadRisksList(t)
+                mView?.onLoading(false)
+            }
+        },GetRisks.Params(riskId))
     }
 
     private fun loadPeriods(moreInfo: MoreInfo) {

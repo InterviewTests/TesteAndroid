@@ -1,15 +1,12 @@
 package com.galdino.testandroid.plataform.views.investment
 
+import android.graphics.Point
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.galdino.testandroid.R
-import com.galdino.testandroid.data.entity.investment.DownInfo
-import com.galdino.testandroid.data.entity.investment.Info
-import com.galdino.testandroid.data.entity.investment.PeriodModel
-import com.galdino.testandroid.data.entity.investment.ScreenInvestment
+import com.galdino.testandroid.data.entity.investment.*
 import com.galdino.testandroid.plataform.views.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_investment.*
-import kotlinx.android.synthetic.main.fragment_investment.view.*
 import org.koin.android.ext.android.inject
 
 class InvestmentFragment : BaseFragment(), InvestmentContract.View, InfoAdapter.Listener, View.OnClickListener {
@@ -43,6 +40,10 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, InfoAdapter.
     }
 
     override fun showDefaultErrorOnLoadMoreInfo() {
+        showLongToast(R.string.error_on_load_risks)
+    }
+
+    override fun showDefaultErrorOnLoadRisks() {
         showLongToast(R.string.error_on_load_more_info)
     }
 
@@ -72,6 +73,20 @@ class InvestmentFragment : BaseFragment(), InvestmentContract.View, InfoAdapter.
     override fun loadMoreInfoList(periodList: List<PeriodModel>) {
         rvMoreInfo.adapter = MoreInfoAdapter(periodList)
         rvMoreInfo.layoutManager = LinearLayoutManager(context)
+    }
+
+    override fun loadRisksList(risks: List<Risk>) {
+        val display = activity?.windowManager?.defaultDisplay
+
+        val size = Point()
+        display?.getSize(size)
+        var widthScreen = size.x
+        widthScreen /= risks.size
+
+        var margin= resources.getDimension(R.dimen.margin_default8x)
+        margin /= 2
+        rvRisks.adapter = RiskAdapter(risks, widthScreen-margin.toInt())
+        rvRisks.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
     }
 
     override fun onDownloadClicked(downInfo: DownInfo) {
