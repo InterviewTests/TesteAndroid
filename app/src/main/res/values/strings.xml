@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TesteAndroid</string>
+    <string name="processando">Processando...</string>
+    <string name="erro_msg_off">Falha ao conectar com o servidor. Verifique sua internet.</string>
+</resources>
