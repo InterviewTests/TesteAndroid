@@ -66,5 +66,4 @@ public class FormActivity extends AppCompatActivity {
         Log.d("LOG: ", b.toString());
     }
 
-
 }
