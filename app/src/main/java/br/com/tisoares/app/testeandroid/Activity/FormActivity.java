@@ -1,35 +1,57 @@
 package br.com.tisoares.app.testeandroid.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import android.text.InputType;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import br.com.tisoares.app.testeandroid.Config.AppConfig;
 import br.com.tisoares.app.testeandroid.Helper.RequestFromServer;
 import br.com.tisoares.app.testeandroid.Model.Field;
 import br.com.tisoares.app.testeandroid.R;
+import br.com.tisoares.app.testeandroid.Utils.Mask;
 
 public class FormActivity extends AppCompatActivity {
 
     private ArrayList<Field> fieldList;
+
+    private LinearLayout fnd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
 
+        // List com os Fields Config
         this.fieldList = new ArrayList<Field>();
+
+        fnd = findViewById(R.id.fundo);
 
         solicitaFields();
     }
 
+    /*
+        Solicita as configurações dos fields para o servidor
+    */
     private void solicitaFields() {
         new RequestFromServer(this, AppConfig.SVR_CELLS_FORM) {
             @Override
@@ -57,13 +79,183 @@ public class FormActivity extends AppCompatActivity {
             }
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
+        criarComponentes();
+    }
 
-        StringBuilder b = new StringBuilder();
-        for (Field f: fieldList) {
-            b.append("FIELDS: "+f.getMessage());
+    /*
+        Cria os componentes visuais de acordo com as configs do servidor
+     */
+    private void criarComponentes() {
+        for (Field f:fieldList) {
+            switch (f.getType()){
+                case text:
+                    criaTxt(f);
+                    break;
+                case field:
+                    criaEdit(f);
+                    break;
+                case image:
+                    criaImage(f);
+                    break;
+                case checkbox:
+                    criaCheckBox(f);
+                    break;
+                case send:
+                    criaBtn(f);
+                    break;
+            }
         }
-        Log.d("LOG: ", b.toString());
+    }
+
+    /*
+        Cria os Botões
+     */
+    private void criaBtn(Field f) {
+        Button btn = new Button(this);
+        btn.setId(f.getId());
+        btn.setText(f.getMessage());
+        btn.setVisibility(f.isHidden()? View.INVISIBLE: View.VISIBLE);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                enviar();
+            }
+        });
+
+        fnd.addView(btn);
+    }
+
+    /*
+        Vai para proxima tela caso os campos estejam válidos
+     */
+    private void enviar() {
+        if (validaCampos()){
+            Log.d("FORM", "FOI");
+            Intent sucesso = new Intent(this, SucessoActivity.class);
+            startActivity(sucesso);
+        }else{
+            Log.d("FORM", "NAO FOI");
+        }
+    }
+
+    private boolean validaCampos() {
+        boolean result = true;
+        for(Field fd: fieldList){
+            if (fd.getType() == Field.CompType.field){
+                if (fd.isRequired()){
+                    EditText edt = fnd.findViewById(fd.getId());
+                    if (edt.getVisibility() == View.VISIBLE){
+                        if( TextUtils.isEmpty(edt.getText())) {
+                            edt.setError("Campo obrigatório!");
+                            result = false;
+                        }else {
+                            switch (fd.getTypefield()) {
+                                case email:
+                                    if (!isValidEmail(edt.getText())) {
+                                        edt.setError("Email inválido!");
+                                        result = false;
+                                    }
+                                    break;
+                                case telnumber:
+                                    if (edt.getText().length() < 14) {
+                                        edt.setError("Telefone inválido!");
+                                        result = false;
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    /*
+        Cria os CheckBox
+     */
+    private void criaCheckBox(final Field f) {
+        CheckBox chk = new CheckBox(this);
+        chk.setId(f.getId());
+        chk.setText(f.getMessage());
+        chk.setVisibility(f.isHidden()? View.INVISIBLE: View.VISIBLE);
+        if (f.getShow() > 0){
+            chk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    fnd.findViewById(f.getShow()).setVisibility(isChecked ? View.VISIBLE: View.INVISIBLE);
+                }
+            });
+        }
+        chk.setTag(f);
+        fnd.addView(chk, getParams(f.getTopSpacing()));
+    }
+
+    /*
+        Cria os Images
+     */
+    private void criaImage(Field f) {
+        ImageView img = new ImageView(this);
+        img.setId(f.getId());
+        //img.setim f.getMessage());
+        img.setVisibility(f.isHidden()? View.INVISIBLE: View.VISIBLE);
+        img.setTag(f);
+        fnd.addView(img);
+    }
+
+    /*
+        Cria os Texts
+     */
+    private void criaTxt(Field f) {
+        TextView txt = new TextView(this);
+        txt.setId(f.getId());
+        txt.setText(f.getMessage());
+        txt.setVisibility(f.isHidden()? View.INVISIBLE: View.VISIBLE);
+        txt.setTag(f);
+        fnd.addView(txt, getParams(f.getTopSpacing()));
+    }
+
+    /*
+        Cria os Edits
+     */
+    private void criaEdit(Field f) {
+        EditText edt = new EditText(this);
+        edt.setId(f.getId());
+        edt.setHint(f.getMessage());
+        edt.setVisibility(f.isHidden()? View.INVISIBLE: View.VISIBLE);
+        switch (f.getTypefield()){
+            case email:
+                edt.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+                break;
+            case telnumber:
+                edt.setInputType(InputType.TYPE_CLASS_NUMBER);
+                edt.addTextChangedListener(Mask.insert( "(##)#####-####", edt));
+                break;
+        }
+        edt.setTag(f);
+
+        fnd.addView(edt, getParams(f.getTopSpacing()));
+    }
+
+    /*
+        Define os parametros do layout
+     */
+    private LinearLayout.LayoutParams getParams(int top){
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(0, top, 0, 0);
+        return layoutParams;
+    }
+
+    /*
+           Valida o Email
+     */
+    public final static boolean isValidEmail(CharSequence target) {
+        return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
 }

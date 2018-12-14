@@ -3,12 +3,15 @@ package br.com.tisoares.app.testeandroid.Model;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+
+
 /**
  * Created by TIAGO SOARES on 12/12/2018.
  */
 public class Field {
 
-    public Field(JSONObject jsonObject) throws JSONException {
+    public Field(JSONObject jsonObject) throws JSONException, UnsupportedEncodingException {
         this.jsonObject = jsonObject;
         this.createByJson();
     }
@@ -178,7 +181,7 @@ public class Field {
     /*
             Define os valores dos atributos da classe
     */
-    private void createByJson() throws JSONException {
+    private void createByJson() throws JSONException, UnsupportedEncodingException {
         /*
             "id": 1,
 			"type": 2,
@@ -191,7 +194,7 @@ public class Field {
         */
         setId(jsonObject.getInt("id"));
         type = CompType.fromValue(jsonObject.getInt("type"));
-        message = jsonObject.getString("message");
+        message = new String(jsonObject.getString("message").getBytes("ISO-8859-1"), "UTF-8");
 
         // verifico se o typefield é none
         if (jsonObject.isNull("typefield"))
