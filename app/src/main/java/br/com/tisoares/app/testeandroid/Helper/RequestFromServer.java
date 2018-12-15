@@ -35,6 +35,10 @@ public abstract class RequestFromServer {
         sendToServer(url);
     }
 
+    /**
+     * Envia para o servidor a solicitação dos dados
+     * @param url Endereço da end-point
+     */
     private void sendToServer(String url){
         String tag_string_req = url;
         Log.d(TAG, "URL: " + tag_string_req);
@@ -75,22 +79,24 @@ public abstract class RequestFromServer {
 
     }
 
-    /*
-        Fecha do dialog de processando
+    /**
+     * Fecha do dialog de processando
      */
     private void hideDialog() {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
 
-    /*
-        Retorna a resposta do servidor
-    */
+    /**
+     * Retorna a resposta do servidor
+     * @param response
+     */
     public abstract void onReceive(String response);
 
-    /*
-        Executa em caso de erro
-    */
+    /**
+     * Executa em caso de erro
+     * @param erros
+     */
     public abstract void onError(String erros);
 
 }

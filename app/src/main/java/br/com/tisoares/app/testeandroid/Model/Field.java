@@ -33,9 +33,6 @@ public class Field {
     //show": indica o campo que será exibido quando este campo for selecionado. No caso é o id do campo a ser exibido.
     private int show;
 
-    //risk": pode ser um int de 1 a 5
-    private int risk;
-
     //"type": tipo da célula;
     private CompType type;
 
@@ -142,18 +139,6 @@ public class Field {
         this.show = show;
     }
 
-    public int getRisk() {
-        return risk;
-    }
-
-    public void setRisk(int risk) {
-        if (risk >= 1 && risk <= 3) {
-            this.risk = risk;
-        } else {
-            throw new IllegalArgumentException("risk não é um valor permitido");
-        }
-    }
-
     public CompType getType() {
         return type;
     }
@@ -178,9 +163,11 @@ public class Field {
         this.required = required;
     }
 
-    /*
-            Define os valores dos atributos da classe
-    */
+    /**
+     * Define os valores dos atributos da classe
+     * @throws JSONException
+     * @throws UnsupportedEncodingException
+     */
     private void createByJson() throws JSONException, UnsupportedEncodingException {
         /*
             "id": 1,
@@ -213,7 +200,5 @@ public class Field {
         else
             show = jsonObject.getInt("show");
         required = jsonObject.getBoolean("required");
-        if (jsonObject.has("risk"))
-            setRisk(jsonObject.getInt("risk"));
     }
 }

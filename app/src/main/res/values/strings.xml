@@ -2,4 +2,6 @@
     <string name="app_name">TesteAndroid</string>
     <string name="processando">Processando...</string>
     <string name="erro_msg_off">Falha ao conectar com o servidor. Verifique sua internet.</string>
+    <string name="ttl_contato">Contato</string>
+    <string name="erro_carregar_fundo">Falha ao carregar os dados.</string>
 </resources>

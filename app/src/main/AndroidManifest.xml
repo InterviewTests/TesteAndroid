@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.SucessoActivity"></activity>
+        <activity android:name=".Activity.SucessoActivity" />
+        <activity android:name=".Activity.FundosActivity"></activity>
     </application>
 
 </manifest>

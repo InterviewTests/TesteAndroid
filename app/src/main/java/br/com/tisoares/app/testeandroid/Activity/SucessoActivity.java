@@ -11,5 +11,8 @@ public class SucessoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sucesso);
+
+        setTitle(R.string.ttl_contato);
+
     }
 }

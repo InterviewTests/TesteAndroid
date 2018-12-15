@@ -41,6 +41,8 @@ public class FormActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
 
+        setTitle(R.string.ttl_contato);
+
         // List com os Fields Config
         this.fieldList = new ArrayList<Field>();
 
@@ -49,9 +51,9 @@ public class FormActivity extends AppCompatActivity {
         solicitaFields();
     }
 
-    /*
-        Solicita as configurações dos fields para o servidor
-    */
+    /**
+     * Solicita as configurações dos fields para o servidor
+     */
     private void solicitaFields() {
         new RequestFromServer(this, AppConfig.SVR_CELLS_FORM) {
             @Override
@@ -66,9 +68,10 @@ public class FormActivity extends AppCompatActivity {
         };
     }
 
-    /*
-        Recebe o JSONArray do servidor e cria o List de Field;
-    */
+    /**
+     *  Recebe o JSONArray como string do servidor e cria o List de Field;
+     * @param response String contendo o JSONArray com as infos dos campos
+     */
     private void recebeCampos(String response) {
         try {
             JSONObject j = new JSONObject(response);
@@ -85,8 +88,8 @@ public class FormActivity extends AppCompatActivity {
         criarComponentes();
     }
 
-    /*
-        Cria os componentes visuais de acordo com as configs do servidor
+    /**
+     * Cria os componentes visuais de acordo com as configs do servidor
      */
     private void criarComponentes() {
         for (Field f:fieldList) {
@@ -110,8 +113,9 @@ public class FormActivity extends AppCompatActivity {
         }
     }
 
-    /*
-        Cria os Botões
+    /**
+     * Cria os Botões
+     * @param f Objeto Field contendo as props
      */
     private void criaBtn(Field f) {
         Button btn = new Button(this);
@@ -129,8 +133,8 @@ public class FormActivity extends AppCompatActivity {
         fnd.addView(btn);
     }
 
-    /*
-        Vai para proxima tela caso os campos estejam válidos
+    /**
+     *  Vai para proxima tela caso os campos estejam válidos
      */
     private void enviar() {
         if (validaCampos()){
@@ -142,6 +146,10 @@ public class FormActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Valida os dados dos campos do formulario
+     * @return
+     */
     private boolean validaCampos() {
         boolean result = true;
         for(Field fd: fieldList){
@@ -175,8 +183,9 @@ public class FormActivity extends AppCompatActivity {
         return result;
     }
 
-    /*
-        Cria os CheckBox
+    /**
+     * Cria os CheckBox
+     * @param f Objeto Field contendo as props
      */
     private void criaCheckBox(final Field f) {
         CheckBox chk = new CheckBox(this);
@@ -195,8 +204,9 @@ public class FormActivity extends AppCompatActivity {
         fnd.addView(chk, getParams(f.getTopSpacing()));
     }
 
-    /*
-        Cria os Images
+    /**
+     * Cria os Images
+     * @param f Objeto Field contendo as props
      */
     private void criaImage(Field f) {
         ImageView img = new ImageView(this);
@@ -207,8 +217,9 @@ public class FormActivity extends AppCompatActivity {
         fnd.addView(img);
     }
 
-    /*
-        Cria os Texts
+    /**
+     * Cria os Texts
+     * @param f Objeto Field contendo as props
      */
     private void criaTxt(Field f) {
         TextView txt = new TextView(this);
@@ -219,8 +230,9 @@ public class FormActivity extends AppCompatActivity {
         fnd.addView(txt, getParams(f.getTopSpacing()));
     }
 
-    /*
-        Cria os Edits
+    /**
+     * Cria os Edits
+     * @param f Objeto Field contendo as props
      */
     private void criaEdit(Field f) {
         EditText edt = new EditText(this);
@@ -241,8 +253,10 @@ public class FormActivity extends AppCompatActivity {
         fnd.addView(edt, getParams(f.getTopSpacing()));
     }
 
-    /*
-        Define os parametros do layout
+    /**
+     * Define os parametros do layout
+     * @param top Margin top
+     * @return
      */
     private LinearLayout.LayoutParams getParams(int top){
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
@@ -251,8 +265,10 @@ public class FormActivity extends AppCompatActivity {
         return layoutParams;
     }
 
-    /*
-           Valida o Email
+    /**
+     * Valida o Email
+     * @param target valor para verificar
+     * @return
      */
     public final static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
