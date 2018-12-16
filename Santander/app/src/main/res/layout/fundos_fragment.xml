@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.avanade.santander.fundos.domain.ScrollChildSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fundos_fragment_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/txt_invest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Investimento"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_share"
+            app:layout_constraintEnd_toEndOf="@+id/img_reguaIndicadora"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Fundos de investimento"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_invest" />
+
+        <TextView
+            android:id="@+id/txt_fundName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Vinci Valorem FI Multimercado"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+        <ImageView
+            android:id="@+id/img_reguaIndicadora"
+            android:layout_width="315dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/regua_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_fundName" />
+
+        <TextView
+            android:id="@+id/txt_whatIs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="O que é?"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_reguaIndicadora" />
+
+        <TextView
+            android:id="@+id/txt_definition"
+            android:layout_width="315dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="O fundo tem por objetivo proporcionar aos sues cotistas rentabilidade no longo prazo através de investimentos"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_whatIs" />
+
+        <TextView
+            android:id="@+id/txt_riskTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:text="Grau de risco de investimento"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_definition" />
+
+        <ImageView
+            android:id="@+id/img_risk"
+            android:layout_width="315dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/img_risk_4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_riskTitle" />
+
+        <TextView
+            android:id="@+id/txt_infoTitle"
+            android:layout_width="315dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Mais informações sobre o investimento"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_risk" />
+
+        <TextView
+            android:id="@+id/txt_cdi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="CDI"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/divider"
+            app:layout_constraintTop_toBottomOf="@+id/txt_infoTitle" />
+
+        <TextView
+            android:id="@+id/txt_fundo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="80dp"
+            android:text="Fundo"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/txt_cdi"
+            app:layout_constraintTop_toBottomOf="@+id/txt_infoTitle" />
+
+        <TextView
+            android:id="@+id/txt_mes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="No mês"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="@+id/divider"
+            app:layout_constraintTop_toBottomOf="@+id/txt_fundo" />
+
+        <TextView
+            android:id="@+id/more_month_fund"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="more_month_fund"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_mes"
+            app:layout_constraintEnd_toEndOf="@+id/txt_fundo" />
+
+        <TextView
+            android:id="@+id/more_month_cdi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="more_month_cdi"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_mes"
+            app:layout_constraintEnd_toEndOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/txt_ano"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="No ano"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="@+id/divider"
+            app:layout_constraintTop_toBottomOf="@+id/txt_mes" />
+
+        <TextView
+            android:id="@+id/more_year_fund"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="more_year_fund"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_ano"
+            app:layout_constraintEnd_toEndOf="@+id/txt_fundo" />
+
+        <TextView
+            android:id="@+id/more_year_cdi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="more_year_cdi"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_ano"
+            app:layout_constraintEnd_toEndOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/txt_lastYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="12 meses"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="@+id/divider"
+            app:layout_constraintTop_toBottomOf="@+id/txt_ano" />
+
+        <TextView
+            android:id="@+id/more_lastyear_fund"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="more_lastyear_fund"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_lastYear"
+            app:layout_constraintEnd_toEndOf="@+id/txt_fundo" />
+
+        <TextView
+            android:id="@+id/more_lastyear_cdi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="more_lastyear_cdi"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_lastYear"
+            app:layout_constraintEnd_toEndOf="@+id/divider" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="315dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_lastYear" />
+
+        <TextView
+            android:id="@+id/info_name_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="info_name"
+            app:layout_constraintStart_toStartOf="@+id/divider"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/info_data_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="info_data"
+            app:layout_constraintBottom_toBottomOf="@+id/info_name_0"
+            app:layout_constraintEnd_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="@+id/info_name_0" />
+
+        <TextView
+            android:id="@+id/info_name_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="info_name"
+            app:layout_constraintStart_toStartOf="@+id/divider"
+            app:layout_constraintTop_toBottomOf="@+id/info_name_0" />
+
+        <TextView
+            android:id="@+id/info_data_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="info_data"
+            app:layout_constraintBottom_toBottomOf="@+id/info_name_1"
+            app:layout_constraintEnd_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="@+id/info_name_1" />
+
+        <TextView
+            android:id="@+id/infodown_name_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/divider"
+            app:layout_constraintTop_toBottomOf="@+id/info_name_1" />
+
+        <Button
+            android:id="@+id/infodown_baixar_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/ic_baixar"
+            android:text=" Baixar"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorSantander"
+            app:layout_constraintBottom_toBottomOf="@+id/infodown_name_0"
+            app:layout_constraintEnd_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="@+id/infodown_name_0" />
+
+        <Button
+            android:id="@+id/btn_investir"
+            android:layout_width="315dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/btn_red_rounded"
+            android:text="Investir"
+
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infodown_name_0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</com.avanade.santander.fundos.domain.ScrollChildSwipeRefreshLayout>

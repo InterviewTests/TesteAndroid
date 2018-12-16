@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_formulario">
+
+    <TextView
+        android:id="@+id/txtTitleContato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contato"
+        android:textSize="16sp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/edt_nome"
+        android:layout_width="295dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="35dp"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitleContato"/>
+
+    <TextView
+        android:id="@+id/hint_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome Completo"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/edt_nome"
+        app:layout_constraintTop_toTopOf="@+id/edt_nome"/>
+
+    <EditText
+        android:id="@+id/edt_email"
+        android:layout_width="295dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="35dp"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_nome"/>
+
+    <TextView
+        android:id="@+id/hint_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-mail"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/edt_email"
+        app:layout_constraintTop_toTopOf="@+id/edt_email"/>
+
+    <EditText
+        android:id="@+id/edt_telefone"
+        android:layout_width="295dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="10dp"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_email"/>
+
+    <TextView
+        android:id="@+id/hint_telefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefone"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/edt_telefone"
+        app:layout_constraintTop_toTopOf="@+id/edt_telefone"/>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="295dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="35dp"
+        android:button="@drawable/checkbox"
+        android:checked="true"
+        android:text=" Gostaria de cadastrar meu e-mail"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="@+id/edt_telefone"
+        app:layout_constraintTop_toBottomOf="@+id/edt_telefone"/>
+
+    <Button
+        android:id="@+id/btn_enviar"
+        android:layout_width="315dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_red_rounded"
+        android:text="Enviar"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox"/>
+
+    <Button
+        android:id="@+id/btn_investimento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorSantander"
+        android:text="Investimento"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_contato"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_contato"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorSantanderDark"
+        android:text="Contato"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_investimento"/>
+
+
+
+    <!--<ImageButton-->
+        <!--android:id="@+id/imageButton"-->
+        <!--android:layout_width="30dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:background="@drawable/btn_white_rounded"-->
+        <!--app:layout_constraintBottom_toBottomOf="@+id/edt_nome"-->
+        <!--app:layout_constraintEnd_toEndOf="@+id/edt_nome"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/edt_nome"-->
+        <!--app:srcCompat="@android:drawable/presence_offline"/>-->
+
+</android.support.constraint.ConstraintLayout>
