@@ -1,8 +1,5 @@
 package com.avanade.santander.fundos.presentation;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
-import android.app.Activity;
 import android.support.annotation.NonNull;
 
 import com.avanade.santander.UseCase;
@@ -10,13 +7,14 @@ import com.avanade.santander.UseCaseHandler;
 import com.avanade.santander.fundos.domain.model.Fundos;
 import com.avanade.santander.fundos.domain.usecase.GetFundos;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 
 public class FundosPresenter implements FundosContract.Presenter {
 
-
     private final FundosContract.View mFundosView;
-    private final GetFundos mGetFundos;
 
+    private final GetFundos mGetFundos;
     private final UseCaseHandler mUseCaseHandler;
 
     public FundosPresenter(@NonNull UseCaseHandler useCaseHandler,
@@ -73,10 +71,6 @@ public class FundosPresenter implements FundosContract.Presenter {
         ;
     }
 
-    @Override
-    public void baixarInfo(String stringURL) {
-        // TODO - call URL de Fundos.Screen.DownInfo.Data;
-    }
 
     @Override
     public void investir() {

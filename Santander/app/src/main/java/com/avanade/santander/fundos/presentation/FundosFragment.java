@@ -2,6 +2,7 @@ package com.avanade.santander.fundos.presentation;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,18 +20,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.avanade.santander.R;
-import com.avanade.santander.fundos.domain.ScrollChildSwipeRefreshLayout;
 import com.avanade.santander.fundos.domain.model.Fundos;
 import com.avanade.santander.fundos.domain.model.Info;
 import com.avanade.santander.fundos.domain.model.Screen;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+/**
+ * Camada de apresentação - View (Content)
+ * <p>
+ * Exibe os dados em tela e instancia os botoes a serem clicados
+ */
 public class FundosFragment extends Fragment implements FundosContract.View {
 
     private FundosContract.Presenter mPresenter;
@@ -169,7 +172,6 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         txtMoreLastYearCdi.setText(screen.getMoreInfo().getLastyear().getCDI());
 
 
-
         for (Info info : screen.getInfo()) {
 
             // INFO NAME
@@ -186,30 +188,41 @@ public class FundosFragment extends Fragment implements FundosContract.View {
             desenhaInfo(txtName, txtData);
         }
 
-        for (Info info : screen.getDownInfo()) {
+        for (final Info info : screen.getDownInfo()) {
 
             // INFO NAME
             TextView txtName = new TextView(getContext());
             txtName.setId(View.generateViewId());
             txtName.setText(info.getName());
 
-            // INFO DATA
+            // INFO BUTTON
             Button btnDown = new Button(getContext());
             btnDown.setId(View.generateViewId());
             btnDown.setText(" Baixar");
             btnDown.setTextColor(getResources().getColor(R.color.colorSantander));
             btnDown.setBackgroundColor(Color.TRANSPARENT);
-            btnDown.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baixar,0,0,0);
+            btnDown.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baixar, 0, 0, 0);
+
+            btnDown.setOnClickListener((view) -> {
+                String url = "http://www.santander.com";
+                if (info.getData() != null)
+                    url = info.getData();
+                abrirUrlDownloadInfo(checkNotNull(info.getData()));
+            });
 
             // DESENHA INFO NO LAYOUT
             desenhaInfo(txtName, btnDown);
         }
 
-
-
+        // Atualiza posição do botão
+        constraintSet.connect(
+                btnInvestir.getId(), ConstraintSet.TOP,
+                LAST_ID, ConstraintSet.BOTTOM
+        );
+        constraintSet.applyTo(fundosFragmentConstraintLayout);
     }
 
-    private void desenhaInfo(View name, View data){
+    private void desenhaInfo(View name, View data) {
 
         // ADD VIEWS AO LAYOUT
         fundosFragmentConstraintLayout.addView(name);
@@ -265,11 +278,19 @@ public class FundosFragment extends Fragment implements FundosContract.View {
 
     @Override
     public void showLoadingFundosError() {
-        showMessage("Erro ao buscar informações dobre fundos de investimentos");
+        showMessage("Erro ao buscar informações dobre fundos de investimentos.");
     }
 
     private void showMessage(String message) {
         Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void abrirUrlDownloadInfo(String stringURL) {
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(stringURL)); // "http://www.example.com";
+        startActivity(i);
+
     }
 
 

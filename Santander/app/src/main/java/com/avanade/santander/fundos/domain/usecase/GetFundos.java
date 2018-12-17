@@ -3,21 +3,23 @@ package com.avanade.santander.fundos.domain.usecase;
 import android.support.annotation.NonNull;
 
 import com.avanade.santander.UseCase;
-import com.avanade.santander.data.local.repository.FundosRepository;
-import com.avanade.santander.data.remote.FundosDataSource;
+import com.avanade.santander.fundos.data.FundosRepository;
+import com.avanade.santander.fundos.data.FundosDataSource;
 import com.avanade.santander.fundos.domain.model.Fundos;
-
-import java.util.List;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+/**
+ * Camada de Domínio - Caso de Uso
+ *
+ * Solicita à interface Repositorio
+ */
 public class GetFundos extends UseCase<GetFundos.RequestValues, GetFundos.ResponseValue> {
 
     private final FundosRepository mFundosRepository;
 
-
-    public GetFundos(@NonNull FundosRepository tasksRepository) {
-        mFundosRepository = checkNotNull(tasksRepository, "mFundosRepository cannot be null!");
+    public GetFundos(@NonNull FundosRepository fundosRepository) {
+        mFundosRepository = checkNotNull(fundosRepository, "mFundosRepository cannot be null!");
     }
 
     @Override
@@ -30,6 +32,11 @@ public class GetFundos extends UseCase<GetFundos.RequestValues, GetFundos.Respon
                             public void onFundosLoaded(Fundos fundos) {
                                 ResponseValue responseValue = new ResponseValue(fundos);
                                 getUseCaseCallback().onSuccess(responseValue);
+                            }
+
+                            @Override
+                            public void onDataNotAvailable() {
+                                getUseCaseCallback().onError();
                             }
                         });
 

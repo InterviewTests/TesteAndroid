@@ -1,9 +1,10 @@
-package com.avanade.santander.data.local.repository;
+package com.avanade.santander.fundos.data;
 
 import android.support.annotation.NonNull;
-import com.avanade.santander.data.remote.FundosDataSource;
+
 import com.avanade.santander.fundos.domain.model.Fundos;
-import java.util.Map;
+
+import java.util.ArrayList;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -14,26 +15,25 @@ public class FundosRepository implements FundosDataSource {
     private final FundosDataSource mFundosRemoteDataSource;
 
     /**
+     * Não utilizaremos o SQLite para armazenar valores fundos, pois, ele é volátil
+     * Também podemos nos ater a uma NoSQL caso necessário
+     */
+    // private final FundosDataSource mFundosLocalDataSource;
+
+
+    /**
      * Singleton
      */
-    private FundosRepository(@NonNull FundosDataSource tasksRemoteDataSource) {
-        mFundosRemoteDataSource = checkNotNull(tasksRemoteDataSource);
+    private FundosRepository(@NonNull FundosDataSource fundosRemoteDataSource) {
+        mFundosRemoteDataSource = checkNotNull(fundosRemoteDataSource);
     }
 
-    public static FundosRepository getInstance(FundosDataSource tasksRemoteDataSource) {
+    public static FundosRepository getInstance(FundosDataSource fundosRemoteDataSource) {
         if (INSTANCE == null) {
-            INSTANCE = new FundosRepository(tasksRemoteDataSource);
+            INSTANCE = new FundosRepository(fundosRemoteDataSource);
         }
         return INSTANCE;
     }
-
-    /**
-     * Used to force to create a new instance next time it's called.
-     */
-    public static void destroyInstance() {
-        INSTANCE = null;
-    }
-
 
     @Override
     public void getFundos(@NonNull final LoadFundosCallback callback) {
@@ -44,6 +44,10 @@ public class FundosRepository implements FundosDataSource {
                 callback.onFundosLoaded(fundos);
             }
 
+            @Override
+            public void onDataNotAvailable() {
+                callback.onDataNotAvailable();
+            }
         });
     }
 

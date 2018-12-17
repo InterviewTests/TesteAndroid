@@ -1,4 +1,4 @@
-package com.avanade.santander.data.remote;
+package com.avanade.santander.fundos.data;
 
 
 import android.support.annotation.NonNull;
@@ -9,6 +9,7 @@ public interface FundosDataSource {
 
     interface LoadFundosCallback {
         void onFundosLoaded(Fundos fundos);
+        void onDataNotAvailable();
     }
 
     void getFundos(@NonNull LoadFundosCallback callback);

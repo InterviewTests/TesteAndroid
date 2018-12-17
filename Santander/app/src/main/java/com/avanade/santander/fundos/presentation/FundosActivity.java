@@ -9,6 +9,9 @@ import com.avanade.santander.R;
 import com.avanade.santander.util.ActivityUtils;
 import com.avanade.santander.util.EspressoIdlingResource;
 
+/**
+ * Camada de apresentação - View (Container)
+ */
 public class FundosActivity extends AppCompatActivity {
 
     FundosPresenter fundosPresenter;
