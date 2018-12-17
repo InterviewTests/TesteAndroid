@@ -48,7 +48,23 @@ public class FormActivity extends AppCompatActivity {
 
         fnd = findViewById(R.id.fundo);
 
+        findViewById(R.id.btn_frm_investimento).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abreInvestimentos();
+            }
+        });
+
         solicitaFields();
+
+    }
+
+    /**
+     * Abre a Activity FundosActivity
+     */
+    private void abreInvestimentos() {
+        Intent i = new Intent(this, FundosActivity.class);
+        startActivity(i);
     }
 
     /**

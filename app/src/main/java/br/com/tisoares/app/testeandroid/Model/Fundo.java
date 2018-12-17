@@ -36,7 +36,7 @@ public class Fundo {
     }
 
     public void setRisk(int risk) {
-        if (risk >= 1 && risk <= 3) {
+        if (risk >= 1 && risk <= 5) {
             this.risk = risk;
         } else {
             throw new IllegalArgumentException("risk não é um valor permitido");
