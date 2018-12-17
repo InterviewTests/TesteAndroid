@@ -13,6 +13,7 @@
 
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -42,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="10dp"
             android:fontFamily="@font/dinpro_regular"
             android:text="17,6%"
             android:textAlignment="textEnd"
@@ -70,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="10dp"
             android:fontFamily="@font/dinpro_regular"
             android:text="12,08%"
             android:textAlignment="textEnd"
@@ -84,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="10dp"
             android:fontFamily="@font/dinpro_regular"
             android:text="0,3%"
             android:textAlignment="textEnd"
@@ -160,29 +161,33 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_info_title" />
 
         <Button
-            android:id="@+id/btn_investimento"
+            android:id="@+id/btn_sus_investimento"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="32dp"
             android:layout_marginBottom="8dp"
+            android:background="#DA0101"
             android:text="Investimento"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_contato"
+            app:layout_constraintEnd_toStartOf="@+id/btn_sus_contato"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/list_down_info" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_investir" />
 
         <Button
-            android:id="@+id/btn_contato"
+            android:id="@+id/btn_sus_contato"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="32dp"
             android:layout_marginBottom="8dp"
+            android:background="#DA0101"
             android:text="Contato"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn_investimento"
-            app:layout_constraintTop_toBottomOf="@+id/list_down_info" />
+            app:layout_constraintStart_toEndOf="@+id/btn_sus_investimento"
+            app:layout_constraintTop_toBottomOf="@+id/btn_investir"/>
 
         <TextView
             android:id="@+id/txt_title"
@@ -278,12 +283,13 @@
 
         <SeekBar
             android:id="@+id/risk"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            style="@android:style/Widget.Material.SeekBar.Discrete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:clickable="false"
             android:max="5"
             android:progress="3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -308,7 +314,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="10dp"
             android:fontFamily="@font/dinpro_regular"
             android:text="CDI"
             android:textColor="#ACACACAC"
@@ -336,11 +342,28 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_investir"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/list_info"
             tools:listitem="@layout/down_info_line_view" />
+
+        <Button
+            android:id="@+id/btn_investir"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
+            android:text="Investir"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/list_down_info" />
+
+
     </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

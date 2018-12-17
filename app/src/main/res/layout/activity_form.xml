@@ -27,15 +27,19 @@
         <Button
             android:id="@+id/btn_frm_investimento"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="55dp"
             android:text="Investimento"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="#DA0101"
+            android:textColor="#FFFFFF"/>
         <Button
             android:id="@+id/btn_frm_contato"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="55dp"
             android:text="Contato"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="#DA0101"
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
 
 </LinearLayout>

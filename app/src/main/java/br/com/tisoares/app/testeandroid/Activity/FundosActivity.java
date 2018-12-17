@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -37,7 +38,7 @@ public class FundosActivity extends AppCompatActivity {
 
         carregaCampos();
 
-        findViewById(R.id.btn_contato).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_sus_contato).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 abreContato();
@@ -128,6 +129,8 @@ public class FundosActivity extends AppCompatActivity {
         listInfo = findViewById(R.id.list_info);
         listDownInfo = findViewById(R.id.list_down_info);
 
+        //barRisk.setEnabled(false);
+
         // Configurando o gerenciador de layout para ser uma lista.
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         listInfo.setLayoutManager(layoutManager);
@@ -136,5 +139,11 @@ public class FundosActivity extends AppCompatActivity {
         LinearLayoutManager downLayoutManager = new LinearLayoutManager(this);
         listDownInfo.setLayoutManager(downLayoutManager);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_compartilhar, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

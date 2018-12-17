@@ -1,9 +1,12 @@
 package br.com.tisoares.app.testeandroid.Activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.support.v7.view.ContextThemeWrapper;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
@@ -133,11 +136,14 @@ public class FormActivity extends AppCompatActivity {
      * Cria os Botões
      * @param f Objeto Field contendo as props
      */
+    @SuppressLint("ResourceType")
     private void criaBtn(Field f) {
-        Button btn = new Button(this);
+        int buttonStyle = R.style.Button;
+        Button btn = new Button(new ContextThemeWrapper(this, buttonStyle), null, buttonStyle);
         btn.setId(f.getId());
         btn.setText(f.getMessage());
         btn.setVisibility(f.isHidden()? View.INVISIBLE: View.VISIBLE);
+        //btn.setBackgroundResource(R.drawable.button_draw);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,8 +151,11 @@ public class FormActivity extends AppCompatActivity {
                 enviar();
             }
         });
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(32, 32, 32, 32);
 
-        fnd.addView(btn);
+        fnd.addView(btn, layoutParams);
     }
 
     /**
@@ -206,6 +215,9 @@ public class FormActivity extends AppCompatActivity {
     private void criaCheckBox(final Field f) {
         CheckBox chk = new CheckBox(this);
         chk.setId(f.getId());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            chk.setTextAppearance(R.style.styleCheckBox);
+        }
         chk.setText(f.getMessage());
         chk.setVisibility(f.isHidden()? View.INVISIBLE: View.VISIBLE);
         if (f.getShow() > 0){
@@ -238,7 +250,8 @@ public class FormActivity extends AppCompatActivity {
      * @param f Objeto Field contendo as props
      */
     private void criaTxt(Field f) {
-        TextView txt = new TextView(this);
+        int txtStyle = R.style.styleLabel;
+        TextView txt = new TextView(new ContextThemeWrapper(this, txtStyle), null, txtStyle);
         txt.setId(f.getId());
         txt.setText(f.getMessage());
         txt.setVisibility(f.isHidden()? View.INVISIBLE: View.VISIBLE);
@@ -250,9 +263,11 @@ public class FormActivity extends AppCompatActivity {
      * Cria os Edits
      * @param f Objeto Field contendo as props
      */
+    //@RequiresApi(api = Build.VERSION_CODES.M)
     private void criaEdit(Field f) {
         EditText edt = new EditText(this);
         edt.setId(f.getId());
+        //edt.setTextAppearance(R.style.styleEdit);
         edt.setHint(f.getMessage());
         edt.setVisibility(f.isHidden()? View.INVISIBLE: View.VISIBLE);
         switch (f.getTypefield()){
