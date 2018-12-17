@@ -173,7 +173,7 @@ public class Fundo {
                     data = jDownInfo.getString("data");
                 }
 
-                this.infos.add(new Info(jDownInfo.getString("name"), data));
+                this.downInfos.add(new Info(jDownInfo.getString("name"), data));
             }
 
             /* ############################################################################################# */

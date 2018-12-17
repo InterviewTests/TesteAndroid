@@ -326,7 +326,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            tools:listitem="@layout/info_line_view" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list_down_info"
@@ -338,7 +339,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/list_info" />
+            app:layout_constraintTop_toBottomOf="@+id/list_info"
+            tools:listitem="@layout/down_info_line_view" />
     </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

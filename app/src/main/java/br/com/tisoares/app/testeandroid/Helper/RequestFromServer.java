@@ -12,6 +12,8 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 
 
+import java.io.UnsupportedEncodingException;
+
 import br.com.tisoares.app.testeandroid.R;
 
 /**
@@ -52,7 +54,12 @@ public abstract class RequestFromServer {
             public void onResponse(String response) {
                 hideDialog();
                 // Chama o metodo abstrato com a resposta do servidor
-                onReceive(response);
+                try {
+                    onReceive(new String(response.getBytes("ISO-8859-1"), "UTF-8"));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                    onError("Erro: " + e.getMessage());
+                }
             }
 
         }, new Response.ErrorListener() {

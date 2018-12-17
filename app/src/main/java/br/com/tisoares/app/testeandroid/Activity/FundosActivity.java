@@ -3,12 +3,15 @@ package br.com.tisoares.app.testeandroid.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import br.com.tisoares.app.testeandroid.Adapter.DownInfoAdapter;
+import br.com.tisoares.app.testeandroid.Adapter.InfoAdapter;
 import br.com.tisoares.app.testeandroid.Config.AppConfig;
 import br.com.tisoares.app.testeandroid.Helper.RequestFromServer;
 import br.com.tisoares.app.testeandroid.Model.Fundo;
@@ -21,6 +24,9 @@ public class FundosActivity extends AppCompatActivity {
             txtMesFund, txtMesCDI, txtAnoFund, txtAnoCDI, txt12Fund, txt12CDI;
     private SeekBar barRisk;
     private RecyclerView listInfo, listDownInfo;
+
+    private InfoAdapter infoAdapter;
+    private DownInfoAdapter downInfoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +99,16 @@ public class FundosActivity extends AppCompatActivity {
         txt12Fund.setText(fundo.getMoreInfo().get_12months().getFund()+"%");
         txt12CDI.setText(fundo.getMoreInfo().get_12months().getCDI()+"%");
         barRisk.setProgress(fundo.getRisk());
+
+        // Adiciona o adapter que irá anexar os objetos à lista.
+        // Está sendo criado com lista vazia, pois será preenchida posteriormente.
+        infoAdapter = new InfoAdapter(fundo.getInfos());
+        listInfo.setAdapter(infoAdapter);
+
+        // Adiciona o adapter que irá anexar os objetos à lista.
+        // Está sendo criado com lista vazia, pois será preenchida posteriormente.
+        downInfoAdapter = new DownInfoAdapter(fundo.getInfos());
+        listDownInfo.setAdapter(downInfoAdapter);
     }
 
     private void carregaCampos() {
@@ -111,5 +127,14 @@ public class FundosActivity extends AppCompatActivity {
         barRisk = findViewById(R.id.risk);
         listInfo = findViewById(R.id.list_info);
         listDownInfo = findViewById(R.id.list_down_info);
+
+        // Configurando o gerenciador de layout para ser uma lista.
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        listInfo.setLayoutManager(layoutManager);
+
+        // Configurando o gerenciador de layout para ser uma lista.
+        LinearLayoutManager downLayoutManager = new LinearLayoutManager(this);
+        listDownInfo.setLayoutManager(downLayoutManager);
+
     }
 }

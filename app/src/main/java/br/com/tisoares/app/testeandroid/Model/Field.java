@@ -181,7 +181,7 @@ public class Field {
         */
         setId(jsonObject.getInt("id"));
         type = CompType.fromValue(jsonObject.getInt("type"));
-        message = new String(jsonObject.getString("message").getBytes("ISO-8859-1"), "UTF-8");
+        message = jsonObject.getString("message");
 
         // verifico se o typefield é none
         if (jsonObject.isNull("typefield"))
