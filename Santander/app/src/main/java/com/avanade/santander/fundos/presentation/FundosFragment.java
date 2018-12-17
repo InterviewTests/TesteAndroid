@@ -46,7 +46,7 @@ public class FundosFragment extends Fragment implements FundosContract.View {
     private TextView txtDefinition;
     private TextView txtRiskTitle;
     private ImageView imgRisk;
-    private ImageView divider;
+    private View divider;
     private TextView txtMoreMonthFund;
     private TextView txtMoreMonthCdi;
     private TextView txtMoreYearFund;
@@ -92,8 +92,8 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         txtTitle = root.findViewById(R.id.txt_title);
         txtFundName = root.findViewById(R.id.txt_fundName);
         txtWhatIs = root.findViewById(R.id.txt_whatIs);
-        txtDefinition = root.findViewById(R.id.definition);
-        txtRiskTitle = root.findViewById(R.id.riskTitle);
+        txtDefinition = root.findViewById(R.id.txt_definition);
+        txtRiskTitle = root.findViewById(R.id.txt_riskTitle);
         imgRisk = root.findViewById(R.id.img_risk);
 
         divider = root.findViewById(R.id.divider);
@@ -109,7 +109,7 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         btnInvestir = root.findViewById(R.id.btn_investir);
 
         fundosFragmentConstraintLayout = root.findViewById(R.id.fundos_fragment_constraint_layout);
-        constraintSet.clone(fundosFragmentConstraintLayout);
+
 
 
         // Set up progress indicator
@@ -278,7 +278,7 @@ public class FundosFragment extends Fragment implements FundosContract.View {
 
     @Override
     public void showLoadingFundosError() {
-        showMessage("Erro ao buscar informações dobre fundos de investimentos.");
+        showMessage("Erro ao buscar informações sobre fundos de investimentos.");
     }
 
     private void showMessage(String message) {

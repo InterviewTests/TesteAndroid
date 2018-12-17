@@ -7,8 +7,8 @@
     android:orientation="vertical"
     tools:context=".fundos.domain.model.Fundos">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:isScrollContainer="true"
@@ -18,12 +18,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!--
         <include
             layout="@layout/fundos_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+        -->
 
-    </ScrollView>
+    </FrameLayout>
 
 
     <android.support.constraint.ConstraintLayout

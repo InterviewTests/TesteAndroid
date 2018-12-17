@@ -16,31 +16,12 @@
 
 package com.avanade.santander;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-
 import com.avanade.santander.fundos.data.FundosRemoteDataSource;
 import com.avanade.santander.fundos.data.FundosRepository;
 import com.avanade.santander.fundos.domain.usecase.GetFundos;
-import com.example.android.architecture.blueprints.todoapp.addeditfundo.domain.usecase.DeleteTask;
-import com.example.android.architecture.blueprints.todoapp.addeditfundo.domain.usecase.GetTask;
-import com.example.android.architecture.blueprints.todoapp.addeditfundo.domain.usecase.SaveTask;
-import com.example.android.architecture.blueprints.todoapp.data.FakeFundosRemoteDataSource;
-import com.example.android.architecture.blueprints.todoapp.data.source.FundosDataSource;
-import com.example.android.architecture.blueprints.todoapp.data.source.FundosRepository;
-import com.example.android.architecture.blueprints.todoapp.data.source.local.FundosLocalDataSource;
-import com.example.android.architecture.blueprints.todoapp.data.source.local.SantanderDatabase;
-import com.example.android.architecture.blueprints.todoapp.fundos.domain.usecase.ActivateTask;
-import com.example.android.architecture.blueprints.todoapp.fundos.domain.usecase.ClearCompleteFundos;
-import com.example.android.architecture.blueprints.todoapp.fundos.domain.usecase.CompleteTask;
-import com.example.android.architecture.blueprints.todoapp.fundos.domain.usecase.GetFundos;
-import com.example.android.architecture.blueprints.todoapp.statistics.domain.usecase.GetStatistics;
-import com.example.android.architecture.blueprints.todoapp.util.AppExecutors;
-
-import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
- *  Enables injection of mock implementations for
+ * Enables injection of mock implementations for
  */ //{@link fundosDataSource}
 /** at compile time. This is useful for testing, since it allows us to use
  * a fake instance of the class to isolate the dependencies and run a test hermetically.
@@ -56,10 +37,10 @@ public class Injection {
 //    }
 
     public static FundosRepository provideFundosRepository(
-           // Context aqui era para LocalDataSource em SQLiteOpenHelper
-           // @NonNull Context context
+            // Context aqui era para LocalDataSource em SQLiteOpenHelper
+            // @NonNull Context context
     ) {
-        return FundosRepository.getInstance();
+        return FundosRepository.getInstance(FundosRemoteDataSource.getInstance());
     }
 
     public static GetFundos provideGetFundos() {
