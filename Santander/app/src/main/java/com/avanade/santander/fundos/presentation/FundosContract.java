@@ -18,12 +18,12 @@ public interface FundosContract {
         void desenhaTela(Fundos fundos);
         boolean isActive();
         void showLoadingFundosError();
-        void abrirUrlDownloadInfo(String stringURL);
+        void abrirLinkBaixarInfo(String stringURL);
+        void iniciaActivityContato();
+        void share();
     }
 
     interface Presenter extends BasePresenter {
         void refreshFundos();
-
-        void investir();
     }
 }

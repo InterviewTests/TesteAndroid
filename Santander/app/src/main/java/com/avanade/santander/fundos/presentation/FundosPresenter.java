@@ -13,9 +13,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class FundosPresenter implements FundosContract.Presenter {
 
     private final FundosContract.View mFundosView;
-
     private final GetFundos mGetFundos;
     private final UseCaseHandler mUseCaseHandler;
+
+
+    private static Fundos FUNDO = null;
 
     public FundosPresenter(@NonNull UseCaseHandler useCaseHandler,
                            @NonNull FundosContract.View fundosView,
@@ -29,14 +31,20 @@ public class FundosPresenter implements FundosContract.Presenter {
     @Override
     public void start() {
         /** Call USE_CASE -> GetFundos() = buscar dados de Fundos, em Json, para exibir na tela */
-        refreshFundos();
+        getFundosOnView();
+    }
+
+    public void getFundosOnView(){
+        if(FUNDO == null)
+            refreshFundos();
+        else
+            mFundosView.desenhaTela(FUNDO);
     }
 
     public void refreshFundos() {
 
         // Exibe icone de loading até efetuar atualização
         mFundosView.setLoadingIndicator(true);
-
 
         GetFundos.RequestValues requestValue =
                 new GetFundos.RequestValues(/* Não vamos passar nenhum parametro de request aqui */);
@@ -51,9 +59,9 @@ public class FundosPresenter implements FundosContract.Presenter {
                                     return;
 
                                 /** Solicita a view para mostrar a tela com dados de Fundos */
-                                Fundos fundos = response.getFundos();
+                                FUNDO = response.getFundos();
                                 mFundosView.setLoadingIndicator(false);
-                                mFundosView.desenhaTela(fundos);
+                                mFundosView.desenhaTela(FUNDO);
                             }
 
                             @Override
@@ -70,12 +78,5 @@ public class FundosPresenter implements FundosContract.Presenter {
                 )
         ;
     }
-
-
-    @Override
-    public void investir() {
-        // TODO - call Contato
-    }
-
 
 }

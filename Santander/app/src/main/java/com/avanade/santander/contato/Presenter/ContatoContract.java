@@ -1,4 +1,4 @@
-package com.avanade.santander.contato;
+package com.avanade.santander.contato.Presenter;
 
 public interface ContatoContract {
 

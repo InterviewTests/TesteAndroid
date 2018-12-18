@@ -1,5 +1,6 @@
 package com.avanade.santander.fundos.presentation;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -16,13 +17,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.avanade.santander.R;
+import com.avanade.santander.contato.Presenter.ContatoActivity;
 import com.avanade.santander.fundos.domain.model.Fundos;
 import com.avanade.santander.fundos.domain.model.Info;
 import com.avanade.santander.fundos.domain.model.Screen;
+import com.avanade.santander.util.DpToPixels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +45,11 @@ public class FundosFragment extends Fragment implements FundosContract.View {
 
     private static int LAST_ID;
 
+    private ScrollView scrollViewTopContainer;
+    private ConstraintLayout fundosFragmentConstraintLayout;
+    private ConstraintSet constraintSet; // usaremos para configurar o layout das List<Views> info
+
+
     private TextView txtTitle;
     private TextView txtFundName;
     private TextView txtWhatIs;
@@ -54,8 +64,8 @@ public class FundosFragment extends Fragment implements FundosContract.View {
     private TextView txtMoreLastYearFund;
     private TextView txtMoreLastYearCdi;
     private Button btnInvestir;
-    private ConstraintLayout fundosFragmentConstraintLayout;
-    private ConstraintSet constraintSet; // usaremos para configurar o layout das List<Views> info
+    private ImageButton btnShare;
+
 
     public FundosFragment() {
         // Requires empty public constructor
@@ -66,21 +76,15 @@ public class FundosFragment extends Fragment implements FundosContract.View {
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //mListAdapter = new TasksAdapter(new ArrayList<Task>(0), mItemListener);
         constraintSet = new ConstraintSet();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mPresenter.start();
-    }
-
-    @Override
-    public void setPresenter(@NonNull FundosContract.Presenter presenter) {
-        mPresenter = checkNotNull(presenter);
     }
 
     @Nullable
@@ -95,10 +99,7 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         txtDefinition = root.findViewById(R.id.txt_definition);
         txtRiskTitle = root.findViewById(R.id.txt_riskTitle);
         imgRisk = root.findViewById(R.id.img_risk);
-
         divider = root.findViewById(R.id.divider);
-        LAST_ID = divider.getId();
-
         txtMoreMonthFund = root.findViewById(R.id.more_month_fund);
         txtMoreMonthCdi = root.findViewById(R.id.more_month_cdi);
         txtMoreYearFund = root.findViewById(R.id.more_year_fund);
@@ -107,9 +108,13 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         txtMoreLastYearCdi = root.findViewById(R.id.more_lastyear_cdi);
 
         btnInvestir = root.findViewById(R.id.btn_investir);
+        btnInvestir.setOnClickListener((v) -> iniciaActivityContato());
 
+        btnShare = root.findViewById(R.id.btn_share);
+        btnShare.setOnClickListener((v)->share());
+
+        scrollViewTopContainer = root.findViewById(R.id.scrool_view_top_container);
         fundosFragmentConstraintLayout = root.findViewById(R.id.fundos_fragment_constraint_layout);
-
 
 
         // Set up progress indicator
@@ -121,7 +126,7 @@ public class FundosFragment extends Fragment implements FundosContract.View {
                 ContextCompat.getColor(getActivity(), R.color.colorPrimaryDark)
         );
         // Set the scrolling view in the custom SwipeRefreshLayout.
-        swipeRefreshLayout.setScrollUpChild(fundosFragmentConstraintLayout);
+        swipeRefreshLayout.setScrollUpChild(scrollViewTopContainer);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -131,9 +136,58 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         });
 
         setHasOptionsMenu(true);
+        fundosFragmentConstraintLayout.setVisibility(View.GONE);
 
         return root;
 
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.start();
+    }
+
+
+    /**
+     * Lifecycle - Fragmente Running
+     */
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+
+    @Override
+    public void setPresenter(@NonNull FundosContract.Presenter presenter) {
+        mPresenter = checkNotNull(presenter);
     }
 
     @Override
@@ -156,6 +210,9 @@ public class FundosFragment extends Fragment implements FundosContract.View {
 
     @Override
     public void desenhaTela(Fundos fundos) {
+
+        fundosFragmentConstraintLayout.setVisibility(View.VISIBLE);
+
         List<Integer> ids = new ArrayList<>();
         Screen screen = fundos.getScreen();
         txtTitle.setText(screen.getTitle());
@@ -163,7 +220,7 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         txtWhatIs.setText(screen.getWhatIs());
         txtDefinition.setText(screen.getDefinition());
         txtRiskTitle.setText(screen.getRiskTitle());
-        imgRisk.setImageResource(drawableRisk(screen.getRisk()));
+        imgRisk.setImageResource(defineDrawableRisk(screen.getRisk()));
         txtMoreMonthFund.setText(screen.getMoreInfo().getMonth().getFund());
         txtMoreMonthCdi.setText(screen.getMoreInfo().getMonth().getCDI());
         txtMoreYearFund.setText(screen.getMoreInfo().getYear().getFund());
@@ -172,20 +229,24 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         txtMoreLastYearCdi.setText(screen.getMoreInfo().getLastyear().getCDI());
 
 
+        LAST_ID = divider.getId();
         for (Info info : screen.getInfo()) {
+
 
             // INFO NAME
             TextView txtName = new TextView(getContext());
             txtName.setId(View.generateViewId());
             txtName.setText(info.getName());
+            txtName.setTextColor(Color.DKGRAY);
 
             // INFO DATA
             TextView txtData = new TextView(getContext());
-            txtName.setId(View.generateViewId());
-            txtName.setText(info.getData());
+            txtData.setId(View.generateViewId());
+            txtData.setText(info.getData());
+            txtData.setTextColor(Color.BLACK);
 
-            // DESENHA INFO NO LAYOUT
-            desenhaInfo(txtName, txtData);
+            // CONSTRAINT LAYOUT PARA INFO
+            constraintInfo(txtName, txtData);
         }
 
         for (final Info info : screen.getDownInfo()) {
@@ -194,27 +255,29 @@ public class FundosFragment extends Fragment implements FundosContract.View {
             TextView txtName = new TextView(getContext());
             txtName.setId(View.generateViewId());
             txtName.setText(info.getName());
+            txtName.setTextColor(Color.DKGRAY);
 
             // INFO BUTTON
             Button btnDown = new Button(getContext());
             btnDown.setId(View.generateViewId());
+
             btnDown.setText(" Baixar");
             btnDown.setTextColor(getResources().getColor(R.color.colorSantander));
             btnDown.setBackgroundColor(Color.TRANSPARENT);
             btnDown.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baixar, 0, 0, 0);
 
             btnDown.setOnClickListener((view) -> {
-                String url = "http://www.santander.com";
-                if (info.getData() != null)
-                    url = info.getData();
-                abrirUrlDownloadInfo(checkNotNull(info.getData()));
+                String url = info.getData() != null ? info.getData() : "http://www.santander.com";
+                abrirLinkBaixarInfo(url);
             });
 
-            // DESENHA INFO NO LAYOUT
-            desenhaInfo(txtName, btnDown);
+            // CONSTRAINT LAYOUT PARA INFO
+            constraintInfo(txtName, btnDown);
         }
 
-        // Atualiza posição do botão
+        // CONSTRAINT LAYOUT BOTÃO INVESTIR
+        constraintSet.clone(fundosFragmentConstraintLayout);
+
         constraintSet.connect(
                 btnInvestir.getId(), ConstraintSet.TOP,
                 LAST_ID, ConstraintSet.BOTTOM
@@ -222,11 +285,14 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         constraintSet.applyTo(fundosFragmentConstraintLayout);
     }
 
-    private void desenhaInfo(View name, View data) {
+    private void constraintInfo(View name, View data) {
 
         // ADD VIEWS AO LAYOUT
         fundosFragmentConstraintLayout.addView(name);
         fundosFragmentConstraintLayout.addView(data);
+
+        // Atualiza posição do botão
+        constraintSet.clone(fundosFragmentConstraintLayout);
 
         // SET CONSTRAINTS NAME
         constraintSet.connect(
@@ -235,7 +301,8 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         );
         constraintSet.connect(
                 name.getId(), ConstraintSet.TOP,
-                LAST_ID, ConstraintSet.BOTTOM
+                LAST_ID, ConstraintSet.BOTTOM,
+                DpToPixels.convertToPixels(24, getContext())
         );
 
         // SET CONTRAINTS DATA
@@ -253,10 +320,10 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         );
 
         LAST_ID = name.getId();
+        constraintSet.applyTo(fundosFragmentConstraintLayout);
     }
 
-
-    public int drawableRisk(int risk) {
+    public int defineDrawableRisk(int risk) {
         switch (risk) {
             case 1:
                 return R.drawable.img_risk_1;
@@ -278,7 +345,7 @@ public class FundosFragment extends Fragment implements FundosContract.View {
 
     @Override
     public void showLoadingFundosError() {
-        showMessage("Erro ao buscar informações sobre fundos de investimentos.");
+        showMessage("Erro ao buscar informações sobre fundos de investimentos.\nVerifique sua conexão.");
     }
 
     private void showMessage(String message) {
@@ -286,11 +353,27 @@ public class FundosFragment extends Fragment implements FundosContract.View {
     }
 
     @Override
-    public void abrirUrlDownloadInfo(String stringURL) {
+    public void abrirLinkBaixarInfo(@NonNull String stringURL) {
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(stringURL)); // "http://www.example.com";
         startActivity(i);
+    }
 
+    @Override
+    public void iniciaActivityContato() {
+        // TODO - verificar se faremos a troca do Fragment, ou manteremos a call -> Activity em Single Responsibility
+        startActivity(new Intent(getContext(), ContatoActivity.class));
+    }
+
+    @Override
+    public void share() {
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = "Fundos Santander";
+        String shareSub = "Veja os ganhos em Fundo de Investimentos Santander";
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Compartilhar com "));
     }
 
 
