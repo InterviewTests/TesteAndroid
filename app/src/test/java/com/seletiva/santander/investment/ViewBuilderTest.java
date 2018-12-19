@@ -40,8 +40,5 @@ public class ViewBuilderTest implements Form {
     }
 
     @Override
-    public LayoutInflater getLayoutInflater() {
-
-        return null;
-    }
+    public LayoutInflater getInflater() { return null; }
 }
