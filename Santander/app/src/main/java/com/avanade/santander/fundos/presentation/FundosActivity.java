@@ -127,7 +127,6 @@ public class FundosActivity extends FragmentActivity {
         btnContato.setBackgroundColor(getResources().getColor(R.color.colorSantander));
         btnContato.setOnClickListener((v) -> {
             startActivity(new Intent(this, ContatoActivity.class));
-            finish();
         });
 
         btnInvestimento = findViewById(R.id.btn_investimento);

@@ -73,13 +73,12 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_nova"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="64dp"
             android:background="@android:color/transparent"
             android:fontFamily="@font/din_pro_medium"
-            android:onClick="novaMensagem"
             android:text="Enviar nova mensagem"
             android:textColor="@color/colorSantander"
             android:textSize="16sp"

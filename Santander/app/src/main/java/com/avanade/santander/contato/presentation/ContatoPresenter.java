@@ -95,7 +95,6 @@ public class ContatoPresenter implements ContatoContract.IPresenter {
     @Override
     public void enviaFormulario() {
         // TODO - Verificar com Product Owner o que fazer com a informação do usuário
-        mContatoView.novaMensagem();
     }
 
 

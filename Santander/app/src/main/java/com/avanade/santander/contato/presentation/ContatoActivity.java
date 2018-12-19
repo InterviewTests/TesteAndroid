@@ -77,28 +77,7 @@ public class ContatoActivity extends FragmentActivity {
 
     @Override
     public void onBackPressed() {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder
-                .setMessage("Finalizar o App Santander?")
-                .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Log.d("BACK PRESSED", "Alert: Finalizar Aplicativo? -> Clicou em SIM");
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-                            finishAndRemoveTask();
-                        else
-                            finish();
-                    }
-                })
-                .setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Log.d("BACK PRESSED", "Alert: Finalizar Aplicativo? -> Clicou em NÃO");
-                        dialog.dismiss();
-                    }
-                })
-        ;
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        finish();
     }
 
     @Override
@@ -129,7 +108,6 @@ public class ContatoActivity extends FragmentActivity {
         btnInvestimento = findViewById(R.id.contato_btn_investimento);
         btnInvestimento.setBackgroundColor(getResources().getColor(R.color.colorSantander));
         btnInvestimento.setOnClickListener((v) -> {
-            startActivity(new Intent(this, FundosActivity.class));
             finish();
         });
 

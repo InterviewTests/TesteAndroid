@@ -23,8 +23,6 @@ public interface ContatoContract {
 
         void showLoadingFormularioError();
 
-        void novaMensagem();
-
         boolean isActive();
     }
 
