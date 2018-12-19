@@ -8,6 +8,7 @@ import android.support.test.annotation.UiThreadTest;
 import android.support.test.filters.MediumTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.seletiva.santander.investment.UI.Activities.MainActivity;
@@ -73,5 +74,13 @@ public class FormBuilderInstrumentedTest {
                 .addViewById(randomInvalidViewId);
 
         assertEquals(formContainer.getChildCount(), 2);
+    }
+
+    @Test
+    @UiThreadTest
+    public void testFormBuilderRecoverViewById() {
+        final int viewByToRecovered = R.layout.form_component_field;
+        View recoveredView = formBuilder.recoverViewById(viewByToRecovered);
+        assertNotNull(recoveredView);
     }
 }

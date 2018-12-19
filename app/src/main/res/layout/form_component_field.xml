@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/editText"
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/textualData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"

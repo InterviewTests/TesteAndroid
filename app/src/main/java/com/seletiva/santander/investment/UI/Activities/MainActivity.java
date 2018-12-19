@@ -1,19 +1,23 @@
 package com.seletiva.santander.investment.UI.Activities;
 
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.seletiva.santander.investment.R;
 import com.seletiva.santander.investment.UI.View.Form;
 import com.seletiva.santander.investment.UI.View.FormBuilder;
 import com.seletiva.santander.investment.UI.View.FormBuilderException;
+import com.seletiva.santander.investment.UI.View.FormFieldListener;
+import com.seletiva.santander.investment.UI.View.FormFieldWatcher;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_main)
-public class MainActivity extends BaseActivity implements Form {
+public class MainActivity extends BaseActivity implements Form, FormFieldListener {
     @ViewById
     LinearLayout formContainer;
 
@@ -29,6 +33,12 @@ public class MainActivity extends BaseActivity implements Form {
             formBuilder.addViewById(R.layout.form_component_checkbox)
                     .addViewById(R.layout.form_component_field)
                     .addViewById(R.layout.form_component_text);
+
+            EditText mailForm = formBuilder
+                    .recoverViewById(R.layout.form_component_field)
+                    .findViewById(R.id.textualData);
+
+            mailForm.addTextChangedListener(new FormFieldWatcher(mailForm, this));
         } catch (FormBuilderException e) {
             e.printStackTrace();
         }
@@ -43,5 +53,11 @@ public class MainActivity extends BaseActivity implements Form {
     @Override
     public LayoutInflater getInflater() {
         return getLayoutInflater();
+    }
+
+    @Override
+    public void updateEditTextColor(EditText targetEditText, int color) {
+        targetEditText.getBackground().setColorFilter(getResources().getColor(color),
+                PorterDuff.Mode.SRC_ATOP);
     }
 }

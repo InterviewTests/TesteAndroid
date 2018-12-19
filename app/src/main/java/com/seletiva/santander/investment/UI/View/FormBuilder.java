@@ -29,12 +29,18 @@ public class FormBuilder {
         try {
          View inflatedView = inflater.inflate(componentId, null);
 
-            if (inflatedView != null)
+            if (inflatedView != null) {
+                inflatedView.setId(componentId);
                 formContainer.addView(inflatedView);
+            }
         } catch (Exception e) {
             Log.d(getClass().getCanonicalName(), "Impossible to inflate the view");
         }
 
         return this;
+    }
+
+    public View recoverViewById(int viewByToRecovered) {
+        return formContainer.findViewById(viewByToRecovered);
     }
 }
