@@ -3,8 +3,8 @@ package com.avanade.santander.fundos.domain.usecase;
 import android.support.annotation.NonNull;
 
 import com.avanade.santander.UseCase;
-import com.avanade.santander.fundos.data.FundosRepository;
-import com.avanade.santander.fundos.data.FundosDataSource;
+import com.avanade.santander.data.FundosRepository;
+import com.avanade.santander.data.FundosDataSource;
 import com.avanade.santander.fundos.domain.model.Fundos;
 
 import static com.google.common.base.Preconditions.checkNotNull;

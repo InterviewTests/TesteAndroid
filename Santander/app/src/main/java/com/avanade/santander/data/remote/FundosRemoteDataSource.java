@@ -1,10 +1,9 @@
-package com.avanade.santander.fundos.data;
+package com.avanade.santander.data.remote;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.avanade.santander.data.remote.APIRetrofitService;
-import com.avanade.santander.data.remote.ApiClient;
+import com.avanade.santander.data.FundosDataSource;
 import com.avanade.santander.fundos.domain.model.Fundos;
 
 import retrofit2.Call;

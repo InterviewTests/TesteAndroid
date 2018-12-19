@@ -1,6 +1,7 @@
 package com.avanade.santander.contato.domain.model;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,8 +9,11 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Entity(tableName = "Cell")
+@Entity(tableName = Cell.TABLE_NAME)
 public final class Cell {
+
+    @Ignore
+    public static final String TABLE_NAME = "cells";
 
     @PrimaryKey
     @NonNull
@@ -23,8 +27,9 @@ public final class Cell {
     @Expose
     private final String message;
 
+    @Nullable
     @Expose
-    private final int typefield;
+    private final String typefield;
 
     @Expose
     private final boolean hidden;
@@ -39,7 +44,7 @@ public final class Cell {
     private final boolean required;
 
 
-    public Cell(@NonNull int id, int type, @Nullable String message, int typefield,
+    public Cell(@NonNull int id, int type, @Nullable String message, String typefield,
                 boolean hidden, double topSpacing, int show, boolean required) {
         this.id = id;
         this.type = type;
@@ -65,7 +70,7 @@ public final class Cell {
         return message;
     }
 
-    public int getTypefield() {
+    public String getTypefield() {
         return typefield;
     }
 

@@ -4,8 +4,8 @@ import android.support.annotation.NonNull;
 
 import com.avanade.santander.UseCase;
 import com.avanade.santander.contato.domain.model.Cell;
-import com.avanade.santander.data.contato.CellsDataSource;
-import com.avanade.santander.data.local.repository.CellsRepository;
+import com.avanade.santander.data.CellsDataSource;
+import com.avanade.santander.data.CellsRepository;
 
 import java.util.List;
 

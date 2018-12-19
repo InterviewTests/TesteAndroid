@@ -86,7 +86,6 @@ public class FundosFragment extends Fragment implements FundosContract.IView {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //mListAdapter = new TasksAdapter(new ArrayList<Task>(0), mItemListener);
         constraintSet = new ConstraintSet();
 
         typefaceDinProMedium = ResourcesCompat.getFont(getContext(), R.font.din_pro_medium);
@@ -164,11 +163,9 @@ public class FundosFragment extends Fragment implements FundosContract.IView {
         mIPresenter.start();
     }
 
-
     /**
      * Lifecycle - Fragmente Running
      */
-
 
     @Override
     public void onPause() {

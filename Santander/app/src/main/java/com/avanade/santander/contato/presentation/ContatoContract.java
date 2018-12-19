@@ -1,4 +1,4 @@
-package com.avanade.santander.contato.Presenter;
+package com.avanade.santander.contato.presentation;
 
 import android.widget.TextView;
 
@@ -38,6 +38,8 @@ public interface ContatoContract {
     interface IPresenter extends BasePresenter {
 
         void getFormulario();
+
+        void refreshFormulario();
 
         void enviaFormulario();
 

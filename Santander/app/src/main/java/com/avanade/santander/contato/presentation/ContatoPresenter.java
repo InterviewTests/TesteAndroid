@@ -1,4 +1,4 @@
-package com.avanade.santander.contato.Presenter;
+package com.avanade.santander.contato.presentation;
 
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
@@ -8,7 +8,6 @@ import com.avanade.santander.UseCase;
 import com.avanade.santander.UseCaseHandler;
 import com.avanade.santander.contato.domain.model.Cell;
 import com.avanade.santander.contato.domain.usecase.GetCells;
-import com.avanade.santander.fundos.domain.usecase.GetFundos;
 
 import java.util.List;
 
@@ -38,14 +37,16 @@ public class ContatoPresenter implements ContatoContract.IPresenter {
     @Override
     public void start() {
         /** Call USE_CASE -> GetFundos() = buscar dados de Fundos, em Json, para exibir na tela */
-        refreshTela();
+        refreshFormulario();
     }
 
-    public void refreshTela() {
+    @Override
+    public void refreshFormulario() {
         AsyncTask.execute(() -> {
             if (FORMULARIO == null)
                 getFormulario();
             mContatoView.desenhaTela(FORMULARIO);
+            mContatoView.setLoadingIndicator(false);
         });
     }
 
@@ -73,11 +74,7 @@ public class ContatoPresenter implements ContatoContract.IPresenter {
                                 // The view may not be able to handle UI updates anymore
                                 if (!mContatoView.isActive())
                                     return;
-
-                                /** Solicita a view para mostrar a tela com dados de Fundos */
                                 FORMULARIO = response.getCells();
-                                mContatoView.setLoadingIndicator(false);
-                                mContatoView.desenhaTela(FORMULARIO);
                             }
 
                             @Override

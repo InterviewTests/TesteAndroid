@@ -1,4 +1,4 @@
-package com.avanade.santander.data.contato;
+package com.avanade.santander.data;
 
 import android.support.annotation.NonNull;
 import com.avanade.santander.contato.domain.model.Cell;
@@ -14,18 +14,17 @@ import java.util.List;
  */
 public interface CellsDataSource {
 
+
+    // CALLBACK datasource REMOTE
     interface LoadCellsCallback {
-        void onCellsLoaded(List<Cell> Cells);
+        
+        void onCellsLoaded(List<Cell> cells);
+        
         void onDataNotAvailable();
     }
-//
-//    interface GetCellCallback {
-//        void onCellLoaded(Cell Cell);
-//        void onDataNotAvailable();
-//    }
 
     void getCells(@NonNull LoadCellsCallback callback);
 
-//    void getCell(@NonNull String CellId, @NonNull GetCellCallback callback);
+    void refreshCells(List<Cell> cells);
 
 }

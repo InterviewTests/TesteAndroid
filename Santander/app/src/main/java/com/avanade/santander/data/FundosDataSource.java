@@ -1,4 +1,4 @@
-package com.avanade.santander.fundos.data;
+package com.avanade.santander.data;
 
 
 import android.support.annotation.NonNull;

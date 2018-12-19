@@ -1,10 +1,8 @@
-package com.avanade.santander.fundos.data;
+package com.avanade.santander.data;
 
 import android.support.annotation.NonNull;
 
 import com.avanade.santander.fundos.domain.model.Fundos;
-
-import java.util.ArrayList;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

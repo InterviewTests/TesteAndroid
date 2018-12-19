@@ -1,6 +1,5 @@
 package com.avanade.santander.fundos.domain.model;
 
-import com.avanade.santander.fundos.domain.model.Screen;
 import com.google.gson.annotations.Expose;
 
 public class Fundos {

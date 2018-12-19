@@ -16,30 +16,37 @@
 
 package com.avanade.santander;
 
-import com.avanade.santander.fundos.data.FundosRemoteDataSource;
-import com.avanade.santander.fundos.data.FundosRepository;
+import android.content.Context;
+import android.support.annotation.NonNull;
+
+import com.avanade.santander.contato.domain.usecase.GetCells;
+import com.avanade.santander.data.local.CellsLocalDataSource;
+import com.avanade.santander.data.local.SantanderDatabase;
+import com.avanade.santander.data.remote.CellsRemoteDataSource;
+import com.avanade.santander.data.CellsRepository;
+import com.avanade.santander.data.remote.FundosRemoteDataSource;
+import com.avanade.santander.data.FundosRepository;
 import com.avanade.santander.fundos.domain.usecase.GetFundos;
+import com.avanade.santander.util.AppExecutors;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Enables injection of mock implementations for
  */ //{@link fundosDataSource}
-/** at compile time. This is useful for testing, since it allows us to use
+
+/**
+ * at compile time. This is useful for testing, since it allows us to use
  * a fake instance of the class to isolate the dependencies and run a test hermetically.
  */
 public class Injection {
-//
-//    public static FundosRepository provideFundosRepository(@NonNull Context context) {
-//        checkNotNull(context);
-//        SantanderDatabase database = SantanderDatabase.getInstance(context);
-//        return FundosRepository.getInstance(FakeFundosRemoteDataSource.getInstance(),
-//                FundosLocalDataSource.getInstance(new AppExecutors(),
-//                        database.fundoDao()));
-//    }
 
-    public static FundosRepository provideFundosRepository(
-            // Context aqui era para LocalDataSource em SQLiteOpenHelper
-            // @NonNull Context context
-    ) {
+    public static UseCaseHandler provideUseCaseHandler() {
+        return UseCaseHandler.getInstance();
+    }
+
+    public static FundosRepository provideFundosRepository(/* @NonNull Context context */) {
+        // Context aqui era para LocalDataSource em SQLiteOpenHelper
         return FundosRepository.getInstance(FundosRemoteDataSource.getInstance());
     }
 
@@ -47,7 +54,19 @@ public class Injection {
         return new GetFundos(provideFundosRepository());
     }
 
-    public static UseCaseHandler provideUseCaseHandler() {
-        return UseCaseHandler.getInstance();
+
+    public static CellsRepository provideCellsRepository(@NonNull Context context) {
+        checkNotNull(context);
+        SantanderDatabase database = SantanderDatabase.getInstance(context);
+        return CellsRepository.getInstance(
+                CellsRemoteDataSource.getInstance(),
+                CellsLocalDataSource.getInstance(new AppExecutors(), database.contatoDao())
+        );
     }
+
+    public static GetCells provideGetCells(@NonNull Context context) {
+        return new GetCells(provideCellsRepository(context));
+    }
+
+
 }
