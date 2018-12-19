@@ -39,7 +39,8 @@ public final class Cell {
     private final boolean required;
 
 
-    public Cell(@NonNull int id, int type, @Nullable String message, int typefield, boolean hidden, double topSpacing, int show, boolean required) {
+    public Cell(@NonNull int id, int type, @Nullable String message, int typefield,
+                boolean hidden, double topSpacing, int show, boolean required) {
         this.id = id;
         this.type = type;
         this.message = message;

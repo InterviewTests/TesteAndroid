@@ -3,6 +3,7 @@ package com.avanade.santander.fundos.presentation;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.support.constraint.ConstraintSet;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +25,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.avanade.santander.R;
-import com.avanade.santander.contato.Presenter.ContatoActivity;
 import com.avanade.santander.fundos.domain.model.Fundos;
 import com.avanade.santander.fundos.domain.model.Info;
 import com.avanade.santander.fundos.domain.model.Screen;
@@ -35,20 +36,19 @@ import java.util.List;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
- * Camada de apresentação - View (Content)
+ * Camada de apresentação - IView (Content)
  * <p>
  * Exibe os dados em tela e instancia os botoes a serem clicados
  */
-public class FundosFragment extends Fragment implements FundosContract.View {
+public class FundosFragment extends Fragment implements FundosContract.IView {
 
-    private FundosContract.Presenter mPresenter;
+    private FundosContract.IPresenter mIPresenter;
 
     private static int LAST_ID;
 
     private ScrollView scrollViewTopContainer;
     private ConstraintLayout fundosFragmentConstraintLayout;
     private ConstraintSet constraintSet; // usaremos para configurar o layout das List<Views> info
-
 
     private TextView txtTitle;
     private TextView txtFundName;
@@ -65,6 +65,9 @@ public class FundosFragment extends Fragment implements FundosContract.View {
     private TextView txtMoreLastYearCdi;
     private Button btnInvestir;
     private ImageButton btnShare;
+
+    Typeface typefaceDinProMedium;
+    Typeface typefaceDinProRegular;
 
 
     public FundosFragment() {
@@ -85,6 +88,9 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         super.onCreate(savedInstanceState);
         //mListAdapter = new TasksAdapter(new ArrayList<Task>(0), mItemListener);
         constraintSet = new ConstraintSet();
+
+        typefaceDinProMedium = ResourcesCompat.getFont(getContext(), R.font.din_pro_medium);
+        typefaceDinProRegular = ResourcesCompat.getFont(getContext(), R.font.din_pro_regular);
     }
 
     @Nullable
@@ -131,7 +137,7 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mPresenter.refreshFundos();
+                mIPresenter.refreshFundos();
             }
         });
 
@@ -155,7 +161,7 @@ public class FundosFragment extends Fragment implements FundosContract.View {
     @Override
     public void onResume() {
         super.onResume();
-        mPresenter.start();
+        mIPresenter.start();
     }
 
 
@@ -186,8 +192,8 @@ public class FundosFragment extends Fragment implements FundosContract.View {
     }
 
     @Override
-    public void setPresenter(@NonNull FundosContract.Presenter presenter) {
-        mPresenter = checkNotNull(presenter);
+    public void setPresenter(@NonNull FundosContract.IPresenter IPresenter) {
+        mIPresenter = checkNotNull(IPresenter);
     }
 
     @Override
@@ -221,12 +227,12 @@ public class FundosFragment extends Fragment implements FundosContract.View {
         txtDefinition.setText(screen.getDefinition());
         txtRiskTitle.setText(screen.getRiskTitle());
         imgRisk.setImageResource(defineDrawableRisk(screen.getRisk()));
-        txtMoreMonthFund.setText(screen.getMoreInfo().getMonth().getFund());
-        txtMoreMonthCdi.setText(screen.getMoreInfo().getMonth().getCDI());
-        txtMoreYearFund.setText(screen.getMoreInfo().getYear().getFund());
-        txtMoreYearCdi.setText(screen.getMoreInfo().getYear().getCDI());
-        txtMoreLastYearFund.setText(screen.getMoreInfo().getLastyear().getFund());
-        txtMoreLastYearCdi.setText(screen.getMoreInfo().getLastyear().getCDI());
+        txtMoreMonthFund.setText(screen.getMoreInfo().getMonth().getFund() + "%");
+        txtMoreMonthCdi.setText(screen.getMoreInfo().getMonth().getCDI() + "%");
+        txtMoreYearFund.setText(screen.getMoreInfo().getYear().getFund() + "%");
+        txtMoreYearCdi.setText(screen.getMoreInfo().getYear().getCDI() + "%");
+        txtMoreLastYearFund.setText(screen.getMoreInfo().getLastyear().getFund() + "%");
+        txtMoreLastYearCdi.setText(screen.getMoreInfo().getLastyear().getCDI() + "%");
 
 
         LAST_ID = divider.getId();
@@ -237,13 +243,15 @@ public class FundosFragment extends Fragment implements FundosContract.View {
             TextView txtName = new TextView(getContext());
             txtName.setId(View.generateViewId());
             txtName.setText(info.getName());
-            txtName.setTextColor(Color.DKGRAY);
+            txtName.setTextColor(getResources().getColor(android.R.color.darker_gray));
+            //txtName.setTypeface(typefaceDinProRegular);
 
             // INFO DATA
             TextView txtData = new TextView(getContext());
             txtData.setId(View.generateViewId());
             txtData.setText(info.getData());
             txtData.setTextColor(Color.BLACK);
+            //txtData.setTypeface(typefaceDinProRegular);
 
             // CONSTRAINT LAYOUT PARA INFO
             constraintInfo(txtName, txtData);
@@ -255,7 +263,8 @@ public class FundosFragment extends Fragment implements FundosContract.View {
             TextView txtName = new TextView(getContext());
             txtName.setId(View.generateViewId());
             txtName.setText(info.getName());
-            txtName.setTextColor(Color.DKGRAY);
+            txtName.setTextColor(getResources().getColor(android.R.color.darker_gray));
+            //txtName.setTypeface(typefaceDinProRegular);
 
             // INFO BUTTON
             Button btnDown = new Button(getContext());
@@ -362,7 +371,7 @@ public class FundosFragment extends Fragment implements FundosContract.View {
     @Override
     public void iniciaActivityContato() {
         // TODO - verificar se faremos a troca do Fragment, ou manteremos a call -> Activity em Single Responsibility
-        startActivity(new Intent(getContext(), ContatoActivity.class));
+        //startActivity(new Intent(getContext(), ContatoActivity.class));
     }
 
     @Override

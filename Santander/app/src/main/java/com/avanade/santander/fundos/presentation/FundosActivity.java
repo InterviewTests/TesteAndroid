@@ -15,7 +15,7 @@ import com.avanade.santander.util.ActivityUtils;
 import com.avanade.santander.util.EspressoIdlingResource;
 
 /**
- * Camada de apresentação - View (Container)
+ * Camada de apresentação - IView (Container)
  */
 public class FundosActivity extends FragmentActivity {
 
@@ -24,7 +24,7 @@ public class FundosActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fundos_activity);
+        setContentView(R.layout.common_layout_activity);
 
         FundosFragment fundosFragment = (FundosFragment) getSupportFragmentManager().findFragmentById(R.id.container);
 
@@ -113,13 +113,6 @@ public class FundosActivity extends FragmentActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
-
-
-
-
-
-
-
 
 
 }

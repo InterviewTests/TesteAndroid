@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".fundos.domain.model.Fundos">
+    android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/container"
@@ -16,13 +14,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <!--
-        <include
-            layout="@layout/fundos_fragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        -->
 
     </FrameLayout>
 
@@ -61,14 +52,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_investimento" />
 
-
         <View
-            android:id="@+id/barra"
+            android:id="@+id/barra_investimento"
             android:layout_width="wrap_content"
             android:layout_height="3dp"
             android:background="@color/colorSantanderDark"
             app:layout_constraintBottom_toTopOf="@+id/btn_contato"
             app:layout_constraintEnd_toEndOf="@+id/btn_investimento" />
+        <View
+            android:id="@+id/barra_contato"
+            android:layout_width="wrap_content"
+            android:layout_height="3dp"
+            android:visibility="gone"
+            android:background="@color/colorSantanderDark"
+            app:layout_constraintBottom_toTopOf="@+id/btn_contato"
+            app:layout_constraintStart_toStartOf="@+id/btn_contato" />
     </android.support.constraint.ConstraintLayout>
 
 

@@ -1,5 +1,6 @@
 package com.avanade.santander.fundos.presentation;
 
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
 import com.avanade.santander.UseCase;
@@ -10,9 +11,9 @@ import com.avanade.santander.fundos.domain.usecase.GetFundos;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 
-public class FundosPresenter implements FundosContract.Presenter {
+public class FundosPresenter implements FundosContract.IPresenter {
 
-    private final FundosContract.View mFundosView;
+    private final FundosContract.IView mFundosView;
     private final GetFundos mGetFundos;
     private final UseCaseHandler mUseCaseHandler;
 
@@ -20,10 +21,10 @@ public class FundosPresenter implements FundosContract.Presenter {
     private static Fundos FUNDO = null;
 
     public FundosPresenter(@NonNull UseCaseHandler useCaseHandler,
-                           @NonNull FundosContract.View fundosView,
+                           @NonNull FundosContract.IView fundosIView,
                            @NonNull GetFundos getFundos) {
         mUseCaseHandler = checkNotNull(useCaseHandler, "usecaseHandler cannot be null");
-        mFundosView = checkNotNull(fundosView, "fundosView cannot be null!");
+        mFundosView = checkNotNull(fundosIView, "fundosIView cannot be null!");
         mGetFundos = checkNotNull(getFundos, "getFundos cannot be null!");
         mFundosView.setPresenter(this);
     }
@@ -35,10 +36,16 @@ public class FundosPresenter implements FundosContract.Presenter {
     }
 
     public void getFundosOnView(){
-        if(FUNDO == null)
-            refreshFundos();
-        else
+//        if(FUNDO == null)
+//            refreshFundos();
+//        else
+//            mFundosView.desenhaTela(FUNDO);
+
+        AsyncTask.execute(() -> {
+            if (FUNDO == null)
+                refreshFundos();
             mFundosView.desenhaTela(FUNDO);
+        });
     }
 
     public void refreshFundos() {
