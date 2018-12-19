@@ -3,6 +3,7 @@ package com.avanade.santander.data;
 import android.support.annotation.NonNull;
 
 import com.avanade.santander.contato.domain.model.Cell;
+import com.avanade.santander.contato.domain.model.Formulario;
 
 import java.util.List;
 
@@ -51,23 +52,23 @@ public class CellsRepository implements CellsDataSource {
      * Note: {@link LoadCellsCallback#onDataNotAvailable()} is fired if all data sources fail
      */
     @Override
-    public void getCells(@NonNull final LoadCellsCallback callback) {
+    public void getFormulario(@NonNull final LoadCellsCallback callback) {
         checkNotNull(callback);
 
-        mCellsRemoteDataSource.getCells(new LoadCellsCallback() {
+        mCellsRemoteDataSource.getFormulario(new LoadCellsCallback() {
             @Override
-            public void onCellsLoaded(List<Cell> cells) {
+            public void onCellsLoaded(Formulario formulario) {
                 // Executa Refresh
-                refreshCells(cells);
-                callback.onCellsLoaded(cells);
+                refreshCells(formulario.getCells());
+                callback.onCellsLoaded(formulario);
             }
 
             @Override
             public void onDataNotAvailable() {
-                mCellsLocalDataSource.getCells(new LoadCellsCallback() {
+                mCellsLocalDataSource.getFormulario(new LoadCellsCallback() {
                     @Override
-                    public void onCellsLoaded(List<Cell> cells) {
-                        callback.onCellsLoaded(cells);
+                    public void onCellsLoaded(Formulario formulario) {
+                        callback.onCellsLoaded(formulario);
                     }
 
                     @Override

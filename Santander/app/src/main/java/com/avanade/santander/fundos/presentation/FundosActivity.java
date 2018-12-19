@@ -1,6 +1,7 @@
 package com.avanade.santander.fundos.presentation;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
@@ -8,9 +9,12 @@ import android.support.test.espresso.IdlingResource;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.avanade.santander.Injection;
 import com.avanade.santander.R;
+import com.avanade.santander.contato.presentation.ContatoActivity;
 import com.avanade.santander.util.ActivityUtils;
 import com.avanade.santander.util.EspressoIdlingResource;
 
@@ -20,13 +24,18 @@ import com.avanade.santander.util.EspressoIdlingResource;
 public class FundosActivity extends FragmentActivity {
 
     FundosPresenter fundosPresenter;
+    Button btnContato;
+    Button btnInvestimento;
+    View barraInvestimento;
+    View barraContato;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.common_layout_activity);
+        setContentView(R.layout.fundos_activity);
 
         FundosFragment fundosFragment = (FundosFragment) getSupportFragmentManager().findFragmentById(R.id.container);
+        setActionButtons();
 
         if (fundosFragment == null) {
             // Create the fragment
@@ -40,7 +49,6 @@ public class FundosActivity extends FragmentActivity {
                 fundosFragment,
                 Injection.provideGetFundos()
         );
-
     }
 
     @Override
@@ -112,6 +120,27 @@ public class FundosActivity extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    private void setActionButtons() {
+        btnContato = findViewById(R.id.btn_contato);
+        btnContato.setBackgroundColor(getResources().getColor(R.color.colorSantander));
+        btnContato.setOnClickListener((v) -> {
+            startActivity(new Intent(this, ContatoActivity.class));
+            finish();
+        });
+
+        btnInvestimento = findViewById(R.id.btn_investimento);
+        btnInvestimento.setBackgroundColor(getResources().getColor(R.color.colorSantanderDark));
+        btnInvestimento.setOnClickListener((v) -> onResume());
+
+        barraInvestimento = findViewById(R.id.barra_investimento);
+        barraInvestimento.setVisibility(View.VISIBLE);
+        barraInvestimento.setBackgroundColor(getResources().getColor(R.color.colorSantanderDark));
+
+        barraContato = findViewById(R.id.barra_contato);
+        barraContato.setVisibility(View.GONE);
+        barraInvestimento.setBackgroundColor(getResources().getColor(R.color.colorSantanderDark));
     }
 
 

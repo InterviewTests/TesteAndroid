@@ -19,7 +19,7 @@ package com.avanade.santander;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.avanade.santander.contato.domain.usecase.GetCells;
+import com.avanade.santander.contato.domain.usecase.GetFormulario;
 import com.avanade.santander.data.local.CellsLocalDataSource;
 import com.avanade.santander.data.local.SantanderDatabase;
 import com.avanade.santander.data.remote.CellsRemoteDataSource;
@@ -64,8 +64,8 @@ public class Injection {
         );
     }
 
-    public static GetCells provideGetCells(@NonNull Context context) {
-        return new GetCells(provideCellsRepository(context));
+    public static GetFormulario provideGetCells(@NonNull Context context) {
+        return new GetFormulario(provideCellsRepository(context));
     }
 
 

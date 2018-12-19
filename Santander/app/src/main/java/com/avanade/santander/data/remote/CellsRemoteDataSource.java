@@ -4,6 +4,7 @@ package com.avanade.santander.data.remote;
 import android.support.annotation.NonNull;
 
 import com.avanade.santander.contato.domain.model.Cell;
+import com.avanade.santander.contato.domain.model.Formulario;
 import com.avanade.santander.data.CellsDataSource;
 
 import java.util.List;
@@ -37,19 +38,19 @@ public class CellsRemoteDataSource implements CellsDataSource {
     }
 
     @Override
-    public void getCells(@NonNull LoadCellsCallback callback) {
+    public void getFormulario(@NonNull LoadCellsCallback callback) {
 
-        Call<List<Cell>> call = apiRetrofitService.getCells();
+        Call<Formulario> call = apiRetrofitService.getFormulario();
         call.enqueue(
-                new Callback<List<Cell>>() {
+                new Callback<Formulario>() {
 
                     @Override
-                    public void onResponse(Call<List<Cell>> call, Response<List<Cell>> response) {
+                    public void onResponse(Call<Formulario> call, Response<Formulario> response) {
                         //Log.d(TAG, "-------------------- RESPONSE: " + response.body().toString());
 
                         if (response.isSuccessful()) {
                             //Log.d(TAG, "-------------------- RESPONSE: " + response.body());
-                            List<Cell> cells = response.body();
+                            Formulario cells = response.body();
                             callback.onCellsLoaded(cells);
 
                         } else {
@@ -59,7 +60,7 @@ public class CellsRemoteDataSource implements CellsDataSource {
                     }
 
                     @Override
-                    public void onFailure(Call<List<Cell>> call, Throwable t) {
+                    public void onFailure(Call<Formulario> call, Throwable t) {
                         // Log error here since request failed
                         //Log.e(TAG, "Erro: " + t.toString());
                         callback.onDataNotAvailable();
@@ -72,4 +73,6 @@ public class CellsRemoteDataSource implements CellsDataSource {
     public void refreshCells(List<Cell> cells) {
         // TODO - devemos implementar para se for utilizar Post update do Formulário para a API
     }
+
+
 }

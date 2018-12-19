@@ -5,6 +5,7 @@ import android.widget.TextView;
 import com.avanade.santander.BasePresenter;
 import com.avanade.santander.BaseView;
 import com.avanade.santander.contato.domain.model.Cell;
+import com.avanade.santander.contato.domain.model.Formulario;
 
 import java.util.List;
 
@@ -16,21 +17,13 @@ public interface ContatoContract {
 
     interface IView extends BaseView<IPresenter> {
 
-        void desenhaTela(List<Cell> formulario);
+        void desenhaTela(Formulario formulario);
 
         void setLoadingIndicator(boolean active);
 
         void showLoadingFormularioError();
 
-        void setCampoValidado(IView validada);
-
-        void validaEmail(TextView textView);
-
-        void validaTelefone(TextView textView);
-
-        void limpaTexto(TextView textView);
-
-        void exibeMensagemEnviada();
+        void novaMensagem();
 
         boolean isActive();
     }

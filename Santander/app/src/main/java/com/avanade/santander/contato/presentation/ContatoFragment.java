@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 
 import com.avanade.santander.R;
 import com.avanade.santander.contato.domain.model.Cell;
+import com.avanade.santander.contato.domain.model.Formulario;
 import com.avanade.santander.contato.domain.model.Type;
 import com.avanade.santander.contato.domain.model.TypeField;
 import com.avanade.santander.util.DpToPixels;
@@ -123,7 +125,7 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
 //------------------------------------------------------------------------------------------------//
 
     @Override
-    public void desenhaTela(List<Cell> formulario) {
+    public void desenhaTela(Formulario formulario) {
 
         progressBar.setVisibility(View.GONE);
 
@@ -140,52 +142,43 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
         constraintSet.connect(txtTitulo.getId(), ConstraintSet.LEFT, layoutFormulario.getId(), ConstraintSet.LEFT);
         constraintSet.connect(txtTitulo.getId(), ConstraintSet.RIGHT, layoutFormulario.getId(), ConstraintSet.RIGHT);
         int top = DpToPixels.convertToPixels(43, getContext());
-        constraintSet.connect(txtTitulo.getId(), ConstraintSet.TOP, layoutFormulario.getId(), ConstraintSet.TOP, top);
+        constraintSet.connect(
+                txtTitulo.getId(), ConstraintSet.TOP,
+                layoutFormulario.getId(), ConstraintSet.TOP,
+                DpToPixels.convertToPixels(60, getContext())
+        );
         constraintSet.applyTo(layoutFormulario);
-
-        // Consumindo JSON
-        int width = DpToPixels.convertToPixels(300, getContext());
-        int height = DpToPixels.convertToPixels(47, getContext());
-        int clearSize = DpToPixels.convertToPixels(30, getContext());
-        int topSpacing = DpToPixels.convertToPixels(47, getContext());
 
         int lastId = txtTitulo.getId();
 
-        for (Cell cell : formulario) {
+        // -----------------------------------------------------------------------------------------
+        // JSON consumido  - Fomulário dinâmico ----------------------------------------------------
+        // -----------------------------------------------------------------------------------------
+
+        int width = DpToPixels.convertToPixels(300, getContext());
+        int height = DpToPixels.convertToPixels(47, getContext());
+        ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(width, height);
+
+        int topSpacing = DpToPixels.convertToPixels(47, getContext());
+
+
+
+        for (Cell cell : formulario.getCells()) {
 
             if (cell.getType() == Type.field.getTipo()) {
 
-                EditText view = new EditText(getContext());
-                view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-                view.setTypeface(FormataFonte.formataProMedium(getContext()));
-                view.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-
-                // Cell TELEFONE
-                if (cell.getTypefield().equals(TypeField.telnumber.getTipo())
-                        || cell.getTypefield().equals(TypeField.telnumber.name())) {
-
-                    view.setInputType(InputType.TYPE_CLASS_PHONE);
-                    view.setFilters(new InputFilter[]{new InputFilter.LengthFilter(15)});
-                    view.addTextChangedListener(MaskEditUtil.insert(view));
-
-                    // Cell E-MAIL
-                } else if (cell.getTypefield().equals(String.valueOf(TypeField.email.getTipo()))
-                        || cell.getTypefield().equals(TypeField.email.name())) {
-
-                    view.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-                    view.setVisibility(View.GONE);
-                    view.addTextChangedListener(MailUtil.insert(view));
-
-                    // Cell TEXTO
-                } else {
-                    view.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-                    view.getBackground().clearColorFilter();
-                }
+                View view = getEditText(cell, lp);
 
                 view.setId(cell.getId());
-                view.setHint(cell.getMessage());
+                layoutFormulario.addView(view);
 
+                constraintSet.clone(layoutFormulario);
+                constraintSet.connect(view.getId(), ConstraintSet.LEFT, layoutFormulario.getId(), ConstraintSet.LEFT);
+                constraintSet.connect(view.getId(), ConstraintSet.RIGHT, layoutFormulario.getId(), ConstraintSet.RIGHT);
+                constraintSet.connect(view.getId(), ConstraintSet.TOP, lastId, ConstraintSet.BOTTOM, 47);
+                constraintSet.applyTo(layoutFormulario);
 
+                lastId = view.getId();
 //                // TODO - Label
 //                ConstraintLayout.LayoutParams lpLabel = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
 //                lpLabel.startToStart = editText.getLeft();
@@ -217,8 +210,8 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
 //                layout.addView(clear);
 
             } else {
-                View view = new View(getContext());
 
+                View view = new View(getContext());
 
                 if (cell.getType() == Type.text.getTipo()) {
                     // TextView
@@ -255,6 +248,7 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
                 } else if (cell.getType() == Type.send.getTipo()) {
                     // Button
                     Button btn = new Button(getContext());
+                    btn.setLayoutParams(lp);
                     btn.setText(cell.getMessage());
                     btn.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
                     btn.setTypeface(FormataFonte.formataProRegular(getContext()));
@@ -273,12 +267,14 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
                         } else if (!MailUtil.isValid(mail.getText().toString())) {
                             Toast.makeText(getContext(), "Preencha o campo e-mail corretamente", Toast.LENGTH_LONG).show();
                         } else {
+
                             layoutEnvio.setVisibility(View.VISIBLE);
                             layoutFormulario.setVisibility(View.GONE);
                             progressBar.setVisibility(View.GONE);
                             nome.setText("");
                             fone.setText("");
                             mail.setText("");
+
                         }
 
 
@@ -286,60 +282,76 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
                     view = btn;
 
                 } else {
-                    // TODO - View ainda não definida
+                    // TODO - Views que ainda podem ser configuradas
                 }
-
+                view.setId(cell.getId());
                 layoutFormulario.addView(view);
 
                 constraintSet.clone(layoutFormulario);
                 constraintSet.connect(view.getId(), ConstraintSet.LEFT, ConstraintSet.PARENT_ID, ConstraintSet.LEFT);
                 constraintSet.connect(view.getId(), ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT);
-
                 constraintSet.connect(view.getId(), ConstraintSet.TOP, lastId, ConstraintSet.BOTTOM, topSpacing);
-
                 constraintSet.applyTo(layoutFormulario);
 
                 lastId = view.getId();
+
             }
-
-
         }
     }
 
+    public View getEditText(Cell cell, ViewGroup.LayoutParams lp){
+        EditText view = new EditText(getContext());
+        view.setLayoutParams(lp);
+        view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+        view.setTypeface(FormataFonte.formataProMedium(getContext()));
+        view.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+
+        // Cell TELEFONE
+        if (cell.getTypefield().equals(TypeField.telnumber.getTipo())
+                || cell.getTypefield().equals(TypeField.telnumber.name())) {
+
+            view.setInputType(InputType.TYPE_CLASS_PHONE);
+            view.setFilters(new InputFilter[]{new InputFilter.LengthFilter(15)});
+            view.addTextChangedListener(MaskEditUtil.insert(view));
+
+            // Cell E-MAIL
+        } else if (cell.getTypefield().equals(String.valueOf(TypeField.email.getTipo()))
+                || cell.getTypefield().equals(TypeField.email.name())) {
+
+            view.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+            view.setVisibility(View.GONE);
+            view.addTextChangedListener(MailUtil.insert(view));
+
+            // Cell TEXTO
+        } else {
+            view.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+            view.getBackground().clearColorFilter();
+        }
+        view.setHint(cell.getMessage());
+        return view;
+    }
 
     @Override
     public void setLoadingIndicator(boolean active) {
-
+        if (active)
+            progressBar.setVisibility(View.VISIBLE);
+        else
+            progressBar.setVisibility(View.GONE);
     }
 
     @Override
     public void showLoadingFormularioError() {
+        showMessage("Erro ao buscar informações de contato.\nVerifique sua conexão.");
+    }
 
+    private void showMessage(String message) {
+        Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
     }
 
     @Override
-    public void setCampoValidado(ContatoContract.IView validada) {
-
-    }
-
-    @Override
-    public void validaEmail(TextView textView) {
-
-    }
-
-    @Override
-    public void validaTelefone(TextView textView) {
-
-    }
-
-    @Override
-    public void limpaTexto(TextView textView) {
-
-    }
-
-    @Override
-    public void exibeMensagemEnviada() {
-
+    public void novaMensagem() {
+        // TODO - Verificar o que o ProductOwner vair fazer com a mensagem enviada
+        mPresenter.refreshFormulario();
     }
 
     @Override

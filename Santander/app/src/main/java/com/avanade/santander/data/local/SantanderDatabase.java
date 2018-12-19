@@ -11,7 +11,7 @@ import com.avanade.santander.contato.domain.model.Cell;
 /**
  * The Room Database that contains Tables.
  */
-@Database(entities = {Cell.class}, version = 1)
+@Database(entities = {Cell.class}, version = 1, exportSchema = false)
 public abstract class SantanderDatabase extends RoomDatabase {
 
     private static SantanderDatabase INSTANCE;

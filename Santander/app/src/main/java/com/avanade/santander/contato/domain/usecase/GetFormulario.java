@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.avanade.santander.UseCase;
 import com.avanade.santander.contato.domain.model.Cell;
+import com.avanade.santander.contato.domain.model.Formulario;
 import com.avanade.santander.data.CellsDataSource;
 import com.avanade.santander.data.CellsRepository;
 
@@ -11,23 +12,23 @@ import java.util.List;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-public class GetCells extends UseCase<GetCells.RequestValues, GetCells.ResponseValue> {
+public class GetFormulario extends UseCase<GetFormulario.RequestValues, GetFormulario.ResponseValue> {
 
     private final CellsRepository mCellsRepository;
 
-    public GetCells(@NonNull CellsRepository cellsRepository) {
-        mCellsRepository = checkNotNull(cellsRepository, "tasksRepository cannot be null!");
+    public GetFormulario(@NonNull CellsRepository cellsRepository) {
+        mCellsRepository = checkNotNull(cellsRepository, "cellsRepository cannot be null!");
     }
 
     @Override
     protected void executeUseCase(RequestValues requestValues) {
         mCellsRepository
-                .getCells(
+                .getFormulario(
                         new CellsDataSource.LoadCellsCallback() {
 
                             @Override
-                            public void onCellsLoaded(List<Cell> cells) {
-                                ResponseValue responseValue = new ResponseValue(cells);
+                            public void onCellsLoaded(Formulario formulario) {
+                                ResponseValue responseValue = new ResponseValue(formulario);
                                 getUseCaseCallback().onSuccess(responseValue);
                             }
 
@@ -49,14 +50,14 @@ public class GetCells extends UseCase<GetCells.RequestValues, GetCells.ResponseV
 
     public static class ResponseValue implements UseCase.ResponseValue {
 
-        private final List<Cell> mCells;
+        private final Formulario mFormulario;
 
-        public ResponseValue(@NonNull List<Cell> cells) {
-            mCells = checkNotNull(cells, "statistics cannot be null!");
+        public ResponseValue(@NonNull Formulario cells) {
+            mFormulario = checkNotNull(cells, "statistics cannot be null!");
         }
 
-        public List<Cell> getCells() {
-            return mCells;
+        public Formulario getFormulario() {
+            return mFormulario;
         }
     }
 }

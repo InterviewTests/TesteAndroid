@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
 import com.avanade.santander.contato.domain.model.Cell;
+import com.avanade.santander.contato.domain.model.Formulario;
 import com.avanade.santander.data.CellsDataSource;
 import com.avanade.santander.util.AppExecutors;
 
@@ -47,15 +48,15 @@ public class CellsLocalDataSource implements CellsDataSource {
      * or the table is empty.
      */
     @Override
-    public void getCells(@NonNull final LoadCellsCallback callback) {
+    public void getFormulario(@NonNull final LoadCellsCallback callback) {
         Runnable runnable = () -> {
-            final List<Cell> cells = mCellsDao.getAllCells();
+            final Formulario formulario = new Formulario(mCellsDao.getAllCells());
             mAppExecutors.mainThread().execute(() -> {
-                if (cells.isEmpty()) {
+                if (formulario.getCells().isEmpty()) {
                     // This will be called if the table is new or just empty.
                     callback.onDataNotAvailable();
                 } else {
-                    callback.onCellsLoaded(cells);
+                    callback.onCellsLoaded(formulario);
                 }
             });
         };

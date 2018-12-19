@@ -25,6 +25,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.avanade.santander.R;
+import com.avanade.santander.contato.presentation.ContatoActivity;
 import com.avanade.santander.fundos.domain.model.Fundos;
 import com.avanade.santander.fundos.domain.model.Info;
 import com.avanade.santander.fundos.domain.model.Screen;
@@ -367,9 +368,10 @@ public class FundosFragment extends Fragment implements FundosContract.IView {
 
     @Override
     public void iniciaActivityContato() {
-        // TODO - verificar se faremos a troca do Fragment, ou manteremos a call -> Activity em Single Responsibility
-        //startActivity(new Intent(getContext(), ContatoActivity.class));
+        // TODO - manter 1 Activity e trocar o Fragment, ou manter a call -> Activity p/ segregar Dominio
+        startActivity(new Intent(getContext(), ContatoActivity.class));
     }
+
 
     @Override
     public void share() {

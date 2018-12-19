@@ -35,17 +35,11 @@ public class FundosPresenter implements FundosContract.IPresenter {
         getFundosOnView();
     }
 
-    public void getFundosOnView(){
-//        if(FUNDO == null)
-//            refreshFundos();
-//        else
-//            mFundosView.desenhaTela(FUNDO);
-
-        AsyncTask.execute(() -> {
-            if (FUNDO == null)
-                refreshFundos();
+    public void getFundosOnView() {
+        if (FUNDO == null)
+            refreshFundos();
+        else
             mFundosView.desenhaTela(FUNDO);
-        });
     }
 
     public void refreshFundos() {

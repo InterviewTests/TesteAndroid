@@ -10,6 +10,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="8dp"
         android:id="@+id/layout_formulario">
 
         <ProgressBar
@@ -28,7 +29,8 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/layout_envio">
+        android:id="@+id/layout_envio"
+        android:visibility="gone">
 
 
         <TextView
@@ -86,41 +88,5 @@
             app:layout_constraintStart_toStartOf="parent"/>
     </android.support.constraint.ConstraintLayout>
 
-
-    <Button
-        android:id="@+id/btn_investimento"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorSantander"
-        android:text="Investimento"
-        android:fontFamily="@font/din_pro_medium"
-        android:textSize="16sp"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_contato"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <Button
-        android:id="@+id/btn_contato"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:background="@color/colorSantanderDark"
-        android:fontFamily="@font/din_pro_medium"
-        android:text="Contato"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_investimento"/>
-
-
-
-    <View
-        android:id="@+id/barra"
-        android:layout_width="wrap_content"
-        android:layout_height="3dp"
-        android:background="@color/colorSantanderDark"
-        app:layout_constraintBottom_toTopOf="@+id/btn_contato"
-        app:layout_constraintStart_toStartOf="@+id/btn_contato"/>
 
 </android.support.constraint.ConstraintLayout>
