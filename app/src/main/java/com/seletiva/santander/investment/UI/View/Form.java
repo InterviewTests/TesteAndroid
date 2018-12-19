@@ -14,5 +14,5 @@ public interface Form {
      * Get the layout inflater that will be used to inflate the form views
      * @return A valid layout inflater
      */
-    LayoutInflater getLayoutInflater();
+    LayoutInflater getInflater();
 }
