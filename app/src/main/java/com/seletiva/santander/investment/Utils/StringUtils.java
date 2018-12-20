@@ -1,8 +1,8 @@
 package com.seletiva.santander.investment.Utils;
 
 public class StringUtils {
-    private static final int REGULAR_PHONE_NUMBER_LENGTH = 10;
-    private static final int REGULAR_PHONE_LONG_NUMBER_LENGTH = 11;
+    public static final int REGULAR_PHONE_NUMBER_LENGTH = 10;
+    public static final int REGULAR_PHONE_LONG_NUMBER_LENGTH = 11;
     private static final int AREA_CODE_INDEX = 1;
     private static final int HIFEN_INDEX = 5;
     private static final int HIFEN_INDEX_FOR_LONG_PHONE = 6;

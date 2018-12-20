@@ -48,8 +48,11 @@ public class FormComponentView extends LinearLayout implements FormFieldListener
     }
 
     private void configureTextualDataWatcher() {
+        FormFieldWatcher watcher = new FormFieldWatcher(this);
+        watcher.enablePhoneValidationMode();
+
         optionalTextField = findViewById(R.id.textualInputData);
-        optionalTextField.addTextChangedListener(new FormFieldWatcher(this));
+        optionalTextField.addTextChangedListener(watcher);
     }
 
     private void configureClearButton() {
