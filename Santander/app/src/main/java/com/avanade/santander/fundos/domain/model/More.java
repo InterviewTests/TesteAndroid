@@ -15,10 +15,10 @@ public class More {
     }
 
     public String getFund() {
-        return fund;
+        return fund + "%";
     }
 
     public String getCDI() {
-        return CDI;
+        return CDI + "%";
     }
 }

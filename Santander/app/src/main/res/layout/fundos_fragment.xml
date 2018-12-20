@@ -335,12 +335,22 @@
                 android:layout_marginTop="32dp"
                 android:background="@drawable/btn_red_rounded"
                 android:text="Investir"
-
+                android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <View
+                android:id="@+id/espaçamento_inferior"
+                android:contentDescription="espaçamento_inferior"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_investir" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

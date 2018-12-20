@@ -3,7 +3,6 @@ package com.avanade.santander.contato.presentation;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,10 +10,8 @@ import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.res.ResourcesCompat;
 import android.text.InputFilter;
 import android.text.InputType;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,8 +34,6 @@ import com.avanade.santander.util.FormataFonte;
 import com.avanade.santander.util.MailUtil;
 import com.avanade.santander.util.MaskEditUtil;
 
-import java.util.List;
-
 public class ContatoFragment extends Fragment implements ContatoContract.IView {
 
     private ContatoContract.IPresenter mPresenter;
@@ -58,11 +53,6 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
     public static ContatoFragment newInstance() {
         return new ContatoFragment();
     }
-
-
-//------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------//
 
     @Override
     public void onAttach(Context context) {
@@ -127,10 +117,12 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
     }
 
 
-//------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------//
-
+    /**
+     * LayoutParams é a restrição de Constraints para cada View que será add ao layout
+     *
+     * @param LAST_ID ID da última View adicionada
+     * @return Params para centralizar horizontal abaixo da última LAST_ID VIEW
+     */
     private ConstraintLayout.LayoutParams layoutParams(int LAST_ID) {
         ConstraintLayout.LayoutParams lp;
 
@@ -155,6 +147,9 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
     public void desenhaTela(Formulario formulario) {
 
         progressBar.setVisibility(View.GONE);
+        layoutEnvio.setVisibility(View.GONE);
+        layoutFormulario.setVisibility(View.VISIBLE);
+        layoutFormulario.removeAllViews();
 
         // Titulo do Formulário
         TextView txtTitulo = new TextView(getContext());
@@ -168,7 +163,7 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
         lp.topToTop = ConstraintSet.PARENT_ID;
         lp.startToStart = ConstraintSet.PARENT_ID;
         lp.endToEnd = ConstraintSet.PARENT_ID;
-        lp.setMargins(0, DpToPixels.convertToPixels(32, getContext()), 0, 0 );
+        lp.setMargins(0, DpToPixels.convertToPixels(32, getContext()), 0, 0);
         txtTitulo.setLayoutParams(lp);
         layoutFormulario.addView(txtTitulo);
 
@@ -195,7 +190,12 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
         }
     }
 
-
+    /**
+     * Método auxiliar de desenhaTela, que devolve a View formatada para add ao layout
+     *
+     * @param cell
+     * @return ViewType correspondente
+     */
     private View getCellView(Cell cell) {
 
         if (cell.getType() == Type.text.getTipo()) {
@@ -238,46 +238,36 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
             btn.setTypeface(FormataFonte.formataProRegular(getContext()));
             btn.setBackgroundResource(R.drawable.btn_red_rounded);
             btn.setTextColor(Color.WHITE);
-            btn.setOnClickListener((v1) -> {
+            btn.setAllCaps(false);
 
-                EditText nome = (EditText) layoutFormulario.getViewById(2);
-                EditText fone = (EditText) layoutFormulario.getViewById(6);
-                EditText mail = (EditText) layoutFormulario.getViewById(4);
+            EditText name = (EditText) layoutFormulario.getViewById(2);
+            EditText fone = (EditText) layoutFormulario.getViewById(6);
+            EditText mail = (EditText) layoutFormulario.getViewById(4);
 
-                if (nome.getText().toString().length() < 3) {
-                    Toast.makeText(getContext(), "Preencha o campo nome correntamente", Toast.LENGTH_LONG).show();
-                } else if (fone.getText().toString().length() < 14) {
-                    Toast.makeText(getContext(), "Preencha o campo telefone corretamente", Toast.LENGTH_LONG).show();
-                } else if (!MailUtil.isValid(mail.getText().toString())) {
-                    Toast.makeText(getContext(), "Preencha o campo e-mail corretamente", Toast.LENGTH_LONG).show();
-                } else {
-                    layoutEnvio.setVisibility(View.VISIBLE);
-                    layoutFormulario.setVisibility(View.GONE);
-                    progressBar.setVisibility(View.GONE);
-                    nome.setText("");
-                    fone.setText("");
-                    mail.setText("");
-                }
-
-                btn_nova.setOnClickListener((v) -> {
-                    nome.setText("");
-                    fone.setText("");
-                    mail.setText("");
-                    layoutEnvio.setVisibility(View.GONE);
-                    layoutFormulario.setVisibility(View.VISIBLE);
-                });
-
-
-            });
+            // TODO - Verificar com Product Owner o que fazer com a informação do usuário
+            btn.setOnClickListener((v1) ->
+                    mPresenter.enviarContato(
+                            name.getText().toString(),
+                            mail.getText().toString(),
+                            fone.getText().toString()
+                    )
+            );
             return btn;
+
 
         } else {
             // TODO - Views que ainda podem ser configuradas
-
         }
+
         return new View(getContext());
     }
 
+    /**
+     * Método auxiliar de desenhaTela, que devolve o EditText formatado para add ao layout
+     *
+     * @param cell
+     * @return EditText correspondente com seu TypeField
+     */
     private View getEditText(Cell cell) {
         EditText view = new EditText(getContext());
         view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
@@ -309,7 +299,6 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
         return view;
     }
 
-
     @Override
     public void setLoadingIndicator(boolean active) {
         if (active)
@@ -323,18 +312,28 @@ public class ContatoFragment extends Fragment implements ContatoContract.IView {
         showMessage("Erro ao buscar informações de contato.\nVerifique sua conexão.");
     }
 
-    private void showMessage(String message) {
+    @Override
+    public void showMessage(String message) {
         Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
     }
 
-    public void novaMensagem(View view) {
-        // TODO - Verificar o que o ProductOwner vair fazer com a mensagem enviada
-        mPresenter.refreshFormulario();
+    @Override
+    public void toastMessage(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public boolean isActive() {
-        return false;
+        return isAdded();
+    }
+
+    @Override
+    public void mostrarTelaEnviada() {
+        layoutEnvio.setVisibility(View.VISIBLE);
+        layoutFormulario.setVisibility(View.GONE);
+        progressBar.setVisibility(View.GONE);
+
+        btn_nova.setOnClickListener((v) -> mPresenter.refreshFormulario());
     }
 
     @Override

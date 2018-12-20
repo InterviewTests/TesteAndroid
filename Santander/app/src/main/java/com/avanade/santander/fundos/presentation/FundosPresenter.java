@@ -1,6 +1,5 @@
 package com.avanade.santander.fundos.presentation;
 
-import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
 import com.avanade.santander.UseCase;
@@ -32,14 +31,17 @@ public class FundosPresenter implements FundosContract.IPresenter {
     @Override
     public void start() {
         /** Call USE_CASE -> GetFundos() = buscar dados de Fundos, em Json, para exibir na tela */
-        getFundosOnView();
+        showFundos();
     }
 
-    public void getFundosOnView() {
-        if (FUNDO == null)
+    public void showFundos() {
+        if (FUNDO == null) {
             refreshFundos();
-        else
+        } else {
+            mFundosView.setLoadingIndicator(false);
             mFundosView.desenhaTela(FUNDO);
+        }
+
     }
 
     public void refreshFundos() {
@@ -61,8 +63,7 @@ public class FundosPresenter implements FundosContract.IPresenter {
 
                                 /** Solicita a view para mostrar a tela com dados de Fundos */
                                 FUNDO = response.getFundos();
-                                mFundosView.setLoadingIndicator(false);
-                                mFundosView.desenhaTela(FUNDO);
+                                showFundos();
                             }
 
                             @Override

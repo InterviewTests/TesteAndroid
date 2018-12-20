@@ -15,7 +15,11 @@ public final class Cell {
     @Ignore
     public static final String TABLE_NAME = "cells";
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    private int ix;
+
+
+
     @NonNull
     @Expose
     private final int id;
@@ -44,8 +48,9 @@ public final class Cell {
     private final boolean required;
 
 
-    public Cell(@NonNull int id, int type, @Nullable String message, String typefield,
+    public Cell(int ix, @NonNull int id, int type, @Nullable String message, String typefield,
                 boolean hidden, double topSpacing, int show, boolean required) {
+        this.ix = ix;
         this.id = id;
         this.type = type;
         this.message = message;
@@ -54,6 +59,14 @@ public final class Cell {
         this.topSpacing = topSpacing;
         this.show = show;
         this.required = required;
+    }
+
+    public int getIx() {
+        return ix;
+    }
+
+    public void setIx(int ix) {
+        this.ix = ix;
     }
 
     @NonNull

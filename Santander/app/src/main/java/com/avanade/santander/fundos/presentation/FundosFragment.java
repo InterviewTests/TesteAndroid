@@ -217,7 +217,6 @@ public class FundosFragment extends Fragment implements FundosContract.IView {
 
         fundosFragmentConstraintLayout.setVisibility(View.VISIBLE);
 
-        List<Integer> ids = new ArrayList<>();
         Screen screen = fundos.getScreen();
         txtTitle.setText(screen.getTitle());
         txtFundName.setText(screen.getFundName());
@@ -225,12 +224,12 @@ public class FundosFragment extends Fragment implements FundosContract.IView {
         txtDefinition.setText(screen.getDefinition());
         txtRiskTitle.setText(screen.getRiskTitle());
         imgRisk.setImageResource(defineDrawableRisk(screen.getRisk()));
-        txtMoreMonthFund.setText(screen.getMoreInfo().getMonth().getFund() + "%");
-        txtMoreMonthCdi.setText(screen.getMoreInfo().getMonth().getCDI() + "%");
-        txtMoreYearFund.setText(screen.getMoreInfo().getYear().getFund() + "%");
-        txtMoreYearCdi.setText(screen.getMoreInfo().getYear().getCDI() + "%");
-        txtMoreLastYearFund.setText(screen.getMoreInfo().getLastyear().getFund() + "%");
-        txtMoreLastYearCdi.setText(screen.getMoreInfo().getLastyear().getCDI() + "%");
+        txtMoreMonthFund.setText(screen.getMoreInfo().getMonth().getFund());
+        txtMoreMonthCdi.setText(screen.getMoreInfo().getMonth().getCDI());
+        txtMoreYearFund.setText(screen.getMoreInfo().getYear().getFund());
+        txtMoreYearCdi.setText(screen.getMoreInfo().getYear().getCDI());
+        txtMoreLastYearFund.setText(screen.getMoreInfo().getLastyear().getFund());
+        txtMoreLastYearCdi.setText(screen.getMoreInfo().getLastyear().getCDI());
 
 
         LAST_ID = divider.getId();

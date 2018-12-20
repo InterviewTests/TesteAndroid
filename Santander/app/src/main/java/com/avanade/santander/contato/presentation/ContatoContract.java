@@ -24,6 +24,12 @@ public interface ContatoContract {
         void showLoadingFormularioError();
 
         boolean isActive();
+
+        void showMessage(String message);
+
+        void toastMessage(String message);
+
+        void mostrarTelaEnviada();
     }
 
     interface IPresenter extends BasePresenter {
@@ -32,7 +38,10 @@ public interface ContatoContract {
 
         void refreshFormulario();
 
-        void enviaFormulario();
+        List<String> validaContato(String nome, String email, String telefone);
+
+        void enviarContato(String nome, String email, String telefone);
+
 
     }
 }
