@@ -6,12 +6,15 @@ import android.support.test.filters.MediumTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.google.gson.Gson;
 import com.seletiva.santander.investment.Models.Cell;
+import com.seletiva.santander.investment.Models.CellHolder;
 import com.seletiva.santander.investment.Models.CellType;
 import com.seletiva.santander.investment.UI.Activities.MainActivity_;
 import com.seletiva.santander.investment.UI.View.Form;
 import com.seletiva.santander.investment.UI.View.FormBuilder;
 import com.seletiva.santander.investment.UI.View.FormComponentView;
+import com.seletiva.santander.investment.Utils.FileUtils;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -26,11 +29,16 @@ public class FormBuilderInstrumentedTest {
     public ActivityTestRule<MainActivity_> rule  = new  ActivityTestRule<>(MainActivity_.class);
     private Activity activity;
     private FormBuilder formBuilder;
+    private CellHolder mainHolder;
 
     @org.junit.Before
     public void setUp() throws Exception {
         activity = rule.getActivity();
         formBuilder = new FormBuilder((Form) activity);
+
+        Gson gson = new Gson();
+        String fileContent = FileUtils.loadData("cells.json", activity);
+        mainHolder = gson.fromJson(fileContent, CellHolder.class);
     }
 
     @Test
@@ -80,5 +88,28 @@ public class FormBuilderInstrumentedTest {
 
         assertNotNull(recoveredView.findViewById(R.id.textualInputData));
         assertNull(recoveredView.findViewById(R.id.textualDisplayData));
+    }
+
+    @Test
+    @UiThreadTest
+    public void testFullFormBuilder() {
+        int totalHardCodedCells = 6;
+        formBuilder.removeAllChilds();
+
+        for(Cell cell:mainHolder.getCells()) {
+            FormComponentView componentView = new FormComponentView(activity);
+            componentView.inflateWithCellModel(cell);
+
+            formBuilder.addView(componentView);
+        }
+
+        assertEquals(formBuilder.getChildCount(), totalHardCodedCells);
+    }
+
+    @Test
+    public void testCellHolder() {
+        int totalHardCodedCells = 6;
+        assertNotNull(mainHolder);
+        assertEquals(mainHolder.getNumberOfCells(), totalHardCodedCells);
     }
 }

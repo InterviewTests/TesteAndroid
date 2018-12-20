@@ -2,10 +2,11 @@ package com.seletiva.santander.investment.Models;
 
 public class Cell {
     private int id;
-    private CellType type;
+    private int type;
+    private CellType cellType;
     private String message;
 
-    private int typefield;
+    private String typefield;
     private boolean hidden;
     private float topSpacing;
 
@@ -18,15 +19,7 @@ public class Cell {
     }
 
     public void setType(CellType type) {
-        this.type = type;
-    }
-
-    public int getTypefield() {
-        return typefield;
-    }
-
-    public void setTypefield(CellTypeField typefield) {
-        this.typefield = typefield.getType();
+        this.cellType = type;
     }
 
     public void setId(int id) {
@@ -46,6 +39,6 @@ public class Cell {
     }
 
     public CellType getType() {
-        return type;
+        return type == 0 ? CellType.values()[type] : CellType.values()[type - 1];
     }
 }

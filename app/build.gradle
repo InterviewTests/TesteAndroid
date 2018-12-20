@@ -32,4 +32,7 @@ dependencies {
     //AndroidAnnotations
     annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
     implementation "org.androidannotations:androidannotations-api:$AAVersion"
+
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.5'
 }
