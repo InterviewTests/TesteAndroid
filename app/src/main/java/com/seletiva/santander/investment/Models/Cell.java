@@ -38,6 +38,18 @@ public class Cell {
         return id;
     }
 
+    public CellTypeField getTypeField() {
+        if (typefield != null) {
+            if (typefield.equalsIgnoreCase("telnumber")) {
+                return CellTypeField.telNumber;
+            } else if (typefield.equalsIgnoreCase("3")) {
+                return CellTypeField.email;
+            }
+        }
+
+        return CellTypeField.text;
+    }
+
     public CellType getType() {
         return type == 0 ? CellType.values()[type] : CellType.values()[type - 1];
     }

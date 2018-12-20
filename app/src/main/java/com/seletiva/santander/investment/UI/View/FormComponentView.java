@@ -86,7 +86,17 @@ public class FormComponentView extends LinearLayout implements FormFieldListener
 
     private void configureTextualDataWatcher() {
         FormFieldWatcher watcher = new FormFieldWatcher(this);
-        watcher.enablePhoneValidationMode();
+
+        switch (cellCore.getTypeField()) {
+            case telNumber:
+                watcher.enablePhoneValidationMode();
+                break;
+            case email:
+                watcher.enableMailValidationMode();
+                break;
+            default:
+                break;
+        }
 
         optionalTextField = findViewById(R.id.textualInputData);
         optionalTextField.addTextChangedListener(watcher);
