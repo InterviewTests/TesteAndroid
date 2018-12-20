@@ -41,4 +41,8 @@ public class Cell {
     public CellType getType() {
         return type == 0 ? CellType.values()[type] : CellType.values()[type - 1];
     }
+
+    public String getMessage() {
+        return message;
+    }
 }
