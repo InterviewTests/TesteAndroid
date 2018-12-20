@@ -1,6 +1,5 @@
 package com.seletiva.santander.investment.UI.View;
 
-import android.support.annotation.UiThread;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,10 @@ public class FormBuilder {
         if (form == null) {
             throw new FormBuilderException(FormBuilderException.FormBuilderExceptionCode.INVALID_FORM_LISTENER);
         }
+        prepareInflateAndContainer(form);
+    }
 
+    private void prepareInflateAndContainer(Form form) throws FormBuilderException {
         inflater = form.getInflater();
         formContainer = form.getFormContainer();
 
@@ -40,7 +42,16 @@ public class FormBuilder {
         return this;
     }
 
-    public View recoverViewById(int viewByToRecovered) {
-        return formContainer.findViewById(viewByToRecovered);
+    public FormBuilder addView(View view) {
+        formContainer.addView(view);
+        return this;
+    }
+
+    public void removeAllChilds() {
+        formContainer.removeAllViews();
+    }
+
+    public int getChildCount() {
+        return formContainer.getChildCount();
     }
 }

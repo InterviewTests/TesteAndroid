@@ -1,23 +1,22 @@
 package com.seletiva.santander.investment.UI.Activities;
 
-import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.seletiva.santander.investment.Models.Cell;
+import com.seletiva.santander.investment.Models.CellType;
 import com.seletiva.santander.investment.R;
 import com.seletiva.santander.investment.UI.View.Form;
 import com.seletiva.santander.investment.UI.View.FormBuilder;
 import com.seletiva.santander.investment.UI.View.FormBuilderException;
-import com.seletiva.santander.investment.UI.View.FormFieldListener;
-import com.seletiva.santander.investment.UI.View.FormFieldWatcher;
+import com.seletiva.santander.investment.UI.View.FormComponentView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_main)
-public class MainActivity extends BaseActivity implements Form, FormFieldListener {
+public class MainActivity extends BaseActivity implements Form {
     @ViewById
     LinearLayout formContainer;
 
@@ -28,21 +27,16 @@ public class MainActivity extends BaseActivity implements Form, FormFieldListene
 
     public void poc() {
         try {
+            Cell cellModel = new Cell();
+            cellModel.setType(CellType.field);
             FormBuilder formBuilder = new FormBuilder(this);
+            FormComponentView textualView = new FormComponentView(this);
 
-            formBuilder.addViewById(R.layout.form_component_checkbox)
-                    .addViewById(R.layout.form_component_field)
-                    .addViewById(R.layout.form_component_text);
-
-            EditText mailForm = formBuilder
-                    .recoverViewById(R.layout.form_component_field)
-                    .findViewById(R.id.textualData);
-
-            mailForm.addTextChangedListener(new FormFieldWatcher(mailForm, this));
+            textualView.inflateWithCellModel(cellModel);
+            formBuilder.addView(textualView);
         } catch (FormBuilderException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -53,11 +47,5 @@ public class MainActivity extends BaseActivity implements Form, FormFieldListene
     @Override
     public LayoutInflater getInflater() {
         return getLayoutInflater();
-    }
-
-    @Override
-    public void updateEditTextColor(EditText targetEditText, int color) {
-        targetEditText.getBackground().setColorFilter(getResources().getColor(color),
-                PorterDuff.Mode.SRC_ATOP);
     }
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Investment</string>
+    <string name="placeholder">Temporary text</string>
 </resources>
