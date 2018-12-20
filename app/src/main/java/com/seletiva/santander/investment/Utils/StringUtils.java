@@ -41,6 +41,13 @@ public class StringUtils {
         return (phoneNumberLength == REGULAR_PHONE_NUMBER_LENGTH) ? HIFEN_INDEX : HIFEN_INDEX_FOR_LONG_PHONE;
     }
 
+    public static boolean isPhoneNumberValid(String phone) {
+        String unformattedPhone = turnFormattedPhoneNumberToRawString(phone);
+
+        return unformattedPhone.length() == REGULAR_PHONE_NUMBER_LENGTH ||
+                unformattedPhone.length() == REGULAR_PHONE_LONG_NUMBER_LENGTH;
+    }
+
     public static boolean validateEmailAdress(String email) {
         String regexForMail =
                 "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+" +

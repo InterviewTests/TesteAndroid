@@ -107,6 +107,30 @@ public class FormBuilderInstrumentedTest {
     }
 
     @Test
+    @UiThreadTest
+    public void testFormValidation() {
+        boolean isFormValid = true;
+        formBuilder.removeAllChilds();
+
+        // Populate the form
+        for(Cell cell:mainHolder.getCells()) {
+            FormComponentView componentView = new FormComponentView(activity);
+            componentView.inflateWithCellModel(cell);
+            formBuilder.addView(componentView);
+        }
+
+        // Valiate component by component
+        for(FormComponentView component:formBuilder.getInnerComponents()) {
+            if (!component.isValid()) {
+                isFormValid = false;
+                break;
+            }
+        }
+
+        assertFalse(isFormValid);
+    }
+
+    @Test
     public void testCellHolder() {
         int totalHardCodedCells = 6;
         assertNotNull(mainHolder);

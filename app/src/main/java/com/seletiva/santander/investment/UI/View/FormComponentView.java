@@ -13,7 +13,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.seletiva.santander.investment.Models.Cell;
+import com.seletiva.santander.investment.Models.CellType;
+import com.seletiva.santander.investment.Models.events.SendButtonClickEvent;
 import com.seletiva.santander.investment.R;
+import com.seletiva.santander.investment.Utils.StringUtils;
+
+import org.greenrobot.eventbus.EventBus;
 
 public class FormComponentView extends LinearLayout implements FormFieldListener {
     private Cell cellCore;
@@ -67,6 +72,13 @@ public class FormComponentView extends LinearLayout implements FormFieldListener
     private void configureCallToAction() {
         final Button button = findViewById(R.id.callToAction);
         button.setText(cellCore.getMessage());
+
+        button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EventBus.getDefault().post(SendButtonClickEvent.newClickEvent());
+            }
+        });
     }
 
     private void configureCheckBoxData() {
@@ -118,5 +130,24 @@ public class FormComponentView extends LinearLayout implements FormFieldListener
     public void updateEditTextColor(int color) {
         optionalTextField.getBackground().setColorFilter(getResources().getColor(color),
                 PorterDuff.Mode.SRC_ATOP);
+    }
+
+    public boolean isValid() {
+        if (cellCore.getType() == CellType.field) {
+            String inputData = optionalTextField.getText().toString();
+
+            switch (cellCore.getTypeField()) {
+                case telNumber:
+                    return StringUtils.isPhoneNumberValid(inputData);
+
+                case email:
+                    return StringUtils.validateEmailAdress(inputData);
+
+                default:
+                    break;
+            }
+        }
+
+        return true;
     }
 }

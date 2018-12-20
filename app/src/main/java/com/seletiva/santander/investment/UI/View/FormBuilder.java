@@ -5,15 +5,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FormBuilder {
     private LayoutInflater inflater;
     private LinearLayout formContainer;
+    private List<FormComponentView> innerComponents;
 
     public FormBuilder(Form form) throws FormBuilderException {
         if (form == null) {
             throw new FormBuilderException(FormBuilderException.FormBuilderExceptionCode.INVALID_FORM_LISTENER);
         }
+
         prepareInflateAndContainer(form);
+        innerComponents = new ArrayList<>();
     }
 
     private void prepareInflateAndContainer(Form form) throws FormBuilderException {
@@ -42,7 +48,8 @@ public class FormBuilder {
         return this;
     }
 
-    public FormBuilder addView(View view) {
+    public FormBuilder addView(FormComponentView view) {
+        innerComponents.add(view);
         formContainer.addView(view);
         return this;
     }
@@ -53,5 +60,9 @@ public class FormBuilder {
 
     public int getChildCount() {
         return formContainer.getChildCount();
+    }
+
+    public List<FormComponentView> getInnerComponents() {
+        return innerComponents;
     }
 }
