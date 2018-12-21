@@ -367,7 +367,6 @@ public class FundosFragment extends Fragment implements FundosContract.IView {
 
     @Override
     public void iniciaActivityContato() {
-        // TODO - manter 1 Activity e trocar o Fragment, ou manter a call -> Activity p/ segregar Dominio
         startActivity(new Intent(getContext(), ContatoActivity.class));
     }
 

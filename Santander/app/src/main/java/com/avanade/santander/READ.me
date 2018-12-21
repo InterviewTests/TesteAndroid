@@ -20,6 +20,36 @@ OK - projetar tamanhos diferentes - drawable vector xml
 OK - tratar regras de tamanho
 OK - construir banco de dados - cells, fundos online
 ok - tratar rotação de tela (viewmodel/onsaveinstance) - static field on Presenter
-TODO - construir testes de unidade
-TODO - test expresso
+OK - construir testes de unidade
 TODO - pull Request
+
+
+####################################################################################################
+Considerações:
+####################################################################################################
+
+O teste foi muito bem elaborado, tratando de conceitos e regras de negócio de grau bem elevado.
+
+Sobre as minhas decisões para o teste, optei por manter a arquitetura oferecida, reutilizando
+as principais interfaces e classes abstratas.
+
+Mantive 2 Activities (View), para segregar por completo o domínio.
+
+O consumo do RestAPI é segue remote_source e, caso falhe, carrega local_source.
+
+O que mais tomou tempo foi brigar com a class ConstraintSet, que se mostrou ineficaz ao
+tratamento de EditText e Button, mas funcionou corretamente com TextView.
+
+O desafio foi realmente de alto nível, e fiquei feliz em completá-lo.
+
+Ainda que haja melhoras significativas, sigamos aprendendo algo novo todos os dias.
+
+
+"O dinheiro faz homens ricos, o conhecimento faz homens sábios e a humildade faz grandes homens."
+(Gandhi)
+
+
+Obrigado.
+
+João Ignácio de Almeida Júnior
+20/12/18.
