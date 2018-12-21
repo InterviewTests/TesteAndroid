@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Patterns;
 import android.widget.EditText;
 
 import java.util.regex.Pattern;
@@ -37,7 +36,7 @@ public abstract class MailUtil {
         Pattern pattern2 = Pattern.compile(emailPattern2);
         if (pattern.matcher(email).matches())
             if (pattern2.matcher(email).matches())
-                if (Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                //if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches())
                     return true;
         return false;
     }

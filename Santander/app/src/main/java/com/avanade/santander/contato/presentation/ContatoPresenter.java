@@ -23,7 +23,7 @@ public class ContatoPresenter implements ContatoContract.IPresenter {
     private final GetFormulario mGetFormulario;
 
     @Nullable
-    private static Formulario FORMULARIO = null;
+    public static Formulario FORMULARIO = null;
 
 
     public ContatoPresenter(@NonNull UseCaseHandler useCaseHandler,

@@ -47,7 +47,8 @@ public class CellsRepository implements CellsDataSource {
     }
 
     /**
-     * Try Get Cells Remote, caso contrário, tenta LOCAL (SQLite) if exists
+     * Primeiro tentat buscar Formulário na RestAPI e gravar sua atualiazação,
+     * se não conseguir, tenta LOCAL (SQLite) na última atualização.
      * <p>
      * Note: {@link LoadCellsCallback#onDataNotAvailable()} is fired if all data sources fail
      */
@@ -56,16 +57,22 @@ public class CellsRepository implements CellsDataSource {
         checkNotNull(callback);
 
         mCellsRemoteDataSource.getFormulario(new LoadCellsCallback() {
+
             @Override
             public void onCellsLoaded(Formulario formulario) {
-                // Executa Refresh
-                refreshCells(formulario.getCells());
+
+                refreshCells(formulario.getCells());    // Executa Refresh Local
+
                 callback.onCellsLoaded(formulario);
             }
 
+
+            // Se online não estiver disponível, busca a última informação local gravada
             @Override
             public void onDataNotAvailable() {
+
                 mCellsLocalDataSource.getFormulario(new LoadCellsCallback() {
+
                     @Override
                     public void onCellsLoaded(Formulario formulario) {
                         callback.onCellsLoaded(formulario);
@@ -80,7 +87,6 @@ public class CellsRepository implements CellsDataSource {
         });
     }
 
-    @Override
     public void refreshCells(List<Cell> cells) {
         // Atualiza tabela LOCAL
         mCellsLocalDataSource.refreshCells(cells);

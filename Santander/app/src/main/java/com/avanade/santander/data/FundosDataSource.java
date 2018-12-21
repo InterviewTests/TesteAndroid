@@ -1,6 +1,5 @@
 package com.avanade.santander.data;
 
-
 import android.support.annotation.NonNull;
 
 import com.avanade.santander.fundos.domain.model.Fundos;
