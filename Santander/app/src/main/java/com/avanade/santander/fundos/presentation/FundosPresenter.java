@@ -17,7 +17,7 @@ public class FundosPresenter implements FundosContract.IPresenter {
     private final UseCaseHandler mUseCaseHandler;
 
 
-    private static Fundos FUNDO = null;
+    public static Fundos FUNDO = null;
 
     public FundosPresenter(@NonNull UseCaseHandler useCaseHandler,
                            @NonNull FundosContract.IView fundosIView,

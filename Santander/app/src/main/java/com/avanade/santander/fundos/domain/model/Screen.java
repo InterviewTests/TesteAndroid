@@ -30,7 +30,9 @@ public class Screen {
     @Expose
     private final List<Info> downInfo;
 
-    public Screen(String title, String fundName, String whatIs, String definition, String riskTitle, int risk, String infoTitle, MoreInfo moreInfo, List<Info> info, List<Info> downInfo) {
+    public Screen(String title, String fundName, String whatIs, String definition,
+                  String riskTitle, int risk, String infoTitle, MoreInfo moreInfo,
+                  List<Info> info, List<Info> downInfo) {
         this.title = title;
         this.fundName = fundName;
         this.whatIs = whatIs;

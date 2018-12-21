@@ -213,7 +213,7 @@ public class FundosFragment extends Fragment implements FundosContract.IView {
     }
 
     @Override
-    public void desenhaTela(Fundos fundos) {
+    public void desenhaTela(@NonNull Fundos fundos) {
 
         fundosFragmentConstraintLayout.setVisibility(View.VISIBLE);
 

@@ -1,5 +1,6 @@
 package com.avanade.santander.contato.presentation;
 
+import com.avanade.santander.UseCase;
 import com.avanade.santander.UseCaseHandler;
 import com.avanade.santander.contato.domain.model.Cell;
 import com.avanade.santander.contato.domain.model.Formulario;
@@ -31,31 +32,14 @@ import static org.mockito.Mockito.*;
 
 public class ContatoPresenterTest {
 
-    Formulario FORMULARIO;
+    @Mock
+    UseCaseHandler mUuseCaseHandler;
 
     @Mock
     ContatoContract.IView mContatoView;
 
     @Mock
-    UseCaseHandler mUseCaseHandler;
-
-    @Mock
     GetFormulario mGetFormulario;
-
-    @Mock
-    CellsRemoteDataSource cellsRemoteDataSource;
-    @Mock
-    CellsLocalDataSource cellsLocalDataSource;
-
-    CellsRepository mCellsRepository;
-
-    /**
-     * {@link ArgumentCaptor} is a powerful Mockito API to capture argument values and use them to
-     * perform further actions or assertions on them.
-     */
-    @Captor
-    private ArgumentCaptor<CellsDataSource.LoadCellsCallback> mLoadCellsCallbackCaptor;
-
 
     @InjectMocks
     ContatoPresenter contatoPresenter;
@@ -63,8 +47,6 @@ public class ContatoPresenterTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-
-        mCellsRepository = CellsRepository.getInstance(cellsRemoteDataSource, cellsLocalDataSource);
 
         // Inicializa Formulario
         List<Cell> cells = new ArrayList<>();
@@ -82,6 +64,12 @@ public class ContatoPresenterTest {
     }
 
     @Test
+    public void testStart() throws Exception {
+        when(mContatoView.isActive()).thenReturn(true);
+        contatoPresenter.start();
+    }
+
+    @Test
     public void testRefreshFormulario() throws Exception {
         when(mContatoView.isActive()).thenReturn(true);
 
@@ -93,30 +81,8 @@ public class ContatoPresenterTest {
     @Test
     public void testGetFormulario() throws Exception {
         when(mContatoView.isActive()).thenReturn(true);
-
         contatoPresenter.getFormulario();
-        verify(mGetFormulario).getRequestValues();
-      ;
-
-
-        // Callback is captured and invoked with stubbed formularios
-//        verify(mCellsRepository).getFormulario(mLoadCellsCallbackCaptor.capture());
-//        mLoadCellsCallbackCaptor.getValue().onCellsLoaded(FORMULARIO);
-
-        //verify(mUseCaseHandler).execute(mGetFormulario.);
-
-
-        InOrder inOrder = inOrder(mContatoView);
-        inOrder.verify(mContatoView).setLoadingIndicator(true);     // Then progress indicator is shown
-        inOrder.verify(mContatoView).setLoadingIndicator(false);    // Then progress indicator is hidden and all formularios are shown in UI
-
-        ArgumentCaptor<Formulario> argumentCaptor = ArgumentCaptor.forClass(Formulario.class);
-        verify(mContatoView).desenhaTela(argumentCaptor.capture());
-        assertTrue(argumentCaptor.getValue().getCells().size() == 3);
-
-        assertTrue(FORMULARIO.getCells().size() > 0);
-        
-        
+        assertNotNull(contatoPresenter.FORMULARIO);
     }
 
     @Test // OK
