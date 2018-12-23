@@ -7,14 +7,14 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.google.gson.Gson;
-import com.seletiva.santander.investment.Models.Cell;
-import com.seletiva.santander.investment.Models.CellHolder;
-import com.seletiva.santander.investment.Models.CellType;
-import com.seletiva.santander.investment.UI.Activities.MainActivity_;
-import com.seletiva.santander.investment.UI.View.Form;
-import com.seletiva.santander.investment.UI.View.FormBuilder;
-import com.seletiva.santander.investment.UI.View.FormComponentView;
-import com.seletiva.santander.investment.Utils.FileUtils;
+import com.seletiva.santander.investment.ui.form.domain.model.Cell;
+import com.seletiva.santander.investment.ui.form.domain.model.CellHolder;
+import com.seletiva.santander.investment.ui.form.domain.model.CellType;
+import com.seletiva.santander.investment.ui.form.MainFormActivity_;
+import com.seletiva.santander.investment.ui.view.Form;
+import com.seletiva.santander.investment.ui.view.FormBuilder;
+import com.seletiva.santander.investment.ui.view.FormComponentView;
+import com.seletiva.santander.investment.utils.FileUtils;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -26,7 +26,7 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4.class)
 public class FormBuilderInstrumentedTest {
     @Rule
-    public ActivityTestRule<MainActivity_> rule  = new  ActivityTestRule<>(MainActivity_.class);
+    public ActivityTestRule<MainFormActivity_> rule  = new  ActivityTestRule<>(MainFormActivity_.class);
     private Activity activity;
     private FormBuilder formBuilder;
     private CellHolder mainHolder;

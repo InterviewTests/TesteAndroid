@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Investment</string>
     <string name="placeholder">Temporary text</string>
+    <string name="conn_error_cells">Não foi possível criar o formulário. Tente novamente mais tarde.</string>
+    <string name="conn_error_no_funds">Não foi possível obter extrato. Tente novamente mais tarde.</string>
 </resources>

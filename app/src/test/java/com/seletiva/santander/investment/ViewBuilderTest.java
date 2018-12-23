@@ -1,8 +1,8 @@
 package com.seletiva.santander.investment;
 
-import com.seletiva.santander.investment.UI.View.Form;
-import com.seletiva.santander.investment.UI.View.FormBuilder;
-import com.seletiva.santander.investment.UI.View.FormBuilderException;
+import com.seletiva.santander.investment.ui.view.Form;
+import com.seletiva.santander.investment.ui.view.FormBuilder;
+import com.seletiva.santander.investment.ui.view.FormBuilderException;
 
 import org.junit.Before;
 import org.junit.Rule;
