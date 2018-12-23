@@ -1,6 +1,7 @@
 package com.seletiva.santander.investment.Utils;
 
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -8,12 +9,11 @@ import static org.junit.Assert.*;
 public class StringUtilsTest {
     private String completePhoneNumber;
     private String completeLongPhoneNumber;
-
     private String expectedCompletePhoneNumber;
     private String expectedCompleteLongPhoneNumber;
 
-    @org.junit.Before
-    public void setUp() throws Exception {
+    @Before
+    public void setUp() {
         completePhoneNumber = "1134354647";
         completeLongPhoneNumber = "11968445978";
         expectedCompletePhoneNumber = "11 3435-4647";

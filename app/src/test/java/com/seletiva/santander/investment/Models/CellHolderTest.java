@@ -1,5 +1,6 @@
 package com.seletiva.santander.investment.Models;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,8 +10,8 @@ public class CellHolderTest {
     private Cell cell;
     private Cell secondCell;
 
-    @org.junit.Before
-    public void setUp() throws Exception {
+    @Before
+    public void setUp() {
         cell = new Cell();
         secondCell = new Cell();
         cellHolder = new CellHolder();

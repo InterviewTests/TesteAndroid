@@ -1,22 +1,31 @@
 package com.seletiva.santander.investment;
 
-import android.view.LayoutInflater;
-import android.widget.LinearLayout;
-
 import com.seletiva.santander.investment.UI.View.Form;
 import com.seletiva.santander.investment.UI.View.FormBuilder;
 import com.seletiva.santander.investment.UI.View.FormBuilderException;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.fail;
+import static org.mockito.Mockito.when;
 
-public class ViewBuilderTest implements Form {
+public class ViewBuilderTest {
+    @Mock
+    private Form formMock;
+
     @Rule
     public ExpectedException thrown = ExpectedException.none();
+
+    @Before
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
 
     @Test(expected = FormBuilderException.class)
     public void testFormBuilderConstructorWithNullParam() throws FormBuilderException {
@@ -27,18 +36,11 @@ public class ViewBuilderTest implements Form {
     @Test
     public void testFormBuilderConstructorWithNonNullParam() {
         try {
-            new FormBuilder(this);
+            when(formMock.getInflater()).thenReturn(null);
+            new FormBuilder(formMock);
             fail("Expected a FormBuilderException");
         } catch (FormBuilderException e) {
             assertEquals(e.getErrorCode(), FormBuilderException.FormBuilderExceptionCode.INVALID_LAYOUT_INFLATOR);
         }
     }
-
-    @Override
-    public LinearLayout getFormContainer() {
-        return null;
-    }
-
-    @Override
-    public LayoutInflater getInflater() { return null; }
 }

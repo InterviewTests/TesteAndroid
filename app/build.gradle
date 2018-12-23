@@ -18,7 +18,7 @@ android {
     }
 }
 
-def AAVersion = '4.5.2'
+def AndroidAnnotationsVer = '4.5.2'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -29,9 +29,17 @@ dependencies {
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    //Mockito
+    testImplementation "org.mockito:mockito-core:2.+"
+
     //AndroidAnnotations
-    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
-    implementation "org.androidannotations:androidannotations-api:$AAVersion"
+    annotationProcessor "org.androidannotations:androidannotations:$AndroidAnnotationsVer"
+    implementation "org.androidannotations:androidannotations-api:$AndroidAnnotationsVer"
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
 
     //Gson
     implementation 'com.google.code.gson:gson:2.8.5'
