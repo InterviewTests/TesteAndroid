@@ -1,5 +1,7 @@
 package com.seletiva.santander.investment.ui;
 
-public interface BaseView<T extends BasePresenter> {
-    void setPresenter(T presenter);
+public interface BaseView {
+    void showProgressDialog();
+    void hideProgressDialog();
+    void showMessage(int resId);
 }
