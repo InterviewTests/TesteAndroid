@@ -1,10 +1,14 @@
 package com.seletiva.santander.investment.ui.form;
 
+import android.content.Context;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import com.seletiva.santander.investment.R;
 import com.seletiva.santander.investment.controllers.cells.CellsController;
 import com.seletiva.santander.investment.ui.BaseActivity;
 import com.seletiva.santander.investment.ui.form.domain.model.CellHolder;
+import com.seletiva.santander.investment.ui.view.FormComponentView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -30,8 +34,18 @@ public class MainFormActivity extends BaseActivity implements MainForm.View {
     }
 
     @Override
-    public void buildCellsUsingHolder(CellHolder holder) {
+    public Context getContext() {
+        return this;
+    }
 
+    @Override
+    public void addFormComponent(FormComponentView view) {
+        formContainer.addView(view);
+    }
+
+    @Override
+    public void formValidated() {
+        Toast.makeText(this, "Validated!!!", Toast.LENGTH_LONG).show();
     }
 
     @Override

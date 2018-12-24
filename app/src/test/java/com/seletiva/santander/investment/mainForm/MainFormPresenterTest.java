@@ -1,10 +1,15 @@
 package com.seletiva.santander.investment.mainForm;
 
+import android.content.Context;
+
 import com.seletiva.santander.investment.R;
 import com.seletiva.santander.investment.controllers.cells.CellsController;
 import com.seletiva.santander.investment.ui.form.MainForm;
 import com.seletiva.santander.investment.ui.form.MainFormPresenter;
+import com.seletiva.santander.investment.ui.form.domain.model.Cell;
 import com.seletiva.santander.investment.ui.form.domain.model.CellHolder;
+import com.seletiva.santander.investment.ui.form.domain.model.CellType;
+import com.seletiva.santander.investment.ui.view.FormComponentView;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +37,7 @@ public class MainFormPresenterTest {
     }
 
     @Test
-    public void requestViewToBuildForm_whenRequestCellDataIsSuccessful() {
+    public void showAndHideProgress_whenRequestCellDataIsSuccessful() {
         CellHolder holderMock = new CellHolder();
 
         when(cellsControllerMock.getCells()).thenReturn(Observable.just(holderMock));
@@ -42,7 +47,6 @@ public class MainFormPresenterTest {
         InOrder inOrder = Mockito.inOrder(formView);
         inOrder.verify(formView, times(1)).showProgressDialog();
         inOrder.verify(formView, times(1)).hideProgressDialog();
-        inOrder.verify(formView, times(1)).buildCellsUsingHolder(holderMock);
     }
 
     @Test
@@ -58,5 +62,4 @@ public class MainFormPresenterTest {
         inOrder.verify(formView, times(1)).hideProgressDialog();
         inOrder.verify(formView, times(1)).showMessage(R.string.conn_error_cells);
     }
-
 }

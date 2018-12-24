@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+@Deprecated
 public class FormBuilder {
     private LayoutInflater inflater;
     private LinearLayout formContainer;

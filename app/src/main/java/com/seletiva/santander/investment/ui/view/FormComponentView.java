@@ -1,14 +1,15 @@
 package com.seletiva.santander.investment.ui.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import com.seletiva.santander.investment.ui.form.domain.model.Cell;
 import com.seletiva.santander.investment.ui.form.domain.model.CellType;
 import com.seletiva.santander.investment.ui.form.domain.model.SendButtonClickEvent;
 import com.seletiva.santander.investment.R;
+import com.seletiva.santander.investment.utils.RightDrawableOnTouchListener;
 import com.seletiva.santander.investment.utils.StringUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -114,14 +116,15 @@ public class FormComponentView extends LinearLayout implements FormFieldListener
         optionalTextField.addTextChangedListener(watcher);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void configureClearButton() {
-        ImageButton clearButton = findViewById(R.id.clearButton);
         final EditText textualInputData = findViewById(R.id.textualInputData);
 
-        clearButton.setOnClickListener(new OnClickListener() {
+        textualInputData.setOnTouchListener(new RightDrawableOnTouchListener(textualInputData) {
             @Override
-            public void onClick(View view) {
+            public boolean onDrawableTouch(final MotionEvent event) {
                 textualInputData.setText(null);
+                return true;
             }
         });
     }

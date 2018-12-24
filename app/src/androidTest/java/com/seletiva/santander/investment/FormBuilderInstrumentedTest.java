@@ -7,12 +7,13 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.google.gson.Gson;
+import com.seletiva.santander.investment.controllers.cells.CellsController;
+import com.seletiva.santander.investment.ui.form.MainForm;
+import com.seletiva.santander.investment.ui.form.MainFormPresenter;
 import com.seletiva.santander.investment.ui.form.domain.model.Cell;
 import com.seletiva.santander.investment.ui.form.domain.model.CellHolder;
 import com.seletiva.santander.investment.ui.form.domain.model.CellType;
 import com.seletiva.santander.investment.ui.form.MainFormActivity_;
-import com.seletiva.santander.investment.ui.view.Form;
-import com.seletiva.santander.investment.ui.view.FormBuilder;
 import com.seletiva.santander.investment.ui.view.FormComponentView;
 import com.seletiva.santander.investment.utils.FileUtils;
 
@@ -25,16 +26,15 @@ import static org.junit.Assert.*;
 @MediumTest
 @RunWith(AndroidJUnit4.class)
 public class FormBuilderInstrumentedTest {
+    private Activity activity;
+    private CellHolder mainHolder;
+
     @Rule
     public ActivityTestRule<MainFormActivity_> rule  = new  ActivityTestRule<>(MainFormActivity_.class);
-    private Activity activity;
-    private FormBuilder formBuilder;
-    private CellHolder mainHolder;
 
     @org.junit.Before
     public void setUp() throws Exception {
         activity = rule.getActivity();
-        formBuilder = new FormBuilder((Form) activity);
 
         Gson gson = new Gson();
         String fileContent = FileUtils.loadData("cells.json", activity);
@@ -47,34 +47,18 @@ public class FormBuilderInstrumentedTest {
     }
 
     @Test
+    public void testCellHolder() {
+        int totalHardCodedCells = 6;
+        assertNotNull(mainHolder);
+        assertEquals(mainHolder.getNumberOfCells(), totalHardCodedCells);
+    }
+
+
+    @Test
     @UiThreadTest
     public void testFormContainerIsEmpty() {
         formBuilder.removeAllChilds();
         assertEquals(formBuilder.getChildCount(), 0);
-    }
-
-    @Test
-    @UiThreadTest
-    public void testBasicFormBuilder() {
-        formBuilder.removeAllChilds();
-        formBuilder.addViewById(R.layout.form_component_checkbox)
-                .addViewById(R.layout.form_component_field)
-                .addViewById(R.layout.form_component_text);
-
-        assertEquals(formBuilder.getChildCount(), 3);
-    }
-
-    @Test
-    @UiThreadTest
-    public void testFormBuilderWithNonValidView() {
-        final int randomInvalidViewId = -1000;
-
-        formBuilder.removeAllChilds();
-        formBuilder.addViewById(R.layout.form_component_checkbox)
-                .addViewById(R.layout.form_component_field)
-                .addViewById(randomInvalidViewId);
-
-        assertEquals(formBuilder.getChildCount(), 2);
     }
 
     @Test
@@ -128,12 +112,5 @@ public class FormBuilderInstrumentedTest {
         }
 
         assertFalse(isFormValid);
-    }
-
-    @Test
-    public void testCellHolder() {
-        int totalHardCodedCells = 6;
-        assertNotNull(mainHolder);
-        assertEquals(mainHolder.getNumberOfCells(), totalHardCodedCells);
     }
 }
