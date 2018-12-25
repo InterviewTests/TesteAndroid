@@ -8,7 +8,7 @@ import com.seletiva.santander.investment.ui.tabs.domain.TabClickEvent;
 import org.androidannotations.annotations.EFragment;
 import org.greenrobot.eventbus.EventBus;
 
-@EFragment(R.layout.fragment_investments)
+@EFragment(R.layout.fragment_investment)
 public class FragmentInvestments extends Fragment {
     public FragmentInvestments() {}
 

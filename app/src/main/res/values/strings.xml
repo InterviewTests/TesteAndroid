@@ -4,6 +4,30 @@
     <string name="conn_error_cells">Não foi possível criar o formulário. Tente novamente mais tarde.</string>
     <string name="conn_error_no_funds">Não foi possível obter extrato. Tente novamente mais tarde.</string>
 
+    <string name="invest">Investir</string>
+
     <string name="tab_investments_title">Investimentos</string>
     <string name="tab_contact_title">Contato</string>
+    <string name="download">download</string>
+
+    <!-- Tab: Investments : Header -->
+    <string name="investment_funds">Fundos de investimentos</string>
+    <string name="investment_funds_name">Vinci Valorem FI Multimercado</string>
+    <string name="what_is">O que é?</string>
+
+    <!-- Tab: Investments : Risk factor bar -->
+    <string name="risk_factor_title">Grau de risco do investimento</string>
+    <string name="more_info">Mais informações</string>
+
+    <!-- Tab: Investments : CDI -->
+    <string name="cdi">CDI</string>
+    <string name="funds">Fundos</string>
+    <string name="cdi_month">No mês</string>
+    <string name="cdi_year">No ano</string>
+    <string name="cdi_12_months">12 meses</string>
+    <string name="loading_percent">--%</string>
+
+    <!-- Investments: List -->
+    <string name="item_placeholder">--</string>
+
 </resources>

@@ -1,7 +1,7 @@
 package com.seletiva.santander.investment.mainForm;
 
 import com.seletiva.santander.investment.R;
-import com.seletiva.santander.investment.controllers.cells.CellsController;
+import com.seletiva.santander.investment.datasources.cells.CellsDatasource;
 import com.seletiva.santander.investment.ui.form.MainForm;
 import com.seletiva.santander.investment.ui.form.MainFormPresenter;
 import com.seletiva.santander.investment.ui.form.domain.model.CellHolder;
@@ -21,13 +21,13 @@ import static org.mockito.Mockito.when;
 
 public class MainFormPresenterTest {
     @Mock private MainForm.View formView;
-    @Mock private CellsController cellsControllerMock;
+    @Mock private CellsDatasource cellsDatasourceMock;
     private MainFormPresenter presenter;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        presenter = new MainFormPresenter(formView, cellsControllerMock, Schedulers.trampoline(),
+        presenter = new MainFormPresenter(formView, cellsDatasourceMock, Schedulers.trampoline(),
                 Schedulers.trampoline());
     }
 
@@ -35,7 +35,7 @@ public class MainFormPresenterTest {
     public void showAndHideProgress_whenRequestCellDataIsSuccessful() {
         CellHolder holderMock = new CellHolder();
 
-        when(cellsControllerMock.getCells()).thenReturn(Observable.just(holderMock));
+        when(cellsDatasourceMock.getCells()).thenReturn(Observable.just(holderMock));
 
         presenter.loadCells();
 
@@ -48,7 +48,7 @@ public class MainFormPresenterTest {
     public void showErrorMessage_whenRequestCellDataFails() {
         Exception exception = new Exception();
 
-        when(cellsControllerMock.getCells()).thenReturn(Observable.<CellHolder>error(exception));
+        when(cellsDatasourceMock.getCells()).thenReturn(Observable.<CellHolder>error(exception));
 
         presenter.loadCells();
 

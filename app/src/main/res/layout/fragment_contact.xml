@@ -9,6 +9,10 @@
     <LinearLayout
         android:id="@+id/form_container"
         android:orientation="vertical"
+        android:paddingEnd="@dimen/dimen_32dp"
+        android:paddingLeft="@dimen/dimen_32dp"
+        android:paddingRight="@dimen/dimen_32dp"
+        android:paddingStart="@dimen/dimen_32dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

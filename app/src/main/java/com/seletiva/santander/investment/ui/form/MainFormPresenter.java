@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.seletiva.santander.investment.R;
-import com.seletiva.santander.investment.controllers.cells.CellsController;
+import com.seletiva.santander.investment.datasources.cells.CellsDatasource;
 import com.seletiva.santander.investment.ui.form.domain.model.Cell;
 import com.seletiva.santander.investment.ui.form.domain.model.CellHolder;
 import com.seletiva.santander.investment.ui.form.domain.model.SendButtonClickEvent;
@@ -20,7 +20,7 @@ import io.reactivex.Scheduler;
 import io.reactivex.disposables.Disposable;
 
 public class MainFormPresenter implements MainForm.Presenter {
-    private CellsController controller;
+    private CellsDatasource controller;
     private MainForm.View view;
     private ArrayList<FormComponentView> formComponents;
 
@@ -28,7 +28,7 @@ public class MainFormPresenter implements MainForm.Presenter {
     @NonNull private Scheduler mainScheduler;
 
     public MainFormPresenter(@NonNull MainForm.View view,
-                             @NonNull CellsController controller,
+                             @NonNull CellsDatasource controller,
                              @NonNull Scheduler backgroundScheduler,
                              @NonNull Scheduler mainScheduler) {
         this.view = view;

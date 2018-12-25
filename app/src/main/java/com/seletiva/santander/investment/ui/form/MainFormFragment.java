@@ -5,7 +5,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.seletiva.santander.investment.R;
-import com.seletiva.santander.investment.controllers.cells.CellsController;
+import com.seletiva.santander.investment.datasources.cells.CellsDatasource;
 import com.seletiva.santander.investment.ui.BaseFragment;
 import com.seletiva.santander.investment.ui.tabs.domain.TabClickEvent;
 import com.seletiva.santander.investment.ui.view.FormComponentView;
@@ -37,7 +37,7 @@ public class MainFormFragment extends BaseFragment implements MainForm.View {
 
     @AfterViews
     public void init() {
-        CellsController controller = new CellsController();
+        CellsDatasource controller = new CellsDatasource();
         presenter = new MainFormPresenter(this, controller, Schedulers.newThread(),
                 AndroidSchedulers.mainThread());
         presenter.start();
