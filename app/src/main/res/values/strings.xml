@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">Investment</string>
-    <string name="placeholder">Temporary text</string>
+    <string name="placeholder">--</string>
     <string name="conn_error_cells">Não foi possível criar o formulário. Tente novamente mais tarde.</string>
     <string name="conn_error_no_funds">Não foi possível obter extrato. Tente novamente mais tarde.</string>
 
     <string name="invest">Investir</string>
 
-    <string name="tab_investments_title">Investimentos</string>
+    <string name="tab_investments_title">Investimento</string>
     <string name="tab_contact_title">Contato</string>
-    <string name="download">download</string>
+    <string name="download">baixar</string>
 
     <!-- Tab: Investments : Header -->
     <string name="investment_funds">Fundos de investimentos</string>

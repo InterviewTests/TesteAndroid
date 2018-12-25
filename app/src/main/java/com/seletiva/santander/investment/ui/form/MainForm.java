@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.seletiva.santander.investment.ui.BasePresenter;
 import com.seletiva.santander.investment.ui.BaseView;
-import com.seletiva.santander.investment.ui.form.domain.model.CellHolder;
 import com.seletiva.santander.investment.ui.view.FormComponentView;
 
 public interface MainForm {

@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:minHeight="400dp">
 
+        <!-- Progress -->
+        <include
+            android:id="@+id/progress"
+            android:visibility="gone"
+            layout="@layout/view_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Main layout -->
         <LinearLayout
-            android:id="@+id/container_investment"
+            android:id="@+id/investmentLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingEnd="@dimen/dimen_32dp"
-            android:paddingLeft="@dimen/dimen_32dp"
-            android:paddingRight="@dimen/dimen_32dp"
             android:paddingStart="@dimen/dimen_32dp"
+            android:paddingLeft="@dimen/dimen_32dp"
+            android:paddingEnd="@dimen/dimen_32dp"
+            android:paddingRight="@dimen/dimen_32dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <!-- View: header -->
-            <include layout="@layout/view_investiments_header"/>
+            <include layout="@layout/view_investiments_header" />
 
             <!-- View: risk factor -->
             <include layout="@layout/view_risk_factor_bar" />
@@ -32,27 +49,36 @@
             <!-- View: periods -->
             <include layout="@layout/view_periods_cdi" />
 
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:background="@color/colorLightGrey" />
+
             <!-- List: Details -->
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_16dp"/>
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:overScrollMode="never" />
 
             <!-- Call to action -->
             <Button
                 android:id="@+id/invest"
-                android:background="@drawable/call_to_action_background"
-                android:fontFamily="@font/dinpro_medium"
-                android:textColor="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_32dp"
                 android:layout_marginTop="@dimen/dimen_32dp"
-                android:text="@string/invest" />
+                android:layout_marginBottom="@dimen/dimen_32dp"
+                android:background="@drawable/call_to_action_background"
+                android:fontFamily="@font/dinpro_medium"
+                android:text="@string/invest"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
 
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>
+

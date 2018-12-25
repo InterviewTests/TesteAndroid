@@ -7,16 +7,21 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/investment_funds" />
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:text="@string/investment_funds"
+        android:textSize="@dimen/text_dimen_18sp" />
 
     <TextView
+        android:id="@+id/fundName"
         style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_8dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
         android:gravity="center"
+        android:maxLines="2"
         android:text="@string/investment_funds_name" />
 
     <View
@@ -26,15 +31,19 @@
         android:background="@color/colorLightGrey" />
 
     <TextView
+        android:id="@+id/whatIs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_16dp"
+        android:textSize="@dimen/text_dimen_18sp"
         android:text="@string/what_is" />
 
     <TextView
+        android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_8dp"
+        android:textSize="@dimen/text_dimen_18sp"
         android:gravity="center"
         android:text="@string/invest" />
 </LinearLayout>

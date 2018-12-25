@@ -27,16 +27,11 @@ public class TabsActivity extends BaseActivity implements Tabs.View {
     public void init() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setTitle(getString(R.string.tab_investments_title));
 
         presenter = new TabsPresenter(this, getSupportFragmentManager());
         presenter.start();
         EventBus.getDefault().register(this);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
     }
 
     @Subscribe
@@ -55,13 +50,6 @@ public class TabsActivity extends BaseActivity implements Tabs.View {
     @Override
     public void addViewPagerToLayout() {
         tablayout.setupWithViewPager(viewPager);
-    }
-
-    @Override
-    public void updateToolbarTitleTo(String title) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(title);
-        }
     }
 
     @Override

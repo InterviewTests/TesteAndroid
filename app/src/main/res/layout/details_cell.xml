@@ -8,50 +8,49 @@
 
     <TextView
         android:id="@+id/itemName"
-        style="@style/TextAppearance.AppCompat.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorLightGrey"
-        android:textSize="16sp"
+        android:textColor="@color/colorGrey"
+        android:textSize="@dimen/text_dimen_18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Taxa de administraçao" />
+        tools:text="@string/item_placeholder" />
 
     <TextView
         android:id="@+id/itemValue"
         style="@style/TextAppearance.AppCompat.Body2"
-        android:layout_width="9dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:text="@string/item_placeholder"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/item_placeholder" />
+        />
 
     <LinearLayout
         android:id="@+id/downloadIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="0dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/downloadImage"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/ic_download"
-            android:contentDescription="@string/download" />
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/download"
+            android:src="@drawable/ic_download" />
 
         <TextView
-            android:id="@+id/downloadText"
             style="@style/TextAppearance.AppCompat.Body2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="4dp"
             android:text="@string/download"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/tabBarColor"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -6,129 +6,131 @@
     android:layout_marginTop="@dimen/dimen_14dp">
 
     <TextView
-        android:id="@+id/info_title"
-        style="@style/TextAppearance.AppCompat.Body2"
+        android:id="@+id/periodsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_32dp"
         android:layout_marginEnd="@dimen/dimen_8dp"
         android:layout_marginStart="@dimen/dimen_8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/text_dimen_18sp"
         android:text="@string/more_info" />
 
     <TextView
-        android:id="@+id/fund_label"
-        style="@style/TextAppearance.AppCompat.Body1"
+        android:id="@+id/fundsCol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/funds"
-        android:textColor="@color/colorLightGrey"
-        app:layout_constraintEnd_toStartOf="@id/guide_line1"
-        app:layout_constraintTop_toBottomOf="@id/info_title" />
+        android:textColor="@color/colorGrey"
+        app:layout_constraintEnd_toStartOf="@id/divider"
+        app:layout_constraintTop_toBottomOf="@id/periodsTitle" />
 
     <TextView
         style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cdi"
-        android:textColor="@color/colorLightGrey"
+        android:textColor="@color/colorGrey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/fund_label" />
+        app:layout_constraintTop_toTopOf="@id/fundsCol" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guide_line1"
+        android:id="@+id/divider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.6" />
 
+    <!-- Rows -->
     <TextView
-        android:id="@+id/month_label"
-        style="@style/TextAppearance.AppCompat.Body1"
+        android:id="@+id/monthRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/cdi_month"
-        android:textColor="@color/colorLightGrey"
+        android:textColor="@color/colorGrey"
+        android:textSize="@dimen/text_dimen_18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fund_label" />
+        app:layout_constraintTop_toBottomOf="@id/fundsCol" />
 
     <TextView
-        android:id="@+id/year_label"
-        style="@style/TextAppearance.AppCompat.Body1"
+        android:id="@+id/yearRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textSize="@dimen/text_dimen_18sp"
         android:text="@string/cdi_year"
-        android:textColor="@color/colorLightGrey"
+        android:textColor="@color/colorGrey"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/month_label" />
+        app:layout_constraintTop_toBottomOf="@id/monthRow" />
 
     <TextView
-        android:id="@+id/twelve_months_label"
-        style="@style/TextAppearance.AppCompat.Body1"
+        android:id="@+id/twelveRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/cdi_12_months"
-        android:textColor="@color/colorLightGrey"
+        android:textColor="@color/colorGrey"
+        android:textSize="@dimen/text_dimen_18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/year_label" />
+        app:layout_constraintTop_toBottomOf="@id/yearRow" />
 
     <TextView
-        android:id="@+id/month_fund"
-        style="@style/TextAppearance.AppCompat.Body2"
+        android:id="@+id/monthFund"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/guide_line1"
-        app:layout_constraintTop_toTopOf="@id/month_label"
+        app:layout_constraintEnd_toStartOf="@id/divider"
+        app:layout_constraintTop_toTopOf="@id/monthRow"
+        android:textSize="@dimen/text_dimen_18sp"
         android:text="@string/loading_percent" />
 
     <TextView
-        android:id="@+id/month_cdi"
-        style="@style/TextAppearance.AppCompat.Body2"
+        android:id="@+id/monthCdi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/month_label"
+        app:layout_constraintTop_toTopOf="@id/monthRow"
+        android:textColor="@color/black"
         android:text="@string/loading_percent" />
 
     <TextView
-        android:id="@+id/twelve_months_fund"
-        style="@style/TextAppearance.AppCompat.Body2"
+        android:id="@+id/twelveFund"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/guide_line1"
-        app:layout_constraintTop_toTopOf="@id/twelve_months_label"
+        app:layout_constraintEnd_toStartOf="@id/divider"
+        app:layout_constraintTop_toTopOf="@id/twelveRow"
+        android:textColor="@color/black"
         android:text="@string/loading_percent" />
 
     <TextView
-        android:id="@+id/twelve_months_cdi"
-        style="@style/TextAppearance.AppCompat.Body2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/twelve_months_label"
-        android:text="@string/loading_percent" />
-
-    <TextView
-        android:id="@+id/year_fund"
-        style="@style/TextAppearance.AppCompat.Body2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/guide_line1"
-        app:layout_constraintTop_toTopOf="@id/year_label"
-        android:text="@string/loading_percent" />
-
-    <TextView
-        android:id="@+id/year_cdi"
-        style="@style/TextAppearance.AppCompat.Body2"
+        android:id="@+id/twelveCdi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/year_label"
+        app:layout_constraintTop_toTopOf="@id/twelveRow"
+        android:textColor="@color/black"
+        android:text="@string/loading_percent" />
+
+    <TextView
+        android:id="@+id/yearFund"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/divider"
+        app:layout_constraintTop_toTopOf="@id/yearRow"
+        android:textColor="@color/black"
+        android:text="@string/loading_percent" />
+
+    <TextView
+        android:id="@+id/yearCdi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/yearRow"
+        android:textColor="@color/black"
         android:text="@string/loading_percent" />
 
 </android.support.constraint.ConstraintLayout>

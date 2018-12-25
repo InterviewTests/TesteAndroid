@@ -9,6 +9,8 @@
     <color name="white">#FFFFFF</color>
     <color name="colorLightGrey">#FFCBCBCB</color>
 
+    <color name="colorGrey">#b6b5b5</color>
+
     <color name="tabBarColor">#DA0101</color>
     <color name="validatedColor">#65BE30</color>
     <color name="windowBackground">#FFFFFF</color>

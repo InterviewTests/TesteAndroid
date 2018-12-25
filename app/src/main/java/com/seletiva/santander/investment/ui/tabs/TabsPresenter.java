@@ -3,7 +3,7 @@ package com.seletiva.santander.investment.ui.tabs;
 import android.support.v4.app.FragmentManager;
 
 import com.seletiva.santander.investment.ui.form.MainFormFragment_;
-import com.seletiva.santander.investment.ui.investments.FragmentInvestments_;
+import com.seletiva.santander.investment.ui.investments.InvestmentsFragment_;
 import com.seletiva.santander.investment.ui.tabs.adapters.ViewPagerAdapter;
 
 public class TabsPresenter implements Tabs.Presenter {
@@ -22,7 +22,7 @@ public class TabsPresenter implements Tabs.Presenter {
 
     private void configureTabAdapter() {
         ViewPagerAdapter adapter = new ViewPagerAdapter(fragmentManager);
-        adapter.addFragment(new FragmentInvestments_(), view.getInvestimentsTabTitle());
+        adapter.addFragment(new InvestmentsFragment_(), view.getInvestimentsTabTitle());
         adapter.addFragment(new MainFormFragment_(), view.getContactTabTitle());
 
         view.addViewPagerAdapter(adapter);
