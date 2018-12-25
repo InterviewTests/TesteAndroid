@@ -3,4 +3,7 @@
     <string name="placeholder">Temporary text</string>
     <string name="conn_error_cells">Não foi possível criar o formulário. Tente novamente mais tarde.</string>
     <string name="conn_error_no_funds">Não foi possível obter extrato. Tente novamente mais tarde.</string>
+
+    <string name="tab_investments_title">Investimentos</string>
+    <string name="tab_contact_title">Contato</string>
 </resources>

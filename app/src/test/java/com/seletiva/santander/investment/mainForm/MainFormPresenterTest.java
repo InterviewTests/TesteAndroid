@@ -1,15 +1,10 @@
 package com.seletiva.santander.investment.mainForm;
 
-import android.content.Context;
-
 import com.seletiva.santander.investment.R;
 import com.seletiva.santander.investment.controllers.cells.CellsController;
 import com.seletiva.santander.investment.ui.form.MainForm;
 import com.seletiva.santander.investment.ui.form.MainFormPresenter;
-import com.seletiva.santander.investment.ui.form.domain.model.Cell;
 import com.seletiva.santander.investment.ui.form.domain.model.CellHolder;
-import com.seletiva.santander.investment.ui.form.domain.model.CellType;
-import com.seletiva.santander.investment.ui.view.FormComponentView;
 
 import org.junit.Before;
 import org.junit.Test;

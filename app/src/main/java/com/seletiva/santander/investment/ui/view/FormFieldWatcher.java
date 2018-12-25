@@ -59,7 +59,8 @@ public class FormFieldWatcher implements TextWatcher {
 
     private void colorfyMailField(String mail) {
         boolean isMailValid = StringUtils.validateEmailAdress(mail);
-        int colorId = isMailValid ? R.color.colorPrimary : R.color.colorAccent;
+
+        int colorId = isMailValid ? R.color.validatedColor : R.color.colorAccent;
         formFieldListener.updateEditTextColor(colorId);
     }
 
@@ -71,7 +72,7 @@ public class FormFieldWatcher implements TextWatcher {
             isFieldValid = true;
         }
 
-        int colorId = isFieldValid ? R.color.colorPrimary : R.color.colorAccent;
+        int colorId = isFieldValid ? R.color.validatedColor : R.color.colorAccent;
         formFieldListener.updateEditTextColor(colorId);
     }
 }

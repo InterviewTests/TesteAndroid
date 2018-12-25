@@ -6,23 +6,34 @@ import android.widget.Toast;
 
 import com.seletiva.santander.investment.R;
 import com.seletiva.santander.investment.controllers.cells.CellsController;
-import com.seletiva.santander.investment.ui.BaseActivity;
-import com.seletiva.santander.investment.ui.form.domain.model.CellHolder;
+import com.seletiva.santander.investment.ui.BaseFragment;
+import com.seletiva.santander.investment.ui.tabs.domain.TabClickEvent;
 import com.seletiva.santander.investment.ui.view.FormComponentView;
 
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
+import org.greenrobot.eventbus.EventBus;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-@EActivity(R.layout.activity_main)
-public class MainFormActivity extends BaseActivity implements MainForm.View {
+@EFragment(R.layout.fragment_contact)
+public class MainFormFragment extends BaseFragment implements MainForm.View {
     @ViewById
     LinearLayout formContainer;
 
     private MainFormPresenter presenter;
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (getContext() != null) {
+            if (isVisibleToUser) {
+                EventBus.getDefault().post(new TabClickEvent(getString(R.string.tab_contact_title)));
+            }
+        }
+    }
 
     @AfterViews
     public void init() {
@@ -35,7 +46,7 @@ public class MainFormActivity extends BaseActivity implements MainForm.View {
 
     @Override
     public Context getContext() {
-        return this;
+        return getActivity();
     }
 
     @Override
@@ -45,7 +56,7 @@ public class MainFormActivity extends BaseActivity implements MainForm.View {
 
     @Override
     public void formValidated() {
-        Toast.makeText(this, "Validated!!!", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "Validated!!!", Toast.LENGTH_LONG).show();
     }
 
     @Override
