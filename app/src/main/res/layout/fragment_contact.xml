@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.form.MainFormFragment">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/form_container"
-        android:orientation="vertical"
-        android:paddingEnd="@dimen/dimen_32dp"
-        android:paddingLeft="@dimen/dimen_32dp"
-        android:paddingRight="@dimen/dimen_32dp"
-        android:paddingStart="@dimen/dimen_32dp"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:minHeight="400dp">
 
-</android.support.constraint.ConstraintLayout>
+        <!-- Progress -->
+        <include
+            android:id="@+id/progress"
+            android:visibility="gone"
+            layout="@layout/view_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Success -->
+        <include
+            android:id="@+id/message_sent"
+            layout="@layout/view_message_sent"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <!-- Main container -->
+        <LinearLayout
+            android:id="@+id/form_container"
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/dimen_32dp"
+            android:paddingLeft="@dimen/dimen_32dp"
+            android:paddingRight="@dimen/dimen_32dp"
+            android:paddingStart="@dimen/dimen_32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

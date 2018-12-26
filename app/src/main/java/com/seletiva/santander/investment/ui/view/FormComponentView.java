@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.support.annotation.Nullable;
+import android.text.InputFilter;
+import android.text.InputType;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,6 +23,8 @@ import com.seletiva.santander.investment.utils.RightDrawableOnTouchListener;
 import com.seletiva.santander.investment.utils.StringUtils;
 
 import org.greenrobot.eventbus.EventBus;
+
+import static com.seletiva.santander.investment.utils.StringUtils.FORMATTED_MAX_PHONE_LENGTH;
 
 public class FormComponentView extends LinearLayout implements FormFieldListener {
     private Cell cellCore;
@@ -48,6 +52,7 @@ public class FormComponentView extends LinearLayout implements FormFieldListener
                     configureComponentTitle();
                     configureClearButton();
                     configureTextualDataWatcher();
+                    configureKeyboardType();
                     break;
 
                 case text:
@@ -68,6 +73,19 @@ public class FormComponentView extends LinearLayout implements FormFieldListener
                 default:
                     break;
             }
+        }
+    }
+
+    private void configureKeyboardType() {
+        switch (cellCore.getTypeField()) {
+            case telNumber:
+                optionalTextField.setInputType(InputType.TYPE_CLASS_PHONE);
+                break;
+            case email:
+                optionalTextField.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+                break;
+            default:
+                break;
         }
     }
 
@@ -100,9 +118,14 @@ public class FormComponentView extends LinearLayout implements FormFieldListener
 
     private void configureTextualDataWatcher() {
         FormFieldWatcher watcher = new FormFieldWatcher(this);
+        optionalTextField = findViewById(R.id.textualInputData);
 
         switch (cellCore.getTypeField()) {
             case telNumber:
+                optionalTextField
+                        .setFilters(new InputFilter[]{
+                                new InputFilter.LengthFilter(FORMATTED_MAX_PHONE_LENGTH)
+                        });
                 watcher.enablePhoneValidationMode();
                 break;
             case email:
@@ -112,7 +135,7 @@ public class FormComponentView extends LinearLayout implements FormFieldListener
                 break;
         }
 
-        optionalTextField = findViewById(R.id.textualInputData);
+
         optionalTextField.addTextChangedListener(watcher);
     }
 
@@ -138,19 +161,45 @@ public class FormComponentView extends LinearLayout implements FormFieldListener
     public boolean isValid() {
         if (cellCore.getType() == CellType.field) {
             String inputData = optionalTextField.getText().toString();
+            boolean isValid;
 
             switch (cellCore.getTypeField()) {
                 case telNumber:
-                    return StringUtils.isPhoneNumberValid(inputData);
+                    isValid = StringUtils.isPhoneNumberValid(inputData);
+                    showErrorMessageIfNecessary(isValid);
+                    return isValid;
 
                 case email:
-                    return StringUtils.validateEmailAdress(inputData);
+                    isValid = StringUtils.validateEmailAdress(inputData);
+                    showErrorMessageIfNecessary(isValid);
+                    return isValid;
 
                 default:
+                    if (inputData.length() == 0) {
+                        showErrorMessageIfNecessary(false);
+                        return false;
+                    }
                     break;
             }
         }
 
         return true;
+    }
+
+    private void showErrorMessageIfNecessary(boolean isValid) {
+        if (!isValid) {
+            optionalTextField.setError(getResources().getString(R.string.field_fixit));
+        }
+    }
+
+    public void clearComponentIfNecessary() {
+        if (cellCore.getType() == CellType.field) {
+            optionalTextField.setText(null);
+            optionalTextField.getBackground().setColorFilter(getResources().getColor(R.color.colorGrey),
+                    PorterDuff.Mode.SRC_ATOP);
+        } else if(cellCore.getType() == CellType.checkbox) {
+            CheckBox checkBox = findViewById(R.id.checkBox);
+            checkBox.setChecked(false);
+        }
     }
 }

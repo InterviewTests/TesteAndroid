@@ -8,6 +8,8 @@
     <dimen name="dimen_16dp">16dp</dimen>
     <dimen name="dimen_32dp">32dp</dimen>
 
-    <dimen name="text_dimen_22sp">22sp</dimen>
+    <!-- text size -->
     <dimen name="text_dimen_18sp">18sp</dimen>
+    <dimen name="text_dimen_22sp">22sp</dimen>
+    <dimen name="text_dimen_48sp">48sp</dimen>
 </resources>

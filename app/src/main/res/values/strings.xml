@@ -4,6 +4,9 @@
     <string name="conn_error_cells">Não foi possível criar o formulário. Tente novamente mais tarde.</string>
     <string name="conn_error_no_funds">Não foi possível obter extrato. Tente novamente mais tarde.</string>
 
+    <!-- Message Sent -->
+    <string name="field_fixit">Preencher corretamente</string>
+
     <string name="invest">Investir</string>
 
     <string name="tab_investments_title">Investimento</string>
@@ -29,5 +32,14 @@
 
     <!-- Investments: List -->
     <string name="item_placeholder">--</string>
+
+    <!-- Message Sent -->
+    <string name="thank_you">Obrigado!</string>
+    <string name="success_view_message">Mensagem enviada com sucesso! :)</string>
+    <string name="send_new_message">Enviar nova mensagem</string>
+    <string name="attention">Atenção</string>
+    <string name="error_message">Um erro ocorreu. Tente novamente.</string>
+    <string name="ok">Ok!</string>
+
 
 </resources>

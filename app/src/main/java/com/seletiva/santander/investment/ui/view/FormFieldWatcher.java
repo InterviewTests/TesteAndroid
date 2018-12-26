@@ -44,6 +44,7 @@ public class FormFieldWatcher implements TextWatcher {
         if (processing)
             return;
 
+
         processing = true;
 
         if (phoneValidation) {

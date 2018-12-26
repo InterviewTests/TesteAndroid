@@ -8,8 +8,9 @@ import com.seletiva.santander.investment.ui.view.FormComponentView;
 
 public interface MainForm {
     interface Presenter extends BasePresenter {
-        void stop();
         void loadCells();
+        void stop();
+        void clearForm();
     }
 
     interface View extends BaseView {

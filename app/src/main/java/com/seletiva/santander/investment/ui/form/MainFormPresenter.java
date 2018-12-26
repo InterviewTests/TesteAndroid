@@ -86,6 +86,13 @@ public class MainFormPresenter implements MainForm.Presenter {
                 });
     }
 
+    @Override
+    public void clearForm() {
+        for(FormComponentView component:formComponents) {
+            component.clearComponentIfNecessary();
+        }
+    }
+
     private void buildFormUsingCellHolder(CellHolder holder) {
         Context context = view.getContext();
 

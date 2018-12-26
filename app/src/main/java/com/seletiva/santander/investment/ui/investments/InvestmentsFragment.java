@@ -1,6 +1,6 @@
 package com.seletiva.santander.investment.ui.investments;
 
-import android.support.v4.app.Fragment;
+import android.content.DialogInterface;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.seletiva.santander.investment.R;
 import com.seletiva.santander.investment.datasources.funds.FundsDatasource;
+import com.seletiva.santander.investment.ui.BaseFragment;
 import com.seletiva.santander.investment.ui.investments.adapters.InvestmentsAdapter;
 import com.seletiva.santander.investment.ui.investments.domain.MoreInfo;
 import com.seletiva.santander.investment.ui.tabs.domain.TabClickEvent;
@@ -23,7 +24,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 @EFragment(R.layout.fragment_investment)
-public class InvestmentsFragment extends Fragment implements Investments.View {
+public class InvestmentsFragment extends BaseFragment implements Investments.View {
     @ViewById
     View progress;
 
@@ -108,7 +109,15 @@ public class InvestmentsFragment extends Fragment implements Investments.View {
 
     @Override
     public void showMessage(int resId) {
+        DialogInterface.OnClickListener tryAgain = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                presenter.loadFunds();
+            }
+        };
 
+        showTryAgainMessage(resId, tryAgain);
     }
 
     @Override
