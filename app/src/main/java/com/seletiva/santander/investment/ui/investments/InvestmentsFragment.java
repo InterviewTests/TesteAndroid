@@ -142,7 +142,6 @@ public class InvestmentsFragment extends BaseFragment implements Investments.Vie
     @Override
     public void configureInfo(String infoTitle, MoreInfo moreInfo) {
         periodsTitle.setText(infoTitle);
-
         monthFund.setText(moreInfo.getMonth().getFund());
         monthCdi.setText(moreInfo.getMonth().getCDI());
 

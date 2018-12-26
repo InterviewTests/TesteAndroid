@@ -8,12 +8,12 @@ import android.widget.TextView;
 import com.seletiva.santander.investment.R;
 import com.seletiva.santander.investment.ui.investments.domain.InfoItem;
 
-public class InvestmentViewHolder extends RecyclerView.ViewHolder {
+class InvestmentViewHolder extends RecyclerView.ViewHolder {
     private TextView title;
     private TextView value;
     private LinearLayout downloadIndicator;
 
-    public InvestmentViewHolder(View view) {
+    InvestmentViewHolder(View view) {
         super(view);
 
         title = view.findViewById(R.id.itemName);
@@ -21,7 +21,7 @@ public class InvestmentViewHolder extends RecyclerView.ViewHolder {
         downloadIndicator = view.findViewById(R.id.downloadIndicator);
     }
 
-    public void bind(InfoItem item) {
+    void bind(InfoItem item) {
         title.setText(item.getName());
 
         if (item.getData() == null) {

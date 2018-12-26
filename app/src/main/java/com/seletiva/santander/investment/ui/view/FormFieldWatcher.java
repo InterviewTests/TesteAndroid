@@ -9,6 +9,9 @@ import com.seletiva.santander.investment.utils.StringUtils;
 import static com.seletiva.santander.investment.utils.StringUtils.REGULAR_PHONE_LONG_NUMBER_LENGTH;
 import static com.seletiva.santander.investment.utils.StringUtils.REGULAR_PHONE_NUMBER_LENGTH;
 
+/**
+ * Watcher de campo de texto para valores de email e telefone
+ */
 public class FormFieldWatcher implements TextWatcher {
     private FormFieldListener formFieldListener;
     private boolean processing = false;
@@ -19,11 +22,17 @@ public class FormFieldWatcher implements TextWatcher {
         formFieldListener = listener;
     }
 
+    /**
+     * Habilita TextWatcher para validacao de email
+     */
     public void enableMailValidationMode() {
         mailValidation = true;
         phoneValidation = false;
     }
 
+    /**
+     * Habilita TextWatcher para telefone de email
+     */
     public void enablePhoneValidationMode() {
         mailValidation = false;
         phoneValidation = true;

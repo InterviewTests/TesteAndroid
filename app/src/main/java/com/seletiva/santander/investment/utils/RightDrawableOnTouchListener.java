@@ -6,6 +6,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * Class utilizada para detecção de clique no drawable embedded
+ * no EditText (limpar)
+ */
 public abstract class RightDrawableOnTouchListener implements View.OnTouchListener {
     private Drawable drawable;
 

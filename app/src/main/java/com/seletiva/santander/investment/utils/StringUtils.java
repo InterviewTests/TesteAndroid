@@ -1,21 +1,47 @@
 package com.seletiva.santander.investment.utils;
 
+/**
+ * Utilitários genericos de strings
+ */
 public class StringUtils {
+    /** Tamanho máximo aceito para formato (00) 1234-5678 (não formatado) */
     public static final int REGULAR_PHONE_NUMBER_LENGTH = 10;
+
+    /** Tamanho máximo aceito para formato (00) 91234-5678 (não formatado) */
     public static final int REGULAR_PHONE_LONG_NUMBER_LENGTH = 11;
+
+    /** Tamanho máximo aceito para formato (00) 91234-5678 (formatado) */
     public static final int FORMATTED_MAX_PHONE_LENGTH = 15;
 
+    /** Indice inicial para insercao do `(` */
     private static final int INITIAL_PARENTHESES_INDEX = 0;
+
+    /** Indice indicador de insercao do `)` */
     private static final int CLOSE_PARENTHESES_INDEX = 2;
+
+    /** Indice para insercao do `)` */
     private static final int CLOSE_PARENTHESES_INSERTION_INDEX = 3;
+
+    /** Indice para insercao de ` ` (espaco/blank space) p/ codigo de área (00)_*/
     private static final int AREA_CODE_INDEX = 4;
 
+    /** Indice para insercao de hifen em formatos (00) 0000-0000 */
     private static final int HIFEN_INDEX_FOR_PHONE = 5;
+
+    /** Indice para insercao de hifen em formatos (00) 00000-0000 */
     private static final int HIFEN_INDEX_FOR_LONG_PHONE = 6;
 
+    /** Range minimo pertimido para insercao de hifen em formatos (00) 0000-0000 */
     private static final int HIFEN_MIN_RANGE_FOR_PHONE = 7;
+
+    /** Range máximo pertimido para insercao de hifen em formatos (00) 0000-0000 */
     private static final int HIFEN_MAX_RANGE_FOR_PHONE = 10;
 
+    /**
+     * Formata raw string (apenas numeros) de telefone
+     * @param unformattedPhone raw string (apenas numeros)
+     * @return String formatada em formato de telefone
+     */
     public static String formatAsPhoneNumber(String unformattedPhone) {
         StringBuilder builder = new StringBuilder();
         int hifenIndex = getHifenIndex(unformattedPhone.length());
@@ -43,6 +69,11 @@ public class StringUtils {
         return builder.toString();
     }
 
+    /**
+     * Retorna string formatada em formato telefonico para raw string (apenas numeros)
+     * @param formattedPhoneNumber string formatada
+     * @return raw string
+     */
     public static String turnFormattedPhoneNumberToRawString(String formattedPhoneNumber) {
         return formattedPhoneNumber
                 .replaceAll("\\(", "")
@@ -51,6 +82,12 @@ public class StringUtils {
                 .replaceAll("-", "");
     }
 
+    /**
+     * Verifica posicao para adicao de hifen `-` em formatos de telefone (00) 0000-0000 e
+     * (00) 00000-0000
+     * @param phoneNumberLength length da string de telefone atual
+     * @return indice para insercao de hifen
+     */
     private static int getHifenIndex(int phoneNumberLength) {
         if (phoneNumberLength >= HIFEN_MIN_RANGE_FOR_PHONE
                 && phoneNumberLength <= HIFEN_MAX_RANGE_FOR_PHONE)
@@ -62,6 +99,11 @@ public class StringUtils {
         return -1;
     }
 
+    /**
+     * Verificar se uma string tem tamanho válido de telefone
+     * @param phone string contendo numero telefonico
+     * @return true se o length é igual as tamanhos de numeros telefonicos permitidos
+     */
     public static boolean isPhoneNumberValid(String phone) {
         String unformattedPhone = turnFormattedPhoneNumberToRawString(phone);
 
@@ -69,6 +111,11 @@ public class StringUtils {
                 unformattedPhone.length() == REGULAR_PHONE_LONG_NUMBER_LENGTH;
     }
 
+    /**
+     * Regex para validacao de e-mail
+     * @param email string de email
+     * @return true se valida de acordo com Regex; false, contrario
+     */
     public static boolean validateEmailAdress(String email) {
         String regexForMail =
                 "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+" +

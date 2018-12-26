@@ -19,6 +19,9 @@ import io.reactivex.Observer;
 import io.reactivex.Scheduler;
 import io.reactivex.disposables.Disposable;
 
+/**
+ * Adapter da lista com detalhamento de investimentos
+ */
 public class MainFormPresenter implements MainForm.Presenter {
     private CellsDatasource controller;
     private MainForm.View view;

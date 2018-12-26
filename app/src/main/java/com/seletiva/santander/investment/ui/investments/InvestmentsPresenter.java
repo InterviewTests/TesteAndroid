@@ -30,9 +30,7 @@ public class InvestmentsPresenter implements Investments.Presenter {
     }
 
     @Override
-    public void start() {
-
-    }
+    public void start() {}
 
     @Override
     public void loadFunds() {

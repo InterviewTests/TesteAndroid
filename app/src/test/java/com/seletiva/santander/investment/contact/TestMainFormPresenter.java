@@ -1,4 +1,4 @@
-package com.seletiva.santander.investment.mainForm;
+package com.seletiva.santander.investment.contact;
 
 import com.seletiva.santander.investment.R;
 import com.seletiva.santander.investment.datasources.cells.CellsDatasource;
@@ -19,7 +19,7 @@ import io.reactivex.schedulers.Schedulers;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
-public class MainFormPresenterTest {
+public class TestMainFormPresenter {
     @Mock private MainForm.View formView;
     @Mock private CellsDatasource cellsDatasourceMock;
     private MainFormPresenter presenter;

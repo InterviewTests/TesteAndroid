@@ -37,6 +37,10 @@ public class Screen {
     @SerializedName("downInfo")
     private List<InfoItem> downInfo;
 
+    /**
+     * Retorna lista de todos os items de informação (info + download)
+     * @return todos os items de info.
+     */
     public List<InfoItem> getAllInfoItems() {
         List<InfoItem> allItems = new ArrayList<>();
 

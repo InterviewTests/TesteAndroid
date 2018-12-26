@@ -26,6 +26,10 @@ import org.greenrobot.eventbus.EventBus;
 
 import static com.seletiva.santander.investment.utils.StringUtils.FORMATTED_MAX_PHONE_LENGTH;
 
+/**
+ * CustomView utilizado para criacao de cada componente constituinte do formulario de
+ * contato.
+ */
 public class FormComponentView extends LinearLayout implements FormFieldListener {
     private Cell cellCore;
     private EditText optionalTextField;
@@ -158,6 +162,10 @@ public class FormComponentView extends LinearLayout implements FormFieldListener
                 PorterDuff.Mode.SRC_ATOP);
     }
 
+    /**
+     * Verifica se o campo foi preenchido com informações válidas (se necessario)
+     * @return true se o campo contem informações válidas; false, caso contrario
+     */
     public boolean isValid() {
         if (cellCore.getType() == CellType.field) {
             String inputData = optionalTextField.getText().toString();
@@ -192,6 +200,9 @@ public class FormComponentView extends LinearLayout implements FormFieldListener
         }
     }
 
+    /**
+     * Remove o conteudo - informacao inserida - da componente (se necessario)
+     */
     public void clearComponentIfNecessary() {
         if (cellCore.getType() == CellType.field) {
             optionalTextField.setText(null);

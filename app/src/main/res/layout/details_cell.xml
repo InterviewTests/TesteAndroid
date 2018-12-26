@@ -18,7 +18,6 @@
 
     <TextView
         android:id="@+id/itemValue"
-        style="@style/TextAppearance.AppCompat.Body2"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:text="@string/item_placeholder"
@@ -45,7 +44,6 @@
             android:src="@drawable/ic_download" />
 
         <TextView
-            style="@style/TextAppearance.AppCompat.Body2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="4dp"

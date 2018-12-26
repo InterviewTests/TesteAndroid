@@ -11,17 +11,12 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.*;
 
-public class CellTest {
+public class TestCell {
     private Cell singleCell;
 
     @Before
     public void setUp() {
         singleCell = new Cell();
-    }
-
-    @Test
-    public void testCellNotNull() {
-        assertNotNull(singleCell);
     }
 
     @Test

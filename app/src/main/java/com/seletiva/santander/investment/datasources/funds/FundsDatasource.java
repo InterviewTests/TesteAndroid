@@ -5,6 +5,9 @@ import com.seletiva.santander.investment.ui.investments.domain.Funds;
 
 import io.reactivex.Observable;
 
+/**
+ * DataSource utilizado para aquisiçao de dados de investimentos
+ */
 public class FundsDatasource {
     private FundsService dataSource;
 

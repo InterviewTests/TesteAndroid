@@ -9,4 +9,8 @@ public class Funds {
     public Screen getScreen() {
         return screen;
     }
+
+    public void setScreen(Screen screen) {
+        this.screen = screen;
+    }
 }

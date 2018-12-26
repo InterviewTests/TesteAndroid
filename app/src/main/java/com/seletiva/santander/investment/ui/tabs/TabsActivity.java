@@ -58,7 +58,7 @@ public class TabsActivity extends BaseActivity implements Tabs.View {
     }
 
     @Override
-    public String getInvestimentsTabTitle() {
+    public String getInvestmentsTabTitle() {
         return getString(R.string.tab_investments_title);
     }
 }

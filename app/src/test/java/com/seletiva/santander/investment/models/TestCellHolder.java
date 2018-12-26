@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class CellHolderTest {
+public class TestCellHolder {
     private CellHolder cellHolder;
     private Cell cell;
     private Cell secondCell;

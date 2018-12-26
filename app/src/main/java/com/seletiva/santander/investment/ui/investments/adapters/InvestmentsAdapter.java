@@ -11,6 +11,9 @@ import com.seletiva.santander.investment.ui.investments.domain.InfoItem;
 
 import java.util.List;
 
+/**
+ * Adapter da lista com detalhamento de investimentos
+ */
 public class InvestmentsAdapter extends RecyclerView.Adapter<InvestmentViewHolder> {
     private List<InfoItem> data;
 

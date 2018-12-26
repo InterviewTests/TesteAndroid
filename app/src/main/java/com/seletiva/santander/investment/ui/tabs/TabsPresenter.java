@@ -22,7 +22,7 @@ public class TabsPresenter implements Tabs.Presenter {
 
     private void configureTabAdapter() {
         ViewPagerAdapter adapter = new ViewPagerAdapter(fragmentManager);
-        adapter.addFragment(new InvestmentsFragment_(), view.getInvestimentsTabTitle());
+        adapter.addFragment(new InvestmentsFragment_(), view.getInvestmentsTabTitle());
         adapter.addFragment(new MainFormFragment_(), view.getContactTabTitle());
 
         view.addViewPagerAdapter(adapter);

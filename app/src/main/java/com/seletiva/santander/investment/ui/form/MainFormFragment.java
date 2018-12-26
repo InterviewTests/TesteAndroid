@@ -21,6 +21,9 @@ import org.greenrobot.eventbus.EventBus;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * Fragmento de contato/formulario
+ */
 @EFragment(R.layout.fragment_contact)
 public class MainFormFragment extends BaseFragment implements MainForm.View {
     @ViewById
