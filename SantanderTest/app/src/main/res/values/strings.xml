@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Santander Test</string>
+
+    <string name="fundo">Fundo</string>
+    <string name="cdi">CDI</string>
+    <string name="investir">Investir</string>
+    <string name="invest_title">Investimento</string>
+    <string name="contact_title">Contato</string>
+
+    <string name="mes">No mês</string>
+    <string name="ano">No ano</string>
+    <string name="last">12 meses</string>
+    <string name="baixar">Baixar</string>
+    <string name="compartilhar">Compartilhar</string>
+
+    <string name="erro_email">Email inválido</string>
+    <string name="erro_phone">Telefone inválido</string>
+    <string name="erro_form">Formulário com erro</string>
+
+    <string name="success_message_title">Obrigado!</string>
+    <string name="success_message">Mensagem enviada com sucesso :)</string>
+    <string name="new_message">Enviar nova mensagem</string>
+</resources>
