@@ -1,30 +1,69 @@
 package lucasonofre.santandertest.model
 
-data class Screen (
-    val title: String,
-    val fundName: String,
-    val whatIs: String,
-    val definition: String,
-    val riskTitle: String,
-    val risk: Long,
-    val infoTitle: String,
-    val moreInfo: MoreInfo,
-    val info: List<Info>,
-    val downInfo: List<Info>
-)
+import com.google.gson.annotations.SerializedName
 
-data class MoreInfo (
-    val month:       Yield,
-    val year:        Yield,
-    val the12Months: Yield
-)
 
-class Yield (
-    val fund: Float,
-    val cdi:  Float
-    )
+class Screen{
+    @SerializedName("screen")
+    var screen: ScreenItens? = null
+}
 
-data class Info (
-    val name: String? = null,
+ class ScreenItens {
+
+     @SerializedName("title")
+     val title:  String? = null
+
+     @SerializedName("fundName")
+     val fundName: String? = null
+
+     @SerializedName("whatIs")
+     val whatIs: String? = null
+
+     @SerializedName("definition")
+     val definition: String? = null
+
+     @SerializedName("riskTitle")
+     val riskTitle: String? = null
+
+     @SerializedName("risk")
+     val risk: Long? = null
+
+     @SerializedName("infoTitle")
+     val infoTitle: String? = null
+
+     @SerializedName("moreInfo")
+     val moreInfo: MoreInfo? = null
+
+     @SerializedName("info")
+     val info: List<Info>? = null
+
+     @SerializedName("downInfo")
+     val downInfo: List<Info>? = null
+ }
+ class MoreInfo {
+     @SerializedName("month")
+     val month: Yield? = null
+
+     @SerializedName("year")
+     val year: Yield? = null
+
+     @SerializedName("12months")
+     val the12Months: Yield? = null
+ }
+
+ class Yield {
+    @SerializedName("fund")
+    val fund: Float? = null
+
+    @SerializedName("CDI")
+    val cdi: Float? = null
+}
+
+class Info {
+    @SerializedName("name")
+    val name: String? = null
+
+    @SerializedName("data")
     val data: String? = null
-)
+
+}

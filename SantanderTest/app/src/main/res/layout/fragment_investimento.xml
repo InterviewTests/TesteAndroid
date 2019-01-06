@@ -196,7 +196,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/invest_risk_2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/invest_riskTitle" android:layout_marginLeft="20dp"
-                android:layout_marginRight="1dp"/>
+                android:layout_marginRight="1dp" android:background="@color/green"/>
                 <!--android:background="@drawable/risk_border_left"/>-->
 
         <View
@@ -205,12 +205,12 @@
                 android:layout_height="10dp"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="52dp"
-                android:layout_marginEnd="1dp"
                 android:layout_weight="0.20"
                 android:background="@color/greenDark"
                 app:layout_constraintEnd_toStartOf="@+id/invest_risk_3"
                 app:layout_constraintStart_toEndOf="@+id/invest_risk_1"
-                app:layout_constraintTop_toBottomOf="@+id/invest_riskTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/invest_riskTitle" android:layout_marginEnd="1dp"
+                android:layout_marginRight="1dp"/>
 
         <View
                 android:id="@+id/invest_risk_3"
@@ -229,29 +229,28 @@
                 android:id="@+id/invest_risk_4"
                 android:layout_width="0dp"
                 android:layout_height="10dp"
-                android:layout_marginStart="1dp"
                 android:layout_marginTop="52dp"
                 android:layout_marginEnd="1dp"
                 android:layout_weight="0.20"
                 android:background="@color/orange"
                 app:layout_constraintEnd_toStartOf="@+id/invest_risk_5"
                 app:layout_constraintStart_toEndOf="@+id/invest_risk_3"
-                app:layout_constraintTop_toBottomOf="@+id/invest_riskTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/invest_riskTitle" android:layout_marginLeft="1dp"
+                android:layout_marginStart="1dp"/>
 
         <View
                 android:id="@+id/invest_risk_5"
                 android:layout_width="0dp"
                 android:layout_height="10dp"
-                android:layout_marginStart="1dp"
                 android:layout_marginTop="52dp"
                 android:layout_marginEnd="20dp"
                 android:layout_weight="0.20"
 
-                android:backgroundTint="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/invest_risk_4"
-                app:layout_constraintTop_toBottomOf="@+id/invest_riskTitle" android:layout_marginLeft="1dp"
-                android:layout_marginRight="20dp"/>
+                app:layout_constraintTop_toBottomOf="@+id/invest_riskTitle"
+                android:layout_marginRight="20dp"
+                android:background="@color/red"/>
                 <!--android:background="@drawable/risk_border_right"/>-->
 
         <TextView
@@ -340,7 +339,6 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="40dp"
-
                 android:fontFamily="@font/dinpromedium"
                 android:foreground="?attr/selectableItemBackground"
                 android:stateListAnimator="@null"
@@ -351,8 +349,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/invest_list_info" />
-        <!--android:background="@drawable/button_background"-->
+                app:layout_constraintTop_toBottomOf="@+id/invest_list_info"
+                android:background="@color/red"/>
 
     </android.support.constraint.ConstraintLayout>
 
