@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+            android:text="Taxa de administração"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_list_item_title" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="12dp" android:fontFamily="@font/dinprolight" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+            android:text="R$ 10.000,00"
+            android:layout_width="wrap_content"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_list_item_data"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
+            android:textColor="@color/black"
+            android:textSize="13sp" android:fontFamily="@font/dinproregular"
+            app:layout_constraintBottom_toBottomOf="@+id/info_list_item_title"/>
+</android.support.constraint.ConstraintLayout>

@@ -1,6 +1,10 @@
 package lucasonofre.santandertest.model
 
+import android.graphics.drawable.Drawable
 import com.google.gson.annotations.SerializedName
+import lucasonofre.santandertest.R.string.cdi
+import lucasonofre.santandertest.custom.InfoDownButton
+import java.time.Year
 
 
 class Screen{
@@ -35,11 +39,12 @@ class Screen{
      val moreInfo: MoreInfo? = null
 
      @SerializedName("info")
-     val info: List<Info>? = null
+     val info: ArrayList<Info>? = null
 
      @SerializedName("downInfo")
-     val downInfo: List<Info>? = null
+     val downInfo: ArrayList<DownInfo>? = null
  }
+
  class MoreInfo {
      @SerializedName("month")
      val month: Yield? = null
@@ -52,11 +57,14 @@ class Screen{
  }
 
  class Yield {
+
     @SerializedName("fund")
-    val fund: Float? = null
+    var fund: Float? = null
 
     @SerializedName("CDI")
-    val cdi: Float? = null
+    var cdi: Float? = null
+
+
 }
 
 class Info {
@@ -66,4 +74,25 @@ class Info {
     @SerializedName("data")
     val data: String? = null
 
+}
+
+class DownInfo {
+    @SerializedName("name")
+    val name: String? = null
+
+    @SerializedName("data")
+    val data: String? = null
+
+}
+
+class YieldListItem{
+
+    var yield:Yield?      = null
+    var titleItem:String? = null
+
+    constructor(yield: Yield?, titleItem:String?) {
+        this.yield = `yield`
+        this.titleItem = titleItem
+
+    }
 }

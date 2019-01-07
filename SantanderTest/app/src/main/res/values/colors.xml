@@ -11,6 +11,7 @@
     <color name="orange">#FF742C</color>
     <color name="red">#FF3634</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 
     <color name="lightGray">#EFEEED</color>
     <color name="gray">#ACACAC</color>

@@ -36,6 +36,7 @@ class RequestItens(private val context: Context){
         val endpoint = context.resources.getString(R.string.url_fund)
 
         Log.i("Request",endpoint)
+
         return service.getFund(endpoint)
     }
 

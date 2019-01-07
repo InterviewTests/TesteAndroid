@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="InfoDownButton">
+        <attr name="text"  format="string"/>
+        <attr name="image" format="integer"/>
+    </declare-styleable>
+
+    <!--<declare-styleable name="ActionDefaultButton">-->
+        <!--<attr name="textButton"       format="string"/>-->
+        <!--<attr name="background" format="integer"/>-->
+    <!--</declare-styleable>-->
+</resources>

@@ -36,3 +36,17 @@ class ContactItens{
     @SerializedName("required")
     val required: Boolean? = null
 }
+
+//enum class Type{
+//    var field = 1,
+//    var text = 2,
+//    var image = 3,
+//    var checkbox = 4,
+//    var send = 5
+//}
+//
+// enum class TypeField {
+//    var text = 1
+//    var telNumber = 2
+//    var email = 3
+//}
