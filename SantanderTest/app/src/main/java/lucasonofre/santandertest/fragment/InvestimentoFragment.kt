@@ -40,8 +40,13 @@ class InvestimentoFragment : Fragment() {
         setLists(view)
         requestFund()
 
+
         return view
     }
+
+    /**
+     *
+     */
 
     private fun setLists(view: View) {
         infoList     = view.findViewById(R.id.list_info)
@@ -50,6 +55,9 @@ class InvestimentoFragment : Fragment() {
 
     }
 
+    /**
+     * Configura o indicador de risco conforme a chamada
+     */
 
     private fun setRiskIndicator(screenResult: Screen?) {
         var indicators = arrayListOf(invest_risk_1, invest_risk_2, invest_risk_3, invest_risk_4, invest_risk_5)
@@ -62,17 +70,20 @@ class InvestimentoFragment : Fragment() {
         }
     }
 
+    /**
+     * Insere as informações vindas da chamada em seu respectivo campo
+     */
+
     private fun setUpInfo(screenResult: Screen?) {
 
         invest_title.text       = screenResult?.screen?.title
         invest_investName.text  = screenResult?.screen?.fundName
         invest_whatIs.text      = screenResult?.screen?.whatIs
-        invest_definition.text  = screenResult?.screen?.definition
+        contact_item_text.text  = screenResult?.screen?.definition
         invest_riskTitle.text   = screenResult?.screen?.riskTitle
         invest_infoTitle.text   = screenResult?.screen?.infoTitle
 
         setRiskIndicator(screenResult)
-
         setListMoreInfo(screenResult?.screen?.moreInfo)
         setListInfo(screenResult)
         setListDownInfo(screenResult)
@@ -80,11 +91,27 @@ class InvestimentoFragment : Fragment() {
 
     }
 
-    private fun setListDownInfo(screenResult: Screen?) {
-        arrayListDownInfo           = screenResult?.screen?.downInfo
-        infoDownList?.layoutManager = LinearLayoutManager(context)
-        infoDownList?.adapter       = InfoDownAdapter(activity!!, arrayListDownInfo!!)
+    /**
+     * Trata e insere as informaçõs da lista moreInfo na tela
+     */
+    private fun setListMoreInfo(moreInfo: MoreInfo?) {
+
+        arrayMoreInfo = arrayOf(
+
+            YieldListItem(moreInfo?.month,"No Mês"),
+            YieldListItem(moreInfo?.year,"No Ano"),
+            YieldListItem(moreInfo?.the12Months,"12 meses"))
+
+
+        arrayListMoreInfo           = arrayMoreInfo?.toCollection(ArrayList())
+        moreInfolist?.layoutManager = LinearLayoutManager(context)
+        moreInfolist?.adapter       = InfoMoreAdapter(activity!!,arrayListMoreInfo!!)
+
     }
+
+    /**
+     * Trata e insere as informaçõs da lista info na tela
+     */
 
     private fun setListInfo(screenResult: Screen?) {
         arrayListInfo           = screenResult?.screen?.info
@@ -92,19 +119,14 @@ class InvestimentoFragment : Fragment() {
         infoList?.adapter       = InfoAdapter(activity!!, arrayListInfo!!)
     }
 
-    private fun setListMoreInfo(moreInfo: MoreInfo?) {
+    /**
+     * Trata e insere as informaçõs da lista DownInfo na tela
+     */
 
-        arrayMoreInfo = arrayOf(
-
-             YieldListItem(moreInfo?.month,"No Mês"),
-             YieldListItem(moreInfo?.year,"No Ano"),
-             YieldListItem(moreInfo?.the12Months,"12 meses"))
-
-
-        arrayListMoreInfo           = arrayMoreInfo?.toCollection(ArrayList())
-        moreInfolist?.layoutManager = LinearLayoutManager(context)
-        moreInfolist?.adapter       = InfoMoreAdapter(activity!!,arrayListMoreInfo!!)
-
+    private fun setListDownInfo(screenResult: Screen?) {
+        arrayListDownInfo           = screenResult?.screen?.downInfo
+        infoDownList?.layoutManager = LinearLayoutManager(context)
+        infoDownList?.adapter       = InfoDownAdapter(activity!!, arrayListDownInfo!!)
     }
 
     /**
@@ -122,7 +144,6 @@ class InvestimentoFragment : Fragment() {
                 override fun onResponse(call: Call<Screen>, response: Response<Screen>) {
                     screenResult = response.body()
                     setUpInfo(screenResult)
-
                 }
             })
         }

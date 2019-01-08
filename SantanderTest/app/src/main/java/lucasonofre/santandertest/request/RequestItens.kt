@@ -23,7 +23,7 @@ class RequestItens(private val context: Context){
     fun getCells(): Call<Cell> {
         val endpoint = context.resources.getString(R.string.url_cels)
 
-        Log.i("Request",endpoint)
+        Log.i("Request\n",endpoint)
 
         return service.getCells(endpoint)
     }
@@ -35,7 +35,7 @@ class RequestItens(private val context: Context){
     fun getFund(): Call<lucasonofre.santandertest.model.Screen> {
         val endpoint = context.resources.getString(R.string.url_fund)
 
-        Log.i("Request",endpoint)
+        Log.i("Request\n",endpoint)
 
         return service.getFund(endpoint)
     }

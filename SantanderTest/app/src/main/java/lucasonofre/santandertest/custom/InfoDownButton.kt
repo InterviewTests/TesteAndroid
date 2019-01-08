@@ -17,11 +17,11 @@ class InfoDownButton constructor(context: Context, attrs: AttributeSet) : Linear
 
     init {
 
-        //Set's the layout parameters
+        //Configura o Layoyt
         gravity     = Gravity.CENTER
         orientation = LinearLayout.HORIZONTAL
 
-        //Instantiate and Set's the view's parameters
+        //Cria as Views
         imageParameter = ImageView(context)
         textParameter  = TextView(context)
 
@@ -33,7 +33,7 @@ class InfoDownButton constructor(context: Context, attrs: AttributeSet) : Linear
         addView(imageParameter)
         addView(textParameter)
 
-        //Get the parameters on the XML
+        //Recebe os parâmetros dos XML
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.InfoDownButton)
         textParameter .setTextColor(Color.WHITE)
         //imageParameter.scaleType = ImageView.ScaleType.FIT_XY

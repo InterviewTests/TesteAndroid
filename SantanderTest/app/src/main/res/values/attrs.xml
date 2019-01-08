@@ -6,7 +6,7 @@
     </declare-styleable>
 
     <!--<declare-styleable name="ActionDefaultButton">-->
-        <!--<attr name="textButton"       format="string"/>-->
-        <!--<attr name="background" format="integer"/>-->
+        <!--<attr name="textButton"     format="string"/>-->
+        <!--<attr name="background"     format="integer"/>-->
     <!--</declare-styleable>-->
 </resources>

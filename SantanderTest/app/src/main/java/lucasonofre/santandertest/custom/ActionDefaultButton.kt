@@ -1,16 +1,16 @@
 package lucasonofre.santandertest.custom
 
-import android.content.Context
-import android.graphics.Color
-import android.support.v4.content.ContextCompat
-import android.util.AttributeSet
-import android.view.Gravity
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import lucasonofre.santandertest.R
-
+//import android.content.Context
+//import android.graphics.Color
+//import android.support.v4.content.ContextCompat
+//import android.util.AttributeSet
+//import android.view.Gravity
+//import android.widget.Button
+//import android.widget.ImageView
+//import android.widget.LinearLayout
+//import android.widget.TextView
+//import lucasonofre.santandertest.R
+//
 //class ActionDefaultButton constructor(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
 //
 //    var button: Button

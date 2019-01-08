@@ -16,13 +16,13 @@ class ContactItens{
     val id: Int? = null
 
     @SerializedName("type")
-    val type: Int? = null
+    val type: Type? = null
 
     @SerializedName("message")
     val message: String? = null
 
     @SerializedName("typefield")
-    val typeField: String? = null
+    val typeField: Any? = null
 
     @SerializedName("hidden")
     val hidden: Boolean? = null
@@ -35,18 +35,41 @@ class ContactItens{
 
     @SerializedName("required")
     val required: Boolean? = null
+
+
+//    fun convertToTypeField(){
+//
+//        when(typeField){
+//
+//            1 ->TypeField.TEXT
+//            2 ->TypeField.TELNUMBER
+//            3 ->TypeField.EMAIL
+//
+//            else -> null
+//        }
+//    }
 }
 
-//enum class Type{
-//    var field = 1,
-//    var text = 2,
-//    var image = 3,
-//    var checkbox = 4,
-//    var send = 5
-//}
-//
-// enum class TypeField {
-//    var text = 1
-//    var telNumber = 2
-//    var email = 3
-//}
+enum class Type{
+
+    @SerializedName("1")
+     FIELD,
+
+    @SerializedName("2")
+     TEXT ,
+
+    @SerializedName("3")
+     IMAGE,
+
+    @SerializedName("4")
+     CHECKBOX,
+
+    @SerializedName("5")
+     SEND
+}
+
+ enum class TypeField {
+     TEXT,
+     TELNUMBER,
+     EMAIL
+}

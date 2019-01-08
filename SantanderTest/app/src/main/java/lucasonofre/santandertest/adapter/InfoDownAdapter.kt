@@ -28,7 +28,7 @@ class InfoDownAdapter(private val context: Activity, private val itens: ArrayLis
     override fun onBindViewHolder(holder: ViewHolderItem, position: Int) {
 
         val item = itens[position]
-        holder.title.text   = item.name
+        holder.title.text  = item.name
 
         if(item.data != null)
             holder.data.text    = item.data.toString()

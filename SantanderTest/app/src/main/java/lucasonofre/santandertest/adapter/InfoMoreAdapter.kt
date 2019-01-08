@@ -25,7 +25,8 @@ class InfoMoreAdapter(private val context: Activity, private val itens: ArrayLis
 
     override fun onBindViewHolder(holder: ViewHolderItem, position: Int) {
 
-        val item = itens[position]
+        val item  = itens[position]
+
         holder.dateItem.text   = item.titleItem
         holder.fund.text       = item.yield?.fund.toString() + "%"
         holder.cdi.text        = item.yield?.cdi.toString() + "%"
