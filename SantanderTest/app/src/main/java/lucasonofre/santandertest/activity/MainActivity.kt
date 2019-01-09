@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onTabReselected(tab: TabLayout.Tab) {
-
+                viewPager?.currentItem = tab.position
             }
         })
     }
