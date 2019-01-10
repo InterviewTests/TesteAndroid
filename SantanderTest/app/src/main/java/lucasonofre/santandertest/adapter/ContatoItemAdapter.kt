@@ -12,6 +12,8 @@ import lucasonofre.santandertest.model.ContactItens
 import lucasonofre.santandertest.model.Type
 import android.support.v7.widget.RecyclerView.ViewHolder
 import android.text.InputType
+import android.view.KeyEvent
+import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.adapter_contact_btn.view.*
 import kotlinx.android.synthetic.main.adapter_contact_checkbox.view.*
@@ -153,6 +155,7 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
         return itens.size
     }
 
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
         val item = itens[position]
@@ -185,7 +188,12 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
                     //Muda o tipo do teclado dependendo do tipo do item
                     TYPE_FIELD_EMAIL      -> viewHolder.editText.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
 
-                    TYPE_FIELD_TEL_NUMBER -> viewHolder.editText.inputType = InputType.TYPE_CLASS_NUMBER
+                    TYPE_FIELD_TEL_NUMBER -> {
+
+                        viewHolder.editText.inputType = InputType.TYPE_CLASS_NUMBER
+                        configuraTecladoTelefone(viewHolder)
+                    }
+
 
                     else -> viewHolder.editText.inputType = InputType.TYPE_TEXT_VARIATION_PERSON_NAME
                 }
@@ -240,6 +248,16 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
                 }
             }
         }
+    }
+
+    private fun configuraTecladoTelefone(viewHolder: ViewHolderInputItem) {
+        viewHolder.editText.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
+            if ((event?.action == KeyEvent.ACTION_DOWN) && (actionId == KeyEvent.KEYCODE_ENTER)) {
+
+                return@OnEditorActionListener true
+            }
+            false
+        })
     }
 
     /**

@@ -25,13 +25,8 @@ import retrofit2.Response
 import android.view.ViewGroup.MarginLayoutParams
 
 
-
-
-
-
 class InvestimentoFragment : Fragment() {
 
-    private var risk:Int?                                   = null
     private var screenResult:Screen?                        = null
     private var arrayMoreInfo:Array<YieldListItem>?         = null
     private var moreInfolist: RecyclerView?                 = null
@@ -40,12 +35,10 @@ class InvestimentoFragment : Fragment() {
     private var arrayListMoreInfo:ArrayList<YieldListItem>? = null
     private var arrayListInfo:ArrayList<Info>?              = null
     private var arrayListDownInfo:ArrayList<DownInfo>?      = null
-    private var progressBar : ConstraintLayout?             = null
     private var layout      : ConstraintLayout?             = null
     private var btnInvestir : Button?                       = null
     private var indicadorRisco:ImageView?                   = null
     private var layoutRiscos:ConstraintLayout?              = null
-    private var layoutRiscosLargura:Int?                    = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -54,8 +47,6 @@ class InvestimentoFragment : Fragment() {
 
         setViews(view)
         requestFund()
-
-
 
         return view
     }
@@ -68,14 +59,10 @@ class InvestimentoFragment : Fragment() {
         infoList        = view.findViewById(R.id.list_info)
         moreInfolist    = view.findViewById(R.id.list_moreInfo)
         infoDownList    = view.findViewById(R.id.list_down_info)
-        progressBar     = view.findViewById(R.id.progress_bar_layout)
         layout          = view.findViewById(R.id.container)
         btnInvestir     = view.findViewById(R.id.invest_btn)
         indicadorRisco  = view.findViewById(R.id.invest_risk_indicator)
         layoutRiscos    = view.findViewById(R.id.layout_view_risks)
-
-
-        layoutRiscosLargura = layoutRiscos?.width
 
     }
 
@@ -85,9 +72,8 @@ class InvestimentoFragment : Fragment() {
 
     private fun setRiskIndicator(risk: Int?) {
 
-
         var indicators  = arrayListOf(invest_risk_1, invest_risk_2, invest_risk_3, invest_risk_4, invest_risk_5)
-        var larguraLayoutTamanhos = layoutRiscosLargura?.minus(indicadorRisco!!.width)?.div(indicators.size)
+        var larguraLayoutTamanhos = layoutRiscos?.width?.minus(indicadorRisco!!.width)?.div(indicators.size)
         var posicaoSeta           = larguraLayoutTamanhos?.times(risk!!)?.minus(indicadorRisco!!.width)
 
 
@@ -178,25 +164,13 @@ class InvestimentoFragment : Fragment() {
 
                 override fun onResponse(call: Call<Screen>, response: Response<Screen>) {
 
-                    showLayout()
                     screenResult = response.body()
-                    setRiskIndicator(screenResult?.screen?.risk?.toInt())
                     setUpInfo(screenResult)
+                    setRiskIndicator(screenResult?.screen?.risk?.toInt())
 
 
                 }
             })
         }
-
-    }
-
-    private fun showLayout() {
-        progressBar?.visibility = View.GONE
-        layout?.visibility = View.VISIBLE
-    }
-
-    private fun hideLayout() {
-        progressBar?.visibility = View.VISIBLE
-        layout?.visibility = View.GONE
     }
 }
