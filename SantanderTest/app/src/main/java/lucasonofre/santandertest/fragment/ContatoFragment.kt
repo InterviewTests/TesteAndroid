@@ -1,7 +1,6 @@
 package lucasonofre.santandertest.fragment
 
 
-import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
@@ -11,7 +10,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_contato.*
@@ -27,19 +25,25 @@ import retrofit2.Response
 
 class ContatoFragment : Fragment() {
 
-    var btnNewMessage:TextView? = null
+    var contactItem :Cell?                           = null
+    var btnNewMessage:TextView?                      = null
+    var contactItemList :RecyclerView?               = null
+    var arrayListInputItem :ArrayList<ContactItens>? = null
+
 
     /**
-     * Implementing interface to handle the click on the movie
+     * Implementa a interface que recebe o click do botão
      */
     private val fragmentInterface = object : FragmentInterface {
         override fun onFragmentSelected() {
-            openFragmentSucessoContato()
+            openFragmentContatoSucesso()
         }
-
     }
 
-    private fun openFragmentSucessoContato() {
+    /**
+     * Abre o fragment ContatoSucesso, tornando o mesmo visível e tornando invisível o fragment Contato
+     */
+    private fun openFragmentContatoSucesso() {
 
         Toast.makeText(context,"Mensagem enviada",Toast.LENGTH_SHORT).show()
 
@@ -47,10 +51,6 @@ class ContatoFragment : Fragment() {
         layout_contato_sucessso.visibility = View.VISIBLE
 
     }
-
-    var contactItemList :RecyclerView?               = null
-    var arrayListInputItem :ArrayList<ContactItens>? = null
-    var contactItem :Cell?                           = null
 
     override fun onCreateView(
 
@@ -65,6 +65,9 @@ class ContatoFragment : Fragment() {
         return view
     }
 
+    /**
+     * Recupera os Ids e configura o click do botão
+     */
     private fun setupViews(view: View?) {
 
         contactItemList     = view?.findViewById(R.id.contact_item_list)
@@ -72,12 +75,12 @@ class ContatoFragment : Fragment() {
 
         btnNewMessage?.setOnClickListener {
 
+            //Handler para haver delay ao abrir a tela de Contato para uma nova mensagem
             val handle = Handler()
             handle.postDelayed({
 
                 layout_contato_fragment.visibility = View.VISIBLE
                 layout_contato_sucessso.visibility = View.GONE
-
 
             },500)
         }
@@ -98,18 +101,21 @@ class ContatoFragment : Fragment() {
                 override fun onResponse(call: Call<Cell>, response: Response<Cell>) {
                     Log.i("Response", response.body().toString())
                     contactItem = response.body()
-                    setupInfo(contactItem)
+                    setUpAdapter(contactItem)
 
                 }
             })
         }
     }
 
-    private fun setupInfo(contactItem: Cell?) {
+    /**
+     * Passa a resposta da chamada para o adapter ContatoItemAdapter
+     */
+    private fun setUpAdapter(contactItem: Cell?) {
 
         arrayListInputItem  = contactItem?.contactItens
         contactItemList?.layoutManager = LinearLayoutManager(context)
-        contactItemList?.adapter       = ContatoItemAdapter(activity!!, arrayListInputItem!!)
+        contactItemList?.adapter       = ContatoItemAdapter(activity!!, arrayListInputItem!!,fragmentInterface)
     }
 
 

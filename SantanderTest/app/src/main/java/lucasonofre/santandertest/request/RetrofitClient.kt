@@ -5,7 +5,6 @@ import lucasonofre.santandertest.R
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
 object RetrofitClient{
 
     /**
@@ -19,6 +18,5 @@ object RetrofitClient{
                                     .addConverterFactory(GsonConverterFactory.create())
                                     .build()
         return retrofit
-
     }
 }

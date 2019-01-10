@@ -1,17 +1,18 @@
 package lucasonofre.santandertest.model
 
-import android.graphics.drawable.Drawable
 import com.google.gson.annotations.SerializedName
-import lucasonofre.santandertest.R.string.cdi
-import lucasonofre.santandertest.custom.InfoDownButton
-import java.time.Year
 
-
+/**
+ * Classe modelo do item da chamada
+ */
 class Screen{
     @SerializedName("screen")
     var screen: ScreenItens? = null
 }
 
+/**
+ * Classe modelo de cada item da chamada
+ */
  class ScreenItens {
 
      @SerializedName("title")
@@ -56,6 +57,10 @@ class Screen{
      val the12Months: Yield? = null
  }
 
+/**
+ * Classe modelo usada para representar os lucros
+ */
+
  class Yield {
 
     @SerializedName("fund")
@@ -63,7 +68,6 @@ class Screen{
 
     @SerializedName("CDI")
     var cdi: Float? = null
-
 
 }
 
@@ -91,7 +95,7 @@ class YieldListItem{
     var titleItem:String? = null
 
     constructor(yield: Yield?, titleItem:String?) {
-        this.yield = `yield`
+        this.yield     = `yield`
         this.titleItem = titleItem
 
     }

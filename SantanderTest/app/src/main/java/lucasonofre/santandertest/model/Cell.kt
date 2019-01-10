@@ -3,13 +3,19 @@ package lucasonofre.santandertest.model
 import com.google.gson.annotations.SerializedName
 
 
- class Cell {
+/**
+ * Classe modelo do Item da chamada
+ */
+class Cell {
 
-     @SerializedName("cells")
-     var contactItens: ArrayList<ContactItens>? = ArrayList()
+    @SerializedName("cells")
+    var contactItens: ArrayList<ContactItens>? = ArrayList()
 
- }
+}
 
+/**
+ * Classe modelo de cada item da chamada
+ */
 class ContactItens{
 
     @SerializedName("id")
@@ -36,40 +42,28 @@ class ContactItens{
     @SerializedName("required")
     val required: Boolean? = null
 
-
-//    fun convertToTypeField(){
-//
-//        when(typeField){
-//
-//            1 ->TypeField.TEXT
-//            2 ->TypeField.TELNUMBER
-//            3 ->TypeField.EMAIL
-//
-//            else -> null
-//        }
-//    }
 }
 
 enum class Type{
 
     @SerializedName("1")
-     FIELD,
+    FIELD,
 
     @SerializedName("2")
-     TEXT ,
+    TEXT ,
 
     @SerializedName("3")
-     IMAGE,
+    IMAGE,
 
     @SerializedName("4")
-     CHECKBOX,
+    CHECKBOX,
 
     @SerializedName("5")
-     SEND
+    SEND
 }
 
- enum class TypeField {
-     TEXT,
-     TELNUMBER,
-     EMAIL
+enum class TypeField {
+    TEXT,
+    TELNUMBER,
+    EMAIL
 }

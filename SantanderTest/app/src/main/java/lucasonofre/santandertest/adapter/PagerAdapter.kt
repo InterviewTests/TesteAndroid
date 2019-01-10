@@ -11,7 +11,7 @@ class PagerAdapter(fragmentManager: FragmentManager, var numberTabs: Int) : Frag
 
     /**
      * Recebe a posição das tabs e configura os fragments de acordo
-     * */
+     **/
     override fun getItem(position: Int): Fragment? {
 
         return when (position) {

@@ -29,15 +29,15 @@ class InfoDownButton constructor(context: Context, attrs: AttributeSet) : Linear
         textParameter .layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         textParameter .setPadding(5,5,0,0)
 
-        //Add's the view's in the layout
+        //Adiciona a view no layout
         addView(imageParameter)
         addView(textParameter)
 
         //Recebe os parâmetros dos XML
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.InfoDownButton)
-        textParameter .setTextColor(Color.WHITE)
-        //imageParameter.scaleType = ImageView.ScaleType.FIT_XY
         imageParameter.setImageDrawable(attributes.getDrawable(R.styleable.InfoDownButton_image))
+
+        textParameter.setTextColor(Color.WHITE)
         textParameter.setTextColor(ContextCompat.getColor(context,R.color.colorPrimary))
         textParameter.text = attributes.getString(R.styleable.InfoDownButton_text)!!
 

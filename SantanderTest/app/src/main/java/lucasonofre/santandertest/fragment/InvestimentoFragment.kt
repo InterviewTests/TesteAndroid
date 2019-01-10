@@ -2,6 +2,7 @@ package lucasonofre.santandertest.fragment
 
 
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -9,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import kotlinx.android.synthetic.main.fragment_investimento.*
 import lucasonofre.santandertest.R
 import lucasonofre.santandertest.adapter.InfoAdapter
@@ -31,27 +33,31 @@ class InvestimentoFragment : Fragment() {
     private var arrayListMoreInfo:ArrayList<YieldListItem>? = null
     private var arrayListInfo:ArrayList<Info>?              = null
     private var arrayListDownInfo:ArrayList<DownInfo>?      = null
+    private var progressBar : ConstraintLayout?             = null
+    private var layout      : ConstraintLayout?             = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_investimento, container, false)
 
-        setLists(view)
+        setViews(view)
         requestFund()
-
 
         return view
     }
 
     /**
-     *
+     * Recupera as listas e as views do layout e da progress view
      */
 
-    private fun setLists(view: View) {
+    private fun setViews(view: View) {
         infoList     = view.findViewById(R.id.list_info)
         moreInfolist = view.findViewById(R.id.list_moreInfo)
         infoDownList = view.findViewById(R.id.list_down_info)
+
+        progressBar = view.findViewById(R.id.progress_bar_layout)
+        layout      = view.findViewById(R.id.container)
 
     }
 
@@ -144,6 +150,10 @@ class InvestimentoFragment : Fragment() {
                 override fun onResponse(call: Call<Screen>, response: Response<Screen>) {
                     screenResult = response.body()
                     setUpInfo(screenResult)
+                    progressBar?.visibility = View.GONE
+                    layout?.visibility = View.VISIBLE
+
+
                 }
             })
         }

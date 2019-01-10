@@ -40,6 +40,9 @@ class RequestItens(private val context: Context){
         return service.getFund(endpoint)
     }
 
+    /**
+     * Interface que requisita os parâmetros e faz as chamadas
+     */
 
     private interface Service {
 
