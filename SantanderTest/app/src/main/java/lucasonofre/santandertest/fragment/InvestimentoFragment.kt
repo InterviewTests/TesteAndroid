@@ -11,7 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ProgressBar
+import android.widget.ImageView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_investimento.*
 import lucasonofre.santandertest.R
@@ -22,6 +22,11 @@ import lucasonofre.santandertest.model.*
 import lucasonofre.santandertest.request.RequestItens
 import retrofit2.Call
 import retrofit2.Response
+import android.view.ViewGroup.MarginLayoutParams
+
+
+
+
 
 
 class InvestimentoFragment : Fragment() {
@@ -38,6 +43,9 @@ class InvestimentoFragment : Fragment() {
     private var progressBar : ConstraintLayout?             = null
     private var layout      : ConstraintLayout?             = null
     private var btnInvestir : Button?                       = null
+    private var indicadorRisco:ImageView?                   = null
+    private var layoutRiscos:ConstraintLayout?              = null
+    private var layoutRiscosLargura:Int?                    = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -47,6 +55,8 @@ class InvestimentoFragment : Fragment() {
         setViews(view)
         requestFund()
 
+
+
         return view
     }
 
@@ -55,14 +65,17 @@ class InvestimentoFragment : Fragment() {
      */
 
     private fun setViews(view: View) {
-        infoList     = view.findViewById(R.id.list_info)
-        moreInfolist = view.findViewById(R.id.list_moreInfo)
-        infoDownList = view.findViewById(R.id.list_down_info)
+        infoList        = view.findViewById(R.id.list_info)
+        moreInfolist    = view.findViewById(R.id.list_moreInfo)
+        infoDownList    = view.findViewById(R.id.list_down_info)
+        progressBar     = view.findViewById(R.id.progress_bar_layout)
+        layout          = view.findViewById(R.id.container)
+        btnInvestir     = view.findViewById(R.id.invest_btn)
+        indicadorRisco  = view.findViewById(R.id.invest_risk_indicator)
+        layoutRiscos    = view.findViewById(R.id.layout_view_risks)
 
-        progressBar = view.findViewById(R.id.progress_bar_layout)
-        layout      = view.findViewById(R.id.container)
 
-        btnInvestir = view.findViewById(R.id.invest_btn)
+        layoutRiscosLargura = layoutRiscos?.width
 
     }
 
@@ -70,13 +83,22 @@ class InvestimentoFragment : Fragment() {
      * Configura o indicador de risco conforme a chamada
      */
 
-    private fun setRiskIndicator(screenResult: Screen?) {
-        var indicators = arrayListOf(invest_risk_1, invest_risk_2, invest_risk_3, invest_risk_4, invest_risk_5)
-        risk = screenResult?.screen?.risk?.toInt()
+    private fun setRiskIndicator(risk: Int?) {
+
+
+        var indicators  = arrayListOf(invest_risk_1, invest_risk_2, invest_risk_3, invest_risk_4, invest_risk_5)
+        var larguraLayoutTamanhos = layoutRiscosLargura?.minus(indicadorRisco!!.width)?.div(indicators.size)
+        var posicaoSeta           = larguraLayoutTamanhos?.times(risk!!)?.minus(indicadorRisco!!.width)
+
 
         for (item in indicators) {
             if (risk == indicators.indexOf(item) + 1) {
-                item.layoutParams.height = item.layoutParams.height + 5
+
+                item.layoutParams.height            = item.layoutParams.height.times(2).minus(item.layoutParams.height.div(2))
+                val marginParams = indicadorRisco?.layoutParams as MarginLayoutParams
+                marginParams.setMargins(posicaoSeta!!, 0, 0, 0)
+
+
             }
         }
     }
@@ -94,7 +116,7 @@ class InvestimentoFragment : Fragment() {
         invest_riskTitle.text   = screenResult?.screen?.riskTitle
         invest_infoTitle.text   = screenResult?.screen?.infoTitle
 
-        setRiskIndicator(screenResult)
+        setRiskIndicator(screenResult?.screen?.risk?.toInt())
         setListMoreInfo(screenResult?.screen?.moreInfo)
         setListInfo(screenResult)
         setListDownInfo(screenResult)
@@ -155,15 +177,26 @@ class InvestimentoFragment : Fragment() {
                 }
 
                 override fun onResponse(call: Call<Screen>, response: Response<Screen>) {
+
+                    showLayout()
                     screenResult = response.body()
+                    setRiskIndicator(screenResult?.screen?.risk?.toInt())
                     setUpInfo(screenResult)
-                    progressBar?.visibility = View.GONE
-                    layout?.visibility      = View.VISIBLE
 
 
                 }
             })
         }
 
+    }
+
+    private fun showLayout() {
+        progressBar?.visibility = View.GONE
+        layout?.visibility = View.VISIBLE
+    }
+
+    private fun hideLayout() {
+        progressBar?.visibility = View.VISIBLE
+        layout?.visibility = View.GONE
     }
 }

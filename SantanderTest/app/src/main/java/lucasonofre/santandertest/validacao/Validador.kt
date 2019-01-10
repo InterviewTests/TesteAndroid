@@ -14,7 +14,9 @@ class Validador{
      **/
     fun validaEmail(email: String): Boolean {
 
-         if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex()
+
+         if (email.matches(emailPattern)){
             return true
         }else{
             return false

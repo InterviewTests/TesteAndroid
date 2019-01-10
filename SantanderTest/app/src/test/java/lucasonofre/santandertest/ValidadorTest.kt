@@ -25,15 +25,25 @@ class ValidadorTest {
         assertFalse(resultado)
     }
 
-//    @Test
-//    fun testeValidaEmail() {
-//
-//        val email     = "teste@teste.com"
-//        val validador = Validador()
-//
-//        val resultado = validador.validaEmail(email)
-//        assertTrue(resultado)
-//    }
+    @Test
+    fun testeValidaEmail() {
+
+        val email     = "teste@teste.com"
+        val validador = Validador()
+
+        val resultado = validador.validaEmail(email)
+        assertTrue(resultado)
+    }
+
+    @Test
+    fun testeValidaEmailIncorreto() {
+
+        val email     = "teste.com"
+        val validador = Validador()
+
+        val resultado = validador.validaEmail(email)
+        assertFalse(resultado)
+    }
 
 
     @Test

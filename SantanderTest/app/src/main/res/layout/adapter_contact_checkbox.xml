@@ -17,7 +17,9 @@
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            android:enabled="true"/>
+            android:enabled="true"
+            android:buttonTint="@color/colorPrimary"
+    />
 
     <TextView
             android:id="@+id/contact_item_check_text"
