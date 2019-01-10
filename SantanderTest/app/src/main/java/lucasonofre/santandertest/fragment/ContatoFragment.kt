@@ -49,6 +49,7 @@ class ContatoFragment : Fragment() {
 
         layout_contato_fragment.visibility = View.GONE
         layout_contato_sucessso.visibility = View.VISIBLE
+        requestCell()
 
     }
 

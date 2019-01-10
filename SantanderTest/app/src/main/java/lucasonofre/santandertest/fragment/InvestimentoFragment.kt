@@ -10,7 +10,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ProgressBar
+import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_investimento.*
 import lucasonofre.santandertest.R
 import lucasonofre.santandertest.adapter.InfoAdapter
@@ -35,6 +37,7 @@ class InvestimentoFragment : Fragment() {
     private var arrayListDownInfo:ArrayList<DownInfo>?      = null
     private var progressBar : ConstraintLayout?             = null
     private var layout      : ConstraintLayout?             = null
+    private var btnInvestir : Button?                       = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -58,6 +61,8 @@ class InvestimentoFragment : Fragment() {
 
         progressBar = view.findViewById(R.id.progress_bar_layout)
         layout      = view.findViewById(R.id.container)
+
+        btnInvestir = view.findViewById(R.id.invest_btn)
 
     }
 
@@ -93,6 +98,8 @@ class InvestimentoFragment : Fragment() {
         setListMoreInfo(screenResult?.screen?.moreInfo)
         setListInfo(screenResult)
         setListDownInfo(screenResult)
+
+        btnInvestir?.setOnClickListener { Toast.makeText(context,"Investimento realizado",Toast.LENGTH_SHORT).show() }
 
 
     }
@@ -151,7 +158,7 @@ class InvestimentoFragment : Fragment() {
                     screenResult = response.body()
                     setUpInfo(screenResult)
                     progressBar?.visibility = View.GONE
-                    layout?.visibility = View.VISIBLE
+                    layout?.visibility      = View.VISIBLE
 
 
                 }

@@ -1,6 +1,7 @@
 package lucasonofre.santandertest.adapter
 
 import android.app.Activity
+import android.support.design.widget.TextInputLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +32,6 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
     // Variável de controle para os erros dos campos de Input
     private var ehValido:Boolean? = false
 
-    var arrayViewHolder :ArrayList<RecyclerView.ViewHolder>? = null
 
     private val TYPE_FIELD_TEXT        = 1.0
     private val TYPE_FIELD_EMAIL       = 3.0
@@ -68,8 +68,8 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
      **/
     class ViewHolderTextItem(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        val layout = itemView.contact_item_text_layout
-        val textItem     = itemView.contact_item_text
+        val layout  = itemView.contact_item_text_layout
+        val textItem      = itemView.contact_item_text
     }
 
     /**
@@ -78,7 +78,7 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
     class ViewHolderInputItem(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         val layout      = itemView.contact_item_input_layout
-        val inputLayout = itemView.input_layout
+        val inputLayout  = itemView.input_layout
         val editText    = itemView.input_layout_edit_text
     }
 
@@ -89,7 +89,7 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
 
         val layout = itemView.contact_item_layout
         val checkBox     = itemView.contact_item_checkBox
-        val textItem     = itemView.contact_item_check_text
+        val textItem      = itemView.contact_item_check_text
     }
 
     /**
@@ -98,7 +98,7 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
     class ViewHolderButton(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         val layout = itemView.item_view_contact_btn_layout
-        val button = itemView.adapter_contact_btn_item
+        val button         = itemView.adapter_contact_btn_item
 
     }
 
@@ -177,7 +177,7 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
                 var viewHolder:ViewHolderInputItem = holder as ViewHolderInputItem
                 viewHolder.inputLayout.hint = item.message
                 viewHolder.layout.setPadding(0,item.topSpacing!!,0,0)
-                arrayViewHolder?.add(viewHolder)
+
 
                 //Filtra os tipos dos itens e os envia para o método correspondente
                 when(item.typeField){
@@ -189,6 +189,7 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
 
                     else -> viewHolder.editText.inputType = InputType.TYPE_TEXT_VARIATION_PERSON_NAME
                 }
+
 
                 viewHolder.editText.setOnFocusChangeListener { v, hasFocus -> if (!hasFocus){
 
@@ -203,7 +204,6 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
 
                         else -> null
                     }
-
                    }
                 }
             }
@@ -215,7 +215,6 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
 
                 var viewHolder:ViewHolderCheckBox = holder as ViewHolderCheckBox
                 viewHolder.textItem.text = item.message
-
                 viewHolder.layout.setPadding(0,item.topSpacing!!,0,0)
             }
 
@@ -232,8 +231,6 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
                 viewHolder.button.setOnClickListener {
 
                     if (ehValido!!){
-                        Toast.makeText(context,arrayViewHolder?.size.toString()!!,Toast.LENGTH_SHORT).show()
-
 
                         listener.onFragmentSelected()
                     }
@@ -244,39 +241,82 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
             }
         }
     }
-    /**
-     * Instância da classe que valida os campos e retorna um boolean de acordo com a validação
-     **/
-    private fun verificaCampoEmail(viewHolder: ViewHolderInputItem) {
-
-        if (validador?.validaEmail(viewHolder)!!) {
-            ehValido = true
-        } else {
-            ehValido = false
-        }
-    }
 
     /**
      * Instância da classe que valida os campos e retorna um boolean de acordo com a validação
      **/
     private fun verificaCampoVazio(viewHolder: ViewHolderInputItem) {
 
-        if (validador?.validaCampoVazio(viewHolder)!!) {
+        val campo = viewHolder.editText.text.toString()
+
+        if (!validador?.validaCampoVazio(campo)!!) {
             ehValido = true
+            removeErro(viewHolder.inputLayout)
+
         } else {
             ehValido = false
+            aplicaErro(viewHolder)
         }
     }
+
+
+    /**
+     * Instância da classe que valida os campos e retorna um boolean de acordo com a validação
+     **/
+    private fun verificaCampoEmail(viewHolder: ViewHolderInputItem) {
+
+        val email = viewHolder.editText.text.toString()
+
+        if (!email.isEmpty()){
+
+            if (validador?.validaEmail(email)!!) {
+                ehValido = true
+                removeErro(viewHolder.inputLayout)
+
+            }else {
+                ehValido = false
+                aplicaErro(viewHolder)
+            }
+        }else {
+            ehValido = false
+            aplicaErro(viewHolder)
+        }
+    }
+
 
     /**
      * Instância da classe que valida os campos e retorna um boolean de acordo com a validação
      **/
     private fun verificaCampoTelefone(viewHolder: ViewHolderInputItem) {
 
-        if (validador?.validaTelefone(viewHolder)!!) {
+        val telefone = viewHolder.editText.text.toString()
+
+        if (validador?.validaTelefone(telefone)!!) {
             ehValido = true
+            removeErro(viewHolder.inputLayout)
         } else {
             ehValido = false
+            aplicaErroTelefone(viewHolder)
         }
+    }
+
+    private fun aplicaErroTelefone(viewHolder: ContatoItemAdapter.ViewHolderInputItem) {
+
+        viewHolder.inputLayout.error = "Favor, preencher o campo com um telefone válido"
+    }
+
+    /**
+     * Remove erro do input recebido via parâmetro
+     **/
+    private fun removeErro(inputLayout: TextInputLayout) {
+        inputLayout.error          = null
+        inputLayout.isErrorEnabled = false
+    }
+
+    /**
+     * Aplica o erro ao view Holder
+     **/
+    private fun aplicaErro(viewHolder: ViewHolderInputItem) {
+        viewHolder.inputLayout.error = "Favor, preencher o campo"
     }
 }
