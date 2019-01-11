@@ -28,7 +28,6 @@ interface FragmentInterface{
     fun onFragmentSelected()
 }
 
-
 class ContatoItemAdapter(private val context: Activity, private val itens: ArrayList<ContactItens>,private val listener:FragmentInterface): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     // Variável de controle para os erros dos campos de Input
@@ -69,7 +68,6 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
      * ViewHolder para os itens do tipo Texto
      **/
     class ViewHolderTextItem(itemView: View): RecyclerView.ViewHolder(itemView) {
-
         val layout  = itemView.contact_item_text_layout
         val textItem      = itemView.contact_item_text
     }
@@ -78,7 +76,6 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
      * ViewHolder para os itens do tipo InputText
      **/
     class ViewHolderInputItem(itemView: View): RecyclerView.ViewHolder(itemView) {
-
         val layout      = itemView.contact_item_input_layout
         val inputLayout  = itemView.input_layout
         val editText    = itemView.input_layout_edit_text
@@ -88,7 +85,6 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
      * ViewHolder para os itens do tipo CheckBox
      **/
     class ViewHolderCheckBox(itemView: View): RecyclerView.ViewHolder(itemView) {
-
         val layout = itemView.contact_item_layout
         val checkBox     = itemView.contact_item_checkBox
         val textItem      = itemView.contact_item_check_text
@@ -98,7 +94,6 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
      * ViewHolder para os itens do tipo Botão
      **/
     class ViewHolderButton(itemView: View): RecyclerView.ViewHolder(itemView) {
-
         val layout = itemView.item_view_contact_btn_layout
         val button         = itemView.adapter_contact_btn_item
 
@@ -237,14 +232,7 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
 
 
                 viewHolder.button.setOnClickListener {
-
-                    if (ehValido!!){
-
-                        listener.onFragmentSelected()
-                    }
-
-                    else
-                        Toast.makeText(context,"Favor, validar se os campos estão preenchidos corretamente",Toast.LENGTH_SHORT).show()
+                    listener.onFragmentSelected()
                 }
             }
         }

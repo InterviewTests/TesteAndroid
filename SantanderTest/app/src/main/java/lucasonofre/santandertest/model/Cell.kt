@@ -41,7 +41,6 @@ class ContactItens{
 
     @SerializedName("required")
     val required: Boolean? = null
-
 }
 
 enum class Type{
