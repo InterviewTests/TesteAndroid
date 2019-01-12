@@ -5,9 +5,9 @@ import br.com.rafael.santanderteste.repository.BankProvider;
 import br.com.rafael.santanderteste.repository.BankRepository;
 import org.jetbrains.annotations.NotNull;
 
-public class CellsPresenter implements CellsContract.Presenter{
+public class FormPresenter implements FormContract.Presenter{
 
-    private CellsContract.View cellView;
+    private FormContract.View cellView;
 
     /**
      * Funcao que por meio do repositorio retorna as chamadas para view
@@ -28,9 +28,9 @@ public class CellsPresenter implements CellsContract.Presenter{
         });
     }
 
-    
+
     @Override
-    public void setView(CellsContract.View view) {
+    public void setView(FormContract.View view) {
         cellView = view;
     }
 
