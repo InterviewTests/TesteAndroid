@@ -36,14 +36,13 @@
         app:layout_constraintBottom_toTopOf="@+id/btContact"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarMain">
+        app:layout_constraintTop_toBottomOf="@+id/view2">
 
     </FrameLayout>
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarMain"
         android:layout_width="0dp"
-        android:elevation="2dp"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:minHeight="?attr/actionBarSize"
@@ -51,4 +50,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/dropshadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMain" />
 </android.support.constraint.ConstraintLayout>
