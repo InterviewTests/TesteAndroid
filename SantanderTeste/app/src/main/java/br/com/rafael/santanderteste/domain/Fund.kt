@@ -2,6 +2,7 @@ package br.com.rafael.santanderteste.domain
 
 import com.google.gson.annotations.SerializedName
 
+// Entidade que representa um fundo de investimento
 data class Fund (
     var title: String?,
     var fundName: String?,
@@ -14,6 +15,7 @@ data class Fund (
     var info: List<GeneralInfo>
 )
 
+// Informacoes de investimentos para determinados periodos
 data class MoreInfo (
     var month: FundInfo?,
     var year: FundInfo?,
@@ -21,11 +23,13 @@ data class MoreInfo (
     var _12months: FundInfo?
 )
 
+// Informacoes de investimento
 data class FundInfo (
     var fund: Double?,
     var CDI: Double?
 )
 
+// Informacoes genericas
 data class GeneralInfo (
     var name: String?,
     var data: String?
