@@ -8,7 +8,7 @@ import br.com.rafael.santanderteste.R
 import br.com.rafael.santanderteste.helper.FragmentHelper
 import br.com.rafael.santanderteste.presentation.MainContract
 import br.com.rafael.santanderteste.presentation.MainPresenter
-import br.com.rafael.santanderteste.presentation.fragment.BlankFragment
+import br.com.rafael.santanderteste.presentation.fragment.FundFragment
 import br.com.rafael.santanderteste.presentation.fragment.ContactFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun showInvestimentFragment() {
         toolbarMain.title = investimentLabel
         setupInvestButton()
-        setupFragment(BlankFragment())
+        setupFragment(FundFragment())
     }
 
     // Configura a chamada para o fragment de Contato se exibido
