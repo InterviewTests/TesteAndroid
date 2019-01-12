@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="investiment">Inversión</string>
+    <string name="contact">Contacto</string>
+    <string name="full_name">Nombre y Apellidos</string>
+    <string name="email">Email</string>
+    <string name="phone">Teléfono</string>
+    <string name="register_email">Quiero registrar mi email</string>
+    <string name="send">Enviar</string>
+    <string name="thanks">Gracias</string>
+    <string name="message_success">Mensaje enviado con exito</string>
+    <string name="new_message">Enviar nuevo mensaje</string>
+</resources>
