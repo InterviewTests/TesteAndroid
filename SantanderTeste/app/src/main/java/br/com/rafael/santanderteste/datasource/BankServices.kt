@@ -15,5 +15,5 @@ interface BankServices {
     fun getCells(): Call<CellCatalog?>?
 
     @GET("fund.json")
-    fun getFund(): Call<ScreenFund>
+    fun getFund(): Call<ScreenFund?>?
 }
