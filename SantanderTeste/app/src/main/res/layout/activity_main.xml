@@ -15,7 +15,7 @@
         android:layout_height="55dp"
         android:text="@string/investiment"
         android:textColor="@android:color/white"
-        android:background="@drawable/button_color_dark"
+        android:background="@drawable/button_color_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btContact"
         app:layout_constraintStart_toStartOf="parent" />
