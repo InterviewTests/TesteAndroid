@@ -1,18 +1,15 @@
 package br.com.rafael.santanderteste.presentation.activity
 
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
-import android.view.View
 import br.com.rafael.santanderteste.R
 import br.com.rafael.santanderteste.helper.FragmentHelper
 import br.com.rafael.santanderteste.presentation.MainContract
 import br.com.rafael.santanderteste.presentation.MainPresenter
+import br.com.rafael.santanderteste.presentation.fragment.BlankFragment
 import br.com.rafael.santanderteste.presentation.fragment.ContactFragment
-import br.com.rafael.santanderteste.presentation.fragment.FundFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainContract.View {
@@ -51,7 +48,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun showInvestimentFragment() {
         toolbarMain.title = investimentLabel
         setupInvestButton()
-        setupFragment(FundFragment())
+        setupFragment(BlankFragment())
     }
 
     // Configura a chamada para o fragment de Contato se exibido
