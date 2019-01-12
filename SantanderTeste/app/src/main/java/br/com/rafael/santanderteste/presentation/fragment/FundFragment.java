@@ -14,12 +14,12 @@ import android.widget.TextView;
 import br.com.rafael.santanderteste.R;
 
 
-public class BlankFragment extends Fragment {
+public class FundFragment extends Fragment {
 
     private Context mContext;
     private LinearLayout linearLayout;
 
-    public BlankFragment() {}
+    public FundFragment() {}
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
