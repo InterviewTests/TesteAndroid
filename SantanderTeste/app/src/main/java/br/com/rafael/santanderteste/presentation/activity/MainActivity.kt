@@ -1,6 +1,7 @@
 package br.com.rafael.santanderteste.presentation.activity
 
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -16,9 +17,20 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
+    private var investimentLabel: String? = ""
+    private var contactLabel: String? = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        investimentLabel = resources.getString(R.string.investiment)
+        contactLabel = resources.getString(R.string.contact)
+
+        setSupportActionBar(toolbarMain)
+        var colorDrawable = ColorDrawable(resources.getColor(R.color.colorPrimaryDark))
+        toolbarMain.setTitleTextColor(colorDrawable.color)
+        toolbarMain.title = investimentLabel
 
         var mainPresenter = MainPresenter()
         mainPresenter.setView(this)
@@ -37,12 +49,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     // Configura a chamada para o fragment de Investimento se exibido
     override fun showInvestimentFragment() {
+        toolbarMain.title = investimentLabel
         setupInvestButton()
         setupFragment(FundFragment())
     }
 
     // Configura a chamada para o fragment de Contato se exibido
     override fun showContactFragment() {
+        toolbarMain.title = contactLabel
         setupContactButton()
         setupFragment(ContactFragment())
     }
