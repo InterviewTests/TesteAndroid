@@ -3,9 +3,7 @@ package br.com.rafael.santanderteste.presentation
 import br.com.rafael.santanderteste.domain.CellCatalog
 
 /**
- * Classe que representa o contrato para dados de Cell
- * A Activity/Fragment responsavel por mostrar dados de Cell
- * deve implementar a View.
+ * Classe que representa o contrato para a tela de formulario
  * A classe Presenter do Cell deve implementar a interface Presenter
  */
 class FormContract {
