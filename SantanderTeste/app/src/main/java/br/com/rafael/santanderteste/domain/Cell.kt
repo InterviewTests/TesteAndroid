@@ -1,12 +1,13 @@
 package br.com.rafael.santanderteste.domain;
 
+//Entidade que representa uma configuracao de celula (cell)
 data class Cell (
     var id: Int?,
     var type: Int?,
     var message: String?,
-    var typefield: Int?,
-    var hidden: Boolean,
-    var topSpacing: Int,
-    var show: Boolean,
-    var required: Boolean
+    var typefield: String?,
+    var hidden: Boolean?,
+    var topSpacing: Int?,
+    var show: Int?,
+    var required: Boolean?
 )
