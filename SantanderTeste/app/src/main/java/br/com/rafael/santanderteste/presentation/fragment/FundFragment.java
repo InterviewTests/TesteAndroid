@@ -11,13 +11,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import br.com.rafael.santanderteste.R;
+import br.com.rafael.santanderteste.domain.ScreenFund;
+import br.com.rafael.santanderteste.presentation.FunPresenter;
+import br.com.rafael.santanderteste.presentation.FundContract;
+import org.jetbrains.annotations.NotNull;
 
 
-public class FundFragment extends Fragment {
+public class FundFragment extends Fragment implements FundContract.View {
 
     private Context mContext;
     private LinearLayout linearLayout;
+    private FunPresenter presenter;
 
     public FundFragment() {}
 
@@ -25,17 +31,19 @@ public class FundFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        presenter.retrieveInvestimentData();
+
         for (int i = 0; i < 20 ; i++) {
 
-            LayoutInflater inflater = LayoutInflater.from(mContext);
-            LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.information_item, null, false);
+        LayoutInflater inflater = LayoutInflater.from(mContext);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.information_item, null, false);
 
-            TextView tvName = (TextView) layout.findViewById(R.id.tvName);
-            tvName.setText("testando " + i);
+        TextView tvName = (TextView) layout.findViewById(R.id.tvName);
+        tvName.setText("testando " + i);
 
-            linearLayout.addView(layout);
+        linearLayout.addView(layout);
 
-        }
+    }
     }
 
     @Override
@@ -51,14 +59,29 @@ public class FundFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mContext = this.getActivity();
-
+        presenter = new FunPresenter();
+        presenter.setView(this);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+        Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fund_layout, container, false);
         return view;
     }
 
+    @Override
+    public void loadingInvestimentData() {
+        Toast.makeText(mContext, "ta buscando a bagaca", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showErrorToRetrieveData() {
+
+    }
+
+    @Override
+    public void showInvestimentData(@NotNull ScreenFund investimentCatalog) {
+        Toast.makeText(mContext, investimentCatalog.toString(), Toast.LENGTH_SHORT).show();
+    }
 }
