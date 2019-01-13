@@ -34,8 +34,8 @@ public class FundPresenterTest {
     public void fun() {
         view.loadingInvestimentData();
 
-        Fund fund =mock(Fund.class);
+        Fund fund = mock(Fund.class);
 
         view.showInvestimentData(new ScreenFund(fund));
-
+    }
 }
