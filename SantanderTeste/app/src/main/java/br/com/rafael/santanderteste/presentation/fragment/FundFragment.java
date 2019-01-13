@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import br.com.rafael.santanderteste.R;
 import br.com.rafael.santanderteste.domain.entity.Fund;
@@ -30,9 +31,11 @@ import java.util.List;
 public class FundFragment extends Fragment implements FundContract.View {
 
     private Context mContext;
-    private LinearLayout linearLayout, linearLayoutRisk;
+
     private FunPresenter presenter;
 
+    private LinearLayout linearLayout, linearLayoutRisk;
+    private ScrollView scrollView;
     private TextView tvTitle, tvFundName, tvWhats, tvDefinition, tvRiskTitle;
     private TextView tvFundMonth, tvFundYear, tvFund12Month;
     private TextView tvCDIMonth, tvCDIYear, tvCDI12Month;
@@ -63,6 +66,7 @@ public class FundFragment extends Fragment implements FundContract.View {
 
     private void initXmlWidgets(View view) {
 
+        scrollView = view.findViewById(R.id.scrollViewFundo);
         linearLayout = view.findViewById(R.id.vista);
         linearLayoutRisk = view.findViewById(R.id.frameRisk);
         tvTitle = view.findViewById(R.id.tvTitle);
@@ -123,7 +127,7 @@ public class FundFragment extends Fragment implements FundContract.View {
 
     @Override
     public void loadingInvestimentData() {
-
+        this.scrollView.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -133,6 +137,7 @@ public class FundFragment extends Fragment implements FundContract.View {
 
     @Override
     public void showInvestimentData(@NotNull ScreenFund investimentCatalog) {
+        this.scrollView.setVisibility(View.VISIBLE);
         Fund fundoInvestimento = investimentCatalog.getScreen();
         if (fundoInvestimento != null) {
             tvTitle.setText(fundoInvestimento.getTitle());
