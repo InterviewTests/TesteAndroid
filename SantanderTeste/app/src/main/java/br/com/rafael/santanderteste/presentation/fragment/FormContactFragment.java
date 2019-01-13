@@ -106,8 +106,13 @@ public class FormContactFragment extends Fragment implements FormContract.View {
             setupView(viewItem, cell, viewListId, listCell);
 
         }
+    }
 
-
+    private void setupTypeface(TextView textView, String font_type) {
+        ViewHelper.Companion.setupTypeface(getContext(), textView, font_type);
+    }
+    private void setupTypeface(Button button, String font_type) {
+        ViewHelper.Companion.setupTypeface(getContext(), button, font_type);
     }
 
     /**
@@ -132,6 +137,7 @@ public class FormContactFragment extends Fragment implements FormContract.View {
             // TextView type
             TextView textView = view.findViewById(R.id.textViewForm);
             textView.setText(cell.getMessage());
+            setupTypeface(textView, ViewHelper.Companion.getFONT_MEDIUM());
         } else if (view_type == 3) {
             // ImageView type
             ImageView imageView = view.findViewById(R.id.imageViewLayout);
@@ -163,6 +169,7 @@ public class FormContactFragment extends Fragment implements FormContract.View {
             // Button type
             Button button = view.findViewById(R.id.button);
             button.setText(cell.getMessage());
+            setupTypeface(button, ViewHelper.Companion.getFONT_MEDIUM());
 
             button.setOnClickListener(new View.OnClickListener() {
                 @Override

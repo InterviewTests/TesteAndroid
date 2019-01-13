@@ -2,6 +2,7 @@ package br.com.rafael.santanderteste.presentation.fragment;
 
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import br.com.rafael.santanderteste.R;
@@ -17,6 +19,7 @@ import br.com.rafael.santanderteste.domain.entity.GeneralInfo;
 import br.com.rafael.santanderteste.domain.entity.MoreInfo;
 import br.com.rafael.santanderteste.domain.entity.ScreenFund;
 import br.com.rafael.santanderteste.domain.ActivityDomain;
+import br.com.rafael.santanderteste.helper.ViewHelper;
 import br.com.rafael.santanderteste.presentation.FunPresenter;
 import br.com.rafael.santanderteste.presentation.FundContract;
 import org.jetbrains.annotations.NotNull;
@@ -51,7 +54,15 @@ public class FundFragment extends Fragment implements FundContract.View {
 
     }
 
+    private void setupTypeface(TextView textView, String font_type) {
+        ViewHelper.Companion.setupTypeface(mContext, textView, font_type);
+    }
+    private void setupTypeface(Button button, String font_type) {
+        ViewHelper.Companion.setupTypeface(mContext, button, font_type);
+    }
+
     private void initXmlWidgets(View view) {
+
         linearLayout = view.findViewById(R.id.vista);
         linearLayoutRisk = view.findViewById(R.id.frameRisk);
         tvTitle = view.findViewById(R.id.tvTitle);
@@ -66,6 +77,25 @@ public class FundFragment extends Fragment implements FundContract.View {
         tvCDIMonth = view.findViewById(R.id.tvCdiMonth);
         tvCDIYear = view.findViewById(R.id.tvCdiYear);
         tvCDI12Month = view.findViewById(R.id.tvCdi12Months);
+        Button btInvestiment = view.findViewById(R.id.btInvest);
+
+        setupTypeface(btInvestiment, ViewHelper.Companion.getFONT_MEDIUM());
+
+        setupTypeface(tvTitle, ViewHelper.Companion.getFONT_MEDIUM());
+        setupTypeface(tvInfoTitle, ViewHelper.Companion.getFONT_MEDIUM());
+        setupTypeface(tvFundName, ViewHelper.Companion.getFONT_MEDIUM());
+        setupTypeface(tvWhats, ViewHelper.Companion.getFONT_MEDIUM());
+        setupTypeface(tvDefinition, ViewHelper.Companion.getFONT_LIGHT());
+        setupTypeface(tvRiskTitle, ViewHelper.Companion.getFONT_MEDIUM());
+        setupTypeface(tvFundMonth, ViewHelper.Companion.getFONT_MEDIUM());
+        setupTypeface(tvTitle, ViewHelper.Companion.getFONT_MEDIUM());
+
+        setupTypeface(tvFundYear, ViewHelper.Companion.getFONT_REGULAR());
+        setupTypeface(tvFund12Month , ViewHelper.Companion.getFONT_REGULAR());
+        setupTypeface(tvCDIMonth, ViewHelper.Companion.getFONT_REGULAR());
+        setupTypeface(tvCDIYear, ViewHelper.Companion.getFONT_REGULAR());
+        setupTypeface(tvCDI12Month, ViewHelper.Companion.getFONT_REGULAR());
+
     }
 
     @Override
@@ -142,12 +172,19 @@ public class FundFragment extends Fragment implements FundContract.View {
             TextView tvData = layout.findViewById(R.id.tvData);
             tvData.setText(info.getData());
             linearLayout.addView(layout);
+
+            setupTypeface(tvData, ViewHelper.Companion.getFONT_LIGHT());
+            setupTypeface(tvName, ViewHelper.Companion.getFONT_LIGHT());
         }
         for (GeneralInfo info : information_list) {
             LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.information_data_item, null, false);
             TextView tvName = layout.findViewById(R.id.tvName);
             tvName.setText(info.getName());
+            TextView tvDescription = layout.findViewById(R.id.tvInfoDataTitle);
             linearLayout.addView(layout);
+
+            setupTypeface(tvName, ViewHelper.Companion.getFONT_LIGHT());
+            setupTypeface(tvDescription, ViewHelper.Companion.getFONT_LIGHT());
         }
     }
 

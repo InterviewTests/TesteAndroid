@@ -12,6 +12,8 @@ import br.com.rafael.santanderteste.presentation.fragment.FundFragment
 import br.com.rafael.santanderteste.presentation.fragment.FormContactFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
+
+
 class MainActivity : AppCompatActivity(), MainContract.View {
 
     private var investimentLabel: String? = ""
@@ -28,6 +30,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         var colorDrawable = ColorDrawable(resources.getColor(R.color.colorPrimaryDark))
         toolbarMain.setTitleTextColor(colorDrawable.color)
         toolbarMain.title = investimentLabel
+
+        ViewHelper.setupTypeface(this, btInvestiment, ViewHelper.FONT_MEDIUM)
+        ViewHelper.setupTypeface(this, btContact, ViewHelper.FONT_MEDIUM)
 
         var mainPresenter = MainPresenter()
         mainPresenter.setView(this)
@@ -80,5 +85,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             fragment,
             tag)
     }
+
 
 }

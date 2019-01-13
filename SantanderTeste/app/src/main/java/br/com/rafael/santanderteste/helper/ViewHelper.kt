@@ -1,5 +1,7 @@
 package br.com.rafael.santanderteste.helper
 
+import android.content.Context
+import android.graphics.Typeface
 import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
@@ -17,6 +19,21 @@ import java.util.regex.Pattern
 class ViewHelper {
 
     companion object {
+
+        val FONT_MEDIUM = "fonts/DINPro-Medium.otf"
+        val FONT_LIGHT = "fonts/DINPro-Light.otf"
+        val FONT_REGULAR = "fonts/DINPro-Regular.otf"
+
+        fun setupTypeface(context: Context, textView: TextView, font_type: String) {
+            val typeface = Typeface.createFromAsset(context.getAssets(), font_type)
+            textView.typeface = typeface
+        }
+
+        fun setupTypeface(context: Context, button: Button, font_type: String) {
+            val typeface = Typeface.createFromAsset(context.getAssets(), font_type)
+            button.typeface = typeface
+        }
+
         /**
          * Atualiza um Fragment que ja esta adicionado em um layout view por outro
          * Verifica se o fragment esta nulo para criar ou apenas exibir
