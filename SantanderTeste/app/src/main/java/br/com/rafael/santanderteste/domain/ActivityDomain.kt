@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import br.com.rafael.santanderteste.R
+import br.com.rafael.santanderteste.domain.entity.Cell
 
 class ActivityDomain {
     companion object {
@@ -22,17 +23,27 @@ class ActivityDomain {
 
         @JvmStatic
         // Retorna a view do item risk de acordo com o id recebido da API
-        fun getFormContactItemView(view_type: Int, inflater: LayoutInflater): View {
+        fun getFormContactItemView(cell: Cell, inflater: LayoutInflater): View {
+            val params = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
 
-            val layout = inflater.inflate(R.layout.risk_layout, null, false)
+            val visible = if (cell.hidden == true) View.GONE else View.VISIBLE
+            val marginTop = cell.topSpacing
+            params.setMargins(0, marginTop!!, 0, 0)
 
-            when(view_type) {
-                1 -> return inflater.inflate(R.layout.input_layout, null, false)
-                2 -> return inflater.inflate(R.layout.text_view_layout, null, false)
-                3 -> return inflater.inflate(R.layout.image_view_layout, null, false)
-                4 -> return inflater.inflate(R.layout.check_box_layout, null, false)
-                else -> return inflater.inflate(R.layout.button_layout, null, false)
+            var viewReturned = when(cell.type) {
+                1 -> inflater.inflate(R.layout.input_layout, null, false)
+                2 -> inflater.inflate(R.layout.text_view_layout, null, false)
+                3 -> inflater.inflate(R.layout.image_view_layout, null, false)
+                4 -> inflater.inflate(R.layout.check_box_layout, null, false)
+                else -> inflater.inflate(R.layout.button_layout, null, false)
             }
+
+            viewReturned.setVisibility(visible)
+            viewReturned.setLayoutParams(params)
+            return viewReturned
         }
     }
 }
