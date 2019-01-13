@@ -36,9 +36,8 @@ public class FundFragment extends Fragment implements FundContract.View {
     private TextView tvTitle, tvFundName, tvWhats, tvDefinition, tvRiskTitle;
     private TextView tvFundMonth, tvFundYear, tvFund12Month;
     private TextView tvCDIMonth, tvCDIYear, tvCDI12Month;
-
-//    public FundFragment() {}
-
+    private TextView tvInfoTitle;
+    
     private FundFragment fundFragment;
 
     public FundFragment getInstance() {
@@ -58,6 +57,7 @@ public class FundFragment extends Fragment implements FundContract.View {
     private void initXmlWidgets(View view) {
         linearLayout = view.findViewById(R.id.vista);
         tvTitle = view.findViewById(R.id.tvTitle);
+        tvInfoTitle = view.findViewById(R.id.tvInfoTitle);
         tvFundName = view.findViewById(R.id.tvFundName);
         tvWhats = view.findViewById(R.id.tvWhatIs);
         tvDefinition = view.findViewById(R.id.tvDefinition);
@@ -108,6 +108,7 @@ public class FundFragment extends Fragment implements FundContract.View {
         Fund fundoInvestimento = investimentCatalog.getScreen();
         if (fundoInvestimento != null) {
             tvTitle.setText(fundoInvestimento.getTitle());
+            tvInfoTitle.setText(fundoInvestimento.getInfoTitle());
             tvFundName.setText(fundoInvestimento.getFundName());
             tvWhats.setText(fundoInvestimento.getWhatIs());
             tvDefinition.setText(fundoInvestimento.getDefinition());
