@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.telephony.PhoneNumberUtils;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,9 +25,11 @@ import br.com.rafael.santanderteste.presentation.FormContract;
 import br.com.rafael.santanderteste.presentation.FormPresenter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,8 +40,9 @@ public class FormContactFragment extends Fragment implements FormContract.View {
 
     private LinearLayout formLayoutMain;
 
+    private List<String> errorList = new ArrayList<>();
+
     public FormContactFragment() {
-        // Required empty public constructor
     }
 
 
@@ -79,6 +84,7 @@ public class FormContactFragment extends Fragment implements FormContract.View {
         // HashMap onde a chave é o ID do Item e o valor é a View renderizada
         Map<Integer, View> viewListId = new HashMap<>();
 
+
         for (int i = 0; i < listCell.size(); i++) {
             // Item celula da API
             Cell cell = listCell.get(i);
@@ -97,7 +103,7 @@ public class FormContactFragment extends Fragment implements FormContract.View {
 
             // Realiza todas as configuracoes da View segundo retorno da API para cada
             // item de acordo seu tipo
-            setupView(viewItem, cell, viewListId);
+            setupView(viewItem, cell, viewListId, listCell);
 
         }
 
@@ -106,26 +112,32 @@ public class FormContactFragment extends Fragment implements FormContract.View {
 
     /**
      * Realiza todas as configuracoes da View segundo retorno da API para cada item de acordo seu tipo
-     * @param view View do item obtido no XML por meio do tipo retornado pela API
-     * @param cell Configuracao de celula retornado pela API
+     * Essa Veirificacao passa por cada View setada no container do LinearLayout
+     * @param view      View do item obtido no XML por meio do tipo retornado pela API
+     * @param cell      Configuracao de celula retornado pela API
      * @param listaView Lista de views para cada item contendo ID / View
      * @return
      */
-    private View setupView(View view, Cell cell, Map<Integer, View> listaView) {
+    private View setupView(View view, final Cell cell, final Map<Integer, View> listaView, final List<Cell> listCell) {
         Integer view_type = cell.getType();
+
         if (view_type == 1) {
+            // EditText type
             TextInputLayout inputLayout = view.findViewById(R.id.inputLayout);
             inputLayout.setHint(cell.getMessage());
             TextInputEditText textInputEditText = view.findViewById(R.id.inputEdit);
             textInputEditText.setInputType(ViewHelper.Companion.get_input_type(cell.getTypefield()));
-
+            inputLayout.getEditText().addTextChangedListener(new PhoneNumberFormattingTextWatcher());
         } else if (view_type == 2) {
+            // TextView type
             TextView textView = view.findViewById(R.id.textViewForm);
             textView.setText(cell.getMessage());
         } else if (view_type == 3) {
+            // ImageView type
             ImageView imageView = view.findViewById(R.id.imageViewLayout);
             imageView.setBackgroundResource(R.drawable.ic_launcher_background);
         } else if (view_type == 4) {
+            // CheckBox type
             CheckBox checkBox = view.findViewById(R.id.checkBox);
             checkBox.setText(cell.getMessage());
 
@@ -134,7 +146,7 @@ public class FormContactFragment extends Fragment implements FormContract.View {
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                    if(checked) {
+                    if (checked) {
                         view1.setVisibility(View.VISIBLE);
                     } else {
                         view1.setVisibility(View.GONE);
@@ -143,13 +155,67 @@ public class FormContactFragment extends Fragment implements FormContract.View {
             });
 
         } else if (view_type == 5) {
+            // Button type
             Button button = view.findViewById(R.id.button);
             button.setText(cell.getMessage());
 
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ViewHelper.Companion.replace_framgment(getFragmentManager(), R.id.frameLayout, new FundFragment(), "invest");
+                    for (Integer key : listaView.keySet()) {
+                        View valueView = listaView.get(key);
+                        boolean result = valueView instanceof TextInputLayout;
+
+                        if (result) {
+                            // Verifica se o component View é do tipo EditText(Input)
+                            TextInputLayout texto = valueView.findViewById(R.id.inputLayout);
+
+                            String input_value = texto.getEditText().getText().toString();
+
+                            // Realiza a verificacao dos campos somente para View de Input que estão
+                            // visiveis para o usuario
+                            if (texto.getVisibility() == View.VISIBLE) {
+
+                                switch (texto.getEditText().getInputType()) {
+                                    case InputType.TYPE_CLASS_TEXT:
+                                        if (input_value.length() < 1) {
+                                            errorList.add("error");
+                                            texto.setError("Favor informar seu nome completo.");
+                                        } else {
+                                            texto.setErrorEnabled(false);
+                                        }
+                                        break;
+                                    case InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS:
+                                        if (!ViewHelper.Companion.isEmailValid(input_value)) {
+                                            texto.setError("Favor informar um e-mail valido.");
+                                            errorList.add("error");
+                                        } else {
+                                            texto.setErrorEnabled(false);
+                                        }
+                                        break;
+                                    case InputType.TYPE_CLASS_PHONE:
+                                        String phone_value = input_value.replaceAll("[^\\d.]", "");
+                                        if (phone_value.length() == 11) {
+                                            texto.setErrorEnabled(false);
+                                        } else if (phone_value.length() == 10) {
+                                            texto.setErrorEnabled(false);
+                                        } else {
+                                            errorList.add("error");
+                                            texto.setError("Favor informar um número de telefone valido ");
+                                        }
+                                        break;
+                                }
+                            }
+
+                        }
+                    }
+
+                    // Caso a lista de erro esteja vazia o Fragment de sucesso é exobido
+                    if (errorList.size() == 0) {
+                        ViewHelper.Companion.replace_framgment(getFragmentManager(), R.id.frameLayout, new FundFragment(), "invest");
+                    }
+                    errorList.clear();
+
                 }
             });
         }
