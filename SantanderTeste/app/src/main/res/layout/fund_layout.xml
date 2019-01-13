@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-            android:id="@+id/scrollViewFundo"
+    android:id="@+id/scrollViewFundo"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -99,19 +99,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvDefinition" />
 
-            <FrameLayout
-                android:id="@+id/frameLayout"
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/frameRisk"
                 android:layout_width="300dp"
-                android:layout_height="4dp"
+                android:layout_height="18dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
-                android:background="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvRiskTitle">
 
-            </FrameLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tvInfoTitle"
@@ -124,7 +124,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/frameRisk" />
 
             <TextView
                 android:id="@+id/tvMonth"
@@ -253,11 +253,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvInfoTitle" />
 
             <LinearLayout
-                android:id="@+id/frameRisk"
+                android:id="@+id/frameRisk1"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="1dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
+                android:background="#CCC"
                 android:layout_marginEnd="24dp"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -283,7 +284,7 @@
             android:layout_marginRight="50dp"
             android:layout_marginLeft="50dp"
             android:textColor="@android:color/white"
-            android:background="@drawable/button_selector"
+            android:background="@drawable/button_color_circle"
             android:id="@+id/btInvest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
