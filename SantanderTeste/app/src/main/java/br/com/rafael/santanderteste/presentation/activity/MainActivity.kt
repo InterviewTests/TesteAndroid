@@ -10,7 +10,7 @@ import br.com.rafael.santanderteste.presentation.FunPresenter
 import br.com.rafael.santanderteste.presentation.MainContract
 import br.com.rafael.santanderteste.presentation.MainPresenter
 import br.com.rafael.santanderteste.presentation.fragment.FundFragment
-import br.com.rafael.santanderteste.presentation.fragment.ContactFragment
+import br.com.rafael.santanderteste.presentation.fragment.FormContactFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainContract.View {
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun showContactFragment() {
         toolbarMain.title = contactLabel
         setupContactButton()
-        setupFragment(ContactFragment(), "contact")
+        setupFragment(FormContactFragment(), "contact")
     }
 
     // Atualiza a cor do fundo do botao de Investimento, deixando-o em modo ativo
