@@ -5,8 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import br.com.rafael.santanderteste.R
-import br.com.rafael.santanderteste.helper.FragmentHelper
-import br.com.rafael.santanderteste.presentation.FunPresenter
+import br.com.rafael.santanderteste.helper.ViewHelper
 import br.com.rafael.santanderteste.presentation.MainContract
 import br.com.rafael.santanderteste.presentation.MainPresenter
 import br.com.rafael.santanderteste.presentation.fragment.FundFragment
@@ -76,7 +75,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
      * @param fragment Instancia do fragment que será atualizado no frame principal
      */
     private fun setupFragment(fragment: Fragment, tag: String) {
-        FragmentHelper.replace_framgment(supportFragmentManager,
+        ViewHelper.replace_framgment(supportFragmentManager,
             R.id.frameMain,
             fragment,
             tag)

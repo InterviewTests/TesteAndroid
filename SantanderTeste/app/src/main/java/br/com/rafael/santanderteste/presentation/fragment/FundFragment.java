@@ -16,7 +16,7 @@ import br.com.rafael.santanderteste.domain.entity.Fund;
 import br.com.rafael.santanderteste.domain.entity.GeneralInfo;
 import br.com.rafael.santanderteste.domain.entity.MoreInfo;
 import br.com.rafael.santanderteste.domain.entity.ScreenFund;
-import br.com.rafael.santanderteste.domain.ActivityHelper;
+import br.com.rafael.santanderteste.domain.ActivityDomain;
 import br.com.rafael.santanderteste.presentation.FunPresenter;
 import br.com.rafael.santanderteste.presentation.FundContract;
 import org.jetbrains.annotations.NotNull;
@@ -161,7 +161,7 @@ public class FundFragment extends Fragment implements FundContract.View {
 
         linearLayoutRisk.addView(layout);
 
-        View viewRiskItem = ActivityHelper.getRiskItemView(riskNumber, layout);
+        View viewRiskItem = ActivityDomain.getRiskItemView(riskNumber, layout);
 
         ViewGroup.LayoutParams params = viewRiskItem.getLayoutParams();
         params.height = 26;
