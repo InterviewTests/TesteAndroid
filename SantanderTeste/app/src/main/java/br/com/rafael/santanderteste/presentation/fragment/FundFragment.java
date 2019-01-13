@@ -19,6 +19,7 @@ import br.com.rafael.santanderteste.domain.Fund;
 import br.com.rafael.santanderteste.domain.GeneralInfo;
 import br.com.rafael.santanderteste.domain.MoreInfo;
 import br.com.rafael.santanderteste.domain.ScreenFund;
+import br.com.rafael.santanderteste.helper.ActivityHelper;
 import br.com.rafael.santanderteste.presentation.FunPresenter;
 import br.com.rafael.santanderteste.presentation.FundContract;
 import org.jetbrains.annotations.NotNull;
@@ -30,14 +31,14 @@ import java.util.List;
 public class FundFragment extends Fragment implements FundContract.View {
 
     private Context mContext;
-    private LinearLayout linearLayout;
+    private LinearLayout linearLayout, linearLayoutRisk;
     private FunPresenter presenter;
 
     private TextView tvTitle, tvFundName, tvWhats, tvDefinition, tvRiskTitle;
     private TextView tvFundMonth, tvFundYear, tvFund12Month;
     private TextView tvCDIMonth, tvCDIYear, tvCDI12Month;
     private TextView tvInfoTitle;
-    
+
     private FundFragment fundFragment;
 
     public FundFragment getInstance() {
@@ -56,6 +57,7 @@ public class FundFragment extends Fragment implements FundContract.View {
 
     private void initXmlWidgets(View view) {
         linearLayout = view.findViewById(R.id.vista);
+        linearLayoutRisk = view.findViewById(R.id.frameRisk);
         tvTitle = view.findViewById(R.id.tvTitle);
         tvInfoTitle = view.findViewById(R.id.tvInfoTitle);
         tvFundName = view.findViewById(R.id.tvFundName);
@@ -125,10 +127,16 @@ public class FundFragment extends Fragment implements FundContract.View {
 
             }
 
+            this.render_bar_risks(fundoInvestimento.getRisk());
             this.render_information_text_view(fundoInvestimento.getInfo(), fundoInvestimento.getDownInfo());
         }
     }
 
+    /**
+     * Renderiza a lsita de informacoes gerais
+     * @param information_list
+     * @param information_data_list
+     */
     private void render_information_text_view(List<GeneralInfo> information_list, List<GeneralInfo> information_data_list) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
         for (GeneralInfo info : information_list) {
@@ -145,5 +153,22 @@ public class FundFragment extends Fragment implements FundContract.View {
             tvName.setText(info.getName());
             linearLayout.addView(layout);
         }
+    }
+
+    /**
+     * Renderiza o layout contendo os cincos niveis de riscos
+     * @param riskNumber Numero do risco
+     */
+    private void render_bar_risks(Integer riskNumber) {
+        LayoutInflater inflater = LayoutInflater.from(mContext);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.risk_layout, null, false);
+
+        linearLayoutRisk.addView(layout);
+
+        View viewRiskItem = ActivityHelper.getRiskItemView(riskNumber, layout);
+
+        ViewGroup.LayoutParams params = viewRiskItem.getLayoutParams();
+        params.height = 26;
+        viewRiskItem.setLayoutParams(params);
     }
 }
