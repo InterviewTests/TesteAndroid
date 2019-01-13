@@ -11,6 +11,8 @@ import android.widget.*
 import br.com.rafael.santanderteste.R
 import br.com.rafael.santanderteste.domain.entity.Cell
 import br.com.rafael.santanderteste.presentation.fragment.FundFragment
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class ViewHelper {
 
@@ -48,8 +50,8 @@ class ViewHelper {
         /**
          * @param value Um valor String ou nao que represente o tipo de input vindo da api
          */
-        fun get_input_type(value: Any): Int {
-            when((value is String)) {
+        fun get_input_type(value: String): Int {
+            when(isString(value)) {
                 true ->
                     if (value.equals("telnumber")) {
                         return InputType.TYPE_CLASS_PHONE
@@ -57,15 +59,27 @@ class ViewHelper {
                         return InputType.TYPE_CLASS_TEXT
                     }
                 false ->
-                    if (value == 2) {
+                    if (value.toInt() == 2) {
                         return InputType.TYPE_CLASS_PHONE
-                    } else if (value == 3){
+                    } else if (value.toInt() == 3){
                         return InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
                     } else {
                         return InputType.TYPE_CLASS_TEXT
                     }
             }
         }
+
+        /**
+         * Verifica se um valor de String é convertivel em Inteiro
+         */
+        private fun isString(str: String): Boolean {
+            val v = str.toIntOrNull()
+            return when(v) {
+                null -> true
+                else -> false
+            }
+        }
+
         /**
          * Verifica se um email e valido
          * @param email String
