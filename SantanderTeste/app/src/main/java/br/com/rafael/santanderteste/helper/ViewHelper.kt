@@ -1,10 +1,18 @@
 package br.com.rafael.santanderteste.helper
 
+import android.support.design.widget.TextInputEditText
+import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import android.text.InputType
+import android.util.Log
+import android.view.View
+import android.widget.*
+import br.com.rafael.santanderteste.R
+import br.com.rafael.santanderteste.domain.entity.Cell
 import br.com.rafael.santanderteste.presentation.fragment.FundFragment
 
-class FragmentHelper {
+class ViewHelper {
 
     companion object {
         /**
@@ -35,6 +43,28 @@ class FragmentHelper {
                 }
             }
 
+        }
+
+        /**
+         * @param value Um valor String ou nao que represente o tipo de input vindo da api
+         */
+        fun get_input_type(value: Any): Int {
+            when((value is String)) {
+                true ->
+                    if (value.equals("telnumber")) {
+                        return InputType.TYPE_CLASS_PHONE
+                    } else {
+                        return InputType.TYPE_CLASS_TEXT
+                    }
+                false ->
+                    if (value == 2) {
+                        return InputType.TYPE_CLASS_PHONE
+                    } else if (value == 3){
+                        return InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+                    } else {
+                        return InputType.TYPE_CLASS_TEXT
+                    }
+            }
         }
     }
 }
