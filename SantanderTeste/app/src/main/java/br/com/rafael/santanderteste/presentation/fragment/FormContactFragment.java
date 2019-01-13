@@ -216,7 +216,7 @@ public class FormContactFragment extends Fragment implements FormContract.View {
                     }
                     // Caso a lista de erro esteja vazia o Fragment de sucesso é exobido
                     if (errorList.size() == 0) {
-                        ViewHelper.Companion.replace_framgment(getFragmentManager(), R.id.frameLayout, new SuccessFragment(), "success");
+                        ViewHelper.Companion.replace_framgment(getFragmentManager(), R.id.frameMain, new SuccessFragment(), "success");
                     }
                     errorList.clear();
 

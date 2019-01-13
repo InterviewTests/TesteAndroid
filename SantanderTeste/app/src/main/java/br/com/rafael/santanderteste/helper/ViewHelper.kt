@@ -34,7 +34,10 @@ class ViewHelper {
                 if(supportFragmentManager.findFragmentByTag("contact") != null) {
                     supportFragmentManager.beginTransaction().hide(supportFragmentManager.findFragmentByTag("contact")).commit();
                 }
-            } else {
+                if(supportFragmentManager.findFragmentByTag("success") != null) {
+                    supportFragmentManager.beginTransaction().hide(supportFragmentManager.findFragmentByTag("success")).commit();
+                }
+            } else if(tag.equals("contact")) {
                 if(supportFragmentManager.findFragmentByTag("contact") != null) {
                     supportFragmentManager.beginTransaction().show(supportFragmentManager.findFragmentByTag("contact")).commit();
                 } else {
@@ -43,6 +46,14 @@ class ViewHelper {
                 if(supportFragmentManager.findFragmentByTag("invest") != null) {
                     supportFragmentManager.beginTransaction().hide(supportFragmentManager.findFragmentByTag("invest")).commit();
                 }
+                if(supportFragmentManager.findFragmentByTag("success") != null) {
+                    supportFragmentManager.beginTransaction().hide(supportFragmentManager.findFragmentByTag("success")).commit();
+                }
+            } else {
+                val fragmentManager = supportFragmentManager
+                val fragmentTransaction = fragmentManager.beginTransaction()
+                fragmentTransaction.replace(layoutReference, fragment, "success")
+                fragmentTransaction.commit()
             }
 
         }
