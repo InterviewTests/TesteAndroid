@@ -12,7 +12,8 @@ data class Fund (
     var risk: Int?,
     var infoTitle: String?,
     var moreInfo: MoreInfo?,
-    var info: List<GeneralInfo>
+    var info: List<GeneralInfo>,
+    var downInfo: List<GeneralInfo>
 )
 
 // Informacoes de investimentos para determinados periodos
