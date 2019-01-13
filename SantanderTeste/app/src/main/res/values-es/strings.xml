@@ -11,4 +11,8 @@
     <string name="message_success">Mensaje enviado con exito</string>
     <string name="new_message">Enviar nuevo mensaje</string>
     <string name="to_invest">Inversión</string>
+    <string name="fund">Fondo</string>
+    <string name="on_month">En el mes</string>
+    <string name="on_year">En el año</string>
+    <string name="on_12_month">12 mses</string>
 </resources>

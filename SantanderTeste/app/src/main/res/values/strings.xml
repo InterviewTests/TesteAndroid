@@ -11,4 +11,10 @@
     <string name="message_success">Message was send with success</string>
     <string name="new_message">Send new message</string>
     <string name="to_invest">To invest</string>
+    <string name="fund">Investiment</string>
+    <string name="cdi" translatable="false">CDI</string>
+    <string name="nothing" translatable="false">--</string>
+    <string name="on_month">Month</string>
+    <string name="on_year">Year</string>
+    <string name="on_12_month">12 months</string>
 </resources>
