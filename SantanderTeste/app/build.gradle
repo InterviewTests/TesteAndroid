@@ -37,4 +37,11 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation 'com.android.support:recyclerview-v7:27.0.0'
     implementation 'com.android.support:design:27.0.0'
+
+    implementation 'org.mockito:mockito-core:2.8.9'
+
+    androidTestImplementation 'org.mockito:mockito-android:2.8.9'
 }
+
+
+
