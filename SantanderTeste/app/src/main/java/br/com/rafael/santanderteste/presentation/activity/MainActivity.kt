@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import br.com.rafael.santanderteste.R
 import br.com.rafael.santanderteste.helper.FragmentHelper
+import br.com.rafael.santanderteste.presentation.FunPresenter
 import br.com.rafael.santanderteste.presentation.MainContract
 import br.com.rafael.santanderteste.presentation.MainPresenter
 import br.com.rafael.santanderteste.presentation.fragment.FundFragment
@@ -48,14 +49,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun showInvestimentFragment() {
         toolbarMain.title = investimentLabel
         setupInvestButton()
-        setupFragment(FundFragment())
+        setupFragment(FundFragment().instance, "invest")
     }
 
     // Configura a chamada para o fragment de Contato se exibido
     override fun showContactFragment() {
         toolbarMain.title = contactLabel
         setupContactButton()
-        setupFragment(ContactFragment())
+        setupFragment(ContactFragment(), "contact")
     }
 
     // Atualiza a cor do fundo do botao de Investimento, deixando-o em modo ativo
@@ -74,10 +75,11 @@ class MainActivity : AppCompatActivity(), MainContract.View {
      * Configura um novo fragment que será atualizado no frame principal
      * @param fragment Instancia do fragment que será atualizado no frame principal
      */
-    private fun setupFragment(fragment: Fragment) {
+    private fun setupFragment(fragment: Fragment, tag: String) {
         FragmentHelper.replace_framgment(supportFragmentManager,
             R.id.frameMain,
-            fragment)
+            fragment,
+            tag)
     }
 
 }
