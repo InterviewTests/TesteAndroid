@@ -1,4 +1,4 @@
-package br.com.rafael.santanderteste.domain
+package br.com.rafael.santanderteste.domain.entity
 
 import com.google.gson.annotations.SerializedName
 

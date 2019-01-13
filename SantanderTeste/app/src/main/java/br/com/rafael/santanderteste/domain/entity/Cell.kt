@@ -1,4 +1,4 @@
-package br.com.rafael.santanderteste.domain;
+package br.com.rafael.santanderteste.domain.entity;
 
 //Entidade que representa uma configuracao de celula (cell)
 data class Cell (
