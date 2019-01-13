@@ -149,6 +149,11 @@ public class FormContactFragment extends Fragment implements FormContract.View {
                     if (checked) {
                         view1.setVisibility(View.VISIBLE);
                     } else {
+                        TextInputLayout input = view1.findViewById(R.id.inputLayout);
+                        input.setErrorEnabled(false);
+                        if(!errorList.isEmpty()){
+                            errorList.remove(0);
+                        }
                         view1.setVisibility(View.GONE);
                     }
                 }
@@ -209,10 +214,9 @@ public class FormContactFragment extends Fragment implements FormContract.View {
 
                         }
                     }
-
                     // Caso a lista de erro esteja vazia o Fragment de sucesso é exobido
                     if (errorList.size() == 0) {
-                        ViewHelper.Companion.replace_framgment(getFragmentManager(), R.id.frameLayout, new FundFragment(), "invest");
+                        ViewHelper.Companion.replace_framgment(getFragmentManager(), R.id.frameLayout, new SuccessFragment(), "success");
                     }
                     errorList.clear();
 
