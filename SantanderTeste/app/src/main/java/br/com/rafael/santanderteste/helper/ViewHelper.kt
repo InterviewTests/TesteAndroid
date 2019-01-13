@@ -66,5 +66,17 @@ class ViewHelper {
                     }
             }
         }
+        /**
+         * Verifica se um email e valido
+         * @param email String
+         */
+        fun isEmailValid(email: String) : Boolean{
+            var EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
+            var pattern = Pattern.compile(EMAIL_PATTERN);
+            var matcher: Matcher;
+
+            matcher = pattern.matcher(email);
+            return matcher.matches();
+        }
     }
 }
