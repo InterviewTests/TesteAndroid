@@ -1,6 +1,6 @@
 package br.com.rafael.santanderteste.presentation
 
-import br.com.rafael.santanderteste.domain.CellCatalog
+import br.com.rafael.santanderteste.domain.entity.CellCatalog
 
 /**
  * Classe que representa o contrato para a tela de formulario

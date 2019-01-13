@@ -2,9 +2,8 @@ package br.com.rafael.santanderteste.repository
 
 import br.com.rafael.santanderteste.datasource.BankServices
 import br.com.rafael.santanderteste.datasource.RetrofitClient
-import br.com.rafael.santanderteste.domain.CellCatalog
-import br.com.rafael.santanderteste.domain.Fund
-import br.com.rafael.santanderteste.domain.ScreenFund
+import br.com.rafael.santanderteste.domain.entity.CellCatalog
+import br.com.rafael.santanderteste.domain.entity.ScreenFund
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

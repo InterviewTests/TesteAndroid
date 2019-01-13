@@ -1,6 +1,6 @@
 package br.com.rafael.santanderteste.presentation;
 
-import br.com.rafael.santanderteste.domain.CellCatalog;
+import br.com.rafael.santanderteste.domain.entity.CellCatalog;
 import br.com.rafael.santanderteste.repository.BankProvider;
 import br.com.rafael.santanderteste.repository.BankRepository;
 import org.jetbrains.annotations.NotNull;

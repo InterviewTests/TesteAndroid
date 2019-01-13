@@ -1,7 +1,7 @@
 package br.com.rafael.santanderteste.datasource
 
-import br.com.rafael.santanderteste.domain.CellCatalog
-import br.com.rafael.santanderteste.domain.ScreenFund
+import br.com.rafael.santanderteste.domain.entity.CellCatalog
+import br.com.rafael.santanderteste.domain.entity.ScreenFund
 import retrofit2.Call
 import retrofit2.http.GET
 

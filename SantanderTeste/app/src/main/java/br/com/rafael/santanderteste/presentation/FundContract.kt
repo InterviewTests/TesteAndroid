@@ -1,6 +1,6 @@
 package br.com.rafael.santanderteste.presentation
 
-import br.com.rafael.santanderteste.domain.ScreenFund
+import br.com.rafael.santanderteste.domain.entity.ScreenFund
 
 class FundContract {
 
