@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.mikepenz.google_material_typeface_library.GoogleMaterial.Icon"/>
+        <variable name="viewModel" type="com.luccasmelo.santandereveris.view_model.InvestmentViewModel"/>
+    </data>
+    <androidx.core.widget.NestedScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nested_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:visibility="@{((viewModel.investmentInformation == null)? View.GONE : View.VISIBLE)}"
+
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                                                           xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                           xmlns:tools="http://schemas.android.com/tools"
+                                                           android:layout_width="match_parent"
+                                                           android:paddingEnd="16dp"
+                                                           android:paddingStart="16dp"
+                                                           android:layout_height="match_parent">
+
+            <TextView
+                    android:text="Investimento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextTitleSmall"
+                    android:id="@+id/textView" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+            <ImageView
+                    android:layout_width="wrap_content"
+                    icon="@{Icon.gmd_open_in_browser}"
+                    android:layout_height="wrap_content" android:background="@android:drawable/btn_star_big_on"
+                    android:id="@+id/imageView" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView" android:layout_marginStart="8dp"
+                    app:layout_constraintHorizontal_bias="1.0"/>
+            <TextView
+                    android:text="@{viewModel.investmentInformation.screen.title}"
+                    tools:text="Fundos de investimento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2" android:layout_marginTop="32dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"/>
+            <TextView
+                    android:text="@{viewModel.investmentInformation.screen.fundName}"
+
+                    tools:text="Vinci Valorem FI Multimermacado"
+                    style="@style/TextTitle"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView3" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="32dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="32dp"/>
+
+            <View android:layout_width="0dp"
+                  android:layout_height="0.5dp"
+                  android:alpha="0.3"
+                  android:background="@android:color/black"
+                  android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/textView3"
+                  app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                  app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                  android:id="@+id/line"/>
+            <View android:layout_width="0dp"
+                  android:layout_height="0.5dp"
+                  android:alpha="0.3"
+
+                  android:background="@android:color/black"
+                  app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                  app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp" android:id="@+id/line4"
+                  android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/rcv_more_info"/>
+            <TextView
+                    android:text="@{viewModel.investmentInformation.screen.whatIs}"
+
+                    tools:text="O que é?"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView5"
+                    style="@style/TextNormal"
+
+                    app:layout_constraintTop_toBottomOf="@+id/line" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="32dp"/>
+            <TextView
+                    android:text="@{viewModel.investmentInformation.screen.definition}"
+
+                    tools:text="O fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos."
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/TextNormal"
+
+                    android:id="@+id/textView6" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5"/>
+            <TextView
+                    android:text="@{viewModel.investmentInformation.screen.riskTitle}"
+
+                    tools:text=" Grau de risco do investimento"
+                    style="@style/TextNormal"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView7" android:layout_marginTop="64dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"/>
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:background="@android:drawable/arrow_down_float"
+                    android:id="@+id/risk_arrow"
+                    iconBlack="@{Icon.gmd_keyboard_arrow_down}"
+                    risk="@{viewModel.investmentInformation}"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/risk_1"
+                    app:layout_constraintEnd_toEndOf="@+id/risk_1" android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="@id/risk_1" android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView7"
+                    app:layout_constraintVertical_bias="1.0"/>
+
+
+            <View
+                    android:id="@+id/risk_1"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_weight="0.20"
+                    risk="@{viewModel.investmentInformation}"
+
+                    android:backgroundTint="@color/green_light"
+                    app:layout_constraintEnd_toStartOf="@+id/invest_risk_2"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="@color/green"
+                    android:layout_marginEnd="1dp" android:layout_marginStart="1dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7" android:layout_marginTop="32dp"/>
+
+            <View
+                    android:id="@+id/invest_risk_2"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_weight="0.20"
+                    risk="@{viewModel.investmentInformation}"
+
+                    android:background="@color/green"
+                    app:layout_constraintEnd_toStartOf="@+id/invest_risk_3"
+                    app:layout_constraintStart_toEndOf="@+id/risk_1"
+                    app:layout_constraintBottom_toBottomOf="@+id/risk_1" android:layout_marginEnd="1dp"
+                    android:layout_marginStart="1dp"/>
+
+            <View
+                    android:id="@+id/invest_risk_3"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    risk="@{viewModel.investmentInformation}"
+
+                    android:layout_weight="0.20"
+                    android:background="@color/yellow"
+                    app:layout_constraintEnd_toStartOf="@+id/invest_risk_4"
+                    app:layout_constraintStart_toEndOf="@+id/invest_risk_2"
+                    app:layout_constraintBottom_toBottomOf="@+id/invest_risk_2" android:layout_marginEnd="1dp"
+                    android:layout_marginStart="1dp"/>
+
+            <View
+                    android:id="@+id/invest_risk_4"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    risk="@{viewModel.investmentInformation}"
+
+                    android:layout_weight="0.20"
+                    android:background="@color/orange"
+                    app:layout_constraintEnd_toStartOf="@+id/invest_risk_5"
+                    app:layout_constraintStart_toEndOf="@+id/invest_risk_3"
+                    app:layout_constraintBottom_toBottomOf="@+id/invest_risk_3" android:layout_marginEnd="1dp"
+                    android:layout_marginStart="1dp"/>
+
+            <View
+                    android:id="@+id/invest_risk_5"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_weight="0.20"
+                    risk="@{viewModel.investmentInformation}"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/invest_risk_4"
+                    android:background="@color/red"
+                    app:layout_constraintBottom_toBottomOf="@+id/invest_risk_4" android:layout_marginStart="1dp"
+                    android:layout_marginEnd="1dp"/>
+
+            <TextView
+                    android:text="@{viewModel.investmentInformation.screen.infoTitle}"
+
+                    tools:text="Mais informacoes sobre o investimento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextNormal"
+
+                    android:id="@+id/textView8" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/risk_1" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" android:layout_marginTop="64dp"/>
+            <TextView
+                    android:text="CDI"
+                    android:textAlignment="textEnd"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    style="@style/TextNormal"
+
+                    android:id="@+id/textView9" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+            <TextView
+                    android:text="Fundos"
+                    style="@style/TextNormal"
+
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView10" android:layout_marginTop="32dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8"
+                    app:layout_constraintEnd_toStartOf="@+id/textView9"
+                    android:layout_marginEnd="8dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/rcv_more_info"/>
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/line4" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/rcv_info"/>
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/rcv_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" android:id="@+id/rcv_down"/>
+            <Button
+                    android:text="Investir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+
+                    app:layout_constraintTop_toBottomOf="@+id/rcv_down" android:layout_marginTop="20dp"
+                    android:layout_marginBottom="32dp"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

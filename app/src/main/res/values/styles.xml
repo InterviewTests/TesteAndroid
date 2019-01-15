@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="buttonStyle">@style/ButtonDefault</item>
+    </style>
+
+    <style name="ButtonDefault" parent="Base.TextAppearance.AppCompat.Widget.Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">10dp
+        </item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@drawable/btn_default</item>
+    </style>
+
+    <style name="TextNormal">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/grey</item>
+    </style>
+    <style name="TextNormal.Light" parent="TextNormal">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/grey_light</item>
+    </style>
+    <style name="TextClickable">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="TextTitle">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="TextTitleSmall">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+</resources>

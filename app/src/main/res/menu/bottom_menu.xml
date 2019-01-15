@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+            android:id="@+id/action_investment"
+            android:enabled="true"
+            android:title="Investimento"
+            android:icon="@drawable/icon_investment"
+            app:showAsAction="ifRoom"  />
+    <item
+            android:id="@+id/action_contact"
+            android:enabled="true"
+            android:icon="@drawable/icon_contact"
+
+            android:title="Contato"
+            app:showAsAction="ifRoom"  />
+</menu>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+
+        <variable name="viewModel" type="com.luccasmelo.santandereveris.view_model.ContactViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:visibility="@{((viewModel.contactForm == null)? View.GONE : View.VISIBLE)}"
+
+                                                       android:layout_width="match_parent"
+                                                       android:layout_height="match_parent">
+
+        <TextView
+                android:text="Contato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextTitleSmall"
+                android:id="@+id/textView" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/rcv_contact"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcv_contact"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:dividerHeight="0dp"
+                android:divider="#FFFFFF"
+                android:layout_marginTop="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
