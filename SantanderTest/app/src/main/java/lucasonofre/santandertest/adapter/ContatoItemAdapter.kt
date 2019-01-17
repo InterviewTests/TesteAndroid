@@ -25,7 +25,7 @@ import lucasonofre.santandertest.validacao.Validador
  **/
 
 interface FragmentInterface{
-    fun onFragmentSelected()
+    fun onButtonSelected(ehValido:Boolean)
 }
 
 class ContatoItemAdapter(private val context: Activity, private val itens: ArrayList<ContactItens>,private val listener:FragmentInterface): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -143,7 +143,6 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
 
         return viewHolder
 
-
     }
 
     override fun getItemCount(): Int {
@@ -155,7 +154,6 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
 
         val item = itens[position]
         when(holder.itemViewType){
-
 
             /**
              * ViewHolder para os itens do tipo Text
@@ -232,7 +230,12 @@ class ContatoItemAdapter(private val context: Activity, private val itens: Array
 
 
                 viewHolder.button.setOnClickListener {
-                    listener.onFragmentSelected()
+
+                    if (ehValido == true) {
+                        listener.onButtonSelected(ehValido!!)
+                    }else{
+                        Toast.makeText(context,"Favor verifique os campos preenchidos",Toast.LENGTH_LONG).show()
+                    }
                 }
             }
         }

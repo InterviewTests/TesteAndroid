@@ -3,8 +3,8 @@ package lucasonofre.santandertest.adapter
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
-import lucasonofre.santandertest.fragment.ContatoFragment
-import lucasonofre.santandertest.fragment.InvestimentoFragment
+import lucasonofre.santandertest.view.fragment.ContatoFragment
+import lucasonofre.santandertest.view.fragment.InvestimentoViewFragment
 
 
 class PagerAdapter(fragmentManager: FragmentManager, var numberTabs: Int) : FragmentStatePagerAdapter(fragmentManager) {
@@ -16,7 +16,7 @@ class PagerAdapter(fragmentManager: FragmentManager, var numberTabs: Int) : Frag
 
         return when (position) {
 
-            0 -> {  InvestimentoFragment()  }
+            0 -> {  InvestimentoViewFragment()  }
 
             1 -> { ContatoFragment()  }
 

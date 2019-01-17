@@ -1,4 +1,4 @@
-package lucasonofre.santandertest.activity
+package lucasonofre.santandertest.view.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
             setTabLayout(it)
             setTabLayoutAdapter()
         }
-
     }
     /**
      * Nomeação das tabs

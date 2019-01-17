@@ -2,7 +2,7 @@ package lucasonofre.santandertest.presenter
 
 import android.content.Context
 import android.util.Log
-import lucasonofre.santandertest.fragment.ContatoViewListener
+import lucasonofre.santandertest.view.fragment.ContatoViewListener
 import lucasonofre.santandertest.model.Cell
 import lucasonofre.santandertest.model.ContactItens
 import lucasonofre.santandertest.request.RequestItens
@@ -12,13 +12,13 @@ import retrofit2.Response
 
 interface ContatoPresenterListener{
     fun requestFormItems(context: Context)
-    fun validateFields()
+    fun validateFields(ehValido: Boolean)
 }
 
 class ContatoPresenter: ContatoPresenterListener{
 
     private var view:ContatoViewListener? = null
-    var items:ArrayList<ContactItens> = ArrayList()
+     var items:ArrayList<ContactItens> = ArrayList()
 
     // Conecta a view da Activity ou Fragmento com a view do presenter
     fun bindTo(view:ContatoViewListener){
@@ -30,23 +30,12 @@ class ContatoPresenter: ContatoPresenterListener{
         this.view = null
     }
 
-    override fun validateFields() {
+    override fun validateFields(ehValido: Boolean) {
 
-        var isSucces = 0
-        for (item in items){
-//            if (item.typeField = TypeField.EMAIL || item.typeField = TypeField.TELNUMBER || item.typeField = TypeField.TEXT){
-//                if (item.isSuccess){
-//                    isSucces = isSucces+1
-//                }
-//            }
-        }
-
-        if(isSucces == 3){
+        if (ehValido)
             view?.showSuccessPage()
-        }
-        else{
-            view?.displayError("Preencha todos os campos para continuar.")
-        }
+        else
+            view?.displayError("Verifique se os campos foram preenchidos corretamente")
     }
 
     /**

@@ -41,6 +41,8 @@ class ContactItens{
 
     @SerializedName("required")
     val required: Boolean? = null
+
+    var isSucess:Boolean = false
 }
 
 enum class Type{
