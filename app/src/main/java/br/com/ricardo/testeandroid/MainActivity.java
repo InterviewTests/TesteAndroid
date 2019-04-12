@@ -1,5 +1,6 @@
 package br.com.ricardo.testeandroid;
 
+import android.graphics.Typeface;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -19,8 +20,12 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout frameContainer;
     private LinearLayout linearInvestment;
     private LinearLayout linearContact;
+    private TextView textMainInvestment;
+    private TextView textMainContact;
     private FragmentManager fragmentManagerMain;
     private FragmentTransaction fragmentTransactionMain;
+
+    private Typeface font;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +38,16 @@ public class MainActivity extends AppCompatActivity {
         frameContainer = (FrameLayout) findViewById(R.id.main_frame_container);
         linearInvestment = (LinearLayout) findViewById(R.id.main_linear_investment);
         linearContact = (LinearLayout) findViewById(R.id.main_linear_contact);
+        textMainInvestment = (TextView) findViewById(R.id.main_text_investment);
+        textMainContact = (TextView) findViewById(R.id.main_text_contact);
 
         textMainTitle.setText("Contato");
+        font.createFromAsset(getAssets(), "font/DINPro-Black.otf");
+        textMainTitle.setTypeface(font);
+        textMainInvestment.setTypeface(font);
+        textMainContact.setTypeface(font);
+
+
         fragmentManagerMain = getSupportFragmentManager();
         fragmentTransactionMain = fragmentManagerMain.beginTransaction();
         fragmentTransactionMain.add(R.id.main_frame_container, new ContactFragment());
