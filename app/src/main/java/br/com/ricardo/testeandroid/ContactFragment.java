@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +25,9 @@ public class ContactFragment extends Fragment {
     private TextInputLayout inputContactPhone;
     private CheckBox checkContactRegisterEmail;
     private Button buttonContactSend;
+
+    private FragmentManager fragmentManagerContact;
+    private FragmentTransaction fragmentTransactionContact;
 
     private Typeface font;
 
@@ -46,6 +51,18 @@ public class ContactFragment extends Fragment {
         inputContactPhone.setTypeface(font);
         checkContactRegisterEmail.setTypeface(font);
         buttonContactSend.setTypeface(font);
+
+        buttonContactSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                fragmentManagerContact = getActivity().getSupportFragmentManager();
+                fragmentTransactionContact = fragmentManagerContact.beginTransaction();
+                fragmentTransactionContact.replace(R.id.main_frame_container, new MessageFragment());
+                fragmentTransactionContact.commit();
+
+            }
+        });
 
         return contactView;
 

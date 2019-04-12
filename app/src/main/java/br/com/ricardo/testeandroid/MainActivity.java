@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         textMainInvestment = (TextView) findViewById(R.id.main_text_investment);
         textMainContact = (TextView) findViewById(R.id.main_text_contact);
 
-        textMainTitle.setText("Contato");
+        textMainTitle.setText(R.string.main_toolbar_contact);
         font = Typeface.createFromAsset(getAssets(), "font/DINPro-Medium.otf");
         textMainTitle.setTypeface(font);
         textMainInvestment.setTypeface(font);
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                textMainTitle.setText("Investimento");
+                textMainTitle.setText(R.string.main_toolbar_investment);
                 imageMainShare.setVisibility(View.VISIBLE);
                 fragmentTransactionMain = fragmentManagerMain.beginTransaction();
                 fragmentTransactionMain.replace(R.id.main_frame_container, new InvestmentFragment());
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                textMainTitle.setText("Contato");
+                textMainTitle.setText(R.string.main_toolbar_contact);
                 imageMainShare.setVisibility(View.INVISIBLE);
                 fragmentTransactionMain = fragmentManagerMain.beginTransaction();
                 fragmentTransactionMain.replace(R.id.main_frame_container, new ContactFragment());
