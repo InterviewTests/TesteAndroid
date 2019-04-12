@@ -17,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbarMain;
     private TextView textMainTitle;
     private ImageView imageMainShare;
-    private FrameLayout frameContainer;
-    private LinearLayout linearInvestment;
-    private LinearLayout linearContact;
+    private FrameLayout frameMainContainer;
+    private LinearLayout linearMainInvestment;
+    private LinearLayout linearMainContact;
     private TextView textMainInvestment;
     private TextView textMainContact;
     private FragmentManager fragmentManagerMain;
@@ -35,14 +35,14 @@ public class MainActivity extends AppCompatActivity {
         toolbarMain = (Toolbar) findViewById(R.id.main_toolbar);
         textMainTitle = (TextView) findViewById(R.id.main_text_title);
         imageMainShare = (ImageView) findViewById(R.id.main_image_share);
-        frameContainer = (FrameLayout) findViewById(R.id.main_frame_container);
-        linearInvestment = (LinearLayout) findViewById(R.id.main_linear_investment);
-        linearContact = (LinearLayout) findViewById(R.id.main_linear_contact);
+        frameMainContainer = (FrameLayout) findViewById(R.id.main_frame_container);
+        linearMainInvestment = (LinearLayout) findViewById(R.id.main_linear_investment);
+        linearMainContact = (LinearLayout) findViewById(R.id.main_linear_contact);
         textMainInvestment = (TextView) findViewById(R.id.main_text_investment);
         textMainContact = (TextView) findViewById(R.id.main_text_contact);
 
         textMainTitle.setText("Contato");
-        font.createFromAsset(getAssets(), "font/DINPro-Black.otf");
+        font = Typeface.createFromAsset(getAssets(), "font/DINPro-Medium.otf");
         textMainTitle.setTypeface(font);
         textMainInvestment.setTypeface(font);
         textMainContact.setTypeface(font);
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransactionMain.add(R.id.main_frame_container, new ContactFragment());
         fragmentTransactionMain.commit();
 
-        linearInvestment.setOnClickListener(new View.OnClickListener() {
+        linearMainInvestment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        linearContact.setOnClickListener(new View.OnClickListener() {
+        linearMainContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
