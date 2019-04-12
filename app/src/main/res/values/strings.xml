@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">TesteAndroid</string>
+    <string name="main_button_Investment">Investimento</string>
+    <string name="main_button_contact">Contato</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="contact_fragment">fragment contato</string>
+    <string name="investment_blank_fragment">fragment investimento</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
