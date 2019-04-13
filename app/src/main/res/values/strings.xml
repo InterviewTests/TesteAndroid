@@ -11,4 +11,8 @@
     <string name="message_title">Obrigado!</string>
     <string name="message_subtitle">Mensagem enviada com sucesso :)</string>
     <string name="message_link">Enviar nova mensagem</string>
+    <string name="todo">TODO</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

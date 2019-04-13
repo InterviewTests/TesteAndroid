@@ -1,6 +1,5 @@
 package br.com.ricardo.testeandroid;
 
-import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -65,13 +64,6 @@ public class ContactFragment extends Fragment {
         });
 
         return contactView;
-
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
 
     }
 }

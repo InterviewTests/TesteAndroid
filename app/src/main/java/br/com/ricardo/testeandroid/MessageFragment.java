@@ -1,8 +1,6 @@
 package br.com.ricardo.testeandroid;
 
-import android.content.Context;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -55,13 +53,6 @@ public class MessageFragment extends Fragment {
 
 
         return messageView;
-
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
 
     }
 }

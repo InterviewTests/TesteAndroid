@@ -32,7 +32,9 @@
                 android:id="@+id/contact_edit_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nome completo" />
+                android:hint="Nome completo"
+                android:singleLine="true"
+                android:inputType="none"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -46,7 +48,9 @@
                 android:id="@+id/contact_edit_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email" />
+                android:hint="Email"
+                android:singleLine="true"
+                android:inputType="textEmailAddress"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -60,7 +64,9 @@
                 android:id="@+id/contact_edit_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Telefone" />
+                android:hint="Telefone"
+                android:singleLine="true"
+                android:inputType="number"/>
 
         </android.support.design.widget.TextInputLayout>
 
