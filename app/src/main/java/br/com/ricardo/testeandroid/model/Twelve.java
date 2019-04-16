@@ -1,8 +1,12 @@
 package br.com.ricardo.testeandroid.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Twelve {
 
     private float fund;
+
+    @SerializedName("CDI")
     private float cdi;
 
     public Twelve(float fund, float cdi) {

@@ -1,9 +1,13 @@
 package br.com.ricardo.testeandroid.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class MoreInfo {
 
     private Month month;
     private Year year;
+
+    @SerializedName("12months")
     private Twelve twelve;
 
     public MoreInfo(Month month, Year year, Twelve twelve) {

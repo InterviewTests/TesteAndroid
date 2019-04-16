@@ -8,15 +8,20 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
+import android.util.Patterns;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +32,7 @@ import br.com.ricardo.testeandroid.model.ContactInteractorImpl;
 import br.com.ricardo.testeandroid.model.Cell;
 import br.com.ricardo.testeandroid.presenter.ContactPresenter;
 import br.com.ricardo.testeandroid.presenter.ContactPresenterImpl;
+import br.com.ricardo.testeandroid.view.Utils.MaskEditUtil;
 
 
 public class ContactFragment extends Fragment implements ContactView{
@@ -36,6 +42,7 @@ public class ContactFragment extends Fragment implements ContactView{
     private TextInputLayout inputContactName;
     private TextInputLayout inputContactEmail;
     private TextInputLayout inputContactPhone;
+    private EditText editContactPhone;
     private CheckBox checkContactRegisterEmail;
     private Button buttonContactSend;
     private ProgressBar progressBarContact;
@@ -70,8 +77,13 @@ public class ContactFragment extends Fragment implements ContactView{
         inputContactName = (TextInputLayout) contactView.findViewById(R.id.contact_input_name);
         inputContactEmail = (TextInputLayout) contactView.findViewById(R.id.contact_input_email);
         inputContactPhone = (TextInputLayout) contactView.findViewById(R.id.contact_input_phone);
+        editContactPhone = (EditText) contactView.findViewById(R.id.contact_edit_phone);
         checkContactRegisterEmail = (CheckBox) contactView.findViewById(R.id.contact_check_register_email);
         buttonContactSend = (Button) contactView.findViewById(R.id.contact_button_send);
+
+
+        editContactPhone.addTextChangedListener(MaskEditUtil.mask(editContactPhone, MaskEditUtil.FORMAT_FONE_9));
+
 
         linearContactContainer.setVisibility(View.GONE);
         progressBarContact.setVisibility(View.VISIBLE);
@@ -85,10 +97,8 @@ public class ContactFragment extends Fragment implements ContactView{
                 if(isChecked){
                     inputContactEmail.setEnabled(true);
                 } else {
-
                     inputContactEmail.setEnabled(false);
                 }
-
             }
         });
 
@@ -96,11 +106,19 @@ public class ContactFragment extends Fragment implements ContactView{
             @Override
             public void onClick(View v) {
 
-                fragmentManagerContact = getActivity().getSupportFragmentManager();
-                fragmentTransactionContact = fragmentManagerContact.beginTransaction();
-                fragmentTransactionContact.replace(R.id.main_frame_container, new MessageFragment());
-                fragmentTransactionContact.commit();
+                String name = String.valueOf(inputContactName.getEditText().getText());
+                String email = String.valueOf(inputContactEmail.getEditText().getText());
+                String phone = String.valueOf(inputContactPhone.getEditText().getText());
 
+
+                if(validaCampos(name, email, phone)){
+
+                    fragmentManagerContact = getActivity().getSupportFragmentManager();
+                    fragmentTransactionContact = fragmentManagerContact.beginTransaction();
+                    fragmentTransactionContact.replace(R.id.main_frame_container, new MessageFragment());
+                    fragmentTransactionContact.commit();
+
+                }
             }
         });
 
@@ -117,6 +135,33 @@ public class ContactFragment extends Fragment implements ContactView{
 
         return contactView;
 
+    }
+
+    //Método para validar os campos
+    public boolean validaCampos(String name, String email, String phone){
+
+        boolean check = false;
+
+
+        if(checkContactRegisterEmail.isChecked()){
+            if(TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(phone)){
+                Toast.makeText(getActivity(), "Campo vazio", Toast.LENGTH_SHORT).show();
+            } else {
+                if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                    check = true;
+                } else {
+                    Toast.makeText(getActivity(), "Email inválido", Toast.LENGTH_SHORT).show();
+                }
+            }
+        } else {
+            if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(phone)){
+                check = true;
+            } else {
+                Toast.makeText(getActivity(), "Campo vazio", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        return check;
     }
 
     @Override

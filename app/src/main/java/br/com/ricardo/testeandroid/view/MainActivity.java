@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         linearMainInvestment.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         fragmentManagerMain = getSupportFragmentManager();
         fragmentTransactionMain = fragmentManagerMain.beginTransaction();
-        fragmentTransactionMain.add(R.id.main_frame_container, new InvestmentFragment());
+        fragmentTransactionMain.add(R.id.main_frame_container, new ContactFragment());
         fragmentTransactionMain.commit();
 
         linearMainInvestment.setOnClickListener(new View.OnClickListener() {

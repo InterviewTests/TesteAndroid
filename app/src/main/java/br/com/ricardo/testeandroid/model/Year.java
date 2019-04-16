@@ -1,8 +1,12 @@
 package br.com.ricardo.testeandroid.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Year {
 
     private float fund;
+
+    @SerializedName("CDI")
     private float cdi;
 
     public Year(float fund, float cdi) {

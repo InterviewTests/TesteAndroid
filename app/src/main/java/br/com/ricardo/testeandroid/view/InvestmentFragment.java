@@ -202,7 +202,6 @@ public class InvestmentFragment extends Fragment implements InvestmentView{
         textInvestmentValueDownInfo4.setTypeface(font);
         textInvestmentValueDownInfo5.setTypeface(font);
 
-
         return investmentView;
 
     }
@@ -252,8 +251,8 @@ public class InvestmentFragment extends Fragment implements InvestmentView{
             textInvestmentMoreInfoTitleCdiMonth.setText(String.valueOf(screenList.get(i).getMoreInfo().getMonth().getCdi()) + "%");
             textInvestmentMoreInfoTitleFundYear.setText(String.valueOf(screenList.get(i).getMoreInfo().getYear().getFund()) + "%");
             textInvestmentMoreInfoTitleCdiYear.setText(String.valueOf(screenList.get(i).getMoreInfo().getYear().getCdi()) + "%");
-            textInvestmentMoreInfoTitleFundTwelve.setText(String.valueOf("%"));
-            textInvestmentMoreInfoTitleCdiTwelve.setText(String.valueOf("%"));
+            textInvestmentMoreInfoTitleFundTwelve.setText(String.valueOf(screenList.get(i).getMoreInfo().getTwelve().getFund()) + "%");
+            textInvestmentMoreInfoTitleCdiTwelve.setText(String.valueOf(screenList.get(i).getMoreInfo().getTwelve().getCdi()) + "%");
 
             //Percorrendo o atributo Info e preenchendo a lista infoList
             for(Info info : item.getInfo()){
