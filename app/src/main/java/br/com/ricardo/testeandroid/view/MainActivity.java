@@ -1,4 +1,4 @@
-package br.com.ricardo.testeandroid;
+package br.com.ricardo.testeandroid.view;
 
 import android.graphics.Typeface;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +11,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import br.com.ricardo.testeandroid.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,15 +50,19 @@ public class MainActivity extends AppCompatActivity {
         textMainContact.setTypeface(font);
 
 
+        linearMainContact.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        linearMainInvestment.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         fragmentManagerMain = getSupportFragmentManager();
         fragmentTransactionMain = fragmentManagerMain.beginTransaction();
-        fragmentTransactionMain.add(R.id.main_frame_container, new ContactFragment());
+        fragmentTransactionMain.add(R.id.main_frame_container, new InvestmentFragment());
         fragmentTransactionMain.commit();
 
         linearMainInvestment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                linearMainContact.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                linearMainInvestment.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 textMainTitle.setText(R.string.main_toolbar_investment);
                 imageMainShare.setVisibility(View.VISIBLE);
                 fragmentTransactionMain = fragmentManagerMain.beginTransaction();
@@ -70,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                linearMainContact.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                linearMainInvestment.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 textMainTitle.setText(R.string.main_toolbar_contact);
                 imageMainShare.setVisibility(View.INVISIBLE);
                 fragmentTransactionMain = fragmentManagerMain.beginTransaction();

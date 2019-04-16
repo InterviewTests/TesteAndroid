@@ -1,4 +1,4 @@
-package br.com.ricardo.testeandroid;
+package br.com.ricardo.testeandroid.view;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import br.com.ricardo.testeandroid.R;
 
 
 public class MessageFragment extends Fragment {

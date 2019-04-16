@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
-        tools:context=".InvestmentFragment">
+        tools:context=".view.InvestmentFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Fundos de Investimento"
+                android:text="Fundos de Inves..."
                 android:textColor="@android:color/black" />
 
             <TextView
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="Vinci Valorem FI Multimercado"
+                android:text="Vinci Valorem FI Multimer..."
                 android:textColor="@android:color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:text="O que é?"
+                android:text="O que..."
                 android:textColor="@android:color/black" />
 
             <TextView
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de investimentos."
+                android:text="O Fundo tem por objetivo proporcionar aos seus cotistas rentabilidade no longo prazo através de ....."
                 android:textColor="@android:color/black" />
 
             <TextView
@@ -69,7 +69,7 @@
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:text="Grau de risco do investimento"
+                android:text="Grau de risco do inves...."
                 android:textColor="@android:color/black" />
 
             <SeekBar
@@ -88,7 +88,7 @@
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:text="Mais informações sobre o investimento"
+                android:text="Mais informações sobre o inves....."
                 android:textColor="@android:color/black" />
 
             <LinearLayout
@@ -117,7 +117,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="No mês" />
+                        android:text="No m..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -125,7 +125,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="No ano" />
+                        android:text="No a..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -133,7 +133,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="12 meses" />
+                        android:text="12 me..." />
 
                 </LinearLayout>
 
@@ -149,7 +149,7 @@
                         android:gravity="right"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Fundo" />
+                        android:text="Fun..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -192,7 +192,7 @@
                         android:gravity="right"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="CDI" />
+                        android:text="CD..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -251,7 +251,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Taxa de administração" />
+                        android:text="Taxa de admi..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -259,7 +259,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Aplicação inicial" />
+                        android:text="Aplica..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -267,7 +267,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Movimentação mínima" />
+                        android:text="Movimenta..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -275,7 +275,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Saldo mínimo" />
+                        android:text="Saldo mí..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -283,7 +283,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Resgate (valor bruto)" />
+                        android:text="Resgate..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -291,7 +291,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Cota (valor bruto)" />
+                        android:text="Cota..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -299,7 +299,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Pagamento (valor bruto)" />
+                        android:text="Pagamento..." />
 
                 </LinearLayout>
 
@@ -394,7 +394,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Essenciais" />
+                        android:text="Essen..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -402,7 +402,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Desempenho" />
+                        android:text="Desem..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -410,7 +410,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Complementares" />
+                        android:text="Complem..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -418,7 +418,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Regulamento" />
+                        android:text="Regula..." />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -426,7 +426,7 @@
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Adesão" />
+                        android:text="Ade..." />
 
 
                 </LinearLayout>
@@ -491,7 +491,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/primary_button_unpressed"
-                android:text="Investir"
+                android:text="Inve..."
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
 

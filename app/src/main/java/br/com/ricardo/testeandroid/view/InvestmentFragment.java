@@ -1,16 +1,16 @@
-package br.com.ricardo.testeandroid;
+package br.com.ricardo.testeandroid.view;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import br.com.ricardo.testeandroid.R;
 
 
 public class InvestmentFragment extends Fragment {

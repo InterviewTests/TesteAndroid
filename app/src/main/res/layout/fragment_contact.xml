@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
-    tools:context=".ContactFragment">
+    tools:context=".view.ContactFragment">
 
 
     <LinearLayout
@@ -20,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="Olá, primeiro se apresente com o seu nome"/>
+            android:text="Olá...."/>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/contact_input_name"
@@ -32,7 +33,7 @@
                 android:id="@+id/contact_edit_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nome completo"
+                android:hint="Nome..."
                 android:singleLine="true"
                 android:inputType="none"/>
 
@@ -48,7 +49,7 @@
                 android:id="@+id/contact_edit_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
+                android:hint="Ema..."
                 android:singleLine="true"
                 android:inputType="textEmailAddress"/>
 
@@ -64,7 +65,7 @@
                 android:id="@+id/contact_edit_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Telefone"
+                android:hint="Tele......"
                 android:singleLine="true"
                 android:inputType="number"/>
 
@@ -75,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Gostaria de cadastrar meu email"/>
+                android:text="Gostaria...."/>
 
         <Button
             android:id="@+id/contact_button_send"
@@ -83,10 +84,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/primary_button_unpressed"
-            android:text="Enviar"
+            android:text="Env...."
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/contact_progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
 </FrameLayout>
