@@ -18,12 +18,12 @@
 6. [Licença](#license)
 
 <a name="introduction" />
-## Introdução
+### Introdução
 
 Desafio proposto pelo Banco Santander para as vagas de desenvolvedor Android. Você deve fazer um aplicativo de acordo com as instruções. O próprio Santander disponibilizou uma imagem com uma referência do que teria de ser as telas e os endpoints JSON para consumo. No fluxo do aplicativo, o usuário visualiza um formulário construido de forma dinâmica, podendo preencher um pequeno formulário de contato e abrir um resumo de um ativo financeiro, com algumas informações resumidas.
 
 <a name="requirements" />
-## Requisitos:
+### Requisitos:
 
 1. Criar uma tela de contatos com um formulário dinâmico, consumindo um JSON que preenche os campos na tela.
 2. Fazer validações para campo vazio, email inválido e formatação de telefone.
@@ -33,7 +33,7 @@ Desafio proposto pelo Banco Santander para as vagas de desenvolvedor Android. Vo
 6. Utilizar MVP Clean.
 
 <a name="architecture" />
-## Arquitetura
+### Arquitetura
 
 A arquitetura utilizada foi a Model View Presenter (MVP). 
 
@@ -47,7 +47,7 @@ Na tela do formulário de contato, foi consumido o JSON via biblioteca Retrofit,
 Na tela do ativo financeiro, foi consumido o JSON também via biblioteca Retrofit, guardando os dados adquiridos em suas respectivas classes Model, e por fim, varrendo as mesmas para trazer os devidos resultados em sua respectiva tela.
 
 <a name="resources" />
-## Recursos
+### Recursos
 
  1. **MVP**, como arquitetura;
  2. **Java**, como linguagem de programação;
@@ -56,14 +56,14 @@ Na tela do ativo financeiro, foi consumido o JSON também via biblioteca Retrofi
  5. **Junit e Mockito**, para testes unitários.
 
 <a name="considerations" />
-## Considerações
+### Considerações
 
 Os dois endpoints apresentam erros de estrutura de dados e estrutura do JSON. Um deles, impede a formação de POJOs. 
 
 Foi criado uma classe Utils para fazer a validação simples do formulátio de contato.
 
 <a name="setup" />
-## Instalação
+### Instalação
 
 Para rodar esse projeto utilize uma das seguintes formas:
 
@@ -75,7 +75,7 @@ Clone o repositório na sua máquina.
 Faça o build da aplicação utilizando Android Studio ou via terminal com ```./gradlew assembleDebug```
 
 <a name="license" />
-## Licença
+### Licença
 <aside class="notice">
   
 Copyright 2019 Ricardo Sousa
