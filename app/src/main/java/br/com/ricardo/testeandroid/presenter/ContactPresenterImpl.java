@@ -2,9 +2,6 @@ package br.com.ricardo.testeandroid.presenter;
 
 import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import br.com.ricardo.testeandroid.model.Cell;
 import br.com.ricardo.testeandroid.model.ContactApp;
 import br.com.ricardo.testeandroid.model.ContactInteractor;
@@ -17,8 +14,6 @@ public class ContactPresenterImpl implements ContactPresenter{
 
     private ContactView contactView;
     private ContactInteractor contactInteractor;
-
-    private List<Cell> cellList;
 
     //Construtor com o atributo do tipo ContactInteractor(Model)
     public ContactPresenterImpl(ContactInteractor contactInteractor) {
@@ -46,11 +41,14 @@ public class ContactPresenterImpl implements ContactPresenter{
                     Log.i("TAG", "Erro: " + response.code());
                 } else{
                     ContactApp contactApp = response.body();
-//                    cellList = new ArrayList<>();
 
-                    for(Cell c : contactApp.cells){
+                    if(contactApp != null){
+                        for(Cell c : contactApp.getCells()){
 
-                        contactView.addTextField(c);
+                            contactView.addTextField(c);
+                        }
+                    } else {
+                        Log.i("TAG", "Erro: Json vazio.");
                     }
                 }
             }

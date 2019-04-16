@@ -12,6 +12,7 @@
         tools:context=".view.InvestmentFragment">
 
         <LinearLayout
+            android:id="@+id/investment_linear_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="30dp"
@@ -72,13 +73,101 @@
                 android:text="Grau de risco do inves...."
                 android:textColor="@android:color/black" />
 
-            <SeekBar
-                android:id="@+id/seekBar"
-                style="@style/Widget.AppCompat.SeekBar.Discrete"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="5"
-                android:progress="4" />
+                android:layout_height="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/investment_linear_arrow_risk1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" />
+
+                    <LinearLayout
+                        android:id="@+id/investment_linear_arrow_risk2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"/>
+
+                    <LinearLayout
+                        android:id="@+id/investment_linear_arrow_risk3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"/>
+
+                    <LinearLayout
+                        android:id="@+id/investment_linear_arrow_risk4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"/>
+
+                    <LinearLayout
+                        android:id="@+id/investment_linear_arrow_risk5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/investment_linear_child_risk1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/risk1"
+                        android:orientation="horizontal" />
+
+                    <LinearLayout
+                        android:id="@+id/investment_linear_child_risk2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/risk2"
+                        android:orientation="horizontal"/>
+
+                    <LinearLayout
+                        android:id="@+id/investment_linear_child_risk3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/risk3"
+                        android:orientation="horizontal"/>
+
+                    <LinearLayout
+                        android:id="@+id/investment_linear_child_risk4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/risk4"
+                        android:orientation="horizontal"/>
+
+                    <LinearLayout
+                        android:id="@+id/investment_linear_child_risk5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/risk5"
+                        android:orientation="horizontal"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/investment_more_info_title"
@@ -112,28 +201,31 @@
                         android:text="" />
 
                     <TextView
+                        android:id="@+id/investment_more_info_title_month"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="No m..." />
+                        android:text="@string/investment_month_title" />
 
                     <TextView
+                        android:id="@+id/investment_more_info_title_year"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="No a..." />
+                        android:text="@string/investment_year_title" />
 
                     <TextView
+                        android:id="@+id/investment_more_info_title_twelve"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="12 me..." />
+                        android:text="12 meses" />
 
                 </LinearLayout>
 
@@ -144,23 +236,16 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/investment_more_info_title_fund"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Fun..." />
+                        android:text="@string/investment_fund_title" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:textColor="@android:color/black"
-                        android:text="0" />
-
-                    <TextView
+                        android:id="@+id/investment_more_info_fund_month"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -170,6 +255,17 @@
                         android:text="0" />
 
                     <TextView
+                        android:id="@+id/investment_more_info_fund_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@android:color/black"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/investment_more_info_fund_twelve"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -187,23 +283,16 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/investment_more_info_title_cdi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="CD..." />
+                        android:text="@string/investment_cdi_title" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:textColor="@android:color/black"
-                        android:text="0" />
-
-                    <TextView
+                        android:id="@+id/investment_more_info_cdi_month"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -213,6 +302,17 @@
                         android:text="0" />
 
                     <TextView
+                        android:id="@+id/investment_more_info_cdi_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@android:color/black"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/investment_more_info_cdi_twelve"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -246,6 +346,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/investment_title_info1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -254,6 +355,7 @@
                         android:text="Taxa de admi..." />
 
                     <TextView
+                        android:id="@+id/investment_title_info2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -262,6 +364,7 @@
                         android:text="Aplica..." />
 
                     <TextView
+                        android:id="@+id/investment_title_info3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -270,6 +373,7 @@
                         android:text="Movimenta..." />
 
                     <TextView
+                        android:id="@+id/investment_title_info4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -278,6 +382,7 @@
                         android:text="Saldo mí..." />
 
                     <TextView
+                        android:id="@+id/investment_title_info5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -286,6 +391,7 @@
                         android:text="Resgate..." />
 
                     <TextView
+                        android:id="@+id/investment_title_info6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -294,6 +400,7 @@
                         android:text="Cota..." />
 
                     <TextView
+                        android:id="@+id/investment_title_info7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -306,10 +413,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="3"
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/investment_value_info1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -319,6 +427,7 @@
                         android:text="0" />
 
                     <TextView
+                        android:id="@+id/investment_value_info2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -328,6 +437,7 @@
                         android:text="0" />
 
                     <TextView
+                        android:id="@+id/investment_value_info3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -337,6 +447,7 @@
                         android:text="0" />
 
                     <TextView
+                        android:id="@+id/investment_value_info4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -346,6 +457,7 @@
                         android:text="0" />
 
                     <TextView
+                        android:id="@+id/investment_value_info5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -355,6 +467,7 @@
                         android:text="0" />
 
                     <TextView
+                        android:id="@+id/investment_value_info6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -364,6 +477,7 @@
                         android:text="0" />
 
                     <TextView
+                        android:id="@+id/investment_value_info7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -389,6 +503,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/investment_title_downinfo1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -397,6 +512,7 @@
                         android:text="Essen..." />
 
                     <TextView
+                        android:id="@+id/investment_title_downinfo2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -405,6 +521,7 @@
                         android:text="Desem..." />
 
                     <TextView
+                        android:id="@+id/investment_title_downinfo3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -413,6 +530,7 @@
                         android:text="Complem..." />
 
                     <TextView
+                        android:id="@+id/investment_title_downinfo4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -421,6 +539,7 @@
                         android:text="Regula..." />
 
                     <TextView
+                        android:id="@+id/investment_title_downinfo5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -434,50 +553,60 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="3"
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/investment_value_downinfo1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorAccent"
+                        android:drawableLeft="@drawable/down_info"
                         android:text="0" />
 
                     <TextView
+                        android:id="@+id/investment_value_downinfo2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorAccent"
+                        android:drawableLeft="@drawable/down_info"
                         android:text="0" />
 
                     <TextView
+                        android:id="@+id/investment_value_downinfo3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorAccent"
+                        android:drawableLeft="@drawable/down_info"
                         android:text="0" />
 
                     <TextView
+                        android:id="@+id/investment_value_downinfo4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorAccent"
+                        android:drawableLeft="@drawable/down_info"
                         android:text="0" />
 
                     <TextView
+                        android:id="@+id/investment_value_downinfo5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/colorAccent"
+                        android:drawableLeft="@drawable/down_info"
                         android:text="0" />
 
 
@@ -491,11 +620,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/primary_button_unpressed"
-                android:text="Inve..."
+                android:text="@string/button_investment_send"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/investment_progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center" />
 
     </FrameLayout>
 

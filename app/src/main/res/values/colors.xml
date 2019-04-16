@@ -6,4 +6,11 @@
 
     <color name="pressed_button">#FA626B</color>
 
+    <!-- investment risk -->
+    <color name="risk1">#62dc6c</color>
+    <color name="risk2">#2cc272</color>
+    <color name="risk3">#ffc03f</color>
+    <color name="risk4">#ff8f5a</color>
+    <color name="risk5">#ff2f32</color>
+
 </resources>

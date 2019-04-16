@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ContactApp {
 
-    public List<Cell> cells;
+    private List<Cell> cells;
 
     public List<Cell> getCells() {
         return cells;

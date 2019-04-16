@@ -15,4 +15,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button_investment_send">Investir</string>
+    <string name="investment_fund_title">Fundo</string>
+    <string name="investment_cdi_title">CDI</string>
+    <string name="investment_month_title">No mês</string>
+    <string name="investment_year_title">No ano</string>
 </resources>

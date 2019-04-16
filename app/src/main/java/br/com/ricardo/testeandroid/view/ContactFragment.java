@@ -106,15 +106,6 @@ public class ContactFragment extends Fragment implements ContactView{
 
         contactPresenter.requestContactsField();
 
-
-        return contactView;
-
-    }
-
-
-    @Override
-    public void setFontStyle() {
-
         font = Typeface.createFromAsset(getActivity().getAssets(), "font/DINPro-Medium.otf");
         textContactTitle.setTypeface(font);
         inputContactName.setTypeface(font);
@@ -123,10 +114,14 @@ public class ContactFragment extends Fragment implements ContactView{
         checkContactRegisterEmail.setTypeface(font);
         buttonContactSend.setTypeface(font);
 
+
+        return contactView;
+
     }
 
     @Override
     public void addTextField(Cell item) {
+
         cellList.add(item);
 
         linearContactContainer.setVisibility(View.VISIBLE);
