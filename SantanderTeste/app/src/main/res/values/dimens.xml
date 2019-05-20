@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- convert px em dp -->
+    <!-- text sizes -->
+    <dimen name="txtTiny">11dp</dimen>
+    <dimen name="txtSmall">14dp</dimen>
+    <dimen name="txtRegular">16dp</dimen>
+    <dimen name="txtNormal">18dp</dimen>
+    <dimen name="txtLarge">36dp</dimen>
+
+</resources>
