@@ -22,7 +22,7 @@
         app:tabMode="fixed"
         app:tabSelectedTextColor="@android:color/white"
         app:tabTextColor="@android:color/white"
-        app:tabTextAppearance="@style/title_tab"
+        app:tabTextAppearance="@style/titleTab"
         app:tabIndicatorGravity="top"
         app:tabIndicatorHeight="2dp"
         app:tabIndicatorColor="@color/santanderRed" />

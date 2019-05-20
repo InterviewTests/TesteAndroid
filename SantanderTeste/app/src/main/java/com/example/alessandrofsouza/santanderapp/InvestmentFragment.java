@@ -15,11 +15,13 @@ public class InvestmentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.contact, container, false);
-        Typeface dinRegular = ResourcesCompat.getFont(getActivity(), R.font.dinpro_regular);
 
-        TextView tv = view.findViewById(R.id.textContact);
+        /*
+        Typeface dinRegular = ResourcesCompat.getFont(getActivity(), R.font.dinpro_regular);
+        TextView tv = view.findViewById(R.id.textTitle);
         tv.setText(R.string.investimento);
         tv.setTypeface(dinRegular);
+        */
 
         return view;
     }

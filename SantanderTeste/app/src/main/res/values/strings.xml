@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">SantanderApp</string>
-
     <string name="contato">Contato</string>
     <string name="investimento">Investimento</string>
 </resources>

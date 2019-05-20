@@ -9,8 +9,8 @@ import java.util.List;
 
 class PageAdapter extends FragmentPagerAdapter {
 
-    private List<Fragment> fragments = new ArrayList<>();
-    private List<String> title = new ArrayList<>();
+    private ArrayList<Fragment> fragments = new ArrayList<>();
+    private ArrayList<String> title = new ArrayList<>();
 
     public PageAdapter(FragmentManager supportFragmentManager) {
         super(supportFragmentManager);

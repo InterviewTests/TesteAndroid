@@ -1,12 +1,12 @@
 package com.example.alessandrofsouza.santanderapp;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
+
+import com.example.alessandrofsouza.santanderapp.service.ApiService;
+import com.example.alessandrofsouza.santanderapp.service.GetApiService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,13 +17,14 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager());
-        adapter.add(new ContactFragment(), getString(R.string.contato));
         adapter.add(new InvestmentFragment(), getString(R.string.investimento));
+        adapter.add(new ContactFragment(), getString(R.string.contato));
 
         ViewPager viewPager = findViewById(R.id.viewPage);
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = findViewById(R.id.pageTab);
         tabLayout.setupWithViewPager(viewPager);
+
     }
 }
