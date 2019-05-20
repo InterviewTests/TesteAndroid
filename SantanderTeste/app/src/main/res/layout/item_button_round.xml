@@ -16,6 +16,7 @@
         android:textColor="@color/santanderWhite"
         android:fontFamily="@font/dinpro_medium"
         android:textSize="@dimen/txtRegular"
+        android:text="@string/investir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

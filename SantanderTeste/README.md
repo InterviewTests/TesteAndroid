@@ -1,8 +1,10 @@
+Commit V3 =
+- acessando JSON /screen.json com retrofit e gson
+- criação da tela “investimento”
+//@TODO1: preencher os campos info e dataInfo
+//@TODO2: a arrumar organização das pastas
+//@TODO3: validador dos campos - nome, email e telefone
+//@TODO4: criar tela de “sucesso”
 
-Commit V2 =
-- acessando JSON /cells.json com retrofit2 e gson
-- criação da tela “contato” de forma dinâmica usando recycleView
-//@TODO1: a arrumar organização das pastas
-//@TODO2: validador dos campos - nome, email e telefone
-//@TODO3: criar tela de “sucesso”
-//@TODO4: salvar cadastro sharedPreferences
+
+

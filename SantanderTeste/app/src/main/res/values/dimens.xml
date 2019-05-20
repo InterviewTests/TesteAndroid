@@ -9,4 +9,9 @@
     <dimen name="txtNormal">18sp</dimen>
     <dimen name="txtLarge">36sp</dimen>
 
+    <!-- spacing -->
+    <dimen name="lMargin">32dp</dimen>
+    <dimen name="mMargin">16dp</dimen>
+    <dimen name="sMargin">8dp</dimen>
+
 </resources>

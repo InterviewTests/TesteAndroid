@@ -1,7 +1,6 @@
 package com.example.alessandrofsouza.santanderapp.adapter;
 
 import android.content.res.Resources;
-import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -9,7 +8,6 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +53,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
 
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Cell cell = dataSet.get(position);
         Resources res = holder.itemView.getContext().getResources();
 

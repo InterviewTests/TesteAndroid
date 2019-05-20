@@ -1,4 +1,4 @@
-package com.example.alessandrofsouza.santanderapp;
+package com.example.alessandrofsouza.santanderapp.ui;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.alessandrofsouza.santanderapp.R;
 import com.example.alessandrofsouza.santanderapp.adapter.ListaCellAdapter;
 import com.example.alessandrofsouza.santanderapp.model.Cell;
 import com.example.alessandrofsouza.santanderapp.model.ContactModel;
@@ -38,6 +39,9 @@ public class ContactFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.contact, container, false);
 
+        TextView tv = view.findViewById(R.id.textTitle);
+        tv.setText(R.string.contato);
+
         recycle(view);//chama o recycleView
 
         useApi();//chama a API
@@ -46,7 +50,7 @@ public class ContactFragment extends Fragment {
     }
 
     private void recycle(View view) {
-        recyclerView = view.findViewById(R.id.recycleViewer);
+        recyclerView = view.findViewById(R.id.recycleViewContact);
         listaCellAdapter = new ListaCellAdapter();
         recyclerView.setAdapter(listaCellAdapter);
         recyclerView.setHasFixedSize(true);
@@ -75,7 +79,6 @@ public class ContactFragment extends Fragment {
                     ContactModel contactModel = response.body();
                     ArrayList<Cell> listCell = contactModel.getCells();
                     listaCellAdapter.addListCell(listCell);
-
                     //for (Cell c : contactModel.cells) if(c.type == 1) Log.i(TAG, c.getMessage());
 
                 } else {

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/infoTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/dinpro_bold"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/santanderDescription"
+        android:textSize="@dimen/txtRegular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/infoTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/moreInfo_null_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:textColor="@color/santanderLtGray"
+                android:gravity="left"
+                android:text="  " />
+
+            <TextView
+                android:id="@+id/moreInfo_month_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:textColor="@color/santanderLtGray"
+                android:gravity="left"
+                android:text="@string/mes" />
+
+            <TextView
+                android:id="@+id/moreInfo_year_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:textColor="@color/santanderLtGray"
+                android:gravity="left"
+                android:text="@string/ano" />
+
+            <TextView
+                android:id="@+id/moreInfo_12months_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:textColor="@color/santanderLtGray"
+                android:gravity="left"
+                android:text="@string/meses" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/moreInfo_title_fundo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:gravity="right"
+                android:text="@string/fundo"
+                android:textColor="@color/santanderLtGray" />
+
+            <TextView
+                android:id="@+id/moreInfo_fundo_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:gravity="right"
+                android:text="@string/app_name"
+                android:textColor="@color/santanderDescription" />
+
+            <TextView
+                android:id="@+id/moreInfo_fundo_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:gravity="right"
+                android:text="@string/app_name"
+                android:textColor="@color/santanderDescription" />
+
+            <TextView
+                android:id="@+id/moreInfo_fundo_12months"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:gravity="right"
+                android:text="@string/app_name"
+                android:textColor="@color/santanderDescription" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/moreInfo_title_cdi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:gravity="right"
+                android:text="@string/cdi"
+                android:textColor="@color/santanderLtGray" />
+
+            <TextView
+                android:id="@+id/moreInfo_cdi_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:gravity="right"
+                android:text="@string/app_name"
+                android:textColor="@color/santanderDescription" />
+
+            <TextView
+                android:id="@+id/moreInfo_cdi_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:gravity="right"
+                android:text="@string/app_name"
+                android:textColor="@color/santanderDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/moreInfo_cdi_12months"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/dinpro_medium"
+                android:gravity="right"
+                android:text="@string/app_name"
+                android:textColor="@color/santanderDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/separator2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/separator"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+</android.support.constraint.ConstraintLayout>
