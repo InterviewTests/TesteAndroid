@@ -1,5 +1,6 @@
 package com.example.alessandrofsouza.santanderapp.ui;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -34,10 +35,12 @@ public class ContactFragment extends Fragment {
     private RecyclerView recyclerView;
     private ListaCellAdapter listaCellAdapter;
 
+    View view;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.contact, container, false);
+        view = inflater.inflate(R.layout.contact, container, false);
 
         TextView tv = view.findViewById(R.id.textTitle);
         tv.setText(R.string.contato);

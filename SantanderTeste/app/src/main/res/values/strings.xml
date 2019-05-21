@@ -12,4 +12,8 @@
 
     <string name="investir">Investir</string>
     <string name="baixar">Baixar</string>
+
+    <string name="sucesso">Mensagem enviada com sucesso :)</string>
+    <string name="obrigado">Obrigado!</string>
+    <string name="novaMensagem">Enviar nova mensagem</string>
 </resources>

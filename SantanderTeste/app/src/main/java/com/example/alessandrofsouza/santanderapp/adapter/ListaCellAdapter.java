@@ -1,5 +1,7 @@
 package com.example.alessandrofsouza.santanderapp.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
@@ -7,14 +9,18 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.alessandrofsouza.santanderapp.MainActivity;
 import com.example.alessandrofsouza.santanderapp.R;
 import com.example.alessandrofsouza.santanderapp.model.Cell;
 import com.example.alessandrofsouza.santanderapp.utils.Utils;
@@ -25,13 +31,14 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
 
     private ArrayList<Cell> dataSet;
 
+    private static final String TAG = "Santander ";
+
     public ListaCellAdapter() {
         dataSet = new ArrayList<>();
     }
 
-
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         View viewEdit = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_edit_text, parent, false);
         View viewText = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_text, parent, false);
         View viewButton = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_button_round, parent, false);
@@ -39,22 +46,50 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
 
 
         if (viewType == Utils.TYPE_FIELD) {
+            final ViewHolder vh = new ViewHolder(viewCheck);
+            final Cell cell = dataSet.get(viewType);
+
+            /*vh.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    Log.i(TAG, "change? " + cell.getShow());
+
+                    if(isChecked) {
+                        vh.textInputLayout.setVisibility(View.VISIBLE);
+                    }
+                }
+            });*/
+
             return new ViewHolder(viewEdit);
 
         } else if (viewType == Utils.TYPE_SEND) {
+
+            final ViewHolder vh = new ViewHolder(viewButton);
+            vh.roundedButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE );
+                    //inflater.inflate( R.layout.success, null );
+                    Log.i(TAG, "countSends = " + getItemCount());
+                }
+            });
+
             return new ViewHolder(viewButton);
 
         } else if (viewType == Utils.TYPE_CHECKBOX) {
             return new ViewHolder(viewCheck);
         }
 
+
+
+
         return new ViewHolder(viewText);
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Cell cell = dataSet.get(position);
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+        final Cell cell = dataSet.get(position);
         Resources res = holder.itemView.getContext().getResources();
 
         //Edit Texts
@@ -65,6 +100,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
             //Tipos de teclado
             if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_TEXT_T))) {
                 holder.textInputEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+                holder.textInputLayout.setVisibility(View.GONE);
 
             } else if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_EMAIL_T))) {
                 holder.textInputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
@@ -80,12 +116,22 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
             holder.roundedButton.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
 
 
-        //checkbox
+            //checkbox
         } else if (cell.getType() == Utils.TYPE_CHECKBOX) {
+            holder.checkBox.setOnCheckedChangeListener(null);
             holder.checkBox.setText(cell.getMessage());
             holder.checkBox.setTextSize(TypedValue.COMPLEX_UNIT_PX, res.getDimension(R.dimen.txtRegular));
             holder.checkBox.setTypeface(ResourcesCompat.getFont(holder.itemView.getContext(), R.font.dinpro_medium));
             holder.checkBox.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
+            holder.checkBox.setChecked(cell.isHidden());
+
+            /*holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    //set your object's last status
+                    holder.textInputLayout.setVisibility(View.VISIBLE);
+                }
+            });*/
 
             //texto
         } else {
@@ -93,6 +139,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
             holder.textView.setText("");
             holder.textView.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
             holder.textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, res.getDimension(R.dimen.txtRegular));
+            holder.textView.setVisibility(View.GONE);
         }
     }
 
