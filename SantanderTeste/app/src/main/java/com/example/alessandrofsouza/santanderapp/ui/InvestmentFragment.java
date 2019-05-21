@@ -1,32 +1,20 @@
 package com.example.alessandrofsouza.santanderapp.ui;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.alessandrofsouza.santanderapp.R;
-import com.example.alessandrofsouza.santanderapp.adapter.InfoAdapter;
-import com.example.alessandrofsouza.santanderapp.adapter.ListaCellAdapter;
 import com.example.alessandrofsouza.santanderapp.adapter.ListaScreenAdapter;
-import com.example.alessandrofsouza.santanderapp.model.Cell;
-import com.example.alessandrofsouza.santanderapp.model.ContactModel;
-import com.example.alessandrofsouza.santanderapp.model.Infos;
 import com.example.alessandrofsouza.santanderapp.model.InvestmentModel;
-import com.example.alessandrofsouza.santanderapp.model.MoreInfo;
 import com.example.alessandrofsouza.santanderapp.model.Screen;
 import com.example.alessandrofsouza.santanderapp.service.ApiService;
-
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;

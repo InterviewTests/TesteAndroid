@@ -12,6 +12,7 @@
     <!-- spacing -->
     <dimen name="lMargin">32dp</dimen>
     <dimen name="mMargin">16dp</dimen>
+    <dimen name="smMargin">12dp</dimen>
     <dimen name="sMargin">8dp</dimen>
 
 </resources>

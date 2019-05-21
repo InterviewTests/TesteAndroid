@@ -31,21 +31,45 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/include_description" />
 
-            <include
+            <!--<include
                 layout="@layout/invest_info"
                 android:id="@+id/include_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/include_more_info" />
+                app:layout_constraintTop_toBottomOf="@+id/include_more_info" />-->
 
-            <include
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleViewInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:listItem="@layout/invest_info"
+                app:layout_constraintTop_toBottomOf="@+id/include_more_info"/>
+
+            <!--<include
                 layout="@layout/invest_info"
                 android:id="@+id/include_info_download"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/include_info" />
+                app:layout_constraintTop_toBottomOf="@+id/recycleViewInfo" />-->
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleViewDownInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:listItem="@layout/invest_info"
+                app:layout_constraintTop_toBottomOf="@+id/recycleViewInfo"/>
 
             <include
                 layout="@layout/item_button_round"
@@ -53,7 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                app:layout_constraintTop_toBottomOf="@+id/include_info_download" />
+                app:layout_constraintTop_toBottomOf="@+id/recycleViewDownInfo" />
 
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
