@@ -35,7 +35,7 @@ public class ContactFragment extends Fragment {
     private RecyclerView recyclerView;
     private ListaCellAdapter listaCellAdapter;
 
-    View view;
+    View view, viewSuccess;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
