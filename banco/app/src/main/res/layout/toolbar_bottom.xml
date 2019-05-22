@@ -1,0 +1,66 @@
+<!--
+  @FAZER
+ 2) Aplicar estilos em textos e forms
+-->
+
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/toolbar"
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:gravity="bottom"
+    android:background="?attr/colorPrimary"
+
+    android:padding="0dp"
+    app:contentInsetLeft="0dp"
+    app:contentInsetStart="0dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintHorizontal_bias="0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent" >
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btAction2"
+            android:tag="btAction2"
+            android:text="@string/area_button_action2"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:background="@drawable/shape_selector_button"
+            android:padding="10dp"
+            android:textColor="@color/colorTextInverse"
+            android:textAllCaps="false"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <Button
+            android:id="@+id/btAction1"
+            android:tag="btAction1"
+            android:text="@string/area_button_action1"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:background="@drawable/shape_selector_button"
+            android:padding="10dp"
+            android:textColor="@color/colorTextInverse"
+            android:textAllCaps="false"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.Toolbar>
+

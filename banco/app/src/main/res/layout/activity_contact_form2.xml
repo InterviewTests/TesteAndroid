@@ -1,0 +1,140 @@
+<!--
+
+ 1) Faltou implementar  metodo para ocultar toolbar_bottom
+ quando abre o teclado para editar o texto
+
+ 2) faltou aplicar estilos em textos e forms
+
+-->
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/lnBoxTop"
+            android:layout_width="match_parent"
+            android:layout_height="1000dp"
+            android:padding="16dp"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:visibility="visible"
+            >
+
+            <!-- INICIO FORM -->
+
+            <TextView
+                android:id="@+id/lbArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Contato"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+
+            <TextView
+                android:id="@+id/DT_fd_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Olá, primeiro se apresente com o seu nome:"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/lbUsuario2"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="34dp"
+                android:text="Nome Completo" />
+
+            <EditText
+                android:id="@+id/etFullName"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/lbEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginTop="16dp"
+                android:text="Email" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/lbPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:text="Telefone"
+                />
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                />
+
+            <!-- android:text="Gostaria de cadastrar meu email" -->
+            <CheckBox
+                android:id="@+id/cbEmailAccept"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="8dp"
+                android:text=" Gostaria de cadastrar meu email"
+                style="@style/buttonCheckbox"
+                android:inputType="phone"
+                />
+
+            <Button
+                android:id="@+id/btSend"
+                style="@style/buttonCircle"
+                android:layout_marginTop="8dp"
+                android:text="Enviar"
+                />
+
+            <!-- FINAL FORM -->
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

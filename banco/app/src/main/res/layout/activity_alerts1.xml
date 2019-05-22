@@ -1,0 +1,82 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- testar com scrollview para telas menores -->
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:padding="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="br.banco.services.CheckDevice">
+
+        <LinearLayout
+            android:visibility="visible"
+            android:id="@+id/lnBoxTop"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/lbArea"
+                android:text="@string/alert_area"
+                style="@style/textTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnBoxBottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/btAction2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lnBoxTop">
+
+            <TextView
+                android:id="@+id/DT_fd_title"
+                style="@style/textSubTitle"
+                android:text="@string/alert_title"
+                />
+
+            <TextView
+                android:id="@+id/DT_fd_fundName"
+                style="@style/alertMessage"
+                android:text="@string/alert_message"
+                />
+
+            <Button
+                android:id="@+id/btAction3"
+                style="@style/buttonCircle"
+                android:layout_width="match_parent"
+                android:text="@string/alert_text" />
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_bottom" />
+
+</android.support.constraint.ConstraintLayout>
