@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@drawable/shape_selector_list"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:text="@string/fund_list_title"
+        android:textColor="@color/colorDark"
+        android:textSize="18sp"
+        android:background="@android:color/transparent"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/genre"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/title"
+        android:background="@android:color/transparent"
+        android:text="@string/fund_list_time" />
+
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="143dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/title"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="1dp"
+        android:gravity="right"
+        android:background="@android:color/transparent"
+        android:text="@string/fund_list_year"
+        android:textColor="@color/colorPrimary" />
+
+</RelativeLayout>
