@@ -34,9 +34,6 @@ public class InvestmentFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.investment, container, false);
 
-        TextView tv = view.findViewById(R.id.textTitle);
-        tv.setText(R.string.investimento);
-
         recycle(view);//chama o recycleView
 
         useApi();//chama a API

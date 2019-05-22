@@ -3,6 +3,7 @@ package com.example.alessandrofsouza.santanderapp.ui;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.LinearLayoutManager;
@@ -35,18 +36,15 @@ public class ContactFragment extends Fragment {
     private RecyclerView recyclerView;
     private ListaCellAdapter listaCellAdapter;
 
-    View view, viewSuccess;
+    public View view;
+    String value;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
 
         view = inflater.inflate(R.layout.contact, container, false);
-
-        TextView tv = view.findViewById(R.id.textTitle);
-        tv.setText(R.string.contato);
-
         recycle(view);//chama o recycleView
-
         useApi();//chama a API
 
         return view;

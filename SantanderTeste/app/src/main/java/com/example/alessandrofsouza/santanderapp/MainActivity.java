@@ -4,11 +4,14 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.example.alessandrofsouza.santanderapp.ui.ContactFragment;
 import com.example.alessandrofsouza.santanderapp.ui.InvestmentFragment;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "Santander ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,5 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.pageTab);
         tabLayout.setupWithViewPager(viewPager);
-
     }
 }
