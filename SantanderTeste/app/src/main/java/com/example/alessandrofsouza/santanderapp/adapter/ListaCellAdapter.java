@@ -1,29 +1,24 @@
 package com.example.alessandrofsouza.santanderapp.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
-import android.util.Log;
+import android.util.Patterns;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.example.alessandrofsouza.santanderapp.MainActivity;
 import com.example.alessandrofsouza.santanderapp.R;
 import com.example.alessandrofsouza.santanderapp.model.Cell;
-import com.example.alessandrofsouza.santanderapp.ui.ContactFragment;
 import com.example.alessandrofsouza.santanderapp.utils.Utils;
 
 import java.util.ArrayList;
@@ -35,7 +30,9 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
     private static final String TAG = "Santander ";
     View view;
     CheckBox checkBox;
-    TextInputEditText editText;
+    TextInputEditText editTextName;
+    TextInputEditText editTextMail;
+    TextInputEditText editTextPhone;
     TextInputLayout editLayout;
     Context context;
 
@@ -92,14 +89,21 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
 
                     if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_TEXT_T))) {
                         holder.textInputEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+                        editTextName = holder.textInputEditText;
+                        editTextName = (TextInputEditText) holder.textInputEditText;
+                        validateName();
 
                     } else if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_EMAIL_T))) {
                         holder.textInputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
                         editLayout = (TextInputLayout) holder.textInputLayout;
                         editLayout.setVisibility(View.GONE);
+                        editTextMail = (TextInputEditText) holder.textInputEditText;
+                        validateEmail();
 
                     } else if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_TELNUMBER_T))) {
                         holder.textInputEditText.setInputType(InputType.TYPE_CLASS_PHONE);
+                        editTextPhone = (TextInputEditText) holder.textInputEditText;
+                        validatePhone();
                     }
                     break;
 
@@ -142,9 +146,47 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                     break;
             }
         }
-
-
     }
+
+
+    private boolean validateName() {
+        return false;
+    }
+
+    private boolean validateEmail() {
+        String emailInput = editTextMail.getText().toString().trim();
+
+        if (emailInput.isEmpty()) {
+            editTextMail.setError("E-mail não pode esta vázio");
+            return false;
+
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+            editTextMail.setError("Favor insira um E-mail válido");
+            return false;
+
+        } else {
+            editTextMail.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validatePhone() {
+        String phoneInput = editTextPhone.getText().toString().trim();
+
+        if (phoneInput.isEmpty()) {
+            editTextPhone.setError("E-mail não pode esta vázio");
+            return false;
+
+        } else if(phoneInput.matches("^[+]?[0-9]{10,13}$")) {
+            editTextPhone.setError("Favor insira um E-mail válido");
+            return false;
+
+        } else {
+            editTextPhone.setError(null);
+            return true;
+        }
+    }
+
 
     @Override
     public int getItemViewType(int position) {

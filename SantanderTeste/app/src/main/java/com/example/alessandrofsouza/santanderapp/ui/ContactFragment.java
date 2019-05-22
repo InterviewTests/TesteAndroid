@@ -2,6 +2,7 @@ package com.example.alessandrofsouza.santanderapp.ui;
 
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +20,8 @@ import com.example.alessandrofsouza.santanderapp.model.ContactModel;
 import com.example.alessandrofsouza.santanderapp.service.ApiService;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +42,8 @@ public class ContactFragment extends Fragment {
 
     public Button btnBack;
 
+    public TextInputEditText textInputEditText;
+
     FragmentCommunication fragmentCommunication;
 
     @Override
@@ -51,6 +56,8 @@ public class ContactFragment extends Fragment {
 
         btnBack = view.findViewById(R.id.buttonBack);
 
+        textInputEditText = view.findViewById(R.id.editTextInput);
+
         recycle(view);//chama o recycleView
         useApi();//chama a API
 
@@ -58,6 +65,7 @@ public class ContactFragment extends Fragment {
 
         return view;
     }
+
 
 
     private void recycle(View view) {
@@ -69,8 +77,12 @@ public class ContactFragment extends Fragment {
         fragmentCommunication = new FragmentCommunication() {
             @Override
             public void respond(View view, int position) {
-                layout1.setVisibility(View.GONE);
-                layout2.setVisibility(View.VISIBLE);
+                switch (position) {
+                    case 5:
+                        layout1.setVisibility(View.GONE);
+                        layout2.setVisibility(View.VISIBLE);
+                        break;
+                }
             }
         };
 
