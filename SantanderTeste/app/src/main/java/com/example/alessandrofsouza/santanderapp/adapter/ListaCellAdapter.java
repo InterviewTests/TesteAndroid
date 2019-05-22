@@ -1,5 +1,6 @@
 package com.example.alessandrofsouza.santanderapp.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
@@ -16,31 +17,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.alessandrofsouza.santanderapp.MainActivity;
 import com.example.alessandrofsouza.santanderapp.R;
 import com.example.alessandrofsouza.santanderapp.model.Cell;
+import com.example.alessandrofsouza.santanderapp.ui.ContactFragment;
 import com.example.alessandrofsouza.santanderapp.utils.Utils;
 
 import java.util.ArrayList;
 
 public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.ViewHolder> {
 
+    private FragmentCommunication mListener;
     private ArrayList<Cell> dataSet;
-
     private static final String TAG = "Santander ";
-
     View view;
     CheckBox checkBox;
     TextInputEditText editText;
     TextInputLayout editLayout;
-    //public int value = 0;
-    //ConstraintLayout constLayout1;
+    Context context;
 
 
-    public ListaCellAdapter() {
+    public ListaCellAdapter(FragmentCommunication listener) {
         dataSet = new ArrayList<>();
+        mListener = listener;
     }
 
 
@@ -69,7 +71,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                 break;
         }
 
-        return new ViewHolder(view);
+        return new ViewHolder(view, mListener);
     }
 
 
@@ -77,73 +79,71 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         final Cell cell = dataSet.get(position);
         Resources res = holder.itemView.getContext().getResources();
-        //constLayout1 = view.findViewById(R.id.constLayout1);
-        //Log.i(TAG, "A"+constLayout1.getVisibility());
 
-        switch (cell.getType()){
-            case Utils.TYPE_FIELD:
-                holder.textInputLayout.setHint(cell.getMessage());
-                holder.textInputLayout.setPadding(0, cell.getTopSpacing(), 0, 0);
 
-                if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_TEXT_T))) {
-                    holder.textInputEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+        if (holder instanceof ViewHolder) {
+            ViewHolder rowHolder = (ViewHolder) holder;
 
-                } else if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_EMAIL_T))) {
-                    holder.textInputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-                    editLayout = (TextInputLayout) holder.textInputLayout;
-                    editLayout.setVisibility(View.GONE);
+            switch (cell.getType()){
+                case Utils.TYPE_FIELD:
+                    holder.textInputLayout.setHint(cell.getMessage());
+                    holder.textInputLayout.setPadding(0, cell.getTopSpacing(), 0, 0);
+                    holder.textInputLayout.clearFocus();
 
-                } else if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_TELNUMBER_T))) {
-                    holder.textInputEditText.setInputType(InputType.TYPE_CLASS_PHONE);
-                }
-                break;
+                    if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_TEXT_T))) {
+                        holder.textInputEditText.setInputType(InputType.TYPE_CLASS_TEXT);
 
-            case Utils.TYPE_SEND:
-                holder.roundedButton.setText(cell.getMessage());
-                holder.roundedButton.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
+                    } else if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_EMAIL_T))) {
+                        holder.textInputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+                        editLayout = (TextInputLayout) holder.textInputLayout;
+                        editLayout.setVisibility(View.GONE);
 
-                holder.roundedButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //constLayout1.setVisibility(View.VISIBLE);
-                        //holder.constLayout1.setVisibility(View.VISIBLE);
-                        //Log.i(TAG, "A");
+                    } else if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_TELNUMBER_T))) {
+                        holder.textInputEditText.setInputType(InputType.TYPE_CLASS_PHONE);
                     }
-                });
-                break;
+                    break;
 
-            case Utils.TYPE_CHECKBOX:
-                holder.checkBox.setText(cell.getMessage());
-                holder.checkBox.setTextSize(TypedValue.COMPLEX_UNIT_PX, res.getDimension(R.dimen.txtRegular));
-                holder.checkBox.setTypeface(ResourcesCompat.getFont(holder.itemView.getContext(), R.font.dinpro_medium));
-                holder.checkBox.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
-                holder.checkBox.setChecked(cell.isHidden());
-                holder.checkBox.setOnCheckedChangeListener(null);
+                case Utils.TYPE_SEND:
+                    holder.roundedButton.setText(cell.getMessage());
+                    holder.roundedButton.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
+                    holder.roundedButton.setOnClickListener(holder);
+                    break;
 
-                holder.checkBox.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        checkBox = (CheckBox) v;
-                        if(checkBox.isChecked()) {
-                            editLayout.setVisibility(View.VISIBLE);
-                        } else {
-                            editLayout.setVisibility(View.GONE);
+                case Utils.TYPE_CHECKBOX:
+                    holder.checkBox.setText(cell.getMessage());
+                    holder.checkBox.setTextSize(TypedValue.COMPLEX_UNIT_PX, res.getDimension(R.dimen.txtRegular));
+                    holder.checkBox.setTypeface(ResourcesCompat.getFont(holder.itemView.getContext(), R.font.dinpro_medium));
+                    holder.checkBox.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
+                    holder.checkBox.setChecked(cell.isHidden());
+                    holder.checkBox.setOnCheckedChangeListener(null);
+
+                    holder.checkBox.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            checkBox = (CheckBox) v;
+                            if(checkBox.isChecked()) {
+                                editLayout.setVisibility(View.VISIBLE);
+                            } else {
+                                editLayout.setVisibility(View.GONE);
+                            }
                         }
-                    }
-                });
-                break;
+                    });
+                    break;
 
-            case Utils.TYPE_TEXT:
-                holder.textView.setText("");
-                holder.textView.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
-                holder.textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, res.getDimension(R.dimen.txtRegular));
-                break;
+                case Utils.TYPE_TEXT:
+                    holder.textView.setText("");
+                    holder.textView.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
+                    holder.textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, res.getDimension(R.dimen.txtRegular));
+                    break;
 
-            default:
-                holder.textView.setText("");
-                holder.textView.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
-                holder.textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, res.getDimension(R.dimen.txtRegular));
-                break;
+                default:
+                    holder.textView.setText("");
+                    holder.textView.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
+                    holder.textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, res.getDimension(R.dimen.txtRegular));
+                    break;
+            }
         }
+
+
     }
 
     @Override
@@ -160,11 +160,16 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
     }
 
     public void addListCell(ArrayList<Cell> listCell) {
+        dataSet.clear();
         dataSet.addAll(listCell);
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+
+
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener {
 
         private TextInputLayout textInputLayout;
         private TextInputEditText textInputEditText;
@@ -172,22 +177,26 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
         private Button roundedButton;
         private CheckBox checkBox;
 
-        private TextView constLayout1;
-        //private ConstraintLayout constLayout2;
+        private FragmentCommunication fragmentCommunication;
 
-
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, FragmentCommunication listener) {
             super(itemView);
+
+            fragmentCommunication = listener;
+            itemView.setOnClickListener(this);
 
             textInputLayout = itemView.findViewById(R.id.editTextLayout);
             textInputEditText = itemView.findViewById(R.id.editTextInput);
             textView = itemView.findViewById(R.id.nameTV);
             roundedButton = itemView.findViewById(R.id.buttonRound);
             checkBox = itemView.findViewById(R.id.checkBox);
+        }
 
-            //constLayout1 = itemView.findViewById(R.id.constLayout1);
-            //constLayout2 = itemView.findViewById(R.id.constLayout2);
+        @Override
+        public void onClick(View v) {
+            fragmentCommunication.respond(itemView, getAdapterPosition());
         }
     }
+
 
 }

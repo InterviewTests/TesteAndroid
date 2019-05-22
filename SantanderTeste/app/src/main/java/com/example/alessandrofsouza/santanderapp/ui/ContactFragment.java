@@ -1,27 +1,24 @@
 package com.example.alessandrofsouza.santanderapp.ui;
 
-import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
 import com.example.alessandrofsouza.santanderapp.R;
+import com.example.alessandrofsouza.santanderapp.adapter.FragmentCommunication;
 import com.example.alessandrofsouza.santanderapp.adapter.ListaCellAdapter;
 import com.example.alessandrofsouza.santanderapp.model.Cell;
 import com.example.alessandrofsouza.santanderapp.model.ContactModel;
 import com.example.alessandrofsouza.santanderapp.service.ApiService;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,27 +34,63 @@ public class ContactFragment extends Fragment {
     private ListaCellAdapter listaCellAdapter;
 
     public View view;
-    String value;
+    public ConstraintLayout layout1;
+    public ConstraintLayout layout2;
+
+    public Button btnBack;
+
+    FragmentCommunication fragmentCommunication;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
         view = inflater.inflate(R.layout.contact, container, false);
+        layout1 = view.findViewById(R.id.constLayout1);
+        layout2 = view.findViewById(R.id.constLayout2);
+
+        btnBack = view.findViewById(R.id.buttonBack);
+
         recycle(view);//chama o recycleView
         useApi();//chama a API
+
+        returnContactLayout(view);
 
         return view;
     }
 
+
     private void recycle(View view) {
         recyclerView = view.findViewById(R.id.recycleViewContact);
-        listaCellAdapter = new ListaCellAdapter();
-        recyclerView.setAdapter(listaCellAdapter);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
+
+        fragmentCommunication = new FragmentCommunication() {
+            @Override
+            public void respond(View view, int position) {
+                layout1.setVisibility(View.GONE);
+                layout2.setVisibility(View.VISIBLE);
+            }
+        };
+
+        listaCellAdapter = new ListaCellAdapter(fragmentCommunication);
+        recyclerView.setAdapter(listaCellAdapter);
     }
+
+
+
+    private void returnContactLayout(View view) {
+        btnBack = view.findViewById(R.id.buttonBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                layout1.setVisibility(View.VISIBLE);
+                layout2.setVisibility(View.GONE);
+            }
+        });
+    }
+
 
     private void useApi() {
         retrofit = new Retrofit.Builder()
@@ -79,6 +112,7 @@ public class ContactFragment extends Fragment {
                 if(response.isSuccessful()) {
                     ContactModel contactModel = response.body();
                     ArrayList<Cell> listCell = contactModel.getCells();
+
                     listaCellAdapter.addListCell(listCell);
                     //for (Cell c : contactModel.cells) if(c.type == 1) Log.i(TAG, c.getMessage());
 
@@ -93,5 +127,4 @@ public class ContactFragment extends Fragment {
             }
         });
     }
-
 }
