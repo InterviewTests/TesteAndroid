@@ -57,7 +57,7 @@ URL do Projeto [https://github.com/busqe/TesteAndroid](https://github.com/busqe/
 - Este projeto faz parte do pacote Android Teste
 
 ## Imagens utilizadas
-[version-image]: https://raw.githubusercontent.com/busqe/TesteAndroid/master/images/cube.svg
+[version-image]: https://github.com/busqe/TesteAndroid/blob/master/images/cube.svg
 [version-url]: https://github.com/busqe/TesteAndroid/tree/master/images
 
 
