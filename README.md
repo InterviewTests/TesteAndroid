@@ -2,7 +2,7 @@
 > Esta versao possui tela que lista fundos, detalha e tela de contato 
 > Telas de alertas personalizadas para todo o aplicativo.
 
-[![ Version][version-image]][version-url]
+[![ Version][version-url]][version-url]
 
 
 - Usa uma LIB  GmailSender para enviar e-mails.
