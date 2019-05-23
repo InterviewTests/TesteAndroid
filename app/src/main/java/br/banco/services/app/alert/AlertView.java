@@ -55,11 +55,7 @@ package br.banco.services.app.alert;
 
          Log.d(TAG, "VIEW / "+getClass().getName()+" / onCreate -> START " );
 
-
-
      }
-
-
 
      @Override
      public void onResume() {
@@ -68,7 +64,6 @@ package br.banco.services.app.alert;
          presenter.loadAlertView(messageCode, getApplicationContext());
          Log.d(TAG, "VIEW / "+getClass().getName()+" / onResume -> START " );
      }
-
 
      @Override
      public void updateAlertView(String[] alertValues) {
@@ -130,7 +125,6 @@ package br.banco.services.app.alert;
 
      }
 
-
      @Override
      public void drawView(){
 
@@ -183,7 +177,6 @@ package br.banco.services.app.alert;
          this.addContentView(progressBar, params);
          hideProgressBar();
      }
-
 
      @Override
      public boolean onKeyDown(int keyCode, KeyEvent event) {

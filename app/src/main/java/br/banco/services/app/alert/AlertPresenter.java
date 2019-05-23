@@ -4,7 +4,6 @@ import android.content.Context;
 import br.banco.services.app.message.IMessage;
 import br.banco.services.app.message.MessageType;
 
-
 public class AlertPresenter {
 
     private Alert alert;

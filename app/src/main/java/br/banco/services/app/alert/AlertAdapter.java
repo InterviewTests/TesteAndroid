@@ -43,7 +43,6 @@ public class AlertAdapter extends BaseAdapter {
         holder = new ViewHolder(createView);
        // holder.tvLoad.setText("SUCESSO HOLDER");
 
-
         return  convertView;
     }
 
