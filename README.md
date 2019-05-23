@@ -98,10 +98,10 @@ Abaixo veja o config do GMailSender:
 ![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-email.png)
 
 
-## Release History
+## Historico de Versões
 
 * 0.0.1
-    * CHANGE: Envia Emails e carrega Preferencias 
+    * ALTERACAO: Envia Emails e carrega Preferencias 
 
 ## Meta
 
@@ -112,7 +112,7 @@ Ainda esta em fase de testes. Nao possui ``LICENSE`` .
 
 URL do Projeto [https://github.com/busqe/TesteAndroid](https://github.com/busqe/testeandroid)
 
-## Contributing
+## Contribuição
 
 - Este projeto faz parte do pacote Android Teste
 
