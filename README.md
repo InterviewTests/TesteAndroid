@@ -2,7 +2,7 @@
 > Esta versao possui tela que lista fundos, detalha e tela de contato 
 > Telas de alertas personalizadas para todo o aplicativo.
 
-[![ Version][version-url]][version-url]
+[![ Version][version-image]][version-image]
 
 - Usa uma LIB  GmailSender para enviar e-mails.
 - Possui fontes personalizadas de acordo com o Design da empresa.
@@ -50,7 +50,7 @@ Adriano Souza – [@adrianosouzai](https://twitter.com/adrianosouzai) – adrian
 
 Ainda esta em fase de testes. Nao possui ``LICENSE`` .
 
-[https://github.com/busqe/banco/TesteAndroid](https://github.com/busqe/banco/testeandroid)
+URL do Projeto [https://github.com/busqe/TesteAndroid](https://github.com/busqe/testeandroid)
 
 ## Contributing
 
