@@ -67,7 +67,6 @@
 Abaixo veja o config do GMailSender:
 
 ```sh
-   
     public String Mailhost = "smtp.gmail.com";
     public String User ="seu-email@gmail.com";
     public String Password ="sua-senha"; 
@@ -80,8 +79,7 @@ Abaixo veja o config do GMailSender:
 - Abaixo veja os nomes das Fontes:
 
 ```sh
-   
-	DINPro-Black
+   	DINPro-Black
 	DINPro-Bold
 	DINPro-Medium
 	DINPro-Regular
