@@ -35,10 +35,10 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
     private ArrayList<Cell> dataSet;
     private static final String TAG = "Santander ";
     View view;
-    CheckBox checkBox;
-    TextInputEditText editTextName;
-    TextInputEditText editTextMail;
-    TextInputEditText editTextPhone;
+    public CheckBox checkBox;
+    public TextInputEditText editTextName;
+    public TextInputEditText editTextMail;
+    public TextInputEditText editTextPhone;
     TextInputLayout editLayout;
     Context context;
     private int textlength = 0;
@@ -169,6 +169,16 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                     holder.roundedButton.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
                     holder.roundedButton.setOnClickListener(holder);
                     holder.roundedButton.setVisibility(cell.isHidden() ? View.GONE : View.VISIBLE);
+
+                    /*
+                    holder.roundedButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //Log.i(TAG, "countSends = " + getItemCount());
+                        }
+                    });
+                    */
+
                     break;
 
                 case Utils.TYPE_CHECKBOX:
@@ -179,10 +189,11 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                     holder.checkBox.setChecked(cell.isHidden());
                     holder.checkBox.setOnCheckedChangeListener(null);
                     holder.checkBox.setVisibility(cell.isHidden() ? View.GONE : View.VISIBLE);
+                    checkBox = (CheckBox) holder.checkBox;
 
                     holder.checkBox.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
-                            checkBox = (CheckBox) v;
+
                             if(checkBox.isChecked()) {
                                 checkPhone = true;
                                 editLayout.setVisibility(View.VISIBLE);

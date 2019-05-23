@@ -83,6 +83,15 @@ public class ContactFragment extends Fragment {
                         if (listaCellAdapter.checkName && listaCellAdapter.checkPhone && !listaCellAdapter.checkCheckbox) {
                             layout1.setVisibility(View.GONE);
                             layout2.setVisibility(View.VISIBLE);
+
+                            if (listaCellAdapter.checkCheckbox && listaCellAdapter.checkEmail && listaCellAdapter.checkName && listaCellAdapter.checkPhone ||
+                                !listaCellAdapter.checkCheckbox && listaCellAdapter.checkName && listaCellAdapter.checkPhone) {
+                                listaCellAdapter.editTextMail.setText(null);
+                                listaCellAdapter.editTextName.setText(null);
+                                listaCellAdapter.editTextPhone.setText(null);
+                                listaCellAdapter.checkBox.setChecked(false);
+
+                            }
                         }
                         break;
                 }
