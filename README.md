@@ -60,13 +60,18 @@
 
 1. Instalar a Library dentro da pasta lib
 2. configurar o arquivo GmailSender.java da forma abaixo:
+3. importear o pacote  GMailSender;
+4. Caso use o Gmail para receber os emails ser pedido uma solicitacao de 'Aplicativos de Terceiros'
+
+Abaixo veja o config do GMailSender:
 
 ```sh
+   
     public String Mailhost = "smtp.gmail.com";
     public String User ="seu-email@gmail.com";
     public String Password ="sua-senha"; 
+
 ```
-3. importearo pacote  GMailSender;
 
 
 ## Telas 
@@ -76,15 +81,18 @@
 
 
 ## Flouxo Codigo 
-- O Fluxo de navegacao contato por Email:
+* O Fluxo de navegacao contato por Email:
+
 1. SOLICITACAO: View > Presenter > Model > Interator > *Validator.  
-- Validator ou Rule: classe responsavel por validar os dados Recebidos / Enviados antes de fazer a SOLICITACAO.
+2.
+
+- Validator ou Rule: classe responsavel por validar os dados Recebidos/Enviados antes de fazer a SOLICITACAO.
 - Exemplo de Validator: classe FromScreen (configura a classe ScreenFundTemplate) responsavel por permitir que a tela de Fundos seja exibida.
 
-
+ - TELA FLUXO DE FUNDOS -> DETALHE
 ![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-fund.svg)
 
-
+- TELA FLUXO DE EMAILS -> VALIDACAO
 - O Fluxo de navegacao de servicos: Fundo de investimento:
 
 ![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-email.svg)
@@ -94,7 +102,7 @@
 ## Release History
 
 * 0.0.1
-    * CHANGE: Envia Emails e Carrega Preferencias 
+    * CHANGE: Envia Emails e carrega Preferencias 
 
 ## Meta
 
