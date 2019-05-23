@@ -1,5 +1,8 @@
 # Android App Teste 
-> Esta versao possui tela que lista fundos, detalha e tela de contato.
+> Esta versao possui tela que lista fundos, detalha e tela de contato 
+> Telas de alertas personalizadas para todo o aplicativo.
+
+[![ Version][version-image]][version-url]
 
 
 - Usa uma LIB  GmailSender para enviar e-mails.
@@ -45,6 +48,7 @@ grandle org.mockito:mockito-core:2.27.0
 
 Adriano Souza – [@adrianosouzai](https://twitter.com/adrianosouzai) – adrianosouza@gmail.com
 
+
 Ainda esta em fase de testes. Nao possui ``LICENSE`` .
 
 [https://github.com/busqe/banco/TesteAndroid](https://github.com/busqe/banco/testeandroid)
@@ -52,5 +56,10 @@ Ainda esta em fase de testes. Nao possui ``LICENSE`` .
 ## Contributing
 
 - Este projeto faz parte do pacote Android Teste
+
+## Imagens utilizadas
+[version-image]: https://raw.githubusercontent.com/busqe/TesteAndroid/master/images/ico-version.svg
+[version-url]: https://github.com/busqe/TesteAndroid/tree/master/images
+
 
 \o\
