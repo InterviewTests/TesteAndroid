@@ -100,14 +100,17 @@ Abaixo veja o config do GMailSender:
 1. SOLICITACAO: View > Presenter > Model > Interator > *Validator.  
 2.
 
-- Validator ou Rule: classe responsavel por validar os dados Recebidos/Enviados antes de fazer a SOLICITACAO.
-- Exemplo de Validator: classe FromScreen (configura a classe ScreenFundTemplate) responsavel por permitir que a tela de Fundos seja exibida.
+```sh
+	- Validator ou Rule: classe responsavel por validar os dados Recebidos/Enviados antes de fazer a SOLICITACAO.
+	- Exemplo de Validator: classe FromScreen (configura a classe ScreenFundTemplate) responsavel por permitir que a tela de Fundos seja exibida.
 
- - TELA FLUXO DE FUNDOS -> DETALHE
+```
+
+
+- TELA FLUXO: Fundos de Investimentos -> Telad e detalhe.
 ![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-fund.png)
 
-- TELA FLUXO DE EMAILS -> VALIDACAO
-- O Fluxo de navegacao de servicos: Fundo de investimento:
+- TELA FLUXO: Criacao da Tela de Formulario de contato
 
 ![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-email.png)
 
