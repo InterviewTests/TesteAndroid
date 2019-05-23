@@ -88,6 +88,7 @@ Abaixo veja o config do GMailSender:
 ```
 
 
+
 ## Telas 
 - O Fluxo de navegacao fica na sequencia da imagem abaixo: 
 
@@ -123,8 +124,7 @@ Abaixo veja o config do GMailSender:
 * 0.0.1
     * ALTERACAO: Envia Emails e carrega Preferencias 
     * Os testes foram feitos apenas nas versoes 5, 6, 7 e 8 do Android e funciona corretamente.
-    * Nao foram feitos testes na versao 4.4 em dispositivos reais.
-    * Nao foram feitos checagem de versao de Dispositivo.
+
 
 ## Meta
 
@@ -138,6 +138,23 @@ URL do Projeto [https://github.com/busqe/TesteAndroid](https://github.com/busqe/
 ## Contribuição
 
 - Este projeto faz parte do pacote Android Teste
+
+## Nao foram feitos neste teste
+
+- BACK-END
+
+1. O formulario de contato nao carrega json para configuracoes de design.
+2. Nao foram feitos testes na versao 4.4 em dispositivos reais.
+3. Nao foram feitos checagem de versao de Dispositivo.
+4. Nao foram feitos testes de passagem de parametros para todos os metodos. 
+
+- FRONT-END
+
+1. O Botao de checkbox ao foi aplicado o esstilo 
+2. O
+   
+
+
 
 ## Imagens utilizadas
  - As imagens de telas sao prints do proprio projeto.
