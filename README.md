@@ -18,26 +18,55 @@
 
 ## Grandle
 
-- com.android.support:appcompat-v7:28.0.0.
+```sh
+
+	grandle 'com.android.support:appcompat-v7:28.0.0'
+	grandle 'com.android.support:recyclerview-v7:28.0.0'
+	grandle 'com.android.support.constraint:constraint-layout:1.1.3'
+	grandle 'com.android.support.constraint:constraint-layout:1.0.3'
+	grandle 'com.google.code.gson:gson:2.7'
+
+```
 
 ## Testes
 - Apenas os testes no formulario de email foram aplicados
 
-
 ```sh
 
-grandle com.android.support:appcompat-v7:28.0.0
-grandle com.android.support:recyclerview-v7:28.0.0
-grandle com.android.support.test:runner:1.0.2
-grandle com.android.support.test.espresso:espresso-core:3.0.2
-grandle junit:junit:4.12
-grandle org.mockito:mockito-core:2.27.0
+	grandle 'com.android.support.test:runner:1.0.2'
+	grandle 'com.android.support.test.espresso:espresso-core:3.0.2'
+	grandle 'junit:junit:4.12'
+	grandle 'org.mockito:mockito-core:2.27.0'
+
+```
+
+## Libs
+- Usa uma LIB GmailSender para enviar e-mails.
+
+```sh
+ 
+  grandle fileTree(dir: 'libs/', include: ['*.jar'])
+
 
 ```
 
 ## Telas 
+- O Fluxo de navegacao fica na sequencia da imagem abaixo 
 
 ![Telas do Aplicativo](https://raw.githubusercontent.com/busqe/TesteAndroid/master/telas.png)
+
+
+## Flouxo Codigo 
+
+- O Fluxo de navegacao contato por Email:
+
+![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-fund.svg)
+
+
+- O Fluxo de navegacao de servicos: Fundo de investimento:
+
+![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-email.svg)
+
 
 
 ## Release History
@@ -65,8 +94,6 @@ URL do Projeto [https://github.com/busqe/TesteAndroid](https://github.com/busqe/
 [lang-image]: https://github.com/busqe/TesteAndroid/blob/master/images/ico-lang.svg
 [grandle-image]: https://github.com/busqe/TesteAndroid/blob/master/images/ico-grandle.svg
 
-
-## Imagens utilizadas
 -- Muito obrigado!
 
 \o/
