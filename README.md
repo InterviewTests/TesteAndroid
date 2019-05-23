@@ -148,12 +148,11 @@ URL do Projeto [https://github.com/busqe/TesteAndroid](https://github.com/busqe/
 3. Nao foram feitos checagem de versao de Dispositivo.
 4. Nao foram feitos testes de passagem de parametros para todos os metodos. 
 
-- FRONT-END
+- FRONT-END: Contato 
 
-1. O Botao de checkbox ao foi aplicado o esstilo 
-2. O
+1. O Formulario de contato nao carrega json para formatacao.
+2. O Botao de checkbox ao foi aplicado o esstilo. 
    
-
 
 
 ## Imagens utilizadas
