@@ -1,81 +1,52 @@
-# Show me the code
-
-### # DESAFIO:
-
-Em uma tela terá um formulário dinâmico com alguns campos predefinidos, conforme o arquivo JSON disponível no link ([https://floating-mountain-50292.herokuapp.com/cells.json](https://floating-mountain-50292.herokuapp.com/cells.json)) que deverá
-  ser consumido. Este formulário terá de ser desenhado e exibir uma tela de sucesso quando as informações preenchidas estiverem corretas.
-
-Na segunda tela terá o detalhe de um ativo financeiro. As informações devem ser consumidas através do link ([https://floating-mountain-50292.herokuapp.com/fund.json](https://floating-mountain-50292.herokuapp.com/fund.json)).
-
-O visual do aplicativo está em anexo no arquivo telas.png e em um arquivo do [Sketch](https://www.sketchapp.com) (30 dias grátis, caso não tenha a licença).
-
-![Image](https://floating-mountain-50292.herokuapp.com/telas.png)
+# Android App Teste 
+> Esta versao possui tela que lista fundos, detalha e tela de contato.
 
 
-### # Avaliação
+- Usa uma LIB  GmailSender para enviar e-mails.
+- Possui fontes personalizadas de acordo com o Design da empresa.
+- Arquivos XML string com os textos usados por padrao no applicativo.
+- carrega dados externos em json ou das preferencias.
 
-Você será avaliado pela usabilidade, por respeitar o design e pela arquitetura do app. É esperado que você consiga explicar as decisões que tomou durante o desenvolvimento através de commits.
+## Configuracoes
 
-* Java ou Kotlin
-* ConstraintLayout
-* O app deve funcionar no Android 4.4
-* Testes unitários (De preferência JUnit + Mockito). Mas pode usar o que você tem mais experiência, só nos explique o que ele tem de bom.
-* Arquitetura a ser utilizada: MVP Clean ([https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean/](https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean/)) && ([https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)).
-* Uso do git.
+- O Aplicativo foi desenovolvido na liguagem Java Nativo.
+- Constraint Layout e Recicledview 
 
-### # Dicas para o layout
+## Grandle
 
-* O formulário deve respeitar o conteúdo do cells.json ([https://floating-mountain-50292.herokuapp.com/cells.json](https://floating-mountain-50292.herokuapp.com/cells.json)) .
-* Se o texto estiver muito grande, quebre em linhas e exiba por completo.
-* A fonte a ser utilizada está em anexo no repositório.
+- com.android.support:appcompat-v7:28.0.0.
 
-### # Como interpretar o cells.json:
+## Testes
+- Apenas os testes no formulario de email foram aplicados
 
-```Java
-enum Type {
-    field(1)
-    text(2),
-    image(3),
-    checkbox(4),
-    send(5)
-}
+
+```sh
+
+grandle com.android.support:appcompat-v7:28.0.0
+grandle com.android.support:recyclerview-v7:28.0.0
+grandle com.android.support.test:runner:1.0.2
+grandle com.android.support.test.espresso:espresso-core:3.0.2
+grandle junit:junit:4.12
+grandle org.mockito:mockito-core:2.27.0
+
 ```
 
-```Java
-enum TypeField {
-    text(1),
-    telNumber(2),
-    email(3)
-}
-```
+## Release History
 
-`"type":` tipo da célula;
+* 0.0.1
+    * CHANGE: Envia Emails e Carrega Preferencias 
 
-`"message":` mensagem que vai aparecer na label para type = text ou placeholder para field;
+## Meta
 
-`typeField":` tipo do field a ser exibido, para exibir corretamente a validação daquele campo.
+Adriano Souza – [@adrianosouzai](https://twitter.com/adrianosouzai) – adrianosouza@gmail.com
 
-`hidden":` indica se o campo está visível;
+Ainda esta em fase de testes. Nao possui ``LICENSE`` for para mais informacoes.
 
-`topSpacing":` espaçamento entre o topo da célula e o topo da label/field/checkbox;
+[https://github.com/busqe/banco/TesteAndroid](https://github.com/busqe/banco/testeandroid)
 
-`show":` indica o campo que será exibido quando este campo for selecionado. No caso é o id do campo a ser exibido.
+## Contributing
 
-`type":` "send" esse botão irá validar todas informações que foram preenchidas e ir para a tela de sucesso quando tudo tiver ok;
+- Este projeto faz parte do pacote Android Teste
 
-`risk":` pode ser um int de 1 a 5
 
-O tipo `text` a validação é digitou alguma coisa, já ficou válido.<br>
-Para "telNumber" o campo deve ser formatado `(##) ####-#### || (##) #####-####` e validado de acordo.<br>
-Para "email" o email deve ser válido.
-
-### # Observações gerais
-
-Adicione um arquivo [README.md](http://README.md) com os procedimentos para executar o projeto.
-Pedimos que trabalhe sozinho e não divulgue o resultado na internet.
-
-Faça um fork desse desse repositório em seu Github e nos envie um Pull Request com o resultado, por favor informe por qual empresa você esta se candidatando.
-
-### # Importante: não há prazo de entrega, faça com qualidade!
-
-# BOA SORTE!
+\o\
