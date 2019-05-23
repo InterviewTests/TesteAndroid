@@ -4,7 +4,6 @@
 
 [![ Version][version-url]][version-url]
 
-
 - Usa uma LIB  GmailSender para enviar e-mails.
 - Possui fontes personalizadas de acordo com o Design da empresa.
 - Arquivos XML string com os textos usados por padrao no applicativo.
