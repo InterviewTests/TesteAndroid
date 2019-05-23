@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" 
 	xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="20">
 	<g shape-rendering="crispEdges">
-		<path fill="red" d="M0 0h69v20H0z"/>
-	    <path fill="gray" d="M69 0h71v20H69z"/>
+		<path fill="gray" d="M0 0h69v20H0z"/>
+	    <path fill="red" d="M69 0h71v20H69z"/>
 	</g>
 
 	<g fill="white" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110">
