@@ -1,0 +1,58 @@
+<h3>&lt;img> with #fragment referencing &lt;view></h3>
+
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-1.svg#icon-clock-view" alt="" />
+
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-1.svg#icon-heart-view" alt="" />
+
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-1.svg#icon-arrow-right-view" alt="" />
+
+
+<br><br>
+
+
+<h3>&lt;img> with #svgView(viewBox())</h3>
+
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-2.svg#svgView(viewBox(0,0,32,32))" alt="" />
+
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-2.svg#svgView(viewBox(0,32,32,32))" alt="" />
+
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-2.svg#svgView(viewBox(0,64,32,32))" alt="" />
+
+<br><br>
+
+<h3>background-image with #fragment referencing &lt;view></h3>
+
+<span class="icon icon-clock"></span>
+<span class="icon icon-heart"></span>
+<span class="icon icon-arrow-right"></span>
+
+
+<br><br>
+
+
+<h3>background-image with #svgView(viewBox())</h3>
+
+<span class="icon icon-clock-2"></span>
+<span class="icon icon-heart-2"></span>
+<span class="icon icon-arrow-right-2"></span>
+
+<br><br>
+
+
+<h3>background-image with background-position</h3>
+
+<span class="icon icon-clock-3"></span>
+<span class="icon icon-heart-3"></span>
+<span class="icon icon-arrow-right-3"></span>
+
+
+<br><br>
+
+
+<h3>&lt;img> with hide/show embedded :target CSS</h3>
+
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-3.svg#icon-clock" alt="" />
+
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-3.svg#icon-heart" alt="" />
+
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-3.svg#icon-arrow-right" alt="" />
