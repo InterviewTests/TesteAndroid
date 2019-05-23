@@ -107,7 +107,7 @@ Abaixo veja o config do GMailSender:
 ```
 
 
-- TELA FLUXO: Fundos de Investimentos -> Telad e detalhe.
+- TELA FLUXO: Fundos de Investimentos -> Tela de detalhe.
 ![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-fund.png)
 
 - TELA FLUXO: Criacao da Tela de Formulario de contato
