@@ -1,6 +1,6 @@
 package br.banco.services.fund.interactor;
 
-import android.util.Log;
+import android.util.Log; 
 
 import com.google.gson.Gson;
 

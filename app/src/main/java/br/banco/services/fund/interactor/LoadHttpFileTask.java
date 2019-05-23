@@ -1,5 +1,5 @@
-
-package br.banco.services.fund.interactor;
+ 
+package br.banco.services.fund.interactor; 
 
 import android.content.Context;
 import android.os.AsyncTask;

@@ -1,6 +1,6 @@
 package br.banco.services.fund.interactor;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 
 import br.banco.services.fund.domain.national.NationalFund;

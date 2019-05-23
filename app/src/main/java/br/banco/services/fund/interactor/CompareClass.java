@@ -1,5 +1,5 @@
 package br.banco.services.fund.interactor;
-
+ 
 import android.util.Log;
 
 import br.banco.services.fund.data.template.FromFund;

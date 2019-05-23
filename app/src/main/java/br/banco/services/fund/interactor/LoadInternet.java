@@ -1,7 +1,7 @@
 package br.banco.services.fund.interactor;
 
 import android.content.Context;
-import android.os.AsyncTask;
+import android.os.AsyncTask; 
 
 import br.banco.services.app.utils.ConnectionChek;
 import br.banco.services.app.utils.ReactAplication;
