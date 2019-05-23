@@ -1,29 +1,13 @@
-
 <svg xmlns="http://www.w3.org/2000/svg" 
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	
-   viewBox="20 10 100 100"
- 
+	xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="20">
+	<g shape-rendering="crispEdges">
+		<path fill="red" d="M0 0h69v20H0z"/>
+	    <path fill="gray" d="M69 0h71v20H69z"/>
+	</g>
 
-	>
-
- <g shape-rendering="crispEdges" width="400">
- 	<path fill="red" d="M0 0h35v20H0z"/>
- 	<path fill="gray" d="M35 0h45v20H35z"/>
- 	<path fill="blue" d="M35 0h45v20H35z"/>
- </g>
-
-<!--
- <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110"> 
-
- 	<text x="200" y="140" transform="scale(.1)" textLength="250">App</text>
- 	<text x="400" y="140" transform="scale(.1)" textLength="350">A A A</text>
- 	<text x="600" y="140" transform="scale(.1)" textLength="350">bbb</text>
-</g> 
--->
-
-
-
-
-</svg>
-
+	<g fill="white" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110">
+	 <text x="355" y="140" transform="scale(.1)" 
+	 	textLength="400">Versao</text><text x="1035" y="140" transform="scale(.1)" 
+	 	textLength="300">0.0.1</text>
+	 </g> 
+  </svg>

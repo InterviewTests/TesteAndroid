@@ -1,58 +1,13 @@
-<h3>&lt;img> with #fragment referencing &lt;view></h3>
+<svg xmlns="http://www.w3.org/2000/svg" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="20">
+	<g shape-rendering="crispEdges">
+		<path fill="red" d="M0 0h69v20H0z"/>
+	    <path fill="gray" d="M69 0h71v20H69z"/>
+	</g>
 
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-1.svg#icon-clock-view" alt="" />
-
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-1.svg#icon-heart-view" alt="" />
-
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-1.svg#icon-arrow-right-view" alt="" />
-
-
-<br><br>
-
-
-<h3>&lt;img> with #svgView(viewBox())</h3>
-
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-2.svg#svgView(viewBox(0,0,32,32))" alt="" />
-
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-2.svg#svgView(viewBox(0,32,32,32))" alt="" />
-
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-2.svg#svgView(viewBox(0,64,32,32))" alt="" />
-
-<br><br>
-
-<h3>background-image with #fragment referencing &lt;view></h3>
-
-<span class="icon icon-clock"></span>
-<span class="icon icon-heart"></span>
-<span class="icon icon-arrow-right"></span>
-
-
-<br><br>
-
-
-<h3>background-image with #svgView(viewBox())</h3>
-
-<span class="icon icon-clock-2"></span>
-<span class="icon icon-heart-2"></span>
-<span class="icon icon-arrow-right-2"></span>
-
-<br><br>
-
-
-<h3>background-image with background-position</h3>
-
-<span class="icon icon-clock-3"></span>
-<span class="icon icon-heart-3"></span>
-<span class="icon icon-arrow-right-3"></span>
-
-
-<br><br>
-
-
-<h3>&lt;img> with hide/show embedded :target CSS</h3>
-
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-3.svg#icon-clock" alt="" />
-
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-3.svg#icon-heart" alt="" />
-
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fragment-ready-3.svg#icon-arrow-right" alt="" />
+	<g fill="white" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110">
+	 <text x="355" y="140" transform="scale(.1)" 
+	 	textLength="400">Versao</text><text x="1035" y="140" transform="scale(.1)" 
+	 	textLength="300">0.0.1</text>
+	 </g> 
+  </svg>
