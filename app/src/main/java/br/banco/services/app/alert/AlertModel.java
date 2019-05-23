@@ -1,5 +1,4 @@
 package br.banco.services.app.alert;
-
 // area, titulo, mensagem, botao texto, botao estilo
 
 import android.os.Bundle;

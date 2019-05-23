@@ -3,7 +3,6 @@
   recebe + carrega + mostra = mensagem
   @FAZER: onResume() checar conexao + abrir home
  */
-
 package br.banco.services.app.alert;
 
  import android.graphics.Color;

@@ -1,5 +1,4 @@
 package br.banco.services.app.alert;
-
 import android.content.Context;
 
 import br.banco.services.app.message.IMessage;

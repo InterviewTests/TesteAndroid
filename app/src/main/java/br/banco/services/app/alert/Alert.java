@@ -1,8 +1,10 @@
 package br.banco.services.app.alert;
 
+/**
+ *
+ */
 
 public class Alert {
-
 
     public String Area;
     public String Title;

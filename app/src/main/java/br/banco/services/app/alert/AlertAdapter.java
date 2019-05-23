@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 
 import br.banco.services.R;
 
-
 public class AlertAdapter extends BaseAdapter {
 
     public String[] values;
