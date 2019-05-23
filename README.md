@@ -150,7 +150,7 @@ URL do Projeto [https://github.com/busqe/TesteAndroid](https://github.com/busqe/
 
 - FRONT-END: Contato 
 
-1. O Botao de checkbox ao foi aplicado o esstilo. 
+1. O Botao de checkbox nao foi aplicado o estilo. 
    
 
 
