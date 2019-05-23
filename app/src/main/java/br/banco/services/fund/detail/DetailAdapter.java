@@ -5,7 +5,6 @@ package br.banco.services.fund.detail;
  *  Estas CLASSES devem ser externas para DESACOPLAR o layout e ser reaproveitavel
  *
  */
-
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

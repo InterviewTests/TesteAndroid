@@ -1,4 +1,8 @@
 package br.banco.services.fund.detail;
+/**
+ *  fazer os Views serem externos
+ *
+ */
 
 import android.content.Context;
 import android.content.Intent;

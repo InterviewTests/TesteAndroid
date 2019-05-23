@@ -1,5 +1,7 @@
 package br.banco.services.fund.detail;
-
+/**
+ * Presenter liga o Model ao View
+ */
 
 import android.content.Context;
 import android.os.Bundle;
