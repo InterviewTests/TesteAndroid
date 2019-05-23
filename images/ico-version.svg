@@ -7,7 +7,7 @@
  	<path fill="#fe7d37" d="M35 0h45v20H35z"/>
  </g>
  <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110"> 
- 	<text x="185" y="140" transform="scale(.15)" textLength="250">Android Test</text>
+ 	<text x="250" y="140" transform="scale(.1)" textLength="250">Android Test</text>
  	<text x="565" y="140" transform="scale(.1)" textLength="350">v0.0.1</text>
 </g> 
 </svg>
