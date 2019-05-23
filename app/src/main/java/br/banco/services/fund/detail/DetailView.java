@@ -1,5 +1,6 @@
 package br.banco.services.fund.detail;
 
+
 /**
  *
  * Sequencia de carregamento:
@@ -9,6 +10,7 @@ package br.banco.services.fund.detail;
  *  Rules[...] <Model <Presenter[view] <View[...]
  *
  */
+
 
 import android.content.Context;
 import android.content.Intent;

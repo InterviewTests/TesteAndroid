@@ -1,9 +1,12 @@
 package br.banco.services.fund.detail;
+
+
 /**
  *
  *  Contrato para area de detalhe de fundo
  *
  */
+
 
 import android.content.Context;
 import android.os.Bundle;

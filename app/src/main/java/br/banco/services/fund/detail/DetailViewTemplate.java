@@ -1,4 +1,5 @@
 package br.banco.services.fund.detail;
+
 /**
  *  fazer os Views serem externos
  *
