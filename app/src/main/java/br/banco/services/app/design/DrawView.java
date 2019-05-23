@@ -1,11 +1,13 @@
 package br.banco.services.app.design;
 
+/**
+ * configura dinamicamente views
+ *
+*/
 import android.content.Context;
 import android.view.View;
 
 public class DrawView {
-
-
 
 
 

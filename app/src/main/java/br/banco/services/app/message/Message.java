@@ -1,7 +1,9 @@
 package br.banco.services.app.message;
-/*
- Mostra as mensagens de sistema: Erro, Internet...
-*/
+/**
+ *  configura mensagens de acordo com o tipo
+ *
+ *
+ */
 import android.content.Context;
 
 public class Message  implements IMessage{

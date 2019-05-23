@@ -1,6 +1,8 @@
 package br.banco.services.app.message;
-/*
-Enumera os tipos de mensagens de sistema
+/**
+ *  configura mensagens de acordo com o tipo
+ *
+ *
  */
 public enum MessageType {
 

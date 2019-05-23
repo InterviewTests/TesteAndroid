@@ -14,7 +14,7 @@
 ## Configuracoes
 
 - O Aplicativo foi desenovolvido na liguagem Java Nativo.
-- O Padrao de arquitetura MVC Clean Arquitecture.
+- O Padrao de arquitetura MVP Clean Arquitecture.
 - Possui os gerenciadores de layout Constraint Layout e Recyclerview 
 - o Nome do package do Aplicativo deve ser:
 

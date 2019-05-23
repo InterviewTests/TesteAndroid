@@ -1,7 +1,10 @@
 /*
    Endereços ficaram acessiveis para facilitar a mudança de servidores
 */
-
+/**
+ * carrega dados dos servidores json
+ *
+ */
 package br.banco.services.app.config;
 
 public final class ConfigServers {

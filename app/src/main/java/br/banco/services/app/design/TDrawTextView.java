@@ -1,5 +1,10 @@
 package br.banco.services.app.design;
 
+/**
+ * cria dinamicamente views
+ *
+ */
+
 public class TDrawTextView {
 
 

@@ -1,5 +1,10 @@
 package br.banco.services.app.design;
 
+/**
+ *
+ *   caompos de configuracoes das views
+ */
+
 public class DrawTextView {
 
 

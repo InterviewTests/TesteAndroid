@@ -1,5 +1,10 @@
 package br.banco.services.app.design;
 
+/**
+ *  cria uma progress bar dinamicamente
+ *
+ */
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;

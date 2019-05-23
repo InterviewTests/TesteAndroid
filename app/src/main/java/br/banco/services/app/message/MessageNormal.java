@@ -1,5 +1,9 @@
 package br.banco.services.app.message;
-
+/**
+ *  configura mensagens de acordo com o tipo
+ *
+ *
+ */
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
