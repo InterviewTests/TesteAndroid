@@ -46,6 +46,7 @@ public class ContactFragment extends Fragment {
 
     FragmentCommunication fragmentCommunication;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -79,8 +80,10 @@ public class ContactFragment extends Fragment {
             public void respond(View view, int position) {
                 switch (position) {
                     case 5:
-                        layout1.setVisibility(View.GONE);
-                        layout2.setVisibility(View.VISIBLE);
+                        if (listaCellAdapter.checkName && listaCellAdapter.checkPhone && !listaCellAdapter.checkCheckbox) {
+                            layout1.setVisibility(View.GONE);
+                            layout2.setVisibility(View.VISIBLE);
+                        }
                         break;
                 }
             }

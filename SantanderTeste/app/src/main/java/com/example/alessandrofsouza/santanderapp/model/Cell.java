@@ -92,4 +92,16 @@ public class Cell {
         this.required = required;
     }
 
+
+
+    private String editTextValue;
+
+    public String getEditTextValue() {
+        return editTextValue;
+    }
+
+    public void setEditTextValue(String editTextValue) {
+        this.editTextValue = editTextValue;
+    }
+
 }

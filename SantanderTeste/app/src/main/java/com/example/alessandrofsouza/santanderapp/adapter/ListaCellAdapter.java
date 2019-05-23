@@ -2,12 +2,17 @@ package com.example.alessandrofsouza.santanderapp.adapter;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
+import android.telephony.PhoneNumberUtils;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -22,6 +27,7 @@ import com.example.alessandrofsouza.santanderapp.model.Cell;
 import com.example.alessandrofsouza.santanderapp.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.ViewHolder> {
 
@@ -35,7 +41,14 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
     TextInputEditText editTextPhone;
     TextInputLayout editLayout;
     Context context;
+    private int textlength = 0;
+    int length_before = 0;
+    int MAX_SIZE = 14;
 
+    public boolean checkCheckbox = false;
+    public boolean checkEmail = false;
+    public boolean checkName = false;
+    public boolean checkPhone = false;
 
     public ListaCellAdapter(FragmentCommunication listener) {
         dataSet = new ArrayList<>();
@@ -86,24 +99,68 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                     holder.textInputLayout.setHint(cell.getMessage());
                     holder.textInputLayout.setPadding(0, cell.getTopSpacing(), 0, 0);
                     holder.textInputLayout.clearFocus();
+                    holder.textInputLayout.setVisibility(cell.isHidden() ? View.GONE : View.VISIBLE);
 
                     if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_TEXT_T))) {
                         holder.textInputEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+                        holder.textInputEditText.setText(dataSet.get(position).getEditTextValue());
                         editTextName = holder.textInputEditText;
-                        editTextName = (TextInputEditText) holder.textInputEditText;
-                        validateName();
+
+                        editTextName.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+                            @Override
+                            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                                dataSet.get(position).setEditTextValue(editTextName.getText().toString());
+                                validateName();
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable editable) {}
+                        });
+
 
                     } else if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_EMAIL_T))) {
                         holder.textInputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
                         editLayout = (TextInputLayout) holder.textInputLayout;
-                        editLayout.setVisibility(View.GONE);
                         editTextMail = (TextInputEditText) holder.textInputEditText;
-                        validateEmail();
+
+                        editTextMail.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+                            @Override
+                            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                                dataSet.get(position).setEditTextValue(editTextMail.getText().toString());
+                                validateEmail();
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable editable) {}
+                        });
 
                     } else if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_TELNUMBER_T))) {
                         holder.textInputEditText.setInputType(InputType.TYPE_CLASS_PHONE);
                         editTextPhone = (TextInputEditText) holder.textInputEditText;
-                        validatePhone();
+
+                        editTextPhone.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                                length_before = charSequence.length();
+                            }
+
+                            @Override
+                            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                                dataSet.get(position).setEditTextValue(editTextPhone.getText().toString());
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable editable) {
+                                formatPhone(editable);
+                                validatePhone();
+                            }
+                        });
                     }
                     break;
 
@@ -111,6 +168,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                     holder.roundedButton.setText(cell.getMessage());
                     holder.roundedButton.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
                     holder.roundedButton.setOnClickListener(holder);
+                    holder.roundedButton.setVisibility(cell.isHidden() ? View.GONE : View.VISIBLE);
                     break;
 
                 case Utils.TYPE_CHECKBOX:
@@ -120,13 +178,16 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                     holder.checkBox.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
                     holder.checkBox.setChecked(cell.isHidden());
                     holder.checkBox.setOnCheckedChangeListener(null);
+                    holder.checkBox.setVisibility(cell.isHidden() ? View.GONE : View.VISIBLE);
 
                     holder.checkBox.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             checkBox = (CheckBox) v;
                             if(checkBox.isChecked()) {
+                                checkPhone = true;
                                 editLayout.setVisibility(View.VISIBLE);
                             } else {
+                                checkPhone = false;
                                 editLayout.setVisibility(View.GONE);
                             }
                         }
@@ -134,23 +195,84 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                     break;
 
                 case Utils.TYPE_TEXT:
-                    holder.textView.setText("");
+                    holder.textView.setText(cell.getMessage());
                     holder.textView.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
                     holder.textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, res.getDimension(R.dimen.txtRegular));
+                    holder.textView.setVisibility(cell.isHidden() ? View.GONE : View.VISIBLE);
                     break;
 
                 default:
-                    holder.textView.setText("");
+                    holder.textView.setText(cell.getMessage());
                     holder.textView.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
                     holder.textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, res.getDimension(R.dimen.txtRegular));
+                    holder.textView.setVisibility(cell.isHidden() ? View.GONE : View.VISIBLE);
                     break;
             }
         }
     }
 
+    private void formatPhone(Editable e) {
+        textlength = editTextPhone.getText().length();
+        String text = editTextPhone.getText().toString();
+        StringBuilder sb = new StringBuilder(text);
+
+        if (text.endsWith(" ")){
+            //return;
+            editTextPhone.setText(sb.delete(text.length() - 1, text.length()).toString());
+            editTextPhone.setSelection(editTextPhone.getText().length());
+        }
+
+        if (textlength == 1) {
+            if (!text.contains("(")) {
+                editTextPhone.setText(sb.insert(text.length() - 1, "(").toString());
+                editTextPhone.setSelection(editTextPhone.getText().length());
+            }
+
+        } else if (textlength == 4) {
+            if (!text.contains(")")) {
+                editTextPhone.setText(sb.insert(text.length() - 1, ") ").toString());
+                editTextPhone.setSelection(editTextPhone.getText().length());
+            }
+
+        } else if (textlength == 11) {
+            int i = 5;
+            if (String.valueOf(sb.charAt(i)).equals(9) || String.valueOf(sb.charAt(i)).equals("9")) {
+                MAX_SIZE = 15;
+                if (!text.contains("-")) {
+                    editTextPhone.setText(sb.insert(10, "-").toString());
+                    editTextPhone.setSelection(editTextPhone.getText().length());
+                }
+            } else {
+                MAX_SIZE = 14;
+                if (!text.contains("-")) {
+                    editTextPhone.setText(sb.insert(9, "-").toString());
+                    editTextPhone.setSelection(editTextPhone.getText().length());
+                }
+            }
+
+        }
+
+        if (textlength > MAX_SIZE) {
+            editTextPhone.setText(sb.delete(text.length() - 1, text.length()).toString());
+            editTextPhone.setSelection(editTextPhone.getText().length());
+        }
+    }
+
 
     private boolean validateName() {
-        return false;
+        String nameInput = editTextName.getText().toString().trim();
+        if (nameInput.isEmpty()) {
+            editTextName.setError("Nome não pode esta vázio");
+            return false;
+
+        } else if (!nameInput.matches("^[a-zA-Z]+(?:[\\s.]+[a-zA-Z]+)*$")) {
+            editTextName.setError("Nome não ter numeros ou caracters especiais");
+            return false;
+        } else {
+            checkName = true;
+            return true;
+        }
+
     }
 
     private boolean validateEmail() {
@@ -166,23 +288,41 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
 
         } else {
             editTextMail.setError(null);
+            checkEmail = true;
             return true;
         }
     }
 
     private boolean validatePhone() {
         String phoneInput = editTextPhone.getText().toString().trim();
+        String phoneNumbers = phoneInput.replaceAll("[^\\d]", "");
+        Log.i(TAG, String.valueOf(phoneInput));
 
-        if (phoneInput.isEmpty()) {
-            editTextPhone.setError("E-mail não pode esta vázio");
+        if (phoneNumbers.isEmpty()) {
+            editTextPhone.setError("telefone não pode esta vázio");
             return false;
 
-        } else if(phoneInput.matches("^[+]?[0-9]{10,13}$")) {
-            editTextPhone.setError("Favor insira um E-mail válido");
-            return false;
+        } else if (MAX_SIZE == 14) {
+            if(!phoneNumbers.matches("^[+]?[0-9]{10}$")) {
+                editTextPhone.setError("Favor insira um telefone válido");
+                return false;
+            } else {
+                checkPhone = true;
+                return true;
+            }
+
+        } else if (MAX_SIZE == 15) {
+            if(!phoneNumbers.matches("^[+]?[0-9]{11}$")) {
+                editTextPhone.setError("Favor insira um telefone válido");
+                return false;
+            } else {
+                checkPhone = true;
+                return true;
+            }
 
         } else {
             editTextPhone.setError(null);
+            checkPhone = true;
             return true;
         }
     }
@@ -224,14 +364,15 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
         public ViewHolder(@NonNull View itemView, FragmentCommunication listener) {
             super(itemView);
 
-            fragmentCommunication = listener;
-            itemView.setOnClickListener(this);
-
             textInputLayout = itemView.findViewById(R.id.editTextLayout);
             textInputEditText = itemView.findViewById(R.id.editTextInput);
             textView = itemView.findViewById(R.id.nameTV);
             roundedButton = itemView.findViewById(R.id.buttonRound);
             checkBox = itemView.findViewById(R.id.checkBox);
+
+            fragmentCommunication = listener;
+            itemView.setOnClickListener(this);
+
         }
 
         @Override
