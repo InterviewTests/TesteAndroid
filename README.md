@@ -2,7 +2,9 @@
 > Esta versao possui tela que lista fundos, detalha e tela de contato 
 > Telas de alertas personalizadas para todo o aplicativo.
 
-[![ Version][version-image]][version-image]
+[![ Versao][version-image]][version-image]
+[![ Linguagem][lang-image]][lang-image]
+[![ Grandle][grandle-image]][grandle-image]
 
 - Usa uma LIB  GmailSender para enviar e-mails.
 - Possui fontes personalizadas de acordo com o Design da empresa.
@@ -60,5 +62,13 @@ URL do Projeto [https://github.com/busqe/TesteAndroid](https://github.com/busqe/
 [version-image]: https://github.com/busqe/TesteAndroid/blob/master/images/ico-version.svg
 [version-url]: https://github.com/busqe/TesteAndroid/tree/master/images
 
+[lang-image]: https://github.com/busqe/TesteAndroid/blob/master/images/ico-lang.svg
+[grandle-image]: https://github.com/busqe/TesteAndroid/blob/master/images/ico-grandle.svg
 
-\o\
+
+## Imagens utilizadas
+-- Muito obrigado!
+
+\o/
+
+
