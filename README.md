@@ -90,13 +90,12 @@ Abaixo veja o config do GMailSender:
 - Exemplo de Validator: classe FromScreen (configura a classe ScreenFundTemplate) responsavel por permitir que a tela de Fundos seja exibida.
 
  - TELA FLUXO DE FUNDOS -> DETALHE
-![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-fund.svg)
+![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-fund.png)
 
 - TELA FLUXO DE EMAILS -> VALIDACAO
 - O Fluxo de navegacao de servicos: Fundo de investimento:
 
-![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-email.svg)
-
+![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-email.png)
 
 
 ## Release History
