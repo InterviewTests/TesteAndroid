@@ -10,7 +10,7 @@
 ## Configuracoes
 
 - O Aplicativo foi desenovolvido na liguagem Java Nativo.
-- Constraint Layout e Recicledview 
+- Possui os gerenciadores de layout Constraint Layout e Recicledview 
 
 ## Grandle
 
@@ -31,6 +31,11 @@ grandle org.mockito:mockito-core:2.27.0
 
 ```
 
+## Telas 
+
+![Telas do Aplicativo](https://raw.githubusercontent.com/busqe/TesteAndroid/master/telas.png)
+
+
 ## Release History
 
 * 0.0.1
@@ -40,13 +45,12 @@ grandle org.mockito:mockito-core:2.27.0
 
 Adriano Souza – [@adrianosouzai](https://twitter.com/adrianosouzai) – adrianosouza@gmail.com
 
-Ainda esta em fase de testes. Nao possui ``LICENSE`` for para mais informacoes.
+Ainda esta em fase de testes. Nao possui ``LICENSE`` .
 
 [https://github.com/busqe/banco/TesteAndroid](https://github.com/busqe/banco/testeandroid)
 
 ## Contributing
 
 - Este projeto faz parte do pacote Android Teste
-
 
 \o\
