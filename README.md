@@ -74,7 +74,7 @@ Abaixo veja o config do GMailSender:
 ```
 
 ## Fonts 
-- Foram utilizadas fontes qeu seguem a identidade visual da empresa: DINPro. 
+- Foram utilizadas fontes que seguem a identidade visual da empresa: DINPro. 
 - As fontes foram copiadas para a pasta fonts dentro do projeto.
 - Abaixo veja os nomes das Fontes:
 
@@ -94,11 +94,11 @@ Abaixo veja o config do GMailSender:
 ![Telas do Aplicativo](https://raw.githubusercontent.com/busqe/TesteAndroid/master/telas.png)
 
 
-## Flouxo Codigo 
+## Fluxo Codigo 
 * O Fluxo de navegacao contato por Email:
 
-1. SOLICITACAO: View > Presenter > Model > Interator > *Validator.  
-2.
+1. SOLICITACAO: View > Presenter > Model > Interactor > Validator > Rule .  
+2. Rule devolve ao Validator...  que faz o caminho de volta.
 
 ```sh
 	- Validator ou Rule: classe responsavel por validar os dados Recebidos/Enviados antes de fazer a SOLICITACAO.
