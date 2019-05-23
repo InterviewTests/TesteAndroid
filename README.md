@@ -122,6 +122,9 @@ Abaixo veja o config do GMailSender:
 
 * 0.0.1
     * ALTERACAO: Envia Emails e carrega Preferencias 
+    * Os testes foram feitos apenas nas versoes 5, 6, 7 e 8 do Android e funciona corretamente.
+    * Nao foram feitos testes na versao 4.4 em dispositivos reais.
+    * Nao foram feitos checagem de versao de Dispositivo.
 
 ## Meta
 
