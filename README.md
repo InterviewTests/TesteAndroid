@@ -137,6 +137,8 @@ URL do Projeto [https://github.com/busqe/TesteAndroid](https://github.com/busqe/
 - Este projeto faz parte do pacote Android Teste
 
 ## Imagens utilizadas
+ - As imagens de telas sao prints do proprio projeto.
+ - as Imagens de fluxo sao com base no fluxo dos codigos.
 [version-image]: https://github.com/busqe/TesteAndroid/blob/master/images/ico-version.svg
 [version-url]: https://github.com/busqe/TesteAndroid/tree/master/images
 
