@@ -114,6 +114,9 @@ Abaixo veja o config do GMailSender:
 
 ![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-email.png)
 
+- TELA FLUXO: Alertas exibidos em todo o aplicativo usados por todos os pacotes.
+
+![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-alert.png)
 
 ## Historico de Versões
 
