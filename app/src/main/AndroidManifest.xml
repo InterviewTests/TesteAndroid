@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="br.banco.services"
+    android:installLocation="preferExternal"
+    >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-permission android:name="android.permission.RUN_INSTRUMENTATION" />
+
+    <application
+
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:exported="true"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <uses-library android:name="android.test.runner" />
+
+
+        <!-- START -->
+
+
+        <activity
+            android:label="@string/activity_label_splash"
+            android:name="br.banco.services.CheckDevice">
+        </activity>
+
+        <activity
+            android:label="@string/activity_label_splash"
+            android:name="br.banco.services.splash.SplashView"  >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!--  -->
+        </activity>
+
+        <!-- FUND detail -->
+
+        <activity
+            android:label="@string/activity_label_fund_list"
+            android:name="br.banco.services.fund.option.FundOptionView"  >
+        </activity>
+
+        <activity
+            android:label="@string/activity_label_fund_detail"
+            android:name="br.banco.services.fund.detail.DetailViewTemplate"  >
+
+        </activity>
+
+        <!-- FUND option -->
+
+        <activity
+            android:label="@string/activity_label_fund_detail"
+            android:name="br.banco.services.fund.detail.DetailView"  >
+
+
+        </activity>
+
+        <!-- CONTACT -->
+
+        <activity
+            android:label="@string/activity_label_contact"
+            android:name="br.banco.services.contact.ContactView"
+            android:windowSoftInputMode="adjustNothing">
+        </activity>
+
+        <activity
+            android:label="@string/activity_contact"
+            android:name="br.banco.services.contact.ContactSendView"  >
+        </activity>
+
+        <activity
+            android:label="@string/activity_label_contact"
+            android:name="br.banco.services.contact.message.ContactMsgView"  >
+        </activity>
+
+        <activity
+            android:label="@string/activity_label_message"
+            android:name="br.banco.services.app.alert.AlertView"  >
+        </activity>
+
+
+        <activity
+            android:label="@string/activity_label_splash"
+            android:name="br.banco.services.Test">
+
+
+        </activity>
+
+    </application>
+
+
+    <!--
+      <instrumentation android:name="br.banco.services.xxxx"
+          android:targetPackage="br.banco.services"
+          android:label="Teste app br.banco.services"/>
+    -->
+
+</manifest>

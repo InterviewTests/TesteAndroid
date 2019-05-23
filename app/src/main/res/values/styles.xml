@@ -1,0 +1,134 @@
+<resources>
+
+    <!--  application  -->
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="android:fontFamily">@font/dmedium</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:background">#ffffff</item>
+        <item name="colorControlNormal">#c5c5c5</item>
+        <item name="colorControlActivated">#ffe100</item>
+        <item name="colorControlHighlight">#ffe100</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+        <!-- toolbar_bottom -->
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowActionBar">false</item>
+
+    </style>
+
+    <!--- texts -->
+
+    <style name="textTitle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorTextNormal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textAlignment">center</item>
+
+    </style>
+    <style name="textSubTitle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorTextNormal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="textText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorTextNormal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="textCaption" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorTextNormal</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <!-- alerts -->
+
+    <style name="alertMessage" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorTextNormal</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:gravity">center_horizontal</item>
+
+    </style>
+
+    <!-- buttons -->
+
+    <style name="buttonSquare" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorTextInverse</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/shape_selector_button</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="buttonCircle" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/colorTextInverse</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/shape_selector_button_circle</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginBottom">48dp</item>
+    </style>
+
+    <style name="buttonCircleDefault" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorTextInverse</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/shape_button_light</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginBottom">48dp</item>
+    </style>
+
+    <style name="elementInvible" parent="@android:style/TextAppearance">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <!-- forms -->
+
+    <style name="buttonCheckbox" parent="@android:style/TextAppearance">
+        <item name="android:button">@drawable/shape_selector</item>
+        <item name="android:textColor">@color/colorTextNormal</item>
+        <item name="android:background">@drawable/shape_square_light</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginBottom">48dp</item>
+    </style>
+
+</resources>
