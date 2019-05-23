@@ -15,6 +15,14 @@
 
 - O Aplicativo foi desenovolvido na liguagem Java Nativo.
 - Possui os gerenciadores de layout Constraint Layout e Recicledview 
+- o Nome do package do Aplicativo deve ser:
+
+```sh
+
+	package 'br.banco.servces'
+
+```
+
 
 ## Grandle
 
@@ -42,23 +50,37 @@
 
 ## Libs
 - Usa uma LIB GmailSender para enviar e-mails.
-
+- Libs: activation.jar, aditional.jar, mail.jar
+ 
 ```sh
  
   grandle fileTree(dir: 'libs/', include: ['*.jar'])
 
-
 ```
 
+1. Instalar a Library dentro da pasta lib
+2. configurar o arquivo GmailSender.java da forma abaixo:
+
+```sh
+    public String Mailhost = "smtp.gmail.com";
+    public String User ="seu-email@gmail.com";
+    public String Password ="sua-senha"; 
+```
+3. importearo pacote  GMailSender;
+
+
 ## Telas 
-- O Fluxo de navegacao fica na sequencia da imagem abaixo 
+- O Fluxo de navegacao fica na sequencia da imagem abaixo: 
 
 ![Telas do Aplicativo](https://raw.githubusercontent.com/busqe/TesteAndroid/master/telas.png)
 
 
 ## Flouxo Codigo 
-
 - O Fluxo de navegacao contato por Email:
+1. SOLICITACAO: View > Presenter > Model > Interator > *Validator.  
+- Validator ou Rule: classe responsavel por validar os dados Recebidos / Enviados antes de fazer a SOLICITACAO.
+- Exemplo de Validator: classe FromScreen (configura a classe ScreenFundTemplate) responsavel por permitir que a tela de Fundos seja exibida.
+
 
 ![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-fund.svg)
 
