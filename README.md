@@ -14,6 +14,7 @@
 ## Configuracoes
 
 - O Aplicativo foi desenovolvido na liguagem Java Nativo.
+- O Padrao de arquitetura MVC Clean Arquitecture.
 - Possui os gerenciadores de layout Constraint Layout e Recicledview 
 - o Nome do package do Aplicativo deve ser:
 
@@ -70,6 +71,21 @@ Abaixo veja o config do GMailSender:
     public String Mailhost = "smtp.gmail.com";
     public String User ="seu-email@gmail.com";
     public String Password ="sua-senha"; 
+
+```
+
+## Fonts 
+- Foram utilizadas fontes qeu seguem a identidade visual da empresa: DINPro. 
+- As fontes foram copiadas para a pasta fonts dentro do projeto.
+- Abaixo veja os nomes das Fontes:
+
+```sh
+   
+	DINPro-Black
+	DINPro-Bold
+	DINPro-Medium
+	DINPro-Regular
+	DINPro-Light
 
 ```
 
