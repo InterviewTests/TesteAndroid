@@ -7,7 +7,7 @@
 
 	<g fill="white" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110">
 	 <text x="355" y="140" transform="scale(.1)" 
-	 	textLength="400">Java</text><text x="1035" y="140" transform="scale(.1)" 
-	 	textLength="300">8.0</text>
+	 	textLength="300">Java</text><text x="1035" y="140" transform="scale(.1)" 
+	 	textLength="200">8.0</text>
 	 </g> 
   </svg>
