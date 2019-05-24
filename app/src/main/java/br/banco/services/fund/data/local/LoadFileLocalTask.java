@@ -1,5 +1,8 @@
-
 package br.banco.services.fund.data.local;
+/**
+ *
+ *  configirar como as classes devem exibir dados
+ */
 
 import android.content.Context;
 import android.os.AsyncTask;
