@@ -47,6 +47,8 @@ public class ReactAplication {
             StackTraceElement e = s[3];
 
              if(e.getMethodName().equals("<init>")){ e = s[1]; }
+             if(e.getMethodName().equals("getStackTrace")){ e = s[3]; }
+
             //if(e!=null){ e = s[2]; }
 
             String c = e.getClassName();
