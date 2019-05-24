@@ -1,7 +1,10 @@
 Commit V5 = MVP da aplicação 1.0
+-> com telas dinamicas, integracao API, arquitetura, contraintLayout, RecycleView
+
 //@TODO1: criar PDF da tela de investimento;
 //@TODO2: melhorar testes;
-//@TODO3: arquitetura clean MVP;
+//@TODO3: melhorar arquitetura clean MVP;
+//@TODO4: melhorar formatação do telefone;
 
 
 1. para rodar a aplicação, clone o a aplicaçao na linha de comando?
