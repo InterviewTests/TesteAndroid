@@ -1,6 +1,7 @@
 package br.banco.services.fund.data.template;
 
 /**
+ * 
  *
  *  REGRAS para validar JSON
  *  Algumas regras podem ser definidas externamente como tamnho do arquivo: size:0
