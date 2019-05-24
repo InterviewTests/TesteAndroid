@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.alessandrofsouza.santanderapp.R;
 import com.example.alessandrofsouza.santanderapp.adapter.ListaScreenAdapter;
@@ -28,11 +30,22 @@ public class InvestmentFragment extends Fragment {
     private static final String TAG = "Santander Investment";
     private RecyclerView recyclerView;
     private ListaScreenAdapter listaScreenAdapter;
+    public Button btnPrint;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.investment, container, false);
+
+        btnPrint = view.findViewById(R.id.buttonPrint);
+        btnPrint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "PRINT");
+                Toast.makeText(getContext(), "Serviço indisponivel no momento", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         recycle(view);//chama o recycleView
 

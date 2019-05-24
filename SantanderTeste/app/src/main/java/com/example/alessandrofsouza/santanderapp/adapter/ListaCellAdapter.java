@@ -169,16 +169,6 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                     holder.roundedButton.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
                     holder.roundedButton.setOnClickListener(holder);
                     holder.roundedButton.setVisibility(cell.isHidden() ? View.GONE : View.VISIBLE);
-
-                    /*
-                    holder.roundedButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            //Log.i(TAG, "countSends = " + getItemCount());
-                        }
-                    });
-                    */
-
                     break;
 
                 case Utils.TYPE_CHECKBOX:
@@ -222,7 +212,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
         }
     }
 
-    private void formatPhone(Editable e) {
+    public void formatPhone(Editable e) {
         textlength = editTextPhone.getText().length();
         String text = editTextPhone.getText().toString();
         StringBuilder sb = new StringBuilder(text);
@@ -245,7 +235,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                 editTextPhone.setSelection(editTextPhone.getText().length());
             }
 
-        } else if (textlength == 11) {
+        } else if (textlength == 10) {
             int i = 5;
             if (String.valueOf(sb.charAt(i)).equals(9) || String.valueOf(sb.charAt(i)).equals("9")) {
                 MAX_SIZE = 15;
@@ -270,7 +260,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
     }
 
 
-    private boolean validateName() {
+    public boolean validateName() {
         String nameInput = editTextName.getText().toString().trim();
         if (nameInput.isEmpty()) {
             editTextName.setError("Nome não pode esta vázio");
@@ -286,7 +276,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
 
     }
 
-    private boolean validateEmail() {
+    public boolean validateEmail() {
         String emailInput = editTextMail.getText().toString().trim();
 
         if (emailInput.isEmpty()) {
@@ -304,7 +294,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
         }
     }
 
-    private boolean validatePhone() {
+    public boolean validatePhone() {
         String phoneInput = editTextPhone.getText().toString().trim();
         String phoneNumbers = phoneInput.replaceAll("[^\\d]", "");
         Log.i(TAG, String.valueOf(phoneInput));

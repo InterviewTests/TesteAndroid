@@ -1,7 +1,18 @@
-Commit V3 =
-- parte visual das telas finalizadas
-- interações dos botões com os layouts
+Commit V5 = MVP da aplicação 1.0
+//@TODO1: criar PDF da tela de investimento;
+//@TODO2: melhorar testes;
+//@TODO3: arquitetura clean MVP;
 
-//@TODO1: validador dos campos - nome, email e telefone
-//@TODO2: a arrumar organização das pastas na Clean Arch
-//@TODO3: criar testes unitários
+
+1. para rodar a aplicação, clone o a aplicaçao na linha de comando?
+-> git clone https://github.com/alesefs/TesteAndroid.git
+
+2. abra no android studio como "open an existing Android Studio Project"
+
+3. ajuste o SDK para o caaminho do SDK instalado na sua máquina (deve vir o alerta assim que você abrir a aplicação)
+
+4. espere a atualização do gradle e rode a aplicação no emulador ou no device físico
+
+
+OBS.: caso tente no device físico, verifique se a opção de desenvolvedor está habilitada, se a depuração por USB 
+também está habilitada. 
