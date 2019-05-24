@@ -93,13 +93,6 @@
         </activity>
 
 
-        <activity
-            android:label="@string/activity_label_splash"
-            android:name="br.banco.services.Test">
-
-
-        </activity>
-
     </application>
 
 
