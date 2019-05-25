@@ -8,7 +8,8 @@
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
 
-    <ProgressBar xmlns:android="http://schemas.android.com/apk/res/android"
+    <ProgressBar
+
         android:id="@+id/TemplateProgressbar"
         android:layout_width="64dp"
         android:layout_height="64dp"
