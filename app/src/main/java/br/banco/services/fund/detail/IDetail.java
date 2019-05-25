@@ -46,6 +46,7 @@ public interface IDetail {
 
 
     }
+
     interface ViewDT{
 
         //data
@@ -57,7 +58,13 @@ public interface IDetail {
         void updateAlertView(int msgCode, Context c);
 
 
-    }
+         }
+        interface  LoadDT{
+
+            boolean onSuccessLoad(Context context, String local);
+            boolean onErrorLoad(Context context, int code);
+
+        }
 
 
 

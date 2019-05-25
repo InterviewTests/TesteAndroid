@@ -21,7 +21,7 @@ package br.banco.services.splash;
      private String TAG = "SPLASH";
      private SplashPresenter presenter;
 
-     private int messageStart = 0; // Load
+     private int messageStart = 0; // LoadView
      private int messageCode = 4; // Error
 
      private ConnectionChek internet;

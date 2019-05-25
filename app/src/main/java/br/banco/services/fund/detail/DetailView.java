@@ -71,39 +71,25 @@ public class DetailView extends AppCompatActivity implements
 
        setContentView(R.layout.activity_detail_main1);
 
-
-
         if ((savedInstanceState != null) &&
                 (savedInstanceState.getSerializable("KEY") != null)) {
 
               //VEW = (VIWE) savedInstanceState.getSerializable("starttime");
         }
 
-         presenter = new DetailsPresenter(); //01
-        ((DetailsPresenter) presenter).setView(this); // presenter.setView(this);
+         presenter = new DetailsPresenter();
+        ((DetailsPresenter) presenter).setView(this); // 01
 
          getContext();
          drawNavigation();
 
-         //initProgressBar();
-         //showProgressBar();
+         presenter.decideLoadContent(savedInstanceState); // 02
 
-         presenter.decideLoadContent(savedInstanceState); //02
-         //RX.onNext("presenter: " + (presenter!=null));
-
-        // start
          ArrayList list= new ArrayList();
          drawRecyclerView();
          updateRecyclerView( context,  list);
 
     }
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-       // outState.putParcelableArrayList(KEY_AREA, presenter.getScreen());
-
-    }
-
 
     @Override
     public void onResume() {
@@ -114,7 +100,32 @@ public class DetailView extends AppCompatActivity implements
 
     }
 
-    // RecyclerView
+    /**
+     *
+     *  contexto
+     *
+     */
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // outState.putParcelableArrayList(KEY_AREA, presenter.getScreen());
+
+    }
+
+    public boolean getContext(){
+        this.context = getApplicationContext();
+        // Log.d(TAG, "VIEW / "+getClass().getName()+" -> getContext" );
+        return (context != null);
+    }
+
+
+    /**
+     *
+     *  Conteudo
+     *
+     */
 
     public void drawRecyclerView(){
       mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -292,7 +303,12 @@ public class DetailView extends AppCompatActivity implements
         }
     }
 
-    // views
+    /**
+     *
+     *  carregando
+     *
+     */
+
 
     public void showProgressBar() {
         progressBar.setVisibility(View.VISIBLE);
@@ -348,13 +364,13 @@ public class DetailView extends AppCompatActivity implements
 
     }
 
-    public boolean getContext(){
-        this.context = getApplicationContext();
-       // Log.d(TAG, "VIEW / "+getClass().getName()+" -> getContext" );
-        return (context != null);
-    }
 
-    // content
+    /**
+     *
+     *  @param msgCode = alertas
+     *
+     *
+     */
 
     public void updateAlertView( int msgCode, Context context){
 
@@ -410,6 +426,14 @@ public class DetailView extends AppCompatActivity implements
 
     }
 
+    /**
+     * Navegacao
+     *
+     * @param keyCode
+     * @param event
+     * @return
+     *
+     */
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -422,7 +446,6 @@ public class DetailView extends AppCompatActivity implements
         }
         return super.onKeyDown(keyCode, event);
     }
-
 
     @Override
     public void onClick(View view) {

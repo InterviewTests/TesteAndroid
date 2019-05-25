@@ -18,13 +18,11 @@ public class LoadHttpFileTask extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
         super.onPreExecute();
 
-       // Log.d("FUND","MODEL / "+getClass().getName()+" / doInBackground -> START ");
     }
 
     @Override
     protected String doInBackground(String... loadValues) {
 
-      //  Log.d("FUND","doInBackground -> " + loadValues[0] );
 
         String teste = "0";
         String textValues = null;

@@ -22,7 +22,7 @@ import br.banco.services.fund.domain.national.ScreenFundTemplate;
 
  @param: String Name = screen
  @param: String Data = JSON ;
- @param: String Type = Text;
+ @param: String Type = Textss;
  @param: int Size = 10;
  @param: int Chars = 1000;
  @param: int Bytes = null;

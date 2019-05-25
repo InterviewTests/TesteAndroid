@@ -16,7 +16,7 @@ import java.util.List;
 import br.banco.services.app.utils.ReactAplication;
 import br.banco.services.fund.data.remote.ILoadFrom;
 import br.banco.services.fund.interactor.ILoadTask;
-import br.banco.services.fund.interactor.LoadInternet;
+import br.banco.services.fund.interactor.ChekInternet;
 import br.banco.services.fund.interactor.LoadScreen;
 
 public class DetailModel implements IDetail.ModelDT, ILoadTask, ILoadFrom
@@ -71,7 +71,7 @@ public class DetailModel implements IDetail.ModelDT, ILoadTask, ILoadFrom
         this.context = c;
 
        // RX.onNext("MODEL->Context->"+ (c!=null));
-         LoadInternet connectInternet = new LoadInternet(c);
+         ChekInternet connectInternet = new ChekInternet(c);
          connectInternet.delegate = this;
          connectInternet.execute(""); //INTERNET_CONN_ATTEMPTS
         //RX.onNext("carregar da web");

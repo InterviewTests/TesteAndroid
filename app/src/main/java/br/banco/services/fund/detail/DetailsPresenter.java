@@ -24,27 +24,22 @@ public class DetailsPresenter  implements IDetail.PresenterDT{
 
      private ArrayList<ScreenFund> listScreen= new ArrayList<>();
      //Context context;
-     private int messageCode = 4; // Error
 
     public  DetailsPresenter(){
 
          model = new DetailModel(this);
-        // RX.onNext("model->" + (model != null));
 
     }
 
-    public void setView(IDetail.ViewDT views){ // IDetail.ViewDT views
-        this.views = views;
-      //  RX.onNext("DetailsPresenter-> setView->" + (views!=null));
-    }
+    /**
+     *
+     *  caregar dados
+     *
+     */
 
-    public Context getContext() {
-       // RX.onNext("DetailsPresenter-> context->" + (context!=null));
-        return (Context) views;
-    }
 
     public void decideLoadContent(Bundle savedInstanceState){ //01
-        model.processStart(model.getLocation(), getContext());
+     //   model.processStart(model.getLocation(), getContext());
     }
 
   // @Override
@@ -58,9 +53,7 @@ public class DetailsPresenter  implements IDetail.PresenterDT{
         RX.onNext("LITA ITENS " + listScreen.size());
 
         if(listScreen != null) {
-
             RX.onNext("LITA ITENS " + listScreen.size());
-
             //views.drawInterface(ScreenFund listFund);
         }else{
              int messageCode = 1;
@@ -85,6 +78,19 @@ public class DetailsPresenter  implements IDetail.PresenterDT{
 
     }
 
+    /**
+     *
+     *  contexto
+     *
+     */
+
+    public void setView(IDetail.ViewDT views){ // IDetail.ViewDT views
+        this.views = views;
+    }
+
+    public Context getContext() {
+        return (Context) views;
+    }
 
 
 }
