@@ -34,7 +34,7 @@ public class ReactAplication {
             Log.e("FUND", "onError: " + message);
 
         }catch (Exception ex){
-            Log.d("FUND", "onNext: ERROR ONNEX: " + ex.getMessage() );
+            Log.d("FUND", "onNext: ERROR onERROR: " + ex.getMessage() );
         }
 
     }
