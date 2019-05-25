@@ -14,6 +14,7 @@ public final class ConfigServers {
     public String AlertAdress ="";
     public String MessageAdress ="";
 
+
     public String getContactAdress() {
         return contactAdress;
     }
