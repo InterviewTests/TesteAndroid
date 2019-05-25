@@ -15,7 +15,7 @@
             android:padding="0dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="br.banco.services.CheckDevice">
+            >
 
             <LinearLayout
                 android:visibility="visible"
