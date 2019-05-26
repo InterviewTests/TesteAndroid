@@ -9,15 +9,16 @@ import br.banco.services.contact.domain.ContactForm;
 public interface ILoad {
 
 
+
+
     interface Presenter {
 
         void onLoadData(Bundle savedInstanceState, Context context);
-        void onErrorLoad(Context context, int msgCode);
-        //  void onSuccessLoad(int message) ;
+        void onCompleted(ContactForm fom, int message) ;
+        void onErrorTask(int message);
     }
 
     interface Model{
-
 
         void loadData(ContactForm form, Context context);
         void saveData(ContactForm form, Context context);
@@ -26,7 +27,9 @@ public interface ILoad {
 
     interface Views{
 
-        void updateAlertView(int msgCode, Context context);
+        void updateAlertView(int msgCode);
+        void hideProgressBar();
+        // loadContent();
     }
 
 

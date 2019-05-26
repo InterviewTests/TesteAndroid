@@ -1,29 +1,42 @@
  
-package br.banco.services.datasource.remote;
+package br.banco.services.contact.interactor;
 
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import br.banco.services.app.utils.ReactAplication;
- import br.banco.services.datasource.IDataSource;
+import br.banco.services.contact.Contact;
+import br.banco.services.datasource.DataRepository;
 
-public class RestTask extends AsyncTask<String, Void, String> {
+public class LoadDataTask  extends AsyncTask<String, Void, String> {
 
     private WeakReference<Context> contextRef;
-    public IDataSource delegate = null;
+    public ILoadTask delegate = null;
+    private DataRepository repository ;
     public  String APLICATION_FILE;
+   // public Contact context;
 
     public ReactAplication RX = new ReactAplication();
 
-    public RestTask(Context c) {
+
+
+    public LoadDataTask(Context c) {
 
         contextRef = new WeakReference<>(c);
+        repository = new DataRepository(c);
+
+        // delegate.processFinish(STATUS);
+        // this.cancel(true);
+        // RX.onNext("context sucesso " + (context!=null));
+
     }
 
     @Override
@@ -39,10 +52,11 @@ public class RestTask extends AsyncTask<String, Void, String> {
 
         try {
 
-            URL url = new URL(APLICATION_FILE);
-            StringBuilder SB = new StringBuilder();
 
-           // Log.d("FUND", " @@@@ ->" + url);
+        // String result = null;
+
+            URL url = new URL("https://floating-mountain-50292.herokuapp.com/fund.json");
+            StringBuilder SB = new StringBuilder();
 
             BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
             String line = null;
@@ -50,10 +64,35 @@ public class RestTask extends AsyncTask<String, Void, String> {
             while ((line = in.readLine()) != null) {
 
                 SB.append(line);
-                //Log.d("FUND", "->" + line);
+                Log.d("FUND", "->" + line);
 
             }
             in.close();
+
+
+          //  return result;
+
+
+
+
+
+
+
+
+            /*
+
+
+             result = APLICATION_FILE;
+             Context context = contextRef.get();
+
+             //RX.onNext("APLICATION_FILE = " + APLICATION_FILE );
+            // RX.onNext("context = " + (context!=null) + " - contextRef=" + (contextRef!=null));
+
+              repository.onLoad(context, APLICATION_FILE);
+
+*/
+
+
 
 
         } catch (Exception e) {
@@ -71,9 +110,16 @@ public class RestTask extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String result) {
 
         //RX.onNext("onPostExecute->" + result);
-        delegate.onNextTask(result);
+        delegate.processFinish(result);
 
     }
+
+
+
+
+
+
+
 
 
 }

@@ -36,6 +36,11 @@
             android:label="@string/activity_label_splash"
             android:name="br.banco.services.splash.SplashView"  >
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
             <!--  -->
         </activity>
 
@@ -85,10 +90,7 @@
             android:label="@string/activity_label_message"
             android:name="br.banco.services.contact.LoadView"  >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
         </activity>
 
@@ -109,7 +111,7 @@
     <!--
       <instrumentation android:name="br.banco.services.xxxx"
           android:targetPackage="br.banco.services"
-          android:label="LoadScreenForm app br.banco.services"/>
+          android:label="CreateScreenForm app br.banco.services"/>
     -->
 
 </manifest>

@@ -2,27 +2,27 @@ package br.banco.services.datasource;
 
 import android.content.Context;
 
-public interface IDataSource {
 
-   // public String loadData(Context context);
+public interface ILoadTask {
 
-    void onCompleted(String output);
-    void onErrorTask(String output);
-    void onNextTask(String output);
-
+    // model
+    void processFinish(String output);
     //void convertFinish(List<Object> listScreen, String message); // object
 
-    interface IFileTask{
 
+     interface IFileTask{
         String  onLoad(Context c, String folder);
         boolean onSave(String contentStr, String localDir, String fileName, Context c);
         String  onRead(String localDir, String fileName, Context c);
         boolean onClear(String dirName, String fileName, Context c);
+    }
+
+     interface IFileRemote{
+        String onLoad(Context c, String folder);
 
     }
 
+
+
+
 }
-
-
-
-

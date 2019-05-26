@@ -19,7 +19,7 @@ import br.banco.services.contact.data.local.FromPreferences;
  */
 
 
-public class LoadScreenForm extends AppCompatActivity   { //implements ILoadTask
+public class CreateScreenForm extends AppCompatActivity   { //implements ILoadTask
 
     private Context context;
     private FromPreferences fromPref;

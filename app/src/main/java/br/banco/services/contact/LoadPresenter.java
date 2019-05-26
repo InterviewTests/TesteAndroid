@@ -2,6 +2,7 @@ package br.banco.services.contact;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 
 import java.util.ArrayList;
 
@@ -19,11 +20,11 @@ public class LoadPresenter  implements ILoad.Presenter {
      ReactAplication RX = new ReactAplication();
 
 
-     public  LoadPresenter(){
+     public LoadPresenter(){
 
          model = new LoadModel(this);
 
-         RX.onNext(" UMMM " );
+        // RX.onNext("Iniciando...");
          //   model.processStart(model.getLocation(), getContext());
      }
 
@@ -47,17 +48,28 @@ public class LoadPresenter  implements ILoad.Presenter {
         //views.updateAlertView(1, context);
     }
 
-    public void onSuccessLoad(ContactForm form, int msgCode) {
+    @Nullable
+    public void onCompleted(ContactForm form, int msgCode) {
 
-        //views.updateAlertView(1, context);
+
+         msgCode = 1;
+         if(getContext()==null){
+
+             RX.onNext("->Vixeeeeeeeee ");
+         }else{
+
+             RX.onNext("->BOOOA! ");
+         }
+         //views.updateAlertView(1, null);
+         //views.hideProgressBar();
     }
 
 
-    public void onErrorLoad(Context context, int msgCode) {
+    public void onErrorTask(int msgCode) {
 
         RX.onNext("->Error");
         msgCode = (msgCode >= 0 && msgCode <= 5 ) ? msgCode : 0;
-        views.updateAlertView(msgCode, context);
+        views.updateAlertView(msgCode);
 
     }
 

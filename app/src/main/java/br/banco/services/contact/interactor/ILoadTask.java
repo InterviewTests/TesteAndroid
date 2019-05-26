@@ -9,7 +9,7 @@ public interface ILoadTask {
 
     // model
     void processFinish(String output);
-    void convertFinish(List<Object> listScreen, String message); // object
+    //void convertFinish(List<Object> listScreen, String message); // object
 
 
      interface IFileTask{

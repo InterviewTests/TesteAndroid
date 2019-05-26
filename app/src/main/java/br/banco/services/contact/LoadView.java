@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -14,11 +15,6 @@ import java.util.List;
 
 import br.banco.services.R;
 import br.banco.services.app.utils.ReactAplication;
-import br.banco.services.contact.data.IContact;
-import br.banco.services.fund.detail.DetailModel;
-import br.banco.services.fund.detail.DetailsPresenter;
-import br.banco.services.fund.detail.IDetail;
-import br.banco.services.fund.domain.national.ScreenFund;
 
 public class LoadView  extends AppCompatActivity implements ILoad.Views {
 
@@ -32,16 +28,19 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
 
 
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load);
 
         initProgressBar();
+        this.context = getApplicationContext();
 
         presenter = new LoadPresenter();
+       // presenter.setView( this );
+
        ((LoadPresenter) presenter).setView(this);
 
         presenter.onLoadData(savedInstanceState, context);
-
 
 
     }
@@ -54,14 +53,15 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
      */
 
 
-    public void onSuccessLoad(Context context, String local){
-
+    public void onSuccessTask(Context context, String local){
+        hideProgressBar();
 
     }
 
-    public void onErrorLoad(Context context, int msgCode){
+    public void onErrorTask(int msgCode){
 
-        updateAlertView(msgCode, context);
+        //updateAlertView(msgCode);
+        hideProgressBar();
 
 
     }
@@ -73,8 +73,8 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
      *
      */
 
-
-    public void updateAlertView( int msgCode, Context context){
+    @Nullable
+    public void updateAlertView(int msgCode){
 
         Handler handler;
         messageCode = msgCode;
