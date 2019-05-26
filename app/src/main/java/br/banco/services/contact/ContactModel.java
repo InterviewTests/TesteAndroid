@@ -7,7 +7,6 @@ public class ContactModel  implements IContactImpl.ModelImpl {
 
     public ContactModel(){
 
-        // do action
     }
 
     @Override
@@ -20,8 +19,5 @@ public class ContactModel  implements IContactImpl.ModelImpl {
         //  Log.d("CONTACT", " / clearferecnces -> SUCCESS  " );
     };
 
-    //public void updateContact(){}
-    //public void readContact(){}
-    //public void deleteContact(){}
 
 }

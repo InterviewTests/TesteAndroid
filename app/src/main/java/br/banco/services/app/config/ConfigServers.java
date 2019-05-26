@@ -7,45 +7,45 @@
  */
 package br.banco.services.app.config;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public final class ConfigServers {
 
-    public String contactAdress ="https://floating-mountain-50292.herokuapp.com/cells.json";
-    public String fundAdress ="https://floating-mountain-50292.herokuapp.com/fund.json";
-    public String AlertAdress ="";
-    public String MessageAdress ="";
+
+    /**
+     *
+     * carerga URL dos servidores REST
+     *
+     *
+     */
 
 
-    public String getContactAdress() {
-        return contactAdress;
+    public  ArrayList<String> serverList = new ArrayList<String>();
+    public String URLserver = "https://floating-mountain-50292.herokuapp.com/";
+    String DataServer = null;
+
+    public ConfigServers() {
+
+        serverList.add("cells");
+        serverList.add("fund");
+
     }
 
-    public void setContactAdress(String contactAdress) {
-        this.contactAdress = contactAdress;
-    }
+    public String getDataServer(String server) {
 
-    public String getFundAdress() {
-        return fundAdress;
-    }
+        String LoadServer = null;
+        if(serverList.contains(server)){
+            LoadServer = URLserver + server + ".json";
+        }
 
-    public void setFundAdress(String fundAdress) {
-        this.fundAdress = fundAdress;
+        return LoadServer;
     }
 
 
-    public String getAlertAdress() {
-        return AlertAdress;
-    }
 
-    public void setAlertAdress(String alertAdress) {
-        AlertAdress = alertAdress;
-    }
 
-    public String getMessageAdress() {
-        return MessageAdress;
-    }
 
-    public void setMessageAdress(String messageAdress) {
-        MessageAdress = messageAdress;
-    }
 }
 

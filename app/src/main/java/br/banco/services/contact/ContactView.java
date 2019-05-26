@@ -83,9 +83,6 @@ package br.banco.services.contact;
     checkTyping(vEmail);
     checkTyping(vPhone);
 
-
-
-
  }
 
      @Override
@@ -171,28 +168,6 @@ package br.banco.services.contact;
          // contactTest.showObjetc(TAG, getClass().getName() + "drawFormView" ,contactForm);
 
          Log.d(TAG, " VIEW  / sendFormView2 ->  SUCCESS" );
-     }
-
-     public void sendFormView(Contact contactForm){
-
-         Log.d(TAG, " / sendFormView ->  SUCCESS" );
-
-          ArrayList<Contact> contactData = new ArrayList<Contact>();
-          contactData.add(contactForm);
-
-          Intent intent = new Intent(this, ContactMsgView.class);
-          Bundle bundle = new Bundle();
-
-          bundle.putSerializable("contactData",(Serializable)contactData);
-          intent.putExtras(bundle);
-          startActivity(intent);
-
-          overridePendingTransition(R.anim.an_sair, R.anim.an_entrar);
-
-         // clearFormTextView();
-          //finish();
-
-        // contactTest.showObjetc(TAG, getClass().getName() + "drawFormView" ,contactForm);
      }
 
      public void checkTyping(final TextView view){

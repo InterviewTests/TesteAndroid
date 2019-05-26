@@ -1,4 +1,4 @@
-package br.banco.services.datasource;
+package br.banco.services.contact.data.local;
 
 import android.content.Context;
 
@@ -7,63 +7,47 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-import br.banco.services.app.config.ConfigServers;
 import br.banco.services.app.utils.ReactAplication;
+import br.banco.services.contact.interactor.ILoadTask;
 
-public class DataRepository {
+/**
+ * Gerencia arquivo local devolve String
+ * onLoad, onSave, onRead , onClear
+ *
+ */
 
-    /**
-     *  recebe o nome da area do sistema
-     *  devolve o arquivo json, prefs...
-     *
-     */
-
-    private ConfigServers servers;
-
-    private String SERVER_URL = null;
-    private String SERVER_AREA = null;
+public class FromFile implements ILoadTask.IFileTask {
 
     private  final String TAG = "FUND";
-    ReactAplication RX = new ReactAplication();
     Context context;
+    //static final int MAX_SIZE_CHARS = 1000;
+  //  public static String PACKAGE_NAME;
 
+    ReactAplication RX = new ReactAplication();
 
-    public DataRepository(Context c){
+    public FromFile(Context c){
         this.context = c;
 
-         SERVER_AREA = "cells";
-         servers = new ConfigServers();
-         SERVER_URL = servers.getDataServer(SERVER_AREA) ;
-
-        if (SERVER_URL != null) {
-
-            RX.onNext("@SERVIDOR = " + SERVER_URL + " = " + SERVER_AREA);
-
-        }else{
-            RX.onNext("nao encontrada...");
-        }
-
-
-        // PACKAGE_NAME = context.getApplicationContext().getPackageName();
-        // boolean TESTE_CASE  = testeCaseFlow();
-
+       // PACKAGE_NAME = context.getApplicationContext().getPackageName();
+       // boolean TESTE_CASE  = testeCaseFlow();
     }
-
-    /**
-     *
-     *  actions
-     *
-     */
-
 
     public String onLoad(Context c, String folderStr){
         boolean exits = false;
 
         String localStr = null;
+        File nameDir = null;
+        try {
+            nameDir = c.getFilesDir();
+            localStr = nameDir.toString();
 
+            exits = (localStr.length() > 0);
+            RX.onNext("" + exits + "->" + localStr);
+
+        }catch (Exception e){
+            RX.onError(e);
+        }
 
         return localStr;
 
@@ -75,26 +59,25 @@ public class DataRepository {
         File file;
         FileOutputStream outputStream;
 
-        try {
-            file = new File(localDir, fileName);
+            try {
+                file = new File(localDir, fileName);
 
-            outputStream = new FileOutputStream(file);
-            outputStream.write(contentStr.getBytes());
-            outputStream.close();
+                outputStream = new FileOutputStream(file);
+                outputStream.write(contentStr.getBytes());
+                outputStream.close();
 
-            saveBool = true;
-            RX.onNext("" + saveBool);
+                saveBool = true;
+                RX.onNext("" + saveBool);
 
-        } catch (IOException e) {
-            RX.onError(e);
-        }
+            } catch (IOException e) {
+                RX.onError(e);
+            }
 
         return saveBool;
     }
 
     public  String onRead(String localDir, String fileName,  Context c){
-
-        boolean read = false;
+        boolean saveBool = false;
         String fileStr = null;
         StringBuilder builder = new StringBuilder();
 
@@ -116,8 +99,8 @@ public class DataRepository {
             fileStr = (builder!=null) ? builder.toString() : null;
             buffer.close();
 
-            read = (fileStr.length() > 0);
-            RX.onNext("" + read);
+            saveBool = (fileStr.length() > 0);
+            RX.onNext("" + saveBool);
 
         } catch (IOException e) {
             RX.onError(e);
@@ -137,7 +120,7 @@ public class DataRepository {
             outputStream = new FileOutputStream(file);
             outputStream.close();
             //c.deleteFile(filePath);
-            // file.delete();
+           // file.delete();
 
             clear = (file.delete());
             RX.onNext("" + clear);
@@ -149,17 +132,12 @@ public class DataRepository {
     }
 
 
-    /**
-     *
-     *  teste case ation
-     *
-     */
 
     public boolean testeCaseFlow(){
 
         boolean tCase = false;
         String fileName = "cells_test.json";
-        String contentStr = "CONTEUDO DO TEXTO AQUI";
+        String contentStr = "CONTEUDO DO TEXTO AQUI CONTEUDO DO TEXTO AQUI CONTEUDO DO TEXTO AQUI";
         String jsonFromLocal = null;
         String strSubFolder = "contact";
 
@@ -181,4 +159,18 @@ public class DataRepository {
 
 
 
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
+

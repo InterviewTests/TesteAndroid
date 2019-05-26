@@ -137,7 +137,6 @@ public  class Fund   {
 
     public void setFundTemplate() {
 
-        //FromType fund = new FromType();
 
         this.Title = "@Fundos de investimento" ;
         this.FundName = "@Vinci Valorem FI Multimercado" ;;

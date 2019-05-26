@@ -18,6 +18,7 @@ public class Contact implements Serializable {
     private int EmailSave;
 
     public Contact() {
+
         //  this.FullName = FullName;
         //  this.Email = Email;
         //  this.Phone = Phone;

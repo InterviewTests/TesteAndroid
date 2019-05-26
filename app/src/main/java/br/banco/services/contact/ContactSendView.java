@@ -110,7 +110,7 @@ import br.banco.services.contact.message.GMailSenderV2;
     public void onResume() {
         super.onResume();
         if(messageCode == 5) {
-            // caso mensagem enviada voltar ao Splash
+            // caso mensagem enviada voltar ao
             // presenter.loadAlertView(messageCode, getApplicationContext());
             Log.d(TAG, "VIEW / "+getClass().getName()+" / onResume -> EXIT " );
         }

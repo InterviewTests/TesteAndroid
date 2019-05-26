@@ -17,6 +17,7 @@
     <application
 
         android:allowBackup="true"
+
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -33,17 +34,8 @@
 
         <activity
             android:label="@string/activity_label_splash"
-            android:name="br.banco.services.CheckDevice">
-        </activity>
-
-        <activity
-            android:label="@string/activity_label_splash"
             android:name="br.banco.services.splash.SplashView"  >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
             <!--  -->
         </activity>
 
@@ -60,7 +52,7 @@
 
         </activity>
 
-        <!-- FUND option -->
+        <!-- FUND /////////////////////// -->
 
         <activity
             android:label="@string/activity_label_fund_detail"
@@ -69,7 +61,7 @@
 
         </activity>
 
-        <!-- CONTACT -->
+        <!-- CONTACT ///////////////////////  -->
 
         <activity
             android:label="@string/activity_label_contact"
@@ -87,10 +79,28 @@
             android:name="br.banco.services.contact.message.ContactMsgView"  >
         </activity>
 
+
+
+        <activity
+            android:label="@string/activity_label_message"
+            android:name="br.banco.services.contact.LoadView"  >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- ALERT /////////////////////// -->
+
         <activity
             android:label="@string/activity_label_message"
             android:name="br.banco.services.app.alert.AlertView"  >
         </activity>
+
+
+        <!-- TESTS -->
 
 
     </application>
@@ -99,7 +109,7 @@
     <!--
       <instrumentation android:name="br.banco.services.xxxx"
           android:targetPackage="br.banco.services"
-          android:label="Teste app br.banco.services"/>
+          android:label="LoadScreenForm app br.banco.services"/>
     -->
 
 </manifest>

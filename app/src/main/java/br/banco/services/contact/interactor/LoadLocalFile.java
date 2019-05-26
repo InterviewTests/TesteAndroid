@@ -1,54 +1,46 @@
-package br.banco.services.datasource;
-
+package br.banco.services.contact.interactor;
 import android.content.Context;
+import android.util.Log;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-import br.banco.services.app.config.ConfigServers;
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
 import br.banco.services.app.utils.ReactAplication;
 
-public class DataRepository {
+/**
+ * Gerencia arquivo local devolve String
+ * onLoad, onSave, onRead , onClear
+ *
+ */
+
+public class LoadLocalFile implements ILoadTask.IFileTask {
+
+    private  final String TAG = "FUND";
+    Context context;
+    //static final int MAX_SIZE_CHARS = 1000;
+  //  public static String PACKAGE_NAME;
+
+    ReactAplication RX = new ReactAplication();
 
     /**
-     *  recebe o nome da area do sistema
-     *  devolve o arquivo json, prefs...
+     *
+     *  teste case
      *
      */
 
-    private ConfigServers servers;
-
-    private String SERVER_URL = null;
-    private String SERVER_AREA = null;
-
-    private  final String TAG = "FUND";
-    ReactAplication RX = new ReactAplication();
-    Context context;
-
-
-    public DataRepository(Context c){
+    public  LoadLocalFile(Context c){
         this.context = c;
 
-         SERVER_AREA = "cells";
-         servers = new ConfigServers();
-         SERVER_URL = servers.getDataServer(SERVER_AREA) ;
-
-        if (SERVER_URL != null) {
-
-            RX.onNext("@SERVIDOR = " + SERVER_URL + " = " + SERVER_AREA);
-
-        }else{
-            RX.onNext("nao encontrada...");
-        }
-
-
-        // PACKAGE_NAME = context.getApplicationContext().getPackageName();
-        // boolean TESTE_CASE  = testeCaseFlow();
+       // PACKAGE_NAME = context.getApplicationContext().getPackageName();
+       // boolean TESTE_CASE  = testeCaseFlow();
 
     }
 
@@ -63,7 +55,17 @@ public class DataRepository {
         boolean exits = false;
 
         String localStr = null;
+        File nameDir = null;
+        try {
+            nameDir = c.getFilesDir();
+            localStr = nameDir.toString();
 
+            exits = (localStr.length() > 0);
+            RX.onNext("" + exits + "->" + localStr);
+
+        }catch (Exception e){
+            RX.onError(e);
+        }
 
         return localStr;
 
@@ -75,19 +77,19 @@ public class DataRepository {
         File file;
         FileOutputStream outputStream;
 
-        try {
-            file = new File(localDir, fileName);
+            try {
+                file = new File(localDir, fileName);
 
-            outputStream = new FileOutputStream(file);
-            outputStream.write(contentStr.getBytes());
-            outputStream.close();
+                outputStream = new FileOutputStream(file);
+                outputStream.write(contentStr.getBytes());
+                outputStream.close();
 
-            saveBool = true;
-            RX.onNext("" + saveBool);
+                saveBool = true;
+                RX.onNext("" + saveBool);
 
-        } catch (IOException e) {
-            RX.onError(e);
-        }
+            } catch (IOException e) {
+                RX.onError(e);
+            }
 
         return saveBool;
     }
@@ -137,7 +139,7 @@ public class DataRepository {
             outputStream = new FileOutputStream(file);
             outputStream.close();
             //c.deleteFile(filePath);
-            // file.delete();
+           // file.delete();
 
             clear = (file.delete());
             RX.onNext("" + clear);
@@ -159,7 +161,7 @@ public class DataRepository {
 
         boolean tCase = false;
         String fileName = "cells_test.json";
-        String contentStr = "CONTEUDO DO TEXTO AQUI";
+        String contentStr = "CONTEUDO DO TEXTO AQUI CONTEUDO DO TEXTO AQUI CONTEUDO DO TEXTO AQUI";
         String jsonFromLocal = null;
         String strSubFolder = "contact";
 
@@ -181,4 +183,18 @@ public class DataRepository {
 
 
 
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
+
