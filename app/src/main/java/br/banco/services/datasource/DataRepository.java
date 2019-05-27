@@ -1,12 +1,16 @@
 package br.banco.services.datasource;
 
 import android.content.Context;
+import android.os.Handler;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 
 import br.banco.services.app.config.ConfigServers;
 import br.banco.services.app.utils.ReactAplication;
@@ -23,14 +27,14 @@ public class DataRepository implements IDataSource {
      *  3 - salva arquivo
      *
      */
-
+    public final String TAG = "LOADR";
     private ConfigServers servers;
     public static ILoad.Presenter presenter;
 
     private String SERVER_URL = null;
     private String SERVER_AREA = null;
 
-    private  final String TAG = "FUND";
+
     ReactAplication RX = new ReactAplication();
     Context context;
 
@@ -38,20 +42,37 @@ public class DataRepository implements IDataSource {
     public DataRepository(Context c){
 
         this.context = c;
-        presenter = new LoadPresenter();
+
+    }
+
+    public void onCompleted(String output){
+
+        LoadModel model = new LoadModel(presenter);
+
+    }
+
+    public void onErrorTask(String output){
+
+       // RX.onNext("erro");
+    }
+
+    public void onNextTask(String output){
+
+        onCompleted(output);
+        //RX.onNext("sucess..");
+    }
 
 
+    public void loadServer(){
 
 
-        RX.onNext("@context = " + (context!=null) );
-
-         SERVER_AREA = "cells";
-         servers = new ConfigServers();
-         SERVER_URL = servers.getDataServer(SERVER_AREA) ;
+        SERVER_AREA = "cells";
+        servers = new ConfigServers();
+        SERVER_URL = servers.getDataServer(SERVER_AREA) ;
 
         if (SERVER_URL != null) {
 
-             RX.onNext("@SERVIDOR = " + SERVER_URL + " = " + SERVER_AREA);
+            // RX.onNext("@SERVIDOR = " + SERVER_URL + " = " + SERVER_AREA);
 
         }else{
             //RX.onNext("nao encontrada...");
@@ -65,33 +86,8 @@ public class DataRepository implements IDataSource {
 
 
 
-
-    public void onCompleted(String output){
-
-        RX.onNext("onCompleted ..... output -> " + output);
-
-        LoadModel model = new LoadModel(presenter);
-        model.processFinish(output);
-
-
-
-    }
-
-    public void onErrorTask(String output){
-
-        RX.onNext("erro");
-    }
-
-    public void onNextTask(String output){
-
-        onCompleted(output);
-        RX.onNext("sucess..");
-    }
-
-
-
-
     /**
+     *
      * carrega web, local, prefs
      *
      *
@@ -99,14 +95,46 @@ public class DataRepository implements IDataSource {
 
 
 
+
     public String onLoad(Context context, String area){
         boolean exits = false;
 
-        RestTask rest = new RestTask(context);
-        rest.delegate = this;
-        rest.execute(SERVER_URL);
 
-        RX.onNext("Carregar da web... "  );
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+
+                try {
+
+                    URL url = new URL(SERVER_URL);
+                    StringBuilder SB = new StringBuilder();
+
+
+                    BufferedReader buffer = new BufferedReader(
+                            new InputStreamReader(url.openStream()));
+                    String line = null;
+
+                    while ((line = buffer.readLine()) != null) {
+
+                        SB.append(line);
+                        Log.d("FUND", "" + line);
+
+                    }
+                    buffer.close();
+
+                } catch (Exception e) {
+                    RX.onError(e);
+                }
+
+
+            }
+        }, 1000);
+
+
+
+       // RX.onNext("Carregar da web... "  );
         String localStr = null;
         return localStr;
 
@@ -126,7 +154,7 @@ public class DataRepository implements IDataSource {
             outputStream.close();
 
             saveBool = true;
-            RX.onNext("" + saveBool);
+            //RX.onNext("" + saveBool);
 
         } catch (IOException e) {
             RX.onError(e);
@@ -153,14 +181,14 @@ public class DataRepository implements IDataSource {
             while ((line = buffer.readLine()) != null) {
                 builder.append(line);
                 builder.append('\n');
-                RX.onNext("" + line);
+               // RX.onNext("" + line);
             }
 
             fileStr = (builder!=null) ? builder.toString() : null;
             buffer.close();
 
             read = (fileStr.length() > 0);
-            RX.onNext("" + read);
+           // RX.onNext("" + read);
 
         } catch (IOException e) {
             RX.onError(e);
@@ -183,13 +211,17 @@ public class DataRepository implements IDataSource {
             // file.delete();
 
             clear = (file.delete());
-            RX.onNext("" + clear);
+           // RX.onNext("" + clear);
 
         } catch (IOException e) {
             RX.onError(e);
         }
         return  clear;
     }
+
+
+
+
 
 
     /**
@@ -224,5 +256,13 @@ public class DataRepository implements IDataSource {
     }
 
 
+    protected void onDestroy () {
+       // rest.setListener (null);
+        //rest.onDestroy ();
+        //rest.cancel();
+
+
+
+    }
 
 }
