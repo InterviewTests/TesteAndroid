@@ -58,6 +58,11 @@ public class ListaCellAdapterTest {
     }
 
     @Test
+    public void emailValidator_InvalidEmailMoreCaractersThenPossible_ReturnsFalse() {
+        assertFalse(ListaCellAdapter.validateEmail("name@email.com.br.br"));
+    }
+
+    @Test
     public void emailValidator_InvalidEmailDoubleDot_ReturnsFalse() {
         assertFalse(ListaCellAdapter.validateEmail("name@email..com"));
     }

@@ -2,7 +2,9 @@ package com.example.alessandrofsouza.santanderapp.adapter;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import com.example.alessandrofsouza.santanderapp.R;
 import com.example.alessandrofsouza.santanderapp.model.Infos;
 import com.example.alessandrofsouza.santanderapp.model.Screen;
+import com.vipul.hp_hp.library.Layout_to_Image;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,6 +32,13 @@ public class ListaScreenAdapter extends RecyclerView.Adapter<ListaScreenAdapter.
     Context context;
 
 
+    public Layout_to_Image layout_to_image;
+    public ConstraintLayout constraintLayout;
+    public Bitmap bitmap;
+    public ImageView imageView;;
+    private View view;
+
+
     public ListaScreenAdapter() {
         dataScreenSet = new ArrayList<>();
     }
@@ -37,11 +47,15 @@ public class ListaScreenAdapter extends RecyclerView.Adapter<ListaScreenAdapter.
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.frame_layout_invest, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.frame_layout_invest, parent, false);
         context = view.getContext();
 
         recycleInfo(view, context);//chama o recycleView
         recycleDownInfo(view, context);//chama o recycleView
+
+        constraintLayout = (ConstraintLayout) view.findViewById(R.id.investmentFrame);
+        layout_to_image = new Layout_to_Image(view.getContext(), constraintLayout);
+        bitmap = layout_to_image.convert_layout();
 
         return new ViewHolder(view);
     }
@@ -69,6 +83,7 @@ public class ListaScreenAdapter extends RecyclerView.Adapter<ListaScreenAdapter.
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         final Screen screen = dataScreenSet.get(position);
         Resources res = holder.itemView.getContext().getResources();
+        View view = holder.itemView.getRootView();
 
 
 
@@ -102,9 +117,6 @@ public class ListaScreenAdapter extends RecyclerView.Adapter<ListaScreenAdapter.
 
         ArrayList<Infos> listDownInfo = screen.getDownInfo();
         listaInfoAdapter.addListInfo(listDownInfo);
-
-
-
 
 
         final ViewTreeObserver observer = holder.viewColors1.getViewTreeObserver();
@@ -145,7 +157,11 @@ public class ListaScreenAdapter extends RecyclerView.Adapter<ListaScreenAdapter.
             }
         });
 
-
+        /*constraintLayout = (ConstraintLayout) holder.itemView.findViewById(R.id.investmentFrame);
+        if (constraintLayout != null) {
+            layout_to_image = new Layout_to_Image(holder.itemView.getContext(), constraintLayout);
+            bitmap = layout_to_image.convert_layout();
+        }*/
 
     }
 
@@ -226,6 +242,9 @@ public class ListaScreenAdapter extends RecyclerView.Adapter<ListaScreenAdapter.
             viewColors5 = itemView.findViewById(R.id.viewColors5);
 
             arrowRisk = itemView.findViewById(R.id.arrowRisk);
+
+
+
 
         }
 

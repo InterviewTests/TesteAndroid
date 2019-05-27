@@ -1,36 +1,21 @@
 package com.example.alessandrofsouza.santanderapp.ui;
 
-import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.pdf.PdfDocument;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.print.pdf.PrintedPdfDocument;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.FileProvider;
-import android.support.v4.print.PrintHelper;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.alessandrofsouza.santanderapp.R;
@@ -38,19 +23,18 @@ import com.example.alessandrofsouza.santanderapp.adapter.ListaScreenAdapter;
 import com.example.alessandrofsouza.santanderapp.model.InvestmentModel;
 import com.example.alessandrofsouza.santanderapp.model.Screen;
 import com.example.alessandrofsouza.santanderapp.service.ApiService;
+import com.vipul.hp_hp.library.Layout_to_Image;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static android.support.v4.content.ContextCompat.getSystemService;
 
 public class InvestmentFragment extends Fragment {
 
@@ -60,28 +44,65 @@ public class InvestmentFragment extends Fragment {
     private ListaScreenAdapter listaScreenAdapter;
     public Button btnPrint;
 
+    private View view;
+
+    /*Layout_to_Image layout_to_image;
+    ConstraintLayout constraintLayout;
+    Bitmap bitmap;
+    ImageView imageView;*/
+
+    //private FrameLayout mView;
+    //private Bitmap bitmap;
+    //private ScrollView mView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        final View view = inflater.inflate(R.layout.investment, container, false);
-
-        btnPrint = view.findViewById(R.id.buttonPrint);
-        btnPrint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            //Log.i(TAG, "PRINT");
-            Toast.makeText(getContext(), "Serviço indisponivel no momento", Toast.LENGTH_SHORT).show();
-            }
-        });
+        view = inflater.inflate(R.layout.investment, container, false);
 
         recycle(view);//chama o recycleView
 
         useApi();//chama a API
 
+        btnPrint = view.findViewById(R.id.buttonPrint);
+        btnPrint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Log.i(TAG, "PRINT");
+                Toast.makeText(getContext(), "Serviço indisponivel no momento", Toast.LENGTH_SHORT).show();
+                //Log.d(TAG," "+bitmap.getWidth() +"  "+bitmap.getWidth());
+
+/*
+                String timeStamp = System.currentTimeMillis() + "";
+                File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "share"+timeStamp+".png");
+                try {
+                    FileOutputStream outputStream = new FileOutputStream(file);
+                    listaScreenAdapter.bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+                    outputStream.flush();
+                    outputStream.close();
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                Uri uri = FileProvider.getUriForFile(getActivity(), "com.example.alessandrofsouza.santanderapp", file);
+                shareIntent.setType("image/*");
+                shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                shareIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+                startActivity(Intent.createChooser(shareIntent, "Compartilhe: "));
+*/
+            }
+        });
+
         return view;
     }
-
 
 
     private void recycle(View view) {

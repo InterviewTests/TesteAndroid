@@ -55,7 +55,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                     "(" +
                     "\\." +
                     "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                    ")+")
+                    "){1,2}")
     );
 
     private static final Pattern NAME_PATTERN = Pattern.compile(

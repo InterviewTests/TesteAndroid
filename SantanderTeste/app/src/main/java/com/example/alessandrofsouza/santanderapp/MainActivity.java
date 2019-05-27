@@ -12,6 +12,7 @@ import com.example.alessandrofsouza.santanderapp.ui.InvestmentFragment;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Santander ";
+    public TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPager viewPager = findViewById(R.id.viewPage);
         viewPager.setAdapter(adapter);
 
-        TabLayout tabLayout = findViewById(R.id.pageTab);
+        tabLayout = findViewById(R.id.pageTab);
         tabLayout.setupWithViewPager(viewPager);
     }
 }

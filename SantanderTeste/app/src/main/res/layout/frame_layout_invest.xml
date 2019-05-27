@@ -6,12 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
-    android:paddingBottom="140dp">
+    android:paddingBottom="140dp"
+    android:background="@color/santanderWhite"
+    android:id="@+id/investmentFrame">
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/frame_investment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scrollbars="horizontal"
         >
 
