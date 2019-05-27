@@ -15,9 +15,9 @@ public class LoadPresenter  implements ILoad.Presenter {
     public final String TAG = "LOADR";
      private WeakReference<Context> contextRef;
 
-     public ILoad.Model model;
+     public ILoad.Model2 model;
      public ILoad.Views views;
-    // public ContactForm contactForm;
+
      public ArrayList<ContactForm> listForm = new ArrayList<>();
      public String APLICATION_AREA = "cells";
 
@@ -27,7 +27,8 @@ public class LoadPresenter  implements ILoad.Presenter {
 
      public LoadPresenter(){
 
-       model = new LoadModel(this);
+        model = new LoadModel2(this);
+       // this.context =
 
      }
 
@@ -47,7 +48,7 @@ public class LoadPresenter  implements ILoad.Presenter {
         this.context = c;
 
         // task
-        model.loadData(APLICATION_AREA, c);
+       // model.loadData(APLICATION_AREA, c);
         // ((LoadModel) model).setView(this);
        // this.context = c;
         //contextRef = new WeakReference<>(c);
@@ -65,10 +66,19 @@ public class LoadPresenter  implements ILoad.Presenter {
 
         RX.onMessage(TAG, "P/onCompletedTask", context );
 
-         //RX.onNext("[context=" + (context!=null) +"]" );
+
          //contextRef = new WeakReference<>(context);
          //views.updateAlertView(1, null);
-         views.hideProgressBar();
+
+        if(views!=null){
+
+            RX.onMessage(TAG, "P/onCompletedTask/SUCESSO/", context );
+            views.onSuccessView(ouput);
+
+        }else{
+
+            RX.onMessage(TAG, "P/onCompletedTask/SUCESSO/", context );
+        }
 
 
     }

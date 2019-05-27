@@ -23,7 +23,8 @@ public final class ConfigServers {
 
 
     public  ArrayList<String> serverList = new ArrayList<String>();
-    public String URLserver = "https://floating-mountain-50292.herokuapp.com/";
+   // public String URLserver = "https://floating-mountain-50292.herokuapp.com/";
+    public String URLserver = "http://www.issam.com.br/lab/acento/";
     String DataServer = null;
 
     public ConfigServers() {
@@ -37,7 +38,8 @@ public final class ConfigServers {
 
         String LoadServer = null;
         if(serverList.contains(server)){
-            LoadServer = URLserver + server + ".json";
+           // LoadServer = URLserver + server + ".json";
+            LoadServer = URLserver + server + ".txt";
         }
 
         return LoadServer;

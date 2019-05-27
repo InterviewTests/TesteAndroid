@@ -31,7 +31,6 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load);
 
-
         this.context = getApplicationContext();
         initProgressBar(); //01
 
@@ -61,20 +60,22 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
     }
 
 
-
-    /**
-     * carrega conteudo ou mostra tela de erro
-     *
-     */
+    public void onSuccessView(String areaName){
 
 
-    public void onSuccessView(Context context, String local){
+       // br.banco.services.fund.option.FundOptionView.class
+        //br.banco.services.fund.detail.DetailView;
+       ;
+
+
         hideProgressBar();
 
-        // load form
-
+        startActivity(new Intent(this,
+                br.banco.services.contact.ContactView.class));
+        overridePendingTransition(R.anim.an_entrar_esquerda,
+                R.anim.an_sair_esquerda);
+        finish();
     }
-
 
     @Nullable
     public void onErrorView(int msgCode){
@@ -102,14 +103,6 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
         }, 1000);
 
     } //onErrorView
-
-
-    /**
-     *
-     *  progress
-     *
-     */
-
 
     public void showProgressBar() {
         progressBar.setVisibility(View.VISIBLE);

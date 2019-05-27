@@ -20,19 +20,31 @@ public interface ILoad {
 
     interface Model{
 
-        //void loadData(ArrayList<ContactForm> list, Context c);
-        String loadData(String area, Context c);
+        void loadData(ArrayList<ContactForm> list, Context c);
+        //String loadData(String area, Context c);
        // void saveData(ContactForm form, Context c);
        // void clearData(ContactForm form, Context c);
-         void onCompletedData(boolean status, Context context);
+        // void onCompletedData(boolean status, Context context);
+
+         // modelo 2
+
 
 
     }
 
+    interface Model2{
+        //String loadData(String area);
+        //void onCompleted(boolean status, Context context);
+
+    }
+
+
+
+
     interface Views{
 
         void onErrorView(int msgCode);
-        void onSuccessView(Context context, String local);
+        void onSuccessView(String area);
         void showProgressBar();
         void hideProgressBar();
     }

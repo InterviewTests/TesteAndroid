@@ -32,7 +32,7 @@ import br.banco.services.datasource.DataRepository;
 import br.banco.services.datasource.local.contact.FormPreferences;
 import br.banco.services.datasource.local.contact.UserPreferences;
 
-public class LoadModel implements ILoad.Model {
+public class LoadModel {  //implements ILoad.Model
 
    private WeakReference<Context> contextRef;
    public final String TAG = "LOADR";
@@ -90,56 +90,52 @@ public class LoadModel implements ILoad.Model {
             @Override
             public void run() {
 
-
-
         try {
 
+           URL url = new URL(SERVER_URL);
+           StringBuilder SB = new StringBuilder();
+           BufferedReader buffer = new BufferedReader(
+                   new InputStreamReader(url.openStream()));
+           // Log.d(TAG, "buffer = " + (buffer!=null));
+           String line = null;
+           while ((line = buffer.readLine()) != null) {
+
+               SB.append(line);
+               // Log.d(TAG, "" + line);
+           }
+           buffer.close();
 
 
-                   URL url = new URL(SERVER_URL);
-                   StringBuilder SB = new StringBuilder();
-                   BufferedReader buffer = new BufferedReader(
-                           new InputStreamReader(url.openStream()));
-                   // Log.d(TAG, "buffer = " + (buffer!=null));
-                   String line = null;
-                   while ((line = buffer.readLine()) != null) {
+           FILE_DATA = SB.toString();
 
-                       SB.append(line);
-                       // Log.d(TAG, "" + line);
-                   }
-                   buffer.close();
+           Gson GS = new Gson();
 
+           ResponseJson response = new ResponseJson();
+           response = GS.fromJson(FILE_DATA, ResponseJson.class);
 
-                   FILE_DATA = SB.toString();
+           List<Produto> listaArray = new ArrayList<Produto>();
+           //listaArray = (new ResponseJson().getAndroid());
 
-                   Gson GS = new Gson();
+           listaArray = response.getAndroid();
 
-                   ResponseJson response = new ResponseJson();
-                   response = GS.fromJson(FILE_DATA, ResponseJson.class);
-
-                   List<Produto> listaArray = new ArrayList<Produto>();
-                   //listaArray = (new ResponseJson().getAndroid());
-
-                   listaArray = response.getAndroid();
-
-                   //createMap(new ResponseJson().getAndroid());
-                   //createMap(listaArray);
+           //createMap(new ResponseJson().getAndroid());
+           //createMap(listaArray);
 
 
-                   Log.d(TAG, "M/loadData/Handler/" + listaArray.size() );
+           Log.d(TAG, "M/loadData/Handler/" + listaArray.size() );
 
-                   // errorData( "", 4);
-                   // savetData(FILE_DATA);
+           // errorData( "", 4);
+           // savetData(FILE_DATA);
 
 
 
-                   } catch (Exception e) {
+           } catch (Exception e) {
 
-                       errorData( "", 4);
-                       //nextData(area);
+               errorData( "", 4);
+               //nextData(area);
 
-                       Log.d(TAG, "Erro ao carregar arquivo!" + (e));
-                   }
+               Log.d(TAG, "Erro ao carregar arquivo!" + (e));
+           }
 
 
 
