@@ -17,6 +17,7 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
 
 
 
+
     public ReactAplication RX = new ReactAplication();
     public final String TAG ="LOADR";
     public Context context;
@@ -40,6 +41,9 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
 
         presenter.onLoadTask(savedInstanceState, context); //03
 
+
+
+
     }
 
     @Override
@@ -55,18 +59,13 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
         super.onResume();
 
         // checkOnResume();
-        // RX.onNext("onResume->" + getClass().getName());
-
     }
 
 
     public void onSuccessView(String areaName){
 
-
        // br.banco.services.fund.option.FundOptionView.class
         //br.banco.services.fund.detail.DetailView;
-       ;
-
 
         hideProgressBar();
 
