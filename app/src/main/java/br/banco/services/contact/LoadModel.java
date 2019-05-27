@@ -167,9 +167,7 @@ public class LoadModel {  //implements ILoad.Model
                 //Log.d(TAG, "CPDOGP = " + conteudo.getCodigo());
             }
         }
-
         saveData(map);
-
         return map;
     }
 
@@ -188,7 +186,6 @@ public class LoadModel {  //implements ILoad.Model
         };
         // handler.post(runnable);
         handler.removeCallbacks(runnable);
-
 
 
 
