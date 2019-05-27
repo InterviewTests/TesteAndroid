@@ -16,6 +16,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import br.banco.services.app.utils.ReactAplication;
 import br.banco.services.contact.data.IContact;
@@ -159,9 +160,6 @@ public class FormPreferences implements IContact.IFileTask {
             editor = pref.edit();
 
 
-            for(int i=0;i<30;i++) {
-                saveMap.put("chave_"+i, "valor_" + i);
-            }
 
 
             mapForm = saveMap;
@@ -302,6 +300,15 @@ public class FormPreferences implements IContact.IFileTask {
     }
 
 
+
+    public void testCaseKeysValue(Map saveMap){
+
+
+        for(int i=0;i<30;i++) {
+            saveMap.put("chave_"+i, "valor_" + i);
+        }
+
+    }
 
 
 
