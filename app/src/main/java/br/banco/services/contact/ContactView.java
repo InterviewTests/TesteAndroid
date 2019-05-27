@@ -35,6 +35,7 @@ package br.banco.services.contact;
  import br.banco.services.app.utils.ValidatorPhone;
 
  import br.banco.services.contact.message.ContactMsgView;
+ import br.banco.services.datasource.local.contact.FormPreferences;
 
 
  public class ContactView extends AppCompatActivity implements
@@ -44,14 +45,18 @@ package br.banco.services.contact;
 
  public String TAG = "CONTACT";
  public int option = 0;
+ public Context context;
+ public  FormPreferences formPreferences;
 
- private Contact contactTest;
+     private Contact contactTest;
  public ArrayList<String> listFormItens;
  private ArrayList<Contact> listFormContact ;
 
  private static IContactImpl.PresenterImpl presenter;
 
  public ConstraintLayout constraintLayout;
+
+
  public EditText vFullName ;
  public EditText vEmail;
  public EditText vPhone;
@@ -71,11 +76,16 @@ package br.banco.services.contact;
      super.onCreate(savedInstanceState);
      setContentView(R.layout.activity_contact_form);
 
+     this.context = getApplicationContext();
      contactTest = new Contact();
      presenter = new ContactPresenter(this);
 
+
+
      drawFormView();
      drawNavigation();
+
+     checkPreferences();
 
    // presenter.loadView(option, getApplicationContext());
 
@@ -90,6 +100,40 @@ package br.banco.services.contact;
          super.onResume();
 
      }
+
+     /**
+      *
+      *  formatacao do form Strings ou Pref
+      *
+      */
+
+       public boolean checkPreferences(){
+           boolean pref = false;
+
+           formPreferences = new FormPreferences(context);
+           String Nome = formPreferences.getSPFullName();
+
+           vFullName.setText("AAA");
+           vEmail.setText("BBB");
+           vPhone.setText("CCC");
+           vEmailSave.setText("DDD");
+           vEmailSave.setChecked(true);
+
+           vBtSend.setText("EEE");
+
+
+
+           return  pref;
+
+       }
+
+
+
+     /**
+      *  form design e validacao
+      *
+      */
+
 
 
     // @Override
@@ -141,10 +185,6 @@ package br.banco.services.contact;
 
              }
          });
-     }
-
-     public void drawFormAlert(final TextView viewt){
-        // Log.d(TAG, "ERRO: DADOS VAZIOS");
      }
 
      public void sendFormView2(Contact contactForm){
@@ -245,6 +285,13 @@ package br.banco.services.contact;
      }
 
 
+     /**
+      *
+      *   activity navegacao
+      *
+      */
+
+
      @Override
      public void onClick(View view) {
 
@@ -270,7 +317,7 @@ package br.banco.services.contact;
 
      }
 
-    public void drawNavigation(){
+     public void drawNavigation(){
         Button BTAction1 = (Button) findViewById(R.id.btAction1);
         Button BTAction2 = (Button) findViewById(R.id.btAction2);
         BTAction1.setOnClickListener(this);
