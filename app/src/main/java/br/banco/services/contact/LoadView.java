@@ -10,18 +10,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import br.banco.services.R;
 import br.banco.services.app.utils.ReactAplication;
 
 public class LoadView  extends AppCompatActivity implements ILoad.Views {
 
+
+
+    public ReactAplication RX = new ReactAplication();
     public final String TAG ="LOADR";
     public Context context;
     private ProgressBar progressBar;
-    public ReactAplication RX = new ReactAplication();
     private int messageCode = 4; // Error
 
     private static ILoad.Presenter presenter;
@@ -32,16 +31,32 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load);
 
-        initProgressBar();
+
         this.context = getApplicationContext();
+        initProgressBar(); //01
+
 
         presenter = new LoadPresenter();
-       // presenter.setView( this );
+        ((LoadPresenter) presenter).setView(this); //02
 
-       ((LoadPresenter) presenter).setView(this);
+        presenter.onLoadTask(savedInstanceState, context); //03
 
-        presenter.onLoadData(savedInstanceState, context);
+    }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+       // outState.putParcelableArrayList(KEY_LOAD, presenter.getLoadFor());
+        super.onSaveInstanceState(outState);
+    }
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // checkOnResume();
+        // RX.onNext("onResume->" + getClass().getName());
 
     }
 
@@ -53,36 +68,27 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
      */
 
 
-    public void onSuccessTask(Context context, String local){
+    public void onSuccessView(Context context, String local){
         hideProgressBar();
+
+        // load form
 
     }
 
-    public void onErrorTask(int msgCode){
-
-        //updateAlertView(msgCode);
-        hideProgressBar();
-
-
-    }
-
-
-    /**
-     *
-     *  views
-     *
-     */
 
     @Nullable
-    public void updateAlertView(int msgCode){
+    public void onErrorView(int msgCode){
 
         Handler handler;
         messageCode = msgCode;
-        // delay
         handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        handler.postDelayed(new Runnable()
+        {
             @Override
-            public void run() {
+            public void run()
+            {
+
+                hideProgressBar();
 
                 Intent intent;
                 intent = new Intent(getApplicationContext(),
@@ -92,13 +98,18 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
 
                 overridePendingTransition(R.anim.an_sair, R.anim.an_entrar);
                 // finish();
-
             }
-        }, 100);
+        }, 1000);
 
-        Log.d(TAG," / updateAlertView -> ERROR -> messageCode  = " +  messageCode);
+    } //onErrorView
 
-    }
+
+    /**
+     *
+     *  progress
+     *
+     */
+
 
     public void showProgressBar() {
         progressBar.setVisibility(View.VISIBLE);
@@ -109,8 +120,13 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
     }
 
     public void initProgressBar() {
+        RX.onMessage(TAG, "V/initProgressBar", context );
         progressBar = findViewById(R.id.TemplateProgressbar);
 
     }
+
+
+
+
 
 }
