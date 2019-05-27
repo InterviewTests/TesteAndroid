@@ -1,5 +1,6 @@
 package br.banco.services.app.utils;
 
+import android.content.Context;
 import android.util.Log;
 
 
@@ -44,16 +45,16 @@ public class ReactAplication {
         try{
 
             StackTraceElement[] s = Thread.currentThread().getStackTrace();
-            StackTraceElement e = s[3];
 
-             if(e.getMethodName().equals("<init>")){ e = s[1]; }
-             if(e.getMethodName().equals("getStackTrace")){ e = s[3]; }
+            StackTraceElement e = s[5];
 
             //if(e!=null){ e = s[2]; }
 
             String c = e.getClassName();
             String m = e.getMethodName();
+            String f = e.getFileName();
 
+            //Log.d("FUND", "onNext: " + m + " -> " + message +" -> " + c );
             Log.d("FUND", "onNext: " + m + " -> " + message +" -> " + c );
             // Delegate.onError(String Message)
 
@@ -64,6 +65,19 @@ public class ReactAplication {
 
     }
 
+
+    public void onMessage(String tag, String msg, Context ctx){
+
+        try{
+
+            Log.d(tag, "onMessage: " + msg + "/"+(ctx!=null)+"");
+
+        }catch (Exception ex){
+            //Log.d("FUND", "onNext: ReactAplication ERROR: " + ex.getMessage() );
+        }
+
+
+    }
 
 
 }
