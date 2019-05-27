@@ -174,7 +174,7 @@ public class FromPreferences implements IContact.IFileTask {
                 RX.onNext("Criando pref..." );
 
             }else{
-                RX.onNext("PreferencesTask ja foi criada." );
+                RX.onNext("Preferences ja foi criada." );
             }
 
         } catch (Exception e) {
