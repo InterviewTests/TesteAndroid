@@ -13,17 +13,20 @@ import java.net.URL;
 import br.banco.services.app.utils.ReactAplication;
  import br.banco.services.datasource.IDataSource;
 
+
+
 public class RestTask extends AsyncTask<String, Void, String> {
 
     private WeakReference<Context> contextRef;
     public IDataSource delegate = null;
     public  String APLICATION_FILE;
-
     public ReactAplication RX = new ReactAplication();
 
     public RestTask(Context c) {
 
         contextRef = new WeakReference<>(c);
+        RX.onNext("contextRef["+contextRef+"]");
+
     }
 
     @Override
@@ -70,10 +73,12 @@ public class RestTask extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
 
-        //RX.onNext("onPostExecute->" + result);
+        RX.onNext("________________________" + result);
         delegate.onNextTask(result);
 
     }
+
+
 
 
 }
