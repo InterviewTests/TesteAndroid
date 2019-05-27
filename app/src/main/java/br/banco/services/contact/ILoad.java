@@ -33,6 +33,7 @@ public interface ILoad {
     }
 
     interface Model2{
+        void onStartLoad(Context c);
         //String loadData(String area);
         //void onCompleted(boolean status, Context context);
 
