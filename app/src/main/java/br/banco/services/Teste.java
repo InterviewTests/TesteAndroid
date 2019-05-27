@@ -1,46 +1,196 @@
 package br.banco.services;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Teste extends AppCompatActivity  {
 
+    final String TAG = "LOADR";
+
+    public ExecutorService executor;
+    Button button;
+    ControlTasks mThread;
+    ProgressDialog mDialog;
+    Handler mHandler;
+    final int TOTAL_LIST_TASKS = 1;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.teste);
-        String JSON_STRING ="{'cells':[{'id':1,'type':2,'message':'FRASE:','typefield':null,'hidden':false,'topSpacing':60.0,'show':null,'required':false},{'id':2,'type':1,'message':'NOME','typefield':1,'hidden':false,'topSpacing':35.0,'show':null,'required':true},{'id':4,'type':1,'message':'Email','typefield':3,'hidden':true,'topSpacing':35.0,'show':null,'required':true},{'id':6,'type':1,'message':'Telefone','typefield':'telnumber','hidden':false,'topSpacing':10.0,'show':null,'required':true},{'id':3,'type':4,'message':'MESSAGE','typefield':null,'hidden':false,'topSpacing':35.0,'show':4,'required':false},{'id':7,'type':5,'message':'Enviar','typefield':null,'hidden':false,'topSpacing':10.0,'show':null,'required':true}]}";
+        button = (Button) findViewById(R.id.btTest);
+
+        button.setOnClickListener(new  View.OnClickListener() {
+            public void onClick(View v) {
+                initThread();
+            }
+        });
 
 
-        TextView tvTest1;
-        tvTest1 = (TextView) findViewById(R.id.tvTest);
+        initThread();
+    }
 
-        String TestClass = "USER CASE ";
-       // FromScreen dadosTeste =  new FromScreen();
+    /**
+     *
+     *  status das mensagens geraus
+     *
+     * @param message
+     * @param code
+     */
+
+    public void onCompleted(String message, int code){
+
+
+    }
+
+    public void onError(String message, int code){
+
+
+    }
+
+    public void onNext(String message, int code){
+
 
     }
 
 
-/*
-   // @Override
-    public void onStart(Disposable d) {
-           // ...
+    /**
+     *
+     *  caregamento web e local
+     *
+     */
+
+
+    private void initThread() {
+
+        mDialog = ProgressDialog.show(this, "Aguarde",
+                "Processando...", false, false);
+
+        mHandler = new Handler();
+        mThread = new ControlTasks(TOTAL_LIST_TASKS);
+        mThread.start();
+
     }
 
-   // @Override
-    public void onSuccess(List<Cells> matches) {
-       //  ...
+
+    private class ControlTasks extends Thread {
+        private int numTasks;
+
+        public ControlTasks(int tasks) {
+            this.numTasks = tasks;
+        }
+
+        @Override
+        public void run() {
+
+            executor =  Executors.newSingleThreadExecutor();
+
+            for (int i = 1; i <= numTasks; i++) {
+                Runnable RemoteTasks = new RemoteTasks("task" +i, 2);
+                executor.submit(RemoteTasks);
+            }
+
+            executor.shutdown();
+
+            while (!executor.isTerminated()) {
+                try {
+
+                    Thread.sleep(5000);
+
+
+                } catch (InterruptedException e) {
+                    Log.e(TAG, "-> Erro ao carregar da web: " + (e) );
+                }
+            }
+
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    mDialog.dismiss();
+                }
+            });
+
+        }
+
+
+
+
+
+
+
     }
 
-  //  @Override
-    public void onError(Throwable e) {
 
-       //  ...
+
+
+
+
+
+
+    private class RemoteTasks implements Runnable {
+
+        private int numLoops;
+        private String nameTask;
+
+        public RemoteTasks(String nameTask, int loops) {
+
+            this.nameTask = nameTask;
+            numLoops = loops;
+
+        }
+
+        public void run() {
+
+            /**
+             *
+             *  carregar web
+             *
+             */
+
+            mHandler.post(new Runnable(){@Override public void run() {
+                    Log.e(TAG, nameTask + "-> Iniciano: " + nameTask);
+            }});
+
+            loadFile(nameTask);
+
+            mHandler.post(new Runnable() { @Override public void run() {
+                    Log.e(TAG, nameTask + "-> Finalizado: " + nameTask);
+                }
+            });
+
+
+        }
+
+
+
+
+        private void loadFile(String nametask) {
+            Log.e("LOADR","M/loadFile/"+nametask+"->Carregando json..." + nametask);
+
+        }
+
+
+        private void saveFile(String nametask) {
+            Log.e("LOADR","M/saveFile/"+nametask+"->Salvando json..." + nametask);
+
+        }
+
+
+        
     }
-    */
+
+
 
 
 }
