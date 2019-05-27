@@ -1,10 +1,8 @@
-Commit V5 = MVP da aplicação 1.0
--> com telas dinamicas, integracao API, arquitetura, contraintLayout, RecycleView
-
+Commit V6 = MVP da aplicação 1.0.1
 //@TODO1: criar PDF da tela de investimento;
-//@TODO2: melhorar testes;
-//@TODO3: melhorar arquitetura clean MVP;
-//@TODO4: melhorar formatação do telefone;
+//@TODO2: criar sharedPreferences após "enviar"
+//@TODO3: ajustar estrutura do app
+
 
 
 1. para rodar a aplicação, clone o a aplicaçao na linha de comando?

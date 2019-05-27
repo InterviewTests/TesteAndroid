@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.alessandrofsouza.santanderapp.R;
 import com.example.alessandrofsouza.santanderapp.model.Infos;
@@ -32,7 +33,7 @@ class ListaInfoAdapter extends RecyclerView.Adapter<ListaInfoAdapter.ViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         Infos info = dataSet.get(position);
         Resources res = holder.itemView.getContext().getResources();
 
@@ -46,6 +47,12 @@ class ListaInfoAdapter extends RecyclerView.Adapter<ListaInfoAdapter.ViewHolder>
         } else {
             holder.info_content.setAlpha(0);
             holder.buttonDown.setText(res.getText(R.string.baixar));
+            holder.buttonDown.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(holder.itemView.getContext(), "Serviço indisponivel no momento", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 

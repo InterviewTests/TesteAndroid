@@ -2,18 +2,15 @@ package com.example.alessandrofsouza.santanderapp.adapter;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.os.Build;
+import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
-import android.telephony.PhoneNumberUtils;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.util.Patterns;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,28 +24,53 @@ import com.example.alessandrofsouza.santanderapp.model.Cell;
 import com.example.alessandrofsouza.santanderapp.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.ViewHolder> {
 
+    private static final String TAG = "Santander ";
+
     private FragmentCommunication mListener;
     private ArrayList<Cell> dataSet;
-    private static final String TAG = "Santander ";
-    View view;
-    public CheckBox checkBox;
+
     public TextInputEditText editTextName;
     public TextInputEditText editTextMail;
     public TextInputEditText editTextPhone;
-    TextInputLayout editLayout;
-    Context context;
-    private int textlength = 0;
-    int length_before = 0;
-    int MAX_SIZE = 14;
+    public TextInputLayout editLayout;
 
+    public CheckBox checkBox;
     public boolean checkCheckbox = false;
-    public boolean checkEmail = false;
-    public boolean checkName = false;
-    public boolean checkPhone = false;
+
+    private int textlength = 0;
+    private int length_before = 0;
+    private int MAX_SIZE = 13;
+    private View view;
+    private Context context;
+    private Resources res;
+
+    private static final Pattern EMAIL_PATTERN = Pattern.compile(
+            ("[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                    "\\@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                    ")+")
+    );
+
+    private static final Pattern NAME_PATTERN = Pattern.compile(
+            "^[a-zA-Z]+(?:[\\s.]+[a-zA-Z]+)*$"
+    );
+
+    private static final Pattern PHONE8_PATTERN = Pattern.compile(
+            "^[+]?[0-9]{10}$"
+    );
+
+    private static final Pattern PHONE9_PATTERN = Pattern.compile(
+            "^[+]?[0-9]{11}$"
+    );
+
+
 
     public ListaCellAdapter(FragmentCommunication listener) {
         dataSet = new ArrayList<>();
@@ -88,8 +110,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         final Cell cell = dataSet.get(position);
-        Resources res = holder.itemView.getContext().getResources();
-
+        res = holder.itemView.getContext().getResources();
 
         if (holder instanceof ViewHolder) {
             ViewHolder rowHolder = (ViewHolder) holder;
@@ -105,6 +126,7 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                         holder.textInputEditText.setInputType(InputType.TYPE_CLASS_TEXT);
                         holder.textInputEditText.setText(dataSet.get(position).getEditTextValue());
                         editTextName = holder.textInputEditText;
+                        final String name = editTextName.getText().toString();
 
                         editTextName.addTextChangedListener(new TextWatcher() {
                             @Override
@@ -112,12 +134,16 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
 
                             @Override
                             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                                dataSet.get(position).setEditTextValue(editTextName.getText().toString());
-                                validateName();
+                                //dataSet.get(position).setEditTextValue(editTextName.getText().toString());
+                                validateName(name);
+                                styleNameField();
                             }
 
                             @Override
-                            public void afterTextChanged(Editable editable) {}
+                            public void afterTextChanged(Editable editable) {
+                                validateName(name);
+                                styleNameField();
+                            }
                         });
 
 
@@ -125,40 +151,54 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                         holder.textInputEditText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
                         editLayout = (TextInputLayout) holder.textInputLayout;
                         editTextMail = (TextInputEditText) holder.textInputEditText;
+                        //editTextMail.addTextChangedListener(emailValidator);
+                        //dataSet.get(position).setEditTextValue(editTextMail.getText().toString());
+                        final String mail = editTextMail.getText().toString();
 
                         editTextMail.addTextChangedListener(new TextWatcher() {
                             @Override
-                            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+                            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
 
                             @Override
                             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                                dataSet.get(position).setEditTextValue(editTextMail.getText().toString());
-                                validateEmail();
+                                validateEmail(mail);
+                                styleEmailField();
                             }
 
                             @Override
-                            public void afterTextChanged(Editable editable) {}
+                            public void afterTextChanged(Editable editable) {
+                                validateEmail(mail);
+                                styleEmailField();
+                            }
                         });
+
 
                     } else if (cell.getTypefield().equals(String.valueOf(Utils.TYPEFIELD_TELNUMBER_T))) {
                         holder.textInputEditText.setInputType(InputType.TYPE_CLASS_PHONE);
                         editTextPhone = (TextInputEditText) holder.textInputEditText;
+                        final String phone = editTextPhone.getText().toString();
 
                         editTextPhone.addTextChangedListener(new TextWatcher() {
                             @Override
                             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                                 length_before = charSequence.length();
+                                //validatePhone();
                             }
 
                             @Override
                             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                                dataSet.get(position).setEditTextValue(editTextPhone.getText().toString());
+                                //dataSet.get(position).setEditTextValue(editTextPhone.getText().toString());
+                                //validatePhone();
+                                formatPhone();
+                                validatePhone(phone);
+                                stylePhoneField();
                             }
 
                             @Override
                             public void afterTextChanged(Editable editable) {
-                                formatPhone(editable);
-                                validatePhone();
+                                formatPhone();
+                                validatePhone(phone);
+                                stylePhoneField();
                             }
                         });
                     }
@@ -169,6 +209,24 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                     holder.roundedButton.setPadding(0, cell.getTopSpacing(), 0, cell.getTopSpacing());
                     holder.roundedButton.setOnClickListener(holder);
                     holder.roundedButton.setVisibility(cell.isHidden() ? View.GONE : View.VISIBLE);
+
+                    /*
+                    holder.roundedButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            if (!emailValidator.isValid()) {
+                                editTextMail.setError("Erro: "+emailValidator.textValidatorEmailReturn);
+                                Log.w(TAG, "Erro: "+emailValidator.textValidatorEmailReturn);
+                                checkEmail = false;
+                                return;
+                            } else {
+                                checkEmail = true;
+                            }
+                        }
+                    });
+                    */
+
                     break;
 
                 case Utils.TYPE_CHECKBOX:
@@ -185,10 +243,10 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
                         public void onClick(View v) {
 
                             if(checkBox.isChecked()) {
-                                checkPhone = true;
+                                checkCheckbox = true;
                                 editLayout.setVisibility(View.VISIBLE);
                             } else {
-                                checkPhone = false;
+                                checkCheckbox = false;
                                 editLayout.setVisibility(View.GONE);
                             }
                         }
@@ -212,7 +270,68 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
         }
     }
 
-    public void formatPhone(Editable e) {
+
+
+
+
+    public static boolean validateName(CharSequence name) {
+        return name != null && NAME_PATTERN.matcher(name).matches();
+    }
+
+    public boolean styleNameField() {
+        String nameInput = editTextName.getText().toString().trim();
+
+        if (nameInput.isEmpty()) {
+            editTextName.setError("Nome não pode esta vázio");
+            editTextName.getBackground().mutate().setColorFilter(res.getColor(R.color.santanderRed), PorterDuff.Mode.SRC_ATOP);
+            return false;
+
+        } else if (!NAME_PATTERN.matcher(nameInput).matches()) {
+            editTextName.setError("Nome não ter numeros ou caracters especiais");
+            editTextName.getBackground().mutate().setColorFilter(res.getColor(R.color.santanderRed), PorterDuff.Mode.SRC_ATOP);
+            return false;
+        } else {
+            editTextName.setError(null);
+            editTextName.getBackground().mutate().setColorFilter(res.getColor(R.color.santanderCorrect), PorterDuff.Mode.SRC_ATOP);
+            return true;
+        }
+    }
+
+
+
+
+
+
+
+    public static boolean validateEmail(CharSequence email) {
+        return email != null && EMAIL_PATTERN.matcher(email).matches();
+    }
+
+    public boolean styleEmailField() {
+        String emailInput = editTextMail.getText().toString().trim();
+
+        if (emailInput.isEmpty()) {
+            editTextMail.setError("E-mail não pode esta vázio");
+            editTextMail.getBackground().mutate().setColorFilter(res.getColor(R.color.santanderRed), PorterDuff.Mode.SRC_ATOP);
+            return false;
+
+        } else if (!EMAIL_PATTERN.matcher(emailInput).matches()) {
+            editTextMail.setError("Favor insira um E-mail válido");
+            editTextMail.getBackground().mutate().setColorFilter(res.getColor(R.color.santanderRed), PorterDuff.Mode.SRC_ATOP);
+            return false;
+
+        } else {
+            editTextMail.setError(null);
+            editTextMail.getBackground().mutate().setColorFilter(res.getColor(R.color.santanderCorrect), PorterDuff.Mode.SRC_ATOP);
+            return true;
+        }
+    }
+
+
+
+
+
+    public void formatPhone() {
         textlength = editTextPhone.getText().length();
         String text = editTextPhone.getText().toString();
         StringBuilder sb = new StringBuilder(text);
@@ -231,22 +350,22 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
 
         } else if (textlength == 4) {
             if (!text.contains(")")) {
-                editTextPhone.setText(sb.insert(text.length() - 1, ") ").toString());
+                editTextPhone.setText(sb.insert(text.length() - 1, ")").toString());
                 editTextPhone.setSelection(editTextPhone.getText().length());
             }
 
-        } else if (textlength == 10) {
-            int i = 5;
+        } else if (textlength == 9) {
+            int i = 4;
             if (String.valueOf(sb.charAt(i)).equals(9) || String.valueOf(sb.charAt(i)).equals("9")) {
-                MAX_SIZE = 15;
-                if (!text.contains("-")) {
-                    editTextPhone.setText(sb.insert(10, "-").toString());
-                    editTextPhone.setSelection(editTextPhone.getText().length());
-                }
-            } else {
                 MAX_SIZE = 14;
                 if (!text.contains("-")) {
                     editTextPhone.setText(sb.insert(9, "-").toString());
+                    editTextPhone.setSelection(editTextPhone.getText().length());
+                }
+            } else {
+                MAX_SIZE = 13;
+                if (!text.contains("-")) {
+                    editTextPhone.setText(sb.insert(8, "-").toString());
                     editTextPhone.setSelection(editTextPhone.getText().length());
                 }
             }
@@ -259,74 +378,50 @@ public class ListaCellAdapter extends RecyclerView.Adapter<ListaCellAdapter.View
         }
     }
 
-
-    public boolean validateName() {
-        String nameInput = editTextName.getText().toString().trim();
-        if (nameInput.isEmpty()) {
-            editTextName.setError("Nome não pode esta vázio");
-            return false;
-
-        } else if (!nameInput.matches("^[a-zA-Z]+(?:[\\s.]+[a-zA-Z]+)*$")) {
-            editTextName.setError("Nome não ter numeros ou caracters especiais");
-            return false;
-        } else {
-            checkName = true;
-            return true;
-        }
-
+    public static boolean validatePhone(CharSequence phone) {
+        return phone != null && PHONE8_PATTERN.matcher(phone).matches() || phone != null && PHONE9_PATTERN.matcher(phone).matches();
     }
 
-    public boolean validateEmail() {
-        String emailInput = editTextMail.getText().toString().trim();
-
-        if (emailInput.isEmpty()) {
-            editTextMail.setError("E-mail não pode esta vázio");
-            return false;
-
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
-            editTextMail.setError("Favor insira um E-mail válido");
-            return false;
-
-        } else {
-            editTextMail.setError(null);
-            checkEmail = true;
-            return true;
-        }
-    }
-
-    public boolean validatePhone() {
+    public boolean stylePhoneField() {
         String phoneInput = editTextPhone.getText().toString().trim();
         String phoneNumbers = phoneInput.replaceAll("[^\\d]", "");
-        Log.i(TAG, String.valueOf(phoneInput));
 
         if (phoneNumbers.isEmpty()) {
             editTextPhone.setError("telefone não pode esta vázio");
+            editTextPhone.getBackground().mutate().setColorFilter(res.getColor(R.color.santanderRed), PorterDuff.Mode.SRC_ATOP);
             return false;
 
-        } else if (MAX_SIZE == 14) {
-            if(!phoneNumbers.matches("^[+]?[0-9]{10}$")) {
+        } else if (MAX_SIZE == 13) {
+            if (!PHONE8_PATTERN.matcher(phoneNumbers).matches()) {
                 editTextPhone.setError("Favor insira um telefone válido");
+                editTextPhone.getBackground().mutate().setColorFilter(res.getColor(R.color.santanderRed), PorterDuff.Mode.SRC_ATOP);
                 return false;
+
             } else {
-                checkPhone = true;
+                editTextPhone.getBackground().mutate().setColorFilter(res.getColor(R.color.santanderCorrect), PorterDuff.Mode.SRC_ATOP);
                 return true;
             }
 
-        } else if (MAX_SIZE == 15) {
-            if(!phoneNumbers.matches("^[+]?[0-9]{11}$")) {
+        } else if (MAX_SIZE == 14) {
+            if (!PHONE9_PATTERN.matcher(phoneNumbers).matches()) {
                 editTextPhone.setError("Favor insira um telefone válido");
+                editTextPhone.getBackground().mutate().setColorFilter(res.getColor(R.color.santanderRed), PorterDuff.Mode.SRC_ATOP);
                 return false;
+
             } else {
-                checkPhone = true;
+                editTextPhone.getBackground().mutate().setColorFilter(res.getColor(R.color.santanderCorrect), PorterDuff.Mode.SRC_ATOP);
                 return true;
             }
 
         } else {
             editTextPhone.setError(null);
-            checkPhone = true;
             return true;
         }
     }
+
+
+
+
 
 
     @Override

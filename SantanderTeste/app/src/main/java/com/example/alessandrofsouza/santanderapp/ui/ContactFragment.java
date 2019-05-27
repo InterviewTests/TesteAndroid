@@ -20,8 +20,6 @@ import com.example.alessandrofsouza.santanderapp.model.ContactModel;
 import com.example.alessandrofsouza.santanderapp.service.ApiService;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,6 +43,9 @@ public class ContactFragment extends Fragment {
     public TextInputEditText textInputEditText;
 
     FragmentCommunication fragmentCommunication;
+
+    private boolean isSending = false;
+
 
 
     @Override
@@ -75,31 +76,38 @@ public class ContactFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
 
+
         fragmentCommunication = new FragmentCommunication() {
+
             @Override
             public void respond(View view, int position) {
-            switch (position) {
-                case 5:
-                    if (listaCellAdapter.checkName && listaCellAdapter.checkPhone && !listaCellAdapter.checkCheckbox) {
-                        layout1.setVisibility(View.GONE);
-                        layout2.setVisibility(View.VISIBLE);
+                switch (position) {
+                    case 5:
 
-                        if (listaCellAdapter.checkCheckbox && listaCellAdapter.checkEmail && listaCellAdapter.checkName && listaCellAdapter.checkPhone ||
-                            !listaCellAdapter.checkCheckbox && listaCellAdapter.checkName && listaCellAdapter.checkPhone) {
-                            listaCellAdapter.editTextMail.setText(null);
-                            listaCellAdapter.editTextName.setText(null);
-                            listaCellAdapter.editTextPhone.setText(null);
-                            listaCellAdapter.checkBox.setChecked(false);
+                        if (listaCellAdapter.styleNameField() && listaCellAdapter.stylePhoneField() && listaCellAdapter.checkCheckbox && listaCellAdapter.styleEmailField() ||
+                            listaCellAdapter.styleNameField() && listaCellAdapter.stylePhoneField() && !listaCellAdapter.checkCheckbox) {
+                            layout1.setVisibility(View.GONE);
+                            layout2.setVisibility(View.VISIBLE);
+                            isSending = true;
 
+
+                            if (isSending) {
+                                listaCellAdapter.editTextMail.setText(null);
+                                listaCellAdapter.editTextName.setText(null);
+                                listaCellAdapter.editTextPhone.setText(null);
+                                listaCellAdapter.checkBox.setChecked(false);
+                                listaCellAdapter.editLayout.setVisibility(View.GONE);
+                            }
                         }
-                    }
-                    break;
-            }
+
+                        break;
+                }
             }
         };
 
         listaCellAdapter = new ListaCellAdapter(fragmentCommunication);
         recyclerView.setAdapter(listaCellAdapter);
+
     }
 
 
