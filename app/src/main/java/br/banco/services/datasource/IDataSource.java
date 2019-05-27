@@ -6,7 +6,7 @@ public interface IDataSource {
 
    // public String loadData(Context context);
 
-    void onCompleted(String output);
+    void onCompleted(String output); //onCompletedTask
     void onErrorTask(String output);
     void onNextTask(String output);
 
