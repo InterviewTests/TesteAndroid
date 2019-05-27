@@ -4,32 +4,37 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import br.banco.services.contact.domain.ContactForm;
 
 public interface ILoad {
 
 
-
-
     interface Presenter {
 
-        void onLoadData(Bundle savedInstanceState, Context context);
-        void onCompleted(ContactForm fom, int message) ;
-        void onErrorTask(int message);
+        void onLoadTask(Bundle savedInstanceState, Context c);
+        void onCompletedTask(String output) ;
+        void onErrorTask(String message, int code);
     }
 
     interface Model{
 
-        void loadData(ContactForm form, Context context);
-        void saveData(ContactForm form, Context context);
-        void clearData(ContactForm form, Context context);
+        //void loadData(ArrayList<ContactForm> list, Context c);
+        String loadData(String area, Context c);
+       // void saveData(ContactForm form, Context c);
+       // void clearData(ContactForm form, Context c);
+         void onCompletedData(boolean status, Context context);
+
+
     }
 
     interface Views{
 
-        void updateAlertView(int msgCode);
+        void onErrorView(int msgCode);
+        void onSuccessView(Context context, String local);
+        void showProgressBar();
         void hideProgressBar();
-        // loadContent();
     }
 
 
