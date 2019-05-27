@@ -13,7 +13,7 @@ import br.banco.services.contact.domain.ContactForm;
 public class LoadPresenter  implements ILoad.Presenter {
 
     public final String TAG = "LOADR";
-     private WeakReference<Context> contextRef;
+    // private WeakReference<Context> contextRef;
 
      public ILoad.Model2 model;
      public ILoad.Views views;
@@ -43,43 +43,22 @@ public class LoadPresenter  implements ILoad.Presenter {
 
 
     public void onLoadTask(Bundle savedInstanceState, Context c) {
-        RX.onMessage(TAG, "P/onLoadTask", c );
 
         this.context = c;
-
-        // task
-       // model.loadData(APLICATION_AREA, c);
-        // ((LoadModel) model).setView(this);
-       // this.context = c;
-        //contextRef = new WeakReference<>(c);
-
-      //  presenter.updateAlertView(1);
-
-
-
+        RX.onMessage(TAG, "P/onLoadTask/context", context);
+        model.onStartLoad(c);
     }
 
     @Nullable
     public void onCompletedTask(String ouput) {
 
-         //msgCode = 1;
-
-        RX.onMessage(TAG, "P/onCompletedTask", context );
-
-
-         //contextRef = new WeakReference<>(context);
-         //views.updateAlertView(1, null);
 
         if(views!=null){
-
-            RX.onMessage(TAG, "P/onCompletedTask/SUCESSO/", context );
+            RX.onMessage(TAG, "P/onCompletedTask/SUCESSO/", (context) );
             views.onSuccessView(ouput);
-
         }else{
-
-            RX.onMessage(TAG, "P/onCompletedTask/SUCESSO/", context );
+            RX.onMessage(TAG, "P/onCompletedTask/ERRO/", (context) );
         }
-
 
     }
 
@@ -103,7 +82,7 @@ public class LoadPresenter  implements ILoad.Presenter {
 
     public void setView(ILoad.Views views){
         this.views = views;
-        contextRef = new WeakReference<>(getContext());
+       // contextRef = new WeakReference<>(getContext());
     }
 
     public Context getContext() {
