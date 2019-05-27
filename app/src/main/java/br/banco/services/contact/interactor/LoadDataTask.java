@@ -30,6 +30,7 @@ public class LoadDataTask  extends AsyncTask<String, Void, String> {
 
     public LoadDataTask(Context c) {
 
+
         contextRef = new WeakReference<>(c);
         repository = new DataRepository(c);
 
