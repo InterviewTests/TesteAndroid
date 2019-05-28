@@ -12,14 +12,18 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -35,12 +39,17 @@ public class LoadModel implements ILoad.Model2  {
 
     final String TAG = "LOADR";
 
+    /**
+     *  loadData > JsonToList
+     *
+     */
+
 
     public ExecutorService executor;
     public ControlTasks mThread;
     public Handler mHandler;
     final int TOTAL_TASK = 1;
-    final int TOTAL_TIME = 10000; // 10s
+    final int TOTAL_TIME = 30000; // 30s
     private String ACTUAL_TASK;
 
 
@@ -123,6 +132,7 @@ public class LoadModel implements ILoad.Model2  {
         mHandler = new Handler();
         mThread = new ControlTasks(TOTAL_TASK);
         mThread.start();
+        Log.e(TAG, "M/initThread/context:" + (context!=null)  );
 
     }
 
@@ -136,10 +146,13 @@ public class LoadModel implements ILoad.Model2  {
         public void run() {
             executor =  Executors.newSingleThreadExecutor();
             for (int i = 1; i <= numTasks; i++) {
-                Runnable RemoteTasks = new RemoteTasks("task" +i, 2);
-                executor.submit(RemoteTasks);
+                Runnable QueueTasks = new QueueTasks("task" +i, 2);
+                executor.submit(QueueTasks);
             }
             executor.shutdown();
+            
+            
+            
             while (!executor.isTerminated()) {
                 try {
                     Thread.sleep(TOTAL_TIME);
@@ -162,10 +175,10 @@ public class LoadModel implements ILoad.Model2  {
 
 
 
-    private class RemoteTasks implements Runnable {
+    private class QueueTasks implements Runnable {
         private int numLoops;
         private String nameTask;
-        public RemoteTasks(String nameTask, int loops) {
+        public QueueTasks(String nameTask, int loops) {
             this.nameTask = nameTask;
             numLoops = loops;
         }
@@ -180,12 +193,22 @@ public class LoadModel implements ILoad.Model2  {
             });
         }
 
+
+        /**
+         *  0 - > loadData >
+         *  1 - > converte List em String
+         *  2 - > Converte String em Map
+         *  3 - > Salva em Pref
+         *
+         */
+
+
         public String loadData(String area) {
-            Log.e("LOADR","M/loadFile/"+ACTUAL_TASK+"->Carregando json..." + area);
+            Log.e("LOADR","M/loadData/"+ACTUAL_TASK+"->Carregando json..." + area);
 
 
             //SERVER_URL =  new ConfigServers().getDataServer(area);
-            SERVER_URL = "http://www.issam.com.br/lab/acento/cels1.txt";
+            SERVER_URL = "http://www.issam.com.br/lab/acento/cells.txt";
 
             try {
                 URL url = new URL(SERVER_URL);
@@ -197,18 +220,11 @@ public class LoadModel implements ILoad.Model2  {
                 while ((line = buffer.readLine()) != null) {
 
                     SB.append(line);
-                    // Log.d(TAG, "" + line);
+                       // Log.d(TAG, "" + line);
                 }
                 buffer.close();
 
-                /**
-                 *
-                 *  salvar json, converter em map, salvar prefs
-                 *
-                 */
-
-                        FILE_DATA = SB.toString();
-
+                 FILE_DATA = SB.toString();
 
             } catch (Exception e) {
                // errorData( "", 4);
@@ -217,31 +233,101 @@ public class LoadModel implements ILoad.Model2  {
             }
 
 
-
+            gsonToList(FILE_DATA);
 
             return FILE_DATA;
         }
 
 
-        public HashMap<String, String> createMap(List<Produto> list){
-            HashMap<String, String> map = new HashMap<>();
-            Log.d(TAG, "M/createMap/list/" + (list != null) );
 
-            if(list.size()>0) {
 
-                for (Produto conteudo : list) {
-                    map.put("getId","" + conteudo.getId());
-                    map.put("getMessage", conteudo.getMessage());
-                    //Log.d(TAG, "NOME = " + conteudo.getNome());
-                    //Log.d(TAG, "CODIGO = " + conteudo.getCodigo());
-                }
-            }else {
-                Log.d(TAG, "#erro ao criar mapa->" + (list.size()));
+        public List<Produto> gsonToList(String listStr){
+
+            if(listStr==null){return null;}
+            if(listStr.length() >  2000 ){return null;}
+
+            Log.e(TAG, "M/gsonToList/listStr=" + listStr.length());
+
+            List<Produto> list = new ArrayList<Produto>();
+
+            try {
+
+                Gson GS = new Gson();
+                ResponseJson response = new ResponseJson();
+                response = GS.fromJson(listStr, ResponseJson.class);
+                Log.e(TAG, "M/gsonToList/response="+(response.getAndroid().size())+" / " + response.getAndroid().get(0).getMessage() );
+
+                list = response.getAndroid();
+
+                //Log.e(TAG, "M/gsonToList/" + listStr.length());
+
+            }
+            catch (JsonParseException ep) {
+               Log.e(TAG, "M/gsonToList/JsonParseException=" + ep);
+            }
+            catch (IndexOutOfBoundsException eb) {
+                Log.e(TAG, "M/gsonToList/IndexOutOfBoundsException=" + eb);
+            }
+            catch (Exception ex) {
+                Log.e(TAG, "M/gsonToList/Exception=" + ex);
             }
 
-            saveData(map);
+
+           gsonToMap(list);
+
+            return list;
+        }
+
+
+        public HashMap<String, String> gsonToMap(List<Produto> list) {
+
+            HashMap<String, String> map = new HashMap<>();
+            if(list==null){return null;}
+            if(!(list.size() == 6)){return null;}
+
+            try {
+
+                Gson gson;
+                Type type;
+                String gsonToStr;
+
+                for(int i=0; i<list.size(); i++){
+                    gson = new Gson();
+                    type = new TypeToken<Map<String, String>>(){}.getType();
+
+                    gsonToStr = gson.toJson(list.get(i));
+                    Map<String, String> strToMap = gson.fromJson(gsonToStr, type);
+
+                    //Log.e(TAG, "M/gsonToMap/list=" + gsonToStr);
+                    Log.e(TAG, "--- elmento " +i+"--- ");
+
+                    for (Map.Entry<String, String> entry : strToMap.entrySet()) {
+
+                        //Log.e(TAG, "M/gsonToMap/strToMap=" + entry.getKey() + "=" + entry.getValue());
+                    }
+
+                }
+
+
+            }
+
+            catch (JsonParseException ep) {
+                Log.e(TAG, "M/gsonToMap/parser=" + ep);
+            }
+            catch (IndexOutOfBoundsException eb) {
+                Log.e(TAG, "M/gsonToMap/bound=" + eb);
+            }
+            catch (Exception ex) {
+                Log.e(TAG, "M/gsonToMap/ecep=" + ex);
+            }
             return map;
         }
+
+
+
+
+
+
 
         public boolean saveData(HashMap<String, String> createMap){
 
