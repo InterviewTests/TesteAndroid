@@ -6,41 +6,41 @@ android:layout_height="match_parent"
 android:layout_margin="16dp"
 android:orientation="vertical">
 
-
-
-        <TextView
-            android:id="@+id/tvTest"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="HELLO MART!"
-            android:textColor="@color/colorDark"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
         <Button
             android:id="@+id/btTest"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:text="HELLO MART!"
             android:textColor="@color/colorDark"
             android:textSize="18sp"
             android:textStyle="bold" />
 
 
+        <ScrollView
+            android:id="@+id/testScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:orientation="vertical" >
 
-<!--
 
-    <ScrollView
-        android:id="@+id/testScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:orientation="vertical" >
+                <TextView
+                    android:id="@+id/tvTest"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="HELLO MART!"
+                    android:textColor="@color/colorDark"
+                    android:textSize="18sp"
+                    android:lines="50"
+                    android:textStyle="normal" />
+
+
 
     </ScrollView>
 
 
--->
+        <!--
+        -->
 
 
 </LinearLayout>

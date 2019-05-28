@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 import br.banco.services.app.utils.ReactAplication;
@@ -27,7 +26,7 @@ public class LoadPresenter  implements ILoad.Presenter {
 
      public LoadPresenter(){
 
-        model = new LoadModel2(this);
+        model = new LoadModel(this);
        // this.context =
 
      }

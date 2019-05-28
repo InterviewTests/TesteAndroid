@@ -16,8 +16,6 @@ import br.banco.services.app.config.ConfigServers;
 import br.banco.services.app.utils.ReactAplication;
 import br.banco.services.contact.ILoad;
 import br.banco.services.contact.LoadModel;
-import br.banco.services.contact.LoadPresenter;
-import br.banco.services.datasource.remote.RestTask;
 
 public class DataRepository implements IDataSource {
 

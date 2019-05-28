@@ -9,6 +9,7 @@ package br.banco.services.contact;
 
  import android.content.Context;
  import android.content.Intent;
+ import android.content.SharedPreferences;
  import android.graphics.Color;
  import android.os.Bundle;
  import android.support.constraint.ConstraintLayout;
@@ -27,6 +28,8 @@ package br.banco.services.contact;
 
  import java.io.Serializable;
  import java.util.ArrayList;
+ import java.util.List;
+ import java.util.Map;
 
  import br.banco.services.R;
  import br.banco.services.app.utils.CharacterCheck;
@@ -111,7 +114,17 @@ package br.banco.services.contact;
            boolean pref = false;
 
            formPreferences = new FormPreferences(context);
-           String Nome = formPreferences.getSPFullName();
+           //String Nome = formPreferences.getSPFullName();
+           SharedPreferences prefs = getSharedPreferences("contact_form_text", MODE_PRIVATE);
+
+
+           Map<String,?> map = prefs.getAll();
+
+          // Log.e(map.get())
+          // List<FormPreferences> list = new ArrayList<FormPreferences>(map.g);
+
+
+
 
            vFullName.setText("AAA");
            vEmail.setText("BBB");

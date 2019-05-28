@@ -1,17 +1,17 @@
 package br.banco.services.contact;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -23,361 +23,244 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import br.banco.services.R;
 import br.banco.services.app.config.ConfigServers;
-import br.banco.services.app.utils.ReactAplication;
-import br.banco.services.contact.domain.ContactForm;
 import br.banco.services.contact.domain.Produto;
 import br.banco.services.contact.domain.ResponseJson;
-import br.banco.services.datasource.DataRepository;
 import br.banco.services.datasource.local.contact.FormPreferences;
-import br.banco.services.datasource.local.contact.UserPreferences;
 
-public class LoadModel {  //implements ILoad.Model
+import static android.content.Context.MODE_PRIVATE;
 
-   private WeakReference<Context> contextRef;
-   public final String TAG = "LOADR";
+public class LoadModel implements ILoad.Model2  {
 
-   public static ILoad.Presenter presenter;
-   public DataRepository repository;
-   public Context context;
-
-   private String SERVER_URL;
-   private String FILE_DATA;
-
-    public Handler handler;
-    public Runnable runnable;
+    final String TAG = "LOADR";
 
 
-    public ArrayList<Produto> produtos = new ArrayList<Produto>();
+    public ExecutorService executor;
+    public ControlTasks mThread;
+    public Handler mHandler;
+    final int TOTAL_TASK = 1;
+    final int TOTAL_TIME = 10000; // 10s
+    private String ACTUAL_TASK;
+
+
+    //private WeakReference<Context> contextRef;
+
+    public static SharedPreferences preferences;
+    public static ILoad.Presenter presenter;
+    public FormPreferences prefs;
+
+    private String SERVER_URL;
+    private String FILE_DATA;
+    private String APP_AREA;
+    public Context context;
+
     public HashMap<String, String> listItens;
-
-   ReactAplication RX = new ReactAplication();
-
-   ContactForm form;
 
 
     public LoadModel(ILoad.Presenter presenter){
 
-     this.presenter = presenter;
+        this.presenter = presenter;
 
+        //
 
-    // form = new ContactForm();
+        //this.getSharedPreferences( getPackageName() + "_preferences", MODE_PRIVATE);
+       // preferences = getSharedPreferences( getPackageName() + "_preferences", MODE_PRIVATE);
 
-     // presenter = new LoadPresenter()
-       //contextRef = new WeakReference<>(presenter.g);
-
-      //RX.onNext("[context=" + (context!=null) +"]" );
-      //this.context = presenter.getContext();
-
-
-
-
-   }
-
-    public String loadData2(String area, Context context){
-
-       this.context = context;
-       final String fileStr;
-       SERVER_URL =  new ConfigServers().getDataServer(area);
-
-       SERVER_URL = "http://www.issam.com.br/lab/acento/produto3.txt";
-       RX.onMessage(TAG, "M/loadData / SERVER_URL=" + SERVER_URL +" / " , context );
-
-
-
-        handler = new Handler();
-        runnable = new Runnable() {
-            @Override
-            public void run() {
-
-        try {
-
-           URL url = new URL(SERVER_URL);
-           StringBuilder SB = new StringBuilder();
-           BufferedReader buffer = new BufferedReader(
-                   new InputStreamReader(url.openStream()));
-           // Log.d(TAG, "buffer = " + (buffer!=null));
-           String line = null;
-           while ((line = buffer.readLine()) != null) {
-
-               SB.append(line);
-               // Log.d(TAG, "" + line);
-           }
-           buffer.close();
-
-
-           FILE_DATA = SB.toString();
-
-           Gson GS = new Gson();
-
-           ResponseJson response = new ResponseJson();
-           response = GS.fromJson(FILE_DATA, ResponseJson.class);
-
-           List<Produto> listaArray = new ArrayList<Produto>();
-           //listaArray = (new ResponseJson().getAndroid());
-
-           listaArray = response.getAndroid();
-
-           //createMap(new ResponseJson().getAndroid());
-           //createMap(listaArray);
-
-
-           Log.d(TAG, "M/loadData/Handler/" + listaArray.size() );
-
-           // errorData( "", 4);
-           // savetData(FILE_DATA);
-
-
-
-           } catch (Exception e) {
-
-               errorData( "", 4);
-               //nextData(area);
-
-               Log.d(TAG, "Erro ao carregar arquivo!" + (e));
-           }
-
-
-
-            }
-        };
-        // handler.post(runnable);
-        handler.removeCallbacks(runnable);
-       // Looper myLooper = Looper.myLooper();
-        //if (myLooper!=null) {
-           // myLooper.quit();
-            //handler.getLooper().quit();
-       // }
-
-
-
-       fileStr = FILE_DATA;
-       return fileStr;
-   }
-
-    public HashMap<String, String> createMap(List<Produto> list){
-        HashMap<String, String> map = new HashMap<>();
-
-        if(list.size()>0) {
-
-            for (Produto conteudo : list) {
-                map.put("nome", conteudo.getNome());
-                map.put("codigo", conteudo.getCodigo());
-                //Log.d(TAG, "NOME = " + conteudo.getNome());
-                //Log.d(TAG, "CPDOGP = " + conteudo.getCodigo());
-            }
-        }
-        saveData(map);
-        return map;
-    }
-
-    public boolean saveData(HashMap<String, String> createMap){
-
-         boolean saveFile = false;
-         listItens = createMap;
-
-
-        handler = new Handler();
-        runnable = new Runnable() {
-            @Override
-            public void run() {
-                new FormPreferences(context).onEdit(listItens, context);
-            }
-        };
-        // handler.post(runnable);
-        handler.removeCallbacks(runnable);
-
-
-
-        FormPreferences pref = new FormPreferences(context);
-        saveFile = pref.isSPStart();
-
-        Log.d(TAG, "Arquivo Salvo com sucesso! " + saveFile);
-
-        onCompletedData( saveFile, context);
-
-
-        return  saveFile;
-    }
-
-
-
-    public String loadData(String area, Context context) {
-      String teste = "1";
-
-
-        Log.e(TAG,"antes..aaaaa.....");
-
-
-        ExecutorService exec = Executors.newSingleThreadExecutor();
-
-
-
-        return  teste;
 
     }
 
 
 
-
-        /**
-         *
-         *
-         * verifica as pefs locais
-         *
-         *
-         */
+    /**
+     *  status das mensagens gerais
+     */
 
 
+    public void onStartLoad(Context c){
 
-    public void errorData(String message, int msgCode){
+        this.context = c;
+        Log.e(TAG, "M/onStartLoad/context:" + (context!=null)  );
+        initThread();
+    }
 
-        presenter.onCompletedTask(message);
+    public void onCompleted(Boolean message, Context context){
+
 
     }
 
+    public void onError(String message, int code){
 
-    public void onCompletedData(boolean status, Context context){
 
-        if(status){
+    }
 
-            presenter.onErrorTask("",2);
+    public void onNext(String message, int code){
+
+        if(context!=null) {
+            FormPreferences pref = new FormPreferences(context);
 
         }else{
 
-            presenter.onErrorTask("",2);
-
         }
 
-        //RX.onNext("[context=" + (context!=null) +"]" );
-        // presenter.onCompleted( form, 1);
+        //boolean usPref = pref.isSPStart();
 
-   }
+        Log.d(TAG, "M/onNext/FormPreferences/context:"+(context!=null));
+       // presenter.onCompletedTask("");
 
-
-    public void clearData(ContactForm form, Context context){
-
-
-   }
-
-
-
-
-
-
-    public void setView(ILoad.Presenter p){
-        this.presenter = p;
-       // contextRef = new WeakReference<>(getContext());
     }
 
-    public Context getContext() {
-        return (Context) presenter;
+
+    /**
+     *
+     *  caregamento web e local
+     *
+     */
+
+
+    private void initThread() {
+
+        mHandler = new Handler();
+        mThread = new ControlTasks(TOTAL_TASK);
+        mThread.start();
+
     }
+
+    private class ControlTasks extends Thread {
+        private int numTasks;
+
+        public ControlTasks(int tasks) {
+            this.numTasks = tasks;
+        }
+        @Override
+        public void run() {
+            executor =  Executors.newSingleThreadExecutor();
+            for (int i = 1; i <= numTasks; i++) {
+                Runnable RemoteTasks = new RemoteTasks("task" +i, 2);
+                executor.submit(RemoteTasks);
+            }
+            executor.shutdown();
+            while (!executor.isTerminated()) {
+                try {
+                    Thread.sleep(TOTAL_TIME);
+                } catch (Exception e) {
+                    Log.e(TAG, "-> Erro ao carregar da web: " + (e) );
+                    Thread.currentThread().interrupt();
+                }
+            }
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    Log.e(TAG, "-> Finalizando tudo...: "  );
+                    onNext("", 1);
+                }
+            });
+        }
+    }
+
+
+
+
+
+    private class RemoteTasks implements Runnable {
+        private int numLoops;
+        private String nameTask;
+        public RemoteTasks(String nameTask, int loops) {
+            this.nameTask = nameTask;
+            numLoops = loops;
+        }
+        public void run() {
+            mHandler.post(new Runnable(){@Override public void run() {
+                    Log.e(TAG, nameTask + "-> Iniciano: " + nameTask);
+            }});
+            loadData(APP_AREA);
+            mHandler.post(new Runnable() { @Override public void run() {
+                    Log.e(TAG, nameTask + "-> Finalizado: " + nameTask);
+                }
+            });
+        }
+
+        public String loadData(String area) {
+            Log.e("LOADR","M/loadFile/"+ACTUAL_TASK+"->Carregando json..." + area);
+
+
+            //SERVER_URL =  new ConfigServers().getDataServer(area);
+            SERVER_URL = "http://www.issam.com.br/lab/acento/cels1.txt";
+
+            try {
+                URL url = new URL(SERVER_URL);
+                StringBuilder SB = new StringBuilder();
+                BufferedReader buffer = new BufferedReader(
+                        new InputStreamReader(url.openStream()));
+                // Log.d(TAG, "buffer = " + (buffer!=null));
+                String line = null;
+                while ((line = buffer.readLine()) != null) {
+
+                    SB.append(line);
+                    // Log.d(TAG, "" + line);
+                }
+                buffer.close();
+
+                /**
+                 *
+                 *  salvar json, converter em map, salvar prefs
+                 *
+                 */
+
+                        FILE_DATA = SB.toString();
+
+
+            } catch (Exception e) {
+               // errorData( "", 4);
+                //nextData(area);
+                Log.d(TAG, "Erro ao carregar arquivo!" + (e));
+            }
+
+
+
+
+            return FILE_DATA;
+        }
+
+
+        public HashMap<String, String> createMap(List<Produto> list){
+            HashMap<String, String> map = new HashMap<>();
+            Log.d(TAG, "M/createMap/list/" + (list != null) );
+
+            if(list.size()>0) {
+
+                for (Produto conteudo : list) {
+                    map.put("getId","" + conteudo.getId());
+                    map.put("getMessage", conteudo.getMessage());
+                    //Log.d(TAG, "NOME = " + conteudo.getNome());
+                    //Log.d(TAG, "CODIGO = " + conteudo.getCodigo());
+                }
+            }else {
+                Log.d(TAG, "#erro ao criar mapa->" + (list.size()));
+            }
+
+            saveData(map);
+            return map;
+        }
+
+        public boolean saveData(HashMap<String, String> createMap){
+
+            boolean saveFile = false;
+            listItens = createMap;
+
+            new FormPreferences(context).onEdit(listItens, context);
+
+            return  saveFile;
+        }
+
+
+
+
+
+        
+    }
+
+
 
 
 }
-
-
-
-
-
-
-
-
-    /*
-
-
-    public void run() {
-          Looper.prepare();
-
-          mHandler = new Handler() {
-              public void handleMessage(Message msg) {
-                  // process incoming messages here
-              }
-          };
-
-          Looper.loop();
-      }
-
-
-
-
-
-
-
-
-
-    handler = new Handler();
-    runnable = new Runnable() {
-        @Override
-        public void run() {
-
-
-
-        }
-    };
-    handler.post(timer);
-    handler.removeCallbacks(runnable);
-
-
-
-
-
-
-
-         //Looper.prepare();
-        handler.post(new Runnable()
-       {
-           @Override
-           public void run()
-           {
-
-
-
-
-
-           }
-
-       });
-        handler.removeCallbacks(runnable);
-       // Looper.loop();
-
-
-
-
-
-
-
-
-
-
-
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-
-               }
-
-           }).start();
-
-
-
-
-   new Handler(Looper.getMainLooper()).post(new Runnable() {
-            #Override
-            public void run() {
-                // this will run in the main thread
-            }
-        });
-
-
-
-
-
-
-
-
-
-
-
- */
