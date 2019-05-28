@@ -37,10 +37,6 @@
             android:screenOrientation="sensorPortrait">
 
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
 
 
@@ -125,6 +121,32 @@
 
             <!--  -->
         </activity>
+
+
+        <activity
+            android:label="@string/activity_label_splash"
+            android:name="br.banco.services.app.design.TemplateForm"
+
+            >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!--  -->
+        </activity>
+
+
+
+
+
+
+
+
+
+
+
 
 
     </application>

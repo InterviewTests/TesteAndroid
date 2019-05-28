@@ -239,8 +239,6 @@ public class LoadModel implements ILoad.Model2  {
         }
 
 
-
-
         public List<Produto> gsonToList(String listStr){
 
             if(listStr==null){return null;}
@@ -305,10 +303,7 @@ public class LoadModel implements ILoad.Model2  {
 
                         //Log.e(TAG, "M/gsonToMap/strToMap=" + entry.getKey() + "=" + entry.getValue());
                     }
-
                 }
-
-
             }
 
             catch (JsonParseException ep) {

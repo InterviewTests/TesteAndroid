@@ -45,6 +45,9 @@ dependencies {
     //testImplementation 'org.mockito:mockito-core:' + rootProject.mockitoVersion;
 
 
+    //implementation 'com.github.scottyab:showhidepasswordedittext:0.8'
+
+
     implementation fileTree(dir: 'libs/', include: ['*.jar'])
 
 }
