@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+enum TypeField {
+text(1),
+telNumber(2),
+email(3)
+}
+-->
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_margin="16dp">
+
+
+
+    <TextView
+        android:id="@+id/TP_field"
+        android:layout_width="match_parent"
+        android:textSize="16dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="60.0dp"
+        android:text=""
+        android:hint="Texto da mensagem aqui"
+        android:inputType="text"
+        android:visibility="visible"
+        />
+
+        <!--textNoSuggestions  -->
+    <EditText
+        android:id="@+id/TP_name"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_marginTop="0dp"
+        android:padding="0dp"
+        android:text="Jon Smt"
+        android:hint="Nome Aqui"
+        android:inputType="textPersonName"
+        android:visibility="visible"
+        android:background="@drawable/shape_selector_field"
+        />
+
+
+    <EditText
+        android:id="@+id/TP_email"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_marginTop="0dp"
+        android:padding="0dp"
+        android:text=""
+        android:hint="Email aqui"
+        android:inputType="textEmailAddress"
+        android:visibility="visible"
+        android:background="@drawable/shape_selector_field"
+
+        />
+
+
+
+    <EditText
+        android:id="@+id/TP_telNumber"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_marginTop="0dp"
+        android:text=""
+        android:hint="Telefone aqui"
+        android:padding="0dp"
+        android:inputType="phone"
+        android:visibility="visible"
+        android:background="@drawable/shape_selector_field"
+        />
+
+
+    <CheckBox
+        android:id="@+id/TP_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_marginTop="0dp"
+        android:text="Texto aqui"
+        android:visibility="visible"
+
+        />
+
+
+    <EditText
+        android:id="@+id/TP_password"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:text=""
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:visibility="visible"
+        android:background="@drawable/shape_selector_field"
+
+        />
+
+
+    <!--
+        <android.support.design.widget.TextInputLayout
+            app:layout_widthPercent="90%"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:textColorHint="@android:color/white"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@android:color/white">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@android:color/white"
+                android:visibility="gone"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="a1234"
+                android:imeOptions="actionUnspecified"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+    -->
+
+
+
+
+
+
+    <ImageView
+        android:id="@+id/TP_image"
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:layout_marginTop="35.0dp"
+        android:src="@drawable/ico_download"
+        android:visibility="visible"
+        />
+
+
+    <Button
+        android:id="@+id/TP_buttom"
+        style="@style/buttonCircle"
+        android:layout_marginTop="35.0dp"
+        android:text="Enviar"
+        android:visibility="visible"
+        />
+
+
+
+
+
+            <!-- FINAL FORM -->
+
+
+</LinearLayout>
