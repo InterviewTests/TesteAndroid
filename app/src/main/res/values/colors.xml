@@ -9,6 +9,7 @@
     <color name="colorLight">#FFFFFF</color>
     <color name="colorDark">#333333</color>
     <color name="colorLines">#999999</color>
+    <color name="colorLinesLight">#CCCCCC</color>
     <color name="colorDefault">#E1E1E1</color>
 
 </resources>
