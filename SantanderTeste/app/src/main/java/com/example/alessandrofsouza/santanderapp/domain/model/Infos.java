@@ -1,4 +1,4 @@
-package com.example.alessandrofsouza.santanderapp.model;
+package com.example.alessandrofsouza.santanderapp.domain.model;
 
 import com.google.gson.annotations.Expose;
 
@@ -33,4 +33,5 @@ public class Infos {
         name = sName;
         data = sData;
     }
+
 }

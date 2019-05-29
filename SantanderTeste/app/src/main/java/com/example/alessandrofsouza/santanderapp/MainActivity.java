@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
-import com.example.alessandrofsouza.santanderapp.ui.ContactFragment;
-import com.example.alessandrofsouza.santanderapp.ui.InvestmentFragment;
+import com.example.alessandrofsouza.santanderapp.presentation.pages.contact.ContactPresenter;
+import com.example.alessandrofsouza.santanderapp.presentation.pages.investment.InvestmentPresenter;
+import com.example.alessandrofsouza.santanderapp.presentation.adapters.PageAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager());
-        adapter.add(new InvestmentFragment(), getString(R.string.investimento));
-        adapter.add(new ContactFragment(), getString(R.string.contato));
+        adapter.add(new InvestmentPresenter(), getString(R.string.investimento));
+        adapter.add(new ContactPresenter(), getString(R.string.contato));
 
-        ViewPager viewPager = findViewById(R.id.viewPage);
+        ViewPager viewPager = findViewById(R.id.mainPage);
         viewPager.setAdapter(adapter);
 
         tabLayout = findViewById(R.id.pageTab);

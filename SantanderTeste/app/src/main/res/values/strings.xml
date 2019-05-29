@@ -16,4 +16,6 @@
     <string name="sucesso">Mensagem enviada com sucesso :)</string>
     <string name="obrigado">Obrigado!</string>
     <string name="novaMensagem">Enviar nova mensagem</string>
+
+    <string name="disable">Ainda em criaçao</string>
 </resources>

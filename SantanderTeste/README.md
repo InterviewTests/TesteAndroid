@@ -1,7 +1,7 @@
-Commit V6 = MVP da aplicação 1.0.1
+Commit V7 = MVP da aplicação 1.1
 //@TODO1: criar PDF da tela de investimento;
 //@TODO2: criar sharedPreferences após "enviar"
-//@TODO3: ajustar estrutura do app
+//@TODO3: ajustar estrutura da função formatPhone
 
 
 

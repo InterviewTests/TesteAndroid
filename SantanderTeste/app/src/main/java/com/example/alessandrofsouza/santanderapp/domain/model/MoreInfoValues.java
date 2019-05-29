@@ -1,4 +1,4 @@
-package com.example.alessandrofsouza.santanderapp.model;
+package com.example.alessandrofsouza.santanderapp.domain.model;
 
 import com.google.gson.annotations.Expose;
 
@@ -25,6 +25,5 @@ public class MoreInfoValues {
     public void setCDI(Double CDI) {
         this.CDI = CDI;
     }
-
 
 }

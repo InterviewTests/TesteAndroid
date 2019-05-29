@@ -1,9 +1,8 @@
-package com.example.alessandrofsouza.santanderapp.adapter;
+package com.example.alessandrofsouza.santanderapp.presentation.pages.investment;
 
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,50 +11,48 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.alessandrofsouza.santanderapp.R;
-import com.example.alessandrofsouza.santanderapp.model.Infos;
+import com.example.alessandrofsouza.santanderapp.domain.model.Infos;
 
 import java.util.ArrayList;
 
-class ListaInfoAdapter extends RecyclerView.Adapter<ListaInfoAdapter.ViewHolder> {
+public class InvestmentInfoAdapter extends RecyclerView.Adapter<InvestmentInfoAdapter.ViewHolder> {
 
     private ArrayList<Infos> dataSet;
     private static final String TAG = "Santander ";
 
-    public ListaInfoAdapter() {
+    public InvestmentInfoAdapter() {
         dataSet = new ArrayList<>();
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View viewText = LayoutInflater.from(parent.getContext()).inflate(R.layout.invest_info, parent, false);
-
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View viewText = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.invest_info, viewGroup, false);
         return new ViewHolder(viewText);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int position) {
         Infos info = dataSet.get(position);
-        Resources res = holder.itemView.getContext().getResources();
+        Resources resources = viewHolder.itemView.getContext().getResources();
 
-
-        holder.info_title.setText(info.getName());
+        viewHolder.info_title.setText(info.getName());
 
         if(info.getData() != null) {
-            holder.buttonDown.setAlpha(0);
-            holder.buttonDown.setClickable(false);
-            holder.info_content.setText(info.getData());
+            viewHolder.buttonDown.setAlpha(0);
+            viewHolder.buttonDown.setClickable(false);
+            viewHolder.info_content.setText(info.getData());
         } else {
-            holder.info_content.setAlpha(0);
-            holder.buttonDown.setText(res.getText(R.string.baixar));
-            holder.buttonDown.setOnClickListener(new View.OnClickListener() {
+            viewHolder.info_content.setAlpha(0);
+            viewHolder.buttonDown.setText(resources.getText(R.string.baixar));
+            viewHolder.buttonDown.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(holder.itemView.getContext(), "Serviço indisponivel no momento", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(viewHolder.itemView.getContext(), R.string.disable, Toast.LENGTH_SHORT).show();
                 }
             });
         }
     }
-
 
     @Override
     public int getItemViewType(int position) {
@@ -72,6 +69,8 @@ class ListaInfoAdapter extends RecyclerView.Adapter<ListaInfoAdapter.ViewHolder>
         notifyDataSetChanged();
     }
 
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView info_title;
         private TextView info_content;
@@ -84,6 +83,4 @@ class ListaInfoAdapter extends RecyclerView.Adapter<ListaInfoAdapter.ViewHolder>
             buttonDown = itemView.findViewById(R.id.buttonDown);
         }
     }
-
-
 }

@@ -1,19 +1,18 @@
-package com.example.alessandrofsouza.santanderapp;
+package com.example.alessandrofsouza.santanderapp.presentation.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
-class PageAdapter extends FragmentPagerAdapter {
+public class PageAdapter extends FragmentPagerAdapter {
 
     private ArrayList<Fragment> fragments = new ArrayList<>();
     private ArrayList<String> title = new ArrayList<>();
 
-    public PageAdapter(FragmentManager supportFragmentManager) {
-        super(supportFragmentManager);
+    public PageAdapter(FragmentManager fm) {
+        super(fm);
     }
 
     public void add(Fragment frag, String title) {
@@ -35,9 +34,4 @@ class PageAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return this.title.get(position);
     }
-
-    /*@Override
-    public float getPageWidth(int position) {
-        return(0.5f);
-    }*/
 }

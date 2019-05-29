@@ -1,9 +1,6 @@
-package com.example.alessandrofsouza.santanderapp.model;
-
-import com.google.gson.annotations.Expose;
+package com.example.alessandrofsouza.santanderapp.domain.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ContactModel {
 
@@ -17,4 +14,5 @@ public class ContactModel {
     public void setCells(ArrayList<Cell> cells) {
         this.cells = cells;
     }
+
 }
