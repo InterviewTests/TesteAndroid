@@ -1,5 +1,7 @@
 package com.example.alessandrofsouza.santanderapp.presentation.utils;
 
+import android.util.Log;
+
 import com.example.alessandrofsouza.santanderapp.presentation.pages.contact.ContactContract;
 import com.example.alessandrofsouza.santanderapp.presentation.pages.contact.ContactFragment;
 
@@ -23,4 +25,5 @@ public class PhoneValidator {
     public static boolean validatePhone(CharSequence phone) {
         return phone != null && PHONE8_PATTERN.matcher(phone).matches() || phone != null && PHONE9_PATTERN.matcher(phone).matches();
     }
+
 }

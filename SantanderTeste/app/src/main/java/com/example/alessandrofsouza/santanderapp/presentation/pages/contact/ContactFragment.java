@@ -57,7 +57,7 @@ public class ContactFragment extends RecyclerView.Adapter<ContactFragment.ViewHo
         dataSet = new ArrayList<>();
         cell = new Cell();
         contract = listener;
-        emailValidator = new EmailValidator();
+        //emailValidator = new EmailValidator();
     }
 
     @NonNull
@@ -128,6 +128,7 @@ public class ContactFragment extends RecyclerView.Adapter<ContactFragment.ViewHo
                     case Constants.TYPEFIELD_TELNUMBER_T:
                         viewHolder.textInputEditText.setInputType(InputType.TYPE_CLASS_PHONE);
                         editTextPhone = viewHolder.textInputEditText;
+
                         editTextPhone.addTextChangedListener(new TextWatcher() {
                             @Override
                             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -136,18 +137,20 @@ public class ContactFragment extends RecyclerView.Adapter<ContactFragment.ViewHo
 
                             @Override
                             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                                formatPhone();
+                                //formatPhone();
                                 //PhoneValidator.validatePhone(charSequence);
                                 //stylePhoneField();
                             }
 
                             @Override
                             public void afterTextChanged(Editable editable) {
-                                //formatPhone();
+                                //editTextPhone.setText(PhoneValidator.formatPhone(editable));
+                                formatPhone();
                                 PhoneValidator.validatePhone(editable);
                                 stylePhoneField();
                             }
                         });
+
 
                         break;
 
