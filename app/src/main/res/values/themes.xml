@@ -6,10 +6,10 @@
 
         <item name="android:fontFamily">@font/dmedium</item>
 
+        <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="windowNoTitle">true</item>
         <item name="android:background">#ffffff</item>
         <item name="colorControlNormal">#c5c5c5</item>
         <item name="colorControlActivated">#ffe100</item>

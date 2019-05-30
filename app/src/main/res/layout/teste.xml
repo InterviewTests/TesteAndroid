@@ -6,14 +6,15 @@ android:layout_height="match_parent"
 android:layout_margin="16dp"
 android:orientation="vertical">
 
-        <Button
+
+
+
+
+
+    <Button
             android:id="@+id/btTest"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:text="HELLO MART!"
-            android:textColor="@color/colorDark"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+        android:text="HELLO MART!"
+        style="@style/buttonCircle" />
 
 
         <ScrollView
