@@ -1,13 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <!--
   @FAZER
 
- 1) Implementar  metodo para ocultar/exibir toolbar_bottom
-    ao editar o texto
 
  2) Aplicar estilos em textos e forms
 
  3) Remover Foco do Texto (nao abrir teclado no inicio)
     checar outro metodo diferente de / windowSoftInputMode
+
 
 -->
 
@@ -28,6 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:padding="16dp"
         >
 
         <LinearLayout
@@ -35,10 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="1000dp"
             android:padding="16dp"
-            android:background="#ffffff"
             android:orientation="vertical"
-            android:visibility="visible"
-            >
+            android:visibility="visible">
 
             <!-- INICIO FORM -->
 
@@ -47,84 +47,82 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Contato"
                 android:textAlignment="center"
-                android:textSize="16dp" />
-
-
-            <TextView
-                android:id="@+id/DT_fd_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Olá, primeiro se apresente com o seu nome:"
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/lbName"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_marginTop="34dp"
-                android:text="Nome Completo" />
-
-            <EditText
-                android:id="@+id/etFullName"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:text="Jhon Doe Smith"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/lbEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:layout_marginTop="16dp"
-                android:text="Email" />
-
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:text="jhon.doe@site.com"
-                android:inputType="textEmailAddress" />
-
-            <TextView
-                android:id="@+id/lbPhone"
-                android:layout_marginTop="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:text="Telefone"
-                 />
-
-            <EditText
-                android:id="@+id/etPhone"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:text="11989794950"
-                android:inputType="phone"
+                android:hint="CONTATO AQUI"
+                android:textSize="16dp"
                 />
 
-            <!-- android:text="Gostaria de cadastrar meu email"  style="@style/buttonCheckbox" -->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/etFullNameHint"
+                android:layout_width="match_parent"
+                android:textColorHint="@color/colorTextNormal"
+                android:layout_height="wrap_content">
+
+
+                <EditText
+                    android:id="@+id/etFullName"
+                    android:text=""
+                    android:hint="NOME"
+                    android:inputType="textPersonName"
+                    style="@style/editTextNormal" />
+
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/etEmailHint"
+                android:layout_width="match_parent"
+                android:textColorHint="@color/colorTextNormal"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:text=""
+                    android:hint="EMAIL"
+                    android:inputType="textEmailAddress"
+                    style="@style/editTextNormal" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/etPhoneHint"
+                android:layout_width="match_parent"
+                android:textColorHint="@color/colorTextNormal"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:text=""
+                    android:hint="TELEFONE"
+                    android:inputType="phone"
+                    style="@style/editTextNormal" />
+
+            </android.support.design.widget.TextInputLayout>
+
+               <!--
+                android:checked="true"
+                android:buttonTint="@color/colorAccent"
+                 android:button="@null"
+                android:background="?android:attr/listChoiceIndicatorMultiple"
+
+               -->
+
             <CheckBox
                 android:id="@+id/cbEmailAccept"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:layout_marginTop="8dp"
-                android:text=" Gostaria de cadastrar meu email"
+                android:layout_marginTop="35.0dp"
+                android:hint="SALVAR EMAIL"
+                android:paddingLeft="10dp"
+                style="@style/checkBoxNormal"
 
+                android:text=""
 
                 />
 
             <Button
                 android:id="@+id/btSend"
                 style="@style/buttonCircle"
-                android:layout_marginTop="8dp"
                 android:text="Enviar"
                 />
 
