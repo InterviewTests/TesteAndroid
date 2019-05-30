@@ -126,13 +126,13 @@ package br.banco.services.contact;
 
 
 
-           vFullName.setText("AAA");
-           vEmail.setText("BBB");
-           vPhone.setText("CCC");
-           vEmailSave.setText("DDD");
-           vEmailSave.setChecked(true);
+          // vFullName.setText("AAA");
+           // vEmail.setText("BBB");
+           // vPhone.setText("CCC");
+           //vEmailSave.setText("DDD");
+           // vEmailSave.setChecked(true);
 
-           vBtSend.setText("EEE");
+           //vBtSend.setText("EEE");
 
 
 
@@ -180,10 +180,10 @@ package br.banco.services.contact;
 
         vBtSend.setOnClickListener(new View.OnClickListener() {
          @Override
-         public void onClick(View v)
+         public void onClick(View view)
              {
 
-                 checkFormValuesView();
+                 checkFormValuesView(view);
 
                 // contactTest.showObjetc(TAG, getClass().getName() + "drawFormView" ,contactTest);
                   //contactTest.showValues(TAG,getClass().getName() + " / sendFormView",listFormItens);
@@ -226,14 +226,31 @@ package br.banco.services.contact;
      public void checkTyping(final TextView view){
 
          view.addTextChangedListener(new TextWatcher() {
+
              @Override
-             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+             }
 
              @Override
              public void onTextChanged(CharSequence s, int start, int before, int count) {
 
+
+                 if(!isValidName) {
+                     view.setError("");
+                 }
+
+                 if(!isValidPhone) {
+                     view.setError("");
+                 }
+
+                 if(!isValidEmail) {
+                     view.setError("");
+                 }
+
+
                  // String elementId = getResources().getResourceEntryName(view.getId());
-                 checkFormValuesView(); // checkFormValuesView(elementId)
+                 checkFormValuesView(view); // checkFormValuesView(elementId)
 
              }
 
@@ -245,17 +262,18 @@ package br.banco.services.contact;
 
      }
 
-     public void checkFormValuesView(){
+     public void checkFormValuesView(View view){
 
          ValidatorName ValidatorName = new ValidatorName();
          ValidatorEmail validatorEmail = new ValidatorEmail();
          ValidatorPhone validatorPhone = new ValidatorPhone(); // depends: isValidPhone
+
          // isChecked = bool
 
-         String testName   = vFullName.getText().toString().trim();
-         String testEmail  = vEmail.getText().toString().trim();
-         String testPhone  = vPhone.getText().toString().trim();
-         int isChecked  = (vEmailSave.isChecked()) ? 1 : 0;
+         String testName    = vFullName.getText().toString().trim();
+         String testEmail   = vEmail.getText().toString().trim();
+         String testPhone   = vPhone.getText().toString().trim();
+         int isChecked      = (vEmailSave.isChecked()) ? 1 : 0;
         // boolean isChecked = vEmailSave.isChecked();
 
          isValidName = ValidatorName.isValidName(testName);
@@ -271,7 +289,10 @@ package br.banco.services.contact;
          contactTest.setPhone(phoneNumber);
          contactTest.setEmailSave(isChecked);
 
-    //contactTest.showObjetc(TAG, getClass().getName() + " / drawFormView" , contactTest);
+
+
+
+         //contactTest.showObjetc(TAG, getClass().getName() + " / drawFormView" , contactTest);
 
      }
 

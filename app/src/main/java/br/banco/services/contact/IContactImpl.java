@@ -1,6 +1,7 @@
 package br.banco.services.contact;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.TextView;
 
 public interface IContactImpl {
@@ -19,7 +20,7 @@ public interface IContactImpl {
 
          void drawFormView();
          void checkTyping(final TextView view);
-         void checkFormValuesView();
+         void checkFormValuesView(View view);
          void sendFormView2(Contact contactForm);
          void clearFormTextView();
      }
