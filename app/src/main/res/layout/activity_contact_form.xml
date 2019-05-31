@@ -3,12 +3,8 @@
 <!--
   @FAZER
 
-
- 2) Aplicar estilos em textos e forms
-
  3) Remover Foco do Texto (nao abrir teclado no inicio)
     checar outro metodo diferente de / windowSoftInputMode
-
 
 -->
 
@@ -29,83 +25,123 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:padding="16dp"
-        >
+        android:padding="0dp">
 
         <LinearLayout
             android:id="@+id/lnBoxTop"
             android:layout_width="match_parent"
-            android:layout_height="1000dp"
-            android:padding="16dp"
+            android:layout_height="wrap_content"
+            android:padding="32dp"
             android:orientation="vertical"
             android:visibility="visible">
+
+
 
             <!-- INICIO FORM -->
 
             <TextView
                 android:id="@+id/lbArea"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="35dp"
+                android:gravity="center_horizontal"
                 android:textAlignment="center"
-                android:hint="CONTATO AQUI"
-                android:textSize="16dp"
+                style="@style/tv_text_bold"
+                android:hint="contato"
                 />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/etFullNameHint"
-                android:layout_width="match_parent"
-                android:textColorHint="@color/colorTextNormal"
-                android:layout_height="wrap_content">
 
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:padding="0dp"
+                android:textColorHint="#666666"
+                android:textColor="#666666"
+                colorControlActivated="#333333"
+                colorControlHighlight="#333333">
 
                 <EditText
                     android:id="@+id/etFullName"
                     android:text=""
                     android:hint="NOME"
                     android:inputType="textPersonName"
-                    style="@style/editTextNormal" />
-
-
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:layout_margin="0dp"
+                    android:padding="0dp"
+                    android:textColor="@color/colorTextNormal"
+                    android:visibility="visible"
+                     />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/etEmailHint"
+                android:textSize="10sp"
+                android:textAllCaps="false"
                 android:layout_width="match_parent"
-                android:textColorHint="@color/colorTextNormal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:padding="0dp"
+                android:textColorHint="#666666"
+                android:textColor="#666666"
+                colorControlActivated="#333333"
+                colorControlHighlight="#333333">
 
                 <EditText
                     android:id="@+id/etEmail"
                     android:text=""
                     android:hint="EMAIL"
                     android:inputType="textEmailAddress"
-                    style="@style/editTextNormal" />
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:layout_margin="0dp"
+                    android:padding="0dp"
+                    android:textColor="@color/colorTextNormal"
+                    android:visibility="visible"
+                    />
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/etPhoneHint"
+                android:textSize="10sp"
+                android:textAllCaps="false"
                 android:layout_width="match_parent"
-                android:textColorHint="@color/colorTextNormal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:padding="0dp"
+                android:textColorHint="#666666"
+                android:textColor="#666666"
+                colorControlActivated="#333333"
+                colorControlHighlight="#333333">
 
                 <EditText
                     android:id="@+id/etPhone"
                     android:text=""
                     android:hint="TELEFONE"
                     android:inputType="phone"
-                    style="@style/editTextNormal" />
-
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:layout_margin="0dp"
+                    android:padding="0dp"
+                    android:textColor="@color/colorTextNormal"
+                    android:visibility="visible"
+                    />
             </android.support.design.widget.TextInputLayout>
-
-               <!--
-                android:checked="true"
-                android:buttonTint="@color/colorAccent"
-                 android:button="@null"
-                android:background="?android:attr/listChoiceIndicatorMultiple"
-
-               -->
 
             <CheckBox
                 android:id="@+id/cbEmailAccept"
@@ -115,17 +151,47 @@
                 android:hint="SALVAR EMAIL"
                 android:paddingLeft="10dp"
                 style="@style/checkBoxNormal"
-
                 android:text=""
-
                 />
+
 
             <Button
                 android:id="@+id/btSend"
-                style="@style/buttonCircle"
+
                 android:text="Enviar"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="48dp"
+                android:background="#DA0101"
+
                 />
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--
+
+
+                 style="@style/bt_field_normal"
+            android:background="@drawable/shape_selector_button_circle"
+            -->
             <!-- FINAL FORM -->
 
         </LinearLayout>

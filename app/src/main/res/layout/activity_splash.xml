@@ -12,7 +12,7 @@
         android:id="@+id/ivStartLogo"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:src="@drawable/shape_button_dark"
+        android:src="@drawable/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"

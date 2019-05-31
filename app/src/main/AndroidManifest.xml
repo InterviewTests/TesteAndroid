@@ -28,16 +28,12 @@
 
         <uses-library android:name="android.test.runner" />
 
-
         <!-- START -->
 
         <activity
             android:label="@string/activity_label_splash"
             android:name="br.banco.services.contact.LoadView"
             android:screenOrientation="sensorPortrait">
-
-
-
 
 
             <!--  -->
@@ -47,6 +43,12 @@
         <activity
             android:label="@string/activity_label_splash"
             android:name="br.banco.services.splash.SplashView"  >
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
 
 
@@ -79,6 +81,7 @@
 
         <activity
             android:label="@string/activity_label_contact"
+            android:theme="@style/AppContactTheme"
             android:name="br.banco.services.contact.ContactView"
             android:windowSoftInputMode="adjustNothing">
 
@@ -126,13 +129,9 @@
         <activity
             android:label="@string/activity_label_splash"
             android:name="br.banco.services.app.design.TemplateForm"
-
             >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
             <!--  -->
         </activity>
