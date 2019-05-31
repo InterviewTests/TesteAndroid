@@ -40,8 +40,6 @@ public interface ILoad {
     }
 
 
-
-
     interface Views{
 
         void onErrorView(int msgCode);

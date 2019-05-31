@@ -1,13 +1,5 @@
 <resources>
 
-    <color name="red1">#FF2222</color>
-
-    <declare-styleable name="buttonCircle">
-        <attr name="circleColor" format="color" />
-        <attr name="circleLabel" format="string"></attr>
-        <attr name="labelColor" format="color"></attr>
-    </declare-styleable>
-
     <!--  application  -->
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">

@@ -1,6 +1,7 @@
 package br.banco.services.contact.data.local;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,7 +20,8 @@ import br.banco.services.contact.interactor.ILoadTask;
 
 public class FromFile implements ILoadTask.IFileTask {
 
-    private  final String TAG = "FUND";
+    private  final String TAG = "LOADR";
+    private String fileExtension = ".json";
     Context context;
     //static final int MAX_SIZE_CHARS = 1000;
   //  public static String PACKAGE_NAME;
@@ -29,21 +31,23 @@ public class FromFile implements ILoadTask.IFileTask {
     public FromFile(Context c){
         this.context = c;
 
+       // Log.d(TAG, "M/FromFile/fileName/context=" + (context!=null));
+
        // PACKAGE_NAME = context.getApplicationContext().getPackageName();
        // boolean TESTE_CASE  = testeCaseFlow();
     }
 
-    public String onLoad(Context c, String folderStr){
+    public String onLoad(Context context, String folderStr){
         boolean exits = false;
 
         String localStr = null;
         File nameDir = null;
         try {
-            nameDir = c.getFilesDir();
+            nameDir = context.getFilesDir();
             localStr = nameDir.toString();
 
             exits = (localStr.length() > 0);
-            RX.onNext("" + exits + "->" + localStr);
+            //Log.d(TAG, "M/FromFile/onLoad/context=" + (context!=null));
 
         }catch (Exception e){
             RX.onError(e);
@@ -54,20 +58,24 @@ public class FromFile implements ILoadTask.IFileTask {
     }
 
     public  boolean onSave(String contentStr, String localDir, String fileName, Context c){
+
         boolean saveBool = false;
+        localDir =  onLoad( context, null);
+        if(contentStr==null || fileName==null) return false;
+        fileName += fileExtension;
 
         File file;
-        FileOutputStream outputStream;
+        FileOutputStream fileOut;
 
             try {
                 file = new File(localDir, fileName);
 
-                outputStream = new FileOutputStream(file);
-                outputStream.write(contentStr.getBytes());
-                outputStream.close();
+                fileOut = new FileOutputStream(file);
+                fileOut.write(contentStr.getBytes());
+                fileOut.close();
 
                 saveBool = true;
-                RX.onNext("" + saveBool);
+                Log.d(TAG, "M/FromFile/fileName/onSave=" + (fileName));
 
             } catch (IOException e) {
                 RX.onError(e);

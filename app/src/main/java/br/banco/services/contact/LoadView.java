@@ -17,7 +17,6 @@ public class LoadView  extends AppCompatActivity implements ILoad.Views {
 
 
 
-
     public ReactAplication RX = new ReactAplication();
     public final String TAG ="LOADR";
     public Context context;

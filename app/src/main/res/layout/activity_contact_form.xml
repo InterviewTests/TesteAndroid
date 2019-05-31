@@ -35,8 +35,6 @@
             android:orientation="vertical"
             android:visibility="visible">
 
-
-
             <!-- INICIO FORM -->
 
             <TextView
@@ -46,12 +44,12 @@
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginBottom="35dp"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
                 style="@style/tv_text_bold"
-                android:hint="contato"
+                android:hint="CONTATO"
                 />
 
             <android.support.design.widget.TextInputLayout
@@ -71,7 +69,7 @@
                 <EditText
                     android:id="@+id/etFullName"
                     android:text=""
-                    android:hint="NOME"
+                    android:hint="NOME COMPLETO"
                     android:inputType="textPersonName"
                     android:textSize="14sp"
                     android:textAllCaps="false"
@@ -158,7 +156,7 @@
             <Button
                 android:id="@+id/btSend"
 
-                android:text="Enviar"
+                android:text="ENVIAR"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"
                 android:textAlignment="center"
@@ -167,7 +165,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="48dp"
-                android:background="#DA0101"
+                android:background="@drawable/shape_selector_button_circle"
 
                 />
 

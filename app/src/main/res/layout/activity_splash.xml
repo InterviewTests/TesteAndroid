@@ -6,6 +6,7 @@
     android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#BA000C"
     android:orientation="vertical">
 
     <ImageView
@@ -13,6 +14,7 @@
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:src="@drawable/ic_launcher"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
@@ -23,9 +25,10 @@
 
     <TextView
         android:id="@+id/tvStartText"
-        style="@style/textSubTitle"
+        style="@style/textSubTitle" android:textColor="@color/colorLight"
         android:layout_marginTop="32dp"
-        android:text="@string/alert_title"
+        android:text="@string/alert_loading"
+        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivStartLogo" />

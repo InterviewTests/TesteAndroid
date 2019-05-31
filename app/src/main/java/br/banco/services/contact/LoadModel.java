@@ -29,6 +29,7 @@ import java.util.concurrent.Executors;
 
 import br.banco.services.R;
 import br.banco.services.app.config.ConfigServers;
+import br.banco.services.contact.data.local.FromFile;
 import br.banco.services.contact.domain.Produto;
 import br.banco.services.contact.domain.ResponseJson;
 import br.banco.services.datasource.local.contact.FormPreferences;
@@ -59,9 +60,9 @@ public class LoadModel implements ILoad.Model2  {
     public static ILoad.Presenter presenter;
     public FormPreferences prefs;
 
-    private String SERVER_URL;
+    private String SERVER_URL; // web
+    private String APP_AREA ="cels"; // web
     private String FILE_DATA;
-    private String APP_AREA;
     public Context context;
 
     public HashMap<String, String> listItens;
@@ -71,7 +72,6 @@ public class LoadModel implements ILoad.Model2  {
 
         this.presenter = presenter;
 
-        //
 
         //this.getSharedPreferences( getPackageName() + "_preferences", MODE_PRIVATE);
        // preferences = getSharedPreferences( getPackageName() + "_preferences", MODE_PRIVATE);
@@ -172,9 +172,6 @@ public class LoadModel implements ILoad.Model2  {
     }
 
 
-
-
-
     private class QueueTasks implements Runnable {
         private int numLoops;
         private String nameTask;
@@ -186,7 +183,9 @@ public class LoadModel implements ILoad.Model2  {
             mHandler.post(new Runnable(){@Override public void run() {
                     Log.e(TAG, nameTask + "-> Iniciano: " + nameTask);
             }});
+
             loadData(APP_AREA);
+
             mHandler.post(new Runnable() { @Override public void run() {
                     Log.e(TAG, nameTask + "-> Finalizado: " + nameTask);
                 }
@@ -233,7 +232,9 @@ public class LoadModel implements ILoad.Model2  {
             }
 
 
-            gsonToList(FILE_DATA);
+            //gsonToList(FILE_DATA); //02
+            //gsonToList(FILE_DATA); //02
+            saveData(FILE_DATA, APP_AREA);
 
             return FILE_DATA;
         }
@@ -297,7 +298,7 @@ public class LoadModel implements ILoad.Model2  {
                     Map<String, String> strToMap = gson.fromJson(gsonToStr, type);
 
                     //Log.e(TAG, "M/gsonToMap/list=" + gsonToStr);
-                    Log.e(TAG, "--- elmento " +i+"--- ");
+                   // Log.e(TAG, "--- elmento " +i+"--- ");
 
                     for (Map.Entry<String, String> entry : strToMap.entrySet()) {
 
@@ -319,17 +320,17 @@ public class LoadModel implements ILoad.Model2  {
         }
 
 
-
-
-
-
-
-        public boolean saveData(HashMap<String, String> createMap){
+        public boolean saveData(String fileContent, String fileName){
+       //public boolean saveData(HashMap<String, String> createMap){
 
             boolean saveFile = false;
-            listItens = createMap;
+            //listItens = createMap;
 
-            new FormPreferences(context).onEdit(listItens, context);
+            Log.d(TAG, "M/saveData/fileName=" + fileName);
+
+            FromFile fromFile = new FromFile(context);
+            fromFile.onSave(fileContent, null, fileName, context);
+
 
             return  saveFile;
         }

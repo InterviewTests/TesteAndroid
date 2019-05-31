@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-
     <uses-permission android:name="android.permission.RUN_INSTRUMENTATION" />
 
     <application
@@ -36,14 +35,13 @@
             android:screenOrientation="sensorPortrait">
 
 
-            <!--  -->
+
         </activity>
 
 
         <activity
             android:label="@string/activity_label_splash"
             android:name="br.banco.services.splash.SplashView"  >
-
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -86,6 +84,7 @@
             android:windowSoftInputMode="adjustNothing">
 
 
+
         </activity>
 
         <activity
@@ -100,12 +99,13 @@
 
 
 
-
         <!-- ALERT /////////////////////// -->
 
         <activity
             android:label="@string/activity_label_message"
             android:name="br.banco.services.app.alert.AlertView"  >
+
+
 
 
         </activity>
@@ -121,7 +121,6 @@
             android:screenOrientation="sensorPortrait">
 
 
-
             <!--  -->
         </activity>
 
@@ -130,8 +129,6 @@
             android:label="@string/activity_label_splash"
             android:name="br.banco.services.app.design.TemplateForm"
             >
-
-
 
             <!--  -->
         </activity>
