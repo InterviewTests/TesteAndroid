@@ -1,0 +1,48 @@
+<resources>
+
+    <!--  application  -->
+
+    <style name="AppContactTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- activity -->
+
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:background">#ffffff</item>
+        <!-- item name="android:statusBarColor">@color/transparent</item -->
+
+        <!-- design -->
+
+        <item name="android:fontFamily">@font/dmedium</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- toolbar -->
+
+        <!-- item name="colorControlNormal">#c5c5c5</item -->
+        <!-- item name="colorControlActivated">@color/colorAccent</item -->
+        <!-- item name="colorControlHighlight">@color/colorAccent</item -->
+
+        <!-- forms -->
+
+        <item name="android:textColorHint">@color/colorTextNormal</item>
+        <item name="editTextBackground">@drawable/shape_selector_field</item>
+        <!-- item name="android:checkboxStyle">@style/checkBoxNormal</item -->
+
+
+    </style>
+
+
+    <!-- final theme -->
+
+
+
+
+
+</resources>

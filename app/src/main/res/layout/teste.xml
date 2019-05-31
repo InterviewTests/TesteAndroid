@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_margin="16dp"
+android:orientation="vertical">
+
+
+
+
+
+
+    <Button
+            android:id="@+id/btTest"
+        android:text="HELLO MART!"
+        style="@style/buttonCircle" />
+
+
+        <ScrollView
+            android:id="@+id/testScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:orientation="vertical" >
+
+
+                <TextView
+                    android:id="@+id/tvTest"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="HELLO MART!"
+                    android:textColor="@color/colorDark"
+                    android:textSize="18sp"
+                    android:lines="50"
+                    android:textStyle="normal" />
+
+
+
+    </ScrollView>
+
+
+        <!--
+        -->
+
+
+</LinearLayout>
+

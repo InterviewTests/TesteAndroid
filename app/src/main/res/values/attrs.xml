@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LibraryButton">
+        <attr name="libButtonColor" format="color"/>
+        <attr name="libButtonColorPressed" format="color"/>
+        <attr name="libButtonColorDisabled" format="color"/>
+    </declare-styleable>
+
+</resources>

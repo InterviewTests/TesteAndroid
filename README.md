@@ -1,81 +1,169 @@
-# Show me the code
+# Android App Teste 
+> Esta versao possui tela que lista fundos, detalha e tela de contato 
+> Telas de alertas personalizadas para todo o aplicativo.
 
-### # DESAFIO:
+[![ Versao][version-image]][version-image]
+[![ Linguagem][lang-image]][lang-image]
+[![ Grandle][grandle-image]][grandle-image]
 
-Em uma tela terá um formulário dinâmico com alguns campos predefinidos, conforme o arquivo JSON disponível no link ([https://floating-mountain-50292.herokuapp.com/cells.json](https://floating-mountain-50292.herokuapp.com/cells.json)) que deverá
-  ser consumido. Este formulário terá de ser desenhado e exibir uma tela de sucesso quando as informações preenchidas estiverem corretas.
+- Usa uma LIB  GmailSender para enviar e-mails.
+- Possui fontes personalizadas de acordo com o Design da empresa.
+- Arquivos XML string com os textos usados por padrao no applicativo.
+- carrega dados externos em json ou das preferencias.
 
-Na segunda tela terá o detalhe de um ativo financeiro. As informações devem ser consumidas através do link ([https://floating-mountain-50292.herokuapp.com/fund.json](https://floating-mountain-50292.herokuapp.com/fund.json)).
+## Configuracoes
 
-O visual do aplicativo está em anexo no arquivo telas.png e em um arquivo do [Sketch](https://www.sketchapp.com) (30 dias grátis, caso não tenha a licença).
+- O Aplicativo foi desenovolvido na liguagem Java Nativo.
+- O Padrao de arquitetura MVP Clean Arquitecture.
+- Possui os gerenciadores de layout Constraint Layout e Recyclerview 
+- o Nome do package do Aplicativo deve ser:
 
-![Image](https://floating-mountain-50292.herokuapp.com/telas.png)
+```sh
 
+	package 'br.banco.servces'
 
-### # Avaliação
-
-Você será avaliado pela usabilidade, por respeitar o design e pela arquitetura do app. É esperado que você consiga explicar as decisões que tomou durante o desenvolvimento através de commits.
-
-* Java ou Kotlin
-* ConstraintLayout
-* O app deve funcionar no Android 4.4
-* Testes unitários (De preferência JUnit + Mockito). Mas pode usar o que você tem mais experiência, só nos explique o que ele tem de bom.
-* Arquitetura a ser utilizada: MVP Clean ([https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean/](https://github.com/googlesamples/android-architecture/tree/todo-mvp-clean/)) && ([https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)).
-* Uso do git.
-
-### # Dicas para o layout
-
-* O formulário deve respeitar o conteúdo do cells.json ([https://floating-mountain-50292.herokuapp.com/cells.json](https://floating-mountain-50292.herokuapp.com/cells.json)) .
-* Se o texto estiver muito grande, quebre em linhas e exiba por completo.
-* A fonte a ser utilizada está em anexo no repositório.
-
-### # Como interpretar o cells.json:
-
-```Java
-enum Type {
-    field(1)
-    text(2),
-    image(3),
-    checkbox(4),
-    send(5)
-}
 ```
 
-```Java
-enum TypeField {
-    text(1),
-    telNumber(2),
-    email(3)
-}
+
+## Grandle
+
+```sh
+
+	grandle 'com.android.support:appcompat-v7:28.0.0'
+	grandle 'com.android.support:recyclerview-v7:28.0.0'
+	grandle 'com.android.support.constraint:constraint-layout:1.1.3'
+	grandle 'com.android.support.constraint:constraint-layout:1.0.3'
+	grandle 'com.google.code.gson:gson:2.7'
+
 ```
 
-`"type":` tipo da célula;
+## Testes
+- Apenas os testes no formulario de email foram aplicados
 
-`"message":` mensagem que vai aparecer na label para type = text ou placeholder para field;
+```sh
 
-`typeField":` tipo do field a ser exibido, para exibir corretamente a validação daquele campo.
+	grandle 'com.android.support.test:runner:1.0.2'
+	grandle 'com.android.support.test.espresso:espresso-core:3.0.2'
+	grandle 'junit:junit:4.12'
+	grandle 'org.mockito:mockito-core:2.27.0'
 
-`hidden":` indica se o campo está visível;
+```
 
-`topSpacing":` espaçamento entre o topo da célula e o topo da label/field/checkbox;
+## Libs
+- Usa uma LIB GmailSender para enviar e-mails.
+- Libs: activation.jar, aditional.jar, mail.jar
+ 
+```sh
+ 
+  grandle fileTree(dir: 'libs/', include: ['*.jar'])
 
-`show":` indica o campo que será exibido quando este campo for selecionado. No caso é o id do campo a ser exibido.
+```
 
-`type":` "send" esse botão irá validar todas informações que foram preenchidas e ir para a tela de sucesso quando tudo tiver ok;
+1. Instalar a Library dentro da pasta lib
+2. configurar o arquivo GmailSender.java da forma abaixo:
+3. importear o pacote  GMailSender;
+4. Caso use o Gmail para receber os emails ser pedido uma solicitacao de 'Aplicativos de Terceiros'
 
-`risk":` pode ser um int de 1 a 5
+Abaixo veja o config do GMailSender:
 
-O tipo `text` a validação é digitou alguma coisa, já ficou válido.<br>
-Para "telNumber" o campo deve ser formatado `(##) ####-#### || (##) #####-####` e validado de acordo.<br>
-Para "email" o email deve ser válido.
+```sh
+    public String Mailhost = "smtp.gmail.com";
+    public String User ="seu-email@gmail.com";
+    public String Password ="sua-senha"; 
 
-### # Observações gerais
+```
 
-Adicione um arquivo [README.md](http://README.md) com os procedimentos para executar o projeto.
-Pedimos que trabalhe sozinho e não divulgue o resultado na internet.
+## Fonts 
+- Foram utilizadas fontes que seguem a identidade visual da empresa: DINPro. 
+- As fontes foram copiadas para a pasta fonts dentro do projeto.
+- Abaixo veja os nomes das Fontes:
 
-Faça um fork desse desse repositório em seu Github e nos envie um Pull Request com o resultado, por favor informe por qual empresa você esta se candidatando.
+```sh
+   	DINPro-Black
+	DINPro-Bold
+	DINPro-Medium
+	DINPro-Regular
+	DINPro-Light
 
-### # Importante: não há prazo de entrega, faça com qualidade!
+```
 
-# BOA SORTE!
+
+
+## Telas 
+- O Fluxo de navegacao fica na sequencia da imagem abaixo: 
+
+![Telas do Aplicativo](https://raw.githubusercontent.com/busqe/TesteAndroid/master/telas.png)
+
+
+## Fluxo Codigo 
+* O Fluxo de navegacao contato por Email:
+
+1. SOLICITACAO: View > Presenter > Model > Interactor > Validator > Rule .  
+2. Rule devolve ao Validator...  que faz o caminho de volta.
+
+```sh
+	- Validator ou Rule: classe responsavel por validar os dados Recebidos/Enviados antes de fazer a SOLICITACAO.
+	- Exemplo de Validator: classe FromScreen (configura a classe ScreenFundTemplate) responsavel por permitir que a tela de Fundos seja exibida.
+
+```
+
+
+- TELA FLUXO: Fundos de Investimentos -> Tela de detalhe.
+![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-fund.png)
+
+- TELA FLUXO: Criacao da Tela de Formulario de contato
+
+![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-email.png)
+
+- TELA FLUXO: Alertas exibidos em todo o aplicativo usados por todos os pacotes.
+
+![Telas do Aplicativo](https://github.com/busqe/TesteAndroid/blob/master/images/tela-flow-alert.png)
+
+## Historico de Versões
+
+* 0.0.1
+    * ALTERACAO: Envia Emails e carrega Preferencias 
+    * Os testes foram feitos apenas nas versoes 5, 6, 7 e 8 do Android e funciona corretamente.
+
+
+## Meta
+
+Adriano Souza – [@adrianosouzai](https://twitter.com/adrianosouzai) – adrianosouza@gmail.com
+
+
+Ainda esta em fase de testes. Nao possui ``LICENSE`` .
+
+URL do Projeto [https://github.com/busqe/TesteAndroid](https://github.com/busqe/testeandroid)
+
+## Contribuição
+
+- Este projeto faz parte do pacote Android Teste
+
+## Nao foram feitos neste teste
+
+- BACK-END
+
+1. O formulario de contato nao carrega json para configuracoes de design.
+2. Nao foram feitos testes na versao 4.4 em dispositivos reais.
+3. Nao foram feitos checagem de versao de Dispositivo.
+4. Nao foram feitos testes de passagem de parametros para todos os metodos. 
+
+- FRONT-END: Contato 
+
+1. O Botao de checkbox nao foi aplicado o estilo. 
+   
+
+
+## Imagens utilizadas
+ - As imagens de telas sao prints do proprio projeto.
+ - as Imagens de fluxo sao com base no fluxo dos codigos.
+ 
+[version-image]: https://github.com/busqe/TesteAndroid/blob/master/images/ico-version.svg
+[lang-image]: https://github.com/busqe/TesteAndroid/blob/master/images/ico-lang.svg
+[grandle-image]: https://github.com/busqe/TesteAndroid/blob/master/images/ico-grandle.svg
+
+-- Muito obrigado!
+
+\o/
+
+

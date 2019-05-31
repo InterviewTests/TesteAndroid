@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clFundMoreInfo"
+    android:layout_width="match_parent"
+    android:layout_height="268dp"
+    android:fitsSystemWindows="true"
+
+    tools:context=".fund.detail.DetailView">
+
+
+    <TextView
+        android:id="@+id/tvMoreinfoTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:text="Mais informacoes sobre o investimento"
+        style="@style/textSubTitle"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <!-- linha 01 -->
+
+
+    <TextView
+        android:id="@+id/MI_lb_co1_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="left"
+        android:text="Tempo"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMoreinfoTitulo" />
+
+    <TextView
+        android:id="@+id/MI_lb_co2_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:gravity="left"
+        android:text="Fundo"
+        app:layout_constraintEnd_toStartOf="@+id/MI_lb_co3_titulo"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toEndOf="@+id/MI_lb_co1_titulo"
+        app:layout_constraintTop_toBottomOf="@+id/tvMoreinfoTitulo" />
+
+    <TextView
+
+        android:id="@+id/MI_lb_co3_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="right"
+        android:text="CDI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintTop_toBottomOf="@+id/tvMoreinfoTitulo" />
+
+    <!-- linha 02 -->
+
+
+    <TextView
+        android:id="@+id/MI_lb_co1_titulo1"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="left"
+        android:text="Tempo"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MI_lb_co1_titulo" />
+
+    <TextView
+        android:id="@+id/MI_lb_co2_titulo1"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:gravity="left"
+        android:text="Fundo"
+        app:layout_constraintEnd_toStartOf="@+id/MI_lb_co3_titulo"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toEndOf="@+id/MI_lb_co1_titulo"
+        app:layout_constraintTop_toBottomOf="@+id/MI_lb_co2_titulo" />
+
+    <TextView
+
+        android:id="@+id/MI_lb_co3_titulo1"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="right"
+        android:text="CDI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintTop_toBottomOf="@+id/MI_lb_co3_titulo" />
+
+    <!-- linha 03 -->
+
+
+    <TextView
+        android:id="@+id/MI_lb_co1_titulo2"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="left"
+        android:text="Tempo"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MI_lb_co1_titulo1" />
+
+    <TextView
+        android:id="@+id/MI_lb_co2_titulo2"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:gravity="left"
+        android:text="Fundo"
+        app:layout_constraintEnd_toStartOf="@+id/MI_lb_co3_titulo"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toEndOf="@+id/MI_lb_co1_titulo"
+        app:layout_constraintTop_toBottomOf="@+id/MI_lb_co2_titulo1" />
+
+    <TextView
+
+        android:id="@+id/MI_lb_co3_titulo2"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="right"
+        android:text="CDI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintTop_toBottomOf="@+id/MI_lb_co3_titulo1" />
+
+
+    <!-- linha 03 -->
+
+
+    <TextView
+        android:id="@+id/MI_lb_co1_titulo3"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="left"
+        android:text="Tempo"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MI_lb_co1_titulo2" />
+
+    <TextView
+        android:id="@+id/MI_lb_co2_titulo3"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:gravity="left"
+        android:text="Fundo"
+        app:layout_constraintEnd_toStartOf="@+id/MI_lb_co3_titulo"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toEndOf="@+id/MI_lb_co1_titulo"
+        app:layout_constraintTop_toBottomOf="@+id/MI_lb_co2_titulo2" />
+
+    <TextView
+
+        android:id="@+id/MI_lb_co3_titulo3"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="right"
+        android:text="CDI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintTop_toBottomOf="@+id/MI_lb_co3_titulo2" />
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="#CCCCCC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MI_lb_co2_titulo3" />
+
+</android.support.constraint.ConstraintLayout>
+

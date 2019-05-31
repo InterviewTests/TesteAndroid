@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llchartBarLevel"
+    android:layout_width="fill_parent"
+    android:layout_height="60dp"
+    android:orientation = "horizontal" >
+
+    <LinearLayout
+        android:id="@+id/chartBarTop"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:orientation = "horizontal" >
+
+        <View
+            android:id="@+id/DT_fd_chart_arrow_1"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+
+            android:layout_weight="0.2"
+            android:background="#FFFFFF" />
+
+        <View
+            android:id="@+id/DT_fd_chart_arrow_2"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:layout_weight="0.2"
+            android:background="#FFFFFF" />
+
+        <View
+            android:id="@+id/DT_fd_chart_arrow_3"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:layout_weight="0.2"
+            android:background="#FFFFFF" />
+
+        <View
+            android:id="@+id/DT_fd_chart_arrow_4"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:layout_weight="0.2"
+            android:background="#FFFFFF" />
+
+        <View
+            android:id="@+id/DT_fd_chart_arrow_5"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:layout_weight="0.2"
+            android:background="#FFFFFF" />
+    </LinearLayout>
+
+
+    <LinearLayout
+    android:id="@+id/chartBarContent"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:orientation = "horizontal" >
+
+    <View
+        android:id="@+id/DT_fd_chart_frame_1"
+        android:layout_width="fill_parent"
+        android:layout_height="10dip"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="2dp"
+        android:layout_weight="0.2"
+        android:background="#74DA61" />
+
+    <View
+        android:id="@+id/DT_fd_chart_frame_2"
+        android:layout_width="wrap_content"
+        android:layout_height="10dip"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="2dp"
+        android:layout_weight="0.2"
+        android:background="#4AC16C" />
+
+    <View
+        android:id="@+id/DT_fd_chart_frame_3"
+        android:layout_width="wrap_content"
+        android:layout_height="10dip"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="2dp"
+        android:layout_weight="0.2"
+        android:background="#FFC011" />
+
+    <View
+        android:id="@+id/DT_fd_chart_frame_4"
+        android:layout_width="wrap_content"
+        android:layout_height="10dip"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="2dp"
+        android:layout_weight="0.2"
+        android:background="#FF742C" />
+
+    <View
+        android:id="@+id/DT_fd_chart_frame_5"
+        android:layout_width="fill_parent"
+        android:layout_height="10dip"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="2dp"
+        android:layout_weight="0.2"
+        android:background="#FF3634" />
+    </LinearLayout>
+</LinearLayout>

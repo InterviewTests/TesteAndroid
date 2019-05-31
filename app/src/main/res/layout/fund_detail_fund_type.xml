@@ -1,0 +1,203 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:orientation="vertical"
+    android:background="#CCCCCC"
+    tools:context="br.banco.services.fund.detail.DetailView"
+    >
+
+    <android.support.constraint.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:padding="0dp">
+
+        <LinearLayout
+            android:id="@+id/lnBoxTop"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/lbArea"
+                style="@style/textTitle"
+                android:text="@string/fund_detail_fund_area"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnBoxBottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@android:color/transparent"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lnBoxTop">
+
+            <TextView
+                android:id="@+id/DT_fd_title"
+                style="@style/textSubTitle"
+                android:layout_marginTop="16dp"
+                android:text="@string/fund_detail_fund_title" />
+
+            <TextView
+                android:id="@+id/DT_fd_fundName"
+                style="@style/alertMessage"
+                android:layout_marginTop="8dp"
+                android:text="@string/fund_detail_fund_fundname" />
+
+            <TextView
+                android:id="@+id/DT_fd_whatIs"
+                style="@style/textSubTitle"
+                android:layout_marginTop="48dp"
+                android:text="@string/fund_detail_fund_whatis" />
+
+            <TextView
+                android:id="@+id/DT_fd_definition"
+                style="@style/textText"
+                android:layout_marginTop="8dp"
+                android:text="@string/fund_detail_fund_definition" />
+
+            <TextView
+                android:id="@+id/DT_fd_riskTitle"
+                style="@style/textSubTitle"
+                android:layout_marginTop="48dp"
+                android:text="@string/fund_detail_fund_risktitle" />
+
+
+            <LinearLayout
+                android:id="@+id/DT_fd_chartBarLevelTemplate"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:orientation = "vertical" >
+
+                    <LinearLayout
+                        android:id="@+id/chartBarTop"
+                        android:layout_width="fill_parent"
+                        android:layout_height="30dp"
+                        android:orientation = "horizontal" >
+
+                        <View
+                            android:id="@+id/DT_fd_chart_arrow_1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dip"
+
+                            android:layout_weight="0.2"
+                            android:background="#FFFFFF" />
+
+                        <View
+                            android:id="@+id/DT_fd_chart_arrow_2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dip"
+                            android:layout_weight="0.2"
+                            android:background="#FFFFFF" />
+
+                        <View
+                            android:id="@+id/DT_fd_chart_arrow_3"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dip"
+                            android:layout_weight="0.2"
+                            android:background="#FFFFFF" />
+
+                        <View
+                            android:id="@+id/DT_fd_chart_arrow_4"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dip"
+                            android:layout_weight="0.2"
+                            android:src="@drawable/ico_arrow_down"
+                            android:background="#FFFFFF"  >
+
+
+                        </View>
+
+
+                        <View
+                            android:id="@+id/DT_fd_chart_arrow_5"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dip"
+                            android:layout_weight="0.2"
+                            android:background="#FFFFFF" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/chartBarContent"
+                        android:layout_width="fill_parent"
+                        android:layout_height="30dp"
+                        android:orientation = "horizontal" >
+
+                        <View
+                            android:id="@+id/DT_fd_chart_frame_1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="10dip"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="0.2"
+                            android:background="#74DA61" />
+
+                        <View
+                            android:id="@+id/DT_fd_chart_frame_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="10dip"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="0.2"
+                            android:background="#4AC16C" />
+
+                        <View
+                            android:id="@+id/DT_fd_chart_frame_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="10dip"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="0.2"
+                            android:background="#FFC011" />
+
+                        <View
+                            android:id="@+id/DT_fd_chart_frame_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="14dip"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="0.2"
+                            android:background="#FF742C" />
+
+                        <View
+                            android:id="@+id/DT_fd_chart_frame_5"
+                            android:layout_width="fill_parent"
+                            android:layout_height="10dip"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="0.2"
+                            android:background="#FF3634" />
+                    </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
+
+
