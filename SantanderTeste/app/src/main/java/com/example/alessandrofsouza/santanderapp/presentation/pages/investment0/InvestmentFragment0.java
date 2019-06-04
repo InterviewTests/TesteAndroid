@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.alessandrofsouza.santanderapp.R;
 import com.example.alessandrofsouza.santanderapp.domain.model.Infos;
@@ -22,7 +24,7 @@ public class InvestmentFragment0 extends Fragment implements InvestmentContract0
     private InvestmentContract0.Presenter presenter;
     private InvestmentAdapter0 investmentAdapter0;
     private RecyclerView recyclerView;
-
+    public Button btnPrint;
 
     public static InvestmentFragment0 newInstance() {
         return new InvestmentFragment0();
@@ -34,6 +36,14 @@ public class InvestmentFragment0 extends Fragment implements InvestmentContract0
         View view = inflater.inflate(R.layout.investment, container, false);
 
         recycleView(view);
+
+        btnPrint = view.findViewById(R.id.buttonPrint);
+        btnPrint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), R.string.disable, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }

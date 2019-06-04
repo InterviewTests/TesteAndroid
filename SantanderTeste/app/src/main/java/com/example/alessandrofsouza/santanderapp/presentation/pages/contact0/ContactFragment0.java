@@ -24,7 +24,7 @@ public class ContactFragment0 extends Fragment implements ContactContract0.View 
     private ContactAdapter0 contactAdapter0;
     private RecyclerView recyclerView;
     private ContactListPresenter0 listPresenter0;
-    private ContactRowView0 rowView0;
+    private ContactActionView0 rowView0;
 
     private ConstraintLayout layout1;
     private ConstraintLayout layout2;
@@ -79,7 +79,7 @@ public class ContactFragment0 extends Fragment implements ContactContract0.View 
 
 
     private void contractActionExtra() {
-        rowView0 = new ContactRowView0() {
+        rowView0 = new ContactActionView0() {
             @Override
             public void click(View itemView, int position) {
 //                Log.i(TAG, "->: " + contactAdapter0.getValidatorForm());

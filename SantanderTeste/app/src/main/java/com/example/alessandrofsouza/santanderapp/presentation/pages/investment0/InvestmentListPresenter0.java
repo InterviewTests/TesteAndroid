@@ -14,7 +14,6 @@ import com.example.alessandrofsouza.santanderapp.domain.model.MoreInfo;
 import com.example.alessandrofsouza.santanderapp.domain.model.Screen;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 class InvestmentListPresenter0 {
 

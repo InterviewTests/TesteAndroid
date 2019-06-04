@@ -23,12 +23,12 @@ public class ContactAdapter0 extends RecyclerView.Adapter<ContactAdapter0.ViewHo
     private ArrayList<Cell> dataSet;
     private Cell cell;
     private final ContactListPresenter0 presenter;
-    private ContactRowView0 rowView0;
+    private ContactActionView0 rowView0;
 
 
 
 
-    public ContactAdapter0(ContactRowView0 listener) {
+    public ContactAdapter0(ContactActionView0 listener) {
         dataSet = new ArrayList<>();
         cell = new Cell();
         presenter = new ContactListPresenter0(dataSet);
@@ -98,10 +98,10 @@ public class ContactAdapter0 extends RecyclerView.Adapter<ContactAdapter0.ViewHo
         public Button roundedButton;
         public CheckBox checkBox;
 
-        public ContactRowView0 contactRowView0;
+        public ContactActionView0 contactActionView0;
 
 
-        public ViewHolder(@NonNull View itemView, ContactRowView0 listerner) {
+        public ViewHolder(@NonNull View itemView, ContactActionView0 listerner) {
             super(itemView);
             textView = itemView.findViewById(R.id.textView);
             textInputLayout = itemView.findViewById(R.id.editTextLayout);
@@ -109,14 +109,14 @@ public class ContactAdapter0 extends RecyclerView.Adapter<ContactAdapter0.ViewHo
             roundedButton = itemView.findViewById(R.id.buttonRound);
             checkBox = itemView.findViewById(R.id.checkBox);
 
-            contactRowView0 = listerner;
+            contactActionView0 = listerner;
             itemView.setOnClickListener(this);
         }
 
 
         @Override
         public void onClick(View v) {
-            contactRowView0.click(itemView, getAdapterPosition());
+            contactActionView0.click(itemView, getAdapterPosition());
         }
 
     }

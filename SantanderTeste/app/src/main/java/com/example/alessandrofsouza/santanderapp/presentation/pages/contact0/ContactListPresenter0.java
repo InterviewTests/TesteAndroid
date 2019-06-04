@@ -33,7 +33,7 @@ class ContactListPresenter0 {
     private Cell cell;
 
     private ContactListPresenter0 listPresenter0;
-    private ContactRowView0 rowView0;
+    private ContactActionView0 rowView0;
     private ContactAdapter0 contactAdapter0;
 
     private boolean checkCheckbox = false;
