@@ -1,8 +1,6 @@
-Commit V7 = MVP da aplicação 1.1
+Commit V8 = MVP da aplicação 1.2
+NEW: Refactor para Clean Arch + MVP
 //@TODO1: criar PDF da tela de investimento;
-//@TODO2: criar sharedPreferences após "enviar"
-//@TODO3: ajustar estrutura da função formatPhone
-
 
 
 1. para rodar a aplicação, clone o a aplicaçao na linha de comando?
