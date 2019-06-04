@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class NameValidator {
 
     public static final Pattern NAME_PATTERN = Pattern.compile(
-            ("^[a-zA-Z]+(?:[\\s.]+[a-zA-Z]+)*$")
+            ("^[a-zA-Z]+(?:[\\s.]+[a-zA-Z]+)*${1,3}")
     );
 
     public static boolean validateName(CharSequence name) {

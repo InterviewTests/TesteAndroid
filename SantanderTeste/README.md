@@ -1,4 +1,4 @@
-Commit V8 = MVP da aplicação 1.2
+Commit V8 = MVP da aplicação 1.2.1 - testes unitários 
 NEW: Refactor para Clean Arch + MVP
 //@TODO1: criar PDF da tela de investimento;
 

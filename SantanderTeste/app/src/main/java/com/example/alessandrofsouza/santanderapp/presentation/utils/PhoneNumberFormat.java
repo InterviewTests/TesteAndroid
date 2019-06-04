@@ -75,6 +75,7 @@ public class PhoneNumberFormat implements TextWatcher {
                 p++;
             }
         }
+
         // Now only digits are remaining
         String allDigitString = text.toString();
 
