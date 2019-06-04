@@ -8,7 +8,7 @@
     <path
         android:name="arrow"
         android:pathData="M5,5 L12,15 L18,5"
-        android:strokeColor="@color/santanderGray"
+        android:strokeColor="@color/santanderDescription"
         android:strokeWidth="3"
         android:strokeLineCap="round" />
 </vector>

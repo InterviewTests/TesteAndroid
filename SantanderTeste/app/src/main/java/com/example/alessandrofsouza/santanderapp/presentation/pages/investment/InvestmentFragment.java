@@ -77,13 +77,13 @@ public class InvestmentFragment extends RecyclerView.Adapter<InvestmentFragment.
         viewHolder.riskTitle.setPadding(0, ((int) resources.getDimension(R.dimen.sMargin)), 0, 0);
 
 
-        viewHolder.infoTitle.setText(screen.getInfoTitle());
-        viewHolder.moreInfo_fundo_month.setText(screen.getMoreInfo().getMonth().getFund().toString().concat("%"));
-        viewHolder.moreInfo_cdi_month.setText(screen.getMoreInfo().getMonth().getCDI().toString().concat("%"));
-        viewHolder.moreInfo_fundo_year.setText(screen.getMoreInfo().getYear().getFund().toString().concat("%"));
-        viewHolder.moreInfo_cdi_year.setText(screen.getMoreInfo().getYear().getCDI().toString().concat("%"));
-        viewHolder.moreInfo_fundo_12months.setText(screen.getMoreInfo().getMonths12().getFund().toString().concat("%"));
-        viewHolder.moreInfo_cdi_12months.setText(screen.getMoreInfo().getMonths12().getCDI().toString().concat("%"));
+//        viewHolder.infoTitle.setText(screen.getInfoTitle());
+//        viewHolder.moreInfo_fundo_month.setText(screen.getMoreInfo().getMonth().getFund().toString().concat("%"));
+//        viewHolder.moreInfo_cdi_month.setText(screen.getMoreInfo().getMonth().getCDI().toString().concat("%"));
+//        viewHolder.moreInfo_fundo_year.setText(screen.getMoreInfo().getYear().getFund().toString().concat("%"));
+//        viewHolder.moreInfo_cdi_year.setText(screen.getMoreInfo().getYear().getCDI().toString().concat("%"));
+//        viewHolder.moreInfo_fundo_12months.setText(screen.getMoreInfo().getMonths12().getFund().toString().concat("%"));
+//        viewHolder.moreInfo_cdi_12months.setText(screen.getMoreInfo().getMonths12().getCDI().toString().concat("%"));
 
 
         final ViewTreeObserver observer = viewHolder.viewColors1.getViewTreeObserver();
@@ -171,13 +171,13 @@ public class InvestmentFragment extends RecyclerView.Adapter<InvestmentFragment.
         private TextView definition;
         private TextView riskTitle;
 
-        private TextView infoTitle;
-        private TextView moreInfo_fundo_month;
-        private TextView moreInfo_cdi_month;
-        private TextView moreInfo_fundo_year;
-        private TextView moreInfo_cdi_year;
-        private TextView moreInfo_fundo_12months;
-        private TextView moreInfo_cdi_12months;
+//        private TextView infoTitle;
+//        private TextView moreInfo_fundo_month;
+//        private TextView moreInfo_cdi_month;
+//        private TextView moreInfo_fundo_year;
+//        private TextView moreInfo_cdi_year;
+//        private TextView moreInfo_fundo_12months;
+//        private TextView moreInfo_cdi_12months;
 
         public RecyclerView recycleViewInfo;
 
@@ -198,24 +198,24 @@ public class InvestmentFragment extends RecyclerView.Adapter<InvestmentFragment.
             definition = itemView.findViewById(R.id.definition);
             riskTitle = itemView.findViewById(R.id.riskTitle);
 
-            infoTitle = itemView.findViewById(R.id.infoTitle);
-            moreInfo_fundo_month = itemView.findViewById(R.id.moreInfo_fundo_month);
-            moreInfo_cdi_month = itemView.findViewById(R.id.moreInfo_cdi_month);
-            moreInfo_fundo_year = itemView.findViewById(R.id.moreInfo_fundo_year);
-            moreInfo_cdi_year = itemView.findViewById(R.id.moreInfo_cdi_year);
-            moreInfo_fundo_12months = itemView.findViewById(R.id.moreInfo_fundo_12months);
-            moreInfo_cdi_12months = itemView.findViewById(R.id.moreInfo_cdi_12months);
+//            infoTitle = itemView.findViewById(R.id.infoTitle);
+//            moreInfo_fundo_month = itemView.findViewById(R.id.moreInfo_fundo_month);
+//            moreInfo_cdi_month = itemView.findViewById(R.id.moreInfo_cdi_month);
+//            moreInfo_fundo_year = itemView.findViewById(R.id.moreInfo_fundo_year);
+//            moreInfo_cdi_year = itemView.findViewById(R.id.moreInfo_cdi_year);
+//            moreInfo_fundo_12months = itemView.findViewById(R.id.moreInfo_fundo_12months);
+//            moreInfo_cdi_12months = itemView.findViewById(R.id.moreInfo_cdi_12months);
 
             recycleViewInfo = itemView.findViewById(R.id.recycleViewInfo);
 
 
-            viewColors1 = itemView.findViewById(R.id.viewColors1);
-            viewColors2 = itemView.findViewById(R.id.viewColors2);
-            viewColors3 = itemView.findViewById(R.id.viewColors3);
-            viewColors4 = itemView.findViewById(R.id.viewColors4);
-            viewColors5 = itemView.findViewById(R.id.viewColors5);
-
-            arrowRisk = itemView.findViewById(R.id.arrowRisk);
+//            viewColors1 = itemView.findViewById(R.id.viewColors1);
+//            viewColors2 = itemView.findViewById(R.id.viewColors2);
+//            viewColors3 = itemView.findViewById(R.id.viewColors3);
+//            viewColors4 = itemView.findViewById(R.id.viewColors4);
+//            viewColors5 = itemView.findViewById(R.id.viewColors5);
+//
+//            arrowRisk = itemView.findViewById(R.id.arrowRisk);
         }
     }
 }
