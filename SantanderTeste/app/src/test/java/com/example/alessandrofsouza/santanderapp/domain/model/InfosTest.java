@@ -1,5 +1,6 @@
 package com.example.alessandrofsouza.santanderapp.domain.model;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -7,7 +8,12 @@ import static org.junit.Assert.*;
 public class InfosTest {
 
     String str;
-    Infos info = new Infos(str, str, str);
+    Infos info;
+
+    @Before
+    public void init() {
+        info = new Infos(str, str, str);
+    }
 
     @Test
     public void title_ReturnsTrue() {

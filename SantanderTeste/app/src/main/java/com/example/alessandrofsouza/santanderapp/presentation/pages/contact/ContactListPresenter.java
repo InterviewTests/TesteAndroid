@@ -1,4 +1,4 @@
-package com.example.alessandrofsouza.santanderapp.presentation.pages.contact0;
+package com.example.alessandrofsouza.santanderapp.presentation.pages.contact;
 
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
@@ -24,7 +24,7 @@ import com.example.alessandrofsouza.santanderapp.presentation.utils.PhoneValidat
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
-class ContactListPresenter0 {
+class ContactListPresenter {
 
     private static final String TAG = "Santander ";
     private final ArrayList<Cell> dataCell;
@@ -32,9 +32,9 @@ class ContactListPresenter0 {
     private View view;
     private Cell cell;
 
-    private ContactListPresenter0 listPresenter0;
-    private ContactActionView0 rowView0;
-    private ContactAdapter0 contactAdapter0;
+    private ContactListPresenter listPresenter0;
+    private ContactActionView rowView0;
+    private ContactAdapter contactAdapter;
 
     private boolean checkCheckbox = false;
     private CheckBox checkBox;
@@ -48,15 +48,15 @@ class ContactListPresenter0 {
 
 
 
-    public ContactListPresenter0(ArrayList<Cell> dataCell) {
+    public ContactListPresenter(ArrayList<Cell> dataCell) {
         this.dataCell = dataCell;
     }
 
 
-    public void onBindRepositoryRowViewAtPosition(int i, final ContactAdapter0.ViewHolder viewHolder) {
+    public void onBindRepositoryRowViewAtPosition(int i, final ContactAdapter.ViewHolder viewHolder) {
         cell = dataCell.get(i);
         resources = viewHolder.itemView.getContext().getResources();
-        contactAdapter0 = new ContactAdapter0(rowView0);
+        contactAdapter = new ContactAdapter(rowView0);
 
 //        viewHolder.setTitle(cell.getMessage());
 

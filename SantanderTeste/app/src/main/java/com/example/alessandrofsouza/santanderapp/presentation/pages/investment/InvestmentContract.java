@@ -1,13 +1,10 @@
-package com.example.alessandrofsouza.santanderapp.presentation.pages.investment0;
+package com.example.alessandrofsouza.santanderapp.presentation.pages.investment;
 
-import com.example.alessandrofsouza.santanderapp.domain.model.Infos;
 import com.example.alessandrofsouza.santanderapp.domain.model.Screen;
 import com.example.alessandrofsouza.santanderapp.presentation.pages.base.BasePresenter;
 import com.example.alessandrofsouza.santanderapp.presentation.pages.base.BaseView;
 
-import java.util.ArrayList;
-
-public interface InvestmentContract0 {
+public interface InvestmentContract {
 
     interface View extends BaseView<Presenter> {
         void showInvestmentScreen(Screen screen);

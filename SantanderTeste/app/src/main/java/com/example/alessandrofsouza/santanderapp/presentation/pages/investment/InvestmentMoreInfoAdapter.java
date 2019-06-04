@@ -1,4 +1,4 @@
-package com.example.alessandrofsouza.santanderapp.presentation.pages.investment0;
+package com.example.alessandrofsouza.santanderapp.presentation.pages.investment;
 
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
@@ -13,12 +13,12 @@ import com.example.alessandrofsouza.santanderapp.domain.model.Infos;
 
 import java.util.ArrayList;
 
-class InvestmentMoreInfoAdapter0 extends RecyclerView.Adapter<InvestmentMoreInfoAdapter0.ViewHolder> {
+class InvestmentMoreInfoAdapter extends RecyclerView.Adapter<InvestmentMoreInfoAdapter.ViewHolder> {
 
     private static final String TAG = "Santander ";
     private ArrayList<Infos> dataSet;
 
-    public InvestmentMoreInfoAdapter0() {
+    public InvestmentMoreInfoAdapter() {
         dataSet = new ArrayList<>();
     }
 
@@ -26,7 +26,7 @@ class InvestmentMoreInfoAdapter0 extends RecyclerView.Adapter<InvestmentMoreInfo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View viewText = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.invest_more_info, viewGroup, false);
-        return new InvestmentMoreInfoAdapter0.ViewHolder(viewText);
+        return new InvestmentMoreInfoAdapter.ViewHolder(viewText);
     }
 
     @Override

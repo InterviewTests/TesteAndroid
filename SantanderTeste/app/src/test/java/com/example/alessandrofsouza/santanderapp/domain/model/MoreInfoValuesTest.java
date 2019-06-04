@@ -1,5 +1,6 @@
 package com.example.alessandrofsouza.santanderapp.domain.model;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -8,6 +9,11 @@ public class MoreInfoValuesTest {
 
     Double d;
     MoreInfoValues moreinfo = new MoreInfoValues();
+
+    @Before
+    public void init() {
+        moreinfo = new MoreInfoValues();
+    }
 
     @Test
     public void fund_ReturnsTrue() {

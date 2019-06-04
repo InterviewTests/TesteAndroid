@@ -6,8 +6,6 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.alessandrofsouza.santanderapp.presentation.pages.contact.ContactPresenter;
-import com.example.alessandrofsouza.santanderapp.presentation.pages.investment.InvestmentPresenter;
 import com.example.alessandrofsouza.santanderapp.presentation.adapters.PageAdapter;
 
 public class MainActivity extends AppCompatActivity {

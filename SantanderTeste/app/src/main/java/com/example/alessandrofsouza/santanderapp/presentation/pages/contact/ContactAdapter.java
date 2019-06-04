@@ -1,4 +1,4 @@
-package com.example.alessandrofsouza.santanderapp.presentation.pages.contact0;
+package com.example.alessandrofsouza.santanderapp.presentation.pages.contact;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
@@ -17,49 +17,49 @@ import com.example.alessandrofsouza.santanderapp.presentation.utils.Constants;
 
 import java.util.ArrayList;
 
-public class ContactAdapter0 extends RecyclerView.Adapter<ContactAdapter0.ViewHolder> {
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
 
     private static final String TAG = "Santander ";
     private ArrayList<Cell> dataSet;
     private Cell cell;
-    private final ContactListPresenter0 presenter;
-    private ContactActionView0 rowView0;
+    private final ContactListPresenter presenter;
+    private ContactActionView rowView0;
 
 
 
 
-    public ContactAdapter0(ContactActionView0 listener) {
+    public ContactAdapter(ContactActionView listener) {
         dataSet = new ArrayList<>();
         cell = new Cell();
-        presenter = new ContactListPresenter0(dataSet);
+        presenter = new ContactListPresenter(dataSet);
         rowView0 = listener;
     }
 
 
     @NonNull
     @Override
-    public ContactAdapter0.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ContactAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         switch (i){
             case Constants.TYPE_FIELD:
-                return new ContactAdapter0.ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_edit_text, viewGroup, false), rowView0);
+                return new ContactAdapter.ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_edit_text, viewGroup, false), rowView0);
 
             case Constants.TYPE_SEND:
-                return new ContactAdapter0.ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_button_round, viewGroup, false), rowView0);
+                return new ContactAdapter.ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_button_round, viewGroup, false), rowView0);
 
             case Constants.TYPE_CHECKBOX:
-                return new ContactAdapter0.ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_checkbox, viewGroup, false), rowView0);
+                return new ContactAdapter.ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_checkbox, viewGroup, false), rowView0);
 
             case Constants.TYPE_TEXT:
-                return new ContactAdapter0.ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_text, viewGroup, false), rowView0);
+                return new ContactAdapter.ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_text, viewGroup, false), rowView0);
 
             default:
                 //@TODO: change to ImageView or create 1 more field to
-                return new ContactAdapter0.ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_text, viewGroup, false), rowView0);
+                return new ContactAdapter.ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_text, viewGroup, false), rowView0);
         }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ContactAdapter0.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ContactAdapter.ViewHolder viewHolder, int i) {
         presenter.onBindRepositoryRowViewAtPosition(i, viewHolder);
     }
 
@@ -98,10 +98,10 @@ public class ContactAdapter0 extends RecyclerView.Adapter<ContactAdapter0.ViewHo
         public Button roundedButton;
         public CheckBox checkBox;
 
-        public ContactActionView0 contactActionView0;
+        public ContactActionView contactActionView;
 
 
-        public ViewHolder(@NonNull View itemView, ContactActionView0 listerner) {
+        public ViewHolder(@NonNull View itemView, ContactActionView listerner) {
             super(itemView);
             textView = itemView.findViewById(R.id.textView);
             textInputLayout = itemView.findViewById(R.id.editTextLayout);
@@ -109,14 +109,14 @@ public class ContactAdapter0 extends RecyclerView.Adapter<ContactAdapter0.ViewHo
             roundedButton = itemView.findViewById(R.id.buttonRound);
             checkBox = itemView.findViewById(R.id.checkBox);
 
-            contactActionView0 = listerner;
+            contactActionView = listerner;
             itemView.setOnClickListener(this);
         }
 
 
         @Override
         public void onClick(View v) {
-            contactActionView0.click(itemView, getAdapterPosition());
+            contactActionView.click(itemView, getAdapterPosition());
         }
 
     }

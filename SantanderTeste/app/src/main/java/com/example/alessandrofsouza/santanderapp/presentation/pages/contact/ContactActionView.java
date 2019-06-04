@@ -1,8 +1,8 @@
-package com.example.alessandrofsouza.santanderapp.presentation.pages.contact0;
+package com.example.alessandrofsouza.santanderapp.presentation.pages.contact;
 
 import android.view.View;
 
-interface ContactActionView0 {
+interface ContactActionView {
 //    void setTitle(String title);
 //
 //    void setStarCount(int starCount);

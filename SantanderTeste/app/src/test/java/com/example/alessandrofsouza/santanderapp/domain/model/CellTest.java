@@ -1,6 +1,10 @@
 package com.example.alessandrofsouza.santanderapp.domain.model;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +13,13 @@ public class CellTest {
     int i;
     String str;
     boolean bool;
-    Cell cell = new Cell();
+
+    Cell cell;
+
+    @Before
+    public void init() {
+        cell = new Cell();
+    }
 
     @Test
     public void id_ReturnsTrue() {

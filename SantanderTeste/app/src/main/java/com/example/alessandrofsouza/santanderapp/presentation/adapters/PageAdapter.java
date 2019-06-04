@@ -6,10 +6,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.alessandrofsouza.santanderapp.R;
-import com.example.alessandrofsouza.santanderapp.presentation.pages.contact0.ContactFragment0;
-import com.example.alessandrofsouza.santanderapp.presentation.pages.contact0.ContactPresenter0;
-import com.example.alessandrofsouza.santanderapp.presentation.pages.investment0.InvestmentFragment0;
-import com.example.alessandrofsouza.santanderapp.presentation.pages.investment0.InvestmentPresenter0;
+import com.example.alessandrofsouza.santanderapp.presentation.pages.contact.ContactFragment;
+import com.example.alessandrofsouza.santanderapp.presentation.pages.contact.ContactPresenter;
+import com.example.alessandrofsouza.santanderapp.presentation.pages.investment.InvestmentFragment;
+import com.example.alessandrofsouza.santanderapp.presentation.pages.investment.InvestmentPresenter;
 
 import java.util.ArrayList;
 
@@ -35,13 +35,13 @@ public class PageAdapter extends FragmentPagerAdapter {
 
         switch (i) {
             case 0:
-                InvestmentFragment0 fragment1 = InvestmentFragment0.newInstance();
-                new InvestmentPresenter0(fragment1);
+                InvestmentFragment fragment1 = InvestmentFragment.newInstance();
+                new InvestmentPresenter(fragment1);
                 return fragment1;
 
             case 1:
-                ContactFragment0 fragment0 = ContactFragment0.newInstance();
-                new ContactPresenter0(fragment0);
+                ContactFragment fragment0 = ContactFragment.newInstance();
+                new ContactPresenter(fragment0);
                 return fragment0;
 
             default:

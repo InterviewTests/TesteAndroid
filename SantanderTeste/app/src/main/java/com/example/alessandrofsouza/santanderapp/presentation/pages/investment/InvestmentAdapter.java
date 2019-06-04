@@ -1,4 +1,4 @@
-package com.example.alessandrofsouza.santanderapp.presentation.pages.investment0;
+package com.example.alessandrofsouza.santanderapp.presentation.pages.investment;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -11,25 +11,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.alessandrofsouza.santanderapp.R;
-import com.example.alessandrofsouza.santanderapp.domain.model.Infos;
 import com.example.alessandrofsouza.santanderapp.domain.model.Screen;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class InvestmentAdapter0 extends RecyclerView.Adapter<InvestmentAdapter0.ViewHolder> {
+public class InvestmentAdapter extends RecyclerView.Adapter<InvestmentAdapter.ViewHolder> {
 
     public ArrayList<Screen> dataScreenSet;
     private View view;
     private Context context;
     private Resources resources;
     private Screen screen;
-    private final InvestmentListPresenter0 presenter;
+    private final InvestmentListPresenter presenter;
 
-    public InvestmentAdapter0() {
+    public InvestmentAdapter() {
         dataScreenSet = new ArrayList<>();
-        presenter = new InvestmentListPresenter0(dataScreenSet);
+        presenter = new InvestmentListPresenter(dataScreenSet);
     }
 
     @NonNull
@@ -46,7 +45,7 @@ public class InvestmentAdapter0 extends RecyclerView.Adapter<InvestmentAdapter0.
 
 
     @Override
-    public void onBindViewHolder(@NonNull InvestmentAdapter0.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull InvestmentAdapter.ViewHolder viewHolder, int i) {
         presenter.onBindRepositoryRowViewAtPosition(i, viewHolder);
     }
 

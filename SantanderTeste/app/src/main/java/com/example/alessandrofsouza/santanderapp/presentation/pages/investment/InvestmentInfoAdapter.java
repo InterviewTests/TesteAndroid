@@ -15,10 +15,11 @@ import com.example.alessandrofsouza.santanderapp.domain.model.Infos;
 
 import java.util.ArrayList;
 
-public class InvestmentInfoAdapter extends RecyclerView.Adapter<InvestmentInfoAdapter.ViewHolder> {
+class InvestmentInfoAdapter extends RecyclerView.Adapter<InvestmentInfoAdapter.ViewHolder> {
 
-    private ArrayList<Infos> dataSet;
+
     private static final String TAG = "Santander ";
+    private ArrayList<Infos> dataSet;
 
     public InvestmentInfoAdapter() {
         dataSet = new ArrayList<>();
@@ -32,8 +33,10 @@ public class InvestmentInfoAdapter extends RecyclerView.Adapter<InvestmentInfoAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int position) {
-        Infos info = dataSet.get(position);
+    public void onBindViewHolder(@NonNull final InvestmentInfoAdapter.ViewHolder viewHolder, int i) {
+        //TODO: create holderPresenter
+
+        Infos info = dataSet.get(i);
         Resources resources = viewHolder.itemView.getContext().getResources();
 
         viewHolder.info_title.setText(info.getName());
@@ -69,15 +72,15 @@ public class InvestmentInfoAdapter extends RecyclerView.Adapter<InvestmentInfoAd
         notifyDataSetChanged();
     }
 
-
-
     public class ViewHolder extends RecyclerView.ViewHolder {
+
         private TextView info_title;
         private TextView info_content;
         private Button buttonDown;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             info_title = itemView.findViewById(R.id.info_title);
             info_content = itemView.findViewById(R.id.info_content);
             buttonDown = itemView.findViewById(R.id.buttonDown);
