@@ -92,7 +92,7 @@ class InvestmentListPresenter {
         moreInfoList.add(new Infos("No ano", moreInfo.getYear().getFund().toString().concat("%"), moreInfo.getYear().getCDI().toString().concat("%")));
         moreInfoList.add(new Infos("12 meses", moreInfo.getMonths12().getFund().toString().concat("%"), moreInfo.getMonths12().getCDI().toString().concat("%")));
 
-        Log.i("TAGX", ""+moreInfoList.size());
+        //Log.i("TAGX", ""+moreInfoList.size());
         return moreInfoList;
     }
 

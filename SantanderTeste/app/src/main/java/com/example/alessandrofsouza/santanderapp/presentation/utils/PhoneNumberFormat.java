@@ -3,6 +3,7 @@ package com.example.alessandrofsouza.santanderapp.presentation.utils;
 import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.EditText;
 
 import java.lang.ref.WeakReference;
@@ -26,7 +27,7 @@ public class PhoneNumberFormat implements TextWatcher {
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        if (after == 0 && s.toString().equals("1 ")) {
+        if (after == 0 && s.toString().equals("(")) {
             clearFlag = true;
         }
         mLastStartLocation = start;
