@@ -14,6 +14,15 @@ public class CellTest {
     @Before
     public void init() {
         cell = new Cell();
+        cell.setId(1);
+        cell.setType(1);
+        cell.setMessage("string");
+        cell.setTypefield("string");
+        cell.setHidden(true);
+        cell.setTopSpacing(1);
+        cell.setShow(1);
+        cell.setRequired(true);
+        cell.setEditTextValue("string");
     }
 
     @Test
@@ -52,11 +61,6 @@ public class CellTest {
     }
 
     @Test
-    public void hidden_ReturnsFalse() {
-        assertThat(cell.isHidden(), is(false));
-    }
-
-    @Test
     public void topSpacing_ReturnsTrue() {
         assertThat(cell.getTopSpacing(), is(1));
     }
@@ -72,11 +76,6 @@ public class CellTest {
     }
 
     @Test
-    public void required_ReturnsFalse() {
-        assertThat(cell.isRequired(), is(false));
-    }
-
-    @Test
     public void getEditTextValue_ReturnsTrue() {
         assertThat(cell.getEditTextValue(), is("string"));
     }
@@ -85,5 +84,4 @@ public class CellTest {
     public void getEditTextValue_ReturnsFalse() {
         assertEquals(cell.getEditTextValue() == "", false);
     }
-
 }
