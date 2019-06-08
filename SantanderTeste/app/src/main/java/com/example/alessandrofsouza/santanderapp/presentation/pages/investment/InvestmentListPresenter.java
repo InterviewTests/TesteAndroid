@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.Toast;
 
 import com.example.alessandrofsouza.santanderapp.R;
 import com.example.alessandrofsouza.santanderapp.domain.model.Infos;
@@ -66,6 +67,14 @@ class InvestmentListPresenter {
 
         viewHolder.infoTitle.setText(screen.getInfoTitle());
         viewHolder.infoTitle.setPadding(0, ((int) resources.getDimension(R.dimen.sMargin)), 0, 0);
+
+
+        viewHolder.btnInvestment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(viewHolder.itemView.getContext(), R.string.disable, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 

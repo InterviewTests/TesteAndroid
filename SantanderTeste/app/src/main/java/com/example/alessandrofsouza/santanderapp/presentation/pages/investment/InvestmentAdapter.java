@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -84,6 +85,7 @@ public class InvestmentAdapter extends RecyclerView.Adapter<InvestmentAdapter.Vi
         public ArrayList<View> viewRisk;
 
         public TextView infoTitle;
+        public Button btnInvestment;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -104,6 +106,8 @@ public class InvestmentAdapter extends RecyclerView.Adapter<InvestmentAdapter.Vi
             viewRisk = new ArrayList<>(Arrays.asList(null, viewColors1, viewColors2, viewColors3, viewColors4, viewColors5));
 
             infoTitle = itemView.findViewById(R.id.infoTitle);
+
+            btnInvestment = itemView.findViewById(R.id.buttonRound);
 
         }
     }
