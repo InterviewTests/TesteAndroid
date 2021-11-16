@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint Arctic Fox | 2020.3.1 Patch 1">
+
+    <issue
+        id="JcenterRepositoryObsolete"
+        message="JCenter Maven repository is no longer receiving updates: newer library versions may be available elsewhere">
+        <location
+            file="build.gradle"/>
+    </issue>
+
+    <issue
+        id="JcenterRepositoryObsolete"
+        message="JCenter Maven repository is no longer receiving updates: newer library versions may be available elsewhere">
+        <location
+            file="build.gradle"/>
+    </issue>
+
+    <issue
+        id="MissingClass"
+        message="Class referenced in the layout file, `com.google.android.material.tabs.TabLayout`, was not found in the project or the libraries">
+        <location
+            file="src\main\res\layout\activity_dashboard.xml"
+            line="16"/>
+    </issue>
+
+    <issue
+        id="MissingClass"
+        message="Class referenced in the layout file, `androidx.swiperefreshlayout.widget.SwipeRefreshLayout`, was not found in the project or the libraries">
+        <location
+            file="src\main\res\layout\fragment_contact.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="MissingClass"
+        message="Class referenced in the layout file, `androidx.swiperefreshlayout.widget.SwipeRefreshLayout`, was not found in the project or the libraries">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="MissingClass"
+        message="Class referenced in the layout file, `androidx.recyclerview.widget.RecyclerView`, was not found in the project or the libraries">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="474"/>
+    </issue>
+
+    <issue
+        id="MissingClass"
+        message="Class referenced in the layout file, `androidx.recyclerview.widget.RecyclerView`, was not found in the project or the libraries">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="489"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="483"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `nestedScrollingEnabled` is only used in API level 21 and higher (current min is 16)">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="483"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="497"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `nestedScrollingEnabled` is only used in API level 21 and higher (current min is 16)">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="497"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        message="A newer version of com.android.tools.build:gradle than 7.0.1 is available: 7.0.3">
+        <location
+            file="build.gradle"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.0.4 is available: 2.1.1">
+        <location
+            file="build.gradle"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.core:core-ktx than 1.3.1 is available: 1.7.0">
+        <location
+            file="build.gradle"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.test.espresso:espresso-core than 3.1.0-beta01 is available: 3.5.0-alpha03">
+        <location
+            file="build.gradle"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.test.espresso:espresso-intents than 3.1.0-beta01 is available: 3.5.0-alpha03">
+        <location
+            file="build.gradle"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.test:runner than 1.1.0-beta02 is available: 1.4.1-alpha03">
+        <location
+            file="build.gradle"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.google.firebase:firebase-crashlytics-gradle than 2.3.0 is available: 2.8.0">
+        <location
+            file="build.gradle"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.google.gms:google-services than 4.3.3 is available: 4.3.10">
+        <location
+            file="build.gradle"/>
+    </issue>
+
+    <issue
+        id="IntentFilterExportedReceiver"
+        message="When using intent filters, please specify `android:exported` as well">
+        <location
+            file="src\main\AndroidManifest.xml"
+            line="13"/>
+    </issue>
+
+    <issue
+        id="IntentFilterExportedReceiver"
+        message="When using intent filters, please specify `android:exported` as well">
+        <location
+            file="src\main\AndroidManifest.xml"
+            line="13"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/bg_loading` with a theme that also paints a background (inferred theme is `@style/AppTheme`)">
+        <location
+            file="src\main\res\layout\loading_view.xml"
+            line="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.text_lower` appears to be unused">
+        <location
+            file="src\main\res\values\dimens.xml"
+            line="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.size_risk` appears to be unused">
+        <location
+            file="src\main\res\values\dimens.xml"
+            line="8"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.value_percent` appears to be unused">
+        <location
+            file="src\main\res\values\strings.xml"
+            line="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.not_disponible` appears to be unused">
+        <location
+            file="src\main\res\values\strings.xml"
+            line="12"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/arrow.png` in densityless folder">
+        <location
+            file="src\main\res\drawable\arrow.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/arrow_red.png` in densityless folder">
+        <location
+            file="src\main\res\drawable\arrow_red.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/separador.png` in densityless folder">
+        <location
+            file="src\main\res\drawable\separador.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/separador_simple.png` in densityless folder">
+        <location
+            file="src\main\res\drawable\separador_simple.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/shape.png` in densityless folder">
+        <location
+            file="src\main\res\drawable\shape.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/share.png` in densityless folder">
+        <location
+            file="src\main\res\drawable\share.png"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="82"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="163"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="178"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="191"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="204"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="217"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="463"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="503"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image">
+        <location
+            file="src\main\res\layout\item_view_down_info.xml"
+            line="45"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image">
+        <location
+            file="src\main\res\layout\item_view_down_info.xml"
+            line="55"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;0%&quot;, should use `@string` resource">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="335"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;0%&quot;, should use `@string` resource">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="348"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;0%&quot;, should use `@string` resource">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="360"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;0%&quot;, should use `@string` resource">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="371"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;0%&quot;, should use `@string` resource">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="384"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;0%&quot;, should use `@string` resource">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="397"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Taxa de adm&quot;, should use `@string` resource">
+        <location
+            file="src\main\res\layout\item_view_down_info.xml"
+            line="19"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Taxa de adm&quot;, should use `@string` resource">
+        <location
+            file="src\main\res\layout\item_view_info.xml"
+            line="18"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;0,50%&quot;, should use `@string` resource">
+        <location
+            file="src\main\res\layout\item_view_info.xml"
+            line="30"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginLeft`; already defining `layout_marginStart` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="222"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginLeft`; already defining `layout_marginStart` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="245"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginLeft`; already defining `layout_marginStart` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="258"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginLeft`; already defining `layout_marginStart` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="271"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginLeft`; already defining `layout_marginStart` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="284"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginRight`; already defining `layout_marginEnd` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="318"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginRight`; already defining `layout_marginEnd` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="409"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginLeft`; already defining `layout_marginStart` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="423"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginLeft`; already defining `layout_marginStart` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="438"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginLeft`; already defining `layout_marginStart` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="453"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginRight`; already defining `layout_marginEnd` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\fragment_investment.xml"
+            line="469"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginRight`; already defining `layout_marginEnd` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\item_view_down_info.xml"
+            line="17"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginRight`; already defining `layout_marginEnd` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\item_view_down_info.xml"
+            line="61"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_marginRight`; already defining `layout_marginEnd` with `targetSdkVersion` 31">
+        <location
+            file="src\main\res\layout\item_view_info.xml"
+            line="16"/>
+    </issue>
+
+    <issue
+        id="RtlEnabled"
+        message="You must set `android:targetSdkVersion` to at least 17 when enabling RTL support">
+        <location
+            file="src\main\AndroidManifest.xml"
+            line="11"/>
+    </issue>
+
+</issues>

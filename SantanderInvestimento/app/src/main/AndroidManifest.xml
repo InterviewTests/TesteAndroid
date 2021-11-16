@@ -11,15 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".dashboard.DashboardActivity"
+            android:name="br.com.santander.santanderinvestimento.feature.dashboard.DashboardActivity"
+            android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="cb7d64058037dde7f68a55923517b499c35b6da3" />
     </application>
 </manifest>
